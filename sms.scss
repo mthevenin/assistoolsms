@@ -1,0 +1,51 @@
+// Colors
+
+$link-color: #DE3831;
+
+$code-block-stdoutcolor: #37424a;
+$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);
+$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
+
+// font face
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+
+$toc-font-size: 1.2em;
+
+/*-- scss:rules --*/
+
+.cell-output-display pre, .cell-output-stdout pre {
+    background-color: $code-block-stdoutcolor-lighter !important;
+    border: 1.5px solid $code-block-stdoutcolor-light;
+    border-radius: .25rem;
+    border-left: 4px;
+    border-left-style: solid;
+    border-left-color: $code-block-stdoutcolor;
+    padding: .4em;
+    color: #37424a
+}
+
+
+.cell-output pre code {
+    background-color: transparent;
+}
+
+
+// largeur des 3 éléments du grid (déjà dans _quarto.yaml) mais cela a tendance à sauter (????)
+
+// The left hand sidebar
+$grid-sidebar-width: 50px !default;
+
+// The main body
+$grid-body-width: 1200px !default;
+
+// The right hand margin bar
+$grid-margin-width: 500px !default;
+
+// The gutter that appears between the above columns
+$grid-column-gutter-width: 2.5rem !default;
+
+

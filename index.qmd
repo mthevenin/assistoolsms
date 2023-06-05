@@ -1,0 +1,118 @@
+---
+pagetitle: "Sms Ined"
+page-layout: custom
+#section-divs: false
+#editor: source
+sidebar: false
+#search: false
+
+listing:
+  - id: latest-content-R
+    contents: 
+    - /R
+    - "!index.qmd"
+    - "!seminaire.qmd"
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    page-size: 3
+    feed: false
+    max-description-length: 300
+  - id: latest-content-MDQ
+    contents: 
+    - /MDQ
+    - "!index.qmd"
+    - "!seminaire.qmd"
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    page-size: 3
+    feed: false
+    max-description-length: 300
+    
+toc: false
+---
+
+::: {.pullout-text}
+::: {.pullout-container}
+::: {.pullout-block .darkblue-background}
+
+## Projet de support au 05 Mai 2023
+
+Il ne s'agit que d'un squelette de support. Merci de ne pas se référer au contenu qui n'a pour but que de tester l'aspect général du support ou des fonctionalités comme:  
+
+
+[1] Mise à jour du contenu sous forme de vignette: un nouvel article est directement reporté dans la page d'index. J'ai encore des soucis sur l'ordre chronologique qui devrait être décroissant.   
+[2] La modification des trois éléments/colonnes du grid.  
+[3] J'ai utilisé deux couleurs de la charte graphique de l'Ined: son rouge et gris foncé.  
+[4] La css est très largement modifiée, je suis parti de celle de ce site: <https://realworlddatascience.net/>  
+
+
+:::
+:::
+:::
+
+
+
+<!-- Derniers ajouts R-->
+
+::: {.content-container}
+::: {.listing-block}
+::: {.zoom-image}
+
+
+# **Derniers ajouts R**
+
+::: {#latest-content-R}
+:::
+
+:::
+:::
+:::
+
+<!-- Derniers ajouts R-->
+
+::: {.content-container}
+::: {.listing-block}
+::: {.zoom-image}
+
+# **Derniers ajouts Quarto**
+
+::: {#latest-content-MDQ}
+:::
+
+:::
+:::
+:::
+
+
+
+::: {.footer-text}
+::: {.footer-container .dark-background}
+::: {.footer-block}
+::: grid
+
+::: {.g-col-12 .g-col-md-6}
+### **Publié par**
+<img align="left" src="img/marvel.png">
+
+:::
+
+
+::: {.g-col-12 .g-col-md-6}
+### **A propos**
+[Présentation du support](about.qmd)\
+[Ined](https://www.ined.fr/)\
+[Contact](marc.thevenin@ined.fr)
+:::
+
+:::
+:::
+:::
+:::
+
+

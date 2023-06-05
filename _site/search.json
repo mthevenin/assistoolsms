@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Présentation",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html#projet-de-support-au-05-mai-2023",
+    "href": "index.html#projet-de-support-au-05-mai-2023",
+    "title": "SMS_site",
+    "section": "Projet de support au 05 Mai 2023",
+    "text": "Projet de support au 05 Mai 2023\nIl ne s’agit que d’un squelette de support. Merci de ne pas se référer au contenu qui n’a pour but que de tester l’aspect général du support ou des fonctionalités comme:\n[1] Mise à jour du contenu sous forme de vignette: un nouvel article est directement reporté dans la page d’index. J’ai encore des soucis sur l’ordre chronologique qui devrait être décroissant.\n[2] La modification des trois éléments/colonnes du grid.\n[3] J’ai utilisé deux couleurs de la charte graphique de l’Ined: son rouge et gris foncé.\n[4] La css est très largement modifiée, je suis parti de celle de ce site: https://realworlddatascience.net/"
+  },
+  {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html",
+    "title": "Nutshell",
+    "section": "",
+    "text": "Note\n\n\n\nIntéressant pour affichage contenu externe, sinon avec une TOC, c’est bofbof. Peut-être ajouté une courte bulle à la toc, sans affichage dans le corps du document."
+  },
+  {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html#explication-dans-titre-section",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html#explication-dans-titre-section",
+    "title": "Nutshell",
+    "section": ":Explication (dans titre section)",
+    "text": ":Explication (dans titre section)\nhttps://github.com/schochastics/quarto-nutshell Nutshell is a tool to make “expandable explanations”, like this! This lets your readers learn only the details they need, just-in-time, always-in-context.\nUnlike links, Nutshell lets you include only the snippet you need, not the whole page. Plus, instead of being lost in a jungle of new tabs, your reader stays on one page, keeping their flow of reading. Even if you interrupt a sentence, Nutshell recaps the sentence afterwards, so your reader never loses context.\nYou can find more information on the nutshell webpage\n\n:link to wikipedia Posit"
+  },
+  {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html#x-invisible",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html#x-invisible",
+    "title": "Nutshell",
+    "section": ":x invisible",
+    "text": ":x invisible\nUse ## :x header to include an invisible section that can be linked to via nutshell\n\n[:link to invisible sections](#x-invisible)\n\n## :x invisible\n\nUse `## :x header` to include an invisible section that can be linked to via nutshell"
+  },
+  {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html#x-exemple",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html#x-exemple",
+    "title": "Nutshell",
+    "section": ":x exemple",
+    "text": ":x exemple\nBlablabla blabla."
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html",
+    "href": "R/assist/posts/addition/addition.html",
+    "title": "Test Quarto",
+    "section": "",
+    "text": "Test des rendus avec les modifications de la css: caption, tableaux, bloc de codes etc\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum facilisis. Aenean pretium orci augue, quis lobortis libero accumsan eu. Nam mollis lorem sit amet pellentesque ullamcorper. Curabitur lobortis libero eget malesuada vestibulum. Nam nec nibh massa. Pellentesque porttitor cursus tellus. Mauris urna erat, rhoncus sed faucibus sit amet, venenatis eu ipsum.\nCode inline: library(survival)\n\\[A+B = \\sum_ie^{C} + \\frac{D}{E+1}\\]"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#astuce",
+    "href": "R/assist/posts/addition/addition.html#astuce",
+    "title": "Test Quarto",
+    "section": "Astuce",
+    "text": "Astuce\n\n\n\n\n\n\ntip\n\n\n\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#info",
+    "href": "R/assist/posts/addition/addition.html#info",
+    "title": "Test Quarto",
+    "section": "Info",
+    "text": "Info\n\n\n\n\n\n\nInfo\n\n\n\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#important",
+    "href": "R/assist/posts/addition/addition.html#important",
+    "title": "Test Quarto",
+    "section": "Important",
+    "text": "Important\n\n\n\n\n\n\nImportant\n\n\n\nCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#warning",
+    "href": "R/assist/posts/addition/addition.html#warning",
+    "title": "Test Quarto",
+    "section": "Warning",
+    "text": "Warning\n\n\n\n\n\n\nWarning\n\n\n\nDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+  },
+  {
+    "objectID": "R/assist/posts/jeunec/jeunec.html",
+    "href": "R/assist/posts/jeunec/jeunec.html",
+    "title": "Shiny: jeunes chercheurs",
+    "section": "",
+    "text": "Interface Shiny développée dans le cadre du projet Apprentis Chercheur de l’Ined. Elle permet de faire des statistiques exploratoires simples univariées et bivariées, pour des variables catégorielles.\nhttps://github.com/arnomuller/statdesk"
+  },
+  {
+    "objectID": "R/assist/posts/stata_R_comp/R_stata.html",
+    "href": "R/assist/posts/stata_R_comp/R_stata.html",
+    "title": "Gtools",
+    "section": "",
+    "text": "Page tirée du support Stata: il est juste là pour la forme, pour visualiser le rendu d’une fiche ou article, dont ajout d’une note de bas page . 1\nBenchmarks\nSources:"
+  },
+  {
+    "objectID": "R/assist/posts/stata_R_comp/R_stata.html#footnotes",
+    "href": "R/assist/posts/stata_R_comp/R_stata.html#footnotes",
+    "title": "Gtools",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nhttps://mthevenin.github.io/stata_programmation/speedup/gtools/gtools.html↩︎"
+  },
+  {
+    "objectID": "R/assist/posts/test_list/test_list.html",
+    "href": "R/assist/posts/test_list/test_list.html",
+    "title": "Test liste",
+    "section": "",
+    "text": "Divers tests css de modif de la toc (couleurs, taille, épaisseur), élément dans la marge de droite (change le report du sommaire), modification des largeurs de la sidebar, du body et de la marge.\nModification des largeurs de la sidebar (gauche), du body (centre) et de la margin (droite):\nformat:\n  html: \n    grid:\n      sidebar-width: 50px\n      body-width: 1200px\n      margin-width: 500px\n      gutter-width: 2.5rem\nJ’ai inséré la modification du grid au _quarto.yml pour qu’elle s’applique à toutes les pages, on peut la remodifier pour une page particulière dans son yaml."
+  },
+  {
+    "objectID": "R/assist/posts/test_list/test_list.html#tableau",
+    "href": "R/assist/posts/test_list/test_list.html#tableau",
+    "title": "Test liste",
+    "section": "Tableau",
+    "text": "Tableau\n\nknitr::kable(\n  mtcars[1:6, 1:3]\n)\n\n\n\n\n\n\nmpg\ncyl\ndisp\n\n\n\n\nMazda RX4\n21.0\n6\n160\n\n\nMazda RX4 Wag\n21.0\n6\n160\n\n\nDatsun 710\n22.8\n4\n108\n\n\nHornet 4 Drive\n21.4\n6\n258\n\n\nHornet Sportabout\n18.7\n8\n360\n\n\nValiant\n18.1\n6\n225"
+  },
+  {
+    "objectID": "R/assist/posts/test_list/test_list.html#formule",
+    "href": "R/assist/posts/test_list/test_list.html#formule",
+    "title": "Test liste",
+    "section": "Formule",
+    "text": "Formule\n\n\nWe know from the first fundamental theorem of calculus that for \\(x\\) in \\([a, b]\\):\n\\[\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x).\\]"
+  },
+  {
+    "objectID": "R/assist/posts/test_list/test_list.html#autres",
+    "href": "R/assist/posts/test_list/test_list.html#autres",
+    "title": "Test liste",
+    "section": "Autres",
+    "text": "Autres\n\nGraphique\n\nlibrary(ggplot2)\n\nWarning: le package 'ggplot2' a été compilé avec la version R 4.2.3\n\nmtcars2 &lt;- mtcars\nmtcars2$am &lt;- factor(\n  mtcars$am, labels = c('automatic', 'manual')\n)\nggplot(mtcars2, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\") +\n  theme(legend.position = 'bottom')\n\n\n\n\n\nFigure 1: MPG vs horsepower, colored by transmission.\n\n\n\n\nExtension lightbox: visiblement ne fonctionne pas si l’image/graph est dans la marge.\n\n\n\nCallout\n\n\n\n\n\n\n\n\nAvertissement\n\n\n\nblablablabla\n\n\n\n\nNote et référence\nPour mettre une note dans la marge, il faut ajouter au yml citation-location: margin. 11 Quarto layout\nIdem pour les référence avec reference-location: margin"
+  },
+  {
+    "objectID": "seminaire/seminaire.html",
+    "href": "seminaire/seminaire.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "seminaire/seminaire.html#présentation",
+    "href": "seminaire/seminaire.html#présentation",
+    "title": "",
+    "section": "Présentation",
+    "text": "Présentation\nL’objectif de ce séminaire est d’échanger autour du logiciel de statistique libre, gratuit et multiplateforme R\nIl s’adresse aux praticiens impliqués dans le traitement quantitatif des données en sciences humaines et sociales (utilisateurs de données, chercheurs, ingénieurs ou étudiants) qu’ils aient ou non déjà utilisé le logiciel R.\nChaque séance est organisée autour de la présentation d’une expérience de traitement de données avec le logiciel (fonction spécifique et/ou packages). Le cadre de ces réunions est informel et les participants doivent se sentir libres d’intervenir afin de confronter leurs expériences.\nDans une démarche d’open science, l’ensemble des supports de communication utilisés lors des séminaires (présentations et ateliers) est mis à disposition sur le site web et les vidéos des présentations diffusées sur la chaîne Canal U de l’Ined.\nLe séminaire RUSS est organisé dans le cadre formel de l’offre d’enseignement de l’EHESS. Il s’agit d’un “séminaire de centre” qui n’est rattaché à aucune formation de Master. A ce titre, il n’est pas validable et ne donne droit à aucun crédit ECTS.\nCe séminaire est ouvert à tous, y compris aux étudiants en master, mais pour chacune des séances nous demandons une inscription pour des raisons pratiques concernant notamment la capacité des salles à notre disposition ou pour obtenir le lien de connexion, via le site de l’Ined.\n\nInformations séminaires"
+  }
+]

@@ -1,0 +1,123 @@
+---
+title: "Nutshell"
+author: "Marc Thévenin"
+date: 05/10/2023
+
+image: "https://static.vecteezy.com/system/resources/previews/000/301/046/original/a-girl-in-a-nutshell-vector.jpg"
+
+categories:
+  - extension
+
+toc-title: "**Sommaire**"
+
+format:
+  html: 
+    grid:
+      sidebar-width: 10px
+      body-width: 1200px
+      margin-width: 500px
+      gutter-width: 2.5rem       
+    page-layout: full
+
+reference-location: margin
+citation-location: margin
+
+filters:
+   - lightbox
+   - nutshell
+---
+
+::: callout-note
+
+Intéressant pour affichage contenu externe, sinon avec une TOC, c'est bofbof.
+Peut-être ajouté une courte bulle à la toc, sans affichage dans le corps du document.
+
+:::
+
+
+# Quesako
+
+Permet d'ajouter un contenu qui s'affiche sous forme d'une bulle..... Cela peut-être un contenu rédigé dans le corps du document ou issu d'un lien, en particulier sur un contenu présent dans le support mais dans une autre page.
+Ce n'est pas parfaitement concluant:  
+
+- Si bloc de programme avec un lien externe, ilf faut modifié le . js
+- Les bulles internes au document étant créée avec un titre de section, cela s'affiche dans la Toc, visiblement même avec l'option invisible (j'en suis là actuellement.  Peut-être réservé à de l'affichage de contenu externe. Extension donc très optionnelle dans son intérêt. 
+
+
+Pour la première section affiche le code, la bulle directement liée au titre de la section (avec `:Explication (dans titre section)`)
+
+Installation: dans le terminal => `quarto install extension schochastics/quarto-nutshell`
+
+[Lien dépôt github](https://github.com/schochastics/quarto-nutshell)
+
+
+## :Explication (dans titre section)
+
+<https://github.com/schochastics/quarto-nutshell>
+Nutshell is a tool to make "expandable explanations", like this! This lets your readers learn only the details they need, just-in-time, always-in-context.
+
+Unlike links, Nutshell lets you include only the snippet you need, not the whole page. Plus, instead of being lost in a jungle of new tabs, your reader stays on one page, keeping their flow of reading. Even if you interrupt a sentence, Nutshell recaps the sentence afterwards, so your reader never loses context.   
+
+
+You can find more information on the nutshell [webpage](https://ncase.me/nutshell/) 
+
+- [:link to wikipedia Posit](https://fr.wikipedia.org/wiki/Posit_Software,_PBC)
+
+# Lien externe
+
+::: callout-important
+
+Quelques défauts: couleur du texte de la zône de texte si inclusion externe, elle est de la même couleur que le fond du bloc. Du coup
+difficile, de lire directement le programme, il faut passer dessus avec la souris. Problème, tout ça est en javascript.  
+J'ai trouvé la solution en modifiant le fichier **nutshell.min.js** à la main. Normalement on devrait pouvoir ajouté une css externe, mais cela ne fonctionne pas chez moi (l'extension est une adaptation pas formcément prévue pour fonctionné avec Quarto).   
+
+Ajouter la css suivante (au bon endroit, pour moi après la css .nutshell-bubble blockquote): 
+
+```{r, eval=FALSE}
+.nutshell-bubble  code span {color: black; \n} \n
+```
+
+J'ai fait une copie du fichier modifié (en racine du projet: **nutshell.min.js**), il suffit d'écraser le .js après installation de l'extension avec celui-ci (répertoire extension).
+
+:::
+
+On récupère le lien (temporaire actuellement car il est en local) en cliquant sur la coquille de noix à droite du titre de section
+
+```{}
+https://juba.github.io/tidyverse/08-ggplot2.html#initialisation
+```
+
+On insère le lien dans l'appel.
+
+```{}
+- [:lien vers la section désirée](https://juba.github.io/tidyverse/08-ggplot2.html#initialisation)
+```
+
+- [:lien document externe](https://juba.github.io/tidyverse/08-ggplot2.html#initialisation)  
+
+Le lien peut renvoyer à une autre page du support.
+
+
+# Ajout d'une bulle interne
+
+Avec une toc dans la page, ce n'est pas top, le titre de la section "caché" apparait en sous section. Pas convaincu.
+
+[:link to invisible sections](#x-invisible)
+
+## :x invisible
+
+Use `## :x header` to include an invisible section that can be linked to via nutshell 
+
+```{r, eval=FALSE}
+[:link to invisible sections](#x-invisible)
+
+## :x invisible
+
+Use `## :x header` to include an invisible section that can be linked to via nutshell 
+```
+
+
+## :x exemple
+Blablabla blabla.  
+
+

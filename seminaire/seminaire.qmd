@@ -1,0 +1,90 @@
+---
+sidebar: false
+toc-title: ""
+---
+
+
+# **Russ**
+
+::: {.pullout-text}
+::: {.pullout-container}
+::: {.pullout-block .darkblue-background}
+
+![](https://russ.site.ined.fr/thumb/f__png/h__125/q__90/w__1024/zc__1/src/fichier/s_rubrique/22456/bandeau.russ.png)
+
+## Présentation  
+
+L’objectif de ce séminaire est d’échanger autour du logiciel de statistique libre, gratuit et multiplateforme **R** 
+
+Il s’adresse aux praticiens impliqués dans le traitement quantitatif des données en sciences humaines et sociales (utilisateurs de données, chercheurs, ingénieurs ou étudiants) qu’ils aient ou non déjà utilisé le logiciel R.  
+
+Chaque séance est organisée autour de la présentation d’une expérience de traitement de données avec le logiciel (fonction spécifique et/ou packages). Le cadre de ces réunions est informel et les participants doivent se sentir libres d’intervenir afin de confronter leurs expériences.  
+
+Dans une démarche d’open science, l’ensemble des supports de communication utilisés lors des séminaires (présentations et ateliers) est mis à disposition sur le site web et les vidéos des présentations diffusées sur la chaîne Canal U de l’Ined.  
+
+Le séminaire RUSS est organisé dans le cadre formel de l’offre d’enseignement de l’EHESS.
+Il s’agit d’un "séminaire de centre" qui n’est rattaché à aucune formation de Master. A ce titre, il n’est pas validable et ne donne droit à aucun crédit ECTS.  
+
+Ce séminaire est ouvert à tous, y compris aux étudiants en master, mais pour chacune des séances nous demandons une inscription pour des raisons pratiques concernant notamment la capacité des salles à notre disposition ou pour obtenir le lien de connexion, via le site de l’Ined.  
+
+::: {.button .button1}
+[**Informations séminaires**](https://russ.site.ined.fr/fr/)
+:::
+
+:::
+:::
+:::
+
+# **RSA**
+
+::: {.pullout-text}
+::: {.pullout-container}
+::: {.pullout-block .darkblue-background}
+
+![](https://statapp.site.ined.fr/thumb/f__png/h__125/q__90/w__1024/zc__1/src/fichier/s_rubrique/22519/bandeau_data_rsa_site.png)
+
+Arnaud Bringé et Bénédicte Garnier proposent régulièrement ce séminaire de statistique appliquée, ouvert à tous (statisticiens, démographes, sociologues, chercheurs et doctorants), sur inscription sans frais de participation.
+
+
+Pour chaque séance, vous trouverez le programme détaillé, les résumés des présentations et les supports mis à disposition par leurs auteurs.
+
+::: {.button .button1}
+[**Informations séminaires**](https://statapp.site.ined.fr/fr/)
+:::
+
+:::
+:::
+:::
+   
+# **Lundis de l'Ined**   
+
+::: {.pullout-text}
+::: {.pullout-container}
+::: {.pullout-block .darkblue-background}
+
+
+![](https://www.ined.fr/thumb/f__png/h__1000/q__90/w__600/src/fichier/s_rubrique/52/logo_les.lundis_petit.png)
+
+
+De septembre à juin, l’Institut national des études démographiques (Ined) organise un séminaire hebdomadaire le lundi de 11h30 à 12h30. Lieu d’échanges scientifiques pluridisciplinaires autour d’une grande diversité de questions de population, des chercheur·e·s de l’Ined ou des invité·e·s extérieur·e·s y présentent leurs travaux qui sont discutés par un·e pair·e.  
+
+Le Service Méthodes statistiques participe à l'organisation de 3 séminaires par an.
+
+::: {.button .button1}
+[**Informations séminaires**](https://www.ined.fr/fr/actualites/rencontres-scientifiques/les-lundis/)
+:::
+
+
+:::
+:::
+:::
+
+<br>
+**Derniers lundis de l'Ined organisés en collaboration avec le Service Méthodes Statistiques**:  
+
+* [**La science reproductible**](https://www.ined.fr/fr/actualites/rencontres-scientifiques/les-lundis/la-science-reproductible/)
+
+* [**Pourquoi et comment de la recherche reproductible**](https://www.ined.fr/fr/actualites/rencontres-scientifiques/les-lundis/le-pourquoi-et-le-comment-de-la-recherche-reproductible/)
+
+
+
