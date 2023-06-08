@@ -57,7 +57,6 @@ Il ne s'agit que d'un squelette de support. Merci de ne pas se référer au cont
 :::
 
 
-
 <!-- Derniers ajouts R-->
 
 ::: {.content-container}

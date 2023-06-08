@@ -75,6 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,9 +107,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -228,18 +230,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- -->
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="css,layout" data-listing-date-sort="1683064800000" data-listing-file-modified-sort="1683894331245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="../R/assist/posts/test_list/test_list.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="https://quarto.org/docs/authoring/article-layout_files/figure-html/fig-cap-margin-1.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="css,layout" data-listing-date-sort="1683064800000" data-listing-file-modified-sort="1683894331245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="../R/assist/posts/test_list/test_list.html"> <img src="https://quarto.org/docs/authoring/article-layout_files/figure-html/fig-cap-margin-1.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../R/assist/posts/test_list/test_list.html">
+<h3 class="no-anchor listing-title">
 Test liste
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('css'); return false;">
 css
@@ -248,31 +253,36 @@ css
 layout
 </div>
 </div>
-<div class="card-text listing-description">
+<a href="../R/assist/posts/test_list/test_list.html">
+<div class="listing-description">
 <p><em>Quarto is a multi-language, next generation version of R Markdown from Posit, with many new new features and capabilities. Like R Markdown, Quarto uses Knitr to execute R code, and is therefore able to render most existing Rmd files without modification</em>.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Marc Thévenin
-</div>
-<div class="listing-date">
-3 mai 2023
-</div>
-</div>
-</div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Shiny,Stat descriptives" data-listing-date-sort="1682373600000" data-listing-file-modified-sort="1683180190454" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="../R/assist/posts/jeunec/jeunec.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="https://www.worldbank.org/content/dam/photos/780x439/2021/apr/Shiny-logo.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="../R/assist/posts/test_list/test_list.html">
+<div class="listing-date">
+3 mai 2023
+</div>
+<div class="listing-author">
+Marc Thévenin
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Shiny,Stat descriptives" data-listing-date-sort="1682373600000" data-listing-file-modified-sort="1683180190454" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="../R/assist/posts/jeunec/jeunec.html"> <img src="https://www.worldbank.org/content/dam/photos/780x439/2021/apr/Shiny-logo.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../R/assist/posts/jeunec/jeunec.html">
+<h3 class="no-anchor listing-title">
 Shiny: jeunes chercheurs
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Shiny'); return false;">
 Shiny
@@ -281,31 +291,36 @@ Shiny
 Stat descriptives
 </div>
 </div>
-<div class="card-text listing-description">
+<a href="../R/assist/posts/jeunec/jeunec.html">
+<div class="listing-description">
 Interface Shiny développée dans le cadre du projet Apprentis Chercheur de l’Ined. Elle permet de faire des statistiques exploratoires simples univariées et bivariées, pour des variables catégorielles.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Arno Muller
-</div>
-<div class="listing-date">
-25 avr. 2023
-</div>
-</div>
-</div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Quarto,css" data-listing-date-sort="1682287200000" data-listing-file-modified-sort="1683893345605" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="../R/assist/posts/addition/addition.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/featured.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="../R/assist/posts/jeunec/jeunec.html">
+<div class="listing-date">
+25 avr. 2023
+</div>
+<div class="listing-author">
+Arno Muller
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Quarto,css" data-listing-date-sort="1682287200000" data-listing-file-modified-sort="1686141122960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="../R/assist/posts/addition/addition.html"> <img src="https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/featured.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../R/assist/posts/addition/addition.html">
+<h3 class="no-anchor listing-title">
 Test Quarto
-</h5>
+</h3>
+<div class="listing-subtitle">
+Difficulté <i class="fa-solid fa-pepper-hot" aria-label="pepper-hot"></i> <i class="fa-solid fa-pepper-hot" aria-label="pepper-hot"></i> <i class="fa-solid fa-pepper-hot" aria-label="pepper-hot"></i>
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
 Quarto
@@ -314,31 +329,36 @@ Quarto
 css
 </div>
 </div>
-<div class="card-text listing-description">
-Test des rendus avec les modifications de la css: caption, tableaux, bloc de codes etc
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Marc Thévenin
-</div>
-<div class="listing-date">
-24 avr. 2023
-</div>
-</div>
-</div>
+<a href="../R/assist/posts/addition/addition.html">
+<div class="listing-description">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum…
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="R,Stata,gtools" data-listing-date-sort="1680645600000" data-listing-file-modified-sort="1683198782757" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13">
-<a href="../R/assist/posts/stata_R_comp/R_stata.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="https://www.stata.com/includes/images/stata-fb.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="../R/assist/posts/addition/addition.html">
+<div class="listing-date">
+24 avr. 2023
+</div>
+<div class="listing-author">
+Marc Thévenin
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="R,Stata,gtools" data-listing-date-sort="1680645600000" data-listing-file-modified-sort="1683198782757" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13">
+<div class="thumbnail">
+<p><a href="../R/assist/posts/stata_R_comp/R_stata.html"> <img src="https://www.stata.com/includes/images/stata-fb.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../R/assist/posts/stata_R_comp/R_stata.html">
+<h3 class="no-anchor listing-title">
 Gtools
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
@@ -350,20 +370,22 @@ Stata
 gtools
 </div>
 </div>
-<div class="card-text listing-description">
+<a href="../R/assist/posts/stata_R_comp/R_stata.html">
+<div class="listing-description">
 Page tirée du support Stata: il est juste là pour la forme, pour visualiser le rendu d’une fiche ou article, dont ajout d’une note de bas page . <sup>1</sup>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Marc Thévenin
+</a>
 </div>
+<div class="metadata">
+<a href="../R/assist/posts/stata_R_comp/R_stata.html">
 <div class="listing-date">
 5 avr. 2023
 </div>
-</div>
-</div>
+<div class="listing-author">
+Marc Thévenin
 </div>
 </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
@@ -662,7 +684,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-6"><a href="#cb1-6"></a><span class="co">  - assist</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="co">  - "!index.qmd"</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="co">  sort: "date desc"</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  type: grid</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  type: default</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="co">  categories: true</span></span>
 <span id="cb1-11"><a href="#cb1-11"></a><span class="co">  sort-ui: false</span></span>
 <span id="cb1-12"><a href="#cb1-12"></a><span class="co">  filter-ui: false</span></span>

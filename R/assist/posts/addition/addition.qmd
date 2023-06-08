@@ -1,11 +1,15 @@
 ---
 title: "Test Quarto"
-toc-title: ""
+subtitle:   Difficulté  {{< fa pepper-hot >}} {{< fa pepper-hot >}} {{< fa pepper-hot >}}
+
 categories:
   - Quarto
   - css
-author: "Marc Thévenin"
-affiliations: "Ined"
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
 image: "https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/featured.png"
 date: 04/24/2023
 toc: true
@@ -16,16 +20,28 @@ format:
   html: default
   docx: default
   pdf:  default
-  odt:  default
+
 ---
 
 ```{r setup, include=FALSE}
 #knitr::opts_chunk$set(class.output  = "result")
 ```
 
-Test des rendus avec les modifications de la css: caption, tableaux, bloc de codes etc   
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum facilisis. Aenean pretium orci augue, quis lobortis libero accumsan eu. Nam mollis lorem sit amet pellentesque ullamcorper. Curabitur lobortis libero eget malesuada vestibulum. Nam nec nibh massa. Pellentesque porttitor cursus tellus. Mauris urna erat, rhoncus sed faucibus sit amet, venenatis eu ipsum.
+
+
+<style>
+  .fa-solid,
+  .fa-brands,
+  .fa-sharp-solid {
+    background-color: white;
+  }
+  
+  .fa-pepper-hot {
+    color: #De3831;
+  }  
+</style>
+
 
 
 * A
@@ -115,6 +131,7 @@ coxph(Surv(ttdeath, death) ~ trt + grade + age, trial)
 
 
 # Graph
+
 
 
 ```{r, warning=FALSE}

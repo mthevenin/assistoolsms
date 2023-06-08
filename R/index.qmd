@@ -6,7 +6,7 @@ listing:
   - assist
   - "!index.qmd"
   sort: "date desc"
-  type: grid
+  type: default
   categories: true
   sort-ui: false
   filter-ui: false
