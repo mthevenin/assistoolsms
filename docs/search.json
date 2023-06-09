@@ -84,11 +84,18 @@
     "text": "Interface Shiny développée dans le cadre du projet Apprentis Chercheur de l’Ined. Elle permet de faire des statistiques exploratoires simples univariées et bivariées, pour des variables catégorielles.\nhttps://github.com/arnomuller/statdesk"
   },
   {
-    "objectID": "R/assist/posts/R_vscode/R_vscode_doc.html",
-    "href": "R/assist/posts/R_vscode/R_vscode_doc.html",
+    "objectID": "R/assist/posts/R_vscode/R_vscode_doc.html#première-ouverture-et-installation-des-extensions",
+    "href": "R/assist/posts/R_vscode/R_vscode_doc.html#première-ouverture-et-installation-des-extensions",
     "title": "R avec VScode",
-    "section": "",
-    "text": "Niveau de difficulté:\n\nVSCode est un IDE (Environnement de Dévelopement Integré) qui offre une intégration avec de nombreux outils et langages de programmation. L’extension R pour VS Code vous permet de travailler avec R dans un environnement de développement intégré, ce qui peut vous faire gagner du temps et améliorer votre productivité. VS Code vous permet de personnaliser l’éditeur de code et les paramètres de l’IDE selon vos besoins.\nInstallation de VScode\nL’installation de vscode se fait sur le site suivant. Selectionner le bon système d’exploitation et télécharger VSCode.\nhttps://code.visualstudio.com/Download\n\n\n\n\n\n\nA l’Ined\n\n\n\nVScode est intégré à Applined, et peut donc être directement installé via cette application.\n\n\nInstallation de R\nMaintenant que vous êtes sur VSCode, il faut cliquer sur l’icône situé sur le côté :\n\n\nPour Coralie: plus facile d’utiliser ![](icone_extension_vscode.png)\nTu peux ajouter des options type réduire la taille ![](icone_extension_vscode.png){width=70%}\nCa permet d’appliquer des extensions à l’image, ici lightbox (pas utile ici pour les icônes)\n\n\n\n\n\n\nDans la barre de recherche il faut inscrire R, puis cliquer sur télécharger. Télécharger également Rtools de la même manière que R. Ensuite ouvrez un fichier en cliquant sur file, puis new file et selectionnez le langage dans lequel vous souhaitez coder (ici R).\nComment executer le programme?\nIl suffit de cliquer sur le bouton “run” suivant:\n\nComment executer une cellule ?\nIl suffit de se mettre sur la ligne de code à executer et de faire crtl+entrée.\nSi cela ne marche pas il peut avoir une erreur de connection entre l’extension Rtools et R. (erreur commune : [Error - 2:58:07 PM] R Tools client: couldn’t create connection to server.) Pour la résoudre: Crtl+Shift+P. Cliquez sur préférence : Open Keyboard shortcut et supprimez r.execute in terminal.\nLien de l’explication de résolution d’erreur:\nhttps://stackoverflow.com/questions/75261815/r-tools-client-couldnt-create-connection-to-server-launching-server-using-com"
+    "section": "Première ouverture et installation des extensions",
+    "text": "Première ouverture et installation des extensions\n\n\n\n\n\nPremière ouverture\n\n\n\n\n\nExtensions R\n\n\n\n\n\nExtension R\n\n\n\n\n\n\n\nExtension Rtools"
+  },
+  {
+    "objectID": "R/assist/posts/R_vscode/R_vscode_doc.html#résolution-du-conflit-entre-r-et-rtools",
+    "href": "R/assist/posts/R_vscode/R_vscode_doc.html#résolution-du-conflit-entre-r-et-rtools",
+    "title": "R avec VScode",
+    "section": "Résolution du conflit entre R et Rtools",
+    "text": "Résolution du conflit entre R et Rtools\n\n\n\n\n\nRechercher r.execute in terminal\n\n\n\n\n\nSuppression du conflit\n\n\n\n\n\n\n\nExécution R"
   },
   {
     "objectID": "R/assist/posts/stata_R_comp/R_stata.html",

@@ -98,7 +98,7 @@ Il ne s'agit que d'un squelette de support. Merci de ne pas se référer au cont
 
 ::: {.g-col-12 .g-col-md-6}
 ### **Publié par**
-<img align="left" src="img/marvel.png">
+
 
 :::
 

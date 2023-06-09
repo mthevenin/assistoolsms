@@ -16,7 +16,7 @@ website:
         menu: 
           - text: "R"
             href: R/index.qmd
-          - text: "Quarto"
+          - text: "Autres"
             href: MDQ/index.qmd
       - text: "Séminaires"      
         href: seminaire/seminaire.qmd

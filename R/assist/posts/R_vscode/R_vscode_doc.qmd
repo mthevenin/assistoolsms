@@ -7,6 +7,7 @@ title: "R avec VScode"
 categories:
   - Interface
   - IDE
+  - R
   
 author: 
   - name: "Coralie Cottet"
@@ -20,25 +21,27 @@ image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0
 format: 
   html: default
   pdf: default
+  docx: default
 
 filters:
    - lightbox
 lightbox: auto
 
 abstract: | 
- VSCode est un IDE (Environnement de Dévelopement Integré) qui offre une intégration avec de nombreux outils et langages de programmation. L'extension R pour VS Code vous permet de travailler avec R dans un environnement de développement intégré, ce qui peut vous faire gagner du temps et améliorer votre productivité. VS Code vous permet de personnaliser l'éditeur de code et les paramètres de l'IDE selon vos besoins.
+ VSCode est un IDE (**Environnement de Dévelopement Integré**) qui offre une intégration avec de nombreux outils et langages de programmation. L'extension R pour VS Code vous permet de travailler avec R dans un environnement de développement intégré, ce qui peut vous faire gagner du temps. VS Code vous permet de personnaliser l'éditeur de code et les paramètres de l'IDE selon vos besoins.
 
 ---
 
 
 <img src="Visual_Studio_Code_1.35_icon.svg.png" alt="Visual Studio Code"  width="120" height="120"/>
 
+
+# Pas à pas
+
 __Niveau de difficulté:__
 
 <img src="niveau_difficulte\2_piment.png" alt="Texte alternatif de l'image" title="Titre de l'image" width="80" height="70"/>
 
-
-**VSCode** est un IDE (Environnement de Dévelopement Integré) qui offre une intégration avec de nombreux outils et langages de programmation. L'extension R pour VS Code vous permet de travailler avec R dans un environnement de développement intégré, ce qui peut vous faire gagner du temps et améliorer votre productivité. VS Code vous permet de personnaliser l'éditeur de code et les paramètres de l'IDE selon vos besoins.
 
 __Installation de VScode__
 
@@ -59,17 +62,23 @@ VScode est intégré à **Applined**, et peut donc être directement installé v
 
 __Installation de R__
 
-Maintenant que vous êtes sur VSCode, il faut cliquer sur l'icône situé sur le côté :
+Maintenant que vous êtes sur VSCode, il faut cliquer sur l'icône situé sur le côté gauche :
 
 
 <img src="icone_extension_vscode.png" alt="Texte alternatif de l'image" title="Titre de l'image" width="55" height="55"/>  
 
 
-*  Pour Coralie: plus facile d'utiliser `![](icone_extension_vscode.png)`
-* Tu peux ajouter des options type réduire la taille `![](icone_extension_vscode.png){width=70%}`
-* Ca permet d'appliquer des extensions à l'image, ici lightbox (pas utile ici pour les icônes)
+::: callout-note
 
-![](icone_extension_vscode.png)  
+## Pour Coralie
+
+* plus facile d'utiliser `![](icone_extension_vscode.png)`
+* Tu peux ajouter des options type réduire la taille `![](icone_extension_vscode.png){width=70%}`
+* Ca permet d'appliquer des extensions à l'image, ici lightbox (voir captures plus bas)
+* La balise html classique ne permet pas l'exportation en format pdf
+
+
+:::
 
 Dans la barre de recherche il faut inscrire R, puis cliquer sur télécharger. 
 Télécharger également **`Rtools`** de la même manière que R. Ensuite ouvrez un fichier en cliquant sur file, puis *new file* et selectionnez le langage dans lequel vous souhaitez coder (ici R). 
@@ -95,5 +104,34 @@ Lien de l'explication de résolution d'erreur:
 <https://stackoverflow.com/questions/75261815/r-tools-client-couldnt-create-connection-to-server-launching-server-using-com>
 
 
+# Captures d'écran
+
+
+## Première ouverture et installation des extensions
+
+::: {layout-ncol=3 layout-valign="bottom"}
+
+
+![Première ouverture](capt/vscode1.png)
+
+![Extensions R](capt/vscode2.png)
+
+![Extension R](capt/vscode3.png)
+
+![Extension Rtools](capt/vscode4.png)
+
+:::
+
+## Résolution du conflit entre R et Rtools
+
+::: {layout-ncol=2 layout-valign="bottom"}
+
+![Rechercher *`r.execute in terminal`*](capt/vscode5.png)
+
+![Suppression du conflit](capt/vscode6.png)
+
+![Exécution R](capt/vscode7.png)
+
+:::
 
 
