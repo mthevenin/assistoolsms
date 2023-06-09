@@ -1,10 +1,13 @@
 ---
 title: "Test liste"
+
 author: 
   - name: "Marc Thévenin"
     affiliations:
       - name: "Ined"
+
 image: "https://quarto.org/docs/authoring/article-layout_files/figure-html/fig-cap-margin-1.png"
+
 date: 05/03/2023
 
 categories:

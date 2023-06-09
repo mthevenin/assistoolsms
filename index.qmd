@@ -64,6 +64,7 @@ Il ne s'agit que d'un squelette de support. Merci de ne pas se référer au cont
 ::: {.zoom-image}
 
 
+
 # **Derniers ajouts R**
 
 ::: {#latest-content-R}
@@ -73,13 +74,13 @@ Il ne s'agit que d'un squelette de support. Merci de ne pas se référer au cont
 :::
 :::
 
-<!-- Derniers ajouts R-->
+<!-- Derniers ajouts Autres-->
 
 ::: {.content-container}
 ::: {.listing-block}
 ::: {.zoom-image}
 
-# **Derniers ajouts Quarto**
+# **Derniers ajouts Autres**
 
 ::: {#latest-content-MDQ}
 :::
