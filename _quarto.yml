@@ -12,7 +12,7 @@ website:
     title: false
     collapse-below: lg
     right:
-      - text: "Base d'assistance"
+      - text: "Base d'assistances"
         menu: 
           - text: "R"
             href: R/index.qmd

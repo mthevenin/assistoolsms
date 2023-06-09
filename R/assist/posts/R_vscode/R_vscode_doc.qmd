@@ -20,11 +20,12 @@ image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0
 
 format: 
   html: default
-  pdf: default
+  pdf:  default
   docx: default
 
 filters:
    - lightbox
+   - nutshell
 lightbox: auto
 
 abstract: | 
@@ -60,7 +61,7 @@ VScode est intégré à **Applined**, et peut donc être directement installé v
 :::
 
 
-__Installation de R__
+__Installation de l'extension R__
 
 Maintenant que vous êtes sur VSCode, il faut cliquer sur l'icône situé sur le côté gauche :
 
@@ -70,30 +71,34 @@ Maintenant que vous êtes sur VSCode, il faut cliquer sur l'icône situé sur le
 
 ::: callout-note
 
-## Pour Coralie
+## Pour Coralie (insertion d'image)
 
 * plus facile d'utiliser `![](icone_extension_vscode.png)`
 * Tu peux ajouter des options type réduire la taille `![](icone_extension_vscode.png){width=70%}`
 * Ca permet d'appliquer des extensions à l'image, ici lightbox (voir captures plus bas)
 * La balise html classique ne permet pas l'exportation en format pdf
 
-
 :::
 
 Dans la barre de recherche il faut inscrire R, puis cliquer sur télécharger. 
-Télécharger également **`Rtools`** de la même manière que R. Ensuite ouvrez un fichier en cliquant sur file, puis *new file* et selectionnez le langage dans lequel vous souhaitez coder (ici R). 
+Télécharger également l'extension `Rtools` de la même manière que la précédente. Ensuite ouvrez un fichier en cliquant sur file, puis *new file* et selectionnez le langage dans lequel vous souhaitez coder (ici R). 
 
 __Comment executer le programme?__ 
 
 
-Il suffit de cliquer sur le bouton "run" suivant:
+Il suffit de cliquer sur le bouton "run":
 
 <img src="run_r_vscode.png" alt="Texte alternatif de l'image" title="Titre de l'image" width="55" height="55"/>
 
-__Comment executer une cellule ?__
+__Comment exécuter une cellule ?__
 
 
-Il suffit de se mettre sur la ligne de code à executer et de faire **`crtl+entrée`**. 
+Il suffit de se mettre sur la ligne de code à exécuter et de faire **`crtl+entrée`**. 
+
+
+::: callout-important
+
+## Possible conflit entre les extension R et Rtools
 
 Si cela ne marche pas il peut avoir une erreur de connection entre l'extension Rtools et R. (erreur commune : _[Error - 2:58:07 PM] R Tools client: couldn't create connection to server._)
 Pour la résoudre:
@@ -101,7 +106,9 @@ Pour la résoudre:
 
 Lien de l'explication de résolution d'erreur:
 
-<https://stackoverflow.com/questions/75261815/r-tools-client-couldnt-create-connection-to-server-launching-server-using-com>
+[Lien vers la résolution de l'erreur](https://stackoverflow.com/questions/75261815/r-tools-client-couldnt-create-connection-to-server-launching-serverng-com)
+
+:::
 
 
 # Captures d'écran
