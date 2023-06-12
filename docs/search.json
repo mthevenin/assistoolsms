@@ -152,5 +152,12 @@
     "title": "",
     "section": "Présentation",
     "text": "Présentation\nL’objectif de ce séminaire est d’échanger autour du logiciel de statistique libre, gratuit et multiplateforme R\nIl s’adresse aux praticiens impliqués dans le traitement quantitatif des données en sciences humaines et sociales (utilisateurs de données, chercheurs, ingénieurs ou étudiants) qu’ils aient ou non déjà utilisé le logiciel R.\nChaque séance est organisée autour de la présentation d’une expérience de traitement de données avec le logiciel (fonction spécifique et/ou packages). Le cadre de ces réunions est informel et les participants doivent se sentir libres d’intervenir afin de confronter leurs expériences.\nDans une démarche d’open science, l’ensemble des supports de communication utilisés lors des séminaires (présentations et ateliers) est mis à disposition sur le site web et les vidéos des présentations diffusées sur la chaîne Canal U de l’Ined.\nLe séminaire RUSS est organisé dans le cadre formel de l’offre d’enseignement de l’EHESS. Il s’agit d’un “séminaire de centre” qui n’est rattaché à aucune formation de Master. A ce titre, il n’est pas validable et ne donne droit à aucun crédit ECTS.\nCe séminaire est ouvert à tous, y compris aux étudiants en master, mais pour chacune des séances nous demandons une inscription pour des raisons pratiques concernant notamment la capacité des salles à notre disposition ou pour obtenir le lien de connexion, via le site de l’Ined.\n\nInformations séminaires"
+  },
+  {
+    "objectID": "MDQ/assist/posts/remove_nul/remove_nul.html",
+    "href": "MDQ/assist/posts/remove_nul/remove_nul.html",
+    "title": "Supprimer un fichier nul avec git",
+    "section": "",
+    "text": "Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers nul, qui sont créés assez régulièrement chez moi avec Quarto.\n\n\n\nImpossible de modifier le fichier\n\n\nOn peut nénmoins facilement les supprimer avec une installation de git sur son ordinateur [Intallation de git]\n\n\n\n\n\n\nA l’Ined\n\n\n\nVScode est intégré à Applined, et peut donc être directement installé via cette application.\n\n\nSuppression du fichier\n\nDans le répertoire où se trouve ce type de fichier, fait un clic droit\nOuvrir la console: git bash here\nExécuter rm nul\n\n\n\n\nclic droit + ouvrir la console (git bash here) + rm nul\n\n\n\n\n\nLe fichier est supprimé"
   }
 ]

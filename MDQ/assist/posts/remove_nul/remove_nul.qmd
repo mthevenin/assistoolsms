@@ -1,0 +1,61 @@
+---
+title: "Supprimer un fichier nul avec git"
+
+# toc-title: ""
+# subtitle: ""
+
+categories:
+  - git
+  - Problème fichier
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 06/12/2023
+
+image: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"
+
+format: 
+  html: default
+  docx: default
+  pdf:  default
+
+filters:
+   - lightbox
+lightbox: auto
+---
+
+
+Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d'effacer un répertoire. C'est le cas des fichiers **nul**, qui sont créés assez régulièrement chez moi avec *Quarto*.  
+
+![Impossible de modifier le fichier](img/img1.png){width=60% fig-align="left"}
+
+On peut nénmoins facilement les supprimer avec une installation de **git** sur son ordinateur [[Intallation de git]](https://git-scm.com/downloads)
+
+::: callout-tip
+
+## A l'Ined
+
+VScode est intégré à **Applined**, et peut donc être directement installé via cette application.
+
+:::
+
+**Suppression du fichier**  
+
+- Dans le répertoire où se trouve ce type de fichier, fait un clic droit 
+- Ouvrir la console:  **`git bash here`**
+- Exécuter **`rm nul`**
+
+![clic droit + ouvrir la console (**git bash here**) + `rm nul`](img/img2.png){width=60% fig-align="left"}
+
+
+![Le fichier est supprimé](img/img3.png){width=60% fig-align="left"}
+
+
+
+
+
+
+

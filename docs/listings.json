@@ -7,18 +7,21 @@
       "/R/assist/posts/jeunec/jeunec.html",
       "/R/assist/posts/addition/addition.html",
       "/R/assist/posts/stata_R_comp/R_stata.html",
+      "/MDQ/assist/posts/remove_nul/remove_nul.html",
       "/MDQ/assist/posts/nutshell/nutshell.html"
     ]
   },
   {
     "listing": "/MDQ/assist/index.html",
     "items": [
+      "/MDQ/assist/posts/remove_nul/remove_nul.html",
       "/MDQ/assist/posts/nutshell/nutshell.html"
     ]
   },
   {
     "listing": "/MDQ/index.html",
     "items": [
+      "/MDQ/assist/posts/remove_nul/remove_nul.html",
       "/MDQ/assist/posts/nutshell/nutshell.html"
     ]
   },

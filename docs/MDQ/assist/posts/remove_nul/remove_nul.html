@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Assistances et astuces autres que R</title>
+<title>SMS_site - Supprimer un fichier nul avec git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,24 +58,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -95,40 +97,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Recherche"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="../sms.css">
+<link rel="stylesheet" href="../../../../sms.css">
 </head>
 
 <body class="nav-fixed">
@@ -138,8 +109,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/coding2.png" alt="Logo Sms" class="navbar-logo">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../img/coding2.png" alt="Logo Sms" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
@@ -154,17 +125,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-base-dassistances">    
         <li>
-    <a class="dropdown-item" href="../R/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../../R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../MDQ/index.html" rel="" target="">
+    <a class="dropdown-item" href="../../../../MDQ/index.html" rel="" target="">
  <span class="dropdown-text">Autres</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../seminaire/seminaire.html" rel="" target="">
+    <a class="nav-link" href="../../../../seminaire/seminaire.html" rel="" target="">
  <span class="menu-text">Séminaires</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -193,14 +164,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Assistances et astuces autres que R</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-                      </div>
+      <div class="quarto-title-block"><div><h1 class="title">Supprimer un fichier nul avec git</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">git</div>
+                <div class="quarto-category">Problème fichier</div>
+              </div>
+                  </div>
   </div>
     
-  
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Marc Thévenin </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+      </div>
+
   <div class="quarto-title-meta">
 
-      
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">12 juin 2023</p>
+      </div>
+    </div>
     
       
     </div>
@@ -211,65 +205,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Problème fichier">Problème fichier <span class="quarto-category-count">(1)</span></div><div class="category" data-category="extension">extension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="git">git <span class="quarto-category-count">(1)</span></div></div></div>
+    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="remove_nul.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="remove_nul.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-
+<p>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers <strong>nul</strong>, qui sont créés assez régulièrement chez moi avec <em>Quarto</em>.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Impossible de modifier le fichier"><img src="img/img1.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
+<figcaption class="figure-caption">Impossible de modifier le fichier</figcaption>
+</figure>
+</div>
+<p>On peut nénmoins facilement les supprimer avec une installation de <strong>git</strong> sur son ordinateur <a href="https://git-scm.com/downloads">[Intallation de git]</a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A l’Ined
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>VScode est intégré à <strong>Applined</strong>, et peut donc être directement installé via cette application.</p>
+</div>
+</div>
+<p><strong>Suppression du fichier</strong></p>
+<ul>
+<li>Dans le répertoire où se trouve ce type de fichier, fait un clic droit</li>
+<li>Ouvrir la console: <strong><code>git bash here</code></strong></li>
+<li>Exécuter <strong><code>rm nul</code></strong></li>
+</ul>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="clic droit + ouvrir la console (git bash here) + rm nul"><img src="img/img2.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
+<figcaption class="figure-caption">clic droit + ouvrir la console (<strong>git bash here</strong>) + <code>rm nul</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="img/img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Le fichier est supprimé"><img src="img/img3.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
+<figcaption class="figure-caption">Le fichier est supprimé</figcaption>
+</figure>
+</div>
 
 
 <!-- -->
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Titre
-</th>
-<th>
-Auteur·rice
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="git,Problème fichier" data-listing-date-sort="1686520800000" data-listing-file-modified-sort="1686572388770" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Supprimer un fichier nul avec git" data-listing-filename-sort="remove_nul.qmd">
-<td>
-<span class="listing-date">12 juin 2023</span>
-</td>
-<td>
-<a href="../MDQ/assist/posts/remove_nul/remove_nul.html" class="title listing-title">Supprimer un fichier nul avec git</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="extension" data-listing-date-sort="1683669600000" data-listing-file-modified-sort="1683870922042" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Nutshell" data-listing-filename-sort="nutshell.qmd">
-<td>
-<span class="listing-date">10 mai 2023</span>
-</td>
-<td>
-<a href="../MDQ/assist/posts/nutshell/nutshell.html" class="title listing-title">Nutshell</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-</tbody>
-
-</table>
-<div class="listing-no-matching d-none">
-Aucun article correspondant
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -555,22 +542,68 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Assistances et astuces autres que R"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="an">search:</span><span class="co"> false</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="an">listing:</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">  contents: </span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">  - assist</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">  - "!index.qmd"</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  sort: "date desc"</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  type: table</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">  categories: true</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">  sort-ui: false</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">  filter-ui: false</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">  page-size: 30</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">  max-description-length: 300</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="co">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Supprimer un fichier nul avec git"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># toc-title: ""</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># subtitle: ""</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="an">categories:</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  - git</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  - Problème fichier</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">  </span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">    affiliations:</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="an">date:</span><span class="co"> 06/12/2023</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="an">image:</span><span class="co"> "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co">  html: default</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="co">  docx: default</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="co">  pdf:  default</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="an">filters:</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="co">   - lightbox</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="co">---</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d'effacer un répertoire. C'est le cas des fichiers **nul**, qui sont créés assez régulièrement chez moi avec *Quarto*.  </span>
+<span id="cb1-32"><a href="#cb1-32"></a></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="al">![Impossible de modifier le fichier](img/img1.png)</span>{width=60% fig-align="left"}</span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a>On peut nénmoins facilement les supprimer avec une installation de **git** sur son ordinateur [<span class="co">[</span><span class="ot">Intallation de git</span><span class="co">]</span>](https://git-scm.com/downloads)</span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a>::: callout-tip</span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="fu">## A l'Ined</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a>VScode est intégré à **Applined**, et peut donc être directement installé via cette application.</span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a>:::</span>
+<span id="cb1-44"><a href="#cb1-44"></a></span>
+<span id="cb1-45"><a href="#cb1-45"></a>**Suppression du fichier**  </span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="ss">- </span>Dans le répertoire où se trouve ce type de fichier, fait un clic droit </span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="ss">- </span>Ouvrir la console:  **`git bash here`**</span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="ss">- </span>Exécuter **`rm nul`**</span>
+<span id="cb1-50"><a href="#cb1-50"></a></span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="al">![clic droit + ouvrir la console (**git bash here**) + `rm nul`](img/img2.png)</span>{width=60% fig-align="left"}</span>
+<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-53"><a href="#cb1-53"></a></span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="al">![Le fichier est supprimé](img/img3.png)</span>{width=60% fig-align="left"}</span>
+<span id="cb1-55"><a href="#cb1-55"></a></span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a></span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a></span>
+<span id="cb1-60"><a href="#cb1-60"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":true,"openEffect":"zoom"});</script>
 
 
 

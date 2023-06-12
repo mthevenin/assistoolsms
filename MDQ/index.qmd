@@ -1,12 +1,12 @@
 ---
-title: "Base d'assistances"
+title: "Assistances et astuces autres que R"
 search: false
 listing:
   contents: 
   - assist
   - "!index.qmd"
   sort: "date desc"
-  type: grid
+  type: table
   categories: true
   sort-ui: false
   filter-ui: false
