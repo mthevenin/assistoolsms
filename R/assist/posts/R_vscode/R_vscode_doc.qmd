@@ -140,7 +140,7 @@ Les captures  ne sont disponibles que pour le format html
 
 ![Suppression du conflit](img/vscode6.png)
 
-![Exécution de R](img/vscode7.png)
+![Exécution de R](img/vscode7.png)  
 
 :::
 
