@@ -21,6 +21,7 @@ date: 06/07/2023
 format: 
   html: default
   docx: default
+  pdf:  default
 
 filters:
    - lightbox
@@ -107,6 +108,14 @@ Lien de l'explication de résolution d'erreur:
 
 # Captures d'écran
 
+::: callout-note
+
+Les captures  ne sont disponibles que pour le format html
+
+:::
+
+
+::: {.content-visible when-format="html"}
 
 ## Première ouverture et installation des extensions
 
@@ -135,4 +144,4 @@ Lien de l'explication de résolution d'erreur:
 
 :::
 
-
+:::
