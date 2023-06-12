@@ -124,11 +124,11 @@ Les captures  ne sont disponibles que pour le format html
 
 ![Première ouverture](img/vscode1.png)
 
-![Extensions R](img/vscode2.png)
+![Extensions R disponibles](img/vscode2.png)
 
-![Extension R](img/vscode3.png)
+![L'extension **R**](img/vscode3.png)
 
-![Extension Rtools](img/vscode4.png)
+![L'extension **Rtools**](img/vscode4.png)
 
 :::
 
@@ -140,7 +140,7 @@ Les captures  ne sont disponibles que pour le format html
 
 ![Suppression du conflit](img/vscode6.png)
 
-![Exécution R](img/vscode7.png)
+![Exécution de R](img/vscode7.png)
 
 :::
 
