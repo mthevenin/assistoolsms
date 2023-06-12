@@ -1,7 +1,7 @@
 ---
 title: "R avec VScode"
-# toc-title: ""
 
+# toc-title: ""
 # subtitle: ""
 
 categories:
@@ -16,16 +16,14 @@ author:
 
 date: 06/07/2023
 
-image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png?20171006103407"
+#image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png?20171006103407"
 
 format: 
   html: default
-  pdf:  default
   docx: default
 
 filters:
    - lightbox
-   - nutshell
 lightbox: auto
 
 abstract: | 
@@ -34,14 +32,10 @@ abstract: |
 ---
 
 
-<img src="Visual_Studio_Code_1.35_icon.svg.png" alt="Visual Studio Code"  width="120" height="120"/>
+[![](https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png){width=10%}](https://code.visualstudio.com/)
 
 
 # Pas à pas
-
-__Niveau de difficulté:__
-
-<img src="niveau_difficulte\2_piment.png" alt="Texte alternatif de l'image" title="Titre de l'image" width="80" height="70"/>
 
 
 __Installation de VScode__
@@ -66,14 +60,14 @@ __Installation de l'extension R__
 Maintenant que vous êtes sur VSCode, il faut cliquer sur l'icône situé sur le côté gauche :
 
 
-<img src="icone_extension_vscode.png" alt="Texte alternatif de l'image" title="Titre de l'image" width="55" height="55"/>  
+![](img/icone_extension_vscode.png)
 
 
 ::: callout-note
 
 ## Pour Coralie (insertion d'image)
 
-* plus facile d'utiliser `![](icone_extension_vscode.png)`
+* Plus facile d'utiliser `![](icone_extension_vscode.png)`
 * Tu peux ajouter des options type réduire la taille `![](icone_extension_vscode.png){width=70%}`
 * Ca permet d'appliquer des extensions à l'image, ici lightbox (voir captures plus bas)
 * La balise html classique ne permet pas l'exportation en format pdf
@@ -88,7 +82,7 @@ __Comment executer le programme?__
 
 Il suffit de cliquer sur le bouton "run":
 
-<img src="run_r_vscode.png" alt="Texte alternatif de l'image" title="Titre de l'image" width="55" height="55"/>
+![](img/run_r_vscode.png)
 
 __Comment exécuter une cellule ?__
 
@@ -98,7 +92,7 @@ Il suffit de se mettre sur la ligne de code à exécuter et de faire **`crtl+ent
 
 ::: callout-important
 
-## Possible conflit entre les extension R et Rtools
+## Possible conflit entre les extensions R et Rtools
 
 Si cela ne marche pas il peut avoir une erreur de connection entre l'extension Rtools et R. (erreur commune : _[Error - 2:58:07 PM] R Tools client: couldn't create connection to server._)
 Pour la résoudre:
@@ -116,28 +110,28 @@ Lien de l'explication de résolution d'erreur:
 
 ## Première ouverture et installation des extensions
 
-::: {layout-ncol=3 layout-valign="bottom"}
 
+::: {layout="[32,-2,32,-2,32]"}
 
-![Première ouverture](capt/vscode1.png)
+![Première ouverture](img/vscode1.png)
 
-![Extensions R](capt/vscode2.png)
+![Extensions R](img/vscode2.png)
 
-![Extension R](capt/vscode3.png)
+![Extension R](img/vscode3.png)
 
-![Extension Rtools](capt/vscode4.png)
+![Extension Rtools](img/vscode4.png)
 
 :::
 
 ## Résolution du conflit entre R et Rtools
 
-::: {layout-ncol=2 layout-valign="bottom"}
+::: {layout="[32,-2,32,-2,32]"}
 
-![Rechercher *`r.execute in terminal`*](capt/vscode5.png)
+![Rechercher *`r.execute in terminal`*](img/vscode5.png)
 
-![Suppression du conflit](capt/vscode6.png)
+![Suppression du conflit](img/vscode6.png)
 
-![Exécution R](capt/vscode7.png)
+![Exécution R](img/vscode7.png)
 
 :::
 

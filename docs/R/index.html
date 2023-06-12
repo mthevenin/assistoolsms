@@ -75,8 +75,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,9 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -230,205 +228,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- -->
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Interface,IDE,R" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1686311742718" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="../R/assist/posts/R_vscode/R_vscode_doc.html"> <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png?20171006103407" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../R/assist/posts/R_vscode/R_vscode_doc.html">
-<h3 class="no-anchor listing-title">
-R avec VScode
-</h3>
-<div class="listing-subtitle">
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Interface'); return false;">
-Interface
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('IDE'); return false;">
-IDE
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-</div>
-<a href="../R/assist/posts/R_vscode/R_vscode_doc.html">
-<div class="listing-description">
-<p>VSCode est un IDE (<strong>Environnement de Dévelopement Integré</strong>) qui offre une intégration avec de nombreux outils et langages de programmation. L’extension R pour VS Code vous permet de travailler avec R dans un environnement de développement intégré, ce qui peut vous faire gagner du temps. VS Code…</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../R/assist/posts/R_vscode/R_vscode_doc.html">
-<div class="listing-date">
-7 juin 2023
-</div>
-<div class="listing-author">
-Coralie Cottet
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="css,layout" data-listing-date-sort="1683064800000" data-listing-file-modified-sort="1686209575357" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="../R/assist/posts/test_list/test_list.html"> <img src="https://quarto.org/docs/authoring/article-layout_files/figure-html/fig-cap-margin-1.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../R/assist/posts/test_list/test_list.html">
-<h3 class="no-anchor listing-title">
-Test liste
-</h3>
-<div class="listing-subtitle">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Date
+</th>
+<th>
+Titre
+</th>
+<th>
+Auteur·rice
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="Interface,IDE,R" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1686552509682" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="R avec VScode" data-listing-filename-sort="R_vscode_doc.qmd">
+<td>
+<span class="listing-date">7 juin 2023</span>
+</td>
+<td>
+<a href="../R/assist/posts/R_vscode/R_vscode_doc.html" class="title listing-title">R avec VScode</a>
+</td>
+<td>
+<span class="listing-author">Coralie Cottet</span>
+</td>
+</tr>
+<tr data-index="1" data-categories="css,layout" data-listing-date-sort="1683064800000" data-listing-file-modified-sort="1686209575357" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Test liste" data-listing-filename-sort="test_list.qmd">
+<td>
+<span class="listing-date">3 mai 2023</span>
+</td>
+<td>
+<a href="../R/assist/posts/test_list/test_list.html" class="title listing-title">Test liste</a>
+</td>
+<td>
+<span class="listing-author">Marc Thévenin</span>
+</td>
+</tr>
+<tr data-index="2" data-categories="Shiny,Stat descriptives" data-listing-date-sort="1682373600000" data-listing-file-modified-sort="1683180190454" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Shiny: jeunes chercheurs" data-listing-filename-sort="jeunec.qmd">
+<td>
+<span class="listing-date">25 avr. 2023</span>
+</td>
+<td>
+<a href="../R/assist/posts/jeunec/jeunec.html" class="title listing-title">Shiny: jeunes chercheurs</a>
+</td>
+<td>
+<span class="listing-author">Arno Muller</span>
+</td>
+</tr>
+<tr data-index="3" data-categories="Quarto,css" data-listing-date-sort="1682287200000" data-listing-file-modified-sort="1686143522878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Test Quarto" data-listing-filename-sort="addition.qmd">
+<td>
+<span class="listing-date">24 avr. 2023</span>
+</td>
+<td>
+<a href="../R/assist/posts/addition/addition.html" class="title listing-title">Test Quarto</a>
+</td>
+<td>
+<span class="listing-author">Marc Thévenin</span>
+</td>
+</tr>
+<tr data-index="4" data-categories="R,Stata,gtools" data-listing-date-sort="1680645600000" data-listing-file-modified-sort="1683198782757" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-title-sort="Gtools" data-listing-filename-sort="R_stata.qmd">
+<td>
+<span class="listing-date">5 avr. 2023</span>
+</td>
+<td>
+<a href="../R/assist/posts/stata_R_comp/R_stata.html" class="title listing-title">Gtools</a>
+</td>
+<td>
+<span class="listing-author">Marc Thévenin</span>
+</td>
+</tr>
+</tbody>
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('css'); return false;">
-css
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('layout'); return false;">
-layout
-</div>
-</div>
-<a href="../R/assist/posts/test_list/test_list.html">
-<div class="listing-description">
-<p><em>Quarto is a multi-language, next generation version of R Markdown from Posit, with many new new features and capabilities. Like R Markdown, Quarto uses Knitr to execute R code, and is therefore able to render most existing Rmd files without modification</em>.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../R/assist/posts/test_list/test_list.html">
-<div class="listing-date">
-3 mai 2023
-</div>
-<div class="listing-author">
-Marc Thévenin
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Shiny,Stat descriptives" data-listing-date-sort="1682373600000" data-listing-file-modified-sort="1683180190454" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="../R/assist/posts/jeunec/jeunec.html"> <img src="https://www.worldbank.org/content/dam/photos/780x439/2021/apr/Shiny-logo.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../R/assist/posts/jeunec/jeunec.html">
-<h3 class="no-anchor listing-title">
-Shiny: jeunes chercheurs
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Shiny'); return false;">
-Shiny
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Stat descriptives'); return false;">
-Stat descriptives
-</div>
-</div>
-<a href="../R/assist/posts/jeunec/jeunec.html">
-<div class="listing-description">
-Interface Shiny développée dans le cadre du projet Apprentis Chercheur de l’Ined. Elle permet de faire des statistiques exploratoires simples univariées et bivariées, pour des variables catégorielles.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../R/assist/posts/jeunec/jeunec.html">
-<div class="listing-date">
-25 avr. 2023
-</div>
-<div class="listing-author">
-Arno Muller
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Quarto,css" data-listing-date-sort="1682287200000" data-listing-file-modified-sort="1686143522878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="../R/assist/posts/addition/addition.html"> <img src="https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/featured.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../R/assist/posts/addition/addition.html">
-<h3 class="no-anchor listing-title">
-Test Quarto
-</h3>
-<div class="listing-subtitle">
-Difficulté <i class="fa-solid fa-pepper-hot" aria-label="pepper-hot"></i> <i class="fa-solid fa-pepper-hot" aria-label="pepper-hot"></i> <i class="fa-solid fa-pepper-hot" aria-label="pepper-hot"></i>
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
-Quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('css'); return false;">
-css
-</div>
-</div>
-<a href="../R/assist/posts/addition/addition.html">
-<div class="listing-description">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../R/assist/posts/addition/addition.html">
-<div class="listing-date">
-24 avr. 2023
-</div>
-<div class="listing-author">
-Marc Thévenin
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,Stata,gtools" data-listing-date-sort="1680645600000" data-listing-file-modified-sort="1683198782757" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13">
-<div class="thumbnail">
-<p><a href="../R/assist/posts/stata_R_comp/R_stata.html"> <img src="https://www.stata.com/includes/images/stata-fb.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../R/assist/posts/stata_R_comp/R_stata.html">
-<h3 class="no-anchor listing-title">
-Gtools
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Stata'); return false;">
-Stata
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('gtools'); return false;">
-gtools
-</div>
-</div>
-<a href="../R/assist/posts/stata_R_comp/R_stata.html">
-<div class="listing-description">
-Page tirée du support Stata: il est juste là pour la forme, pour visualiser le rendu d’une fiche ou article, dont ajout d’une note de bas page . <sup>1</sup>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../R/assist/posts/stata_R_comp/R_stata.html">
-<div class="listing-date">
-5 avr. 2023
-</div>
-<div class="listing-author">
-Marc Thévenin
-</div>
-</a>
-</div>
-</div>
-</div>
+</table>
 <div class="listing-no-matching d-none">
 Aucun article correspondant
 </div>
@@ -725,16 +599,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-6"><a href="#cb1-6"></a><span class="co">  - assist</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="co">  - "!index.qmd"</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="co">  sort: "date desc"</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  type: default</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  type: table</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="co">  categories: true</span></span>
 <span id="cb1-11"><a href="#cb1-11"></a><span class="co">  sort-ui: false</span></span>
 <span id="cb1-12"><a href="#cb1-12"></a><span class="co">  filter-ui: false</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a><span class="co">  page-size: 30</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">  max-description-length: 300</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="co">---</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="ss">- </span>Faire une présentation</span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span>Eventuellement recenser les ressources principales: JL,JUBA...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">  max-items: 20</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co">  max-description-length: 300</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co">---</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="ss">- </span>Faire une présentation</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="ss">- </span>Eventuellement recenser les ressources principales: JL,JUBA...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
