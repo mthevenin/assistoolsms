@@ -83,7 +83,7 @@ Il ne s'agit que d'un squelette de support. Merci de ne pas se référer au cont
 ::: {.listing-block}
 ::: {.zoom-image}
 
-# **Derniers ajouts Autres**
+# **Assistances et astuces autres que R**
 
 ::: {#latest-content-MDQ}
 :::
