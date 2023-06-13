@@ -38,7 +38,7 @@ On peut nénmoins facilement les supprimer avec une installation de **git** sur 
 
 ## A l'Ined
 
-VScode est intégré à **Applined**, et peut donc être directement installé via cette application.
+**Git** est intégré à **Applined**, et peut donc être directement installé via cette application.
 
 :::
 
