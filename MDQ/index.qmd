@@ -8,8 +8,8 @@ listing:
   sort: "date desc"
   type: table
   categories: true
-  sort-ui: false
-  filter-ui: false
+  sort-ui: true
+  filter-ui: true
   page-size: 30
   max-description-length: 300
 ---

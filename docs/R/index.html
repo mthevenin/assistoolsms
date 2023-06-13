@@ -229,18 +229,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Trier par" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Trier par</option>
+       <option value="index" data-direction="asc">Ordre par défaut</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Le plus ancien
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Le plus récent
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Titre
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Auteur·rice
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 
 <table class="quarto-listing-table table">
 <thead>
 <tr>
 <th>
-Date
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
 </th>
 <th>
-Titre
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Titre</a>
 </th>
 <th>
-Auteur·rice
+<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Auteur·rice</a>
 </th>
 </tr>
 </thead>
@@ -612,8 +637,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-8"><a href="#cb1-8"></a><span class="co">  sort: "date desc"</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a><span class="co">  type: table</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="co">  categories: true</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">  sort-ui: false</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">  filter-ui: false</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">  sort-ui: true</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">  filter-ui: true</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a><span class="co">  page-size: 30</span></span>
 <span id="cb1-14"><a href="#cb1-14"></a><span class="co">  max-items: 20</span></span>
 <span id="cb1-15"><a href="#cb1-15"></a><span class="co">  max-description-length: 300</span></span>

@@ -41,11 +41,12 @@ toc: false
 ::: {.pullout-container}
 ::: {.pullout-block .darkblue-background}
 
-## Projet de support au 09 Juin 2023
+## Projet de support au 13 Juin 2023
 
--Première fiche sur l'utilisation de VSCode.   
--J'ai repassé le projet en public car je ne pouvais pas déployer le support sans passer par la case dollars.  
--Adresse provisoire: https://mthevenin.github.io/assistoolsms/ 
+- Premières fiches (VSCode / suppression fichier zarbi type nul / récupération du test ols GB).   
+- J'ai repassé le projet en public car je ne pouvais pas déployer le support sans passer par la case dollars.  
+- Adresse provisoire: https://mthevenin.github.io/assistoolsms/ 
+- A retirer progressivement les fiches de test
 
 **05 mai**
 

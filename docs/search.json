@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "R/assist/posts/coxzph/coxzph.html",
-    "href": "R/assist/posts/coxzph/coxzph.html",
-    "title": "Récupérer et exécuter le test OLS de Grambsch-Therneau",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Présentation",
     "section": "",
-    "text": "Champ d’application\n\nModèle de Cox (analyse des durées)\n\nDiagnostic sur l’hypothèse de proportionalité des risques\n\nProblématique\n\nDepuis le passage à la version 3 du package survival en 2020, le test OLS sur les résidus de Schoenfeld a été supprimé et remplacé par le test GLS. Le second est la version originelle du test proposé en 1994 par P.Grambsch et T.Therneau.\nEn présence d’évènements simultanés (durée discrète), les résultats affichés par les deux versions peuvent fortement variés.\nLorsqu’on utilise le modèle de Cox avec des durées discrètes, situation très courante dans les sciences sociales, je préconise l’utilisation de la version dite simplifiée (OLS).\n\nLe modèle de Cox est une méthode à durée continue, les conditions de validité du test GLS ne sont établies avec des évènements mesurés simultanément.\nContrainte de reproductibilité: Stata, Sas, Python (lifelines, statsmodels)\n\n\nRécupération et exécution du test OLS\n\nJ’ai récupéré le script de la fonction dans les archives du CRAN. Elle a simplement été renommée cox.zphold().\nPour charger la fonction, il suffit d’appliquer source() qui joue le même rôle que library().\n\nDirectement sur le dépôt github:\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\n\nSi le script a été enregistré en local:\n\nsource(\"local_path/cox.zphold.R\")\n\n\n\nExemple\n\n\n\nRécupération des données\n\nlibrary(readr)\n\n\nWarning: le package 'readr' a été compilé avec la version R 4.2.3\n\ntrans &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")\n\n\n\n\nEstimation d'un modèle de Cox\n\nlibrary(survival)\n\n\nWarning: le package 'survival' a été compilé avec la version R 4.2.3\n\ncoxfit = coxph(formula = Surv(stime, died) ~ year + age + surgery, data = trans)\n\n\n\n\nRéupération et exécution du test OLS\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\ncox.zphold(coxfit)\n\n\n          rho chisq      p\nyear    0.159  1.96 0.1620\nage     0.109  1.15 0.2845\nsurgery 0.251  3.96 0.0465\nGLOBAL     NA  7.99 0.0462"
+    "text": "About this site"
   },
   {
     "objectID": "index.html#projet-de-support-au-09-juin-2023",
@@ -14,11 +14,81 @@
     "text": "Projet de support au 09 Juin 2023\n-Première fiche sur l’utilisation de VSCode.\n-J’ai repassé le projet en public car je ne pouvais pas déployer le support sans passer par la case dollars.\n-Adresse provisoire: https://mthevenin.github.io/assistoolsms/\n05 mai\nIl ne s’agit que d’un squelette de support. Merci de ne pas se référer au contenu qui n’a pour but que de tester l’aspect général du support ou des fonctionalités comme:\n[1] Mise à jour du contenu sous forme de vignette: un nouvel article est directement reporté dans la page d’index. J’ai encore des soucis sur l’ordre chronologique qui devrait être décroissant.\n[2] La modification des trois éléments/colonnes du grid.\n[3] J’ai utilisé deux couleurs de la charte graphique de l’Ined: son rouge et gris foncé.\n[4] La css est très largement modifiée, je suis parti de celle de ce site: https://realworlddatascience.net/"
   },
   {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html",
+    "title": "Nutshell",
+    "section": "",
+    "text": "Note\n\n\n\nIntéressant pour affichage contenu externe, sinon avec une TOC, c’est bofbof. Peut-être ajouté une courte bulle à la toc, sans affichage dans le corps du document."
+  },
+  {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html#explication-dans-titre-section",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html#explication-dans-titre-section",
+    "title": "Nutshell",
+    "section": ":Explication (dans titre section)",
+    "text": ":Explication (dans titre section)\nhttps://github.com/schochastics/quarto-nutshell Nutshell is a tool to make “expandable explanations”, like this! This lets your readers learn only the details they need, just-in-time, always-in-context.\nUnlike links, Nutshell lets you include only the snippet you need, not the whole page. Plus, instead of being lost in a jungle of new tabs, your reader stays on one page, keeping their flow of reading. Even if you interrupt a sentence, Nutshell recaps the sentence afterwards, so your reader never loses context.\nYou can find more information on the nutshell webpage\n\n:link to wikipedia Posit"
+  },
+  {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html#x-invisible",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html#x-invisible",
+    "title": "Nutshell",
+    "section": ":x invisible",
+    "text": ":x invisible\nUse ## :x header to include an invisible section that can be linked to via nutshell\n\n[:link to invisible sections](#x-invisible)\n\n## :x invisible\n\nUse `## :x header` to include an invisible section that can be linked to via nutshell"
+  },
+  {
+    "objectID": "MDQ/assist/posts/nutshell/nutshell.html#x-exemple",
+    "href": "MDQ/assist/posts/nutshell/nutshell.html#x-exemple",
+    "title": "Nutshell",
+    "section": ":x exemple",
+    "text": ":x exemple\nBlablabla blabla."
+  },
+  {
     "objectID": "MDQ/assist/posts/remove_nul/remove_nul.html",
     "href": "MDQ/assist/posts/remove_nul/remove_nul.html",
     "title": "Supprimer un fichier nul avec git",
     "section": "",
     "text": "Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers nul, qui sont créés assez régulièrement chez moi avec Quarto.\n\n\n\nImpossible de modifier le fichier\n\n\nOn peut nénmoins facilement les supprimer avec une installation de git sur son ordinateur [Intallation de git]\n\n\n\n\n\n\nA l’Ined\n\n\n\nGit est intégré à Applined, et peut donc être directement installé via cette application.\n\n\nSuppression du fichier\n\nDans le répertoire où se trouve ce type de fichier, fait un clic droit\nOuvrir la console: git bash here\nExécuter rm nul\n\n\n\n\nclic droit + ouvrir la console (git bash here) + rm nul\n\n\n\n\n\nLe fichier est supprimé"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html",
+    "href": "R/assist/posts/addition/addition.html",
+    "title": "Test Quarto",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum facilisis. Aenean pretium orci augue, quis lobortis libero accumsan eu. Nam mollis lorem sit amet pellentesque ullamcorper. Curabitur lobortis libero eget malesuada vestibulum. Nam nec nibh massa. Pellentesque porttitor cursus tellus. Mauris urna erat, rhoncus sed faucibus sit amet, venenatis eu ipsum.\nCode inline: library(survival)\n\\[A+B = \\sum_ie^{C} + \\frac{D}{E+1}\\]"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#astuce",
+    "href": "R/assist/posts/addition/addition.html#astuce",
+    "title": "Test Quarto",
+    "section": "Astuce",
+    "text": "Astuce\n\n\n\n\n\n\ntip\n\n\n\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#info",
+    "href": "R/assist/posts/addition/addition.html#info",
+    "title": "Test Quarto",
+    "section": "Info",
+    "text": "Info\n\n\n\n\n\n\nInfo\n\n\n\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#important",
+    "href": "R/assist/posts/addition/addition.html#important",
+    "title": "Test Quarto",
+    "section": "Important",
+    "text": "Important\n\n\n\n\n\n\nImportant\n\n\n\nCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#warning",
+    "href": "R/assist/posts/addition/addition.html#warning",
+    "title": "Test Quarto",
+    "section": "Warning",
+    "text": "Warning\n\n\n\n\n\n\nWarning\n\n\n\nDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+  },
+  {
+    "objectID": "R/assist/posts/coxzph/coxzph.html",
+    "href": "R/assist/posts/coxzph/coxzph.html",
+    "title": "Récupérer et exécuter le test OLS de Grambsch-Therneau",
+    "section": "",
+    "text": "Champ d’application\n\nModèle de Cox (analyse des durées)\n\nDiagnostic sur l’hypothèse de proportionalité des risques\n\nProblématique\n\nDepuis le passage à la version 3 du package survival en 2020, le test OLS sur les résidus de Schoenfeld a été supprimé et remplacé par le test GLS. Le second est la version originelle du test proposé en 1994 par P.Grambsch et T.Therneau.\nEn présence d’évènements simultanés (durée discrète), les résultats affichés par les deux versions peuvent fortement variés.\nLorsqu’on utilise le modèle de Cox avec des durées discrètes, situation très courante dans les sciences sociales, je préconise l’utilisation de la version dite simplifiée (OLS).\n\nLe modèle de Cox est une méthode à durée continue, les conditions de validité du test GLS ne sont établies avec des évènements mesurés simultanément.\nContrainte de reproductibilité: Stata, Sas, Python (lifelines, statsmodels)\n\n\nRécupération et exécution du test OLS\n\nJ’ai récupéré le script de la fonction dans les archives du CRAN. Elle a simplement été renommée cox.zphold().\nPour charger la fonction, il suffit d’appliquer source() qui joue le même rôle que library().\n\nDirectement sur le dépôt github:\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\n\nSi le script a été enregistré en local:\n\nsource(\"local_path/cox.zphold.R\")\n\n\n\nExemple\n\n\n\nRécupération des données\n\nlibrary(readr)\n\n\nWarning: le package 'readr' a été compilé avec la version R 4.2.3\n\ntrans &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")\n\n\n\n\nEstimation d'un modèle de Cox\n\nlibrary(survival)\n\n\nWarning: le package 'survival' a été compilé avec la version R 4.2.3\n\ncoxfit = coxph(formula = Surv(stime, died) ~ year + age + surgery, data = trans)\n\n\n\n\nRéupération et exécution du test OLS\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\ncox.zphold(coxfit)\n\n\n          rho chisq      p\nyear    0.159  1.96 0.1620\nage     0.109  1.15 0.2845\nsurgery 0.251  3.96 0.0465\nGLOBAL     NA  7.99 0.0462"
   },
   {
     "objectID": "R/assist/posts/jeunec/jeunec.html",
@@ -96,5 +166,12 @@
     "title": "",
     "section": "Présentation",
     "text": "Présentation\nL’objectif de ce séminaire est d’échanger autour du logiciel de statistique libre, gratuit et multiplateforme R\nIl s’adresse aux praticiens impliqués dans le traitement quantitatif des données en sciences humaines et sociales (utilisateurs de données, chercheurs, ingénieurs ou étudiants) qu’ils aient ou non déjà utilisé le logiciel R.\nChaque séance est organisée autour de la présentation d’une expérience de traitement de données avec le logiciel (fonction spécifique et/ou packages). Le cadre de ces réunions est informel et les participants doivent se sentir libres d’intervenir afin de confronter leurs expériences.\nDans une démarche d’open science, l’ensemble des supports de communication utilisés lors des séminaires (présentations et ateliers) est mis à disposition sur le site web et les vidéos des présentations diffusées sur la chaîne Canal U de l’Ined.\nLe séminaire RUSS est organisé dans le cadre formel de l’offre d’enseignement de l’EHESS. Il s’agit d’un “séminaire de centre” qui n’est rattaché à aucune formation de Master. A ce titre, il n’est pas validable et ne donne droit à aucun crédit ECTS.\nCe séminaire est ouvert à tous, y compris aux étudiants en master, mais pour chacune des séances nous demandons une inscription pour des raisons pratiques concernant notamment la capacité des salles à notre disposition ou pour obtenir le lien de connexion, via le site de l’Ined.\n\nInformations séminaires"
+  },
+  {
+    "objectID": "index.html#projet-de-support-au-13-juin-2023",
+    "href": "index.html#projet-de-support-au-13-juin-2023",
+    "title": "SMS_site",
+    "section": "Projet de support au 13 Juin 2023",
+    "text": "Projet de support au 13 Juin 2023\n\nPremières fiches (VSCode / suppression fichier zarbi type nul / récupération du test ols GB).\n\nJ’ai repassé le projet en public car je ne pouvais pas déployer le support sans passer par la case dollars.\n\nAdresse provisoire: https://mthevenin.github.io/assistoolsms/\nA retirer progressivement les fiches de test\n\n05 mai\nIl ne s’agit que d’un squelette de support. Merci de ne pas se référer au contenu qui n’a pour but que de tester l’aspect général du support ou des fonctionalités comme:\n[1] Mise à jour du contenu sous forme de vignette: un nouvel article est directement reporté dans la page d’index. J’ai encore des soucis sur l’ordre chronologique qui devrait être décroissant.\n[2] La modification des trois éléments/colonnes du grid.\n[3] J’ai utilisé deux couleurs de la charte graphique de l’Ined: son rouge et gris foncé.\n[4] La css est très largement modifiée, je suis parti de celle de ce site: https://realworlddatascience.net/"
   }
 ]
