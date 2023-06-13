@@ -1,0 +1,348 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=30mm,left=10mm,ight=10mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{40,42,54}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.33,0.33}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{1.00,0.47,0.78}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{1.00,0.47,0.78}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.74,0.58,0.98}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.55,0.91,0.99}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.95,0.98,0.55}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.45,0.64}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.55,0.91,0.99}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.74,0.58,0.98}{\textbf{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{1.00,0.47,0.78}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.55,0.91,0.99}{\textit{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.74,0.58,0.98}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{1.00,0.72,0.42}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.33,0.33}{\underline{#1}}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.55,0.91,0.99}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.74,0.58,0.98}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.31,0.98,0.48}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{1.00,0.47,0.78}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.95,0.98,0.55}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{1.00,0.47,0.78}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.97,0.97,0.95}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.97,0.97,0.95}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.31,0.98,0.48}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{1.00,0.47,0.78}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.55,0.91,0.99}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{1.00,0.47,0.78}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.95,0.98,0.55}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.95,0.98,0.55}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.55,0.91,0.99}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.95,0.98,0.55}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{1.00,0.33,0.33}{#1}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table des matières}
+\else
+  \newcommand\contentsname{Table des matières}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Liste des Figures}
+\else
+  \newcommand\listfigurename{Liste des Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Liste des Tables}
+\else
+  \newcommand\listtablename{Liste des Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{Liste des Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{french}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Récupérer et exécuter le test OLS de Grambsch-Therneau},
+  pdfauthor={Marc Thévenin},
+  pdflang={fr},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Récupérer et exécuter le test OLS de Grambsch-Therneau}
+\author{Marc Thévenin}
+\date{2023-06-13}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Comment récupérer la variante du test de Grambsch-Therneau implémentée
+au package \texttt{survival} avant son passage à la v3. Permet de
+s'assurer une reproductibilité avec les autres applications statistiques
+(Stata, Sas, Python) avec des durées discrètes.
+\end{abstract}
+\textbf{Champ d'application}
+
+\begin{itemize}
+\tightlist
+\item
+  Modèle de Cox (analyse des durées)\\
+\item
+  Diagnostic sur l'hypothèse de proportionalité des risques
+\end{itemize}
+
+\textbf{Problématique}
+
+\begin{itemize}
+\tightlist
+\item
+  Depuis le passage à la version 3 du package \textbf{\texttt{survival}}
+  en 2020, le test OLS sur les résidus de Schoenfeld a été supprimé et
+  remplacé par le test GLS. Le second est la version originelle du test
+  proposé en 1994 par P.Grambsch et T.Therneau.
+\item
+  En présence d'évènements simultanés (durée discrète), les résultats
+  affichés par les deux versions peuvent fortement variés.
+\item
+  Lorsqu'on utilise le modèle de Cox avec des durées discrètes,
+  situation très courante dans les sciences sociales, je préconise
+  l'utilisation de la version dite \emph{simplifiée} (OLS).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Le modèle de Cox est une méthode à durée continue, les conditions de
+    validité du test GLS ne sont établies avec des évènements mesurés
+    simultanément.
+  \item
+    Contrainte de reproductibilité: \textbf{Stata}, \textbf{Sas},
+    \textbf{Python} (\textbf{\texttt{lifelines}},
+    \textbf{\texttt{statsmodels}})
+  \end{itemize}
+\end{itemize}
+
+\textbf{Récupération et exécution du test OLS}
+
+\begin{itemize}
+\tightlist
+\item
+  J'ai récupéré le script de la fonction dans les archives du CRAN. Elle
+  a simplement été renommée \textbf{\texttt{cox.zphold()}}.
+\item
+  Pour charger la fonction, il suffit d'appliquer
+  \textbf{\texttt{source()}} qui joue le même rôle que
+  \textbf{\texttt{library()}}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Directement sur le dépôt github:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \textbf{\texttt{source("https://raw.githubusercontent.com/mthevenin/analyse\_duree/main/cox.zphold/cox.zphold.R")}}
+    \end{itemize}
+  \item
+    Si le script a été enregistré en local:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \textbf{\texttt{source("local\_path/cox.zphold.R")}}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Exemple}
+
+\begin{codelisting}
+
+\caption{\texttt{Récupération des données}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{codelisting}
+
+\begin{verbatim}
+Warning: le package 'readr' a été compilé avec la version R 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{trans }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/mthevenin/analyse\_duree/master/bases/transplantation.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{codelisting}
+
+\caption{\texttt{Estimation d'un modèle de Cox}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(survival)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{codelisting}
+
+\begin{verbatim}
+Warning: le package 'survival' a été compilé avec la version R 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{coxfit }\OtherTok{=} \FunctionTok{coxph}\NormalTok{(}\AttributeTok{formula =} \FunctionTok{Surv}\NormalTok{(stime, died) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ year }\SpecialCharTok{+}\NormalTok{ age }\SpecialCharTok{+}\NormalTok{ surgery, }\AttributeTok{data =}\NormalTok{ trans)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{codelisting}
+
+\caption{\texttt{Réupération et exécution du test OLS}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/mthevenin/analyse\_duree/main/cox.zphold/cox.zphold.R"}\NormalTok{)}
+\FunctionTok{cox.zphold}\NormalTok{(coxfit)}
+\end{Highlighting}
+\end{Shaded}
+
+\end{codelisting}
+
+\begin{verbatim}
+          rho chisq      p
+year    0.159  1.96 0.1620
+age     0.109  1.15 0.2845
+surgery 0.251  3.96 0.0465
+GLOBAL     NA  7.99 0.0462
+\end{verbatim}
+
+
+
+\end{document}
