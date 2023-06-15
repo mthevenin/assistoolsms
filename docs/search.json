@@ -51,35 +51,35 @@
   {
     "objectID": "R/assist/posts/addition/addition.html",
     "href": "R/assist/posts/addition/addition.html",
-    "title": "Test Quarto",
+    "title": "Test Quarto [A supprimer]",
     "section": "",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum facilisis. Aenean pretium orci augue, quis lobortis libero accumsan eu. Nam mollis lorem sit amet pellentesque ullamcorper. Curabitur lobortis libero eget malesuada vestibulum. Nam nec nibh massa. Pellentesque porttitor cursus tellus. Mauris urna erat, rhoncus sed faucibus sit amet, venenatis eu ipsum.\nCode inline: library(survival)\n\\[A+B = \\sum_ie^{C} + \\frac{D}{E+1}\\]"
   },
   {
     "objectID": "R/assist/posts/addition/addition.html#astuce",
     "href": "R/assist/posts/addition/addition.html#astuce",
-    "title": "Test Quarto",
+    "title": "Test Quarto [A supprimer]",
     "section": "Astuce",
     "text": "Astuce\n\n\n\n\n\n\ntip\n\n\n\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   },
   {
     "objectID": "R/assist/posts/addition/addition.html#info",
     "href": "R/assist/posts/addition/addition.html#info",
-    "title": "Test Quarto",
+    "title": "Test Quarto [A supprimer]",
     "section": "Info",
     "text": "Info\n\n\n\n\n\n\nInfo\n\n\n\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
   },
   {
     "objectID": "R/assist/posts/addition/addition.html#important",
     "href": "R/assist/posts/addition/addition.html#important",
-    "title": "Test Quarto",
+    "title": "Test Quarto [A supprimer]",
     "section": "Important",
     "text": "Important\n\n\n\n\n\n\nImportant\n\n\n\nCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
   },
   {
     "objectID": "R/assist/posts/addition/addition.html#warning",
     "href": "R/assist/posts/addition/addition.html#warning",
-    "title": "Test Quarto",
+    "title": "Test Quarto [A supprimer]",
     "section": "Warning",
     "text": "Warning\n\n\n\n\n\n\nWarning\n\n\n\nDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
   },

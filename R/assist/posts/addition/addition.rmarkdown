@@ -1,0 +1,157 @@
+---
+title: "Test Quarto [A supprimer]"
+subtitle:   Difficulté  {{< fa pepper-hot >}} {{< fa pepper-hot >}} {{< fa pepper-hot >}}
+
+categories:
+  - Quarto
+  - css
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+image: "https://www.jumpingrivers.com/blog/quarto-rmarkdown-comparison/featured.png"
+date: 04/24/2023
+toc: true
+filters:
+   - lightbox
+lightbox: auto
+format: 
+  html: default
+  docx: default
+  pdf:  default
+
+---
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(class.output  = "result")
+```
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum facilisis. Aenean pretium orci augue, quis lobortis libero accumsan eu. Nam mollis lorem sit amet pellentesque ullamcorper. Curabitur lobortis libero eget malesuada vestibulum. Nam nec nibh massa. Pellentesque porttitor cursus tellus. Mauris urna erat, rhoncus sed faucibus sit amet, venenatis eu ipsum.
+
+
+<style>
+  .fa-solid,
+  .fa-brands,
+  .fa-sharp-solid {
+    background-color: white;
+  }
+  
+  .fa-pepper-hot {
+    color: #De3831;
+  }  
+</style>
+
+
+
+* A
+* B
+* C
+  - c
+  - c
+
+
+Code inline:  `library(survival)`
+
+$$A+B = \sum_ie^{C} + \frac{D}{E+1}$$
+
+
+
+# Toto
+
+
+
+```{r}
+0+0
+```
+
+
+
+
+# Tableau
+
+| Col1 | Col2 | Col3 |
+|------|------|------|
+| 1    | 2    | 3    |
+| 4    | 5    | 6    |
+| 7    | 8    | 9    |
+
+: **Je sais compter** {.striped .hover}
+
+
+# Caption
+
+## Astuce
+
+::: callout-tip
+## tip
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+:::
+
+## Info
+
+::: callout-note
+## Info
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+:::
+
+
+## Important
+
+::: callout-important
+## Important
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+:::
+
+## Warning
+
+::: callout-warning
+## Warning
+
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+:::
+
+
+# Output 
+
+
+
+```{r, warning=FALSE}
+library(gtsummary)
+# make dataset with a few variables to summarize
+trial2 <- trial %>% select(age, grade, response, trt)
+
+# summarize the data with our package
+table1 <- tbl_summary(trial2)
+table1
+```
+
+```{r, warning=FALSE}
+library(survival)
+coxph(Surv(ttdeath, death) ~ trt + grade + age, trial)
+```
+
+
+
+
+# Graph
+
+
+
+
+
+```{r, warning=FALSE}
+library(ggplot2)
+library(ggridges)
+
+ggplot(lincoln_weather, aes(x = `Mean Temperature [F]`, y = Month, fill = stat(x))) +
+    geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
+    scale_fill_viridis_c(name = "Temp. [F]", option = "C") +
+    labs(title = 'Temperatures in Lincoln NE in 2016')
+```
+

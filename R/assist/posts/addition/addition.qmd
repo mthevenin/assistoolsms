@@ -1,5 +1,5 @@
 ---
-title: "Test Quarto"
+title: "Test Quarto [A supprimer]"
 subtitle:   Difficulté  {{< fa pepper-hot >}} {{< fa pepper-hot >}} {{< fa pepper-hot >}}
 
 categories:
