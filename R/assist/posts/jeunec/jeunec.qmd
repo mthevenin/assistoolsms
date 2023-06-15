@@ -1,5 +1,5 @@
 ---
-title: "Shiny: jeunes chercheurs"
+title: "Shiny: jeunes chercheurs [A supprimer]" 
 author: "Arno Muller"
 categories:
   - Shiny

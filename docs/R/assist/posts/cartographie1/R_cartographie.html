@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="COTTET Coralie">
+
+<title>SMS_site - Comment réaliser une carte sur R?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script src="../../../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="../../../../site_libs/jquery-1.12.4/jquery.min.js"></script>
+<link href="../../../../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="../../../../site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="../../../../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="../../../../site_libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="../../../../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="../../../../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="../../../../site_libs/leaflet-binding-2.1.2/leaflet.js"></script>
+<script src="../../../../site_libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="../../../../site_libs/leaflet-providers-plugin-2.1.2/leaflet-providers-plugin.js"></script>
+<link href="../../../../site_libs/HomeButton-0.0.1/home-button.css" rel="stylesheet">
+<script src="../../../../site_libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="../../../../site_libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="../../../../site_libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="../../../../site_libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet">
+<link href="../../../../site_libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../sms.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../img/coding2.png" alt="Logo Sms" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-base-dassistances" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Base d’assistances</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-base-dassistances">    
+        <li>
+    <a class="dropdown-item" href="../../../../R/index.html" rel="" target="">
+ <span class="dropdown-text">R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../MDQ/index.html" rel="" target="">
+ <span class="dropdown-text">Autres</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../seminaire/seminaire.html" rel="" target="">
+ <span class="menu-text">Séminaires</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-autres-supports" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Autres Supports</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-autres-supports">    
+        <li>
+    <a class="dropdown-item" href="https://mthevenin.github.io/stata_fr/index.html" rel="" target="">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://benegarbi.github.io/AtelierQO_R/" rel="" target="">
+ <span class="dropdown-text">Analyse textuelle</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Comment réaliser une carte sur R?</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">COTTET Coralie </p>
+    </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">6 juin 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Nous allons vous présenter trois packages un peu différent pour obtenir des cartes : <strong>sf</strong> , <strong>mapview</strong> et <strong>oceanis</strong>. Il faut donc au préalable installer ces deux packages. install.packages(“sf”) install.packages(“mapview”) install.packages(“oceanis”) install.packages(“stringr”) # qui sera utiliser pour traiter les données.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.11.2, GDAL 3.6.2, PROJ 9.2.0; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(<span class="st">"mapview"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The legacy packages maptools, rgdal, and rgeos, underpinning this package
+will retire shortly. Please refer to R-spatial evolution reports on
+https://r-spatial.org/r/2023/05/15/evolution4.html for details.
+This package is now running under evolution status 0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(<span class="st">"oceanis"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : shiny</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : shinyBS</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(<span class="st">"stringr"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dans un premier temps nous allons travailler avc <strong>mapview</strong>. <strong>Mapview</strong> est une bibliothèque R qui permet d’afficher des données géospatiales interactives et de les explorer facilement. Elle offre une interface graphique conviviale qui permet de zoomer, de déplacer et de sélectionner des données géospatiales à l’aide de la souris.</p>
+<p><em>Nous décidons de travailler sur Paris tout au long de ce tuto.</em></p>
+<ol type="1">
+<li>On télécharge les données des arrondissements de Paris à partir du site opendata.paris.fr et stocke les données dans l’objet arrondissements sous forme d’un objet de type sf.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Télécharger les données des arrondissements de Paris</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>arrondissements <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>On convertit l’objet en un dataframe pour pouvoir travailler dessus.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Convertir l'objet sf en un data.frame</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>arrondissements_df <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(arrondissements)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>On supprime les colonnes qui ne sont pas nécessaires pour la représentation spatiale.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Supprimer les colonnes qui ne sont pas nécessaires pour la représentation spatiale</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>cols_to_remove <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"datasetid"</span>, <span class="st">"recordid"</span>, <span class="st">"fields"</span>, <span class="st">"geometry_name"</span>, <span class="st">"type"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>arrondissements_df <span class="ot">&lt;-</span> arrondissements_df[, <span class="sc">!</span>(<span class="fu">names</span>(arrondissements_df) <span class="sc">%in%</span> cols_to_remove)]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>On convertit les colonnes de type list en caractère et la liste en dataframe/</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Convertir les colonnes de type list en caractère</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>arrondissements_df <span class="ot">&lt;-</span> <span class="fu">lapply</span>(arrondissements_df, <span class="cf">function</span>(x) <span class="cf">if</span> (<span class="fu">is.list</span>(x)) <span class="fu">as.character</span>(x) <span class="cf">else</span> x)</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># Convertir la liste en data.frame</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>arrondissements_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(arrondissements_df)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>On crée un exemple de données df composé de deux colonnes : ‘id’ et ‘coordinates’, où ‘coordinates’ contient les coordonnées de chaque arrondissement.</li>
+</ol>
+<p>Mes données sont sous la forme d’un vecteur c(a,b). Pour travailler plus simplement je travaille sur la colonne avec le vecteur en question pour créer deux colonnes latitude et longitude.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Exemple de données</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">coordinates =</span> arrondissements_df<span class="sc">$</span>geom_x_y)</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co"># Diviser la chaîne de caractères à la virgule et extraire la deuxième partie</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>coord_vec <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">strsplit</span>(df<span class="sc">$</span>coordinates, <span class="st">","</span>))</span>
+<span id="cb13-7"><a href="#cb13-7"></a>coord_vec[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"c"</span>, <span class="st">""</span>, coord_vec[<span class="dv">1</span>,]) <span class="co"># je supprime le c</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>coord_vec[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">('</span>, <span class="st">""</span>, coord_vec[<span class="dv">1</span>,]) <span class="co"># je supprime la parenthèse</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>coord_vec[<span class="dv">2</span>,] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">)'</span>, <span class="st">""</span>, coord_vec[<span class="dv">2</span>,])</span>
+<span id="cb13-10"><a href="#cb13-10"></a></span>
+<span id="cb13-11"><a href="#cb13-11"></a></span>
+<span id="cb13-12"><a href="#cb13-12"></a>coord_vec[<span class="dv">1</span>,]<span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(coord_vec[<span class="dv">1</span>,])</span>
+<span id="cb13-13"><a href="#cb13-13"></a></span>
+<span id="cb13-14"><a href="#cb13-14"></a>coord_vec[<span class="dv">2</span>,]<span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(coord_vec[<span class="dv">2</span>,])</span>
+<span id="cb13-15"><a href="#cb13-15"></a></span>
+<span id="cb13-16"><a href="#cb13-16"></a></span>
+<span id="cb13-17"><a href="#cb13-17"></a>coord_vec_tranposee<span class="ot">&lt;-</span><span class="fu">t</span>(coord_vec)</span>
+<span id="cb13-18"><a href="#cb13-18"></a></span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="co"># Afficher le résultat</span></span>
+<span id="cb13-20"><a href="#cb13-20"></a>arrondissements_df<span class="sc">$</span>lon<span class="ot">&lt;-</span>coord_vec_tranposee[,<span class="dv">1</span>]</span>
+<span id="cb13-21"><a href="#cb13-21"></a>arrondissements_df<span class="sc">$</span>lat<span class="ot">&lt;-</span>coord_vec_tranposee[,<span class="dv">2</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-resultd="hide">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Afficher les premières lignes du data.frame</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>arrondissements_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arrondissements_df, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lat"</span>,<span class="st">"lon"</span>), <span class="at">crs=</span><span class="dv">4326</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># Retour au format sf pour appliquer la fonction mapview()</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">mapview</span>(arrondissements_sf, <span class="at">zcol =</span> <span class="fu">c</span>(<span class="st">"c_ar"</span>,<span class="st">"l_aroff"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7e0113d894bd290f2dd2" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7e0113d894bd290f2dd2">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron","CartoDB.Positron","CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["CartoDB.DarkMatter","CartoDB.DarkMatter","CartoDB.DarkMatter",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldImagery","Esri.WorldImagery","Esri.WorldImagery",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenTopoMap","OpenTopoMap","OpenTopoMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"createMapPane","args":["point",440]},{"method":"addCircleMarkers","args":[[48.8873265220258,48.8543414262728,48.8634605788956,48.8590592213425,48.8561744287794,48.8761300365391,48.8771635173288,48.8727208374345,48.8400853759382,48.8283880317447,48.8292445004898,48.8603921054158,48.8444431505327,48.8870759965725,48.8625627018361,48.8628723800169,48.8682792225225,48.8925692680058,48.8491303585852,48.8349743814803],[2.30677699057441,2.35762962032499,2.40118812928468,2.3800583081979,2.31218769148201,2.36072848784745,2.33745754348254,2.31255402240206,2.292825822425,2.3622724404209,2.32654204419895,2.26197078836454,2.35071460957526,2.38482096015251,2.33644336205339,2.36000098589769,2.34280254689136,2.34816051956204,2.33289799905332,2.42132490078467],6,null,"c_ar",{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"pane":"point","stroke":true,"color":"#333333","weight":1,"opacity":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"fill":true,"fillColor":["#9CD948","#383B7A","#DFE22B","#00A193","#006B93","#009597","#008898","#007A96","#46CA6B","#00B884","#00C279","#76D25A","#214C85","#BFDE36","#491562","#383B7A","#432A6F","#9CD948","#005C8D","#00AD8D"],"fillOpacity":[0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6]},null,null,["<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>1&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>17&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>2&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 4&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>3&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>20&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>4&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>11&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>5&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 7&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>6&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>10&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>7&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 9&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>8&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 8&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>9&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>15&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>10&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>13&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>11&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>14&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>12&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>16&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>13&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 5&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>14&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>19&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>15&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 1&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>16&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 3&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>17&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 2&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>18&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>18&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>19&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td> 6&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>20&emsp;<\/td><\/tr><tr><td>1<\/td><th>c_ar&emsp;<\/th><td>12&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>"],{"maxWidth":800,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"closeOnClick":true,"className":""},["17","4","20","11","7","10","9","8","15","13","14","16","5","19","1","3","2","18","6","12"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addHomeButton","args":[2.26197078836454,48.8283880317447,2.42132490078467,48.8925692680058,true,"c_ar","Zoom to c_ar","<strong> c_ar <\/strong>","bottomright"]},{"method":"addLegend","args":[{"colors":["#4B0055 , #491562 5.26315789473684%, #383B7A 15.7894736842105%, #005C8D 26.3157894736842%, #007A96 36.8421052631579%, #009597 47.3684210526316%, #00AD8D 57.8947368421053%, #00C279 68.4210526315789%, #76D25A 78.9473684210526%, #BFDE36 89.4736842105263%, #FDE333 100%, #FDE333 "],"labels":["2","4","6","8","10","12","14","16","18","20"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"numeric","title":"c_ar","extra":{"p_1":0.05263157894736842,"p_n":1},"layerId":null,"className":"info legend","group":"c_ar"}]},{"method":"addCircleMarkers","args":[[48.8873265220258,48.8543414262728,48.8634605788956,48.8590592213425,48.8561744287794,48.8761300365391,48.8771635173288,48.8727208374345,48.8400853759382,48.8283880317447,48.8292445004898,48.8603921054158,48.8444431505327,48.8870759965725,48.8625627018361,48.8628723800169,48.8682792225225,48.8925692680058,48.8491303585852,48.8349743814803],[2.30677699057441,2.35762962032499,2.40118812928468,2.3800583081979,2.31218769148201,2.36072848784745,2.33745754348254,2.31255402240206,2.292825822425,2.3622724404209,2.32654204419895,2.26197078836454,2.35071460957526,2.38482096015251,2.33644336205339,2.36000098589769,2.34280254689136,2.34816051956204,2.33289799905332,2.42132490078467],6,null,"l_aroff",{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"pane":"point","stroke":true,"color":"#333333","weight":1,"opacity":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"fill":true,"fillColor":["#491562","#007A96","#00A193","#9CD948","#00C279","#005C8D","#00B884","#214C85","#DFE22B","#006B93","#00AD8D","#76D25A","#46CA6B","#383B7A","#008898","#BFDE36","#432A6F","#383B7A","#009597","#9CD948"],"fillOpacity":[0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6]},null,null,["<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>1&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Batignolles-Monceau&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>2&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Hôtel-de-Ville&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>3&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Ménilmontant&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>4&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Popincourt&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>5&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Palais-Bourbon&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>6&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Entrepôt&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>7&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Opéra&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>8&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Élysée&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>9&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Vaugirard&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>10&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Gobelins&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>11&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Observatoire&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>12&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Passy&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>13&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Panthéon&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>14&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Buttes-Chaumont&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>15&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Louvre&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>16&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Temple&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>17&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Bourse&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>18&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Buttes-Montmartre&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>19&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Luxembourg&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>","<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>20&emsp;<\/td><\/tr><tr><td>1<\/td><th>l_aroff&emsp;<\/th><td>Reuilly&emsp;<\/td><\/tr><tr><td>2<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>"],{"maxWidth":800,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"closeOnClick":true,"className":""},["Batignolles-Monceau","Hôtel-de-Ville","Ménilmontant","Popincourt","Palais-Bourbon","Entrepôt","Opéra","Élysée","Vaugirard","Gobelins","Observatoire","Passy","Panthéon","Buttes-Chaumont","Louvre","Temple","Bourse","Buttes-Montmartre","Luxembourg","Reuilly"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addHomeButton","args":[2.26197078836454,48.8283880317447,2.42132490078467,48.8925692680058,true,"l_aroff","Zoom to l_aroff","<strong> l_aroff <\/strong>","bottomright"]},{"method":"addLayersControl","args":[["CartoDB.Positron","CartoDB.DarkMatter","OpenStreetMap","Esri.WorldImagery","OpenTopoMap"],["c_ar","l_aroff"],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]},{"method":"addLegend","args":[{"colors":["#491562","#44286E","#3B3878","#2A4782","#14558A","#016390","#017094","#017E97","#008A98","#009697","#00A093","#01AB8E","#01B586","#01BE7D","#32C672","#5DCD64","#83D455","#A4DA45","#C2DE35","#DFE22B"],"labels":["Batignolles-Monceau","Bourse","Buttes-Chaumont","Buttes-Montmartre","Élysée","Entrepôt","Gobelins","Hôtel-de-Ville","Louvre","Luxembourg","Ménilmontant","Observatoire","Opéra","Palais-Bourbon","Panthéon","Passy","Popincourt","Reuilly","Temple","Vaugirard"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"factor","title":"l_aroff","extra":null,"layerId":null,"className":"info legend","group":"l_aroff"}]},{"method":"addHomeButton","args":[2.26197078836454,48.8283880317447,2.42132490078467,48.8925692680058,true,null,"Zoom to full extent","<strong>Zoom full<\/strong>","bottomleft"]}],"limits":{"lat":[48.8283880317447,48.8925692680058],"lng":[2.26197078836454,2.42132490078467]},"fitBounds":[48.8283880317447,2.26197078836454,48.8925692680058,2.42132490078467,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+</div>
+</div>
+<p>Nous allons travailler avec le package <strong>Oceanis</strong>. Le package oceanis permet de réaliser des cartes d’analyses.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">library</span>(oceanis)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Création d’un groupe : Création d’un vecteur d’identifiants de maille pour chaque arrondissement, un vecteur de code de groupe et un vecteur de noms officiels d’arrondissements.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># création d'un Groupe</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># Créer un vecteur d'identifiants de maille pour chaque arrondissement</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>c_ar <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span>, <span class="st">"10"</span>, <span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>, <span class="st">"14"</span>, <span class="st">"15"</span>, <span class="st">"16"</span>, <span class="st">"17"</span>, <span class="st">"18"</span>, <span class="st">"19"</span>, <span class="st">"20"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co"># Créer un groupe </span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>code_groupe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>)</span>
+<span id="cb16-7"><a href="#cb16-7"></a></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co"># Créer un vecteur de noms officiels d'arrondissements avec les noms que vous avez fournis</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a>l_aroff <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Louvre"</span>, <span class="st">"Bourse"</span>, <span class="st">"Temple"</span>, <span class="st">"Hôtel-de-Ville"</span>, <span class="st">"Panthéon"</span>, <span class="st">"Luxembourg"</span>, <span class="st">"Palais-Bourbon"</span>, <span class="st">"Élysée"</span>, <span class="st">"Opéra"</span>, <span class="st">"Enclos-St-Laurent"</span>, <span class="st">"Popincourt"</span>, <span class="st">"Reuilly"</span>, <span class="st">"Gobelins"</span>, <span class="st">"Observatoire"</span>, <span class="st">"Vaugirard"</span>, <span class="st">"Passy"</span>, <span class="st">"Batignolles-Monceau"</span>, <span class="st">"Buttes-Montmartre"</span>, <span class="st">"Buttes-Chaumont"</span>, <span class="st">"Ménilmontant"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10"></a></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co"># Créer un data.frame contenant les trois vecteurs</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a>arrondissements_paris <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(c_ar, code_groupe, l_aroff)</span>
+<span id="cb16-13"><a href="#cb16-13"></a></span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="co"># Afficher le tableau de données</span></span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="fu">print</span>(arrondissements_paris)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Création d’un zonage à façon des arrondissements de Paris en utilisant la fonction zonage_a_facon() qui prend en entrée les données des arrondissements, le data.frame contenant les identifiants de maille et les codes de groupe, ainsi que les noms officiels d’arrondissements.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Créer le zonage à façon</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>ze13 <span class="ot">&lt;-</span> <span class="fu">zonage_a_facon</span>(arrondissements, arrondissements_paris, <span class="st">"c_ar"</span>, <span class="st">"code_groupe"</span>, <span class="st">"l_aroff"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Affichage de la carte avec les identifiants de maille colorés selon leur groupe. Ajout du nom de chaque arrondissement à son centre en créant un vecteur de noms d’arrondissements correspondant aux identifiants de chaque arrondissement. Affichage de la carte avec les noms d’arrondissements. Coloration d’un arrondissement spécifique (le 15e arrondissement) en rouge et les autres en gris, en sélectionnant le polygone correspondant à l’arrondissement 15 et en utilisant la fonction ifelse() pour colorier l’arrondissement 15 en rouge et les autres en gris. Affichage de la carte avec les noms d’arrondissements et l’arrondissement 15 coloré en rouge.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Créer un vecteur de noms d'arrondissements correspondant aux identifiants de chaque arrondissement</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>nom_arondissement <span class="ot">&lt;-</span> arrondissements_paris<span class="sc">$</span>l_aroff[<span class="fu">match</span>(ze13<span class="sc">$</span>CODE_TERR, arrondissements_paris<span class="sc">$</span>code_groupe)]</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># Ajouter le nom de chaque arrondissement à son centre</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>ze13<span class="sc">$</span>nom_arondissement <span class="ot">&lt;-</span> nom_arondissement</span>
+<span id="cb18-6"><a href="#cb18-6"></a></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="co"># Afficher la carte avec les noms d'arrondissements</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="co"># On va colorier l'arrondissment Vaugirard</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="co"># Sélectionner le polygone correspondant à l'arrondissement 15</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a>arrondissement_15 <span class="ot">&lt;-</span> ze13[ze13<span class="sc">$</span>CODE_TERR <span class="sc">==</span> <span class="dv">15</span>, ]</span>
+<span id="cb18-13"><a href="#cb18-13"></a></span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="co"># Afficher la carte avec l'arrondissement 5 en rouge et les autres en gris</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a><span class="fu">plot</span>(sf<span class="sc">::</span><span class="fu">st_geometry</span>(ze13), <span class="at">col =</span> <span class="fu">ifelse</span>(ze13<span class="sc">$</span>CODE_TERR <span class="sc">==</span> <span class="dv">15</span>, <span class="st">"red"</span>, <span class="st">"grey"</span>), <span class="at">border =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="fu">text</span>(sf<span class="sc">::</span><span class="fu">st_coordinates</span>(<span class="fu">st_centroid</span>(ze13)), <span class="at">labels =</span> ze13<span class="sc">$</span>nom_arondissement, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: st_centroid assumes attributes are constant over geometries</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">title</span>(<span class="st">"Zonage à façon des arrondissements de Paris"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="R_cartographie_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>On va maintenant essayer de coloriser les arrondissement en fonction de la population. Dans un premier temps on créer une variable population</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>ze13<span class="sc">$</span>pop<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">100196</span>, <span class="dv">95487</span>, <span class="dv">146699</span>, <span class="dv">136591</span>, <span class="dv">58850</span>, <span class="dv">140849</span>, <span class="dv">142462</span>, <span class="dv">118238</span>, <span class="dv">166860</span>, <span class="dv">163445</span>, <span class="dv">139992</span>, <span class="dv">102163</span>, <span class="dv">183399</span>, <span class="dv">169214</span>, <span class="dv">165494</span>, <span class="dv">149500</span>, <span class="dv">144657</span>, <span class="dv">104287</span>, <span class="dv">142005</span>, <span class="dv">100831</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Je fais le choix d’avoir un dégradé de couleur bleu, voici la commande pour l’obtenir:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">library</span>(grDevices)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>mycolors <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"lightblue"</span>, <span class="st">"darkblue"</span>))(<span class="dv">20</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Puis je réalise mon plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># On construit le graphique</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">plot</span>(sf<span class="sc">::</span><span class="fu">st_geometry</span>(ze13), <span class="at">col =</span> mycolors[<span class="fu">cut</span>(ze13<span class="sc">$</span>pop, <span class="at">breaks =</span> ze13<span class="sc">$</span>pop)], <span class="at">border =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="fu">text</span>(sf<span class="sc">::</span><span class="fu">st_coordinates</span>(<span class="fu">st_centroid</span>(ze13)), <span class="at">labels =</span> ze13<span class="sc">$</span>nom_arondissement, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"white"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: st_centroid assumes attributes are constant over geometries</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Ajouter une légende</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, </span>
+<span id="cb25-3"><a href="#cb25-3"></a>       <span class="at">title =</span> <span class="st">"Population"</span>, </span>
+<span id="cb25-4"><a href="#cb25-4"></a>       <span class="at">legend =</span> ze13<span class="sc">$</span>nom_arondissement, </span>
+<span id="cb25-5"><a href="#cb25-5"></a>       <span class="at">fill =</span> mycolors[<span class="fu">cut</span>(ze13<span class="sc">$</span>pop, <span class="at">breaks =</span> ze13<span class="sc">$</span>pop)], </span>
+<span id="cb25-6"><a href="#cb25-6"></a>       <span class="at">border =</span> <span class="st">"black"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7"></a>       <span class="at">box.lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb25-8"><a href="#cb25-8"></a>       <span class="at">cex=</span><span class="fl">0.5</span>) <span class="co">#réduire la taille de la légende</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="fu">title</span>(<span class="st">"Zonage à façon des arrondissements de Paris"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="R_cartographie_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Pour les plus aguerries.es on peut utiliser ggplot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">library</span>(viridis)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Le chargement a nécessité le package : viridisLite</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">library</span>(grDevices)</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="co"># Convertir l'objet sf en un objet ggplot2</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>ggplot_data <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb28-5"><a href="#cb28-5"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> ze13, <span class="fu">aes</span>(<span class="at">fill =</span> pop, <span class="at">color =</span> <span class="cn">NULL</span>)) <span class="sc">+</span> </span>
+<span id="cb28-6"><a href="#cb28-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Zonage à façon des arrondissements de Paris"</span>) <span class="sc">+</span> </span>
+<span id="cb28-7"><a href="#cb28-7"></a>  <span class="fu">scale_color_viridis</span>(<span class="at">option =</span> <span class="st">"D"</span>)</span>
+<span id="cb28-8"><a href="#cb28-8"></a></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="co"># Afficher la carte avec les noms des arrondissements</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a>ggplot_data</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="R_cartographie_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+<!-- -->
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb29" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1"></a><span class="co">---</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="an">title:</span><span class="co"> "Comment réaliser une carte sur R?"</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="an">toc-title:</span><span class="co"> ""</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="an">categories:</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="co">  - R</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a><span class="an">author:</span><span class="co"> "COTTET Coralie"</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="an">affiliations:</span><span class="co"> INED</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a></span>
+<span id="cb29-9"><a href="#cb29-9"></a><span class="an">date:</span><span class="co"> 06/06/2023</span></span>
+<span id="cb29-10"><a href="#cb29-10"></a></span>
+<span id="cb29-11"><a href="#cb29-11"></a><span class="an">css:</span><span class="co"> "style.css"</span></span>
+<span id="cb29-12"><a href="#cb29-12"></a><span class="co">---</span></span>
+<span id="cb29-13"><a href="#cb29-13"></a>Nous allons vous présenter trois packages un peu différent pour obtenir des cartes : __sf__ , __mapview__ et __oceanis__. Il faut donc au préalable installer ces deux packages. </span>
+<span id="cb29-14"><a href="#cb29-14"></a>install.packages("sf")</span>
+<span id="cb29-15"><a href="#cb29-15"></a>install.packages("mapview")</span>
+<span id="cb29-16"><a href="#cb29-16"></a>install.packages("oceanis")</span>
+<span id="cb29-17"><a href="#cb29-17"></a>install.packages("stringr") # qui sera utiliser pour traiter les données. </span>
+<span id="cb29-18"><a href="#cb29-18"></a></span>
+<span id="cb29-19"><a href="#cb29-19"></a></span>
+<span id="cb29-20"><a href="#cb29-20"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-21"><a href="#cb29-21"></a><span class="fu">library</span>(<span class="st">"sf"</span>)</span>
+<span id="cb29-22"><a href="#cb29-22"></a><span class="fu">library</span>(<span class="st">"mapview"</span>)</span>
+<span id="cb29-23"><a href="#cb29-23"></a><span class="fu">library</span>(<span class="st">"oceanis"</span>)</span>
+<span id="cb29-24"><a href="#cb29-24"></a><span class="fu">library</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb29-25"><a href="#cb29-25"></a><span class="in">```</span></span>
+<span id="cb29-26"><a href="#cb29-26"></a></span>
+<span id="cb29-27"><a href="#cb29-27"></a>Dans un premier temps nous allons travailler avc __mapview__. __Mapview__ est une bibliothèque R qui permet d'afficher des données géospatiales interactives et de les explorer facilement. Elle offre une interface graphique conviviale qui permet de zoomer, de déplacer et de sélectionner des données géospatiales à l'aide de la souris. </span>
+<span id="cb29-28"><a href="#cb29-28"></a></span>
+<span id="cb29-29"><a href="#cb29-29"></a>_Nous décidons de travailler sur Paris tout au long de ce tuto._</span>
+<span id="cb29-30"><a href="#cb29-30"></a></span>
+<span id="cb29-31"><a href="#cb29-31"></a><span class="ss">1. </span>On télécharge les données des arrondissements de Paris à partir du site opendata.paris.fr et stocke les données dans l'objet arrondissements sous forme d'un objet de type sf.</span>
+<span id="cb29-32"><a href="#cb29-32"></a></span>
+<span id="cb29-33"><a href="#cb29-33"></a><span class="in">```{r results = 'hide'}</span></span>
+<span id="cb29-34"><a href="#cb29-34"></a><span class="co"># Télécharger les données des arrondissements de Paris</span></span>
+<span id="cb29-35"><a href="#cb29-35"></a>arrondissements <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr"</span>)</span>
+<span id="cb29-36"><a href="#cb29-36"></a><span class="in">```</span></span>
+<span id="cb29-37"><a href="#cb29-37"></a><span class="ss">2. </span>On convertit l'objet en un dataframe pour pouvoir travailler dessus. </span>
+<span id="cb29-38"><a href="#cb29-38"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-39"><a href="#cb29-39"></a></span>
+<span id="cb29-40"><a href="#cb29-40"></a><span class="co"># Convertir l'objet sf en un data.frame</span></span>
+<span id="cb29-41"><a href="#cb29-41"></a>arrondissements_df <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(arrondissements)</span>
+<span id="cb29-42"><a href="#cb29-42"></a></span>
+<span id="cb29-43"><a href="#cb29-43"></a><span class="in">```</span></span>
+<span id="cb29-44"><a href="#cb29-44"></a><span class="ss">3. </span>On supprime les colonnes qui ne sont pas nécessaires pour la représentation spatiale.</span>
+<span id="cb29-45"><a href="#cb29-45"></a><span class="in">```{r results ='hide'}</span></span>
+<span id="cb29-46"><a href="#cb29-46"></a></span>
+<span id="cb29-47"><a href="#cb29-47"></a><span class="co"># Supprimer les colonnes qui ne sont pas nécessaires pour la représentation spatiale</span></span>
+<span id="cb29-48"><a href="#cb29-48"></a>cols_to_remove <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"datasetid"</span>, <span class="st">"recordid"</span>, <span class="st">"fields"</span>, <span class="st">"geometry_name"</span>, <span class="st">"type"</span>)</span>
+<span id="cb29-49"><a href="#cb29-49"></a>arrondissements_df <span class="ot">&lt;-</span> arrondissements_df[, <span class="sc">!</span>(<span class="fu">names</span>(arrondissements_df) <span class="sc">%in%</span> cols_to_remove)]</span>
+<span id="cb29-50"><a href="#cb29-50"></a><span class="in">```</span></span>
+<span id="cb29-51"><a href="#cb29-51"></a><span class="ss">4. </span>On convertit les colonnes de type list en caractère et la liste en dataframe/</span>
+<span id="cb29-52"><a href="#cb29-52"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-53"><a href="#cb29-53"></a></span>
+<span id="cb29-54"><a href="#cb29-54"></a></span>
+<span id="cb29-55"><a href="#cb29-55"></a><span class="co"># Convertir les colonnes de type list en caractère</span></span>
+<span id="cb29-56"><a href="#cb29-56"></a>arrondissements_df <span class="ot">&lt;-</span> <span class="fu">lapply</span>(arrondissements_df, <span class="cf">function</span>(x) <span class="cf">if</span> (<span class="fu">is.list</span>(x)) <span class="fu">as.character</span>(x) <span class="cf">else</span> x)</span>
+<span id="cb29-57"><a href="#cb29-57"></a></span>
+<span id="cb29-58"><a href="#cb29-58"></a><span class="co"># Convertir la liste en data.frame</span></span>
+<span id="cb29-59"><a href="#cb29-59"></a>arrondissements_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(arrondissements_df)</span>
+<span id="cb29-60"><a href="#cb29-60"></a></span>
+<span id="cb29-61"><a href="#cb29-61"></a><span class="in">```</span></span>
+<span id="cb29-62"><a href="#cb29-62"></a><span class="ss">5. </span>On crée un exemple de données df composé de deux colonnes : 'id' et 'coordinates', où 'coordinates' contient les coordonnées de chaque arrondissement.</span>
+<span id="cb29-63"><a href="#cb29-63"></a></span>
+<span id="cb29-64"><a href="#cb29-64"></a>Mes données sont sous la forme d'un vecteur c(a,b). Pour travailler plus simplement je travaille sur la colonne avec le vecteur en question pour créer deux colonnes latitude et longitude.</span>
+<span id="cb29-65"><a href="#cb29-65"></a></span>
+<span id="cb29-66"><a href="#cb29-66"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-67"><a href="#cb29-67"></a></span>
+<span id="cb29-68"><a href="#cb29-68"></a></span>
+<span id="cb29-69"><a href="#cb29-69"></a><span class="co"># Exemple de données</span></span>
+<span id="cb29-70"><a href="#cb29-70"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">coordinates =</span> arrondissements_df<span class="sc">$</span>geom_x_y)</span>
+<span id="cb29-71"><a href="#cb29-71"></a></span>
+<span id="cb29-72"><a href="#cb29-72"></a></span>
+<span id="cb29-73"><a href="#cb29-73"></a><span class="co"># Diviser la chaîne de caractères à la virgule et extraire la deuxième partie</span></span>
+<span id="cb29-74"><a href="#cb29-74"></a>coord_vec <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">strsplit</span>(df<span class="sc">$</span>coordinates, <span class="st">","</span>))</span>
+<span id="cb29-75"><a href="#cb29-75"></a>coord_vec[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"c"</span>, <span class="st">""</span>, coord_vec[<span class="dv">1</span>,]) <span class="co"># je supprime le c</span></span>
+<span id="cb29-76"><a href="#cb29-76"></a>coord_vec[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">('</span>, <span class="st">""</span>, coord_vec[<span class="dv">1</span>,]) <span class="co"># je supprime la parenthèse</span></span>
+<span id="cb29-77"><a href="#cb29-77"></a>coord_vec[<span class="dv">2</span>,] <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">)'</span>, <span class="st">""</span>, coord_vec[<span class="dv">2</span>,])</span>
+<span id="cb29-78"><a href="#cb29-78"></a></span>
+<span id="cb29-79"><a href="#cb29-79"></a></span>
+<span id="cb29-80"><a href="#cb29-80"></a>coord_vec[<span class="dv">1</span>,]<span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(coord_vec[<span class="dv">1</span>,])</span>
+<span id="cb29-81"><a href="#cb29-81"></a></span>
+<span id="cb29-82"><a href="#cb29-82"></a>coord_vec[<span class="dv">2</span>,]<span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(coord_vec[<span class="dv">2</span>,])</span>
+<span id="cb29-83"><a href="#cb29-83"></a></span>
+<span id="cb29-84"><a href="#cb29-84"></a></span>
+<span id="cb29-85"><a href="#cb29-85"></a>coord_vec_tranposee<span class="ot">&lt;-</span><span class="fu">t</span>(coord_vec)</span>
+<span id="cb29-86"><a href="#cb29-86"></a></span>
+<span id="cb29-87"><a href="#cb29-87"></a><span class="co"># Afficher le résultat</span></span>
+<span id="cb29-88"><a href="#cb29-88"></a>arrondissements_df<span class="sc">$</span>lon<span class="ot">&lt;-</span>coord_vec_tranposee[,<span class="dv">1</span>]</span>
+<span id="cb29-89"><a href="#cb29-89"></a>arrondissements_df<span class="sc">$</span>lat<span class="ot">&lt;-</span>coord_vec_tranposee[,<span class="dv">2</span>]</span>
+<span id="cb29-90"><a href="#cb29-90"></a><span class="in">```</span></span>
+<span id="cb29-91"><a href="#cb29-91"></a></span>
+<span id="cb29-92"><a href="#cb29-92"></a><span class="in">```{r resultd='hide'}</span></span>
+<span id="cb29-93"><a href="#cb29-93"></a></span>
+<span id="cb29-94"><a href="#cb29-94"></a></span>
+<span id="cb29-95"><a href="#cb29-95"></a><span class="co"># Afficher les premières lignes du data.frame</span></span>
+<span id="cb29-96"><a href="#cb29-96"></a>arrondissements_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(arrondissements_df, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lat"</span>,<span class="st">"lon"</span>), <span class="at">crs=</span><span class="dv">4326</span>)</span>
+<span id="cb29-97"><a href="#cb29-97"></a><span class="co"># Retour au format sf pour appliquer la fonction mapview()</span></span>
+<span id="cb29-98"><a href="#cb29-98"></a><span class="fu">mapview</span>(arrondissements_sf, <span class="at">zcol =</span> <span class="fu">c</span>(<span class="st">"c_ar"</span>,<span class="st">"l_aroff"</span>))</span>
+<span id="cb29-99"><a href="#cb29-99"></a></span>
+<span id="cb29-100"><a href="#cb29-100"></a><span class="in">```</span></span>
+<span id="cb29-101"><a href="#cb29-101"></a>Nous allons travailler avec le package __Oceanis__. Le package oceanis permet de réaliser des cartes d'analyses.</span>
+<span id="cb29-102"><a href="#cb29-102"></a></span>
+<span id="cb29-105"><a href="#cb29-105"></a><span class="in">```{r}</span></span>
+<span id="cb29-106"><a href="#cb29-106"></a><span class="fu">library</span>(oceanis)</span>
+<span id="cb29-107"><a href="#cb29-107"></a><span class="in">```</span></span>
+<span id="cb29-108"><a href="#cb29-108"></a><span class="ss">1. </span>Création d'un groupe : Création d'un vecteur d'identifiants de maille pour chaque arrondissement, un vecteur de code de groupe et un vecteur de noms officiels d'arrondissements.</span>
+<span id="cb29-109"><a href="#cb29-109"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-110"><a href="#cb29-110"></a><span class="co"># création d'un Groupe</span></span>
+<span id="cb29-111"><a href="#cb29-111"></a></span>
+<span id="cb29-112"><a href="#cb29-112"></a><span class="co"># Créer un vecteur d'identifiants de maille pour chaque arrondissement</span></span>
+<span id="cb29-113"><a href="#cb29-113"></a>c_ar <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>, <span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span>, <span class="st">"10"</span>, <span class="st">"11"</span>, <span class="st">"12"</span>, <span class="st">"13"</span>, <span class="st">"14"</span>, <span class="st">"15"</span>, <span class="st">"16"</span>, <span class="st">"17"</span>, <span class="st">"18"</span>, <span class="st">"19"</span>, <span class="st">"20"</span>)</span>
+<span id="cb29-114"><a href="#cb29-114"></a><span class="co"># Créer un groupe </span></span>
+<span id="cb29-115"><a href="#cb29-115"></a>code_groupe <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>)</span>
+<span id="cb29-116"><a href="#cb29-116"></a></span>
+<span id="cb29-117"><a href="#cb29-117"></a><span class="co"># Créer un vecteur de noms officiels d'arrondissements avec les noms que vous avez fournis</span></span>
+<span id="cb29-118"><a href="#cb29-118"></a>l_aroff <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Louvre"</span>, <span class="st">"Bourse"</span>, <span class="st">"Temple"</span>, <span class="st">"Hôtel-de-Ville"</span>, <span class="st">"Panthéon"</span>, <span class="st">"Luxembourg"</span>, <span class="st">"Palais-Bourbon"</span>, <span class="st">"Élysée"</span>, <span class="st">"Opéra"</span>, <span class="st">"Enclos-St-Laurent"</span>, <span class="st">"Popincourt"</span>, <span class="st">"Reuilly"</span>, <span class="st">"Gobelins"</span>, <span class="st">"Observatoire"</span>, <span class="st">"Vaugirard"</span>, <span class="st">"Passy"</span>, <span class="st">"Batignolles-Monceau"</span>, <span class="st">"Buttes-Montmartre"</span>, <span class="st">"Buttes-Chaumont"</span>, <span class="st">"Ménilmontant"</span>)</span>
+<span id="cb29-119"><a href="#cb29-119"></a></span>
+<span id="cb29-120"><a href="#cb29-120"></a><span class="co"># Créer un data.frame contenant les trois vecteurs</span></span>
+<span id="cb29-121"><a href="#cb29-121"></a>arrondissements_paris <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(c_ar, code_groupe, l_aroff)</span>
+<span id="cb29-122"><a href="#cb29-122"></a></span>
+<span id="cb29-123"><a href="#cb29-123"></a><span class="co"># Afficher le tableau de données</span></span>
+<span id="cb29-124"><a href="#cb29-124"></a><span class="fu">print</span>(arrondissements_paris)</span>
+<span id="cb29-125"><a href="#cb29-125"></a><span class="in">```</span></span>
+<span id="cb29-126"><a href="#cb29-126"></a><span class="ss">2. </span>Création d'un zonage à façon des arrondissements de Paris en utilisant la fonction zonage_a_facon() qui prend en entrée les données des arrondissements, le data.frame contenant les identifiants de maille et les codes de groupe, ainsi que les noms officiels d'arrondissements.</span>
+<span id="cb29-127"><a href="#cb29-127"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-128"><a href="#cb29-128"></a><span class="co"># Créer le zonage à façon</span></span>
+<span id="cb29-129"><a href="#cb29-129"></a>ze13 <span class="ot">&lt;-</span> <span class="fu">zonage_a_facon</span>(arrondissements, arrondissements_paris, <span class="st">"c_ar"</span>, <span class="st">"code_groupe"</span>, <span class="st">"l_aroff"</span>)</span>
+<span id="cb29-130"><a href="#cb29-130"></a><span class="in">```</span></span>
+<span id="cb29-131"><a href="#cb29-131"></a></span>
+<span id="cb29-132"><a href="#cb29-132"></a>3.</span>
+<span id="cb29-133"><a href="#cb29-133"></a>Affichage de la carte avec les identifiants de maille colorés selon leur groupe.</span>
+<span id="cb29-134"><a href="#cb29-134"></a>Ajout du nom de chaque arrondissement à son centre en créant un vecteur de noms d'arrondissements correspondant aux identifiants de chaque arrondissement.</span>
+<span id="cb29-135"><a href="#cb29-135"></a>Affichage de la carte avec les noms d'arrondissements.</span>
+<span id="cb29-136"><a href="#cb29-136"></a>Coloration d'un arrondissement spécifique (le 15e arrondissement) en rouge et les autres en gris, en sélectionnant le polygone correspondant à l'arrondissement 15 et en utilisant la fonction ifelse() pour colorier l'arrondissement 15 en rouge et les autres en gris.</span>
+<span id="cb29-137"><a href="#cb29-137"></a>Affichage de la carte avec les noms d'arrondissements et l'arrondissement 15 coloré en rouge.</span>
+<span id="cb29-138"><a href="#cb29-138"></a></span>
+<span id="cb29-139"><a href="#cb29-139"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-140"><a href="#cb29-140"></a><span class="co"># Créer un vecteur de noms d'arrondissements correspondant aux identifiants de chaque arrondissement</span></span>
+<span id="cb29-141"><a href="#cb29-141"></a>nom_arondissement <span class="ot">&lt;-</span> arrondissements_paris<span class="sc">$</span>l_aroff[<span class="fu">match</span>(ze13<span class="sc">$</span>CODE_TERR, arrondissements_paris<span class="sc">$</span>code_groupe)]</span>
+<span id="cb29-142"><a href="#cb29-142"></a></span>
+<span id="cb29-143"><a href="#cb29-143"></a><span class="co"># Ajouter le nom de chaque arrondissement à son centre</span></span>
+<span id="cb29-144"><a href="#cb29-144"></a>ze13<span class="sc">$</span>nom_arondissement <span class="ot">&lt;-</span> nom_arondissement</span>
+<span id="cb29-145"><a href="#cb29-145"></a></span>
+<span id="cb29-146"><a href="#cb29-146"></a><span class="co"># Afficher la carte avec les noms d'arrondissements</span></span>
+<span id="cb29-147"><a href="#cb29-147"></a></span>
+<span id="cb29-148"><a href="#cb29-148"></a><span class="co"># On va colorier l'arrondissment Vaugirard</span></span>
+<span id="cb29-149"><a href="#cb29-149"></a></span>
+<span id="cb29-150"><a href="#cb29-150"></a><span class="co"># Sélectionner le polygone correspondant à l'arrondissement 15</span></span>
+<span id="cb29-151"><a href="#cb29-151"></a>arrondissement_15 <span class="ot">&lt;-</span> ze13[ze13<span class="sc">$</span>CODE_TERR <span class="sc">==</span> <span class="dv">15</span>, ]</span>
+<span id="cb29-152"><a href="#cb29-152"></a></span>
+<span id="cb29-153"><a href="#cb29-153"></a><span class="co"># Afficher la carte avec l'arrondissement 5 en rouge et les autres en gris</span></span>
+<span id="cb29-154"><a href="#cb29-154"></a><span class="fu">plot</span>(sf<span class="sc">::</span><span class="fu">st_geometry</span>(ze13), <span class="at">col =</span> <span class="fu">ifelse</span>(ze13<span class="sc">$</span>CODE_TERR <span class="sc">==</span> <span class="dv">15</span>, <span class="st">"red"</span>, <span class="st">"grey"</span>), <span class="at">border =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb29-155"><a href="#cb29-155"></a><span class="fu">text</span>(sf<span class="sc">::</span><span class="fu">st_coordinates</span>(<span class="fu">st_centroid</span>(ze13)), <span class="at">labels =</span> ze13<span class="sc">$</span>nom_arondissement, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"black"</span>)</span>
+<span id="cb29-156"><a href="#cb29-156"></a><span class="fu">title</span>(<span class="st">"Zonage à façon des arrondissements de Paris"</span>)</span>
+<span id="cb29-157"><a href="#cb29-157"></a></span>
+<span id="cb29-158"><a href="#cb29-158"></a></span>
+<span id="cb29-159"><a href="#cb29-159"></a><span class="in">```</span></span>
+<span id="cb29-160"><a href="#cb29-160"></a>On va maintenant essayer de coloriser les arrondissement en fonction de la population.</span>
+<span id="cb29-161"><a href="#cb29-161"></a>Dans un premier temps on créer une variable population</span>
+<span id="cb29-162"><a href="#cb29-162"></a></span>
+<span id="cb29-163"><a href="#cb29-163"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-164"><a href="#cb29-164"></a></span>
+<span id="cb29-165"><a href="#cb29-165"></a>ze13<span class="sc">$</span>pop<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">100196</span>, <span class="dv">95487</span>, <span class="dv">146699</span>, <span class="dv">136591</span>, <span class="dv">58850</span>, <span class="dv">140849</span>, <span class="dv">142462</span>, <span class="dv">118238</span>, <span class="dv">166860</span>, <span class="dv">163445</span>, <span class="dv">139992</span>, <span class="dv">102163</span>, <span class="dv">183399</span>, <span class="dv">169214</span>, <span class="dv">165494</span>, <span class="dv">149500</span>, <span class="dv">144657</span>, <span class="dv">104287</span>, <span class="dv">142005</span>, <span class="dv">100831</span>)</span>
+<span id="cb29-166"><a href="#cb29-166"></a></span>
+<span id="cb29-167"><a href="#cb29-167"></a><span class="in">```</span></span>
+<span id="cb29-168"><a href="#cb29-168"></a></span>
+<span id="cb29-169"><a href="#cb29-169"></a>Je fais le choix d'avoir un dégradé de couleur bleu, voici la commande pour l'obtenir:</span>
+<span id="cb29-170"><a href="#cb29-170"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-171"><a href="#cb29-171"></a><span class="fu">library</span>(grDevices)</span>
+<span id="cb29-172"><a href="#cb29-172"></a>mycolors <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"lightblue"</span>, <span class="st">"darkblue"</span>))(<span class="dv">20</span>)</span>
+<span id="cb29-173"><a href="#cb29-173"></a><span class="in">```</span></span>
+<span id="cb29-174"><a href="#cb29-174"></a>Puis je réalise mon plot </span>
+<span id="cb29-175"><a href="#cb29-175"></a></span>
+<span id="cb29-176"><a href="#cb29-176"></a><span class="in">```{r results="hide"}</span></span>
+<span id="cb29-177"><a href="#cb29-177"></a><span class="co"># On construit le graphique</span></span>
+<span id="cb29-178"><a href="#cb29-178"></a><span class="fu">plot</span>(sf<span class="sc">::</span><span class="fu">st_geometry</span>(ze13), <span class="at">col =</span> mycolors[<span class="fu">cut</span>(ze13<span class="sc">$</span>pop, <span class="at">breaks =</span> ze13<span class="sc">$</span>pop)], <span class="at">border =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb29-179"><a href="#cb29-179"></a></span>
+<span id="cb29-180"><a href="#cb29-180"></a><span class="fu">text</span>(sf<span class="sc">::</span><span class="fu">st_coordinates</span>(<span class="fu">st_centroid</span>(ze13)), <span class="at">labels =</span> ze13<span class="sc">$</span>nom_arondissement, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"white"</span>)</span>
+<span id="cb29-181"><a href="#cb29-181"></a><span class="co"># Ajouter une légende</span></span>
+<span id="cb29-182"><a href="#cb29-182"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, </span>
+<span id="cb29-183"><a href="#cb29-183"></a>       <span class="at">title =</span> <span class="st">"Population"</span>, </span>
+<span id="cb29-184"><a href="#cb29-184"></a>       <span class="at">legend =</span> ze13<span class="sc">$</span>nom_arondissement, </span>
+<span id="cb29-185"><a href="#cb29-185"></a>       <span class="at">fill =</span> mycolors[<span class="fu">cut</span>(ze13<span class="sc">$</span>pop, <span class="at">breaks =</span> ze13<span class="sc">$</span>pop)], </span>
+<span id="cb29-186"><a href="#cb29-186"></a>       <span class="at">border =</span> <span class="st">"black"</span>,</span>
+<span id="cb29-187"><a href="#cb29-187"></a>       <span class="at">box.lwd =</span> <span class="dv">1</span>,</span>
+<span id="cb29-188"><a href="#cb29-188"></a>       <span class="at">cex=</span><span class="fl">0.5</span>) <span class="co">#réduire la taille de la légende</span></span>
+<span id="cb29-189"><a href="#cb29-189"></a><span class="fu">title</span>(<span class="st">"Zonage à façon des arrondissements de Paris"</span>)</span>
+<span id="cb29-190"><a href="#cb29-190"></a></span>
+<span id="cb29-191"><a href="#cb29-191"></a><span class="in">```</span></span>
+<span id="cb29-192"><a href="#cb29-192"></a></span>
+<span id="cb29-193"><a href="#cb29-193"></a>Pour les plus aguerries.es on peut utiliser ggplot </span>
+<span id="cb29-194"><a href="#cb29-194"></a></span>
+<span id="cb29-195"><a href="#cb29-195"></a><span class="in">```{r results='hide'}</span></span>
+<span id="cb29-196"><a href="#cb29-196"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb29-197"><a href="#cb29-197"></a><span class="fu">library</span>(grDevices)</span>
+<span id="cb29-198"><a href="#cb29-198"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb29-199"><a href="#cb29-199"></a><span class="co"># Convertir l'objet sf en un objet ggplot2</span></span>
+<span id="cb29-200"><a href="#cb29-200"></a>ggplot_data <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb29-201"><a href="#cb29-201"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> ze13, <span class="fu">aes</span>(<span class="at">fill =</span> pop, <span class="at">color =</span> <span class="cn">NULL</span>)) <span class="sc">+</span> </span>
+<span id="cb29-202"><a href="#cb29-202"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Zonage à façon des arrondissements de Paris"</span>) <span class="sc">+</span> </span>
+<span id="cb29-203"><a href="#cb29-203"></a>  <span class="fu">scale_color_viridis</span>(<span class="at">option =</span> <span class="st">"D"</span>)</span>
+<span id="cb29-204"><a href="#cb29-204"></a></span>
+<span id="cb29-205"><a href="#cb29-205"></a><span class="co"># Afficher la carte avec les noms des arrondissements</span></span>
+<span id="cb29-206"><a href="#cb29-206"></a>ggplot_data</span>
+<span id="cb29-207"><a href="#cb29-207"></a></span>
+<span id="cb29-208"><a href="#cb29-208"></a><span class="in">```</span></span>
+<span id="cb29-209"><a href="#cb29-209"></a></span>
+<span id="cb29-210"><a href="#cb29-210"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

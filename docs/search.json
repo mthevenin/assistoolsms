@@ -16,28 +16,28 @@
   {
     "objectID": "MDQ/assist/posts/nutshell/nutshell.html",
     "href": "MDQ/assist/posts/nutshell/nutshell.html",
-    "title": "Nutshell",
+    "title": "Nutshell [A supprimer]",
     "section": "",
     "text": "Note\n\n\n\nIntéressant pour affichage contenu externe, sinon avec une TOC, c’est bofbof. Peut-être ajouté une courte bulle à la toc, sans affichage dans le corps du document."
   },
   {
     "objectID": "MDQ/assist/posts/nutshell/nutshell.html#explication-dans-titre-section",
     "href": "MDQ/assist/posts/nutshell/nutshell.html#explication-dans-titre-section",
-    "title": "Nutshell",
+    "title": "Nutshell [A supprimer]",
     "section": ":Explication (dans titre section)",
     "text": ":Explication (dans titre section)\nhttps://github.com/schochastics/quarto-nutshell Nutshell is a tool to make “expandable explanations”, like this! This lets your readers learn only the details they need, just-in-time, always-in-context.\nUnlike links, Nutshell lets you include only the snippet you need, not the whole page. Plus, instead of being lost in a jungle of new tabs, your reader stays on one page, keeping their flow of reading. Even if you interrupt a sentence, Nutshell recaps the sentence afterwards, so your reader never loses context.\nYou can find more information on the nutshell webpage\n\n:link to wikipedia Posit"
   },
   {
     "objectID": "MDQ/assist/posts/nutshell/nutshell.html#x-invisible",
     "href": "MDQ/assist/posts/nutshell/nutshell.html#x-invisible",
-    "title": "Nutshell",
+    "title": "Nutshell [A supprimer]",
     "section": ":x invisible",
     "text": ":x invisible\nUse ## :x header to include an invisible section that can be linked to via nutshell\n\n[:link to invisible sections](#x-invisible)\n\n## :x invisible\n\nUse `## :x header` to include an invisible section that can be linked to via nutshell"
   },
   {
     "objectID": "MDQ/assist/posts/nutshell/nutshell.html#x-exemple",
     "href": "MDQ/assist/posts/nutshell/nutshell.html#x-exemple",
-    "title": "Nutshell",
+    "title": "Nutshell [A supprimer]",
     "section": ":x exemple",
     "text": ":x exemple\nBlablabla blabla."
   },
@@ -93,7 +93,7 @@
   {
     "objectID": "R/assist/posts/jeunec/jeunec.html",
     "href": "R/assist/posts/jeunec/jeunec.html",
-    "title": "Shiny: jeunes chercheurs",
+    "title": "Shiny: jeunes chercheurs [A supprimer]",
     "section": "",
     "text": "Interface Shiny développée dans le cadre du projet Apprentis Chercheur de l’Ined. Elle permet de faire des statistiques exploratoires simples univariées et bivariées, pour des variables catégorielles.\nhttps://github.com/arnomuller/statdesk"
   },
@@ -114,44 +114,44 @@
   {
     "objectID": "R/assist/posts/stata_R_comp/R_stata.html",
     "href": "R/assist/posts/stata_R_comp/R_stata.html",
-    "title": "Gtools",
+    "title": "Gtools [A supprimer]",
     "section": "",
     "text": "Page tirée du support Stata: il est juste là pour la forme, pour visualiser le rendu d’une fiche ou article, dont ajout d’une note de bas page . 1\nBenchmarks\nSources:"
   },
   {
     "objectID": "R/assist/posts/stata_R_comp/R_stata.html#footnotes",
     "href": "R/assist/posts/stata_R_comp/R_stata.html#footnotes",
-    "title": "Gtools",
+    "title": "Gtools [A supprimer]",
     "section": "Notes de bas de page",
     "text": "Notes de bas de page\n\n\nhttps://mthevenin.github.io/stata_programmation/speedup/gtools/gtools.html↩︎"
   },
   {
     "objectID": "R/assist/posts/test_list/test_list.html",
     "href": "R/assist/posts/test_list/test_list.html",
-    "title": "Test liste",
+    "title": "Test output droite [supprimer]",
     "section": "",
     "text": "Divers tests css de modif de la toc (couleurs, taille, épaisseur), élément dans la marge de droite (change le report du sommaire), modification des largeurs de la sidebar, du body et de la marge.\nModification des largeurs de la sidebar (gauche), du body (centre) et de la margin (droite):\nformat:\n  html: \n    grid:\n      sidebar-width: 50px\n      body-width: 1200px\n      margin-width: 500px\n      gutter-width: 2.5rem\nJ’ai inséré la modification du grid au _quarto.yml pour qu’elle s’applique à toutes les pages, on peut la remodifier pour une page particulière dans son yaml."
   },
   {
     "objectID": "R/assist/posts/test_list/test_list.html#tableau",
     "href": "R/assist/posts/test_list/test_list.html#tableau",
-    "title": "Test liste",
+    "title": "Test output droite [supprimer]",
     "section": "Tableau",
     "text": "Tableau\n\nknitr::kable(\n  mtcars[1:6, 1:3]\n)\n\n\n\n\n\n\nmpg\ncyl\ndisp\n\n\n\n\nMazda RX4\n21.0\n6\n160\n\n\nMazda RX4 Wag\n21.0\n6\n160\n\n\nDatsun 710\n22.8\n4\n108\n\n\nHornet 4 Drive\n21.4\n6\n258\n\n\nHornet Sportabout\n18.7\n8\n360\n\n\nValiant\n18.1\n6\n225"
   },
   {
     "objectID": "R/assist/posts/test_list/test_list.html#formule",
     "href": "R/assist/posts/test_list/test_list.html#formule",
-    "title": "Test liste",
+    "title": "Test output droite [supprimer]",
     "section": "Formule",
     "text": "Formule\n\n\nWe know from the first fundamental theorem of calculus that for \\(x\\) in \\([a, b]\\):\n\\[\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x).\\]"
   },
   {
     "objectID": "R/assist/posts/test_list/test_list.html#autres",
     "href": "R/assist/posts/test_list/test_list.html#autres",
-    "title": "Test liste",
+    "title": "Test output droite [supprimer]",
     "section": "Autres",
-    "text": "Autres\n\nGraphique\n\nlibrary(ggplot2)\n\nWarning: le package 'ggplot2' a été compilé avec la version R 4.2.3\n\nmtcars2 &lt;- mtcars\nmtcars2$am &lt;- factor(\n  mtcars$am, labels = c('automatic', 'manual')\n)\nggplot(mtcars2, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\") +\n  theme(legend.position = 'bottom')\n\n\n\n\n\nFigure 1: MPG vs horsepower, colored by transmission.\n\n\n\n\nExtension lightbox: visiblement ne fonctionne pas si l’image/graph est dans la marge.\n\n\n\nCallout\n\n\n\n\n\n\n\n\nAvertissement\n\n\n\nblablablabla\n\n\n\n\nNote et référence\nPour mettre une note dans la marge, il faut ajouter au yml citation-location: margin. 11 Quarto layout\nIdem pour les référence avec reference-location: margin"
+    "text": "Autres\n\nGraphique\n\nlibrary(ggplot2)\nmtcars2 &lt;- mtcars\nmtcars2$am &lt;- factor(\n  mtcars$am, labels = c('automatic', 'manual')\n)\nggplot(mtcars2, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\") +\n  theme(legend.position = 'bottom')\n\n\n\n\n\nFigure 1: MPG vs horsepower, colored by transmission.\n\n\n\n\nExtension lightbox: visiblement ne fonctionne pas si l’image/graph est dans la marge.\n\n\n\nCallout\n\n\n\n\n\n\n\n\nAvertissement\n\n\n\nblablablabla\n\n\n\n\nNote et référence\nPour mettre une note dans la marge, il faut ajouter au yml citation-location: margin. 11 Quarto layout\nIdem pour les référence avec reference-location: margin"
   },
   {
     "objectID": "seminaire/seminaire.html",
@@ -173,5 +173,12 @@
     "title": "SMS_site",
     "section": "Projet de support au 13 Juin 2023",
     "text": "Projet de support au 13 Juin 2023\nPremières fiches (VSCode / suppression fichier zarbi type nul / récupération du test ols GB).\nJ’ai repassé le projet en public car je ne pouvais pas déployer le support sans passer par la case dollars.\nAdresse provisoire: https://mthevenin.github.io/assistoolsms/ A retirer progressivement les fiches de test\n05 mai\nIl ne s’agit que d’un squelette de support. Merci de ne pas se référer au contenu qui n’a pour but que de tester l’aspect général du support ou des fonctionalités comme:\n[1] Mise à jour du contenu sous forme de vignette: un nouvel article est directement reporté dans la page d’index. J’ai encore des soucis sur l’ordre chronologique qui devrait être décroissant.\n[2] La modification des trois éléments/colonnes du grid.\n[3] J’ai utilisé deux couleurs de la charte graphique de l’Ined: son rouge et gris foncé.\n[4] La css est très largement modifiée, je suis parti de celle de ce site: https://realworlddatascience.net/"
+  },
+  {
+    "objectID": "R/assist/posts/cartographie1/R_cartographie.html",
+    "href": "R/assist/posts/cartographie1/R_cartographie.html",
+    "title": "Comment réaliser une carte sur R?",
+    "section": "",
+    "text": "Nous allons vous présenter trois packages un peu différent pour obtenir des cartes : sf , mapview et oceanis. Il faut donc au préalable installer ces deux packages. install.packages(“sf”) install.packages(“mapview”) install.packages(“oceanis”) install.packages(“stringr”) # qui sera utiliser pour traiter les données.\n\nlibrary(\"sf\")\n\nLinking to GEOS 3.11.2, GDAL 3.6.2, PROJ 9.2.0; sf_use_s2() is TRUE\n\nlibrary(\"mapview\")\n\nThe legacy packages maptools, rgdal, and rgeos, underpinning this package\nwill retire shortly. Please refer to R-spatial evolution reports on\nhttps://r-spatial.org/r/2023/05/15/evolution4.html for details.\nThis package is now running under evolution status 0 \n\nlibrary(\"oceanis\")\n\nLe chargement a nécessité le package : shiny\n\n\nLe chargement a nécessité le package : shinyBS\n\nlibrary(\"stringr\")\n\nDans un premier temps nous allons travailler avc mapview. Mapview est une bibliothèque R qui permet d’afficher des données géospatiales interactives et de les explorer facilement. Elle offre une interface graphique conviviale qui permet de zoomer, de déplacer et de sélectionner des données géospatiales à l’aide de la souris.\nNous décidons de travailler sur Paris tout au long de ce tuto.\n\nOn télécharge les données des arrondissements de Paris à partir du site opendata.paris.fr et stocke les données dans l’objet arrondissements sous forme d’un objet de type sf.\n\n\n# Télécharger les données des arrondissements de Paris\narrondissements &lt;- st_read(dsn = \"https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&timezone=Europe/Berlin&lang=fr\")\n\n\nOn convertit l’objet en un dataframe pour pouvoir travailler dessus.\n\n\n# Convertir l'objet sf en un data.frame\narrondissements_df &lt;- st_drop_geometry(arrondissements)\n\n\nOn supprime les colonnes qui ne sont pas nécessaires pour la représentation spatiale.\n\n\n# Supprimer les colonnes qui ne sont pas nécessaires pour la représentation spatiale\ncols_to_remove &lt;- c(\"datasetid\", \"recordid\", \"fields\", \"geometry_name\", \"type\")\narrondissements_df &lt;- arrondissements_df[, !(names(arrondissements_df) %in% cols_to_remove)]\n\n\nOn convertit les colonnes de type list en caractère et la liste en dataframe/\n\n\n# Convertir les colonnes de type list en caractère\narrondissements_df &lt;- lapply(arrondissements_df, function(x) if (is.list(x)) as.character(x) else x)\n\n# Convertir la liste en data.frame\narrondissements_df &lt;- as.data.frame(arrondissements_df)\n\n\nOn crée un exemple de données df composé de deux colonnes : ‘id’ et ‘coordinates’, où ‘coordinates’ contient les coordonnées de chaque arrondissement.\n\nMes données sont sous la forme d’un vecteur c(a,b). Pour travailler plus simplement je travaille sur la colonne avec le vecteur en question pour créer deux colonnes latitude et longitude.\n\n# Exemple de données\ndf &lt;- data.frame(id = c(1, 2), coordinates = arrondissements_df$geom_x_y)\n\n\n# Diviser la chaîne de caractères à la virgule et extraire la deuxième partie\ncoord_vec &lt;- as.data.frame(strsplit(df$coordinates, \",\"))\ncoord_vec[1,] &lt;- gsub(\"c\", \"\", coord_vec[1,]) # je supprime le c\ncoord_vec[1,] &lt;- gsub('\\\\(', \"\", coord_vec[1,]) # je supprime la parenthèse\ncoord_vec[2,] &lt;- gsub('\\\\)', \"\", coord_vec[2,])\n\n\ncoord_vec[1,]&lt;- as.numeric(coord_vec[1,])\n\ncoord_vec[2,]&lt;- as.numeric(coord_vec[2,])\n\n\ncoord_vec_tranposee&lt;-t(coord_vec)\n\n# Afficher le résultat\narrondissements_df$lon&lt;-coord_vec_tranposee[,1]\narrondissements_df$lat&lt;-coord_vec_tranposee[,2]\n\n\n# Afficher les premières lignes du data.frame\narrondissements_sf &lt;- st_as_sf(arrondissements_df, coords = c(\"lat\",\"lon\"), crs=4326)\n# Retour au format sf pour appliquer la fonction mapview()\nmapview(arrondissements_sf, zcol = c(\"c_ar\",\"l_aroff\"))\n\n\n\n\n\n\nNous allons travailler avec le package Oceanis. Le package oceanis permet de réaliser des cartes d’analyses.\n\nlibrary(oceanis)\n\n\nCréation d’un groupe : Création d’un vecteur d’identifiants de maille pour chaque arrondissement, un vecteur de code de groupe et un vecteur de noms officiels d’arrondissements.\n\n\n# création d'un Groupe\n\n# Créer un vecteur d'identifiants de maille pour chaque arrondissement\nc_ar &lt;- c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"11\", \"12\", \"13\", \"14\", \"15\", \"16\", \"17\", \"18\", \"19\", \"20\")\n# Créer un groupe \ncode_groupe &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)\n\n# Créer un vecteur de noms officiels d'arrondissements avec les noms que vous avez fournis\nl_aroff &lt;- c(\"Louvre\", \"Bourse\", \"Temple\", \"Hôtel-de-Ville\", \"Panthéon\", \"Luxembourg\", \"Palais-Bourbon\", \"Élysée\", \"Opéra\", \"Enclos-St-Laurent\", \"Popincourt\", \"Reuilly\", \"Gobelins\", \"Observatoire\", \"Vaugirard\", \"Passy\", \"Batignolles-Monceau\", \"Buttes-Montmartre\", \"Buttes-Chaumont\", \"Ménilmontant\")\n\n# Créer un data.frame contenant les trois vecteurs\narrondissements_paris &lt;- data.frame(c_ar, code_groupe, l_aroff)\n\n# Afficher le tableau de données\nprint(arrondissements_paris)\n\n\nCréation d’un zonage à façon des arrondissements de Paris en utilisant la fonction zonage_a_facon() qui prend en entrée les données des arrondissements, le data.frame contenant les identifiants de maille et les codes de groupe, ainsi que les noms officiels d’arrondissements.\n\n\n# Créer le zonage à façon\nze13 &lt;- zonage_a_facon(arrondissements, arrondissements_paris, \"c_ar\", \"code_groupe\", \"l_aroff\")\n\n\nAffichage de la carte avec les identifiants de maille colorés selon leur groupe. Ajout du nom de chaque arrondissement à son centre en créant un vecteur de noms d’arrondissements correspondant aux identifiants de chaque arrondissement. Affichage de la carte avec les noms d’arrondissements. Coloration d’un arrondissement spécifique (le 15e arrondissement) en rouge et les autres en gris, en sélectionnant le polygone correspondant à l’arrondissement 15 et en utilisant la fonction ifelse() pour colorier l’arrondissement 15 en rouge et les autres en gris. Affichage de la carte avec les noms d’arrondissements et l’arrondissement 15 coloré en rouge.\n\n\n# Créer un vecteur de noms d'arrondissements correspondant aux identifiants de chaque arrondissement\nnom_arondissement &lt;- arrondissements_paris$l_aroff[match(ze13$CODE_TERR, arrondissements_paris$code_groupe)]\n\n# Ajouter le nom de chaque arrondissement à son centre\nze13$nom_arondissement &lt;- nom_arondissement\n\n# Afficher la carte avec les noms d'arrondissements\n\n# On va colorier l'arrondissment Vaugirard\n\n# Sélectionner le polygone correspondant à l'arrondissement 15\narrondissement_15 &lt;- ze13[ze13$CODE_TERR == 15, ]\n\n# Afficher la carte avec l'arrondissement 5 en rouge et les autres en gris\nplot(sf::st_geometry(ze13), col = ifelse(ze13$CODE_TERR == 15, \"red\", \"grey\"), border = \"black\", lwd = 1.5)\ntext(sf::st_coordinates(st_centroid(ze13)), labels = ze13$nom_arondissement, cex = 0.8, col = \"black\")\n\nWarning: st_centroid assumes attributes are constant over geometries\n\ntitle(\"Zonage à façon des arrondissements de Paris\")\n\n\n\n\nOn va maintenant essayer de coloriser les arrondissement en fonction de la population. Dans un premier temps on créer une variable population\n\nze13$pop&lt;-c(100196, 95487, 146699, 136591, 58850, 140849, 142462, 118238, 166860, 163445, 139992, 102163, 183399, 169214, 165494, 149500, 144657, 104287, 142005, 100831)\n\nJe fais le choix d’avoir un dégradé de couleur bleu, voici la commande pour l’obtenir:\n\nlibrary(grDevices)\nmycolors &lt;- colorRampPalette(c(\"lightblue\", \"darkblue\"))(20)\n\nPuis je réalise mon plot\n\n# On construit le graphique\nplot(sf::st_geometry(ze13), col = mycolors[cut(ze13$pop, breaks = ze13$pop)], border = \"black\", lwd = 1.5)\n\ntext(sf::st_coordinates(st_centroid(ze13)), labels = ze13$nom_arondissement, cex = 0.8, col = \"white\")\n\nWarning: st_centroid assumes attributes are constant over geometries\n\n# Ajouter une légende\nlegend(\"topright\", \n       title = \"Population\", \n       legend = ze13$nom_arondissement, \n       fill = mycolors[cut(ze13$pop, breaks = ze13$pop)], \n       border = \"black\",\n       box.lwd = 1,\n       cex=0.5) #réduire la taille de la légende\ntitle(\"Zonage à façon des arrondissements de Paris\")\n\n\n\n\nPour les plus aguerries.es on peut utiliser ggplot\n\nlibrary(viridis)\n\nLe chargement a nécessité le package : viridisLite\n\nlibrary(grDevices)\nlibrary(ggplot2)\n# Convertir l'objet sf en un objet ggplot2\nggplot_data &lt;- ggplot() + \n  geom_sf(data = ze13, aes(fill = pop, color = NULL)) + \n  labs(title = \"Zonage à façon des arrondissements de Paris\") + \n  scale_color_viridis(option = \"D\")\n\n# Afficher la carte avec les noms des arrondissements\nggplot_data"
   }
 ]
