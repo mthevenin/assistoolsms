@@ -1,7 +1,6 @@
 ---
 title: "Commenter des lignes de codes"
 
-code-annotations: select
 
 # toc-title: ""
 # subtitle: ""
