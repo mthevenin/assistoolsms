@@ -16,8 +16,10 @@ website:
         menu: 
           - text: "R"
             href: R/index.qmd
+          - text: "Quarto"
+            href: Quarto/index.qmd
           - text: "Autres"
-            href: MDQ/index.qmd
+            href: Autres/index.qmd
       - text: "Séminaires"      
         href: seminaire/seminaire.qmd
       - text: "Autres Supports"

@@ -1,0 +1,14 @@
+{
+  "hash": "8114287365958031abac2e8562932d07",
+  "result": {
+    "markdown": "---\ntitle: \"Insertion d'une vidéo Youtube ou Viméo\"\n\n# toc-title: \"\"\n# subtitle: \"\"\n\ncategories:\n  - extension\n  \nauthor: \n  - name: \"Marc Thévenin\"\n    affiliations:\n      - name: \"Ined\"\n\ndate: 06/16/2023\n\nimage: \"https://upload.wikimedia.org/wikipedia/commons/f/f1/Vimeo_icon_block.png\"\n\nformat: \n  html: default\n#  docx: default\n#  pdf:  default\n\nfilters:\n   - lightbox\nlightbox: auto\n---\n\n\n::: callout-note\n\n## Liens\n\n- [Extension **social-embeds**](https://github.com/sellorm/quarto-social-embeds)\n- [Extensions Quarto disponibles](https://quarto.org/docs/extensions/) \n\n:::\n\n# Installation de l'extension\n\n\nDans le terminal exécuter:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nquarto install extension sellorm/quarto-social-embeds\n```\n:::\n\n\n# Insertion d'une vidéo Youtube\n\n- On ajoute l'identifiant de la vidéo dans le code  `{{< youtube id_vidéo >}}`.\n- Pour la vidéo dont la cible affichée dans la barre d'adresse est **watch?v=tlt0WGZz63Y**, l'identifiant est `tlt0WGZz63Y`\n\n\nPar exemple pour la Présentation du package **`R.témis`** par M.Bouchet-Valat et B.Garnier\n\n\n::: {.cell filename='Inserer directement ce code dans la page'}\n\n```{.r .cell-code}\n{{< youtube tlt0WGZz63Y >}}\n```\n:::\n\n{{< youtube tlt0WGZz63Y >}}\n\n\n\n\n\n# Insertion d'une vidéo Viméo\n\nMême principe, on ajoute l'identifiant de la vidéo qui est affiché dans la barre d'adresse.\n\n\n\n::: {.cell filename='Inserer directement ce code dans la page'}\n\n```{.r .cell-code}\n{{< vimeo 475084090 >}}\n```\n:::\n\n{{< vimeo 475084090 >}}\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

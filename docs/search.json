@@ -1,38 +1,10 @@
 [
   {
-    "objectID": "R/assist/posts/R_vscode/R_vscode_doc.html#première-ouverture-et-installation-des-extensions",
-    "href": "R/assist/posts/R_vscode/R_vscode_doc.html#première-ouverture-et-installation-des-extensions",
-    "title": "R avec VScode",
-    "section": "Première ouverture et installation des extensions",
-    "text": "Première ouverture et installation des extensions\n\n\n\n\n\nPremière ouverture\n\n\n\n \n\n\n\n\nExtensions R disponibles\n\n\n\n \n\n\n\n\nL’extension R\n\n\n\n\n\n\n\nL’extension Rtools"
-  },
-  {
-    "objectID": "R/assist/posts/R_vscode/R_vscode_doc.html#résolution-du-conflit-entre-r-et-rtools",
-    "href": "R/assist/posts/R_vscode/R_vscode_doc.html#résolution-du-conflit-entre-r-et-rtools",
-    "title": "R avec VScode",
-    "section": "Résolution du conflit entre R et Rtools",
-    "text": "Résolution du conflit entre R et Rtools\n\n\n\n\n\nRechercher r.execute in terminal\n\n\n\n \n\n\n\n\nSuppression du conflit\n\n\n\n \n\n\n\n\nExécution de R"
-  },
-  {
     "objectID": "index.html#projet-de-support-au-13-juin-2023",
     "href": "index.html#projet-de-support-au-13-juin-2023",
     "title": "SMS_site",
     "section": "Projet de support au 13 Juin 2023",
     "text": "Projet de support au 13 Juin 2023\nPremières fiches (VSCode / suppression fichier zarbi type nul / récupération du test ols GB).\nJ’ai repassé le projet en public car je ne pouvais pas déployer le support sans passer par la case dollars.\nAdresse provisoire: https://mthevenin.github.io/assistoolsms/ A retirer progressivement les fiches de test\n05 mai\nIl ne s’agit que d’un squelette de support. Merci de ne pas se référer au contenu qui n’a pour but que de tester l’aspect général du support ou des fonctionalités comme:\n[1] Mise à jour du contenu sous forme de vignette: un nouvel article est directement reporté dans la page d’index. J’ai encore des soucis sur l’ordre chronologique qui devrait être décroissant.\n[2] La modification des trois éléments/colonnes du grid.\n[3] J’ai utilisé deux couleurs de la charte graphique de l’Ined: son rouge et gris foncé.\n[4] La css est très largement modifiée, je suis parti de celle de ce site: https://realworlddatascience.net/"
-  },
-  {
-    "objectID": "R/assist/posts/coxzph/coxzph.html",
-    "href": "R/assist/posts/coxzph/coxzph.html",
-    "title": "Récupérer et exécuter le test OLS de Grambsch-Therneau",
-    "section": "",
-    "text": "Champ d’application\n\nModèle de Cox (analyse des durées)\n\nDiagnostic sur l’hypothèse de proportionalité des risques\n\nProblématique\n\nDepuis le passage à la version 3 du package survival en 2020, le test OLS sur les résidus de Schoenfeld a été supprimé et remplacé par le test GLS. Le second est la version originelle du test proposé en 1994 par P.Grambsch et T.Therneau.\nEn présence d’évènements simultanés (durée discrète), les résultats affichés par les deux versions peuvent fortement variés.\nLorsqu’on utilise le modèle de Cox avec des durées discrètes, situation très courante dans les sciences sociales, je préconise l’utilisation de la version dite simplifiée (OLS).\n\nLe modèle de Cox est une méthode à durée continue, les conditions de validité du test GLS ne sont établies avec des évènements mesurés simultanément.\nContrainte de reproductibilité: Stata, Sas, Python (lifelines, statsmodels)\n\n\nRécupération et exécution du test OLS\n\nJ’ai récupéré le script de la fonction dans les archives du CRAN. Elle a simplement été renommée cox.zphold().\nPour charger la fonction, il suffit d’appliquer source() qui joue le même rôle que library().\n\nDirectement sur le dépôt github:\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\n\nSi le script a été enregistré en local:\n\nsource(\"local_path/cox.zphold.R\")\n\n\n\nExemple\n\n\n\nRécupération des données\n\nlibrary(readr)\ntrans &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")\n\n\n\n\n\nEstimation d'un modèle de Cox\n\nlibrary(survival)\ncoxfit = coxph(formula = Surv(stime, died) ~ year + age + surgery, data = trans)\n\n\n\n\n\nRéupération et exécution du test OLS\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\ncox.zphold(coxfit)\n\n\n          rho chisq      p\nyear    0.159  1.96 0.1620\nage     0.109  1.15 0.2845\nsurgery 0.251  3.96 0.0465\nGLOBAL     NA  7.99 0.0462"
-  },
-  {
-    "objectID": "R/assist/posts/jeunec/jeunec.html",
-    "href": "R/assist/posts/jeunec/jeunec.html",
-    "title": "Shiny: jeunes chercheurs [A supprimer]",
-    "section": "",
-    "text": "Interface Shiny développée dans le cadre du projet Apprentis Chercheur de l’Ined. Elle permet de faire des statistiques exploratoires simples univariées et bivariées, pour des variables catégorielles.\nhttps://github.com/arnomuller/statdesk"
   },
   {
     "objectID": "R/assist/posts/stata_R_comp/R_stata.html",
@@ -89,5 +61,26 @@
     "title": "",
     "section": "Présentation",
     "text": "Présentation\nL’objectif de ce séminaire est d’échanger autour du logiciel de statistique libre, gratuit et multiplateforme R\nIl s’adresse aux praticiens impliqués dans le traitement quantitatif des données en sciences humaines et sociales (utilisateurs de données, chercheurs, ingénieurs ou étudiants) qu’ils aient ou non déjà utilisé le logiciel R.\nChaque séance est organisée autour de la présentation d’une expérience de traitement de données avec le logiciel (fonction spécifique et/ou packages). Le cadre de ces réunions est informel et les participants doivent se sentir libres d’intervenir afin de confronter leurs expériences.\nDans une démarche d’open science, l’ensemble des supports de communication utilisés lors des séminaires (présentations et ateliers) est mis à disposition sur le site web et les vidéos des présentations diffusées sur la chaîne Canal U de l’Ined.\nLe séminaire RUSS est organisé dans le cadre formel de l’offre d’enseignement de l’EHESS. Il s’agit d’un “séminaire de centre” qui n’est rattaché à aucune formation de Master. A ce titre, il n’est pas validable et ne donne droit à aucun crédit ECTS.\nCe séminaire est ouvert à tous, y compris aux étudiants en master, mais pour chacune des séances nous demandons une inscription pour des raisons pratiques concernant notamment la capacité des salles à notre disposition ou pour obtenir le lien de connexion, via le site de l’Ined.\n\nInformations séminaires"
+  },
+  {
+    "objectID": "Quarto/assist/posts/social_embeds.html",
+    "href": "Quarto/assist/posts/social_embeds.html",
+    "title": "Insertion d’une vidéo Youtube ou Viméo",
+    "section": "",
+    "text": "Liens\n\n\n\n\nExtension social-embeds\nExtensions Quarto disponibles\n\n\n\n\nInstallation de l’extension\nDans le terminal exécuter:\n\nquarto install extension sellorm/quarto-social-embeds\n\n\n\nInsertion d’une vidéo Youtube\n\nOn ajoute l’identifiant de la vidéo dans le code .\nPour la vidéo dont la cible affichée dans la barre d’adresse est watch?v=tlt0WGZz63Y, l’identifiant est tlt0WGZz63Y\n\nPar exemple pour la Présentation du package R.témis par M.Bouchet-Valat et B.Garnier\n\n\n\nInserer directement ce code dans la page\n\n{{&lt; youtube tlt0WGZz63Y &gt;}}\n\n\n\n\n\nInsertion d’une vidéo Viméo\nMême principe, on ajoute l’identifiant de la vidéo qui est affiché dans la barre d’adresse.\n\n\n\nInserer directement ce code dans la page\n\n{{&lt; vimeo 475084090 &gt;}}"
+  },
+  {
+    "objectID": "R/assist/posts/R_vscode/R_vscode_doc.html#première-ouverture-et-installation-des-extensions",
+    "href": "R/assist/posts/R_vscode/R_vscode_doc.html#première-ouverture-et-installation-des-extensions",
+    "title": "R avec VScode",
+    "section": "Première ouverture et installation des extensions",
+    "text": "Première ouverture et installation des extensions\n\n\n\n\n\nPremière ouverture\n\n\n\n \n\n\n\n\nExtensions R disponibles\n\n\n\n \n\n\n\n\nL’extension R\n\n\n\n\n\n\n\nL’extension Rtools"
+  },
+  {
+    "objectID": "R/assist/posts/R_vscode/R_vscode_doc.html#résolution-du-conflit-entre-r-et-rtools",
+    "href": "R/assist/posts/R_vscode/R_vscode_doc.html#résolution-du-conflit-entre-r-et-rtools",
+    "title": "R avec VScode",
+    "section": "Résolution du conflit entre R et Rtools",
+    "text": "Résolution du conflit entre R et Rtools\n\n\n\n\n\nRechercher r.execute in terminal\n\n\n\n \n\n\n\n\nSuppression du conflit\n\n\n\n \n\n\n\n\nExécution de R"
   }
 ]

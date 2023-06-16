@@ -20,9 +20,9 @@ listing:
     page-size: 3
     feed: false
     max-description-length: 300
-  - id: latest-content-MDQ
+  - id: latest-content-Autres
     contents: 
-    - /MDQ
+    - /Autres
     - "!index.qmd"
     - "!seminaire.qmd"
     sort: "date desc"
@@ -33,7 +33,20 @@ listing:
     page-size: 3
     feed: false
     max-description-length: 300
-    
+  - id: latest-content-Quarto
+    contents: 
+    - /Quarto
+    - "!index.qmd"
+    - "!seminaire.qmd"
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    page-size: 3
+    feed: false
+    max-description-length: 300 
+       
 toc: false
 ---
 
@@ -78,20 +91,44 @@ Il ne s'agit que d'un squelette de support. Merci de ne pas se référer au cont
 :::
 :::
 
+<!-- Derniers ajouts Quarto-->
+
+::: {.content-container}
+::: {.listing-block}
+::: {.zoom-image}
+
+
+# **Derniers ajouts Quarto**
+
+::: {#latest-content-Quarto}
+:::
+
+:::
+:::
+:::
+
+
+
 <!-- Derniers ajouts Autres-->
 
 ::: {.content-container}
 ::: {.listing-block}
 ::: {.zoom-image}
 
-# **Assistances et astuces autres que R**
+# **Derniers ajouts autres**
 
-::: {#latest-content-MDQ}
+::: {#latest-content-Autres}
 :::
 
 :::
 :::
 :::
+
+
+
+
+
+
 
 
 

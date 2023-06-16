@@ -8,8 +8,20 @@
       "/R/assist/posts/jeunec/jeunec.html",
       "/R/assist/posts/addition/addition.html",
       "/R/assist/posts/stata_R_comp/R_stata.html",
-      "/MDQ/assist/posts/remove_nul/remove_nul.html",
-      "/MDQ/assist/posts/nutshell/nutshell.html"
+      "/Autres/assist/posts/remove_nul/remove_nul.html",
+      "/Autres/assist/posts/nutshell/nutshell.html",
+      "/Quarto/assist/posts/social_embeds.html"
+    ]
+  },
+  {
+    "listing": "/R/index.html",
+    "items": [
+      "/R/assist/posts/coxzph/coxzph.html",
+      "/R/assist/posts/R_vscode/R_vscode_doc.html",
+      "/R/assist/posts/test_list/test_list.html",
+      "/R/assist/posts/jeunec/jeunec.html",
+      "/R/assist/posts/addition/addition.html",
+      "/R/assist/posts/stata_R_comp/R_stata.html"
     ]
   },
   {
@@ -24,14 +36,15 @@
     ]
   },
   {
-    "listing": "/R/index.html",
+    "listing": "/Quarto/assist/index.html",
     "items": [
-      "/R/assist/posts/coxzph/coxzph.html",
-      "/R/assist/posts/R_vscode/R_vscode_doc.html",
-      "/R/assist/posts/test_list/test_list.html",
-      "/R/assist/posts/jeunec/jeunec.html",
-      "/R/assist/posts/addition/addition.html",
-      "/R/assist/posts/stata_R_comp/R_stata.html"
+      "/Quarto/assist/posts/social_embeds.html"
+    ]
+  },
+  {
+    "listing": "/Quarto/index.html",
+    "items": [
+      "/Quarto/assist/posts/social_embeds.html"
     ]
   }
 ]
