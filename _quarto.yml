@@ -4,6 +4,7 @@ project:
 lang: fr
  
 website:
+  search: false
   title: "SMS_site"
   navbar:
     background: "white"

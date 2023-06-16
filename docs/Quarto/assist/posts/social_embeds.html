@@ -61,10 +61,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,12 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -110,7 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <img src="../../../img/coding2.png" alt="Logo Sms" class="navbar-logo">
     </a>
   </div>
-            <div id="quarto-search" class="" title="Recherche"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -199,6 +188,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       
     </div>
     
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Résumé</div>
+      <p>L’extension <strong>social-embeds</strong> permet d’insérer proprement du contenu provenant de médias sociaux à l’aide d’un code très simple qui est directement ajouté à la page qmd. La seule opération consiste à récupéré l’identifiant de la vidéo, d’un post provenant d’un média tel que <em>twitter</em> ou <em>mastodon</em>, mais encore un programme partagé dans un <strong><code>gist</code></strong></p>
+    </div>
+  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
@@ -589,57 +584,60 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-24"><a href="#cb4-24"></a><span class="an">filters:</span></span>
 <span id="cb4-25"><a href="#cb4-25"></a><span class="co">   - lightbox</span></span>
 <span id="cb4-26"><a href="#cb4-26"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="co">---</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a></span>
-<span id="cb4-29"><a href="#cb4-29"></a>::: callout-note</span>
+<span id="cb4-27"><a href="#cb4-27"></a></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="co"> L'extension **social-embeds** permet d'insérer proprement du contenu provenant de médias sociaux à l'aide d'un code très simple qui est directement ajouté à la page qmd. La seule opération consiste à récupéré l'identifiant de la vidéo, d'un post provenant d'un média tel que *twitter* ou *mastodon*, mais encore un programme partagé dans un **`gist`**  </span></span>
 <span id="cb4-30"><a href="#cb4-30"></a></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="fu">## Liens</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co">---</span></span>
 <span id="cb4-32"><a href="#cb4-32"></a></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Extension **social-embeds**</span><span class="co">](https://github.com/sellorm/quarto-social-embeds)</span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Extensions Quarto disponibles</span><span class="co">](https://quarto.org/docs/extensions/)</span> </span>
-<span id="cb4-35"><a href="#cb4-35"></a></span>
-<span id="cb4-36"><a href="#cb4-36"></a>:::</span>
-<span id="cb4-37"><a href="#cb4-37"></a></span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="fu"># Installation de l'extension</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a>::: callout-note</span>
+<span id="cb4-34"><a href="#cb4-34"></a></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="fu">## Liens</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a></span>
+<span id="cb4-37"><a href="#cb4-37"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Extension **social-embeds**</span><span class="co">](https://github.com/sellorm/quarto-social-embeds)</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Extensions Quarto disponibles</span><span class="co">](https://quarto.org/docs/extensions/)</span> </span>
 <span id="cb4-39"><a href="#cb4-39"></a></span>
-<span id="cb4-40"><a href="#cb4-40"></a></span>
-<span id="cb4-41"><a href="#cb4-41"></a>Dans le terminal exécuter:</span>
-<span id="cb4-42"><a href="#cb4-42"></a></span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="in">```{r, eval=FALSE}        </span></span>
-<span id="cb4-44"><a href="#cb4-44"></a>quarto install extension sellorm<span class="sc">/</span>quarto<span class="sc">-</span>social<span class="sc">-</span>embeds</span>
-<span id="cb4-45"><a href="#cb4-45"></a><span class="in">```</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a>:::</span>
+<span id="cb4-41"><a href="#cb4-41"></a></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="fu"># Installation de l'extension</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a></span>
+<span id="cb4-44"><a href="#cb4-44"></a></span>
+<span id="cb4-45"><a href="#cb4-45"></a>Dans le terminal exécuter:</span>
 <span id="cb4-46"><a href="#cb4-46"></a></span>
-<span id="cb4-47"><a href="#cb4-47"></a><span class="fu"># Insertion d'une vidéo Youtube</span></span>
-<span id="cb4-48"><a href="#cb4-48"></a></span>
-<span id="cb4-49"><a href="#cb4-49"></a><span class="ss">- </span>On ajoute l'identifiant de la vidéo dans le code  <span class="in">`{{&lt; youtube id_vidéo &gt;}}`</span>.</span>
-<span id="cb4-50"><a href="#cb4-50"></a><span class="ss">- </span>Pour la vidéo dont la cible affichée dans la barre d'adresse est **watch?v=tlt0WGZz63Y**, l'identifiant est <span class="in">`tlt0WGZz63Y`</span></span>
-<span id="cb4-51"><a href="#cb4-51"></a></span>
+<span id="cb4-47"><a href="#cb4-47"></a><span class="in">```{r, eval=FALSE}        </span></span>
+<span id="cb4-48"><a href="#cb4-48"></a>quarto install extension sellorm<span class="sc">/</span>quarto<span class="sc">-</span>social<span class="sc">-</span>embeds</span>
+<span id="cb4-49"><a href="#cb4-49"></a><span class="in">```</span></span>
+<span id="cb4-50"><a href="#cb4-50"></a></span>
+<span id="cb4-51"><a href="#cb4-51"></a><span class="fu"># Insertion d'une vidéo Youtube</span></span>
 <span id="cb4-52"><a href="#cb4-52"></a></span>
-<span id="cb4-53"><a href="#cb4-53"></a>Par exemple pour la Présentation du package **`R.témis`** par M.Bouchet-Valat et B.Garnier</span>
-<span id="cb4-54"><a href="#cb4-54"></a></span>
-<span id="cb4-55"><a href="#cb4-55"></a><span class="in">```{r filename="Inserer directement ce code dans la page", eval=FALSE}</span></span>
-<span id="cb4-56"><a href="#cb4-56"></a>{{<span class="sc">&lt;</span> youtube tlt0WGZz63Y <span class="sc">&gt;</span>}}</span>
-<span id="cb4-57"><a href="#cb4-57"></a><span class="in">```</span></span>
+<span id="cb4-53"><a href="#cb4-53"></a><span class="ss">- </span>On ajoute l'identifiant de la vidéo dans le code  <span class="in">`{{&lt; youtube id_vidéo &gt;}}`</span>.</span>
+<span id="cb4-54"><a href="#cb4-54"></a><span class="ss">- </span>Pour la vidéo dont la cible affichée dans la barre d'adresse est **watch?v=tlt0WGZz63Y**, l'identifiant est <span class="in">`tlt0WGZz63Y`</span></span>
+<span id="cb4-55"><a href="#cb4-55"></a></span>
+<span id="cb4-56"><a href="#cb4-56"></a></span>
+<span id="cb4-57"><a href="#cb4-57"></a>Par exemple pour la Présentation du package **`R.témis`** par M.Bouchet-Valat et B.Garnier</span>
 <span id="cb4-58"><a href="#cb4-58"></a></span>
-<span id="cb4-59"><a href="#cb4-59"></a>{{&lt; youtube tlt0WGZz63Y &gt;}}</span>
-<span id="cb4-60"><a href="#cb4-60"></a></span>
-<span id="cb4-61"><a href="#cb4-61"></a></span>
+<span id="cb4-59"><a href="#cb4-59"></a><span class="in">```{r filename="Inserer directement ce code dans la page", eval=FALSE}</span></span>
+<span id="cb4-60"><a href="#cb4-60"></a>{{<span class="sc">&lt;</span> youtube tlt0WGZz63Y <span class="sc">&gt;</span>}}</span>
+<span id="cb4-61"><a href="#cb4-61"></a><span class="in">```</span></span>
 <span id="cb4-62"><a href="#cb4-62"></a></span>
-<span id="cb4-63"><a href="#cb4-63"></a><span class="fu"># Insertion d'une vidéo Viméo</span></span>
+<span id="cb4-63"><a href="#cb4-63"></a>{{&lt; youtube tlt0WGZz63Y &gt;}}</span>
 <span id="cb4-64"><a href="#cb4-64"></a></span>
-<span id="cb4-65"><a href="#cb4-65"></a>Même principe, on ajoute l'identifiant de la vidéo qui est affiché dans la barre d'adresse.</span>
+<span id="cb4-65"><a href="#cb4-65"></a></span>
 <span id="cb4-66"><a href="#cb4-66"></a></span>
-<span id="cb4-67"><a href="#cb4-67"></a></span>
-<span id="cb4-68"><a href="#cb4-68"></a><span class="in">```{r filename="Inserer directement ce code dans la page", eval=FALSE}</span></span>
-<span id="cb4-69"><a href="#cb4-69"></a>{{<span class="sc">&lt;</span> vimeo <span class="dv">475084090</span> <span class="sc">&gt;</span>}}</span>
-<span id="cb4-70"><a href="#cb4-70"></a><span class="in">```</span></span>
+<span id="cb4-67"><a href="#cb4-67"></a><span class="fu"># Insertion d'une vidéo Viméo</span></span>
+<span id="cb4-68"><a href="#cb4-68"></a></span>
+<span id="cb4-69"><a href="#cb4-69"></a>Même principe, on ajoute l'identifiant de la vidéo qui est affiché dans la barre d'adresse.</span>
+<span id="cb4-70"><a href="#cb4-70"></a></span>
 <span id="cb4-71"><a href="#cb4-71"></a></span>
-<span id="cb4-72"><a href="#cb4-72"></a>{{&lt; vimeo 475084090 &gt;}}</span>
-<span id="cb4-73"><a href="#cb4-73"></a></span>
-<span id="cb4-74"><a href="#cb4-74"></a></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="in">```{r filename="Inserer directement ce code dans la page", eval=FALSE}</span></span>
+<span id="cb4-73"><a href="#cb4-73"></a>{{<span class="sc">&lt;</span> vimeo <span class="dv">475084090</span> <span class="sc">&gt;</span>}}</span>
+<span id="cb4-74"><a href="#cb4-74"></a><span class="in">```</span></span>
 <span id="cb4-75"><a href="#cb4-75"></a></span>
-<span id="cb4-76"><a href="#cb4-76"></a></span>
-<span id="cb4-77"><a href="#cb4-77"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-76"><a href="#cb4-76"></a>{{&lt; vimeo 475084090 &gt;}}</span>
+<span id="cb4-77"><a href="#cb4-77"></a></span>
+<span id="cb4-78"><a href="#cb4-78"></a></span>
+<span id="cb4-79"><a href="#cb4-79"></a></span>
+<span id="cb4-80"><a href="#cb4-80"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

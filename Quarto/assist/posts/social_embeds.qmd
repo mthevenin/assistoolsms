@@ -24,6 +24,10 @@ format:
 filters:
    - lightbox
 lightbox: auto
+
+abstract: | 
+ L'extension **social-embeds** permet d'insérer proprement du contenu provenant de médias sociaux à l'aide d'un code très simple qui est directement ajouté à la page qmd. La seule opération consiste à récupéré l'identifiant de la vidéo, d'un post provenant d'un média tel que *twitter* ou *mastodon*, mais encore un programme partagé dans un **`gist`**  
+
 ---
 
 ::: callout-note
@@ -70,7 +74,6 @@ Même principe, on ajoute l'identifiant de la vidéo qui est affiché dans la ba
 ```
 
 {{< vimeo 475084090 >}}
-
 
 
 
