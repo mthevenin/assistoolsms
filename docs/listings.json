@@ -24,19 +24,22 @@
       "/R/assist/posts/stata_R_comp/R_stata.html",
       "/Autres/assist/posts/remove_nul/remove_nul.html",
       "/Autres/assist/posts/nutshell/nutshell.html",
-      "/Quarto/assist/posts/social_embeds.html"
+      "/Quarto/assist/posts/annotation/annotation.html",
+      "/Quarto/assist/posts/social_embeds/social_embeds.html"
     ]
   },
   {
     "listing": "/Quarto/assist/index.html",
     "items": [
-      "/Quarto/assist/posts/social_embeds.html"
+      "/Quarto/assist/posts/annotation/annotation.html",
+      "/Quarto/assist/posts/social_embeds/social_embeds.html"
     ]
   },
   {
     "listing": "/Quarto/index.html",
     "items": [
-      "/Quarto/assist/posts/social_embeds.html"
+      "/Quarto/assist/posts/annotation/annotation.html",
+      "/Quarto/assist/posts/social_embeds/social_embeds.html"
     ]
   },
   {
