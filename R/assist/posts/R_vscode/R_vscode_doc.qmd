@@ -16,7 +16,7 @@ author:
 
 date: 06/07/2023
 
-#image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png?20171006103407"
+image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png"
 
 format: 
   html: default

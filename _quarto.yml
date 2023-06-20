@@ -13,16 +13,12 @@ website:
     title: false
     collapse-below: lg
     right:
-      - text: "Base d'assistances"
-        menu: 
-          - text: "R"
-            href: R/index.qmd
-          - text: "Quarto"
-            href: Quarto/index.qmd
-          - text: "Autres"
-            href: Autres/index.qmd
-      - text: "Séminaires"      
-        href: seminaire/seminaire.qmd
+      - text: "R"
+        href: R/index.qmd
+      - text: "Quarto"
+        href: Quarto/index.qmd
+      - text: "Autres"
+        href: Autres/index.qmd
       - text: "Autres Supports"
         menu: 
           - text: "Stata"
