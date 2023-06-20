@@ -73,6 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-contrib/nutshell-1.0.0/nutshell.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
@@ -261,19 +262,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="1" data-code-lines="1">Chargement des packages</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-2" data-code-lines="1">Chargement des packages</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="2" data-code-lines="5">Chargement de la base</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-2" data-code-lines="5">Chargement de la base</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="3" data-code-lines="7">Calcul des estimateurs de Kaplan-Meier</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-2" data-code-lines="7">Calcul des estimateurs de Kaplan-Meier</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-annotation="4" data-code-lines="9">Graphique de la fonction de survie avec <code>ggsurvplot</code></span>
+<span data-code-annotation="4" data-code-cell="annotated-cell-2" data-code-lines="9">Graphique de la fonction de survie avec <code>ggsurvplot</code></span>
 </dd>
 </dl>
 </div>
@@ -286,6 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Par défaut, les commentaires s’affichent en dessous du bloc. Deux autres options sont disponibles, qui affichent le commentaire à droite de chaque ligne. On doit ajouter dans le yaml de la page l’option <code>code-annotations: select</code>, ou <code>code-annotations: over</code></p>
+<p><a href="https://mthevenin.github.io/assistoolsms/nutshell_files/annotation_select.html#select">:Annotation: select</a></p>
 <p>Exemple avec <code>select</code> (on clique sur le numéro de l’annotation)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "titre page"</span></span>
@@ -613,89 +615,95 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-24"><a href="#cb3-24"></a></span>
 <span id="cb3-25"><a href="#cb3-25"></a><span class="an">filters:</span></span>
 <span id="cb3-26"><a href="#cb3-26"></a><span class="co">   - lightbox</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a></span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb3-30"><a href="#cb3-30"></a><span class="co"> Depuis la version 1.3 de Quarto il est possible d'annoter une ou plusieurs lignes d'un bloc de codes.  </span></span>
-<span id="cb3-31"><a href="#cb3-31"></a></span>
-<span id="cb3-32"><a href="#cb3-32"></a><span class="co">---</span></span>
-<span id="cb3-33"><a href="#cb3-33"></a></span>
-<span id="cb3-34"><a href="#cb3-34"></a><span class="ss">- </span>A la suite d'une ligne de code on indique le numéro de l'annotation:</span>
-<span id="cb3-35"><a href="#cb3-35"></a><span class="ss">  -  </span><span class="in">`ligne de code    #&lt;1&gt;`</span></span>
-<span id="cb3-36"><a href="#cb3-36"></a><span class="ss">  -  </span><span class="in">`ligne de code    #&lt;2&gt;`</span></span>
-<span id="cb3-37"><a href="#cb3-37"></a><span class="ss">- </span>A la suite du bloc, on commente chaque annotation: </span>
-<span id="cb3-38"><a href="#cb3-38"></a><span class="ss">  - </span>1. Commentaire annotation 1</span>
-<span id="cb3-39"><a href="#cb3-39"></a><span class="ss">  - </span>2. Commentaire annotation 2 etc...</span>
-<span id="cb3-40"><a href="#cb3-40"></a></span>
-<span id="cb3-41"><a href="#cb3-41"></a><span class="in">````markdown</span></span>
-<span id="cb3-42"><a href="#cb3-42"></a><span class="in">```r </span></span>
-<span id="cb3-43"><a href="#cb3-43"></a><span class="co"># Dans le bloc de codes</span></span>
-<span id="cb3-44"><a href="#cb3-44"></a><span class="fu">library</span>(readr)                                                                                                    <span class="co"># &lt;1&gt;</span></span>
-<span id="cb3-45"><a href="#cb3-45"></a><span class="fu">library</span>(survival)                                                                                                 </span>
-<span id="cb3-46"><a href="#cb3-46"></a><span class="fu">library</span>(survminer)                                                                                                </span>
-<span id="cb3-47"><a href="#cb3-47"></a>                       </span>
-<span id="cb3-48"><a href="#cb3-48"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv"</span>)      <span class="co"># &lt;2&gt;</span></span>
-<span id="cb3-49"><a href="#cb3-49"></a></span>
-<span id="cb3-50"><a href="#cb3-50"></a>fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(stime, died) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df )                                                                 <span class="co"># &lt;3&gt;</span></span>
-<span id="cb3-51"><a href="#cb3-51"></a></span>
-<span id="cb3-52"><a href="#cb3-52"></a><span class="fu">ggsurvplot</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">risk.table =</span> <span class="cn">TRUE</span>)                                                               <span class="co"># &lt;4&gt;</span></span>
-<span id="cb3-53"><a href="#cb3-53"></a></span>
-<span id="cb3-54"><a href="#cb3-54"></a><span class="in">```</span></span>
-<span id="cb3-55"><a href="#cb3-55"></a><span class="fu"># Dans le corp du document .qmd à la suite du bloc</span></span>
-<span id="cb3-56"><a href="#cb3-56"></a></span>
-<span id="cb3-57"><a href="#cb3-57"></a><span class="ss">1. </span>Chargement des packages</span>
-<span id="cb3-58"><a href="#cb3-58"></a><span class="ss">2. </span>Chargement de la base</span>
-<span id="cb3-59"><a href="#cb3-59"></a><span class="ss">3. </span>Calcul des estimateurs de Kaplan-Meier</span>
-<span id="cb3-60"><a href="#cb3-60"></a><span class="ss">4. </span>Graphique de la fonction de survie avec <span class="in">`ggsurvplot`</span></span>
-<span id="cb3-61"><a href="#cb3-61"></a></span>
-<span id="cb3-62"><a href="#cb3-62"></a><span class="in">````</span></span>
-<span id="cb3-63"><a href="#cb3-63"></a></span>
-<span id="cb3-64"><a href="#cb3-64"></a>Donne le rendu suivant:</span>
-<span id="cb3-65"><a href="#cb3-65"></a></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co">   - nutshell</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="co"> Depuis la version 1.3 de Quarto il est possible d'annoter une ou plusieurs lignes d'un bloc de codes.  </span></span>
+<span id="cb3-32"><a href="#cb3-32"></a></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="co">---</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="ss">- </span>A la suite d'une ligne de code on indique le numéro de l'annotation:</span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="ss">  -  </span><span class="in">`ligne de code    #&lt;1&gt;`</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="ss">  -  </span><span class="in">`ligne de code    #&lt;2&gt;`</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="ss">- </span>A la suite du bloc, on commente chaque annotation: </span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="ss">  - </span>1. Commentaire annotation 1</span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="ss">  - </span>2. Commentaire annotation 2 etc...</span>
+<span id="cb3-41"><a href="#cb3-41"></a></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="in">````markdown</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="in">```r </span></span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="co"># Dans le bloc de codes</span></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="fu">library</span>(readr)                                                                                                    <span class="co"># &lt;1&gt;</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="fu">library</span>(survival)                                                                                                 </span>
+<span id="cb3-47"><a href="#cb3-47"></a><span class="fu">library</span>(survminer)                                                                                                </span>
+<span id="cb3-48"><a href="#cb3-48"></a>                       </span>
+<span id="cb3-49"><a href="#cb3-49"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv"</span>)      <span class="co"># &lt;2&gt;</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a></span>
+<span id="cb3-51"><a href="#cb3-51"></a>fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(stime, died) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df )                                                                 <span class="co"># &lt;3&gt;</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a></span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="fu">ggsurvplot</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">risk.table =</span> <span class="cn">TRUE</span>)                                                               <span class="co"># &lt;4&gt;</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a></span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="in">```</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="fu"># Dans le corp du document .qmd à la suite du bloc</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="ss">1. </span>Chargement des packages</span>
+<span id="cb3-59"><a href="#cb3-59"></a><span class="ss">2. </span>Chargement de la base</span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="ss">3. </span>Calcul des estimateurs de Kaplan-Meier</span>
+<span id="cb3-61"><a href="#cb3-61"></a><span class="ss">4. </span>Graphique de la fonction de survie avec <span class="in">`ggsurvplot`</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a></span>
+<span id="cb3-63"><a href="#cb3-63"></a><span class="in">````</span></span>
+<span id="cb3-64"><a href="#cb3-64"></a></span>
+<span id="cb3-65"><a href="#cb3-65"></a>Donne le rendu suivant:</span>
 <span id="cb3-66"><a href="#cb3-66"></a></span>
-<span id="cb3-67"><a href="#cb3-67"></a><span class="in">```{r, message=FALSE}</span></span>
-<span id="cb3-68"><a href="#cb3-68"></a></span>
-<span id="cb3-69"><a href="#cb3-69"></a><span class="fu">library</span>(readr)                                                                                                    <span class="co"># &lt;1&gt;</span></span>
-<span id="cb3-70"><a href="#cb3-70"></a><span class="fu">library</span>(survival)                                                                                                 </span>
-<span id="cb3-71"><a href="#cb3-71"></a><span class="fu">library</span>(survminer)                                                                                                </span>
-<span id="cb3-72"><a href="#cb3-72"></a>                       </span>
-<span id="cb3-73"><a href="#cb3-73"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv"</span>)      <span class="co"># &lt;2&gt;</span></span>
-<span id="cb3-74"><a href="#cb3-74"></a></span>
-<span id="cb3-75"><a href="#cb3-75"></a>fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(stime, died) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df )                                                                 <span class="co"># &lt;3&gt;</span></span>
-<span id="cb3-76"><a href="#cb3-76"></a></span>
-<span id="cb3-77"><a href="#cb3-77"></a><span class="fu">ggsurvplot</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">risk.table =</span> <span class="cn">TRUE</span>)                                                               <span class="co"># &lt;4&gt;</span></span>
-<span id="cb3-78"><a href="#cb3-78"></a><span class="in">```</span></span>
-<span id="cb3-79"><a href="#cb3-79"></a></span>
-<span id="cb3-80"><a href="#cb3-80"></a><span class="ss">1. </span>Chargement des packages</span>
-<span id="cb3-81"><a href="#cb3-81"></a><span class="ss">2. </span>Chargement de la base</span>
-<span id="cb3-82"><a href="#cb3-82"></a><span class="ss">3. </span>Calcul des estimateurs de Kaplan-Meier</span>
-<span id="cb3-83"><a href="#cb3-83"></a><span class="ss">4. </span>Graphique de la fonction de survie avec <span class="in">`ggsurvplot`</span></span>
-<span id="cb3-84"><a href="#cb3-84"></a></span>
+<span id="cb3-67"><a href="#cb3-67"></a></span>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="in">```{r, message=FALSE}</span></span>
+<span id="cb3-69"><a href="#cb3-69"></a></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="fu">library</span>(readr)                                                                                                    <span class="co"># &lt;1&gt;</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a><span class="fu">library</span>(survival)                                                                                                 </span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="fu">library</span>(survminer)                                                                                                </span>
+<span id="cb3-73"><a href="#cb3-73"></a>                       </span>
+<span id="cb3-74"><a href="#cb3-74"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv"</span>)      <span class="co"># &lt;2&gt;</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a></span>
+<span id="cb3-76"><a href="#cb3-76"></a>fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(stime, died) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> df )                                                                 <span class="co"># &lt;3&gt;</span></span>
+<span id="cb3-77"><a href="#cb3-77"></a></span>
+<span id="cb3-78"><a href="#cb3-78"></a><span class="fu">ggsurvplot</span>(fit, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">risk.table =</span> <span class="cn">TRUE</span>)                                                               <span class="co"># &lt;4&gt;</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="in">```</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a></span>
+<span id="cb3-81"><a href="#cb3-81"></a><span class="ss">1. </span>Chargement des packages</span>
+<span id="cb3-82"><a href="#cb3-82"></a><span class="ss">2. </span>Chargement de la base</span>
+<span id="cb3-83"><a href="#cb3-83"></a><span class="ss">3. </span>Calcul des estimateurs de Kaplan-Meier</span>
+<span id="cb3-84"><a href="#cb3-84"></a><span class="ss">4. </span>Graphique de la fonction de survie avec <span class="in">`ggsurvplot`</span></span>
 <span id="cb3-85"><a href="#cb3-85"></a></span>
-<span id="cb3-86"><a href="#cb3-86"></a>Par défaut, les commentaires s'affichent en dessous du bloc. Deux autres options sont disponibles, qui affichent le </span>
-<span id="cb3-87"><a href="#cb3-87"></a>commentaire à droite de chaque ligne. On doit ajouter dans le yaml de la page l'option <span class="in">`code-annotations: select`</span>, ou <span class="in">`code-annotations: over`</span></span>
-<span id="cb3-88"><a href="#cb3-88"></a></span>
+<span id="cb3-86"><a href="#cb3-86"></a></span>
+<span id="cb3-87"><a href="#cb3-87"></a>Par défaut, les commentaires s'affichent en dessous du bloc. Deux autres options sont disponibles, qui affichent le </span>
+<span id="cb3-88"><a href="#cb3-88"></a>commentaire à droite de chaque ligne. On doit ajouter dans le yaml de la page l'option <span class="in">`code-annotations: select`</span>, ou <span class="in">`code-annotations: over`</span></span>
 <span id="cb3-89"><a href="#cb3-89"></a></span>
 <span id="cb3-90"><a href="#cb3-90"></a></span>
 <span id="cb3-91"><a href="#cb3-91"></a></span>
-<span id="cb3-92"><a href="#cb3-92"></a>Exemple avec <span class="in">`select`</span> (on clique sur le numéro de l'annotation)</span>
+<span id="cb3-92"><a href="#cb3-92"></a><span class="co">[</span><span class="ot">:Annotation: select</span><span class="co">](https://mthevenin.github.io/assistoolsms/nutshell_files/annotation_select.html#select)</span></span>
 <span id="cb3-93"><a href="#cb3-93"></a></span>
 <span id="cb3-94"><a href="#cb3-94"></a></span>
-<span id="cb3-95"><a href="#cb3-95"></a><span class="in">````markdown</span></span>
-<span id="cb3-96"><a href="#cb3-96"></a>---</span>
-<span id="cb3-97"><a href="#cb3-97"></a>title: "titre page"</span>
-<span id="cb3-98"><a href="#cb3-98"></a>code-annotations: select</span>
+<span id="cb3-95"><a href="#cb3-95"></a>Exemple avec <span class="in">`select`</span> (on clique sur le numéro de l'annotation)</span>
+<span id="cb3-96"><a href="#cb3-96"></a></span>
+<span id="cb3-97"><a href="#cb3-97"></a></span>
+<span id="cb3-98"><a href="#cb3-98"></a><span class="in">````markdown</span></span>
 <span id="cb3-99"><a href="#cb3-99"></a>---</span>
-<span id="cb3-100"><a href="#cb3-100"></a></span>
-<span id="cb3-101"><a href="#cb3-101"></a><span class="in">````</span></span>
-<span id="cb3-102"><a href="#cb3-102"></a></span>
-<span id="cb3-103"><a href="#cb3-103"></a><span class="al">![](img1.png)</span></span>
-<span id="cb3-104"><a href="#cb3-104"></a></span>
+<span id="cb3-100"><a href="#cb3-100"></a>title: "titre page"</span>
+<span id="cb3-101"><a href="#cb3-101"></a>code-annotations: select</span>
+<span id="cb3-102"><a href="#cb3-102"></a>---</span>
+<span id="cb3-103"><a href="#cb3-103"></a></span>
+<span id="cb3-104"><a href="#cb3-104"></a><span class="in">````</span></span>
 <span id="cb3-105"><a href="#cb3-105"></a></span>
-<span id="cb3-106"><a href="#cb3-106"></a><span class="co">[</span><span class="ot">En savoir plus</span><span class="co">](https://quarto.org/docs/authoring/code-annotation.html)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-106"><a href="#cb3-106"></a><span class="al">![](img1.png)</span></span>
+<span id="cb3-107"><a href="#cb3-107"></a></span>
+<span id="cb3-108"><a href="#cb3-108"></a></span>
+<span id="cb3-109"><a href="#cb3-109"></a></span>
+<span id="cb3-110"><a href="#cb3-110"></a></span>
+<span id="cb3-111"><a href="#cb3-111"></a></span>
+<span id="cb3-112"><a href="#cb3-112"></a><span class="co">[</span><span class="ot">En savoir plus</span><span class="co">](https://quarto.org/docs/authoring/code-annotation.html)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":true,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":true,"openEffect":"zoom"});</script>
 
 
 

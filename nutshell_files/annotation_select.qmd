@@ -1,0 +1,32 @@
+---
+#title: ""
+
+code-annotations: select
+
+filter:
+   - nutshell
+---
+
+
+# select
+
+```{r, message=FALSE}
+
+library(readr)                                                                                                    # <1>
+library(survival)                                                                                                 
+library(survminer)                                                                                                
+                       
+df <- read.csv("https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv")      # <2>
+
+fit <- survfit(Surv(stime, died) ~ 1, data = df )                                                                 # <3>
+
+```
+
+1. Chargement des packages
+2. Chargement de la base
+3. Calcul des estimateurs de Kaplan-Meier
+
+
+
+
+

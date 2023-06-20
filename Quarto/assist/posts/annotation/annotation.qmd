@@ -24,6 +24,7 @@ format:
 
 filters:
    - lightbox
+   - nutshell
 lightbox: auto
 
 abstract: | 
@@ -88,6 +89,8 @@ commentaire à droite de chaque ligne. On doit ajouter dans le yaml de la page l
 
 
 
+[:Annotation: select](https://mthevenin.github.io/assistoolsms/nutshell_files/annotation_select.html#select)
+
 
 Exemple avec `select` (on clique sur le numéro de l'annotation)
 
@@ -101,6 +104,9 @@ code-annotations: select
 ````
 
 ![](img1.png)
+
+
+
 
 
 [En savoir plus](https://quarto.org/docs/authoring/code-annotation.html) 

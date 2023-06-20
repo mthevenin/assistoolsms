@@ -1,0 +1,35 @@
+---
+title: "Vérifier l'installation de ffmpeg pour utiliser Whisper"
+
+# toc-title: ""
+# subtitle: ""
+
+categories:
+  - Python
+  - Whisper
+  - Erreur
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 06/19/2023
+
+image: "https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Picture.png"
+
+format: 
+  html: default
+#  docx: default
+#  pdf:  default
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+ Le paquet de transcription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès doit être nécessairement présent dans les variables d'environnement
+ 
+---
+
+

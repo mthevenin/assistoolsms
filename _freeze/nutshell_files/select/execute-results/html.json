@@ -1,0 +1,16 @@
+{
+  "hash": "bb91aea919d57849caa1d8148b02f359",
+  "result": {
+    "markdown": "---\n#title: \"\"\n\ncode-annotations: select\n\nfilter:\n   - nutshell\n---\n\n\n\n# select\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(readr)                                                                                                    # <1>\nlibrary(survival)                                                                                                 \nlibrary(survminer)                                                                                                \n                       \ndf <- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")      # <2>\n\nfit <- survfit(Surv(stime, died) ~ 1, data = df )                                                                 # <3>\n\nggsurvplot(fit, conf.int = TRUE, risk.table = TRUE)                                                               # <4>\n```\n\n::: {.cell-output-display}\n![](select_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n1. Chargement des packages\n2. Chargement de la base\n3. Calcul des estimateurs de Kaplan-Meier\n4. Graphique de la fonction de survie avec `ggsurvplot`\n\n\n\n\n",
+    "supporting": [
+      "select_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

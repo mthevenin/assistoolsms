@@ -1,0 +1,14 @@
+{
+  "hash": "8609f67db454cc8b78adba0fbf2eb99c",
+  "result": {
+    "markdown": "---\n#title: \"\"\n\ncode-annotations: select\n\nfilter:\n   - nutshell\n---\n\n\n\n# select\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(readr)                                                                                                    # <1>\nlibrary(survival)                                                                                                 \nlibrary(survminer)                                                                                                \n                       \ndf <- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")      # <2>\n\nfit <- survfit(Surv(stime, died) ~ 1, data = df )                                                                 # <3>\n```\n:::\n\n\n1. Chargement des packages\n2. Chargement de la base\n3. Calcul des estimateurs de Kaplan-Meier\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
