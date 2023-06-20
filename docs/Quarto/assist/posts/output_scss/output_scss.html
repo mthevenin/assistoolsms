@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Supprimer un fichier nul avec git</title>
+<title>SMS_site - Modification des outputs avec un fichier .scss</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,6 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-contrib/nutshell-1.0.0/nutshell.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
@@ -146,10 +147,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Supprimer un fichier nul avec git</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Modification des outputs avec un fichier .scss</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                                 <div class="quarto-categories">
-                <div class="quarto-category">git</div>
-                <div class="quarto-category">Problème fichier</div>
+                <div class="quarto-category">Output</div>
+                <div class="quarto-category">scss</div>
+                <div class="quarto-category">sass</div>
+                <div class="quarto-category">css</div>
               </div>
                   </div>
   </div>
@@ -174,65 +177,100 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Date de publication</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">12 juin 2023</p>
+        <p class="date">20 juin 2023</p>
       </div>
     </div>
     
       
     </div>
     
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Résumé</div>
+      <p>A la suite d’un code, les outputs de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier leur couleur d’affichage à l’aide des variable sass et d’un code css ajoutés à un fichier .scss</p>
+    </div>
+  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="remove_nul.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="remove_nul.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<p>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers <strong>nul</strong>, qui sont créés assez régulièrement chez moi avec <em>Quarto</em>.</p>
-<div class="quarto-figure quarto-figure-left">
+<p>Par défaut le rendu des outputs bruts (<code>theme: default</code>)</p>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Impossible de modifier le fichier"><img src="img/img1.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
-<figcaption class="figure-caption">Impossible de modifier le fichier</figcaption>
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<p>On peut nénmoins facilement les supprimer avec une installation de <strong>git</strong> sur son ordinateur <a href="https://git-scm.com/downloads">[Intallation de git]</a></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-A l’Ined
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Git</strong> est intégré à <strong>Applined</strong>, et peut donc être directement installé via cette application.</p>
-</div>
-</div>
-<p><strong>Suppression du fichier</strong></p>
 <ul>
-<li>Dans le répertoire où se trouve ce type de fichier, fait un clic droit</li>
-<li>Ouvrir la console: <strong><code>git bash here</code></strong></li>
-<li>Exécuter <strong><code>rm nul</code></strong></li>
+<li>Avec un fichier .scss, généré automatiquement à la création d’un projet, on peu modifier le rendu de l’output.</li>
+<li>On peut créer un fichier .scss facilement à partir d’un fichier de type texte, en le renommant avec l’extension <code>.scss</code>, par exemple <code>styles.scss</code>.</li>
+<li>On ajoute les éléments suivants au fichier .scss</li>
+<li>On indique dans le yaml de la page ou le _quarto.yml du projet qu’on applique les modifications ajoutées au fichier.</li>
 </ul>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="clic droit + ouvrir la console (git bash here) + rm nul"><img src="img/img2.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
-<figcaption class="figure-caption">clic droit + ouvrir la console (<strong>git bash here</strong>) + <code>rm nul</code></figcaption>
-</figure>
+<p><strong>Modifications des couleurs de l’output dans le fichier .scss</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>$code-block-stdoutcolor: #37424a;</span>
+<span id="cb1-2"><a href="#cb1-2"></a>$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);</span>
+<span id="cb1-3"><a href="#cb1-3"></a>$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>/*-- scss:rules --*/</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>.cell-output-display pre, .cell-output-stdout pre {</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    background-color: $code-block-stdoutcolor-lighter !important;</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    border: 1.5px solid $code-block-stdoutcolor-light;</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    border-radius: .25rem;</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    border-left: 4px;</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    border-left-style: solid;</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    border-left-color: $code-block-stdoutcolor;</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    padding: .4em;</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    color: #37424a</span>
+<span id="cb1-16"><a href="#cb1-16"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>.cell-output pre code {</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    background-color: transparent;</span>
+<span id="cb1-21"><a href="#cb1-21"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>yaml de la page ou du projet</strong></p>
+<p>Pour le yaml d’une page avec un fichier styles.scss</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">title="Changement couleur output"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="an">format:</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">  html:</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">    theme: [default, style.scss]</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sepal.Length ~ Petal.Length, data = iris)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.24675 -0.29657 -0.01515  0.27676  1.00269 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   4.30660    0.07839   54.94   &lt;2e-16 ***
+Petal.Length  0.40892    0.01889   21.65   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4071 on 148 degrees of freedom
+Multiple R-squared:   0.76, Adjusted R-squared:  0.7583 
+F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><a href="img/img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Le fichier est supprimé"><img src="img/img3.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
-<figcaption class="figure-caption">Le fichier est supprimé</figcaption>
-</figure>
 </div>
+<p>On peut modifier la couleur (ici un gris:<code>#37424a</code>), l’épaisseur du contour (plus large à gauche), le radius des angles du contoure etc…</p>
 
 
 <!-- -->
@@ -523,69 +561,103 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Supprimer un fichier nul avec git"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># toc-title: ""</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># subtitle: ""</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="an">categories:</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  - git</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  - Problème fichier</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">  </span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">    affiliations:</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="an">date:</span><span class="co"> 06/12/2023</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="an">image:</span><span class="co"> "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="co">  html: default</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="co">  docx: default</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co">  pdf:  default</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="an">filters:</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="co">   - lightbox</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="co">---</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a></span>
-<span id="cb1-30"><a href="#cb1-30"></a></span>
-<span id="cb1-31"><a href="#cb1-31"></a>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d'effacer un répertoire. C'est le cas des fichiers **nul**, qui sont créés assez régulièrement chez moi avec *Quarto*.  </span>
-<span id="cb1-32"><a href="#cb1-32"></a></span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="al">![Impossible de modifier le fichier](img/img1.png)</span>{width=60% fig-align="left"}</span>
-<span id="cb1-34"><a href="#cb1-34"></a></span>
-<span id="cb1-35"><a href="#cb1-35"></a>On peut nénmoins facilement les supprimer avec une installation de **git** sur son ordinateur [<span class="co">[</span><span class="ot">Intallation de git</span><span class="co">]</span>](https://git-scm.com/downloads)</span>
-<span id="cb1-36"><a href="#cb1-36"></a></span>
-<span id="cb1-37"><a href="#cb1-37"></a>::: callout-tip</span>
-<span id="cb1-38"><a href="#cb1-38"></a></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="fu">## A l'Ined</span></span>
-<span id="cb1-40"><a href="#cb1-40"></a></span>
-<span id="cb1-41"><a href="#cb1-41"></a>**Git** est intégré à **Applined**, et peut donc être directement installé via cette application.</span>
-<span id="cb1-42"><a href="#cb1-42"></a></span>
-<span id="cb1-43"><a href="#cb1-43"></a>:::</span>
-<span id="cb1-44"><a href="#cb1-44"></a></span>
-<span id="cb1-45"><a href="#cb1-45"></a>**Suppression du fichier**  </span>
-<span id="cb1-46"><a href="#cb1-46"></a></span>
-<span id="cb1-47"><a href="#cb1-47"></a><span class="ss">- </span>Dans le répertoire où se trouve ce type de fichier, fait un clic droit </span>
-<span id="cb1-48"><a href="#cb1-48"></a><span class="ss">- </span>Ouvrir la console:  **`git bash here`**</span>
-<span id="cb1-49"><a href="#cb1-49"></a><span class="ss">- </span>Exécuter **`rm nul`**</span>
-<span id="cb1-50"><a href="#cb1-50"></a></span>
-<span id="cb1-51"><a href="#cb1-51"></a><span class="al">![clic droit + ouvrir la console (**git bash here**) + `rm nul`](img/img2.png)</span>{width=60% fig-align="left"}</span>
-<span id="cb1-52"><a href="#cb1-52"></a></span>
-<span id="cb1-53"><a href="#cb1-53"></a></span>
-<span id="cb1-54"><a href="#cb1-54"></a><span class="al">![Le fichier est supprimé](img/img3.png)</span>{width=60% fig-align="left"}</span>
-<span id="cb1-55"><a href="#cb1-55"></a></span>
-<span id="cb1-56"><a href="#cb1-56"></a></span>
-<span id="cb1-57"><a href="#cb1-57"></a></span>
-<span id="cb1-58"><a href="#cb1-58"></a></span>
-<span id="cb1-59"><a href="#cb1-59"></a></span>
-<span id="cb1-60"><a href="#cb1-60"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Modification des outputs avec un fichier .scss"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># toc-title: ""</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co"># subtitle: ""</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="an">categories:</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">  - Output</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">  - scss</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">  - sass</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">  - css</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">  </span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">    affiliations:</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="an">date:</span><span class="co"> 06/20/2023</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">  html: default</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#  docx: default</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#  pdf:  default</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="an">filters:</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">   - lightbox</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="co">   - nutshell</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co"> A la suite d'un code, les outputs de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier leur couleur d'affichage à l'aide des variable sass et d'un code css ajoutés à un fichier .scss </span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">---</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a></span>
+<span id="cb5-36"><a href="#cb5-36"></a>Par défaut le rendu des outputs bruts (<span class="in">`theme: default`</span>) </span>
+<span id="cb5-37"><a href="#cb5-37"></a></span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="al">![](img/img1.png)</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="ss">- </span>Avec un fichier .scss, généré automatiquement à la création d'un projet, on peu modifier le rendu de l'output. </span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="ss">- </span>On peut créer un fichier .scss facilement à partir d'un fichier de type texte, en le renommant avec l'extension <span class="in">`.scss`</span>, par exemple <span class="in">`styles.scss`</span>.</span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="ss">- </span>On ajoute les éléments suivants au fichier .scss</span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="ss">- </span>On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique les modifications ajoutées au fichier.  </span>
+<span id="cb5-44"><a href="#cb5-44"></a></span>
+<span id="cb5-45"><a href="#cb5-45"></a>**Modifications des couleurs de l'output dans le fichier .scss** </span>
+<span id="cb5-46"><a href="#cb5-46"></a></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="in">```markdown</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a>$code-block-stdoutcolor: #37424a;</span>
+<span id="cb5-49"><a href="#cb5-49"></a>$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);</span>
+<span id="cb5-50"><a href="#cb5-50"></a>$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);</span>
+<span id="cb5-51"><a href="#cb5-51"></a></span>
+<span id="cb5-52"><a href="#cb5-52"></a>/*-- scss:rules --*/</span>
+<span id="cb5-53"><a href="#cb5-53"></a></span>
+<span id="cb5-54"><a href="#cb5-54"></a>.cell-output-display pre, .cell-output-stdout pre {</span>
+<span id="cb5-55"><a href="#cb5-55"></a>    background-color: $code-block-stdoutcolor-lighter !important;</span>
+<span id="cb5-56"><a href="#cb5-56"></a>    border: 1.5px solid $code-block-stdoutcolor-light;</span>
+<span id="cb5-57"><a href="#cb5-57"></a>    border-radius: .25rem;</span>
+<span id="cb5-58"><a href="#cb5-58"></a>    border-left: 4px;</span>
+<span id="cb5-59"><a href="#cb5-59"></a>    border-left-style: solid;</span>
+<span id="cb5-60"><a href="#cb5-60"></a>    border-left-color: $code-block-stdoutcolor;</span>
+<span id="cb5-61"><a href="#cb5-61"></a>    padding: .4em;</span>
+<span id="cb5-62"><a href="#cb5-62"></a>    color: #37424a</span>
+<span id="cb5-63"><a href="#cb5-63"></a>}</span>
+<span id="cb5-64"><a href="#cb5-64"></a></span>
+<span id="cb5-65"><a href="#cb5-65"></a></span>
+<span id="cb5-66"><a href="#cb5-66"></a>.cell-output pre code {</span>
+<span id="cb5-67"><a href="#cb5-67"></a>    background-color: transparent;</span>
+<span id="cb5-68"><a href="#cb5-68"></a>}</span>
+<span id="cb5-69"><a href="#cb5-69"></a></span>
+<span id="cb5-70"><a href="#cb5-70"></a><span class="in">```</span></span>
+<span id="cb5-71"><a href="#cb5-71"></a></span>
+<span id="cb5-72"><a href="#cb5-72"></a>**yaml de la page ou du projet**  </span>
+<span id="cb5-73"><a href="#cb5-73"></a></span>
+<span id="cb5-74"><a href="#cb5-74"></a></span>
+<span id="cb5-75"><a href="#cb5-75"></a>Pour le yaml d'une page avec un fichier styles.scss</span>
+<span id="cb5-76"><a href="#cb5-76"></a></span>
+<span id="cb5-77"><a href="#cb5-77"></a><span class="in">```markdown</span></span>
+<span id="cb5-78"><a href="#cb5-78"></a>---</span>
+<span id="cb5-79"><a href="#cb5-79"></a></span>
+<span id="cb5-80"><a href="#cb5-80"></a>title="Changement couleur output"</span>
+<span id="cb5-81"><a href="#cb5-81"></a></span>
+<span id="cb5-82"><a href="#cb5-82"></a>format:</span>
+<span id="cb5-83"><a href="#cb5-83"></a>  html:</span>
+<span id="cb5-84"><a href="#cb5-84"></a>    theme: <span class="co">[</span><span class="ot">default, style.scss</span><span class="co">]</span></span>
+<span id="cb5-85"><a href="#cb5-85"></a>---</span>
+<span id="cb5-86"><a href="#cb5-86"></a><span class="in">```</span></span>
+<span id="cb5-87"><a href="#cb5-87"></a></span>
+<span id="cb5-88"><a href="#cb5-88"></a></span>
+<span id="cb5-91"><a href="#cb5-91"></a><span class="in">```{r}</span></span>
+<span id="cb5-92"><a href="#cb5-92"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span>
+<span id="cb5-93"><a href="#cb5-93"></a><span class="in">```</span></span>
+<span id="cb5-94"><a href="#cb5-94"></a></span>
+<span id="cb5-95"><a href="#cb5-95"></a>On peut modifier la couleur (ici un gris:<span class="in">`#37424a`</span>), l'épaisseur du contour (plus large à gauche), le radius des angles du contoure etc...</span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":true,"closeEffect":"zoom","openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"loop":true,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});</script>
 
 
 

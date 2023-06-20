@@ -1,0 +1,94 @@
+---
+title: "Modification des outputs avec un fichier .scss"
+
+# toc-title: ""
+# subtitle: ""
+
+categories:
+  - Output
+  - scss
+  - sass
+  - css
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 06/20/2023
+
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"
+
+format: 
+  html: default
+#  docx: default
+#  pdf:  default
+
+filters:
+   - lightbox
+   - nutshell
+lightbox: auto
+
+abstract: | 
+ A la suite d'un code, les outputs de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier leur couleur d'affichage à l'aide des variable sass et d'un code css ajoutés à un fichier .scss 
+---
+
+Par défaut le rendu des outputs bruts (`theme: default`) 
+
+![](img/img1.png)
+
+- Avec un fichier .scss, généré automatiquement à la création d'un projet, on peu modifier le rendu de l'output. 
+- On peut créer un fichier .scss facilement à partir d'un fichier de type texte, en le renommant avec l'extension `.scss`, par exemple `styles.scss`.
+- On ajoute les éléments suivants au fichier .scss
+- On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique les modifications ajoutées au fichier.  
+
+**Modifications des couleurs de l'output dans le fichier .scss** 
+
+```markdown
+$code-block-stdoutcolor: #37424a;
+$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);
+$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
+
+/*-- scss:rules --*/
+
+.cell-output-display pre, .cell-output-stdout pre {
+    background-color: $code-block-stdoutcolor-lighter !important;
+    border: 1.5px solid $code-block-stdoutcolor-light;
+    border-radius: .25rem;
+    border-left: 4px;
+    border-left-style: solid;
+    border-left-color: $code-block-stdoutcolor;
+    padding: .4em;
+    color: #37424a
+}
+
+
+.cell-output pre code {
+    background-color: transparent;
+}
+
+```
+
+**yaml de la page ou du projet**  
+
+
+Pour le yaml d'une page avec un fichier styles.scss
+
+```markdown
+---
+
+title="Changement couleur output"
+
+format:
+  html:
+    theme: [default, style.scss]
+---
+```
+
+
+```{r}
+summary(lm(Sepal.Length~Petal.Length, data=iris))
+```
+
+On peut modifier la couleur (ici un gris:`#37424a`), l'épaisseur du contour (plus large à gauche), le radius des angles du contoure etc...
+
