@@ -184,9 +184,9 @@
   {
     "objectID": "Autres/assist/posts/whispers/whisper.html",
     "href": "Autres/assist/posts/whispers/whisper.html",
-    "title": "",
+    "title": "Vérifier l’installation de ffmpeg pour utiliser Whisper",
     "section": "",
-    "text": "Code"
+    "text": "Tutoriel d’installation de whisper\nMessage d’erreur indiquant un problème d’installation de ffmpeg: FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable\nVérifier la bonne installation de ffmpeg:\n\nouvrir l’invite de commande windows (taper cmd dans la barre de tâche)\ntaper ffmpeg dans la console\nSi le message renvoyé indique que ffmpeg n’est pas reconnu en tant que commande interne, soit l’encodeur n’est pas installé, soit il est installé mais le chemin d’accès n’a pas été ajouté aux variables d’environnement.\npour ajouter une variable d’environnement:\n\n\n\n\nVérifier de nouveau la bonne installation de ffmpeg (relancer l’invite de commande windows avant)\n\n\nimport whisper\n\n\nmodel = whisper.load_model(\"base\")\nresult = model.transcribe(\"C:/Users/thevenin_m/Desktop/mlk.mp3\",  verbose = True)\n\nC:\\Users\\thevenin_m\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\whisper\\transcribe.py:114: UserWarning:\n\nFP16 is not supported on CPU; using FP32 instead\n\n\n\nDetecting language using up to the first 30 seconds. Use `--language` to specify the language\nDetected language: English\n[00:00.000 --&gt; 00:10.880]  I have a dream that one day this nation will rise up, live out the true meaning of its\n[00:10.880 --&gt; 00:12.800]  creed.\n[00:12.800 --&gt; 00:17.960]  We hold these truths to be self-evident that all men are created equal.\n\n\n\n\n\n\n\n\nInstallation de ffmpeg à l’Ined\n\n\n\n\nEnvisager l’installation automatique de ffmpeg via applined\nIl est fort possible que vous deviez utiliser votre compte administrateur pour modifier les variables environnement"
   },
   {
     "objectID": "Quarto/assist/posts/annotation/select.html",
@@ -215,5 +215,12 @@
     "title": "",
     "section": "",
     "text": "Code\n\n\n\n\nselect\n\n1library(readr)\nlibrary(survival)                                                                                                 \nlibrary(survminer)                                                                                                \n                       \n2df &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")\n\n3fit &lt;- survfit(Surv(stime, died) ~ 1, data = df )\n\n\n1\n\nChargement des packages\n\n2\n\nChargement de la base\n\n3\n\nCalcul des estimateurs de Kaplan-Meier"
+  },
+  {
+    "objectID": "Autres/assist/posts/whispers/whisper.html#installation-de-ffmpeg-à-lined",
+    "href": "Autres/assist/posts/whispers/whisper.html#installation-de-ffmpeg-à-lined",
+    "title": "Vérifier l’installation de ffmpeg pour utiliser Whisper",
+    "section": "Installation de ffmpeg à l’Ined",
+    "text": "Installation de ffmpeg à l’Ined\n\nEnvisager l’installation automatique de ffmpeg via applined\nIl est fort possible que vous deviez utiliser votre compte administrateur pour modifier les variables environnement"
   }
 ]
