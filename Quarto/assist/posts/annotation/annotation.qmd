@@ -88,13 +88,6 @@ Par défaut, les commentaires s'affichent en dessous du bloc. Deux autres option
 commentaire à droite de chaque ligne. On doit ajouter dans le yaml de la page l'option `code-annotations: select`, ou `code-annotations: over`
 
 
-
-[:Annotation: select](https://mthevenin.github.io/assistoolsms/nutshell_files/annotation_select.html#select)
-
-
-Exemple avec `select` (on clique sur le numéro de l'annotation)
-
-
 ````markdown
 ---
 title: "titre page"
