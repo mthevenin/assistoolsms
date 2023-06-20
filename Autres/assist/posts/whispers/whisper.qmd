@@ -25,7 +25,7 @@ filters:
 lightbox: auto
 
 abstract: | 
- Le paquet de retranscription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès de ffmpeg doit être imérativement présent dans les variables d'environnement
+ Le paquet de retranscription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès de ffmpeg doit être impérativement présent dans les variables d'environnement
  
 ---
 
@@ -65,6 +65,15 @@ result = model.transcribe("C:/Users/thevenin_m/Desktop/mlk.mp3",  verbose = True
 :::
 
 
+::: callout-warning
+
+## Comment installer ffmpeg manuellement
+
+Pour éviter une installation qui nécessite un autre outil d'installation (scoop,...), la méthode traditionnelle qui consiste à télécharger une archive 7z (<https://www.gyan.dev/ffmpeg/builds/>), décompresser le sous répertoire **bin**  dans le user du C, fonctionne toujours très bien. C'est ce chemin qu'il faudra ajouter aux variables d'environnement. 
+
+Pour ce genre d'outils, on peut créer dans son user un répertoire **PATH_EXE** et ici créer un sous répertoire **ffmpeg** dans lequel on mettra le bin.
+
+:::
 
 
 

@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="abstract-title">Résumé</div>
-      <p>Le paquet de retranscription d’un fichier audio Whisper demande l’installation de l’encodeur vidéo <strong>ffmpeg</strong>. Même installé, le chemin d’accès de ffmpeg doit être imérativement présent dans les variables d’environnement</p>
+      <p>Le paquet de retranscription d’un fichier audio Whisper demande l’installation de l’encodeur vidéo <strong>ffmpeg</strong>. Même installé, le chemin d’accès de ffmpeg doit être impérativement présent dans les variables d’environnement</p>
     </div>
   </div>
   
@@ -247,6 +247,20 @@ Installation de ffmpeg à l’Ined
 <li>Envisager l’installation automatique de ffmpeg via <strong>applined</strong></li>
 <li>Il est fort possible que vous deviez utiliser votre compte administrateur pour modifier les variables environnement</li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment installer ffmpeg manuellement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour éviter une installation qui nécessite un autre outil d’installation (scoop,…), la méthode traditionnelle qui consiste à télécharger une archive 7z (<a href="https://www.gyan.dev/ffmpeg/builds/" class="uri">https://www.gyan.dev/ffmpeg/builds/</a>), décompresser le sous répertoire <strong>bin</strong> dans le user du C, fonctionne toujours très bien. C’est ce chemin qu’il faudra ajouter aux variables d’environnement.</p>
+<p>Pour ce genre d’outils, on peut créer dans son user un répertoire <strong>PATH_EXE</strong> et ici créer un sous répertoire <strong>ffmpeg</strong> dans lequel on mettra le bin.</p>
 </div>
 </div>
 
@@ -566,7 +580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-25"><a href="#cb4-25"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
 <span id="cb4-26"><a href="#cb4-26"></a></span>
 <span id="cb4-27"><a href="#cb4-27"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="co"> Le paquet de retranscription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès de ffmpeg doit être imérativement présent dans les variables d'environnement</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="co"> Le paquet de retranscription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès de ffmpeg doit être impérativement présent dans les variables d'environnement</span></span>
 <span id="cb4-29"><a href="#cb4-29"></a><span class="co"> </span></span>
 <span id="cb4-30"><a href="#cb4-30"></a><span class="co">---</span></span>
 <span id="cb4-31"><a href="#cb4-31"></a></span>
@@ -606,15 +620,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-67"><a href="#cb4-67"></a>:::</span>
 <span id="cb4-68"><a href="#cb4-68"></a></span>
 <span id="cb4-69"><a href="#cb4-69"></a></span>
-<span id="cb4-70"><a href="#cb4-70"></a></span>
+<span id="cb4-70"><a href="#cb4-70"></a>::: callout-warning</span>
 <span id="cb4-71"><a href="#cb4-71"></a></span>
-<span id="cb4-72"><a href="#cb4-72"></a></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="fu">## Comment installer ffmpeg manuellement</span></span>
 <span id="cb4-73"><a href="#cb4-73"></a></span>
-<span id="cb4-74"><a href="#cb4-74"></a></span>
+<span id="cb4-74"><a href="#cb4-74"></a>Pour éviter une installation qui nécessite un autre outil d'installation (scoop,...), la méthode traditionnelle qui consiste à télécharger une archive 7z (<span class="ot">&lt;https://www.gyan.dev/ffmpeg/builds/&gt;</span>), décompresser le sous répertoire **bin**  dans le user du C, fonctionne toujours très bien. C'est ce chemin qu'il faudra ajouter aux variables d'environnement. </span>
 <span id="cb4-75"><a href="#cb4-75"></a></span>
-<span id="cb4-76"><a href="#cb4-76"></a></span>
+<span id="cb4-76"><a href="#cb4-76"></a>Pour ce genre d'outils, on peut créer dans son user un répertoire **PATH_EXE** et ici créer un sous répertoire **ffmpeg** dans lequel on mettra le bin.</span>
 <span id="cb4-77"><a href="#cb4-77"></a></span>
-<span id="cb4-78"><a href="#cb4-78"></a></span>
+<span id="cb4-78"><a href="#cb4-78"></a>:::</span>
 <span id="cb4-79"><a href="#cb4-79"></a></span>
 <span id="cb4-80"><a href="#cb4-80"></a></span>
 <span id="cb4-81"><a href="#cb4-81"></a></span>
@@ -624,6 +638,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-85"><a href="#cb4-85"></a></span>
 <span id="cb4-86"><a href="#cb4-86"></a></span>
 <span id="cb4-87"><a href="#cb4-87"></a></span>
+<span id="cb4-88"><a href="#cb4-88"></a></span>
+<span id="cb4-89"><a href="#cb4-89"></a></span>
+<span id="cb4-90"><a href="#cb4-90"></a></span>
+<span id="cb4-91"><a href="#cb4-91"></a></span>
+<span id="cb4-92"><a href="#cb4-92"></a></span>
+<span id="cb4-93"><a href="#cb4-93"></a></span>
+<span id="cb4-94"><a href="#cb4-94"></a></span>
+<span id="cb4-95"><a href="#cb4-95"></a></span>
+<span id="cb4-96"><a href="#cb4-96"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
