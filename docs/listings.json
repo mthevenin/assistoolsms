@@ -15,22 +15,6 @@
     ]
   },
   {
-    "listing": "/Quarto/assist/index.html",
-    "items": [
-      "/Quarto/assist/posts/output_scss/output_scss.html",
-      "/Quarto/assist/posts/annotation/annotation.html",
-      "/Quarto/assist/posts/social_embeds/social_embeds.html"
-    ]
-  },
-  {
-    "listing": "/Quarto/index.html",
-    "items": [
-      "/Quarto/assist/posts/output_scss/output_scss.html",
-      "/Quarto/assist/posts/annotation/annotation.html",
-      "/Quarto/assist/posts/social_embeds/social_embeds.html"
-    ]
-  },
-  {
     "listing": "/R/assist/index.html",
     "items": [
       "/R/assist/posts/jtools_output/jtools_output.html",
@@ -48,6 +32,22 @@
       "/R/assist/posts/R_vscode/R_vscode_doc.html",
       "/R/assist/posts/test_list/test_list.html",
       "/R/assist/posts/addition/addition.html"
+    ]
+  },
+  {
+    "listing": "/Quarto/assist/index.html",
+    "items": [
+      "/Quarto/assist/posts/output_scss/output_scss.html",
+      "/Quarto/assist/posts/annotation/annotation.html",
+      "/Quarto/assist/posts/social_embeds/social_embeds.html"
+    ]
+  },
+  {
+    "listing": "/Quarto/index.html",
+    "items": [
+      "/Quarto/assist/posts/output_scss/output_scss.html",
+      "/Quarto/assist/posts/annotation/annotation.html",
+      "/Quarto/assist/posts/social_embeds/social_embeds.html"
     ]
   }
 ]

@@ -24,7 +24,6 @@ format:
 
 filters:
    - lightbox
-   - nutshell
 lightbox: auto
 
 abstract: | 
