@@ -21,7 +21,7 @@ image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Colo
 format: 
   html: default
   docx: default
-  pdf:  default
+#  pdf:  default
 
 filters:
    - lightbox
@@ -94,6 +94,15 @@ options(show.signif.stars=FALSE)
 
 summary(lm(Sepal.Length~Petal.Length, data=iris))
 ```
+
+
+::: callout-warning
+
+## Exportation pdf
+
+Si le document est exporté en PDF avec l'option `formats` dans le yaml, les modifications ne sont pas prises en compte. 
+
+:::
 
 
 

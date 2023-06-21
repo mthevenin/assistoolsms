@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="output_scss.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="output_scss.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="output_scss.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -271,6 +271,19 @@ Petal.Length  0.40892    0.01889   21.65   &lt;2e-16
 Residual standard error: 0.4071 on 148 degrees of freedom
 Multiple R-squared:   0.76, Adjusted R-squared:  0.7583 
 F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exportation pdf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si le document est exporté en PDF avec l’option <code>formats</code> dans le yaml, les modifications ne sont pas prises en compte.</p>
 </div>
 </div>
 
@@ -586,7 +599,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-21"><a href="#cb5-21"></a><span class="an">format:</span><span class="co"> </span></span>
 <span id="cb5-22"><a href="#cb5-22"></a><span class="co">  html: default</span></span>
 <span id="cb5-23"><a href="#cb5-23"></a><span class="co">  docx: default</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="co">  pdf:  default</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#  pdf:  default</span></span>
 <span id="cb5-25"><a href="#cb5-25"></a></span>
 <span id="cb5-26"><a href="#cb5-26"></a><span class="an">filters:</span></span>
 <span id="cb5-27"><a href="#cb5-27"></a><span class="co">   - lightbox</span></span>
@@ -661,10 +674,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-98"><a href="#cb5-98"></a><span class="in">```</span></span>
 <span id="cb5-99"><a href="#cb5-99"></a></span>
 <span id="cb5-100"><a href="#cb5-100"></a></span>
+<span id="cb5-101"><a href="#cb5-101"></a>::: callout-warning</span>
+<span id="cb5-102"><a href="#cb5-102"></a></span>
+<span id="cb5-103"><a href="#cb5-103"></a><span class="fu">## Exportation pdf</span></span>
+<span id="cb5-104"><a href="#cb5-104"></a></span>
+<span id="cb5-105"><a href="#cb5-105"></a>Si le document est exporté en PDF avec l'option <span class="in">`formats`</span> dans le yaml, les modifications ne sont pas prises en compte. </span>
+<span id="cb5-106"><a href="#cb5-106"></a></span>
+<span id="cb5-107"><a href="#cb5-107"></a>:::</span>
+<span id="cb5-108"><a href="#cb5-108"></a></span>
+<span id="cb5-109"><a href="#cb5-109"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":true,"openEffect":"zoom","selector":".lightbox"});</script>
 
 
 
