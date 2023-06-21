@@ -571,14 +571,14 @@ div.quarto-post a {
 /*-- grid de la liste des posts --*/
 
 .quarto-grid-item {
-  border: solid 1.5px ;
+  border: solid 0px ;
   border-color: gainsboro;
-  border-radius: 5px ;
+  border-radius: 1px ;
   background-color: white;
   overflow: hidden;
-  filter:grayscale(5%);
-/*  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);*/
+  filter:grayscale(2%);
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.2);*/
 }
 
 .quarto-grid-item.borderless {
@@ -628,7 +628,8 @@ div.quarto-post a {
 
 .quarto-grid-item img.thumbnail-image {
   object-fit: cover;
-  height: 188px !important;
+  height: 190px !important;
+  width: 90%;
 }
 
 

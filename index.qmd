@@ -11,7 +11,6 @@ listing:
     contents: 
     - /R
     - "!index.qmd"
-    - "!seminaire.qmd"
     sort: "date desc"
     type: grid
     categories: true
@@ -24,7 +23,6 @@ listing:
     contents: 
     - /Autres
     - "!index.qmd"
-    - "!seminaire.qmd"
     sort: "date desc"
     type: grid
     categories: true
@@ -37,7 +35,6 @@ listing:
     contents: 
     - /Quarto
     - "!index.qmd"
-    - "!seminaire.qmd"
     sort: "date desc"
     type: grid
     categories: true
@@ -105,29 +102,21 @@ toc: false
 
 
 
-
-
-
-
-
-
 ::: {.footer-text}
 ::: {.footer-container .dark-background}
 ::: {.footer-block}
 ::: grid
 
 ::: {.g-col-12 .g-col-md-6}
-### **Publié par**
-
-
-:::
-
-
-::: {.g-col-12 .g-col-md-6}
 ### **A propos**
 [Présentation du support](about.qmd)\
 [Ined](https://www.ined.fr/)\
-[Contact](marc.thevenin@ined.fr)
+[Contact](mailto:marc.thevenin@ined.fr)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 
+
 :::
 
 :::
@@ -135,5 +124,3 @@ toc: false
 :::
 :::
 
-
-D:\D\Marc\SMS\assistoolsms\R\assist\posts\R_vscode

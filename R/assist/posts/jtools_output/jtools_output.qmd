@@ -1,0 +1,120 @@
+---
+title: "Affichage d'output de régression avec Jtools"
+
+# toc-title: ""
+# subtitle: ""
+
+categories:
+  - jtools
+  - output
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 06/21/2023
+
+image: "https://jtools.jacob-long.com/logo.png"
+
+format: 
+  html: default
+  docx: default
+#  pdf:  default
+
+#filters:
+#   - lightbox
+#lightbox: auto
+
+code-annotations: below
+
+abstract: | 
+ La fonction `summ` du package jtools (Jacob Long) permet d'obtenir des outputs de regression en format console de très bonne qualité. Il s'agit d'une très bonne alternative aux outputs par défaut. Ce package propose également des fonctionnalités d'exportation des outputs dans d'autres formats (html, docx, pdf ...) et des visualisations sous forme de graphique. Ces fonctionnalité ne seront pas traitées ici, l'accent étant mis sur la qualité d'un output console avec une durée d'exécution minimale. L'utilisation des fonctionnalités d'exportation, comme le très populaire package **`gtsummaty`** devrait être appliqué, selon nous, pour des raisons de durée d'exécution à un résultat final.
+---
+
+- [Documentation sur le package **jtools** (Jacob Long)](https://jtools.jacob-long.com/index.html)
+- A ce jour, la maintenance du package est assurée [version 2.2.1 à juin 2023] 
+- Les nombre de modèles pris en charge par le package est malheureusement assez réduit. On notera cependant la prise en charge de la fonction `svyglm` du package survey. 
+- Les fonctionnalités d'exportation ne seront pas traitées ici. 
+
+# **Installation**
+
+```{r, eval=FALSE}
+install.packages("jtools")
+```
+
+ou 
+
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github("jacob-long/jtools")
+```
+
+
+# **Syntaxe de la fonction `summ()`**  
+
+La syntaxe est particulièrement simple, elle consiste juste à appliquée à la fonction `summ()` l'objet généré par la régression. Quelques options comme `digits`, `confint`, `exp` permettent d'améliorer et enrichir l'output.
+
+```{r filename="syntaxe minimale", eval=FALSE}
+fit = lm(y ~ x , data=df)
+summ(fit)
+```
+
+
+# **Exemples [^1]**
+
+[^1]: mesure de la tension artérielle (`lm`) et du risque d'hypertension (`glm` et `svyglm`)
+
+
+## Avec la fonction `lm()`
+
+[Liste des options](https://jtools.jacob-long.com/reference/summ.lm.html)
+
+```{r}
+library(jtools)
+library(readr)
+
+df =  read.csv("https://raw.githubusercontent.com/mthevenin/intro_logit/main/hypertension2.csv")
+
+fit = lm(bpsystol ~ age + I(sex) + I(black) + I(region), data=df)
+
+summ(fit, digits=4)  #<1>                                                       
+
+```
+
+
+1. digits=4 => Les résultats sont reportés avec 4 décimales      
+
+
+## Avec la fonction `glm()` [lien logit]
+
+[Liste des options](https://jtools.jacob-long.com/reference/summ.glm.html)
+
+```{r}
+
+fit = glm(highbp ~ age + I(sex) + I(black) + I(region), family=binomial, data=df)   
+
+summ(fit, digits=4, confint=TRUE, exp=TRUE)                                           #<1>
+
+```
+
+1. On ajoute des intervalles de confiance (`confint=TRUE`) et le report des estimateurs sous forme d'Odds Ratio (`exp=TRUE`)
+
+
+
+## Avec la fonction `svyglm()` [lien logit]
+
+[Liste des options](https://jtools.jacob-long.com/reference/summ.svyglm.html)
+
+```{r, message=FALSE, warning=FALSE}
+library(survey)
+
+w = svydesign(id=~1, weights=~w, data=df)
+
+fit = svyglm(highbp ~ age + I(sex) + I(black) + I(region), family=binomial, design=w)
+summ(fit, digits=4, confint=TRUE, exp=TRUE)    
+```
+
+
+
+

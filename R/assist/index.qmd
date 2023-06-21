@@ -15,5 +15,3 @@ comments: false
 
 ::: {#posts} 
 :::
-
-
