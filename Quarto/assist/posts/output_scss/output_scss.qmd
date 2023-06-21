@@ -1,5 +1,5 @@
 ---
-title: "Modification des outputs avec un fichier .scss"
+title: "Modification de l'apparence des outputs avec un fichier .scss"
 
 # toc-title: ""
 # subtitle: ""
@@ -7,7 +7,6 @@ title: "Modification des outputs avec un fichier .scss"
 categories:
   - Output
   - scss
-  - sass
   - css
   
 author: 
@@ -21,28 +20,29 @@ image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Colo
 
 format: 
   html: default
-#  docx: default
-#  pdf:  default
+  docx: default
+  pdf:  default
 
 filters:
    - lightbox
-   - nutshell
+#   - nutshell
 lightbox: auto
 
 abstract: | 
- A la suite d'un code, les outputs de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier leur couleur d'affichage à l'aide des variable sass et d'un code css ajoutés à un fichier .scss 
+ A la suite d'un code, le report  de l'output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d'un contour, à l'aide des variables sass et d'un code css ajoutés à un fichier .scss 
 ---
 
-Par défaut le rendu des outputs bruts (`theme: default`) 
+Par défaut le rendu des outputs console bruts (`theme: default`) est le suivant:  
 
-![](img/img1.png)
+![](img/img1.png){with=80%}
 
-- Avec un fichier .scss, généré automatiquement à la création d'un projet, on peu modifier le rendu de l'output. 
-- On peut créer un fichier .scss facilement à partir d'un fichier de type texte, en le renommant avec l'extension `.scss`, par exemple `styles.scss`.
-- On ajoute les éléments suivants au fichier .scss
-- On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique les modifications ajoutées au fichier.  
+- Avec un fichier .scss on peut modifier le rendu de cet output. 
+  -  Un fichier styles.scss est généré automatiquement à la création d'un projet
+  - Pour une page simple, on peut le créer facilement  facilement à partir d'un fichier de type texte, en le renommant avec l'extension `.scss`, par exemple `styles.scss`.
+- On ajoute des éléments de modification de l'apparence au fichier .scss
+- On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique ces modifications.  
 
-**Modifications des couleurs de l'output dans le fichier .scss** 
+**Modifications de l'output console dans un fichier .scss** 
 
 ```markdown
 $code-block-stdoutcolor: #37424a;
@@ -68,11 +68,13 @@ $code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
 }
 
 ```
+Ici on a modifier la couleur du fond (ici un gris:`#37424a`), l'épaisseur du contour (plus importante à gauche), le radius des angles du contour etc...
 
-**yaml de la page ou du projet**  
+
+**yaml de la page ou du template quarto.yml du projet**  
 
 
-Pour le yaml d'une page avec un fichier styles.scss
+Pour le yaml d'une page simple avec le fichier styles.scss
 
 ```markdown
 ---
@@ -85,10 +87,13 @@ format:
 ---
 ```
 
+Après exécution du programme, le rendu de l'output est le suivant:
 
 ```{r}
+options(show.signif.stars=FALSE)
+
 summary(lm(Sepal.Length~Petal.Length, data=iris))
 ```
 
-On peut modifier la couleur (ici un gris:`#37424a`), l'épaisseur du contour (plus large à gauche), le radius des angles du contoure etc...
+
 

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Modification des outputs avec un fichier .scss</title>
+<title>SMS_site - Modification de l’apparence des outputs avec un fichier .scss</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script src="../../../../site_libs/quarto-contrib/nutshell-1.0.0/nutshell.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
@@ -147,11 +146,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Modification des outputs avec un fichier .scss</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Modification de l’apparence des outputs avec un fichier .scss</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Output</div>
                 <div class="quarto-category">scss</div>
-                <div class="quarto-category">sass</div>
                 <div class="quarto-category">css</div>
               </div>
                   </div>
@@ -187,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="abstract-title">Résumé</div>
-      <p>A la suite d’un code, les outputs de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier leur couleur d’affichage à l’aide des variable sass et d’un code css ajoutés à un fichier .scss</p>
+      <p>A la suite d’un code, le report de l’output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d’un contour, à l’aide des variables sass et d’un code css ajoutés à un fichier .scss</p>
     </div>
   </div>
   
@@ -196,26 +194,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="output_scss.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="output_scss.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<p>Par défaut le rendu des outputs bruts (<code>theme: default</code>)</p>
+<p>Par défaut le rendu des outputs console bruts (<code>theme: default</code>) est le suivant:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img"></a></p>
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img" data-with="80%"></a></p>
 </figure>
 </div>
 <ul>
-<li>Avec un fichier .scss, généré automatiquement à la création d’un projet, on peu modifier le rendu de l’output.</li>
-<li>On peut créer un fichier .scss facilement à partir d’un fichier de type texte, en le renommant avec l’extension <code>.scss</code>, par exemple <code>styles.scss</code>.</li>
-<li>On ajoute les éléments suivants au fichier .scss</li>
-<li>On indique dans le yaml de la page ou le _quarto.yml du projet qu’on applique les modifications ajoutées au fichier.</li>
+<li>Avec un fichier .scss on peut modifier le rendu de cet output.
+<ul>
+<li>Un fichier styles.scss est généré automatiquement à la création d’un projet</li>
+<li>Pour une page simple, on peut le créer facilement facilement à partir d’un fichier de type texte, en le renommant avec l’extension <code>.scss</code>, par exemple <code>styles.scss</code>.</li>
+</ul></li>
+<li>On ajoute des éléments de modification de l’apparence au fichier .scss</li>
+<li>On indique dans le yaml de la page ou le _quarto.yml du projet qu’on applique ces modifications.</li>
 </ul>
-<p><strong>Modifications des couleurs de l’output dans le fichier .scss</strong></p>
+<p><strong>Modifications de l’output console dans un fichier .scss</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>$code-block-stdoutcolor: #37424a;</span>
 <span id="cb1-2"><a href="#cb1-2"></a>$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);</span>
 <span id="cb1-3"><a href="#cb1-3"></a>$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);</span>
@@ -237,8 +238,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-19"><a href="#cb1-19"></a>.cell-output pre code {</span>
 <span id="cb1-20"><a href="#cb1-20"></a>    background-color: transparent;</span>
 <span id="cb1-21"><a href="#cb1-21"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>yaml de la page ou du projet</strong></p>
-<p>Pour le yaml d’une page avec un fichier styles.scss</p>
+<p>Ici on a modifier la couleur du fond (ici un gris:<code>#37424a</code>), l’épaisseur du contour (plus importante à gauche), le radius des angles du contour etc…</p>
+<p><strong>yaml de la page ou du template quarto.yml du projet</strong></p>
+<p>Pour le yaml d’une page simple avec le fichier styles.scss</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">title="Changement couleur output"</span></span>
@@ -247,8 +249,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6"></a><span class="co">  html:</span></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="co">    theme: [default, style.scss]</span></span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Après exécution du programme, le rendu de l’output est le suivant:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -259,18 +264,15 @@ Residuals:
 -1.24675 -0.29657 -0.01515  0.27676  1.00269 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   4.30660    0.07839   54.94   &lt;2e-16 ***
-Petal.Length  0.40892    0.01889   21.65   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+             Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   4.30660    0.07839   54.94   &lt;2e-16
+Petal.Length  0.40892    0.01889   21.65   &lt;2e-16
 
 Residual standard error: 0.4071 on 148 degrees of freedom
 Multiple R-squared:   0.76, Adjusted R-squared:  0.7583 
 F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>On peut modifier la couleur (ici un gris:<code>#37424a</code>), l’épaisseur du contour (plus large à gauche), le radius des angles du contoure etc…</p>
 
 
 <!-- -->
@@ -562,7 +564,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Modification des outputs avec un fichier .scss"</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Modification de l'apparence des outputs avec un fichier .scss"</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
 <span id="cb5-4"><a href="#cb5-4"></a><span class="co"># toc-title: ""</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a><span class="co"># subtitle: ""</span></span>
@@ -570,42 +572,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-7"><a href="#cb5-7"></a><span class="an">categories:</span></span>
 <span id="cb5-8"><a href="#cb5-8"></a><span class="co">  - Output</span></span>
 <span id="cb5-9"><a href="#cb5-9"></a><span class="co">  - scss</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">  - sass</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">  - css</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">  </span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="co">    affiliations:</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="an">date:</span><span class="co"> 06/20/2023</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a></span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb5-23"><a href="#cb5-23"></a><span class="co">  html: default</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#  docx: default</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#  pdf:  default</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a></span>
-<span id="cb5-27"><a href="#cb5-27"></a><span class="an">filters:</span></span>
-<span id="cb5-28"><a href="#cb5-28"></a><span class="co">   - lightbox</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a><span class="co">   - nutshell</span></span>
-<span id="cb5-30"><a href="#cb5-30"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb5-31"><a href="#cb5-31"></a></span>
-<span id="cb5-32"><a href="#cb5-32"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb5-33"><a href="#cb5-33"></a><span class="co"> A la suite d'un code, les outputs de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier leur couleur d'affichage à l'aide des variable sass et d'un code css ajoutés à un fichier .scss </span></span>
-<span id="cb5-34"><a href="#cb5-34"></a><span class="co">---</span></span>
-<span id="cb5-35"><a href="#cb5-35"></a></span>
-<span id="cb5-36"><a href="#cb5-36"></a>Par défaut le rendu des outputs bruts (<span class="in">`theme: default`</span>) </span>
-<span id="cb5-37"><a href="#cb5-37"></a></span>
-<span id="cb5-38"><a href="#cb5-38"></a><span class="al">![](img/img1.png)</span></span>
-<span id="cb5-39"><a href="#cb5-39"></a></span>
-<span id="cb5-40"><a href="#cb5-40"></a><span class="ss">- </span>Avec un fichier .scss, généré automatiquement à la création d'un projet, on peu modifier le rendu de l'output. </span>
-<span id="cb5-41"><a href="#cb5-41"></a><span class="ss">- </span>On peut créer un fichier .scss facilement à partir d'un fichier de type texte, en le renommant avec l'extension <span class="in">`.scss`</span>, par exemple <span class="in">`styles.scss`</span>.</span>
-<span id="cb5-42"><a href="#cb5-42"></a><span class="ss">- </span>On ajoute les éléments suivants au fichier .scss</span>
-<span id="cb5-43"><a href="#cb5-43"></a><span class="ss">- </span>On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique les modifications ajoutées au fichier.  </span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">  - css</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">  </span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">    affiliations:</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="an">date:</span><span class="co"> 06/20/2023</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="co">  html: default</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">  docx: default</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">  pdf:  default</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="an">filters:</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co">   - lightbox</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">#   - nutshell</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="co"> A la suite d'un code, le report  de l'output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d'un contour, à l'aide des variables sass et d'un code css ajoutés à un fichier .scss </span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co">---</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a></span>
+<span id="cb5-35"><a href="#cb5-35"></a>Par défaut le rendu des outputs console bruts (<span class="in">`theme: default`</span>) est le suivant:  </span>
+<span id="cb5-36"><a href="#cb5-36"></a></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="al">![](img/img1.png)</span>{with=80%}</span>
+<span id="cb5-38"><a href="#cb5-38"></a></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="ss">- </span>Avec un fichier .scss on peut modifier le rendu de cet output. </span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="ss">  -  </span>Un fichier styles.scss est généré automatiquement à la création d'un projet</span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="ss">  - </span>Pour une page simple, on peut le créer facilement  facilement à partir d'un fichier de type texte, en le renommant avec l'extension <span class="in">`.scss`</span>, par exemple <span class="in">`styles.scss`</span>.</span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="ss">- </span>On ajoute des éléments de modification de l'apparence au fichier .scss</span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="ss">- </span>On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique ces modifications.  </span>
 <span id="cb5-44"><a href="#cb5-44"></a></span>
-<span id="cb5-45"><a href="#cb5-45"></a>**Modifications des couleurs de l'output dans le fichier .scss** </span>
+<span id="cb5-45"><a href="#cb5-45"></a>**Modifications de l'output console dans un fichier .scss** </span>
 <span id="cb5-46"><a href="#cb5-46"></a></span>
 <span id="cb5-47"><a href="#cb5-47"></a><span class="in">```markdown</span></span>
 <span id="cb5-48"><a href="#cb5-48"></a>$code-block-stdoutcolor: #37424a;</span>
@@ -631,33 +633,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-68"><a href="#cb5-68"></a>}</span>
 <span id="cb5-69"><a href="#cb5-69"></a></span>
 <span id="cb5-70"><a href="#cb5-70"></a><span class="in">```</span></span>
-<span id="cb5-71"><a href="#cb5-71"></a></span>
-<span id="cb5-72"><a href="#cb5-72"></a>**yaml de la page ou du projet**  </span>
+<span id="cb5-71"><a href="#cb5-71"></a>Ici on a modifier la couleur du fond (ici un gris:<span class="in">`#37424a`</span>), l'épaisseur du contour (plus importante à gauche), le radius des angles du contour etc...</span>
+<span id="cb5-72"><a href="#cb5-72"></a></span>
 <span id="cb5-73"><a href="#cb5-73"></a></span>
-<span id="cb5-74"><a href="#cb5-74"></a></span>
-<span id="cb5-75"><a href="#cb5-75"></a>Pour le yaml d'une page avec un fichier styles.scss</span>
+<span id="cb5-74"><a href="#cb5-74"></a>**yaml de la page ou du template quarto.yml du projet**  </span>
+<span id="cb5-75"><a href="#cb5-75"></a></span>
 <span id="cb5-76"><a href="#cb5-76"></a></span>
-<span id="cb5-77"><a href="#cb5-77"></a><span class="in">```markdown</span></span>
-<span id="cb5-78"><a href="#cb5-78"></a>---</span>
-<span id="cb5-79"><a href="#cb5-79"></a></span>
-<span id="cb5-80"><a href="#cb5-80"></a>title="Changement couleur output"</span>
+<span id="cb5-77"><a href="#cb5-77"></a>Pour le yaml d'une page simple avec le fichier styles.scss</span>
+<span id="cb5-78"><a href="#cb5-78"></a></span>
+<span id="cb5-79"><a href="#cb5-79"></a><span class="in">```markdown</span></span>
+<span id="cb5-80"><a href="#cb5-80"></a>---</span>
 <span id="cb5-81"><a href="#cb5-81"></a></span>
-<span id="cb5-82"><a href="#cb5-82"></a>format:</span>
-<span id="cb5-83"><a href="#cb5-83"></a>  html:</span>
-<span id="cb5-84"><a href="#cb5-84"></a>    theme: <span class="co">[</span><span class="ot">default, style.scss</span><span class="co">]</span></span>
-<span id="cb5-85"><a href="#cb5-85"></a>---</span>
-<span id="cb5-86"><a href="#cb5-86"></a><span class="in">```</span></span>
-<span id="cb5-87"><a href="#cb5-87"></a></span>
-<span id="cb5-88"><a href="#cb5-88"></a></span>
-<span id="cb5-91"><a href="#cb5-91"></a><span class="in">```{r}</span></span>
-<span id="cb5-92"><a href="#cb5-92"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span>
-<span id="cb5-93"><a href="#cb5-93"></a><span class="in">```</span></span>
-<span id="cb5-94"><a href="#cb5-94"></a></span>
-<span id="cb5-95"><a href="#cb5-95"></a>On peut modifier la couleur (ici un gris:<span class="in">`#37424a`</span>), l'épaisseur du contour (plus large à gauche), le radius des angles du contoure etc...</span>
+<span id="cb5-82"><a href="#cb5-82"></a>title="Changement couleur output"</span>
+<span id="cb5-83"><a href="#cb5-83"></a></span>
+<span id="cb5-84"><a href="#cb5-84"></a>format:</span>
+<span id="cb5-85"><a href="#cb5-85"></a>  html:</span>
+<span id="cb5-86"><a href="#cb5-86"></a>    theme: <span class="co">[</span><span class="ot">default, style.scss</span><span class="co">]</span></span>
+<span id="cb5-87"><a href="#cb5-87"></a>---</span>
+<span id="cb5-88"><a href="#cb5-88"></a><span class="in">```</span></span>
+<span id="cb5-89"><a href="#cb5-89"></a></span>
+<span id="cb5-90"><a href="#cb5-90"></a>Après exécution du programme, le rendu de l'output est le suivant:</span>
+<span id="cb5-91"><a href="#cb5-91"></a></span>
+<span id="cb5-94"><a href="#cb5-94"></a><span class="in">```{r}</span></span>
+<span id="cb5-95"><a href="#cb5-95"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
+<span id="cb5-96"><a href="#cb5-96"></a></span>
+<span id="cb5-97"><a href="#cb5-97"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span>
+<span id="cb5-98"><a href="#cb5-98"></a><span class="in">```</span></span>
+<span id="cb5-99"><a href="#cb5-99"></a></span>
+<span id="cb5-100"><a href="#cb5-100"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":true,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":true});</script>
 
 
 
