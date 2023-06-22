@@ -1,5 +1,5 @@
 ---
-title: "Rstudio et Git: l'essentiel"
+title: "Rstudio et Git[hub/lab]: l'essentiel"
 
 categories:
   - git
