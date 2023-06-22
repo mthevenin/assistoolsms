@@ -34,11 +34,6 @@ Prérequis:
 - Avoir un compte github (<https://github.com/>) ou gitlab (<https://about.gitlab.com/>)
 
 
-
-* Les exemples 
-
-
-
 # Création d'un dépôt Git
 
 * La méthode de clônage du dépôt montré ici utilise un lien **https**. Il est  préférable de sécuriser les opérations de synchronisation avec une clé **SSH**. Elle peut être générée dans Rstudio (tools=>global options=>git/svn) et appliquée dans son compte git (dans github aller dans les *settings* de son profile puis dans "**SSH and GPH keys**") [Oui...Faire un tuto là dessus].
@@ -52,15 +47,15 @@ Prérequis:
 
 ![](img/git2.gif)  
 
-# Ajout d'un fichier dans le projet et l'envoyer dans le dépôt 
+# Ajout d'un fichier dans le projet et l'envoyer dans le dépôt distant
 
 Petite remarque avec Quarto: éviter de faire un render d'un fichier `.qmd` qui n'est pas associé au projet actif de la session. 
 
 ![](img/git3.gif)  
 
-Les opérations sur le terminal sont utiliser a minima. 
+Les opérations `git` effectuée sur le terminal sont a minima (`git help`). 
 
-- `git status` permet, comme son nom l'indique, d'afficher le statut des fichiers du projet depuis la dernière synchronisation: nouveaux, supprimés, modifiés
+- `git status` permet, comme son nom l'indique, d'afficher les modifications apparues dans le projet depuis la dernière synchronisation
 - `git add .`: on peut sélectionner des fichiers particuliers, l'ajout de `.` permet de sélectionné l'ensemble des fichiers affichés avec `git status`.
 - Le commit (commentaire) semble obligatoire dans rstudio. On peut le faire dans le terminal, mais je préfère aller dans la fenêtre **commit** accessible dans l'onglet **git** (en haut à droite de l'interface).
 - Une fois le commentaire réalisé on peut envoyer les fichiers dans le dépôt en cliquant sur **push**  ou dans le terminal exécuter `git push`
