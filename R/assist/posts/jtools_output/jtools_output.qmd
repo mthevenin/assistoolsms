@@ -1,7 +1,6 @@
 ---
 title: "Affichage d'output de régression avec Jtools"
 
-# toc-title: ""
 # subtitle: ""
 
 categories:
