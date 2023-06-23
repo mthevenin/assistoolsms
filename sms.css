@@ -106,12 +106,15 @@
   position: relative;
   margin-top: -1px;
   margin-bottom: 1.8em;
-  border-bottom: 1px solid white;
-  background-color: white;;
+  border-bottom: 1px solid black;
+  padding-bottom: 1.0em;
+  background-color: seashell;
 }
 
 .quarto-title-banner {
   margin-bottom: 0.75em;
+  background-color: seashell;
+  
 }
 
 @media (max-width: 991.98px) {
@@ -138,6 +141,7 @@
   font-weight: 400;
   font-size: 1.2em;
   color: black;
+  
 }
 
 
@@ -168,7 +172,7 @@
 }
 
 #title-block-header.quarto-title-block.default .quarto-title-meta-heading {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   margin-top: 1em;
   font-size: 0.9em;
@@ -178,7 +182,7 @@
 }
 
 #title-block-header.quarto-title-block.default .quarto-title-meta-contents {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   font-weight: 400;
   opacity: 0.8;
@@ -523,7 +527,7 @@ div.quarto-post {
 }
 
 div.quarto-post .metadata {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
 }
@@ -531,7 +535,7 @@ div.quarto-post .metadata {
 div.quarto-post .listing-categories .listing-category {
   color: #De3831;
   border: solid 1px #De3831;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: .75em;
 }
@@ -557,7 +561,7 @@ div.quarto-post a {
 }
 
 .nav-page .nav-page-text {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   color: black;
@@ -587,7 +591,8 @@ div.quarto-post a {
 
 .quarto-grid-item div.post-contents {
   margin-left: 0.5em;
-  padding: 0;
+  padding: 15px;
+  text-align: justify;
 }
 
 .quarto-grid-item .card-title {
@@ -606,10 +611,12 @@ div.quarto-post a {
 .quarto-grid-item .listing-categories .listing-category {
   color: #De3831;
   border: solid 1px #De3831 !important;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: .75em;
 }
+
+
 
 /* Vignette alignement*/
 .quarto-grid-item .card-attribution.justify {
@@ -619,17 +626,19 @@ div.quarto-post a {
 
 /* Vignette auteur et date*/
 .quarto-grid-item .card-attribution {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: #37424A;
   flex-grow: 10;
   align-items: flex-end;
+  padding:10px;
 }
 
 .quarto-grid-item img.thumbnail-image {
   object-fit: cover;
   height: 190px !important;
   width: 90%;
+  padding: 20px;
 }
 
 
