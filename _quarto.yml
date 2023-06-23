@@ -9,7 +9,6 @@ website:
   navbar:
     background: "white"
     logo: img/coding2.png
-    logo-alt: "Logo Sms"
     title: false
     collapse-below: lg
     right:
@@ -31,10 +30,8 @@ back-to-top-navigation: false
 
 page-footer:
     background: "#000000"
-    left: |
-      Copyright &copy; 2023 [Institut National d'Etudes Démographiques](https://ined.fr/)
     center:  
-      - href: https://github.com/mthevenin
+      - href: https://github.com/mthevenin/assistoolsms
         icon: github
         aria-label: GitHub
 

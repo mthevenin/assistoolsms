@@ -33,6 +33,13 @@ Prérequis:
 - Installé l'application git (<https://git-scm.com/>). A l'Ined elle peut être directement installée via **applined**
 - Avoir un compte github (<https://github.com/>) ou gitlab (<https://about.gitlab.com/>)
 
+::: callout-tip
+
+## Début de l'animation
+
+Cliquer sur l'animation pour la faire redémarrer au début.
+
+:::
 
 # Création d'un dépôt Git
 
@@ -55,7 +62,7 @@ Petite remarque avec Quarto: éviter de faire un render d'un fichier `.qmd` qui 
 
 Les opérations `git` effectuée sur le terminal sont a minima (`git help`). 
 
-- `git status` permet, comme son nom l'indique, d'afficher les modifications apparues dans le projet depuis la dernière synchronisation
+- `git status` permet, comme son nom l'indique, d'afficher les modifications apparues dans le projet depuis la dernière synchronisation. Optionnel, sans conséquence sur la synchronisation.
 - `git add .`: on peut sélectionner des fichiers particuliers, l'ajout de `.` permet de sélectionné l'ensemble des fichiers affichés avec `git status`.
 - Le commit (commentaire) semble obligatoire dans rstudio. On peut le faire dans le terminal, mais je préfère aller dans la fenêtre **commit** accessible dans l'onglet **git** (en haut à droite de l'interface).
 - Une fois le commentaire réalisé on peut envoyer les fichiers dans le dépôt en cliquant sur **push**  ou dans le terminal exécuter `git push`
