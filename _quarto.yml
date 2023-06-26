@@ -11,7 +11,7 @@ website:
     logo: img/coding2.png
     title: false
     collapse-below: lg
-    right:
+    left:
       - text: "R"
         href: R/index.qmd
       - text: "Quarto"

@@ -31,5 +31,21 @@
       "/R/assist/posts/R_vscode/R_vscode_doc.html",
       "/R/assist/posts/addition/addition.html"
     ]
+  },
+  {
+    "listing": "/Quarto/index.html",
+    "items": [
+      "/Quarto/assist/posts/output_scss/output_scss.html",
+      "/Quarto/assist/posts/annotation/annotation.html",
+      "/Quarto/assist/posts/social_embeds/social_embeds.html"
+    ]
+  },
+  {
+    "listing": "/Autres/index.html",
+    "items": [
+      "/Autres/assist/posts/git_rstudio/git_rstudio.html",
+      "/Autres/assist/posts/whispers/whisper.html",
+      "/Autres/assist/posts/remove_nul/remove_nul.html"
+    ]
   }
 ]

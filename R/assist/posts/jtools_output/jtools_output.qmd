@@ -31,7 +31,10 @@ abstract: |
  La fonction `summ` du package jtools (Jacob Long) permet d'obtenir des outputs de regression en format console de très bonne qualité. Il s'agit d'une très bonne alternative aux outputs par défaut. Ce package propose également des fonctionnalités d'exportation des outputs dans d'autres formats (html, docx, pdf ...) et des visualisations sous forme de graphique. Ces fonctionnalité ne seront pas traitées ici, l'accent étant mis sur la qualité d'un output console avec une durée d'exécution minimale. L'utilisation des fonctionnalités d'exportation, comme le très populaire package **`gtsummaty`** devrait être appliqué, selon nous, pour des raisons de durée d'exécution à un résultat final.
 ---
 
-- [Documentation sur le package **jtools** (Jacob Long)](https://jtools.jacob-long.com/index.html)
+![](https://jtools.jacob-long.com/logo.png){width=15%}
+
+
+- [Documentation du package **jtools** (Jacob Long)](https://jtools.jacob-long.com/index.html)
 - A ce jour, la maintenance du package est assurée [version 2.2.1 à juin 2023] 
 - Les nombre de modèles pris en charge par le package est malheureusement assez réduit. On notera cependant la prise en charge de la fonction `svyglm` du package survey. 
 - Les fonctionnalités d'exportation ne seront pas traitées ici. 

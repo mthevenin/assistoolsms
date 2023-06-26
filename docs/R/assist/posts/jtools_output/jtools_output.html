@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html" rel="" target="">
  <span class="menu-text">R</span></a>
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-autres-supports" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Autres Supports</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-autres-supports">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-autres-supports">    
         <li>
     <a class="dropdown-item" href="https://mthevenin.github.io/stata_fr/index.html" rel="" target="">
  <span class="dropdown-text">Stata</span></a>
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools ms-auto">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -210,8 +210,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<p><img src="https://jtools.jacob-long.com/logo.png" class="img-fluid" style="width:15.0%"></p>
 <ul>
-<li><a href="https://jtools.jacob-long.com/index.html">Documentation sur le package <strong>jtools</strong> (Jacob Long)</a></li>
+<li><a href="https://jtools.jacob-long.com/index.html">Documentation du package <strong>jtools</strong> (Jacob Long)</a></li>
 <li>A ce jour, la maintenance du package est assurée [version 2.2.1 à juin 2023]</li>
 <li>Les nombre de modèles pris en charge par le package est malheureusement assez réduit. On notera cependant la prise en charge de la fonction <code>svyglm</code> du package survey.</li>
 <li>Les fonctionnalités d’exportation ne seront pas traitées ici.</li>
@@ -701,90 +702,93 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-31"><a href="#cb8-31"></a><span class="co"> La fonction `summ` du package jtools (Jacob Long) permet d'obtenir des outputs de regression en format console de très bonne qualité. Il s'agit d'une très bonne alternative aux outputs par défaut. Ce package propose également des fonctionnalités d'exportation des outputs dans d'autres formats (html, docx, pdf ...) et des visualisations sous forme de graphique. Ces fonctionnalité ne seront pas traitées ici, l'accent étant mis sur la qualité d'un output console avec une durée d'exécution minimale. L'utilisation des fonctionnalités d'exportation, comme le très populaire package **`gtsummaty`** devrait être appliqué, selon nous, pour des raisons de durée d'exécution à un résultat final.</span></span>
 <span id="cb8-32"><a href="#cb8-32"></a><span class="co">---</span></span>
 <span id="cb8-33"><a href="#cb8-33"></a></span>
-<span id="cb8-34"><a href="#cb8-34"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Documentation sur le package **jtools** (Jacob Long)</span><span class="co">](https://jtools.jacob-long.com/index.html)</span></span>
-<span id="cb8-35"><a href="#cb8-35"></a><span class="ss">- </span>A ce jour, la maintenance du package est assurée <span class="co">[</span><span class="ot">version 2.2.1 à juin 2023</span><span class="co">]</span> </span>
-<span id="cb8-36"><a href="#cb8-36"></a><span class="ss">- </span>Les nombre de modèles pris en charge par le package est malheureusement assez réduit. On notera cependant la prise en charge de la fonction <span class="in">`svyglm`</span> du package survey. </span>
-<span id="cb8-37"><a href="#cb8-37"></a><span class="ss">- </span>Les fonctionnalités d'exportation ne seront pas traitées ici. </span>
-<span id="cb8-38"><a href="#cb8-38"></a></span>
-<span id="cb8-39"><a href="#cb8-39"></a><span class="fu"># **Installation**</span></span>
-<span id="cb8-40"><a href="#cb8-40"></a></span>
-<span id="cb8-41"><a href="#cb8-41"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb8-42"><a href="#cb8-42"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>)</span>
-<span id="cb8-43"><a href="#cb8-43"></a><span class="in">```</span></span>
-<span id="cb8-44"><a href="#cb8-44"></a></span>
-<span id="cb8-45"><a href="#cb8-45"></a>ou </span>
-<span id="cb8-46"><a href="#cb8-46"></a></span>
-<span id="cb8-47"><a href="#cb8-47"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb8-48"><a href="#cb8-48"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb8-49"><a href="#cb8-49"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jacob-long/jtools"</span>)</span>
-<span id="cb8-50"><a href="#cb8-50"></a><span class="in">```</span></span>
-<span id="cb8-51"><a href="#cb8-51"></a></span>
-<span id="cb8-52"><a href="#cb8-52"></a></span>
-<span id="cb8-53"><a href="#cb8-53"></a><span class="fu"># **Syntaxe de la fonction `summ()`**  </span></span>
+<span id="cb8-34"><a href="#cb8-34"></a><span class="al">![](https://jtools.jacob-long.com/logo.png)</span>{width=15%}</span>
+<span id="cb8-35"><a href="#cb8-35"></a></span>
+<span id="cb8-36"><a href="#cb8-36"></a></span>
+<span id="cb8-37"><a href="#cb8-37"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Documentation du package **jtools** (Jacob Long)</span><span class="co">](https://jtools.jacob-long.com/index.html)</span></span>
+<span id="cb8-38"><a href="#cb8-38"></a><span class="ss">- </span>A ce jour, la maintenance du package est assurée <span class="co">[</span><span class="ot">version 2.2.1 à juin 2023</span><span class="co">]</span> </span>
+<span id="cb8-39"><a href="#cb8-39"></a><span class="ss">- </span>Les nombre de modèles pris en charge par le package est malheureusement assez réduit. On notera cependant la prise en charge de la fonction <span class="in">`svyglm`</span> du package survey. </span>
+<span id="cb8-40"><a href="#cb8-40"></a><span class="ss">- </span>Les fonctionnalités d'exportation ne seront pas traitées ici. </span>
+<span id="cb8-41"><a href="#cb8-41"></a></span>
+<span id="cb8-42"><a href="#cb8-42"></a><span class="fu"># **Installation**</span></span>
+<span id="cb8-43"><a href="#cb8-43"></a></span>
+<span id="cb8-44"><a href="#cb8-44"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>)</span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="in">```</span></span>
+<span id="cb8-47"><a href="#cb8-47"></a></span>
+<span id="cb8-48"><a href="#cb8-48"></a>ou </span>
+<span id="cb8-49"><a href="#cb8-49"></a></span>
+<span id="cb8-50"><a href="#cb8-50"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb8-51"><a href="#cb8-51"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb8-52"><a href="#cb8-52"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jacob-long/jtools"</span>)</span>
+<span id="cb8-53"><a href="#cb8-53"></a><span class="in">```</span></span>
 <span id="cb8-54"><a href="#cb8-54"></a></span>
-<span id="cb8-55"><a href="#cb8-55"></a>La syntaxe est particulièrement simple, elle consiste juste à appliquée à la fonction <span class="in">`summ()`</span> l'objet généré par la régression. Quelques options comme <span class="in">`digits`</span>, <span class="in">`confint`</span>, <span class="in">`exp`</span> permettent d'améliorer et enrichir l'output.</span>
-<span id="cb8-56"><a href="#cb8-56"></a></span>
-<span id="cb8-57"><a href="#cb8-57"></a><span class="in">```{r filename="syntaxe minimale", eval=FALSE}</span></span>
-<span id="cb8-58"><a href="#cb8-58"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x , <span class="at">data=</span>df)</span>
-<span id="cb8-59"><a href="#cb8-59"></a><span class="fu">summ</span>(fit)</span>
-<span id="cb8-60"><a href="#cb8-60"></a><span class="in">```</span></span>
-<span id="cb8-61"><a href="#cb8-61"></a></span>
-<span id="cb8-62"><a href="#cb8-62"></a></span>
-<span id="cb8-63"><a href="#cb8-63"></a><span class="fu"># **Exemples [^1]**</span></span>
+<span id="cb8-55"><a href="#cb8-55"></a></span>
+<span id="cb8-56"><a href="#cb8-56"></a><span class="fu"># **Syntaxe de la fonction `summ()`**  </span></span>
+<span id="cb8-57"><a href="#cb8-57"></a></span>
+<span id="cb8-58"><a href="#cb8-58"></a>La syntaxe est particulièrement simple, elle consiste juste à appliquée à la fonction <span class="in">`summ()`</span> l'objet généré par la régression. Quelques options comme <span class="in">`digits`</span>, <span class="in">`confint`</span>, <span class="in">`exp`</span> permettent d'améliorer et enrichir l'output.</span>
+<span id="cb8-59"><a href="#cb8-59"></a></span>
+<span id="cb8-60"><a href="#cb8-60"></a><span class="in">```{r filename="syntaxe minimale", eval=FALSE}</span></span>
+<span id="cb8-61"><a href="#cb8-61"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x , <span class="at">data=</span>df)</span>
+<span id="cb8-62"><a href="#cb8-62"></a><span class="fu">summ</span>(fit)</span>
+<span id="cb8-63"><a href="#cb8-63"></a><span class="in">```</span></span>
 <span id="cb8-64"><a href="#cb8-64"></a></span>
-<span id="cb8-65"><a href="#cb8-65"></a><span class="ot">[^1]: </span>mesure de la tension artérielle (<span class="in">`lm`</span>) et du risque d'hypertension (<span class="in">`glm`</span> et <span class="in">`svyglm`</span>)</span>
-<span id="cb8-66"><a href="#cb8-66"></a></span>
+<span id="cb8-65"><a href="#cb8-65"></a></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="fu"># **Exemples [^1]**</span></span>
 <span id="cb8-67"><a href="#cb8-67"></a></span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="fu">## Avec la fonction `lm()`</span></span>
+<span id="cb8-68"><a href="#cb8-68"></a><span class="ot">[^1]: </span>mesure de la tension artérielle (<span class="in">`lm`</span>) et du risque d'hypertension (<span class="in">`glm`</span> et <span class="in">`svyglm`</span>)</span>
 <span id="cb8-69"><a href="#cb8-69"></a></span>
-<span id="cb8-70"><a href="#cb8-70"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.lm.html)</span></span>
-<span id="cb8-71"><a href="#cb8-71"></a></span>
-<span id="cb8-74"><a href="#cb8-74"></a><span class="in">```{r}</span></span>
-<span id="cb8-75"><a href="#cb8-75"></a><span class="fu">library</span>(jtools)</span>
-<span id="cb8-76"><a href="#cb8-76"></a><span class="fu">library</span>(readr)</span>
-<span id="cb8-77"><a href="#cb8-77"></a></span>
-<span id="cb8-78"><a href="#cb8-78"></a>df <span class="ot">=</span>  <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/intro_logit/main/hypertension2.csv"</span>)</span>
-<span id="cb8-79"><a href="#cb8-79"></a></span>
-<span id="cb8-80"><a href="#cb8-80"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(bpsystol <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">data=</span>df)</span>
-<span id="cb8-81"><a href="#cb8-81"></a></span>
-<span id="cb8-82"><a href="#cb8-82"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>)  <span class="co">#&lt;1&gt;                                                       </span></span>
-<span id="cb8-83"><a href="#cb8-83"></a></span>
-<span id="cb8-84"><a href="#cb8-84"></a><span class="in">```</span></span>
-<span id="cb8-85"><a href="#cb8-85"></a></span>
+<span id="cb8-70"><a href="#cb8-70"></a></span>
+<span id="cb8-71"><a href="#cb8-71"></a><span class="fu">## Avec la fonction `lm()`</span></span>
+<span id="cb8-72"><a href="#cb8-72"></a></span>
+<span id="cb8-73"><a href="#cb8-73"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.lm.html)</span></span>
+<span id="cb8-74"><a href="#cb8-74"></a></span>
+<span id="cb8-77"><a href="#cb8-77"></a><span class="in">```{r}</span></span>
+<span id="cb8-78"><a href="#cb8-78"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="fu">library</span>(readr)</span>
+<span id="cb8-80"><a href="#cb8-80"></a></span>
+<span id="cb8-81"><a href="#cb8-81"></a>df <span class="ot">=</span>  <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/intro_logit/main/hypertension2.csv"</span>)</span>
+<span id="cb8-82"><a href="#cb8-82"></a></span>
+<span id="cb8-83"><a href="#cb8-83"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(bpsystol <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">data=</span>df)</span>
+<span id="cb8-84"><a href="#cb8-84"></a></span>
+<span id="cb8-85"><a href="#cb8-85"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>)  <span class="co">#&lt;1&gt;                                                       </span></span>
 <span id="cb8-86"><a href="#cb8-86"></a></span>
-<span id="cb8-87"><a href="#cb8-87"></a><span class="ss">1. </span>digits=4 =&gt; Les résultats sont reportés avec 4 décimales      </span>
+<span id="cb8-87"><a href="#cb8-87"></a><span class="in">```</span></span>
 <span id="cb8-88"><a href="#cb8-88"></a></span>
 <span id="cb8-89"><a href="#cb8-89"></a></span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="fu">## Avec la fonction `glm()` [lien logit]</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a><span class="ss">1. </span>digits=4 =&gt; Les résultats sont reportés avec 4 décimales      </span>
 <span id="cb8-91"><a href="#cb8-91"></a></span>
-<span id="cb8-92"><a href="#cb8-92"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.glm.html)</span></span>
-<span id="cb8-93"><a href="#cb8-93"></a></span>
-<span id="cb8-96"><a href="#cb8-96"></a><span class="in">```{r}</span></span>
-<span id="cb8-97"><a href="#cb8-97"></a>fit <span class="ot">=</span> <span class="fu">glm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">data=</span>df)   </span>
-<span id="cb8-98"><a href="#cb8-98"></a></span>
-<span id="cb8-99"><a href="#cb8-99"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)                                           <span class="co">#&lt;1&gt;</span></span>
-<span id="cb8-100"><a href="#cb8-100"></a></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="in">```</span></span>
-<span id="cb8-102"><a href="#cb8-102"></a></span>
-<span id="cb8-103"><a href="#cb8-103"></a><span class="ss">1. </span>On ajoute des intervalles de confiance (<span class="in">`confint=TRUE`</span>) et le report des estimateurs sous forme d'Odds Ratio (<span class="in">`exp=TRUE`</span>)</span>
-<span id="cb8-104"><a href="#cb8-104"></a></span>
+<span id="cb8-92"><a href="#cb8-92"></a></span>
+<span id="cb8-93"><a href="#cb8-93"></a><span class="fu">## Avec la fonction `glm()` [lien logit]</span></span>
+<span id="cb8-94"><a href="#cb8-94"></a></span>
+<span id="cb8-95"><a href="#cb8-95"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.glm.html)</span></span>
+<span id="cb8-96"><a href="#cb8-96"></a></span>
+<span id="cb8-99"><a href="#cb8-99"></a><span class="in">```{r}</span></span>
+<span id="cb8-100"><a href="#cb8-100"></a>fit <span class="ot">=</span> <span class="fu">glm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">data=</span>df)   </span>
+<span id="cb8-101"><a href="#cb8-101"></a></span>
+<span id="cb8-102"><a href="#cb8-102"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)                                           <span class="co">#&lt;1&gt;</span></span>
+<span id="cb8-103"><a href="#cb8-103"></a></span>
+<span id="cb8-104"><a href="#cb8-104"></a><span class="in">```</span></span>
 <span id="cb8-105"><a href="#cb8-105"></a></span>
-<span id="cb8-106"><a href="#cb8-106"></a></span>
-<span id="cb8-107"><a href="#cb8-107"></a><span class="fu">## Avec la fonction `svyglm()` [lien logit]</span></span>
+<span id="cb8-106"><a href="#cb8-106"></a><span class="ss">1. </span>On ajoute des intervalles de confiance (<span class="in">`confint=TRUE`</span>) et le report des estimateurs sous forme d'Odds Ratio (<span class="in">`exp=TRUE`</span>)</span>
+<span id="cb8-107"><a href="#cb8-107"></a></span>
 <span id="cb8-108"><a href="#cb8-108"></a></span>
-<span id="cb8-109"><a href="#cb8-109"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.svyglm.html)</span></span>
-<span id="cb8-110"><a href="#cb8-110"></a></span>
-<span id="cb8-111"><a href="#cb8-111"></a><span class="in">```{r, message=FALSE, warning=FALSE}</span></span>
-<span id="cb8-112"><a href="#cb8-112"></a><span class="fu">library</span>(survey)</span>
+<span id="cb8-109"><a href="#cb8-109"></a></span>
+<span id="cb8-110"><a href="#cb8-110"></a><span class="fu">## Avec la fonction `svyglm()` [lien logit]</span></span>
+<span id="cb8-111"><a href="#cb8-111"></a></span>
+<span id="cb8-112"><a href="#cb8-112"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.svyglm.html)</span></span>
 <span id="cb8-113"><a href="#cb8-113"></a></span>
-<span id="cb8-114"><a href="#cb8-114"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
-<span id="cb8-115"><a href="#cb8-115"></a></span>
-<span id="cb8-116"><a href="#cb8-116"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
-<span id="cb8-117"><a href="#cb8-117"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span>
-<span id="cb8-118"><a href="#cb8-118"></a><span class="in">```</span></span>
-<span id="cb8-119"><a href="#cb8-119"></a></span>
-<span id="cb8-120"><a href="#cb8-120"></a></span>
-<span id="cb8-121"><a href="#cb8-121"></a></span>
+<span id="cb8-114"><a href="#cb8-114"></a><span class="in">```{r, message=FALSE, warning=FALSE}</span></span>
+<span id="cb8-115"><a href="#cb8-115"></a><span class="fu">library</span>(survey)</span>
+<span id="cb8-116"><a href="#cb8-116"></a></span>
+<span id="cb8-117"><a href="#cb8-117"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
+<span id="cb8-118"><a href="#cb8-118"></a></span>
+<span id="cb8-119"><a href="#cb8-119"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
+<span id="cb8-120"><a href="#cb8-120"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span>
+<span id="cb8-121"><a href="#cb8-121"></a><span class="in">```</span></span>
+<span id="cb8-122"><a href="#cb8-122"></a></span>
+<span id="cb8-123"><a href="#cb8-123"></a></span>
+<span id="cb8-124"><a href="#cb8-124"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
