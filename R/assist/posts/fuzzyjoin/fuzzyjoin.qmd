@@ -1,0 +1,212 @@
+---
+title: "Techniques appariements entre chaînes de caractères"
+
+categories:
+  - appariement
+  - stringdist
+  - fuzzyjoin
+
+author: 
+  - name: "Arnaud Bringé"
+    affiliations:
+      - name: "Ined"
+
+date: 06/23/2023
+
+image: "https://www.r-project.org/Rlogo.png"
+
+format: 
+  html: default
+#  docx: default
+
+filters:
+   - lightbox
+lightbox: auto
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problématique
+
+En démographie historique, on est souvent amenés à confronter des chaines de caractères pour relier des enregistrements nominatifs, par exemple chaîner des actes BMS (Baptême-Mariage-Sépulture) pour essayer de retrouver le parcours d'un individu. Dans les actes du 18ème siècle, l'identification des individus, lieux ou professions est souvent rédigée avec une forte hétérogénéité. Il en résulte une jointure par recherche floue, avec des chaînes de caractères identifiantes qui correspondent à une problématique de recherche approximative.
+
+Pour ce faire, on va calculer une distance entre 2 chaînes de caractères, qui pourra être un nombre absolu représentant un degré de ressemblance des deux chaînes comparées, ou un nombre relatif, score variant de 0 à 1 par exemple, distance définie pour mesurer cette proximité.
+
+Un des algorithmes les plus utilisés est l'**algorithme de Lehvenshtein**, qui calcule entre deux chaines de caractères la plus courte distance, en tenant compte des opérations suivantes:  
+
+- Insertion de motifs. 
+- Suppression de motifs (équivalent à la règle précédente).
+- Substitution de motifs.
+
+
+Les packages utilisés seront les suivants:   
+
+* [tidyverse](https://www.tidyverse.org/)
+* [stringdist](https://github.com/markvanderloo/stringdist)
+* [fuzzyjoin](https://github.com/dgrtwo/fuzzyjoin)
+
+```{r Packages, warning=FALSE, message=FALSE}
+#install.packages(stringdist)
+#install.packages(tidyverse)
+#install.packages(fuzzyjoin)
+
+library(stringdist)
+library(tidyverse)
+library(fuzzyjoin)
+```
+
+
+# Exemple et mise en oeuvre
+
+Par exemple entre les chaînes "FROMONT" et "FROMON", on aura un score de 2 :
+- substitution de "O" et "E" en position 2
+- insertion de "T en dernière lettre de la première chaine
+
+
+```{r Lehvenshtein}
+stringdist("FROMONT", "FREMON", method = "lv")
+```
+
+La comparaison peut se faire sur 2 ensembles de vecteurs, la comparaison sera effectuée terme à terme
+
+```{r Vecteurs}
+stringdist(c("BLIER","FROMONT"),c("BELIER","FREMON"), method = "lv")
+```
+# Exemples de distances
+
+Quelques exemples de distances disponibles : 
+
+  - Hamming distance;
+  - Levenshtein distance (weighted);
+  - Restricted Damerau-Levenshtein distance (weighted, a.k.a. Optimal String Alignment);
+  - Full Damerau-Levenshtein distance (weighted);
+  - Longest Common Substring distance;
+  - Q-gram distance
+  - cosine distance for q-gram count vectors (= 1-cosine similarity)
+  - Jaccard distance for q-gram count vectors (= 1-Jaccard similarity)
+  - Jaro, and Jaro-Winkler distance
+  - Soundex-based string distance.
+
+
+# Plus proche distance d'un élément à un vecteur
+
+- La fonction amatch renvoie le premier élément du vecteur satisfaisant la condition de distance demandée. En cas de plusieurs éléments correspondants, seul le premier est retourné
+
+
+```{r fonctions}
+amatch("FROMONT",c("FROMON","BLIER","FRAMONT"), method = "lv",maxDist=2)
+```
+
+## Utilisation dans le cas d'appariements de fichiers
+
+Nous disposons de deux fichiers d'analyse, un fichier de dénombrement recensant toutes les identités (nom-prenom) des individus présents dans un village en 1702 (nommé REC.Vars), et un fichier des baptêmes comptabilisés en 1703, contenant le nom et le prénom du père du nouveau né. On aimerait identifier les parents qui ont été recensés dans le village en 1702.
+
+La fonction stringdist_join, du package fuzzyjoin, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.  
+  
+
+
+```{r crebases, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(kableExtra)
+
+BAP_BMS = readRDS(file = "D:/D/Marc/SMS/assistoolsms/R/assist/posts/fuzzyjoin/Martigues.BAP.Ined.rds")
+Den     = readRDS(file = "D:/D/Marc/SMS/assistoolsms/R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds")
+
+BAP.Vars = BAP_BMS %>%
+  filter(as.numeric(Annee)<1705) %>%
+  select(PERE.Nom=Ego.nom,PERE.Prenom=Pere.prenom) %>%
+  mutate(Nobs.BAP=row_number()) %>%
+  filter(!is.na(PERE.Nom) & !is.na(PERE.Prenom)) %>%
+  filter(substr(PERE.Nom,1,1)=="A") %>%
+  distinct(PERE.Nom,PERE.Prenom,.keep_all=T)
+
+
+REC.Vars= Den %>%
+  select(Ego.nom,Ego.prenom) %>%
+  mutate(Nobs.REC=row_number()) %>%
+  filter(!is.na(Ego.nom) & !is.na(Ego.prenom)) %>%
+  filter(substr(Ego.nom,1,1)=="A") %>%
+  mutate(Ego.nom=toupper(Ego.nom),Ego.prenom=toupper(Ego.prenom)) %>%
+  distinct(Ego.nom,Ego.prenom,.keep_all=T)
+
+```
+
+
+
+Ci-dessous le début du **fichier des Baptêmes**
+
+```{r Print-bap}
+#| results="asis" 
+
+# Affichage début de fichier
+kable(head(BAP.Vars,n=10)) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "300px")
+```
+
+<br>
+
+Ci-dessous le début du **fichier de recensement**
+
+```{r Print-rec}
+#| results="asis" 
+
+# Affichage début de fichier
+kable(head(REC.Vars,n=10)) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "300px")
+```
+
+<br>
+
+Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **inner_join**.
+
+```{r Print-join}
+#| results="asis" 
+
+Z1 = BAP.Vars %>%
+  inner_join(REC.Vars,by=c("PERE.Nom"="Ego.nom","PERE.Prenom"="Ego.prenom"))
+
+
+# Affichage début de fichier
+kable(head(Z1,n=10)) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "300px")
+```
+
+<br>
+  
+On souhaite maintenant unifier les individus portant le même prénom et différent d'une lettre sur le nom de famille, pour prendre en compte les variantes orthographiques minimes.  
+
+```{r Print-fuzzy}
+#| results="asis" 
+
+Z2 = BAP.Vars %>%
+  
+  # max_dist = Distance maximale de égale à un entre les deux patronymes
+  # distance_col =  nom de la variable créée contenant la valeur de distance
+  stringdist_inner_join(REC.Vars,by=c("PERE.Nom"="Ego.nom"),max_dist=1,distance_col="V_Dist") %>%
+  
+  # On ne garde que les distances égales à 1
+  filter(V_Dist==1) %>%
+  
+  # On ne conserve que les individus de même prénom
+  filter(stringdist(PERE.Prenom,Ego.prenom)==0) %>%
+  
+  # Suppression variable de distance
+  select(-V_Dist)
+
+
+# Affichage début de fichier
+kable(head(Z2,n=30)) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "300px")
+```
+  
+
+
+
+
+

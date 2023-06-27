@@ -19,7 +19,6 @@ image: "https://www.r-project.org/Rlogo.png"
 format: 
   html: default
   docx: default
-#  pdf:  default
 
 filters:
   - lightbox
