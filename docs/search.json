@@ -26,5 +26,110 @@
     "title": "Affichage d’output de régression avec Jtools",
     "section": "Notes de bas de page",
     "text": "Notes de bas de page\n\n\nmesure de la tension artérielle (lm) et du risque d’hypertension (glm et svyglm)↩︎"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#procons",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#procons",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Pro/Cons :",
+    "text": "Pro/Cons :\nAvantage :\n- Pas besoin de packages supplémentaires\nInconvénient :\n\nLent\nProblème de persistence des types de modalités (surtout avec les labels et les factors)1\n\n\nCode moins lisible\nGestion des conditions multiples illisibles"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-1-variables-dichotomiques",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-1-variables-dichotomiques",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Exemple 1 : Variables dichotomiques",
+    "text": "Exemple 1 : Variables dichotomiques\nCréation d’une variable catégorielle taille_rec, avec deux modalités : “Grand.e”, “Petit.e”.\n\n\n\n\n\n\n# Sélection d'une seed pour obtenir le même échantillon \n# dans la création des données fictive aléatoires\nset.seed(1)\n\n# Création du jeu de données exemple\nindividus &lt;- data.frame(\n  id = 1:20,\n  # Âges aléatoires entre 18 et 65 ans\n  age = sample(18:65, 20, replace = TRUE), \n  # Tailles aléatoires entre 150 et 200 cm\n  taille = sample(150:200, 20, replace = TRUE), \n  # Sexe aléatoire (Homme ou Femme)\n  sexe = sample(c(\"Homme\", \"Femme\"), 20, replace = TRUE) \n)\n\n\n# Ajout d'une variable taill_rec pour illustrer l'utilisation de ifelse()\nindividus$taille_rec &lt;- ifelse(individus$taille &gt; 175, # Condition \n                               \"Grand.e\",              # Catégorie si VRAI \n                               \"Petit.e\")              # Catégorie si FAUX\n\n\n# Affichage de la nouvelle variable\ntable(individus$taille_rec)\n\n\nGrand.e Petit.e \n     12       8"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-2-variables-avec-plus-de-2-modalités",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-2-variables-avec-plus-de-2-modalités",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Exemple 2 : Variables avec plus de 2 modalités",
+    "text": "Exemple 2 : Variables avec plus de 2 modalités\nIl est possible d’empiler les fonctions ifelse() pour créer des variables avec plus de deux modalités. Pour cela on suit le schéma suivant :\n\n\n\n\n\nDans cet exemple, on divise la taille en 3 catégories :\n\nPetit.e : &lt; 165\n\nMoyen.ne : De 165 à 185\n\nGrand.e : &gt; 185\n\n\nindividus$taille_rec2 &lt;- ifelse(individus$taille &gt; 185,      # Condition 1\n                               \"Grand.e\",                    # Condi 1 Vrai \n                               ifelse(individus$taille &lt; 165,# Condition 2\n                                      \"Petit.e\",             # Condi 2 Vrai\n                                      \"Moyen.ne\"))           # Condi 1&2 Fausse\n                               \n\n\n# Affichage de la nouvelle variable\ntable(individus$taille_rec2)\n\n\n Grand.e Moyen.ne  Petit.e \n       8        9        3"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-3-conditions-issues-de-deux-variables-initiales",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-3-conditions-issues-de-deux-variables-initiales",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Exemple 3 : Conditions issues de deux variables initiales",
+    "text": "Exemple 3 : Conditions issues de deux variables initiales\nIl est également possible de créer des variables à partir de conditions provenant de plusieurs variables.\nDans cet exemple, nous allons créer une variable dont les catégories seront différentes selon pour les hommes et les femmes :\n\n\n\nPour les hommes :\n\nPetit.e : &lt; 180\n\nGrand.e : &gt;= 180\n\nPour les femmes :\n\nPetit.e : &lt; 170\n\nGrand.e : &gt;= 170\n\n\n\n\n\n\n\n\n\n\n\nindividus$taille_rec3 &lt;- ifelse(individus$sexe == \"Homme\" & \n                                  individus$taille &lt; 180,      # Condition 1\n                                # Condition 1 Vraie :\n                                \"Petit.e\",    \n                                # Sinon :\n                                ifelse(individus$sexe == \"Femme\" & \n                                  individus$taille &lt; 170,      # Condition 2\n                                  # Condition 2 Vraie :\n                                  \"Petit.e\",  \n                                  # Tous les autres :\n                                  \"Grand.e\"))          \n                               \n\n\n# Affichage de la nouvelle variable\ntable(individus$taille_rec3)\n\n\nGrand.e Petit.e \n     14       6"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#procons-1",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#procons-1",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Pro/Cons :",
+    "text": "Pro/Cons :\nAvantage :\nLe package dplyr, présent dans le tidyverse, propose sa propre version de la fonction ifelse(), qui permet d’éviter certains problèmes rencontrer avec la version de base.\nAinsi, if_else() s’utilise exactement de la même manière que ifelse, elle est plus rapide et permet de conserver le type de la variable initiale.\nInconvénient :\n\nBesoin d’installer un package\nGestion des conditions multiples toujours illisibles"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-4-if_else",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#exemple-4-if_else",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Exemple 4 : if_else()",
+    "text": "Exemple 4 : if_else()\n\n#install.packages(\"dplyr\")\nlibrary(dplyr)\n\nindividus$taille_rec4 &lt;- if_else(individus$sexe == \"Homme\" & \n                                  individus$taille &lt; 180,      # Condition 1\n                                # Condition 1 Vraie :\n                                \"Petit.e\",    \n                                # Sinon :\n                                if_else(individus$sexe == \"Femme\" & \n                                  individus$taille &lt; 170,      # Condition 2\n                                  # Condition 2 Vraie :\n                                  \"Petit.e\",  \n                                  # Tous les autres :\n                                  \"Grand.e\"))          \n                               \n\n\n# Affichage de la nouvelle variable\ntable(individus$taille_rec4)\n\n\nGrand.e Petit.e \n     14       6 \n\n\nOn obtient bien le même résultat"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#procons-2",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#procons-2",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Pro/Cons :",
+    "text": "Pro/Cons :\nLa gestion des conditions multiples pouvant être fastidieuse avec les fonctions ifelse(), le code devenant rapidemment illisible, dplyr propose la fonction case_when() qui permet de l’organiser mieux.\nSon fonctionnement se base sur des formules, il peut alors sembler plus ou moins compréhensibles selon les sensibilités de programmations."
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#ordre-daffectation-des-valeurs",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#ordre-daffectation-des-valeurs",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Ordre d’affectation des valeurs",
+    "text": "Ordre d’affectation des valeurs\nAvec ifelse() ou avec case_when, une fois la première condition remplie, la nouvelle valeur ne peux plus être modifiée, ainsi si une condition future se superpose, elle ne sera pas prise en compte dans le recodage. On va du plus spécifique au plus général\nExemple : On crée une variable taille avec comme modalité :\n\nPetit : &lt; 170\n\nMoyen : 170 à 185\n\nGrand : &gt; 185\n\n\nindividus &lt;- individus %&gt;%\n  select(id, taille) %&gt;% \n  \n  mutate(\n    # avec ifelse\n    var1 = ifelse(taille &gt; 170, \"Moyen\", \n                  ifelse(taille &gt; 185, \"Grand\", \"Petit\")),\n    \n    # avec if_else\n    var2 = if_else(taille &gt; 170, \"Moyen\", \n                   if_else(taille &gt; 185, \"Grand\", \"Petit\")),\n    \n    # avec case_when\n    var3 = case_when(\n      taille &gt; 170 ~ \"Moyen\",\n      taille &gt; 185 ~ \"Grand\", \n      TRUE ~ \"Petit\")) \n\ntable(individus$var1)\n\n\nMoyen Petit \n   14     6 \n\ntable(individus$var2)\n\n\nMoyen Petit \n   14     6 \n\ntable(individus$var3)\n\n\nMoyen Petit \n   14     6 \n\n\nOn voit qu’il n’y a pas la catégorie “Grand”, comme la valeur a déjà été affectée à la catégorie “Moyen”. Il faudrait alors :\n\nindividus &lt;- individus %&gt;%\n  mutate(var5 = case_when(\n    taille &gt; 185 ~ \"Grand\", \n    taille &gt; 170 ~ \"Moyen\",\n    TRUE ~ \"Petit\")) \n\ntable(individus$var5)\n\n\nGrand Moyen Petit \n    8     6     6"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#a-propos-des-valeurs-manquantes",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#a-propos-des-valeurs-manquantes",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "A propos des valeurs manquantes",
+    "text": "A propos des valeurs manquantes\nLes fonctions ifelse() n’ont pas le même comportement pour le traitement des valeurs manquantes que la fonction case_when.\nDans le cas des fonctions ifelse, si l’une des variables de conditions est un NA, le résultat sera également une valeur manquante dans la variable crée.\nDans le cas de la fonction case_when, l’individu avec une valeur manquante aura comme nouvelle valeur la catégorie défini dans la partie “SINON”.2\nExemple :\nOn crée un data frame avec des NA :\n\nlibrary(dplyr)\ndf &lt;- data.frame(a = c(1:3, NA, 4,NA,6:7), b = c(NA, letters[1:7]))\ndf\n\n   a    b\n1  1 &lt;NA&gt;\n2  2    a\n3  3    b\n4 NA    c\n5  4    d\n6 NA    e\n7  6    f\n8  7    g\n\n\nOn fait un recodage avec ifelse()\n\ndf %&gt;%\n  mutate(res = if_else(a &gt; 3, \"Yes\", \n                   if_else(b == \"c\", \"No\", \n                           if_else(a &gt; 5, \"Maybe\", \"Done\"))))\n\n   a    b  res\n1  1 &lt;NA&gt; &lt;NA&gt;\n2  2    a Done\n3  3    b Done\n4 NA    c &lt;NA&gt;\n5  4    d  Yes\n6 NA    e &lt;NA&gt;\n7  6    f  Yes\n8  7    g  Yes\n\n\nLes NA restent des NAs, alors qu’avec case_when :\n\ndf %&gt;%\n   mutate(res = case_when(a &gt; 3 ~ \"Yes\", \n                          b == \"c\"~\"No\", \n                          a &gt; 5 ~ \"Maybe\", \n                          TRUE ~ \"Done\"))\n\n   a    b  res\n1  1 &lt;NA&gt; Done\n2  2    a Done\n3  3    b Done\n4 NA    c   No\n5  4    d  Yes\n6 NA    e Done\n7  6    f  Yes\n8  7    g  Yes\n\n\nOn a pas de NA, ils ont été recodé avec la catégorie SINON.\nIl faut donc créer une condition avec is.na(variable)\n\ndf %&gt;%\n   mutate(res = case_when(a &gt; 3 ~ \"Yes\", \n                          b == \"c\"~\"No\", \n                          a &gt; 5 ~ \"Maybe\", \n                          is.na(a) | is.na(b) ~ NA,\n                          TRUE ~ \"Done\"))\n\n   a    b  res\n1  1 &lt;NA&gt; &lt;NA&gt;\n2  2    a Done\n3  3    b Done\n4 NA    c   No\n5  4    d  Yes\n6 NA    e &lt;NA&gt;\n7  6    f  Yes\n8  7    g  Yes"
+  },
+  {
+    "objectID": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#footnotes",
+    "href": "R/assist/posts/ifelse_casewhen/ifelse_casewhen.html#footnotes",
+    "title": "Recoder des variables avec ifelse() ou case_when()",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nhttps://community.rstudio.com/t/case-when-why-not/2685/3↩︎\nhttps://stackoverflow.com/questions/57807976/how-to-use-case-when-rather-then-if-else-error-in-my-code↩︎"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html",
+    "href": "R/assist/posts/addition/addition.html",
+    "title": "Test Quarto [A supprimer]",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere vestibulum facilisis. Aenean pretium orci augue, quis lobortis libero accumsan eu. Nam mollis lorem sit amet pellentesque ullamcorper. Curabitur lobortis libero eget malesuada vestibulum. Nam nec nibh massa. Pellentesque porttitor cursus tellus. Mauris urna erat, rhoncus sed faucibus sit amet, venenatis eu ipsum.\nCode inline: library(survival)\n\\[A+B = \\sum_ie^{C} + \\frac{D}{E+1}\\]"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#astuce",
+    "href": "R/assist/posts/addition/addition.html#astuce",
+    "title": "Test Quarto [A supprimer]",
+    "section": "Astuce",
+    "text": "Astuce\n\n\n\n\n\n\ntip\n\n\n\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#info",
+    "href": "R/assist/posts/addition/addition.html#info",
+    "title": "Test Quarto [A supprimer]",
+    "section": "Info",
+    "text": "Info\n\n\n\n\n\n\nInfo\n\n\n\nBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#important",
+    "href": "R/assist/posts/addition/addition.html#important",
+    "title": "Test Quarto [A supprimer]",
+    "section": "Important",
+    "text": "Important\n\n\n\n\n\n\nImportant\n\n\n\nCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"
+  },
+  {
+    "objectID": "R/assist/posts/addition/addition.html#warning",
+    "href": "R/assist/posts/addition/addition.html#warning",
+    "title": "Test Quarto [A supprimer]",
+    "section": "Warning",
+    "text": "Warning\n\n\n\n\n\n\nWarning\n\n\n\nDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
   }
 ]
