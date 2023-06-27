@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="utilisation-dans-le-cas-dappariements-de-fichiers" class="level2">
 <h2 class="anchored" data-anchor-id="utilisation-dans-le-cas-dappariements-de-fichiers">Utilisation dans le cas d’appariements de fichiers</h2>
 <p>Nous disposons de deux fichiers d’analyse, un fichier de dénombrement recensant toutes les identités (nom-prenom) des individus présents dans un village en 1702 (nommé REC.Vars), et un fichier des baptêmes comptabilisés en 1703, contenant le nom et le prénom du père du nouveau né. On aimerait identifier les parents qui ont été recensés dans le village en 1702.</p>
-<p>La fonction stringdist_join, du package fuzzyjoin, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.</p>
+<p>La fonction <code>stringdist_join</code>, du package <strong>fuzzyjoin</strong>, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.</p>
 <p>Ci-dessous le début du <strong>fichier des Baptêmes</strong></p>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Affichage début de fichier</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">kable</span>(<span class="fu">head</span>(BAP.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
@@ -425,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 <p><br></p>
-<p>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe <strong>inner_join</strong>.</p>
+<p>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe <strong><code>inner_join</code></strong>.</p>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>Z1 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">inner_join</span>(REC.Vars,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"PERE.Nom"</span><span class="ot">=</span><span class="st">"Ego.nom"</span>,<span class="st">"PERE.Prenom"</span><span class="ot">=</span><span class="st">"Ego.prenom"</span>))</span>
 <span id="cb10-3"><a href="#cb10-3"></a></span>
@@ -1189,7 +1189,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-103"><a href="#cb12-103"></a></span>
 <span id="cb12-104"><a href="#cb12-104"></a>Nous disposons de deux fichiers d'analyse, un fichier de dénombrement recensant toutes les identités (nom-prenom) des individus présents dans un village en 1702 (nommé REC.Vars), et un fichier des baptêmes comptabilisés en 1703, contenant le nom et le prénom du père du nouveau né. On aimerait identifier les parents qui ont été recensés dans le village en 1702.</span>
 <span id="cb12-105"><a href="#cb12-105"></a></span>
-<span id="cb12-106"><a href="#cb12-106"></a>La fonction stringdist_join, du package fuzzyjoin, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.  </span>
+<span id="cb12-106"><a href="#cb12-106"></a>La fonction <span class="in">`stringdist_join`</span>, du package **fuzzyjoin**, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.  </span>
 <span id="cb12-107"><a href="#cb12-107"></a>  </span>
 <span id="cb12-108"><a href="#cb12-108"></a></span>
 <span id="cb12-109"><a href="#cb12-109"></a></span>
@@ -1247,7 +1247,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-161"><a href="#cb12-161"></a></span>
 <span id="cb12-162"><a href="#cb12-162"></a><span class="kw">&lt;br&gt;</span></span>
 <span id="cb12-163"><a href="#cb12-163"></a></span>
-<span id="cb12-164"><a href="#cb12-164"></a>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **inner_join**.</span>
+<span id="cb12-164"><a href="#cb12-164"></a>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **`inner_join`**.</span>
 <span id="cb12-165"><a href="#cb12-165"></a></span>
 <span id="cb12-166"><a href="#cb12-166"></a><span class="in">```{r Print-join}</span></span>
 <span id="cb12-167"><a href="#cb12-167"></a><span class="co">#| results="asis" </span></span>

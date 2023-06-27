@@ -103,10 +103,9 @@ amatch("FROMONT",c("FROMON","BLIER","FRAMONT"), method = "lv",maxDist=2)
 
 Nous disposons de deux fichiers d'analyse, un fichier de dénombrement recensant toutes les identités (nom-prenom) des individus présents dans un village en 1702 (nommé REC.Vars), et un fichier des baptêmes comptabilisés en 1703, contenant le nom et le prénom du père du nouveau né. On aimerait identifier les parents qui ont été recensés dans le village en 1702.
 
-La fonction stringdist_join, du package fuzzyjoin, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.  
+La fonction `stringdist_join`, du package **fuzzyjoin**, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.  
   
-
-
+  
 ```{r crebases, echo=FALSE, warning=FALSE, message=FALSE}
 
 library(kableExtra)
@@ -161,7 +160,7 @@ kable(head(REC.Vars,n=10)) %>%
 
 <br>
 
-Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **inner_join**.
+Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **`inner_join`**.
 
 ```{r Print-join}
 #| results="asis" 
