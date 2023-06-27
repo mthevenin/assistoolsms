@@ -1,5 +1,5 @@
 ---
-title: "Affichage d'output de régression avec Jtools"
+title: "Afficher des outputs de régression avec Jtools"
 
 # subtitle: ""
 

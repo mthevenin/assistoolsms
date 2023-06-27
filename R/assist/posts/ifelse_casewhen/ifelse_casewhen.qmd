@@ -1,8 +1,6 @@
 ---
 title: "Recoder des variables avec ifelse() ou case_when()"
 
-# subtitle: ""
-
 categories:
   - ifelse
   - if_else
@@ -30,13 +28,12 @@ lightbox: auto
 code-annotations: below
 
 abstract: | 
- Lors d'un recodage d'une variable, on peut être emmené à créer des catégories dépendantes d'une ou plusieurs conditions. Pour cela, la plus part des logiciels permettent des fonctions qui suivent le schéma : SI condition ALORS catégorie1 SINON catégorie2. 
- Sur R, plusieurs possibilités s'offrent à l'utilisateur.rice : notamment ifelse(), if_else(), case_when().
+ Lors d'un recodage d'une variable, on peut être emmené à créer des catégories dépendantes d'une ou plusieurs conditions. Pour cela, la plus part des logiciels permettent des fonctions qui suivent le schéma : SI condition ALORS catégorie1 SINON catégorie2. Sur R, plusieurs possibilités s'offrent à l'utilisateur.rice : notamment `ifelse()`, `if_else()`, `case_when()`.
 ---
 
 
 
-![](www/Schema_ifelse_base.png){width=50%}
+![](img/Schema_ifelse_base.png){width=50%}
 
 
 # R base : ifelse()
@@ -52,7 +49,7 @@ abstract: |
 
 - Problème de persistence des types de modalités (surtout avec les labels et les factors)[^1]  
 
-[^1]: https://community.rstudio.com/t/case-when-why-not/2685/3
+[^1]: <https://community.rstudio.com/t/case-when-why-not/2685/3>
 
 - Code moins lisible  
 - Gestion des conditions multiples illisibles
@@ -64,7 +61,7 @@ abstract: |
 
 Création d'une variable catégorielle *taille_rec*, avec deux modalités : "Grand.e", "Petit.e".
 
-![](www/Schema_ifelse_ex1.png){width=33%}
+![](img/Schema_ifelse_ex1.png){width=33%}
 
 ```{r}
 
@@ -102,7 +99,7 @@ table(individus$taille_rec)
 Il est possible d'empiler les fonctions ifelse() pour créer des variables avec plus de deux modalités. Pour cela on suit le schéma suivant : 
 
 
-![](www/Schema_ifelse_ex2.png){width=50%}
+![](img/Schema_ifelse_ex2.png){width=50%}
 
 Dans cet exemple, on divise la taille en 3 catégories :  
 
@@ -153,7 +150,7 @@ Dans cet exemple, nous allons créer une variable dont les catégories seront di
 
 ::: {.column width="60%"}
 
-![](www/Schema_ifelse_ex3.png){width=75%}
+![]img/Schema_ifelse_ex3.png){width=75%}
 
 :::
 :::
@@ -191,9 +188,9 @@ table(individus$taille_rec3)
 
 *Avantage :*  
 
-Le package *<dplyr>*, présent dans le *tidyverse*, propose sa propre version de la fonction ifelse(), qui permet d'éviter certains problèmes rencontrer avec la version de base.
+Le package **<dplyr>**, inclu au **tidyverse**, propose sa propre version de la fonction `ifelse()`, qui permet d'éviter certains problèmes rencontrer avec la version de base.
 
-Ainsi, *if_else()* s'utilise exactement de la même manière que *ifelse*, elle est plus rapide et permet de conserver le type de la variable initiale.
+Ainsi, *`if_else()`* s'utilise exactement de la même manière que *`ifelse`*, elle est plus rapide et permet de conserver le type de la variable initiale.
 
 
 *Inconvénient :*  
@@ -241,7 +238,7 @@ table(individus$taille_rec4)
 
 La gestion des conditions multiples pouvant être fastidieuse avec les fonctions ifelse(), le code devenant rapidemment illisible, *dplyr* propose la fonction case_when() qui permet de l'organiser mieux. 
 
-Son fonctionnement se base sur des formules, il peut alors sembler plus ou moins compréhensibles selon les sensibilités de programmations.
+Son fonctionnement se base sur des formules, il peut alors sembler plus ou moins compréhensible selon les sensibilités de programmations.
 
 
 # Exemple 5 : Variable dichotomique
@@ -295,7 +292,7 @@ table(individus$taille_rec6)
 
 ## Ordre d'affectation des valeurs
 
-Avec *ifelse()* ou avec *case_when*, une fois la première condition remplie, la nouvelle valeur ne peux plus être modifiée, ainsi si une condition future se superpose, elle ne sera pas prise en compte dans le recodage.
+Avec *`ifelse()`* ou avec *`case_when`*, une fois la première condition remplie, la nouvelle valeur ne peux plus être modifiée, ainsi si une condition future se superpose, elle ne sera pas prise en compte dans le recodage.
 **On va du plus spécifique au plus général**
 
 *Exemple :*  
@@ -352,13 +349,13 @@ table(individus$var5)
 
 ## A propos des valeurs manquantes
 
-Les fonctions *ifelse()* n'ont pas le même comportement pour le traitement des valeurs manquantes que la fonction *case_when*.
+Les fonctions *`ifelse()`* n'ont pas le même comportement pour le traitement des valeurs manquantes que la fonction *`case_when`*.
 
-Dans le cas des fonctions *ifelse*, si l'une des variables de conditions est un NA, le résultat sera également une valeur manquante dans la variable crée.
+Dans le cas des fonctions *`ifelse`*, si l'une des variables de conditions est un NA, le résultat sera également une valeur manquante dans la variable crée.
 
-Dans le cas de la fonction *case_when*, l'individu avec une valeur manquante aura comme nouvelle valeur la catégorie défini dans la partie "SINON".[^2]
+Dans le cas de la fonction *`case_when`*, l'individu avec une valeur manquante aura comme nouvelle valeur la catégorie défini dans la partie "SINON".[^2]
 
-[^2]: https://stackoverflow.com/questions/57807976/how-to-use-case-when-rather-then-if-else-error-in-my-code
+[^2]: <https://stackoverflow.com/questions/57807976/how-to-use-case-when-rather-then-if-else-error-in-my-code>
 
 
 
@@ -382,7 +379,7 @@ df %>%
                            if_else(a > 5, "Maybe", "Done"))))
 ```
 
-Les NA restent des NAs, alors qu'avec *case_when* :
+Les NA restent des NAs, alors qu'avec *`case_when`* :
 
 ```{r}
 df %>%
