@@ -1,0 +1,112 @@
+---
+title: "Format JSON : de la liste au dataframe"
+
+# subtitle: ""
+
+categories:
+  - JSON
+  - import
+  - list
+  - dataframe
+  
+author: 
+  - name: "Arno Muller"
+    affiliations:
+      - name: "Ined"
+
+date: 06/28/2023
+
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_logo.svg/langfr-1024px-JSON_vector_logo.svg.png"
+
+format: 
+  html: default
+  docx: default
+#  pdf:  default
+
+filters:
+  - lightbox
+lightbox: auto
+
+code-annotations: below
+
+abstract: | 
+ Le format JSON est un format de plus en plus utilisé pour stocker des données, notamment pour les données issues du web. Cependant, sa structure particulière peut poser des problèmes pour obtenir un dataframe dans R.
+---
+
+
+# Introduction
+
+
+Pour importer des données au format JSON, nous proposons deux packages `rjson` et `jsonlite`.
+Le dernier est beaucoup plus facile d'utilisation et renvoie automatiquement une base de donnée faites de colonnes.
+Je propose `rjson` comme une alternative à `jsonlite` en cas de pépin.
+
+
+# Données d'exemples
+
+Le format JSON est surtout utilisé pour les données issues d'API web ou de source OpenData.
+Pour les exemples ci-dessous nous utiliserons donc des données issues du site de la SNCF qui mettent à disposition un grand nombre de jeux de données en libre accès, et notamment dans notre cas, une **base de données des menus des wagons-bars de TGV**[^1].
+
+[^1]: <https://ressources.data.sncf.com/explore/dataset/menus-des-bars-tgv/table/>
+
+# Importer des données avec `jsonlite`
+
+
+```{r message=FALSE, warning=FALSE}
+
+library(jsonlite)
+menu_TGV <- jsonlite::fromJSON("DATA/menus-des-bars-tgv.json")
+
+# Pour voir les 3 premières lignes
+library(knitr)
+kable(head(menu_TGV,3))
+
+```
+
+
+# Importer des données avec `rjson`
+
+
+```{r}
+
+library(rjson)
+
+menu_TGV <- rjson::fromJSON(file = "DATA/menus-des-bars-tgv.json")
+class(menu_TGV)
+```
+
+On obtient un objet de type `list` [^2], que l'on peut transformer en base de donnée avec l'exemple suivant.  
+
+[^2]: Pour découvrir comment utiliser des listes : <https://juba.github.io/tidyverse/16-structures-donnees.html#sec-listes>
+
+
+Une liste peut-être un objet assez complexe mais en fouillant dedans, il est possible de retrouver (ou de mettre en forme) une base de donnée.
+Dans notre cas plutôt simple, on remarque que la liste a autant d'élément que d'individus, et lorsqu'on regarde à l'intérieur de chaque élément, on trouve la réponse pour chaque individu à chacune des variables.
+
+
+![](img/liste_explic.png){width="75%"}
+
+
+On va donc extraire ces informations et les compiler dans une base de donnée ordonnées.
+
+
+```{r warning=FALSE}
+
+# Convertir la liste en data frame par lignes
+menu_df <- as.data.frame(do.call(rbind, menu_TGV))
+kable(head(menu_df,3))
+
+
+
+# Même chose avec le package data.table
+library(data.table)
+menu_df2 <- rbindlist(menu_TGV)
+kable(head(menu_df2,3))
+
+```
+
+
+
+
+
+
