@@ -116,6 +116,20 @@
     "href": "R/index.html",
     "title": "Assistances R",
     "section": "",
-    "text": "Faire une présentation\nEventuellement recenser les ressources principales: JL,JUBA…\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Trier par\n       Ordre par défaut\n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n         \n          Titre\n        \n         \n          Auteur·rice\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nAuteur·rice\n\n\n\n\n\n\n23 juin 2023\n\n\nTechniques appariements entre chaînes de caractères\n\n\nArnaud Bringé\n\n\n\n\n21 juin 2023\n\n\nRecoder des variables avec ifelse() ou case_when()\n\n\nArno Muller\n\n\n\n\n21 juin 2023\n\n\nAfficher des outputs de régression avec Jtools\n\n\nMarc Thévenin\n\n\n\n\n13 juin 2023\n\n\nRécupérer et exécuter le test OLS de Grambsch-Therneau\n\n\nMarc Thévenin\n\n\n\n\n7 juin 2023\n\n\nR avec VScode\n\n\nCoralie Cottet\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Faire une présentation\nEventuellement recenser les ressources principales: JL,JUBA…\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Trier par\n       Ordre par défaut\n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n         \n          Titre\n        \n         \n          Auteur·rice\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nTitre\n\n\nAuteur·rice\n\n\n\n\n\n\n28 juin 2023\n\n\nFormat JSON : de la liste au dataframe\n\n\nArno Muller\n\n\n\n\n27 juin 2023\n\n\nRecoder des variables avec ifelse() ou case_when()\n\n\nArno Muller\n\n\n\n\n23 juin 2023\n\n\nTechniques appariements entre chaînes de caractères\n\n\nArnaud Bringé\n\n\n\n\n21 juin 2023\n\n\nAfficher des outputs de régression avec Jtools\n\n\nMarc Thévenin\n\n\n\n\n13 juin 2023\n\n\nRécupérer et exécuter le test OLS de Grambsch-Therneau\n\n\nMarc Thévenin\n\n\n\n\n7 juin 2023\n\n\nR avec VScode\n\n\nCoralie Cottet\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "R/assist/posts/import_json/JSON.html",
+    "href": "R/assist/posts/import_json/JSON.html",
+    "title": "Format JSON : de la liste au dataframe",
+    "section": "",
+    "text": "Pour importer des données au format JSON, nous proposons deux packages rjson et jsonlite. Le dernier est beaucoup plus facile d’utilisation et renvoie automatiquement une base de donnée faites de colonnes. Je propose rjson comme une alternative à jsonlite en cas de pépin."
+  },
+  {
+    "objectID": "R/assist/posts/import_json/JSON.html#footnotes",
+    "href": "R/assist/posts/import_json/JSON.html#footnotes",
+    "title": "Format JSON : de la liste au dataframe",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nhttps://ressources.data.sncf.com/explore/dataset/menus-des-bars-tgv/table/↩︎\nPour découvrir comment utiliser des listes : https://juba.github.io/tidyverse/16-structures-donnees.html#sec-listes↩︎"
   }
 ]
