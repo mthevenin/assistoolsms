@@ -96,7 +96,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   background-color: rgba(0,0,0,0);
-  border: 1px;
+  border: 1px; 
 }
 
 /*-- quarto titles --*/
