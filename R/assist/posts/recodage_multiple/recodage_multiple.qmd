@@ -1,0 +1,270 @@
+---
+title: "Recodage multiple"
+
+# subtitle: ""
+
+categories:
+  - valeur manquante
+  - boucle
+  - dplyr
+  - recodage
+  
+author: 
+  - name: "Arno Muller"
+    affiliations:
+      - name: "Ined"
+
+date: 06/28/2023
+
+image: "https://www.r-project.org/Rlogo.png"
+
+format: 
+  html: default
+  docx: default
+#  pdf:  default
+
+filters:
+  - lightbox
+lightbox: auto
+
+code-annotations: below
+
+abstract: | 
+ Lors du nettoyage des données, on peut être amené à appliquer le même recodage à plusieurs variables aux modalités similaire (valeurs manquantes, Ne sait pas, Batterie de variables semblables, ... ). Pour éviter de copier-coller un même code, on peut facilement automatiser le processus sur R. 
+---
+
+
+Il existe plusieurs solutions pour automatiser un recodage dans R, nous allons aborder certaines d'entre-elle mais cette liste est loin d'être exhaustive.
+
+
+# Données d'exemple
+
+On commence par crée un jeu de données d'exemple, composé de 10 lignes et 10 colonnes, et qui contient des valeurs manquantes :
+
+
+```{r}
+set.seed(1)
+df <- as.data.frame(matrix(sample(c(NA, 1:10), 100, replace = TRUE), 10))
+df
+
+```
+
+
+# Avec R de base :
+
+Dans R de base, il est possible de recoder l'entiereté des occurences d'une certaines valeurs (ou les valeurs manquantes) pour l'ensemble du jeu de données.
+
+## Sur l'ensemble des données
+
+### Exemple 1 : Changer l'ensemble des valeurs manquantes
+
+```{r}
+
+# Je fais un copie du jeu de donnée
+df2 <- df
+# Je remplace tous les NA par la valeurs 0
+df2[is.na(df2)] <- 0
+df2
+
+```
+
+### Exemple 2 : Remplacer une valeur par une autre
+
+```{r}
+
+# Je fais une copie de l'original
+df2 <- df
+# Je remplace tous les 10 par la valeur "DIX"
+df2[df2==10] <- "DIX"
+df2
+
+
+```
+
+
+
+## Sur une sélection de variables
+
+Les jeux de données peuvent être composée d'un grand nombre de variables et donc on peut-être amené à vouloir effectué un recodage uniquement sur certaines variables.
+
+L'exemple ci-dessous montre comment procéder à partir d'une selection de variable stockée dans le vecteur *var*.
+
+### Exemple 3 : Recoder une sélection de variables
+
+```{r}
+
+# Je fais une copie de l'original
+df2 <- df
+# Je choisis certaines variables sur lesquelle on appliquera le recodage
+var <- c("V1","V7","V9")
+
+# Fonctionne aussi avec la position de la colonne
+# var <- c(2,5,6)
+
+# On crée une boucle qui s'activera uniquement pour les variables contenues 
+# dans var
+
+for (i in var) {
+  df2[[i]] <- ifelse(df2[[i]] == 10, "DIX", df2[[i]])
+}
+
+
+df2
+
+```
+Seulement les variables V1, V7 et V9 ont été recodée, on voit des 10 sont présents dans V10.
+
+
+# Avec le package `dplyr`du tidyverse :
+
+Comme les boucles peuvent être complexe à prendre en main, et pas forcément conseillé dans R, le package `dplyr` propose un ensemble de fonctions permettant de recoder plusieurs variables en une fonction.
+
+
+## Sur l'ensemble des données
+
+La fonction `mutate_all` permet de recoder l'ensemble des variables du jeu de données.
+
+### Exemple 4 : `mutate_all`
+
+On remplace l'ensemble de 7 par la valeur "SEPT"
+
+```{r warning=FALSE, message=FALSE}
+
+library(dplyr)
+
+df2 <- df %>% 
+  mutate_all(~ifelse(. == 7, "SEPT", .))
+df2
+```
+
+- Le ~ est obligatoire, et permet d'indiquer qu'on applique la formule qui le suit à l'ensemble du jeu de donnée.  
+
+- Les **.** sont une spécificité de l'écriture avec des pipe (%>%), ils sont synonymes de la base de données en entrée (df) mais permet de tenir compte de toutes les transformations des pipes précédentes faites sur cette base.
+
+
+
+## Sur une sélection de variables
+
+Les fonctions `mutate_if` et `mutate_at` permettent d'appliquer un recodage mais uniquement sur des variables choisies par une ou plusieurs conditions.
+
+### Exemple 5 : `mutate_if`
+
+Dans cet exemple, on va appliquer un recodage uniquement aux variables numériques.
+Pour l'exemple, on commence par créer une variable catégorielle *var_categ*, sur laquelle le recodage ne s'appliquera pas.
+
+```{r}
+
+df2 <- df %>% 
+  mutate(var_categ = rep(c("bonjour", "5"), 5)) %>% 
+  select(var_categ, everything())
+df2
+
+```
+
+On utilise `mutate_if`, pour changer la valeur 5 en CINQ, uniquement pour les variables numériques.
+
+```{r}
+
+df2 <- df2 %>% 
+  mutate_if(is.numeric, ~ifelse(. == 5, "CINQ", .))
+df2
+
+```
+
+### Exemple 6 : `mutate_at`
+
+la fonction `mutate_at` permet d'appliquer un recodage à un ensemble de variables définies par leur nom. 
+
+Ici, on applique le recodage uniquement aux variables qui continennent la chaîne de caractéres V1 dans leur nom de variables, on recode donc V1 et V10.
+
+```{r}
+
+# Sélection des variables
+var <- grep("1", names(df), value=TRUE)
+var
+
+# On recode les NA en VAL.MANQ pour les variables de var
+df2 <- df %>% 
+  mutate_at(var, ~ ifelse(is.na(.) == TRUE, "VAL.MANQ", .))
+df2
+```
+
+
+
+
+# Création de nouvelles variables automatisées
+
+Jusqu'ici nous avons vu comment recoder des variables existantes en changeant leurs valeurs, mais il est souvent préférable de créer de nouvelles variables pour éviter de perdre la variable originale.
+
+
+### Exemple 7 : Avec une boucle `for` et `assign`
+
+Dans cet exemple, nous allons choisir 3 variables à recoder ("V1","V3","V5"), mais au lieu de les écraser avec leurs nouvelles valeurs nous allons créer des copies de ces variables qui porteront le suffixe *bis*.
+
+Si l'opération peut sembler facile aux premiers abords, créer des nouveaux objets et leur affecter automatiquement une nouvelle valeur pose un problème majeur dans R : **Il n'est pas possible d'écrire une fonction devant un symbole d'affectation comme le = ou le <- **
+
+En français, cela veut dire que pour créer de nouvelles variables, on ne peut pas écrire : 
+
+```{r eval =FALSE}
+
+# IMPOSSIBLE
+paste0(V1, "_bis") <- ifelse(df$V1 == 8, "HUIT", df$V1)
+# IMPOSSIBLE
+df$paste0(V1, "_bis")
+
+```
+
+
+
+Pour cela, on utilise la fonction `assign()`, qui contient deux arguments : `assign(NOM_NV_OBJ, valeurs_prisent)`. On peut donc créer des variables avec des noms issues de fonctions comme `paste`. Dans notre cas on colle *ANCIEN_NOM* et *bis*.
+
+
+Pour chercher cet objet stocké dans l'environnement et en faire une variable, on utilise la fonction `get()` qui permet d'utiliser des fonctions comme `paste()` pour récupérer les valeurs des objets crées automatiquement.
+
+
+```{r}
+
+# Copie de l'original
+df2 <- df
+# Sélecion des variables
+var <- c("V1","V3","V5")
+
+for (i in var) {
+  
+  assign(paste0(i,"_bis"),                       # Nom de l'objet
+         ifelse(df2[[i]] == 8, "HUIT", df2[[i]]) # Valeur qu'il prend
+         )
+  
+  # On crée la variable à partir de l'objet crée au dessus
+  df2[paste0(i,"_bis")] <- get(paste0(i,"_bis"))
+
+}
+
+
+# On affiche la base avec les nouvelles variables en premières
+df2 %>% 
+  select(contains("bis"), everything())
+
+```
+
+
+On a bien crée automatiquement de nouvelles variables, tout en conservant les anciennes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
