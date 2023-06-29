@@ -37,6 +37,7 @@
   {
     "listing": "/R/index.html",
     "items": [
+      "/R/assist/posts/weight_norm/weight_norm.html",
       "/R/assist/posts/import_json/JSON.html",
       "/R/assist/posts/recodage_multiple/recodage_multiple.html",
       "/R/assist/posts/ifelse_casewhen/ifelse_casewhen.html",
