@@ -205,7 +205,7 @@ Dans cet exemple, nous allons choisir 3 variables à recoder ("V1","V3","V5"), m
 
 Si l'opération peut sembler facile aux premier abord, créer des nouveaux objets et leur affecter automatiquement une nouvelle valeur pose un problème majeur dans R : **Il n'est pas possible d'écrire une fonction devant un symbole d'affectation comme le = ou le <- **
 
-Cela signifie que pour créer de nouvelles variables, on ne peut pas écrire : 
+Cela signifie que pour créer de nouvelles variables, on ne peut pas écrire :  
 
 ```{r eval =FALSE}
 
