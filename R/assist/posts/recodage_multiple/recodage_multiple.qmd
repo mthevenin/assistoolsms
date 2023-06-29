@@ -34,12 +34,12 @@ abstract: |
 ---
 
 
-Il existe plusieurs solutions pour automatiser un recodage dans R, nous allons aborder certaines d'entre-elle mais cette liste est loin d'être exhaustive.
+Il existe plusieurs solutions pour automatiser un recodage dans R, nous allons aborder certaines d'entre-elles mais cette liste est loin d'être exhaustive.
 
 
 # Données d'exemple
 
-On commence par crée un jeu de données d'exemple, composé de 10 lignes et 10 colonnes, et qui contient des valeurs manquantes :
+On commence par créer un jeu de données, composé de 10 lignes et 10 colonnes, et qui contient des valeurs manquantes :
 
 
 ```{r}
@@ -52,7 +52,7 @@ df
 
 # Avec R de base :
 
-Dans R de base, il est possible de recoder l'entiereté des occurences d'une certaines valeurs (ou les valeurs manquantes) pour l'ensemble du jeu de données.
+Dans le R de base, il est possible de recoder l'entiereté des occurences d'une certaines valeurs (ou les valeurs manquantes) pour l'ensemble du jeu de données.
 
 ## Sur l'ensemble des données
 
@@ -85,9 +85,9 @@ df2
 
 ## Sur une sélection de variables
 
-Les jeux de données peuvent être composée d'un grand nombre de variables et donc on peut-être amené à vouloir effectué un recodage uniquement sur certaines variables.
+Les jeux de données peuvent être composés d'un grand nombre de variables et donc on peut-être amené à effectuer un recodage uniquement sur certaines variables.
 
-L'exemple ci-dessous montre comment procéder à partir d'une selection de variable stockée dans le vecteur *var*.
+L'exemple ci-dessous montre comment procéder à partir d'une sélection de variable stockée dans le vecteur *var*.
 
 ### Exemple 3 : Recoder une sélection de variables
 
@@ -112,19 +112,21 @@ for (i in var) {
 df2
 
 ```
-Seulement les variables V1, V7 et V9 ont été recodée, on voit des 10 sont présents dans V10.
+
+
+Seulement les variables V1, V7 et V9 ont été recodées. On remarque que des valeurs 10 sont présentes dans la variable V10.
 
 
 # Avec le package `dplyr`du tidyverse :
 
-Comme les boucles peuvent être complexe à prendre en main, et pas forcément conseillé dans R, le package `dplyr` propose un ensemble de fonctions permettant de recoder plusieurs variables en une fonction.
+Les boucles peuvent être complexe à prendre en main, et pas forcément conseillées dans R. Le package `dplyr` propose un ensemble de fonctions permettant de recoder plusieurs variables avec seule une fonction.
 
 
 ## Sur l'ensemble des données
 
 La fonction `mutate_all` permet de recoder l'ensemble des variables du jeu de données.
 
-### Exemple 4 : `mutate_all`
+### Exemple 4 : **`mutate_all`**
 
 On remplace l'ensemble de 7 par la valeur "SEPT"
 
@@ -137,9 +139,9 @@ df2 <- df %>%
 df2
 ```
 
-- Le ~ est obligatoire, et permet d'indiquer qu'on applique la formule qui le suit à l'ensemble du jeu de donnée.  
+- Le signe **`~`** est obligatoire, et permet d'indiquer qu'on applique la formule qui le suit à l'ensemble du jeu de données.  
 
-- Les **.** sont une spécificité de l'écriture avec des pipe (%>%), ils sont synonymes de la base de données en entrée (df) mais permet de tenir compte de toutes les transformations des pipes précédentes faites sur cette base.
+- Les **`.`** sont une spécificité de la syntaxe sous forme de **pipes** (%>%). Ils sont synonymes de la base de données en entrée (df) mais permet de tenir compte de toutes les transformations des pipes précédentes faites sur cette base.
 
 
 
@@ -161,7 +163,7 @@ df2
 
 ```
 
-On utilise `mutate_if`, pour changer la valeur 5 en CINQ, uniquement pour les variables numériques.
+On utilise **`mutate_if`**, pour changer la valeur 5 en CINQ, uniquement pour les variables numériques.
 
 ```{r}
 
@@ -171,7 +173,7 @@ df2
 
 ```
 
-### Exemple 6 : `mutate_at`
+### Exemple 6 : **`mutate_at`**
 
 la fonction `mutate_at` permet d'appliquer un recodage à un ensemble de variables définies par leur nom. 
 
@@ -192,18 +194,18 @@ df2
 
 
 
-# Création de nouvelles variables automatisées
+# Automatisation de la création de nouvelles variables
 
 Jusqu'ici nous avons vu comment recoder des variables existantes en changeant leurs valeurs, mais il est souvent préférable de créer de nouvelles variables pour éviter de perdre la variable originale.
 
 
-### Exemple 7 : Avec une boucle `for` et `assign`
+### Exemple 7 : Avec une boucle **`for`** et **`assign`**
 
 Dans cet exemple, nous allons choisir 3 variables à recoder ("V1","V3","V5"), mais au lieu de les écraser avec leurs nouvelles valeurs nous allons créer des copies de ces variables qui porteront le suffixe *bis*.
 
-Si l'opération peut sembler facile aux premiers abords, créer des nouveaux objets et leur affecter automatiquement une nouvelle valeur pose un problème majeur dans R : **Il n'est pas possible d'écrire une fonction devant un symbole d'affectation comme le = ou le <- **
+Si l'opération peut sembler facile aux premier abord, créer des nouveaux objets et leur affecter automatiquement une nouvelle valeur pose un problème majeur dans R : **Il n'est pas possible d'écrire une fonction devant un symbole d'affectation comme le = ou le <- **
 
-En français, cela veut dire que pour créer de nouvelles variables, on ne peut pas écrire : 
+Cela signifie que pour créer de nouvelles variables, on ne peut pas écrire : 
 
 ```{r eval =FALSE}
 
@@ -216,7 +218,7 @@ df$paste0(V1, "_bis")
 
 
 
-Pour cela, on utilise la fonction `assign()`, qui contient deux arguments : `assign(NOM_NV_OBJ, valeurs_prisent)`. On peut donc créer des variables avec des noms issues de fonctions comme `paste`. Dans notre cas on colle *ANCIEN_NOM* et *bis*.
+Pour contourner ce problème, on utilise la fonction **`assign()`**, qui contient deux arguments : `assign(NOM_NV_OBJ, valeurs_prisent)`. On peut donc créer des variables avec des noms issues de fonctions comme `paste`. Dans notre cas on colle *ANCIEN_NOM* et *bis*.
 
 
 Pour chercher cet objet stocké dans l'environnement et en faire une variable, on utilise la fonction `get()` qui permet d'utiliser des fonctions comme `paste()` pour récupérer les valeurs des objets crées automatiquement.
@@ -245,6 +247,7 @@ for (i in var) {
 df2 %>% 
   select(contains("bis"), everything())
 
+df2
 ```
 
 
