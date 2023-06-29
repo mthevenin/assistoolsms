@@ -39,7 +39,7 @@ abstract: |
 | **survey**    | `svydesign` - `svytable` - `svymean` - `svyglm` |
 | **Base R**    | `mean`                                          |
 
-: Fonctions utilisées dans la fiche
+: **Fonctions utilisées dans la fiche**
 
 
 Documentation sur les packages:  
@@ -94,8 +94,11 @@ wtd.table(hdv2003$qualif,hdv2003$sexe,weights=hdv2003$poids)
 **Pour normaliser la pondération on ajoute l'option `normwt=TRUE`**.  
 
 ```{r filename="fréquences avec pondérations normalisées"}
-wtd.table(hdv2003$qualif,hdv2003$sexe,weights=hdv2003$poids, normwt=TRUE)
+wtd.table(hdv2003$sexe,weights=hdv2003$poids, normwt=TRUE)
+```
 
+```{r filename="tri croisé avec pondérations normalisées"}
+wtd.table(hdv2003$qualif,hdv2003$sexe,weights=hdv2003$poids, normwt=TRUE)
 ```
 
 
