@@ -246,8 +246,6 @@ for (i in var) {
 # On affiche la base avec les nouvelles variables en premières
 df2 %>% 
   select(contains("bis"), everything())
-
-df2
 ```
 
 
