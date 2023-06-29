@@ -1,0 +1,200 @@
+---
+title: "Pondérations normalisées avec R"
+
+# subtitle: ""
+
+categories:
+  - Pondération
+  - survey
+  - questionr
+  
+author: 
+  - name: "Elodie Baril"
+    affiliations:
+      - name: "Ined"
+
+date: 06/29/2023
+
+image: "https://www.r-project.org/Rlogo.png"
+
+format: 
+  html: default
+  docx: default
+#  pdf:  default
+
+#filters:
+#  - lightbox
+#lightbox: auto
+
+#code-annotations: below
+
+abstract: | 
+ L'utilisation des poids normalisés sur la taille de l'échantillon s'avère obligatoire pour certaines analyses, en particulier pour obtenir des estimations robustes de la variance. La présente fiche présente avec les packages `questionr` et `survey`, deux manières d'introduire ces poids dans des analyses.
+---
+
+
+| Package       | Fonction                                        |
+|---------------|-------------------------------------------------|
+| **questionr** | `wtd.table` - `cprop` - `lprop`                 |
+| **survey**    | `svydesign` - `svytable` - `svymean` - `svyglm` |
+| **Base R**    | `mean`                                          |
+
+: Fonctions utilisées dans la fiche
+
+
+Documentation sur les packages:  
+
+
+- <https://juba.github.io/questionr/>
+- <https://www.rdocumentation.org/packages/survey/versions/4.1-1>
+
+Activation des packages et ouverture de la table d'exemple HDV
+
+```{r warning=FALSE,message=FALSE}
+#install.packages(questionr)
+#install.packages(survey)
+
+library(questionr)
+library(survey)
+
+#Utilisation de la table d'exemple Histoire de vie (hdv2003) 
+data("hdv2003")
+
+# Extrait du fichier
+hdv2003[1:5,1:5]
+```
+
+La variable pondérée du fichier s'appelle **poids**
+
+
+# Package questionr
+
+Le package `questionr` permet d'obtenir rapidement des tableaux de fréquences ou de pourcentages avec des poids normalisés. L'opération de normalisation est passée directement dans une option.
+
+
+## Fréquences pondérées  
+
+*  Fonction **`wtd.table()`**
+
+```{r filename="fréquences sans pondération"}
+table(hdv2003$sexe)
+```
+
+```{r filename="fréquences avec pondérations"}
+
+# tris à plat avec l'option weights
+wtd.table(hdv2003$sexe, weights = hdv2003$poids)
+
+#  tris croisé
+wtd.table(hdv2003$qualif,hdv2003$sexe,weights=hdv2003$poids)
+```
+
+
+
+**Pour normaliser la pondération on ajoute l'option `normwt=TRUE`**.  
+
+```{r filename="fréquences avec pondérations normalisées"}
+wtd.table(hdv2003$qualif,hdv2003$sexe,weights=hdv2003$poids, normwt=TRUE)
+
+```
+
+
+##  Pourcentages pondérés
+
+
+```{r filename="Stocker le resultat des fréquences pondérées dans un objet, ici res"}
+res=wtd.table(hdv2003$qualif,hdv2003$sexe, weights=hdv2003$poids, normwt=TRUE)
+```
+
+* On utilise les fonctions `cprop()` et `lprop`:
+  * cprop(): pourcentages colonnes
+  * lprop(): pourcentages lignes
+
+```{r}
+cprop(res) 
+lprop(res) 
+```
+
+
+# Le package `survey`
+
+* Plus riche, le package **`survey`** permet d'appliquer la pondération, normalisée ou non, à un ensemble plus vaster de fonction. 
+* Pour les modèles, l'application de la pondération normalisée (**obligatoire**) permet d'obtenir une estimation robuste de la variance des paramètres.
+* La normalisation de la pondération se fait par la création d'une nouvelle variable.  
+
+## Création de la variable de pondération normalisée
+
+On divise tout simplement chaque poids individuel par la moyenne des poids (fonction `mean()`)
+
+```{r filename="creation d'une variable de pondération normalisée"}
+hdv2003$poids_norm=hdv2003$poids/mean(hdv2003$poids)
+```
+
+Comme la normalisation se fait sur la taille de l'échantillon, la somme des poids normalisés est bien égale à l'effectif de celui-ci
+
+```{r}
+sum(hdv2003$poids_norm)
+```
+
+## Design de l'échantillon
+
+* On est ici dans la situation la plus simple simple, le design se réduisant à l'application d'un poids d'échantillonage. 
+* Avant d'utiliser la fonction d'analyse on générère un objet renseignant les divers éléments entrant dans le design de l'enquête (ici seulement la variable *hdv2003$poids_norm*) avec la fonction **`svydesign`**
+
+```{r filename="Fonction svydesign"}
+dfw <- svydesign(ids = ~1, data = hdv2003, weights = ~ hdv2003$poids)
+```
+
+
+## Application du design à des fonctions analytiques
+
+* On ajoute aux fonctions l'objet généré avec  `svydesign` (ici **dfw**)
+
+**Tableaux de fréquence**
+
+* Fonction **`svytable`**
+
+```{r filename="fréquences pondérées"}
+
+svytable(~sexe, dfw)
+
+svytable(~ sexe + qualif, dfw)
+```
+
+```{r filename="Pourcentages pondérés"}
+tab <- svytable(~ sexe + qualif, dfw)
+```
+
+```{r filename="Pourcentages pondérés"}
+lprop(tab)  # % ligne pondérée
+cprop(tab)  # % colonne pondérée
+```
+
+
+**Moyenne pondérée**
+
+* Fonction `svymean` et `svyby`
+
+```{r filename="Moyenne pondérée"}
+svymean(~age, dfw)
+```
+
+* Si on souhaite calculer une moyenne par sous groupe, on utilise la fonction `svyby` à laquelle on ajoute l'argument `svymean` en option
+
+```{r filename="Moyennes pondérées par groupe"}
+svyby(~age, ~sexe, dfw, svymean)
+```
+
+* Modèle logistique avec `svyglm`
+
+```{r filename="Moyennes pondérées par groupe"}
+options(show.signif.stars=FALSE)
+summary(svyglm(cuisine ~ age + sexe + occup + qualif, dfw, family=binomial))
+```
+
+Vous pouvez retrouver dans la documentation l'ensemble des fonctions prises en charge.
+
+
+
+
+

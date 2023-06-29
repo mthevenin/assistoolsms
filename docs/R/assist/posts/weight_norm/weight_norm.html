@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Elodie Baril">
+
+<title>SMS_site - Pondérations normalisées avec R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../../sms.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
+ <span class="menu-text">R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../Quarto/index.html" rel="" target="">
+ <span class="menu-text">Quarto</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
+ <span class="menu-text">Autres</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-autres-supports" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Autres Supports</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-autres-supports">    
+        <li>
+    <a class="dropdown-item" href="https://mthevenin.github.io/stata_fr/index.html" rel="" target="">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://benegarbi.github.io/AtelierQO_R/" rel="" target="">
+ <span class="dropdown-text">Analyse textuelle</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Pondérations normalisées avec R</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Pondération</div>
+                <div class="quarto-category">survey</div>
+                <div class="quarto-category">questionr</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Elodie Baril </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">29 juin 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Résumé</div>
+      <p>L’utilisation des poids normalisés sur la taille de l’échantillon s’avère obligatoire pour certaines analyses, en particulier pour obtenir des estimations robustes de la variance. La présente fiche présente avec les packages <code>questionr</code> et <code>survey</code>, deux manières d’introduire ces poids dans des analyses.</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#package-questionr" id="toc-package-questionr" class="nav-link active" data-scroll-target="#package-questionr">Package questionr</a>
+  <ul class="collapse">
+  <li><a href="#fréquences-pondérées" id="toc-fréquences-pondérées" class="nav-link" data-scroll-target="#fréquences-pondérées">Fréquences pondérées</a></li>
+  <li><a href="#pourcentages-pondérés" id="toc-pourcentages-pondérés" class="nav-link" data-scroll-target="#pourcentages-pondérés">Pourcentages pondérés</a></li>
+  </ul></li>
+  <li><a href="#le-package-survey" id="toc-le-package-survey" class="nav-link" data-scroll-target="#le-package-survey">Le package <code>survey</code></a>
+  <ul class="collapse">
+  <li><a href="#création-de-la-variable-de-pondération-normalisée" id="toc-création-de-la-variable-de-pondération-normalisée" class="nav-link" data-scroll-target="#création-de-la-variable-de-pondération-normalisée">Création de la variable de pondération normalisée</a></li>
+  <li><a href="#design-de-léchantillon" id="toc-design-de-léchantillon" class="nav-link" data-scroll-target="#design-de-léchantillon">Design de l’échantillon</a></li>
+  <li><a href="#application-du-design-à-des-fonctions-analytiques" id="toc-application-du-design-à-des-fonctions-analytiques" class="nav-link" data-scroll-target="#application-du-design-à-des-fonctions-analytiques">Application du design à des fonctions analytiques</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="weight_norm.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<table class="table">
+<caption>Fonctions utilisées dans la fiche</caption>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Fonction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>questionr</strong></td>
+<td><code>wtd.table</code> - <code>cprop</code> - <code>lprop</code></td>
+</tr>
+<tr class="even">
+<td><strong>survey</strong></td>
+<td><code>svydesign</code> - <code>svytable</code> - <code>svymean</code> - <code>svyglm</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Base R</strong></td>
+<td><code>mean</code></td>
+</tr>
+</tbody>
+</table>
+<p>Documentation sur les packages:</p>
+<ul>
+<li><a href="https://juba.github.io/questionr/" class="uri">https://juba.github.io/questionr/</a></li>
+<li><a href="https://www.rdocumentation.org/packages/survey/versions/4.1-1" class="uri">https://www.rdocumentation.org/packages/survey/versions/4.1-1</a></li>
+</ul>
+<p>Activation des packages et ouverture de la table d’exemple HDV</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#install.packages(questionr)</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#install.packages(survey)</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(survey)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#Utilisation de la table d'exemple Histoire de vie (hdv2003) </span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">data</span>(<span class="st">"hdv2003"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># Extrait du fichier</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>hdv2003[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id age  sexe                                              nivetud    poids
+1  1  28 Femme Enseignement superieur y compris technique superieur 2634.398
+2  2  23 Femme                                                 &lt;NA&gt; 9738.396
+3  3  59 Homme                    Derniere annee d'etudes primaires 3994.102
+4  4  34 Homme Enseignement superieur y compris technique superieur 5731.662
+5  5  71 Femme                    Derniere annee d'etudes primaires 4329.094</code></pre>
+</div>
+</div>
+<p>La variable pondérée du fichier s’appelle <strong>poids</strong></p>
+<section id="package-questionr" class="level1">
+<h1>Package questionr</h1>
+<p>Le package <code>questionr</code> permet d’obtenir rapidement des tableaux de fréquences ou de pourcentages avec des poids normalisés. L’opération de normalisation est passée directement dans une option.</p>
+<section id="fréquences-pondérées" class="level2">
+<h2 class="anchored" data-anchor-id="fréquences-pondérées">Fréquences pondérées</h2>
+<ul>
+<li>Fonction <strong><code>wtd.table()</code></strong></li>
+</ul>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>fréquences sans pondération</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">table</span>(hdv2003<span class="sc">$</span>sexe)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Homme Femme 
+  899  1101 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>fréquences avec pondérations</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># tris à plat avec l'option weights</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>sexe, <span class="at">weights =</span> hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Homme   Femme 
+5149382 5921844 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#  tris croisé</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Homme     Femme
+Ouvrier specialise        532365.8  479015.0
+Ouvrier qualifie         1163988.6  296252.0
+Technicien                378956.7  115658.0
+Profession intermediaire  438737.8  375560.7
+Cadre                     779354.9  623574.6
+Employe                   525068.8 2591911.0
+Autre                     129695.9  145912.6</code></pre>
+</div>
+</div>
+<p><strong>Pour normaliser la pondération on ajoute l’option <code>normwt=TRUE</code></strong>.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>fréquences avec pondérations normalisées</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Homme     Femme
+Ouvrier specialise        96.17106  86.53332
+Ouvrier qualifie         210.27275  53.51747
+Technicien                68.45794  20.89344
+Profession intermediaire  79.25731  67.84446
+Cadre                    140.78927 112.64780
+Employe                   94.85286 468.22473
+Autre                     23.42937  26.35888</code></pre>
+</div>
+</div>
+</section>
+<section id="pourcentages-pondérés" class="level2">
+<h2 class="anchored" data-anchor-id="pourcentages-pondérés">Pourcentages pondérés</h2>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Stocker le resultat des fréquences pondérées dans un objet, ici res</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>res<span class="ot">=</span><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe, <span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ul>
+<li>On utilise les fonctions <code>cprop()</code> et <code>lprop</code>:
+<ul>
+<li>cprop(): pourcentages colonnes</li>
+<li>lprop(): pourcentages lignes</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">cprop</span>(res) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         Homme Femme Ensemble
+Ouvrier specialise        13.5  10.4  11.8   
+Ouvrier qualifie          29.5   6.4  17.0   
+Technicien                 9.6   2.5   5.8   
+Profession intermediaire  11.1   8.1   9.5   
+Cadre                     19.7  13.5  16.4   
+Employe                   13.3  56.0  36.3   
+Autre                      3.3   3.2   3.2   
+Total                    100.0 100.0 100.0   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">lprop</span>(res) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         Homme Femme Total
+Ouvrier specialise        52.6  47.4 100.0
+Ouvrier qualifie          79.7  20.3 100.0
+Technicien                76.6  23.4 100.0
+Profession intermediaire  53.9  46.1 100.0
+Cadre                     55.6  44.4 100.0
+Employe                   16.8  83.2 100.0
+Autre                     47.1  52.9 100.0
+Ensemble                  46.0  54.0 100.0</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="le-package-survey" class="level1">
+<h1>Le package <code>survey</code></h1>
+<ul>
+<li>Plus riche, le package <strong><code>survey</code></strong> permet d’appliquer la pondération, normalisée ou non, à un ensemble plus vaster de fonction.</li>
+<li>Pour les modèles, l’application de la pondération normalisée (<strong>obligatoire</strong>) permet d’obtenir une estimation robuste de la variance des paramètres.</li>
+<li>La normalisation de la pondération se fait par la création d’une nouvelle variable.</li>
+</ul>
+<section id="création-de-la-variable-de-pondération-normalisée" class="level2">
+<h2 class="anchored" data-anchor-id="création-de-la-variable-de-pondération-normalisée">Création de la variable de pondération normalisée</h2>
+<p>On divise tout simplement chaque poids individuel par la moyenne des poids (fonction <code>mean()</code>)</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>creation d'une variable de pondération normalisée</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>hdv2003<span class="sc">$</span>poids_norm<span class="ot">=</span>hdv2003<span class="sc">$</span>poids<span class="sc">/</span><span class="fu">mean</span>(hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Comme la normalisation se fait sur la taille de l’échantillon, la somme des poids normalisés est bien égale à l’effectif de celui-ci</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">sum</span>(hdv2003<span class="sc">$</span>poids_norm)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2000</code></pre>
+</div>
+</div>
+</section>
+<section id="design-de-léchantillon" class="level2">
+<h2 class="anchored" data-anchor-id="design-de-léchantillon">Design de l’échantillon</h2>
+<ul>
+<li>On est ici dans la situation la plus simple simple, le design se réduisant à l’application d’un poids d’échantillonage.</li>
+<li>Avant d’utiliser la fonction d’analyse on générère un objet renseignant les divers éléments entrant dans le design de l’enquête (ici seulement la variable <em>hdv2003$poids_norm</em>) avec la fonction <strong><code>svydesign</code></strong></li>
+</ul>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Fonction svydesign</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>dfw <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> hdv2003, <span class="at">weights =</span> <span class="sc">~</span> hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="application-du-design-à-des-fonctions-analytiques" class="level2">
+<h2 class="anchored" data-anchor-id="application-du-design-à-des-fonctions-analytiques">Application du design à des fonctions analytiques</h2>
+<ul>
+<li>On ajoute aux fonctions l’objet généré avec <code>svydesign</code> (ici <strong>dfw</strong>)</li>
+</ul>
+<p><strong>Tableaux de fréquence</strong></p>
+<ul>
+<li>Fonction <strong><code>svytable</code></strong></li>
+</ul>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>fréquences pondérées</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">svytable</span>(<span class="sc">~</span>sexe, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sexe
+  Homme   Femme 
+5149382 5921844 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       qualif
+sexe    Ouvrier specialise Ouvrier qualifie Technicien Profession intermediaire
+  Homme           532365.8        1163988.6   378956.7                 438737.8
+  Femme           479015.0         296252.0   115658.0                 375560.7
+       qualif
+sexe        Cadre   Employe     Autre
+  Homme  779354.9  525068.8  129695.9
+  Femme  623574.6 2591911.0  145912.6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pourcentages pondérés</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Pourcentages pondérés</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">lprop</span>(tab)  <span class="co"># % ligne pondérée</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          qualif
+sexe       Ouvrier specialise Ouvrier qualifie Technicien
+  Homme     13.5               29.5              9.6     
+  Femme     10.4                6.4              2.5     
+  Ensemble  11.8               17.0              5.8     
+          qualif
+sexe       Profession intermediaire Cadre Employe Autre Total
+  Homme     11.1                     19.7  13.3     3.3 100.0
+  Femme      8.1                     13.5  56.0     3.2 100.0
+  Ensemble   9.5                     16.4  36.3     3.2 100.0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">cprop</span>(tab)  <span class="co"># % colonne pondérée</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       qualif
+sexe    Ouvrier specialise Ouvrier qualifie Technicien Profession intermediaire
+  Homme  52.6               79.7             76.6       53.9                   
+  Femme  47.4               20.3             23.4       46.1                   
+  Total 100.0              100.0            100.0      100.0                   
+       qualif
+sexe    Cadre Employe Autre Ensemble
+  Homme  55.6  16.8    47.1  46.0   
+  Femme  44.4  83.2    52.9  54.0   
+  Total 100.0 100.0   100.0 100.0   </code></pre>
+</div>
+</div>
+<p><strong>Moyenne pondérée</strong></p>
+<ul>
+<li>Fonction <code>svymean</code> et <code>svyby</code></li>
+</ul>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Moyenne pondérée</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">svymean</span>(<span class="sc">~</span>age, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      mean     SE
+age 46.347 0.5284</code></pre>
+</div>
+</div>
+<ul>
+<li>Si on souhaite calculer une moyenne par sous groupe, on utilise la fonction <code>svyby</code> à laquelle on ajoute l’argument <code>svymean</code> en option</li>
+</ul>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Moyennes pondérées par groupe</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">svyby</span>(<span class="sc">~</span>age, <span class="sc">~</span>sexe, dfw, svymean)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       sexe      age        se
+Homme Homme 45.20200 0.7419450
+Femme Femme 47.34313 0.7420836</code></pre>
+</div>
+</div>
+<ul>
+<li>Modèle logistique avec <code>svyglm</code></li>
+</ul>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Moyennes pondérées par groupe</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">summary</span>(<span class="fu">svyglm</span>(cuisine <span class="sc">~</span> age <span class="sc">+</span> sexe <span class="sc">+</span> occup <span class="sc">+</span> qualif, dfw, <span class="at">family=</span>binomial))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in eval(family$initialize): nombre de succès non entier dans un glm
+binomial !</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+svyglm(formula = cuisine ~ age + sexe + occup + qualif, design = dfw, 
+    family = binomial)
+
+Survey design:
+svydesign(ids = ~1, data = hdv2003, weights = ~hdv2003$poids)
+
+Coefficients:
+                                Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)                    -0.151065   0.324985  -0.465    0.642
+age                            -0.012303   0.006407  -1.920    0.055
+sexeFemme                       0.922651   0.160463   5.750 1.06e-08
+occupChomeur                    0.344982   0.255175   1.352    0.177
+occupEtudiant, eleve           -0.677345   1.124417  -0.602    0.547
+occupRetraite                  -0.256705   0.242383  -1.059    0.290
+occupRetire des affaires        0.633727   1.100048   0.576    0.565
+occupAu foyer                   0.249697   0.286245   0.872    0.383
+occupAutre inactif             -0.231741   0.382382  -0.606    0.545
+qualifOuvrier qualifie          0.134447   0.252713   0.532    0.595
+qualifTechnicien               -0.395892   0.357399  -1.108    0.268
+qualifProfession intermediaire  0.220994   0.293482   0.753    0.452
+qualifCadre                    -0.265439   0.256451  -1.035    0.301
+qualifEmploye                   0.018206   0.222582   0.082    0.935
+qualifAutre                    -0.510097   0.401470  -1.271    0.204
+
+(Dispersion parameter for binomial family taken to be 0.9331289)
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>Vous pouvez retrouver dans la documentation l’ensemble des fonctions prises en charge.</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb36" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">---</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="an">title:</span><span class="co"> "Pondérations normalisées avec R"</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co"># subtitle: ""</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a></span>
+<span id="cb36-6"><a href="#cb36-6"></a><span class="an">categories:</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="co">  - Pondération</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="co">  - survey</span></span>
+<span id="cb36-9"><a href="#cb36-9"></a><span class="co">  - questionr</span></span>
+<span id="cb36-10"><a href="#cb36-10"></a><span class="co">  </span></span>
+<span id="cb36-11"><a href="#cb36-11"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb36-12"><a href="#cb36-12"></a><span class="co">  - name: "Elodie Baril"</span></span>
+<span id="cb36-13"><a href="#cb36-13"></a><span class="co">    affiliations:</span></span>
+<span id="cb36-14"><a href="#cb36-14"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb36-15"><a href="#cb36-15"></a></span>
+<span id="cb36-16"><a href="#cb36-16"></a><span class="an">date:</span><span class="co"> 06/29/2023</span></span>
+<span id="cb36-17"><a href="#cb36-17"></a></span>
+<span id="cb36-18"><a href="#cb36-18"></a><span class="an">image:</span><span class="co"> "https://www.r-project.org/Rlogo.png"</span></span>
+<span id="cb36-19"><a href="#cb36-19"></a></span>
+<span id="cb36-20"><a href="#cb36-20"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb36-21"><a href="#cb36-21"></a><span class="co">  html: default</span></span>
+<span id="cb36-22"><a href="#cb36-22"></a><span class="co">  docx: default</span></span>
+<span id="cb36-23"><a href="#cb36-23"></a><span class="co">#  pdf:  default</span></span>
+<span id="cb36-24"><a href="#cb36-24"></a></span>
+<span id="cb36-25"><a href="#cb36-25"></a><span class="co">#filters:</span></span>
+<span id="cb36-26"><a href="#cb36-26"></a><span class="co">#  - lightbox</span></span>
+<span id="cb36-27"><a href="#cb36-27"></a><span class="co">#lightbox: auto</span></span>
+<span id="cb36-28"><a href="#cb36-28"></a></span>
+<span id="cb36-29"><a href="#cb36-29"></a><span class="co">#code-annotations: below</span></span>
+<span id="cb36-30"><a href="#cb36-30"></a></span>
+<span id="cb36-31"><a href="#cb36-31"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb36-32"><a href="#cb36-32"></a><span class="co"> L'utilisation des poids normalisés sur la taille de l'échantillon s'avère obligatoire pour certaines analyses, en particulier pour obtenir des estimations robustes de la variance. La présente fiche présente avec les packages `questionr` et `survey`, deux manières d'introduire ces poids dans des analyses.</span></span>
+<span id="cb36-33"><a href="#cb36-33"></a><span class="co">---</span></span>
+<span id="cb36-34"><a href="#cb36-34"></a></span>
+<span id="cb36-35"><a href="#cb36-35"></a></span>
+<span id="cb36-36"><a href="#cb36-36"></a>| Package       | Fonction                                        |</span>
+<span id="cb36-37"><a href="#cb36-37"></a>|---------------|-------------------------------------------------|</span>
+<span id="cb36-38"><a href="#cb36-38"></a>| **questionr** | <span class="in">`wtd.table`</span> - <span class="in">`cprop`</span> - <span class="in">`lprop`</span>                 |</span>
+<span id="cb36-39"><a href="#cb36-39"></a>| **survey**    | <span class="in">`svydesign`</span> - <span class="in">`svytable`</span> - <span class="in">`svymean`</span> - <span class="in">`svyglm`</span> |</span>
+<span id="cb36-40"><a href="#cb36-40"></a>| **Base R**    | <span class="in">`mean`</span>                                          |</span>
+<span id="cb36-41"><a href="#cb36-41"></a></span>
+<span id="cb36-42"><a href="#cb36-42"></a>: Fonctions utilisées dans la fiche</span>
+<span id="cb36-43"><a href="#cb36-43"></a></span>
+<span id="cb36-44"><a href="#cb36-44"></a></span>
+<span id="cb36-45"><a href="#cb36-45"></a>Documentation sur les packages:  </span>
+<span id="cb36-46"><a href="#cb36-46"></a></span>
+<span id="cb36-47"><a href="#cb36-47"></a></span>
+<span id="cb36-48"><a href="#cb36-48"></a><span class="ss">- </span><span class="ot">&lt;https://juba.github.io/questionr/&gt;</span></span>
+<span id="cb36-49"><a href="#cb36-49"></a><span class="ss">- </span><span class="ot">&lt;https://www.rdocumentation.org/packages/survey/versions/4.1-1&gt;</span></span>
+<span id="cb36-50"><a href="#cb36-50"></a></span>
+<span id="cb36-51"><a href="#cb36-51"></a>Activation des packages et ouverture de la table d'exemple HDV</span>
+<span id="cb36-52"><a href="#cb36-52"></a></span>
+<span id="cb36-53"><a href="#cb36-53"></a><span class="in">```{r warning=FALSE,message=FALSE}</span></span>
+<span id="cb36-54"><a href="#cb36-54"></a><span class="co">#install.packages(questionr)</span></span>
+<span id="cb36-55"><a href="#cb36-55"></a><span class="co">#install.packages(survey)</span></span>
+<span id="cb36-56"><a href="#cb36-56"></a></span>
+<span id="cb36-57"><a href="#cb36-57"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb36-58"><a href="#cb36-58"></a><span class="fu">library</span>(survey)</span>
+<span id="cb36-59"><a href="#cb36-59"></a></span>
+<span id="cb36-60"><a href="#cb36-60"></a><span class="co">#Utilisation de la table d'exemple Histoire de vie (hdv2003) </span></span>
+<span id="cb36-61"><a href="#cb36-61"></a><span class="fu">data</span>(<span class="st">"hdv2003"</span>)</span>
+<span id="cb36-62"><a href="#cb36-62"></a></span>
+<span id="cb36-63"><a href="#cb36-63"></a><span class="co"># Extrait du fichier</span></span>
+<span id="cb36-64"><a href="#cb36-64"></a>hdv2003[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb36-65"><a href="#cb36-65"></a><span class="in">```</span></span>
+<span id="cb36-66"><a href="#cb36-66"></a></span>
+<span id="cb36-67"><a href="#cb36-67"></a>La variable pondérée du fichier s'appelle **poids**</span>
+<span id="cb36-68"><a href="#cb36-68"></a></span>
+<span id="cb36-69"><a href="#cb36-69"></a></span>
+<span id="cb36-70"><a href="#cb36-70"></a><span class="fu"># Package questionr</span></span>
+<span id="cb36-71"><a href="#cb36-71"></a></span>
+<span id="cb36-72"><a href="#cb36-72"></a>Le package <span class="in">`questionr`</span> permet d'obtenir rapidement des tableaux de fréquences ou de pourcentages avec des poids normalisés. L'opération de normalisation est passée directement dans une option.</span>
+<span id="cb36-73"><a href="#cb36-73"></a></span>
+<span id="cb36-74"><a href="#cb36-74"></a></span>
+<span id="cb36-75"><a href="#cb36-75"></a><span class="fu">## Fréquences pondérées  </span></span>
+<span id="cb36-76"><a href="#cb36-76"></a></span>
+<span id="cb36-77"><a href="#cb36-77"></a><span class="ss">*  </span>Fonction **`wtd.table()`**</span>
+<span id="cb36-78"><a href="#cb36-78"></a></span>
+<span id="cb36-79"><a href="#cb36-79"></a><span class="in">```{r filename="fréquences sans pondération"}</span></span>
+<span id="cb36-80"><a href="#cb36-80"></a><span class="fu">table</span>(hdv2003<span class="sc">$</span>sexe)</span>
+<span id="cb36-81"><a href="#cb36-81"></a><span class="in">```</span></span>
+<span id="cb36-82"><a href="#cb36-82"></a></span>
+<span id="cb36-83"><a href="#cb36-83"></a><span class="in">```{r filename="fréquences avec pondérations"}</span></span>
+<span id="cb36-84"><a href="#cb36-84"></a></span>
+<span id="cb36-85"><a href="#cb36-85"></a><span class="co"># tris à plat avec l'option weights</span></span>
+<span id="cb36-86"><a href="#cb36-86"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>sexe, <span class="at">weights =</span> hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb36-87"><a href="#cb36-87"></a></span>
+<span id="cb36-88"><a href="#cb36-88"></a><span class="co">#  tris croisé</span></span>
+<span id="cb36-89"><a href="#cb36-89"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb36-90"><a href="#cb36-90"></a><span class="in">```</span></span>
+<span id="cb36-91"><a href="#cb36-91"></a></span>
+<span id="cb36-92"><a href="#cb36-92"></a></span>
+<span id="cb36-93"><a href="#cb36-93"></a></span>
+<span id="cb36-94"><a href="#cb36-94"></a>**Pour normaliser la pondération on ajoute l'option `normwt=TRUE`**.  </span>
+<span id="cb36-95"><a href="#cb36-95"></a></span>
+<span id="cb36-96"><a href="#cb36-96"></a><span class="in">```{r filename="fréquences avec pondérations normalisées"}</span></span>
+<span id="cb36-97"><a href="#cb36-97"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span>
+<span id="cb36-98"><a href="#cb36-98"></a></span>
+<span id="cb36-99"><a href="#cb36-99"></a><span class="in">```</span></span>
+<span id="cb36-100"><a href="#cb36-100"></a></span>
+<span id="cb36-101"><a href="#cb36-101"></a></span>
+<span id="cb36-102"><a href="#cb36-102"></a><span class="fu">##  Pourcentages pondérés</span></span>
+<span id="cb36-103"><a href="#cb36-103"></a></span>
+<span id="cb36-104"><a href="#cb36-104"></a></span>
+<span id="cb36-105"><a href="#cb36-105"></a><span class="in">```{r filename="Stocker le resultat des fréquences pondérées dans un objet, ici res"}</span></span>
+<span id="cb36-106"><a href="#cb36-106"></a>res<span class="ot">=</span><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe, <span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span>
+<span id="cb36-107"><a href="#cb36-107"></a><span class="in">```</span></span>
+<span id="cb36-108"><a href="#cb36-108"></a></span>
+<span id="cb36-109"><a href="#cb36-109"></a><span class="ss">* </span>On utilise les fonctions <span class="in">`cprop()`</span> et <span class="in">`lprop`</span>:</span>
+<span id="cb36-110"><a href="#cb36-110"></a><span class="ss">  * </span>cprop(): pourcentages colonnes</span>
+<span id="cb36-111"><a href="#cb36-111"></a><span class="ss">  * </span>lprop(): pourcentages lignes</span>
+<span id="cb36-112"><a href="#cb36-112"></a></span>
+<span id="cb36-115"><a href="#cb36-115"></a><span class="in">```{r}</span></span>
+<span id="cb36-116"><a href="#cb36-116"></a><span class="fu">cprop</span>(res) </span>
+<span id="cb36-117"><a href="#cb36-117"></a><span class="fu">lprop</span>(res) </span>
+<span id="cb36-118"><a href="#cb36-118"></a><span class="in">```</span></span>
+<span id="cb36-119"><a href="#cb36-119"></a></span>
+<span id="cb36-120"><a href="#cb36-120"></a></span>
+<span id="cb36-121"><a href="#cb36-121"></a><span class="fu"># Le package `survey`</span></span>
+<span id="cb36-122"><a href="#cb36-122"></a></span>
+<span id="cb36-123"><a href="#cb36-123"></a><span class="ss">* </span>Plus riche, le package **`survey`** permet d'appliquer la pondération, normalisée ou non, à un ensemble plus vaster de fonction. </span>
+<span id="cb36-124"><a href="#cb36-124"></a><span class="ss">* </span>Pour les modèles, l'application de la pondération normalisée (**obligatoire**) permet d'obtenir une estimation robuste de la variance des paramètres.</span>
+<span id="cb36-125"><a href="#cb36-125"></a><span class="ss">* </span>La normalisation de la pondération se fait par la création d'une nouvelle variable.  </span>
+<span id="cb36-126"><a href="#cb36-126"></a></span>
+<span id="cb36-127"><a href="#cb36-127"></a><span class="fu">## Création de la variable de pondération normalisée</span></span>
+<span id="cb36-128"><a href="#cb36-128"></a></span>
+<span id="cb36-129"><a href="#cb36-129"></a>On divise tout simplement chaque poids individuel par la moyenne des poids (fonction <span class="in">`mean()`</span>)</span>
+<span id="cb36-130"><a href="#cb36-130"></a></span>
+<span id="cb36-131"><a href="#cb36-131"></a><span class="in">```{r filename="creation d'une variable de pondération normalisée"}</span></span>
+<span id="cb36-132"><a href="#cb36-132"></a>hdv2003<span class="sc">$</span>poids_norm<span class="ot">=</span>hdv2003<span class="sc">$</span>poids<span class="sc">/</span><span class="fu">mean</span>(hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb36-133"><a href="#cb36-133"></a><span class="in">```</span></span>
+<span id="cb36-134"><a href="#cb36-134"></a></span>
+<span id="cb36-135"><a href="#cb36-135"></a>Comme la normalisation se fait sur la taille de l'échantillon, la somme des poids normalisés est bien égale à l'effectif de celui-ci</span>
+<span id="cb36-136"><a href="#cb36-136"></a></span>
+<span id="cb36-139"><a href="#cb36-139"></a><span class="in">```{r}</span></span>
+<span id="cb36-140"><a href="#cb36-140"></a><span class="fu">sum</span>(hdv2003<span class="sc">$</span>poids_norm)</span>
+<span id="cb36-141"><a href="#cb36-141"></a><span class="in">```</span></span>
+<span id="cb36-142"><a href="#cb36-142"></a></span>
+<span id="cb36-143"><a href="#cb36-143"></a><span class="fu">## Design de l'échantillon</span></span>
+<span id="cb36-144"><a href="#cb36-144"></a></span>
+<span id="cb36-145"><a href="#cb36-145"></a><span class="ss">* </span>On est ici dans la situation la plus simple simple, le design se réduisant à l'application d'un poids d'échantillonage. </span>
+<span id="cb36-146"><a href="#cb36-146"></a><span class="ss">* </span>Avant d'utiliser la fonction d'analyse on générère un objet renseignant les divers éléments entrant dans le design de l'enquête (ici seulement la variable *hdv2003$poids_norm*) avec la fonction **`svydesign`**</span>
+<span id="cb36-147"><a href="#cb36-147"></a></span>
+<span id="cb36-148"><a href="#cb36-148"></a><span class="in">```{r filename="Fonction svydesign"}</span></span>
+<span id="cb36-149"><a href="#cb36-149"></a>dfw <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> hdv2003, <span class="at">weights =</span> <span class="sc">~</span> hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb36-150"><a href="#cb36-150"></a><span class="in">```</span></span>
+<span id="cb36-151"><a href="#cb36-151"></a></span>
+<span id="cb36-152"><a href="#cb36-152"></a></span>
+<span id="cb36-153"><a href="#cb36-153"></a><span class="fu">## Application du design à des fonctions analytiques</span></span>
+<span id="cb36-154"><a href="#cb36-154"></a></span>
+<span id="cb36-155"><a href="#cb36-155"></a><span class="ss">* </span>On ajoute aux fonctions l'objet généré avec  <span class="in">`svydesign`</span> (ici **dfw**)</span>
+<span id="cb36-156"><a href="#cb36-156"></a></span>
+<span id="cb36-157"><a href="#cb36-157"></a>**Tableaux de fréquence**</span>
+<span id="cb36-158"><a href="#cb36-158"></a></span>
+<span id="cb36-159"><a href="#cb36-159"></a><span class="ss">* </span>Fonction **`svytable`**</span>
+<span id="cb36-160"><a href="#cb36-160"></a></span>
+<span id="cb36-161"><a href="#cb36-161"></a><span class="in">```{r filename="fréquences pondérées"}</span></span>
+<span id="cb36-162"><a href="#cb36-162"></a></span>
+<span id="cb36-163"><a href="#cb36-163"></a><span class="fu">svytable</span>(<span class="sc">~</span>sexe, dfw)</span>
+<span id="cb36-164"><a href="#cb36-164"></a></span>
+<span id="cb36-165"><a href="#cb36-165"></a><span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span>
+<span id="cb36-166"><a href="#cb36-166"></a><span class="in">```</span></span>
+<span id="cb36-167"><a href="#cb36-167"></a></span>
+<span id="cb36-168"><a href="#cb36-168"></a><span class="in">```{r filename="Pourcentages pondérés"}</span></span>
+<span id="cb36-169"><a href="#cb36-169"></a>tab <span class="ot">&lt;-</span> <span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span>
+<span id="cb36-170"><a href="#cb36-170"></a><span class="in">```</span></span>
+<span id="cb36-171"><a href="#cb36-171"></a></span>
+<span id="cb36-172"><a href="#cb36-172"></a><span class="in">```{r filename="Pourcentages pondérés"}</span></span>
+<span id="cb36-173"><a href="#cb36-173"></a><span class="fu">lprop</span>(tab)  <span class="co"># % ligne pondérée</span></span>
+<span id="cb36-174"><a href="#cb36-174"></a><span class="fu">cprop</span>(tab)  <span class="co"># % colonne pondérée</span></span>
+<span id="cb36-175"><a href="#cb36-175"></a><span class="in">```</span></span>
+<span id="cb36-176"><a href="#cb36-176"></a></span>
+<span id="cb36-177"><a href="#cb36-177"></a></span>
+<span id="cb36-178"><a href="#cb36-178"></a>**Moyenne pondérée**</span>
+<span id="cb36-179"><a href="#cb36-179"></a></span>
+<span id="cb36-180"><a href="#cb36-180"></a><span class="ss">* </span>Fonction <span class="in">`svymean`</span> et <span class="in">`svyby`</span></span>
+<span id="cb36-181"><a href="#cb36-181"></a></span>
+<span id="cb36-182"><a href="#cb36-182"></a><span class="in">```{r filename="Moyenne pondérée"}</span></span>
+<span id="cb36-183"><a href="#cb36-183"></a><span class="fu">svymean</span>(<span class="sc">~</span>age, dfw)</span>
+<span id="cb36-184"><a href="#cb36-184"></a><span class="in">```</span></span>
+<span id="cb36-185"><a href="#cb36-185"></a></span>
+<span id="cb36-186"><a href="#cb36-186"></a><span class="ss">* </span>Si on souhaite calculer une moyenne par sous groupe, on utilise la fonction <span class="in">`svyby`</span> à laquelle on ajoute l'argument <span class="in">`svymean`</span> en option</span>
+<span id="cb36-187"><a href="#cb36-187"></a></span>
+<span id="cb36-188"><a href="#cb36-188"></a><span class="in">```{r filename="Moyennes pondérées par groupe"}</span></span>
+<span id="cb36-189"><a href="#cb36-189"></a><span class="fu">svyby</span>(<span class="sc">~</span>age, <span class="sc">~</span>sexe, dfw, svymean)</span>
+<span id="cb36-190"><a href="#cb36-190"></a><span class="in">```</span></span>
+<span id="cb36-191"><a href="#cb36-191"></a></span>
+<span id="cb36-192"><a href="#cb36-192"></a><span class="ss">* </span>Modèle logistique avec <span class="in">`svyglm`</span></span>
+<span id="cb36-193"><a href="#cb36-193"></a></span>
+<span id="cb36-194"><a href="#cb36-194"></a><span class="in">```{r filename="Moyennes pondérées par groupe"}</span></span>
+<span id="cb36-195"><a href="#cb36-195"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
+<span id="cb36-196"><a href="#cb36-196"></a><span class="fu">summary</span>(<span class="fu">svyglm</span>(cuisine <span class="sc">~</span> age <span class="sc">+</span> sexe <span class="sc">+</span> occup <span class="sc">+</span> qualif, dfw, <span class="at">family=</span>binomial))</span>
+<span id="cb36-197"><a href="#cb36-197"></a><span class="in">```</span></span>
+<span id="cb36-198"><a href="#cb36-198"></a></span>
+<span id="cb36-199"><a href="#cb36-199"></a>Vous pouvez retrouver dans la documentation l'ensemble des fonctions prises en charge.</span>
+<span id="cb36-200"><a href="#cb36-200"></a></span>
+<span id="cb36-201"><a href="#cb36-201"></a></span>
+<span id="cb36-202"><a href="#cb36-202"></a></span>
+<span id="cb36-203"><a href="#cb36-203"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>
