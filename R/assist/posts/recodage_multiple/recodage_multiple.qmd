@@ -39,7 +39,7 @@ Il existe plusieurs solutions pour automatiser un recodage dans R, nous allons a
 
 # Données d'exemple
 
-On commence par créer un jeu de données, composé de 10 lignes et 10 colonnes, et qui contient des valeurs manquantes :
+On commence par créer un jeu de données, composé de 10 lignes et 10 colonnes, et qui contient des valeurs manquantes:
 
 
 ```{r}
