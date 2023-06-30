@@ -1,5 +1,89 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Présentation",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "Autres/assist/posts/git_rstudio/git_rstudio.html",
+    "href": "Autres/assist/posts/git_rstudio/git_rstudio.html",
+    "title": "Rstudio et Git[hub/lab]: l’essentiel",
+    "section": "",
+    "text": "Prérequis:\n\nInstallé l’application git (https://git-scm.com/). A l’Ined elle peut être directement installée via applined\nAvoir un compte github (https://github.com/) ou gitlab (https://about.gitlab.com/)\n\nFormation Git: https://learngitbranching.js.org/?locale=fr_FR\n\n\n\n\n\n\nDébut de l’animation\n\n\n\nCliquer sur l’animation pour la faire redémarrer au début.\n\n\n\nCréation d’un dépôt Git\n\nLa méthode de clônage du dépôt montré ici utilise un lien https. Il est préférable de sécuriser les opérations de synchronisation avec une clé SSH. Elle peut être générée dans Rstudio (tools=&gt;global options=&gt;git/svn) et appliquée dans son compte git (dans github aller dans les settings de son profile puis dans “SSH and GPH keys”) [Oui…Faire un tuto là dessus].\nLe dépôt qui a été généré est de type public, on peut le créer en mode privé.\nSi on associe le dépôt à un projet Rstudio, il n’est pas utile de générer un fichier .gitignore car il sera automatiquement ajouté à la création du projet [indique les fichiers ou les types de fichiers qui ne seront pas synchronisés]\nOn récupère l’adresse du dépôt en allant sur le bouton &lt;&gt; clone\n\n\n\n\n\n\n\n\nCréation d’un projet Rstudio avec clônage du dépôt\n\n\n\n\n\n\n\nAjout d’un fichier dans le projet et l’envoyer dans le dépôt distant\nPetite remarque avec Quarto: éviter de faire un render d’un fichier .qmd qui n’est pas associé au projet actif de la session.\n\n\n\n\n\nLes opérations git effectuée sur le terminal sont a minima (git help).\n\ngit status permet, comme son nom l’indique, d’afficher les modifications apparues dans le projet depuis la dernière synchronisation. Optionnel, sans conséquence sur la synchronisation.\ngit add .: on peut sélectionner des fichiers particuliers, l’ajout de . permet de sélectionné l’ensemble des fichiers affichés avec git status.\nLe commit (commentaire) semble obligatoire dans rstudio. On peut le faire dans le terminal, mais je préfère aller dans la fenêtre commit accessible dans l’onglet git (en haut à droite de l’interface).\nUne fois le commentaire réalisé on peut envoyer les fichiers dans le dépôt en cliquant sur push ou dans le terminal exécuter git push\n\n\n\n\n\n\n\n\nEnvoyer des fichiers dans le dépôt alors qu’il a été modifié en amont\nSi le dépôt git a été modifié, par soit même ou par une personne associée au projet, on ne peut pas transférer des fichiers vers le dépôt à partir de son répertoire en local. On doit synchroniser le répertoire et le dépôt distant en faisant un pull dans l’onglet git ou dans le terminal avec git pull."
+  },
+  {
+    "objectID": "Autres/assist/posts/remove_nul/remove_nul.html",
+    "href": "Autres/assist/posts/remove_nul/remove_nul.html",
+    "title": "Supprimer un fichier nul avec git",
+    "section": "",
+    "text": "Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers nul, qui sont créés assez régulièrement chez moi avec Quarto.\n\n\n\nImpossible de modifier le fichier\n\n\nOn peut nénmoins facilement les supprimer avec une installation de git sur son ordinateur [Intallation de git]\n\n\n\n\n\n\nA l’Ined\n\n\n\nGit est intégré à Applined, et peut donc être directement installé via cette application.\n\n\nSuppression du fichier\n\nDans le répertoire où se trouve ce type de fichier, fait un clic droit\nOuvrir la console: git bash here\nExécuter rm nul\n\n\n\n\nclic droit + ouvrir la console (git bash here) + rm nul\n\n\n\n\n\nLe fichier est supprimé"
+  },
+  {
+    "objectID": "Autres/assist/posts/whispers/whisper.html",
+    "href": "Autres/assist/posts/whispers/whisper.html",
+    "title": "Vérifier l’installation de ffmpeg pour utiliser Whisper",
+    "section": "",
+    "text": "Tutoriel d’installation de whisper\nMessage d’erreur indiquant un problème d’installation de ffmpeg: FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable\nVérifier la bonne installation de ffmpeg:\n\nouvrir l’invite de commande windows (taper cmd dans la barre de tâche)\ntaper ffmpeg dans la console\nSi le message renvoyé indique que ffmpeg n’est pas reconnu en tant que commande interne, soit l’encodeur n’est pas installé, soit il est installé mais le chemin d’accès n’a pas été ajouté aux variables d’environnement.\npour ajouter une variable d’environnement:\n\n\n\n\nVérifier de nouveau la bonne installation de ffmpeg (relancer l’invite de commande windows avant)\n\n\nimport whisper\n\n\nmodel = whisper.load_model(\"base\")\nresult = model.transcribe(\"C:/Users/thevenin_m/Desktop/mlk.mp3\",  verbose = True)\n\nC:\\Users\\thevenin_m\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\whisper\\transcribe.py:114: UserWarning:\n\nFP16 is not supported on CPU; using FP32 instead\n\n\n\nDetecting language using up to the first 30 seconds. Use `--language` to specify the language\nDetected language: English\n[00:00.000 --&gt; 00:10.880]  I have a dream that one day this nation will rise up, live out the true meaning of its\n[00:10.880 --&gt; 00:12.800]  creed.\n[00:12.800 --&gt; 00:17.960]  We hold these truths to be self-evident that all men are created equal.\n\n\n\n\n\n\n\n\nInstallation de ffmpeg à l’Ined\n\n\n\n\nEnvisager l’installation automatique de ffmpeg via applined\nIl est fort possible que vous deviez utiliser votre compte administrateur pour modifier les variables environnement\n\n\n\n\n\n\n\n\n\nComment installer ffmpeg manuellement\n\n\n\nPour éviter une installation qui nécessite un autre outil d’installation (scoop,…), la méthode traditionnelle qui consiste à télécharger une archive 7z (https://www.gyan.dev/ffmpeg/builds/), décompresser le sous répertoire bin dans le user du C, fonctionne toujours très bien. C’est ce chemin qu’il faudra ajouter aux variables d’environnement.\nPour ce genre d’outils, on peut créer dans son user un répertoire PATH_EXE et ici créer un sous répertoire ffmpeg dans lequel on mettra le bin."
+  },
+  {
+    "objectID": "fiches30-06.html",
+    "href": "fiches30-06.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "fiches30-06.html#tableau-des-fonctions-utilisées-dans-la-fiche",
+    "href": "fiches30-06.html#tableau-des-fonctions-utilisées-dans-la-fiche",
+    "title": "",
+    "section": "Tableau des fonctions utilisées dans la fiche",
+    "text": "Tableau des fonctions utilisées dans la fiche\nExemple de tableau des fonctions pour la fiche d’Elodie (on peut aller en mode visual sur un qmd vierge si on préfère). Le titre est en dessous du tableau=&gt; : **Fonctions utilisées dans la fiche**\n\nFonctions utilisées dans la fiche\n\n\nPackages\nFonctions\n\n\n\n\nquestionr\nwtd.table - cprop - lprop\n\n\nsurvey\nsvydesign - svytable - svymean - svyglm\n\n\nBase R\nmean"
+  },
+  {
+    "objectID": "fiches30-06.html#extensions",
+    "href": "fiches30-06.html#extensions",
+    "title": "",
+    "section": "Extensions",
+    "text": "Extensions\nL’extension lightbox est très bien pour l’insersion d’image/graphique. En local pour l’activer, elle doit être installée (si une fiche dans un répertoire, l’installer à chaque fois): dans le terminal =&gt; quarto add quarto-ext/lightbox. Si vous utilisez une autre extension, me l’indiquer que je l’installe dans le répertoire du support."
+  },
+  {
+    "objectID": "fiches30-06.html#lien-documentation",
+    "href": "fiches30-06.html#lien-documentation",
+    "title": "",
+    "section": "Lien documentation",
+    "text": "Lien documentation\nDe préférence, je préfèrerai qu’elle soit en début de document, sous le tableau des fonctions."
+  },
+  {
+    "objectID": "Quarto/assist/posts/annotation/annotation.html",
+    "href": "Quarto/assist/posts/annotation/annotation.html",
+    "title": "Commenter des lignes de codes",
+    "section": "",
+    "text": "A la suite d’une ligne de code on indique le numéro de l’annotation:\n\nligne de code    #&lt;1&gt;\nligne de code    #&lt;2&gt;\n\nA la suite du bloc, on commente chaque annotation:\n\n\nCommentaire annotation 1\n\n\nCommentaire annotation 2 etc…\n\n\n\n```r \n# Dans le bloc de codes\nlibrary(readr)                                                                                                    # &lt;1&gt;\nlibrary(survival)                                                                                                 \nlibrary(survminer)                                                                                                \n                       \ndf &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")      # &lt;2&gt;\n\nfit &lt;- survfit(Surv(stime, died) ~ 1, data = df )                                                                 # &lt;3&gt;\n\nggsurvplot(fit, conf.int = TRUE, risk.table = TRUE)                                                               # &lt;4&gt;\n\n```\n# Dans le corp du document .qmd à la suite du bloc\n\n1. Chargement des packages\n2. Chargement de la base\n3. Calcul des estimateurs de Kaplan-Meier\n4. Graphique de la fonction de survie avec `ggsurvplot`\nDonne le rendu suivant:\n\n1library(readr)\nlibrary(survival)                                                                                                 \nlibrary(survminer)                                                                                                \n                       \n2df &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")\n\n3fit &lt;- survfit(Surv(stime, died) ~ 1, data = df )\n\n4ggsurvplot(fit, conf.int = TRUE, risk.table = TRUE)\n\n\n1\n\nChargement des packages\n\n2\n\nChargement de la base\n\n3\n\nCalcul des estimateurs de Kaplan-Meier\n\n4\n\nGraphique de la fonction de survie avec ggsurvplot\n\n\n\n\n\n\n\n\n\n\n\nPar défaut, les commentaires s’affichent en dessous du bloc. Deux autres options sont disponibles, qui affichent le commentaire à droite de chaque ligne. On doit ajouter dans le yaml de la page l’option code-annotations: select, ou code-annotations: over\n---\ntitle: \"titre page\"\ncode-annotations: select\n---\n\n\n\n\n\nEn savoir plus"
+  },
+  {
+    "objectID": "Quarto/assist/posts/output_scss/output_scss.html",
+    "href": "Quarto/assist/posts/output_scss/output_scss.html",
+    "title": "Modification de l’apparence des outputs avec un fichier .scss",
+    "section": "",
+    "text": "Par défaut le rendu des outputs console bruts (theme: default) est le suivant:\n\n\n\n\n\n\nAvec un fichier .scss on peut modifier le rendu de cet output.\n\nUn fichier styles.scss est généré automatiquement à la création d’un projet\nPour une page simple, on peut le créer facilement facilement à partir d’un fichier de type texte, en le renommant avec l’extension .scss, par exemple styles.scss.\n\nOn ajoute des éléments de modification de l’apparence au fichier .scss\nOn indique dans le yaml de la page ou le _quarto.yml du projet qu’on applique ces modifications.\n\nModifications de l’output console dans un fichier .scss\n$code-block-stdoutcolor: #37424a;\n$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);\n$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);\n\n/*-- scss:rules --*/\n\n.cell-output-display pre, .cell-output-stdout pre {\n    background-color: $code-block-stdoutcolor-lighter !important;\n    border: 1.5px solid $code-block-stdoutcolor-light;\n    border-radius: .25rem;\n    border-left: 4px;\n    border-left-style: solid;\n    border-left-color: $code-block-stdoutcolor;\n    padding: .4em;\n    color: #37424a\n}\n\n\n.cell-output pre code {\n    background-color: transparent;\n}\nIci on a modifier la couleur du fond (ici un gris:#37424a), l’épaisseur du contour (plus importante à gauche), le radius des angles du contour etc…\nyaml de la page ou du template quarto.yml du projet\nPour le yaml d’une page simple avec le fichier styles.scss\n---\n\ntitle=\"Changement couleur output\"\n\nformat:\n  html:\n    theme: [default, style.scss]\n---\nAprès exécution du programme, le rendu de l’output est le suivant:\n\noptions(show.signif.stars=FALSE)\n\nsummary(lm(Sepal.Length~Petal.Length, data=iris))\n\n\nCall:\nlm(formula = Sepal.Length ~ Petal.Length, data = iris)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.24675 -0.29657 -0.01515  0.27676  1.00269 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept)   4.30660    0.07839   54.94   &lt;2e-16\nPetal.Length  0.40892    0.01889   21.65   &lt;2e-16\n\nResidual standard error: 0.4071 on 148 degrees of freedom\nMultiple R-squared:   0.76, Adjusted R-squared:  0.7583 \nF-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n\n\n\n\nExportation pdf\n\n\n\nSi le document est exporté en PDF avec l’option formats dans le yaml, les modifications ne sont pas prises en compte."
+  },
+  {
+    "objectID": "Quarto/assist/posts/social_embeds/social_embeds.html",
+    "href": "Quarto/assist/posts/social_embeds/social_embeds.html",
+    "title": "Insertion d’une vidéo Youtube ou Viméo",
+    "section": "",
+    "text": "Liens\n\n\n\n\nExtension social-embeds\nExtensions Quarto disponibles\n\n\n\n\nInstallation de l’extension\nDans le terminal exécuter:\n\nquarto install extension sellorm/quarto-social-embeds\n\n\n\nInsertion d’une vidéo Youtube\n\nOn ajoute l’identifiant de la vidéo dans le code .\nPour la vidéo dont la cible affichée dans la barre d’adresse est watch?v=tlt0WGZz63Y, l’identifiant est tlt0WGZz63Y\n\nPar exemple pour la Présentation du package R.témis par M.Bouchet-Valat et B.Garnier\n\n\n\nInserer directement ce code dans la page\n\n{{&lt; youtube tlt0WGZz63Y &gt;}}\n\n\n\n\n\nInsertion d’une vidéo Viméo\nMême principe, on ajoute l’identifiant de la vidéo qui est affiché dans la barre d’adresse.\n\n\n\nInserer directement ce code dans la page\n\n{{&lt; vimeo 475084090 &gt;}}"
+  },
+  {
+    "objectID": "R/assist/posts/coxzph/coxzph.html",
+    "href": "R/assist/posts/coxzph/coxzph.html",
+    "title": "Récupérer et exécuter le test OLS de Grambsch-Therneau",
+    "section": "",
+    "text": "Champ d’application\n\nModèle de Cox (analyse des durées)\n\nDiagnostic sur l’hypothèse de proportionalité des risques\n\nProblématique\n\nDepuis le passage à la version 3 du package survival en 2020, le test OLS sur les résidus de Schoenfeld a été supprimé et remplacé par le test GLS. Le second est la version originelle du test proposé en 1994 par P.Grambsch et T.Therneau.\nEn présence d’évènements simultanés (durée discrète), les résultats affichés par les deux versions peuvent fortement variés.\nLorsqu’on utilise le modèle de Cox avec des durées discrètes, situation très courante dans les sciences sociales, je préconise l’utilisation de la version dite simplifiée (OLS).\n\nLe modèle de Cox est une méthode à durée continue, les conditions de validité du test GLS ne sont établies avec des évènements mesurés simultanément.\nContrainte de reproductibilité: Stata, Sas, Python (lifelines, statsmodels)\n\n\nRécupération et exécution du test OLS\n\nJ’ai récupéré le script de la fonction dans les archives du CRAN. Elle a simplement été renommée cox.zphold().\nPour charger la fonction, il suffit d’appliquer source() qui joue le même rôle que library().\n\nDirectement sur le dépôt github:\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\n\nSi le script a été enregistré en local:\n\nsource(\"local_path/cox.zphold.R\")\n\n\n\nExemple\n\n\n\nRécupération des données\n\nlibrary(readr)\ntrans &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")\n\n\n\n\n\nEstimation d'un modèle de Cox\n\nlibrary(survival)\ncoxfit = coxph(formula = Surv(stime, died) ~ year + age + surgery, data = trans)\n\n\n\n\n\nRéupération et exécution du test OLS\n\nsource(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R\")\ncox.zphold(coxfit)\n\n\n          rho chisq      p\nyear    0.159  1.96 0.1620\nage     0.109  1.15 0.2845\nsurgery 0.251  3.96 0.0465\nGLOBAL     NA  7.99 0.0462"
+  },
+  {
     "objectID": "R/assist/posts/fuzzyjoin/fuzzyjoin.html",
     "href": "R/assist/posts/fuzzyjoin/fuzzyjoin.html",
     "title": "Techniques appariements entre chaînes de caractères",
