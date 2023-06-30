@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "fiches30-06.html",
+    "href": "fiches30-06.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "fiches30-06.html#tableau-des-fonctions-utilisées-dans-la-fiche",
+    "href": "fiches30-06.html#tableau-des-fonctions-utilisées-dans-la-fiche",
+    "title": "",
+    "section": "Tableau des fonctions utilisées dans la fiche",
+    "text": "Tableau des fonctions utilisées dans la fiche\nExemple de tableau des fonctions pour la fiche d’Elodie (on peut aller en mode visual sur un qmd vierge si on préfère). Le titre est en dessous du tableau=&gt; : **Fonctions utilisées dans la fiche**\n\nFonctions utilisées dans la fiche\n\n\nPackages\nFonctions\n\n\n\n\nquestionr\nwtd.table - cprop - lprop\n\n\nsurvey\nsvydesign - svytable - svymean - svyglm\n\n\nBase R\nmean"
+  },
+  {
+    "objectID": "fiches30-06.html#extensions",
+    "href": "fiches30-06.html#extensions",
+    "title": "",
+    "section": "Extensions",
+    "text": "Extensions\nL’extension lightbox est très bien pour l’insersion d’image/graphique. En local pour l’activer, elle doit être installée (si une fiche dans un répertoire, l’installer à chaque fois): dans le terminal =&gt; quarto add quarto-ext/lightbox. Si vous utilisez une autre extension, me l’indiquer que je l’installe dans le répertoire du support."
+  },
+  {
+    "objectID": "fiches30-06.html#lien-documentation",
+    "href": "fiches30-06.html#lien-documentation",
+    "title": "",
+    "section": "Lien documentation",
+    "text": "Lien documentation\nDe préférence, je préfèrerais qu’elle soit en début de document, sous le tableau des fonctions."
+  }
+]

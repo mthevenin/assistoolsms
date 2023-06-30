@@ -643,7 +643,7 @@ div.quarto-post a {
 }
 
 
-.zoom-image img:hover{width:100%; filter:grayscale(100%); -webkit-transform:scale(3);transform:scale(3)  rotate(-360deg);-webkit-transition:.7s ease-in-out;transition:.7s ease-in-out  rotate(-360deg)}
+.zoom-image img:hover{width:100%; filter:grayscale(100%); -webkit-transform:scale(1);transform:scale(1)  rotate(-360deg);-webkit-transition:.7s ease-in-out;transition:.7s ease-in-out  rotate(-360deg)}
 
 
 
