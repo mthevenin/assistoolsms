@@ -1,5 +1,5 @@
 ---
-title: "XXXXXXXXXXXXXXXXXXXXX "
+title: "XXXXXXXXXXXXXXXXXXXXX"
 
 categories:
   - thème (cartographie, recodages)
@@ -55,6 +55,7 @@ dans le terminal => `quarto add quarto-ext/lightbox`. Si vous utilisez une autre
 ## Lien documentation
 
 De préférence, je préfèrerais qu'elle soit en début de document, sous le tableau des fonctions.
+
 
 
 
