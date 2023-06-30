@@ -638,12 +638,12 @@ div.quarto-post a {
 .quarto-grid-item img.thumbnail-image {
   object-fit: cover;
   height: 190px !important;
-  width: 90%;
-  padding: 20px;
+  width: 100%;
+  padding: 10px;
 }
 
 
-.zoom-image img:hover{width:100%; filter:grayscale(100%); -webkit-transform:scale(1);transform:scale(1)  rotate(-360deg);-webkit-transition:.7s ease-in-out;transition:.7s ease-in-out  rotate(-360deg)}
+.zoom-image img:hover{width:100%; height:100%; filter:grayscale(100%); moz-transform:scale(.9); -webkit-transform:scale(.9); transform:scale(.9)  rotate(-360deg);-webkit-transition:.7s ease-in-out;transition:.7s ease-in-out  rotate(-360deg)}
 
 
 
