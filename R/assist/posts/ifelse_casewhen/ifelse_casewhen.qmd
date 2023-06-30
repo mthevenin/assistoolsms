@@ -4,9 +4,6 @@ title: "Recoder des variables avec ifelse() ou case_when()"
 # subtitle: ""
 
 categories:
-  - ifelse
-  - if_else
-  - case_when
   - recodage
   
 author: 

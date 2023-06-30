@@ -1,13 +1,10 @@
 ---
-title: "Format JSON : de la liste au dataframe"
+title: "Importer un format JSON"
 
 # subtitle: ""
 
 categories:
-  - JSON
-  - import
-  - list
-  - dataframe
+  - importation
   
 author: 
   - name: "Arno Muller"
@@ -52,7 +49,7 @@ Pour les exemples ci-dessous nous utiliserons donc des données issues du site d
 # Importer des données avec `jsonlite`
 
 
-```{r message=FALSE, warning=FALSE}
+```{r filename="Package jsonlite", message=FALSE, warning=FALSE}
 
 library(jsonlite)
 menu_TGV <- jsonlite::fromJSON("DATA/menus-des-bars-tgv.json")
@@ -67,7 +64,7 @@ kable(head(menu_TGV,3))
 # Importer des données avec `rjson`
 
 
-```{r}
+```{r filename="Package rjson"}
 
 library(rjson)
 
@@ -90,7 +87,7 @@ Dans notre cas plutôt simple, on remarque que la liste a autant d'élément que
 On va donc extraire ces informations et les compiler dans une base de donnée ordonnées.
 
 
-```{r warning=FALSE}
+```{r filename="Convertir une liste", warning=FALSE}
 
 # Convertir la liste en data frame par lignes
 menu_df <- as.data.frame(do.call(rbind, menu_TGV))

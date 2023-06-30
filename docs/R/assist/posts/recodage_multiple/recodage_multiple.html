@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -80,8 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
     "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-submit-button-title": "Envoyer"
   }
 }</script>
 
@@ -146,8 +145,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="quarto-title-block"><div><h1 class="title">Recodage multiple</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                                 <div class="quarto-categories">
                 <div class="quarto-category">valeur manquante</div>
-                <div class="quarto-category">boucle</div>
-                <div class="quarto-category">dplyr</div>
                 <div class="quarto-category">recodage</div>
               </div>
                   </div>
@@ -813,244 +810,244 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-5"><a href="#cb22-5"></a></span>
 <span id="cb22-6"><a href="#cb22-6"></a><span class="an">categories:</span></span>
 <span id="cb22-7"><a href="#cb22-7"></a><span class="co">  - valeur manquante</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a><span class="co">  - boucle</span></span>
-<span id="cb22-9"><a href="#cb22-9"></a><span class="co">  - dplyr</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a><span class="co">  - recodage</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a><span class="co">  </span></span>
-<span id="cb22-12"><a href="#cb22-12"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb22-13"><a href="#cb22-13"></a><span class="co">  - name: "Arno Muller"</span></span>
-<span id="cb22-14"><a href="#cb22-14"></a><span class="co">    affiliations:</span></span>
-<span id="cb22-15"><a href="#cb22-15"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="co">  - recodage</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a><span class="co">  </span></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="co">  - name: "Arno Muller"</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="co">    affiliations:</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a></span>
+<span id="cb22-15"><a href="#cb22-15"></a><span class="an">date:</span><span class="co"> 06/28/2023</span></span>
 <span id="cb22-16"><a href="#cb22-16"></a></span>
-<span id="cb22-17"><a href="#cb22-17"></a><span class="an">date:</span><span class="co"> 06/28/2023</span></span>
+<span id="cb22-17"><a href="#cb22-17"></a><span class="an">image:</span><span class="co"> "https://www.r-project.org/Rlogo.png"</span></span>
 <span id="cb22-18"><a href="#cb22-18"></a></span>
-<span id="cb22-19"><a href="#cb22-19"></a><span class="an">image:</span><span class="co"> "https://www.r-project.org/Rlogo.png"</span></span>
-<span id="cb22-20"><a href="#cb22-20"></a></span>
-<span id="cb22-21"><a href="#cb22-21"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb22-22"><a href="#cb22-22"></a><span class="co">  html: default</span></span>
-<span id="cb22-23"><a href="#cb22-23"></a><span class="co">  docx: default</span></span>
-<span id="cb22-24"><a href="#cb22-24"></a><span class="co">#  pdf:  default</span></span>
-<span id="cb22-25"><a href="#cb22-25"></a></span>
-<span id="cb22-26"><a href="#cb22-26"></a><span class="an">filters:</span></span>
-<span id="cb22-27"><a href="#cb22-27"></a><span class="co">  - lightbox</span></span>
-<span id="cb22-28"><a href="#cb22-28"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb22-19"><a href="#cb22-19"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb22-20"><a href="#cb22-20"></a><span class="co">  html: default</span></span>
+<span id="cb22-21"><a href="#cb22-21"></a><span class="co">  docx: default</span></span>
+<span id="cb22-22"><a href="#cb22-22"></a><span class="co">#  pdf:  default</span></span>
+<span id="cb22-23"><a href="#cb22-23"></a></span>
+<span id="cb22-24"><a href="#cb22-24"></a><span class="an">filters:</span></span>
+<span id="cb22-25"><a href="#cb22-25"></a><span class="co">  - lightbox</span></span>
+<span id="cb22-26"><a href="#cb22-26"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb22-27"><a href="#cb22-27"></a></span>
+<span id="cb22-28"><a href="#cb22-28"></a><span class="an">code-annotations:</span><span class="co"> below</span></span>
 <span id="cb22-29"><a href="#cb22-29"></a></span>
-<span id="cb22-30"><a href="#cb22-30"></a><span class="an">code-annotations:</span><span class="co"> below</span></span>
-<span id="cb22-31"><a href="#cb22-31"></a></span>
-<span id="cb22-32"><a href="#cb22-32"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb22-33"><a href="#cb22-33"></a><span class="co"> Lors du nettoyage des données, on peut être amené à appliquer le même recodage à plusieurs variables aux modalités similaire (valeurs manquantes, Ne sait pas, Batterie de variables semblables, ... ). Pour éviter de copier-coller un même code, on peut facilement automatiser le processus sur R. </span></span>
-<span id="cb22-34"><a href="#cb22-34"></a><span class="co">---</span></span>
-<span id="cb22-35"><a href="#cb22-35"></a></span>
+<span id="cb22-30"><a href="#cb22-30"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb22-31"><a href="#cb22-31"></a><span class="co"> Lors du nettoyage des données, on peut être amené à appliquer le même recodage à plusieurs variables aux modalités similaire (valeurs manquantes, Ne sait pas, Batterie de variables semblables, ... ). Pour éviter de copier-coller un même code, on peut facilement automatiser le processus sur R. </span></span>
+<span id="cb22-32"><a href="#cb22-32"></a><span class="co">---</span></span>
+<span id="cb22-33"><a href="#cb22-33"></a></span>
+<span id="cb22-34"><a href="#cb22-34"></a></span>
+<span id="cb22-35"><a href="#cb22-35"></a>Il existe plusieurs solutions pour automatiser un recodage dans R, nous allons aborder certaines d'entre-elles mais cette liste est loin d'être exhaustive.</span>
 <span id="cb22-36"><a href="#cb22-36"></a></span>
-<span id="cb22-37"><a href="#cb22-37"></a>Il existe plusieurs solutions pour automatiser un recodage dans R, nous allons aborder certaines d'entre-elles mais cette liste est loin d'être exhaustive.</span>
-<span id="cb22-38"><a href="#cb22-38"></a></span>
+<span id="cb22-37"><a href="#cb22-37"></a></span>
+<span id="cb22-38"><a href="#cb22-38"></a><span class="fu"># Données d'exemple</span></span>
 <span id="cb22-39"><a href="#cb22-39"></a></span>
-<span id="cb22-40"><a href="#cb22-40"></a><span class="fu"># Données d'exemple</span></span>
+<span id="cb22-40"><a href="#cb22-40"></a>On commence par créer un jeu de données, composé de 10 lignes et 10 colonnes, et qui contient des valeurs manquantes:</span>
 <span id="cb22-41"><a href="#cb22-41"></a></span>
-<span id="cb22-42"><a href="#cb22-42"></a>On commence par créer un jeu de données, composé de 10 lignes et 10 colonnes, et qui contient des valeurs manquantes:</span>
-<span id="cb22-43"><a href="#cb22-43"></a></span>
-<span id="cb22-44"><a href="#cb22-44"></a></span>
-<span id="cb22-47"><a href="#cb22-47"></a><span class="in">```{r}</span></span>
-<span id="cb22-48"><a href="#cb22-48"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb22-49"><a href="#cb22-49"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">10</span>))</span>
-<span id="cb22-50"><a href="#cb22-50"></a>df</span>
+<span id="cb22-42"><a href="#cb22-42"></a></span>
+<span id="cb22-45"><a href="#cb22-45"></a><span class="in">```{r}</span></span>
+<span id="cb22-46"><a href="#cb22-46"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb22-47"><a href="#cb22-47"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="dv">10</span>))</span>
+<span id="cb22-48"><a href="#cb22-48"></a>df</span>
+<span id="cb22-49"><a href="#cb22-49"></a></span>
+<span id="cb22-50"><a href="#cb22-50"></a><span class="in">```</span></span>
 <span id="cb22-51"><a href="#cb22-51"></a></span>
-<span id="cb22-52"><a href="#cb22-52"></a><span class="in">```</span></span>
-<span id="cb22-53"><a href="#cb22-53"></a></span>
+<span id="cb22-52"><a href="#cb22-52"></a></span>
+<span id="cb22-53"><a href="#cb22-53"></a><span class="fu"># Avec R de base :</span></span>
 <span id="cb22-54"><a href="#cb22-54"></a></span>
-<span id="cb22-55"><a href="#cb22-55"></a><span class="fu"># Avec R de base :</span></span>
+<span id="cb22-55"><a href="#cb22-55"></a>Dans le R de base, il est possible de recoder l'entiereté des occurences d'une certaines valeurs (ou les valeurs manquantes) pour l'ensemble du jeu de données.</span>
 <span id="cb22-56"><a href="#cb22-56"></a></span>
-<span id="cb22-57"><a href="#cb22-57"></a>Dans le R de base, il est possible de recoder l'entiereté des occurences d'une certaines valeurs (ou les valeurs manquantes) pour l'ensemble du jeu de données.</span>
+<span id="cb22-57"><a href="#cb22-57"></a><span class="fu">## Sur l'ensemble des données</span></span>
 <span id="cb22-58"><a href="#cb22-58"></a></span>
-<span id="cb22-59"><a href="#cb22-59"></a><span class="fu">## Sur l'ensemble des données</span></span>
+<span id="cb22-59"><a href="#cb22-59"></a><span class="fu">### Exemple 1 : Changer l'ensemble des valeurs manquantes</span></span>
 <span id="cb22-60"><a href="#cb22-60"></a></span>
-<span id="cb22-61"><a href="#cb22-61"></a><span class="fu">### Exemple 1 : Changer l'ensemble des valeurs manquantes</span></span>
-<span id="cb22-62"><a href="#cb22-62"></a></span>
-<span id="cb22-65"><a href="#cb22-65"></a><span class="in">```{r}</span></span>
-<span id="cb22-66"><a href="#cb22-66"></a><span class="co"># Je fais un copie du jeu de donnée</span></span>
-<span id="cb22-67"><a href="#cb22-67"></a>df2 <span class="ot">&lt;-</span> df</span>
-<span id="cb22-68"><a href="#cb22-68"></a><span class="co"># Je remplace tous les NA par la valeurs 0</span></span>
-<span id="cb22-69"><a href="#cb22-69"></a>df2[<span class="fu">is.na</span>(df2)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-70"><a href="#cb22-70"></a>df2</span>
+<span id="cb22-63"><a href="#cb22-63"></a><span class="in">```{r}</span></span>
+<span id="cb22-64"><a href="#cb22-64"></a><span class="co"># Je fais un copie du jeu de donnée</span></span>
+<span id="cb22-65"><a href="#cb22-65"></a>df2 <span class="ot">&lt;-</span> df</span>
+<span id="cb22-66"><a href="#cb22-66"></a><span class="co"># Je remplace tous les NA par la valeurs 0</span></span>
+<span id="cb22-67"><a href="#cb22-67"></a>df2[<span class="fu">is.na</span>(df2)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb22-68"><a href="#cb22-68"></a>df2</span>
+<span id="cb22-69"><a href="#cb22-69"></a></span>
+<span id="cb22-70"><a href="#cb22-70"></a><span class="in">```</span></span>
 <span id="cb22-71"><a href="#cb22-71"></a></span>
-<span id="cb22-72"><a href="#cb22-72"></a><span class="in">```</span></span>
+<span id="cb22-72"><a href="#cb22-72"></a><span class="fu">### Exemple 2 : Remplacer une valeur par une autre</span></span>
 <span id="cb22-73"><a href="#cb22-73"></a></span>
-<span id="cb22-74"><a href="#cb22-74"></a><span class="fu">### Exemple 2 : Remplacer une valeur par une autre</span></span>
-<span id="cb22-75"><a href="#cb22-75"></a></span>
-<span id="cb22-78"><a href="#cb22-78"></a><span class="in">```{r}</span></span>
-<span id="cb22-79"><a href="#cb22-79"></a><span class="co"># Je fais une copie de l'original</span></span>
-<span id="cb22-80"><a href="#cb22-80"></a>df2 <span class="ot">&lt;-</span> df</span>
-<span id="cb22-81"><a href="#cb22-81"></a><span class="co"># Je remplace tous les 10 par la valeur "DIX"</span></span>
-<span id="cb22-82"><a href="#cb22-82"></a>df2[df2<span class="sc">==</span><span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="st">"DIX"</span></span>
-<span id="cb22-83"><a href="#cb22-83"></a>df2</span>
-<span id="cb22-84"><a href="#cb22-84"></a></span>
+<span id="cb22-76"><a href="#cb22-76"></a><span class="in">```{r}</span></span>
+<span id="cb22-77"><a href="#cb22-77"></a><span class="co"># Je fais une copie de l'original</span></span>
+<span id="cb22-78"><a href="#cb22-78"></a>df2 <span class="ot">&lt;-</span> df</span>
+<span id="cb22-79"><a href="#cb22-79"></a><span class="co"># Je remplace tous les 10 par la valeur "DIX"</span></span>
+<span id="cb22-80"><a href="#cb22-80"></a>df2[df2<span class="sc">==</span><span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="st">"DIX"</span></span>
+<span id="cb22-81"><a href="#cb22-81"></a>df2</span>
+<span id="cb22-82"><a href="#cb22-82"></a></span>
+<span id="cb22-83"><a href="#cb22-83"></a></span>
+<span id="cb22-84"><a href="#cb22-84"></a><span class="in">```</span></span>
 <span id="cb22-85"><a href="#cb22-85"></a></span>
-<span id="cb22-86"><a href="#cb22-86"></a><span class="in">```</span></span>
+<span id="cb22-86"><a href="#cb22-86"></a></span>
 <span id="cb22-87"><a href="#cb22-87"></a></span>
-<span id="cb22-88"><a href="#cb22-88"></a></span>
+<span id="cb22-88"><a href="#cb22-88"></a><span class="fu">## Sur une sélection de variables</span></span>
 <span id="cb22-89"><a href="#cb22-89"></a></span>
-<span id="cb22-90"><a href="#cb22-90"></a><span class="fu">## Sur une sélection de variables</span></span>
+<span id="cb22-90"><a href="#cb22-90"></a>Les jeux de données peuvent être composés d'un grand nombre de variables et donc on peut-être amené à effectuer un recodage uniquement sur certaines variables.</span>
 <span id="cb22-91"><a href="#cb22-91"></a></span>
-<span id="cb22-92"><a href="#cb22-92"></a>Les jeux de données peuvent être composés d'un grand nombre de variables et donc on peut-être amené à effectuer un recodage uniquement sur certaines variables.</span>
+<span id="cb22-92"><a href="#cb22-92"></a>L'exemple ci-dessous montre comment procéder à partir d'une sélection de variable stockée dans le vecteur *var*.</span>
 <span id="cb22-93"><a href="#cb22-93"></a></span>
-<span id="cb22-94"><a href="#cb22-94"></a>L'exemple ci-dessous montre comment procéder à partir d'une sélection de variable stockée dans le vecteur *var*.</span>
+<span id="cb22-94"><a href="#cb22-94"></a><span class="fu">### Exemple 3 : Recoder une sélection de variables</span></span>
 <span id="cb22-95"><a href="#cb22-95"></a></span>
-<span id="cb22-96"><a href="#cb22-96"></a><span class="fu">### Exemple 3 : Recoder une sélection de variables</span></span>
-<span id="cb22-97"><a href="#cb22-97"></a></span>
-<span id="cb22-100"><a href="#cb22-100"></a><span class="in">```{r}</span></span>
-<span id="cb22-101"><a href="#cb22-101"></a><span class="co"># Je fais une copie de l'original</span></span>
-<span id="cb22-102"><a href="#cb22-102"></a>df2 <span class="ot">&lt;-</span> df</span>
-<span id="cb22-103"><a href="#cb22-103"></a><span class="co"># Je choisis certaines variables sur lesquelle on appliquera le recodage</span></span>
-<span id="cb22-104"><a href="#cb22-104"></a>var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"V1"</span>,<span class="st">"V7"</span>,<span class="st">"V9"</span>)</span>
-<span id="cb22-105"><a href="#cb22-105"></a></span>
-<span id="cb22-106"><a href="#cb22-106"></a><span class="co"># Fonctionne aussi avec la position de la colonne</span></span>
-<span id="cb22-107"><a href="#cb22-107"></a><span class="co"># var &lt;- c(2,5,6)</span></span>
-<span id="cb22-108"><a href="#cb22-108"></a></span>
-<span id="cb22-109"><a href="#cb22-109"></a><span class="co"># On crée une boucle qui s'activera uniquement pour les variables contenues </span></span>
-<span id="cb22-110"><a href="#cb22-110"></a><span class="co"># dans var</span></span>
-<span id="cb22-111"><a href="#cb22-111"></a></span>
-<span id="cb22-112"><a href="#cb22-112"></a><span class="cf">for</span> (i <span class="cf">in</span> var) {</span>
-<span id="cb22-113"><a href="#cb22-113"></a>  df2[[i]] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df2[[i]] <span class="sc">==</span> <span class="dv">10</span>, <span class="st">"DIX"</span>, df2[[i]])</span>
-<span id="cb22-114"><a href="#cb22-114"></a>}</span>
-<span id="cb22-115"><a href="#cb22-115"></a></span>
+<span id="cb22-98"><a href="#cb22-98"></a><span class="in">```{r}</span></span>
+<span id="cb22-99"><a href="#cb22-99"></a><span class="co"># Je fais une copie de l'original</span></span>
+<span id="cb22-100"><a href="#cb22-100"></a>df2 <span class="ot">&lt;-</span> df</span>
+<span id="cb22-101"><a href="#cb22-101"></a><span class="co"># Je choisis certaines variables sur lesquelle on appliquera le recodage</span></span>
+<span id="cb22-102"><a href="#cb22-102"></a>var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"V1"</span>,<span class="st">"V7"</span>,<span class="st">"V9"</span>)</span>
+<span id="cb22-103"><a href="#cb22-103"></a></span>
+<span id="cb22-104"><a href="#cb22-104"></a><span class="co"># Fonctionne aussi avec la position de la colonne</span></span>
+<span id="cb22-105"><a href="#cb22-105"></a><span class="co"># var &lt;- c(2,5,6)</span></span>
+<span id="cb22-106"><a href="#cb22-106"></a></span>
+<span id="cb22-107"><a href="#cb22-107"></a><span class="co"># On crée une boucle qui s'activera uniquement pour les variables contenues </span></span>
+<span id="cb22-108"><a href="#cb22-108"></a><span class="co"># dans var</span></span>
+<span id="cb22-109"><a href="#cb22-109"></a></span>
+<span id="cb22-110"><a href="#cb22-110"></a><span class="cf">for</span> (i <span class="cf">in</span> var) {</span>
+<span id="cb22-111"><a href="#cb22-111"></a>  df2[[i]] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df2[[i]] <span class="sc">==</span> <span class="dv">10</span>, <span class="st">"DIX"</span>, df2[[i]])</span>
+<span id="cb22-112"><a href="#cb22-112"></a>}</span>
+<span id="cb22-113"><a href="#cb22-113"></a></span>
+<span id="cb22-114"><a href="#cb22-114"></a></span>
+<span id="cb22-115"><a href="#cb22-115"></a>df2</span>
 <span id="cb22-116"><a href="#cb22-116"></a></span>
-<span id="cb22-117"><a href="#cb22-117"></a>df2</span>
+<span id="cb22-117"><a href="#cb22-117"></a><span class="in">```</span></span>
 <span id="cb22-118"><a href="#cb22-118"></a></span>
-<span id="cb22-119"><a href="#cb22-119"></a><span class="in">```</span></span>
-<span id="cb22-120"><a href="#cb22-120"></a></span>
+<span id="cb22-119"><a href="#cb22-119"></a></span>
+<span id="cb22-120"><a href="#cb22-120"></a>Seulement les variables V1, V7 et V9 ont été recodées. On remarque que des valeurs 10 sont présentes dans la variable V10.</span>
 <span id="cb22-121"><a href="#cb22-121"></a></span>
-<span id="cb22-122"><a href="#cb22-122"></a>Seulement les variables V1, V7 et V9 ont été recodées. On remarque que des valeurs 10 sont présentes dans la variable V10.</span>
-<span id="cb22-123"><a href="#cb22-123"></a></span>
+<span id="cb22-122"><a href="#cb22-122"></a></span>
+<span id="cb22-123"><a href="#cb22-123"></a><span class="fu"># Avec le package `dplyr`du tidyverse :</span></span>
 <span id="cb22-124"><a href="#cb22-124"></a></span>
-<span id="cb22-125"><a href="#cb22-125"></a><span class="fu"># Avec le package `dplyr`du tidyverse :</span></span>
+<span id="cb22-125"><a href="#cb22-125"></a>Les boucles peuvent être complexe à prendre en main, et pas forcément conseillées dans R. Le package <span class="in">`dplyr`</span> propose un ensemble de fonctions permettant de recoder plusieurs variables avec seule une fonction.</span>
 <span id="cb22-126"><a href="#cb22-126"></a></span>
-<span id="cb22-127"><a href="#cb22-127"></a>Les boucles peuvent être complexe à prendre en main, et pas forcément conseillées dans R. Le package <span class="in">`dplyr`</span> propose un ensemble de fonctions permettant de recoder plusieurs variables avec seule une fonction.</span>
-<span id="cb22-128"><a href="#cb22-128"></a></span>
+<span id="cb22-127"><a href="#cb22-127"></a></span>
+<span id="cb22-128"><a href="#cb22-128"></a><span class="fu">## Sur l'ensemble des données</span></span>
 <span id="cb22-129"><a href="#cb22-129"></a></span>
-<span id="cb22-130"><a href="#cb22-130"></a><span class="fu">## Sur l'ensemble des données</span></span>
+<span id="cb22-130"><a href="#cb22-130"></a>La fonction <span class="in">`mutate_all`</span> permet de recoder l'ensemble des variables du jeu de données.</span>
 <span id="cb22-131"><a href="#cb22-131"></a></span>
-<span id="cb22-132"><a href="#cb22-132"></a>La fonction <span class="in">`mutate_all`</span> permet de recoder l'ensemble des variables du jeu de données.</span>
+<span id="cb22-132"><a href="#cb22-132"></a><span class="fu">### Exemple 4 : **`mutate_all`**</span></span>
 <span id="cb22-133"><a href="#cb22-133"></a></span>
-<span id="cb22-134"><a href="#cb22-134"></a><span class="fu">### Exemple 4 : **`mutate_all`**</span></span>
+<span id="cb22-134"><a href="#cb22-134"></a>On remplace l'ensemble de 7 par la valeur "SEPT"</span>
 <span id="cb22-135"><a href="#cb22-135"></a></span>
-<span id="cb22-136"><a href="#cb22-136"></a>On remplace l'ensemble de 7 par la valeur "SEPT"</span>
+<span id="cb22-136"><a href="#cb22-136"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
 <span id="cb22-137"><a href="#cb22-137"></a></span>
-<span id="cb22-138"><a href="#cb22-138"></a><span class="in">```{r warning=FALSE, message=FALSE}</span></span>
+<span id="cb22-138"><a href="#cb22-138"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb22-139"><a href="#cb22-139"></a></span>
-<span id="cb22-140"><a href="#cb22-140"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb22-141"><a href="#cb22-141"></a></span>
-<span id="cb22-142"><a href="#cb22-142"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb22-143"><a href="#cb22-143"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">ifelse</span>(. <span class="sc">==</span> <span class="dv">7</span>, <span class="st">"SEPT"</span>, .))</span>
-<span id="cb22-144"><a href="#cb22-144"></a>df2</span>
-<span id="cb22-145"><a href="#cb22-145"></a><span class="in">```</span></span>
+<span id="cb22-140"><a href="#cb22-140"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb22-141"><a href="#cb22-141"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span><span class="fu">ifelse</span>(. <span class="sc">==</span> <span class="dv">7</span>, <span class="st">"SEPT"</span>, .))</span>
+<span id="cb22-142"><a href="#cb22-142"></a>df2</span>
+<span id="cb22-143"><a href="#cb22-143"></a><span class="in">```</span></span>
+<span id="cb22-144"><a href="#cb22-144"></a></span>
+<span id="cb22-145"><a href="#cb22-145"></a><span class="ss">- </span>Le signe **`~`** est obligatoire, et permet d'indiquer qu'on applique la formule qui le suit à l'ensemble du jeu de données.  </span>
 <span id="cb22-146"><a href="#cb22-146"></a></span>
-<span id="cb22-147"><a href="#cb22-147"></a><span class="ss">- </span>Le signe **`~`** est obligatoire, et permet d'indiquer qu'on applique la formule qui le suit à l'ensemble du jeu de données.  </span>
+<span id="cb22-147"><a href="#cb22-147"></a><span class="ss">- </span>Les **`.`** sont une spécificité de la syntaxe sous forme de **pipes** (%&gt;%). Ils sont synonymes de la base de données en entrée (df) mais permet de tenir compte de toutes les transformations des pipes précédentes faites sur cette base.</span>
 <span id="cb22-148"><a href="#cb22-148"></a></span>
-<span id="cb22-149"><a href="#cb22-149"></a><span class="ss">- </span>Les **`.`** sont une spécificité de la syntaxe sous forme de **pipes** (%&gt;%). Ils sont synonymes de la base de données en entrée (df) mais permet de tenir compte de toutes les transformations des pipes précédentes faites sur cette base.</span>
+<span id="cb22-149"><a href="#cb22-149"></a></span>
 <span id="cb22-150"><a href="#cb22-150"></a></span>
-<span id="cb22-151"><a href="#cb22-151"></a></span>
+<span id="cb22-151"><a href="#cb22-151"></a><span class="fu">## Sur une sélection de variables</span></span>
 <span id="cb22-152"><a href="#cb22-152"></a></span>
-<span id="cb22-153"><a href="#cb22-153"></a><span class="fu">## Sur une sélection de variables</span></span>
+<span id="cb22-153"><a href="#cb22-153"></a>Les fonctions <span class="in">`mutate_if`</span> et <span class="in">`mutate_at`</span> permettent d'appliquer un recodage mais uniquement sur des variables choisies par une ou plusieurs conditions.</span>
 <span id="cb22-154"><a href="#cb22-154"></a></span>
-<span id="cb22-155"><a href="#cb22-155"></a>Les fonctions <span class="in">`mutate_if`</span> et <span class="in">`mutate_at`</span> permettent d'appliquer un recodage mais uniquement sur des variables choisies par une ou plusieurs conditions.</span>
+<span id="cb22-155"><a href="#cb22-155"></a><span class="fu">### Exemple 5 : `mutate_if`</span></span>
 <span id="cb22-156"><a href="#cb22-156"></a></span>
-<span id="cb22-157"><a href="#cb22-157"></a><span class="fu">### Exemple 5 : `mutate_if`</span></span>
-<span id="cb22-158"><a href="#cb22-158"></a></span>
-<span id="cb22-159"><a href="#cb22-159"></a>Dans cet exemple, on va appliquer un recodage uniquement aux variables numériques.</span>
-<span id="cb22-160"><a href="#cb22-160"></a>Pour l'exemple, on commence par créer une variable catégorielle *var_categ*, sur laquelle le recodage ne s'appliquera pas.</span>
-<span id="cb22-161"><a href="#cb22-161"></a></span>
-<span id="cb22-164"><a href="#cb22-164"></a><span class="in">```{r}</span></span>
-<span id="cb22-165"><a href="#cb22-165"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb22-166"><a href="#cb22-166"></a>  <span class="fu">mutate</span>(<span class="at">var_categ =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"bonjour"</span>, <span class="st">"5"</span>), <span class="dv">5</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-167"><a href="#cb22-167"></a>  <span class="fu">select</span>(var_categ, <span class="fu">everything</span>())</span>
-<span id="cb22-168"><a href="#cb22-168"></a>df2</span>
+<span id="cb22-157"><a href="#cb22-157"></a>Dans cet exemple, on va appliquer un recodage uniquement aux variables numériques.</span>
+<span id="cb22-158"><a href="#cb22-158"></a>Pour l'exemple, on commence par créer une variable catégorielle *var_categ*, sur laquelle le recodage ne s'appliquera pas.</span>
+<span id="cb22-159"><a href="#cb22-159"></a></span>
+<span id="cb22-162"><a href="#cb22-162"></a><span class="in">```{r}</span></span>
+<span id="cb22-163"><a href="#cb22-163"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb22-164"><a href="#cb22-164"></a>  <span class="fu">mutate</span>(<span class="at">var_categ =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"bonjour"</span>, <span class="st">"5"</span>), <span class="dv">5</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-165"><a href="#cb22-165"></a>  <span class="fu">select</span>(var_categ, <span class="fu">everything</span>())</span>
+<span id="cb22-166"><a href="#cb22-166"></a>df2</span>
+<span id="cb22-167"><a href="#cb22-167"></a></span>
+<span id="cb22-168"><a href="#cb22-168"></a><span class="in">```</span></span>
 <span id="cb22-169"><a href="#cb22-169"></a></span>
-<span id="cb22-170"><a href="#cb22-170"></a><span class="in">```</span></span>
+<span id="cb22-170"><a href="#cb22-170"></a>On utilise **`mutate_if`**, pour changer la valeur 5 en CINQ, uniquement pour les variables numériques.</span>
 <span id="cb22-171"><a href="#cb22-171"></a></span>
-<span id="cb22-172"><a href="#cb22-172"></a>On utilise **`mutate_if`**, pour changer la valeur 5 en CINQ, uniquement pour les variables numériques.</span>
-<span id="cb22-173"><a href="#cb22-173"></a></span>
-<span id="cb22-176"><a href="#cb22-176"></a><span class="in">```{r}</span></span>
-<span id="cb22-177"><a href="#cb22-177"></a>df2 <span class="ot">&lt;-</span> df2 <span class="sc">%&gt;%</span> </span>
-<span id="cb22-178"><a href="#cb22-178"></a>  <span class="fu">mutate_if</span>(is.numeric, <span class="sc">~</span><span class="fu">ifelse</span>(. <span class="sc">==</span> <span class="dv">5</span>, <span class="st">"CINQ"</span>, .))</span>
-<span id="cb22-179"><a href="#cb22-179"></a>df2</span>
+<span id="cb22-174"><a href="#cb22-174"></a><span class="in">```{r}</span></span>
+<span id="cb22-175"><a href="#cb22-175"></a>df2 <span class="ot">&lt;-</span> df2 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-176"><a href="#cb22-176"></a>  <span class="fu">mutate_if</span>(is.numeric, <span class="sc">~</span><span class="fu">ifelse</span>(. <span class="sc">==</span> <span class="dv">5</span>, <span class="st">"CINQ"</span>, .))</span>
+<span id="cb22-177"><a href="#cb22-177"></a>df2</span>
+<span id="cb22-178"><a href="#cb22-178"></a></span>
+<span id="cb22-179"><a href="#cb22-179"></a><span class="in">```</span></span>
 <span id="cb22-180"><a href="#cb22-180"></a></span>
-<span id="cb22-181"><a href="#cb22-181"></a><span class="in">```</span></span>
+<span id="cb22-181"><a href="#cb22-181"></a><span class="fu">### Exemple 6 : **`mutate_at`**</span></span>
 <span id="cb22-182"><a href="#cb22-182"></a></span>
-<span id="cb22-183"><a href="#cb22-183"></a><span class="fu">### Exemple 6 : **`mutate_at`**</span></span>
+<span id="cb22-183"><a href="#cb22-183"></a>la fonction <span class="in">`mutate_at`</span> permet d'appliquer un recodage à un ensemble de variables définies par leur nom. </span>
 <span id="cb22-184"><a href="#cb22-184"></a></span>
-<span id="cb22-185"><a href="#cb22-185"></a>la fonction <span class="in">`mutate_at`</span> permet d'appliquer un recodage à un ensemble de variables définies par leur nom. </span>
+<span id="cb22-185"><a href="#cb22-185"></a>Ici, on applique le recodage uniquement aux variables qui continennent la chaîne de caractéres V1 dans leur nom de variables, on recode donc V1 et V10.</span>
 <span id="cb22-186"><a href="#cb22-186"></a></span>
-<span id="cb22-187"><a href="#cb22-187"></a>Ici, on applique le recodage uniquement aux variables qui continennent la chaîne de caractéres V1 dans leur nom de variables, on recode donc V1 et V10.</span>
-<span id="cb22-188"><a href="#cb22-188"></a></span>
-<span id="cb22-191"><a href="#cb22-191"></a><span class="in">```{r}</span></span>
-<span id="cb22-192"><a href="#cb22-192"></a><span class="co"># Sélection des variables</span></span>
-<span id="cb22-193"><a href="#cb22-193"></a>var <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"1"</span>, <span class="fu">names</span>(df), <span class="at">value=</span><span class="cn">TRUE</span>)</span>
-<span id="cb22-194"><a href="#cb22-194"></a>var</span>
-<span id="cb22-195"><a href="#cb22-195"></a></span>
-<span id="cb22-196"><a href="#cb22-196"></a><span class="co"># On recode les NA en VAL.MANQ pour les variables de var</span></span>
-<span id="cb22-197"><a href="#cb22-197"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb22-198"><a href="#cb22-198"></a>  <span class="fu">mutate_at</span>(var, <span class="sc">~</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(.) <span class="sc">==</span> <span class="cn">TRUE</span>, <span class="st">"VAL.MANQ"</span>, .))</span>
-<span id="cb22-199"><a href="#cb22-199"></a>df2</span>
-<span id="cb22-200"><a href="#cb22-200"></a><span class="in">```</span></span>
+<span id="cb22-189"><a href="#cb22-189"></a><span class="in">```{r}</span></span>
+<span id="cb22-190"><a href="#cb22-190"></a><span class="co"># Sélection des variables</span></span>
+<span id="cb22-191"><a href="#cb22-191"></a>var <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"1"</span>, <span class="fu">names</span>(df), <span class="at">value=</span><span class="cn">TRUE</span>)</span>
+<span id="cb22-192"><a href="#cb22-192"></a>var</span>
+<span id="cb22-193"><a href="#cb22-193"></a></span>
+<span id="cb22-194"><a href="#cb22-194"></a><span class="co"># On recode les NA en VAL.MANQ pour les variables de var</span></span>
+<span id="cb22-195"><a href="#cb22-195"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb22-196"><a href="#cb22-196"></a>  <span class="fu">mutate_at</span>(var, <span class="sc">~</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(.) <span class="sc">==</span> <span class="cn">TRUE</span>, <span class="st">"VAL.MANQ"</span>, .))</span>
+<span id="cb22-197"><a href="#cb22-197"></a>df2</span>
+<span id="cb22-198"><a href="#cb22-198"></a><span class="in">```</span></span>
+<span id="cb22-199"><a href="#cb22-199"></a></span>
+<span id="cb22-200"><a href="#cb22-200"></a></span>
 <span id="cb22-201"><a href="#cb22-201"></a></span>
 <span id="cb22-202"><a href="#cb22-202"></a></span>
-<span id="cb22-203"><a href="#cb22-203"></a></span>
+<span id="cb22-203"><a href="#cb22-203"></a><span class="fu"># Automatisation de la création de nouvelles variables</span></span>
 <span id="cb22-204"><a href="#cb22-204"></a></span>
-<span id="cb22-205"><a href="#cb22-205"></a><span class="fu"># Automatisation de la création de nouvelles variables</span></span>
+<span id="cb22-205"><a href="#cb22-205"></a>Jusqu'ici nous avons vu comment recoder des variables existantes en changeant leurs valeurs, mais il est souvent préférable de créer de nouvelles variables pour éviter de perdre la variable originale.</span>
 <span id="cb22-206"><a href="#cb22-206"></a></span>
-<span id="cb22-207"><a href="#cb22-207"></a>Jusqu'ici nous avons vu comment recoder des variables existantes en changeant leurs valeurs, mais il est souvent préférable de créer de nouvelles variables pour éviter de perdre la variable originale.</span>
-<span id="cb22-208"><a href="#cb22-208"></a></span>
+<span id="cb22-207"><a href="#cb22-207"></a></span>
+<span id="cb22-208"><a href="#cb22-208"></a><span class="fu">### Exemple 7 : Avec une boucle **`for`** et **`assign`**</span></span>
 <span id="cb22-209"><a href="#cb22-209"></a></span>
-<span id="cb22-210"><a href="#cb22-210"></a><span class="fu">### Exemple 7 : Avec une boucle **`for`** et **`assign`**</span></span>
+<span id="cb22-210"><a href="#cb22-210"></a>Dans cet exemple, nous allons choisir 3 variables à recoder ("V1","V3","V5"), mais au lieu de les écraser avec leurs nouvelles valeurs nous allons créer des copies de ces variables qui porteront le suffixe *bis*.</span>
 <span id="cb22-211"><a href="#cb22-211"></a></span>
-<span id="cb22-212"><a href="#cb22-212"></a>Dans cet exemple, nous allons choisir 3 variables à recoder ("V1","V3","V5"), mais au lieu de les écraser avec leurs nouvelles valeurs nous allons créer des copies de ces variables qui porteront le suffixe *bis*.</span>
+<span id="cb22-212"><a href="#cb22-212"></a>Si l'opération peut sembler facile aux premier abord, créer des nouveaux objets et leur affecter automatiquement une nouvelle valeur pose un problème majeur dans R : **Il n'est pas possible d'écrire une fonction devant un symbole d'affectation comme le = ou le &lt;- **</span>
 <span id="cb22-213"><a href="#cb22-213"></a></span>
-<span id="cb22-214"><a href="#cb22-214"></a>Si l'opération peut sembler facile aux premier abord, créer des nouveaux objets et leur affecter automatiquement une nouvelle valeur pose un problème majeur dans R : **Il n'est pas possible d'écrire une fonction devant un symbole d'affectation comme le = ou le &lt;- **</span>
+<span id="cb22-214"><a href="#cb22-214"></a>Cela signifie que pour créer de nouvelles variables, on ne peut pas écrire :  </span>
 <span id="cb22-215"><a href="#cb22-215"></a></span>
-<span id="cb22-216"><a href="#cb22-216"></a>Cela signifie que pour créer de nouvelles variables, on ne peut pas écrire :  </span>
+<span id="cb22-216"><a href="#cb22-216"></a><span class="in">```{r eval =FALSE}</span></span>
 <span id="cb22-217"><a href="#cb22-217"></a></span>
-<span id="cb22-218"><a href="#cb22-218"></a><span class="in">```{r eval =FALSE}</span></span>
-<span id="cb22-219"><a href="#cb22-219"></a></span>
+<span id="cb22-218"><a href="#cb22-218"></a><span class="co"># IMPOSSIBLE</span></span>
+<span id="cb22-219"><a href="#cb22-219"></a><span class="fu">paste0</span>(V1, <span class="st">"_bis"</span>) <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>V1 <span class="sc">==</span> <span class="dv">8</span>, <span class="st">"HUIT"</span>, df<span class="sc">$</span>V1)</span>
 <span id="cb22-220"><a href="#cb22-220"></a><span class="co"># IMPOSSIBLE</span></span>
-<span id="cb22-221"><a href="#cb22-221"></a><span class="fu">paste0</span>(V1, <span class="st">"_bis"</span>) <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>V1 <span class="sc">==</span> <span class="dv">8</span>, <span class="st">"HUIT"</span>, df<span class="sc">$</span>V1)</span>
-<span id="cb22-222"><a href="#cb22-222"></a><span class="co"># IMPOSSIBLE</span></span>
-<span id="cb22-223"><a href="#cb22-223"></a>df<span class="sc">$</span><span class="fu">paste0</span>(V1, <span class="st">"_bis"</span>)</span>
+<span id="cb22-221"><a href="#cb22-221"></a>df<span class="sc">$</span><span class="fu">paste0</span>(V1, <span class="st">"_bis"</span>)</span>
+<span id="cb22-222"><a href="#cb22-222"></a></span>
+<span id="cb22-223"><a href="#cb22-223"></a><span class="in">```</span></span>
 <span id="cb22-224"><a href="#cb22-224"></a></span>
-<span id="cb22-225"><a href="#cb22-225"></a><span class="in">```</span></span>
+<span id="cb22-225"><a href="#cb22-225"></a></span>
 <span id="cb22-226"><a href="#cb22-226"></a></span>
-<span id="cb22-227"><a href="#cb22-227"></a></span>
+<span id="cb22-227"><a href="#cb22-227"></a>Pour contourner ce problème, on utilise la fonction **`assign()`**, qui contient deux arguments : <span class="in">`assign(NOM_NV_OBJ, valeurs_prisent)`</span>. On peut donc créer des variables avec des noms issues de fonctions comme <span class="in">`paste`</span>. Dans notre cas on colle *ANCIEN_NOM* et *bis*.</span>
 <span id="cb22-228"><a href="#cb22-228"></a></span>
-<span id="cb22-229"><a href="#cb22-229"></a>Pour contourner ce problème, on utilise la fonction **`assign()`**, qui contient deux arguments : <span class="in">`assign(NOM_NV_OBJ, valeurs_prisent)`</span>. On peut donc créer des variables avec des noms issues de fonctions comme <span class="in">`paste`</span>. Dans notre cas on colle *ANCIEN_NOM* et *bis*.</span>
-<span id="cb22-230"><a href="#cb22-230"></a></span>
+<span id="cb22-229"><a href="#cb22-229"></a></span>
+<span id="cb22-230"><a href="#cb22-230"></a>Pour chercher cet objet stocké dans l'environnement et en faire une variable, on utilise la fonction <span class="in">`get()`</span> qui permet d'utiliser des fonctions comme <span class="in">`paste()`</span> pour récupérer les valeurs des objets crées automatiquement.</span>
 <span id="cb22-231"><a href="#cb22-231"></a></span>
-<span id="cb22-232"><a href="#cb22-232"></a>Pour chercher cet objet stocké dans l'environnement et en faire une variable, on utilise la fonction <span class="in">`get()`</span> qui permet d'utiliser des fonctions comme <span class="in">`paste()`</span> pour récupérer les valeurs des objets crées automatiquement.</span>
-<span id="cb22-233"><a href="#cb22-233"></a></span>
-<span id="cb22-234"><a href="#cb22-234"></a></span>
-<span id="cb22-237"><a href="#cb22-237"></a><span class="in">```{r}</span></span>
-<span id="cb22-238"><a href="#cb22-238"></a><span class="co"># Copie de l'original</span></span>
-<span id="cb22-239"><a href="#cb22-239"></a>df2 <span class="ot">&lt;-</span> df</span>
-<span id="cb22-240"><a href="#cb22-240"></a><span class="co"># Sélecion des variables</span></span>
-<span id="cb22-241"><a href="#cb22-241"></a>var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"V1"</span>,<span class="st">"V3"</span>,<span class="st">"V5"</span>)</span>
-<span id="cb22-242"><a href="#cb22-242"></a></span>
-<span id="cb22-243"><a href="#cb22-243"></a><span class="cf">for</span> (i <span class="cf">in</span> var) {</span>
-<span id="cb22-244"><a href="#cb22-244"></a>  </span>
-<span id="cb22-245"><a href="#cb22-245"></a>  <span class="fu">assign</span>(<span class="fu">paste0</span>(i,<span class="st">"_bis"</span>),                       <span class="co"># Nom de l'objet</span></span>
-<span id="cb22-246"><a href="#cb22-246"></a>         <span class="fu">ifelse</span>(df2[[i]] <span class="sc">==</span> <span class="dv">8</span>, <span class="st">"HUIT"</span>, df2[[i]]) <span class="co"># Valeur qu'il prend</span></span>
-<span id="cb22-247"><a href="#cb22-247"></a>         )</span>
-<span id="cb22-248"><a href="#cb22-248"></a>  </span>
-<span id="cb22-249"><a href="#cb22-249"></a>  <span class="co"># On crée la variable à partir de l'objet crée au dessus</span></span>
-<span id="cb22-250"><a href="#cb22-250"></a>  df2[<span class="fu">paste0</span>(i,<span class="st">"_bis"</span>)] <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste0</span>(i,<span class="st">"_bis"</span>))</span>
+<span id="cb22-232"><a href="#cb22-232"></a></span>
+<span id="cb22-235"><a href="#cb22-235"></a><span class="in">```{r}</span></span>
+<span id="cb22-236"><a href="#cb22-236"></a><span class="co"># Copie de l'original</span></span>
+<span id="cb22-237"><a href="#cb22-237"></a>df2 <span class="ot">&lt;-</span> df</span>
+<span id="cb22-238"><a href="#cb22-238"></a><span class="co"># Sélecion des variables</span></span>
+<span id="cb22-239"><a href="#cb22-239"></a>var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"V1"</span>,<span class="st">"V3"</span>,<span class="st">"V5"</span>)</span>
+<span id="cb22-240"><a href="#cb22-240"></a></span>
+<span id="cb22-241"><a href="#cb22-241"></a><span class="cf">for</span> (i <span class="cf">in</span> var) {</span>
+<span id="cb22-242"><a href="#cb22-242"></a>  </span>
+<span id="cb22-243"><a href="#cb22-243"></a>  <span class="fu">assign</span>(<span class="fu">paste0</span>(i,<span class="st">"_bis"</span>),                       <span class="co"># Nom de l'objet</span></span>
+<span id="cb22-244"><a href="#cb22-244"></a>         <span class="fu">ifelse</span>(df2[[i]] <span class="sc">==</span> <span class="dv">8</span>, <span class="st">"HUIT"</span>, df2[[i]]) <span class="co"># Valeur qu'il prend</span></span>
+<span id="cb22-245"><a href="#cb22-245"></a>         )</span>
+<span id="cb22-246"><a href="#cb22-246"></a>  </span>
+<span id="cb22-247"><a href="#cb22-247"></a>  <span class="co"># On crée la variable à partir de l'objet crée au dessus</span></span>
+<span id="cb22-248"><a href="#cb22-248"></a>  df2[<span class="fu">paste0</span>(i,<span class="st">"_bis"</span>)] <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste0</span>(i,<span class="st">"_bis"</span>))</span>
+<span id="cb22-249"><a href="#cb22-249"></a></span>
+<span id="cb22-250"><a href="#cb22-250"></a>}</span>
 <span id="cb22-251"><a href="#cb22-251"></a></span>
-<span id="cb22-252"><a href="#cb22-252"></a>}</span>
-<span id="cb22-253"><a href="#cb22-253"></a></span>
-<span id="cb22-254"><a href="#cb22-254"></a></span>
-<span id="cb22-255"><a href="#cb22-255"></a><span class="co"># On affiche la base avec les nouvelles variables en premières</span></span>
-<span id="cb22-256"><a href="#cb22-256"></a>df2 <span class="sc">%&gt;%</span> </span>
-<span id="cb22-257"><a href="#cb22-257"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"bis"</span>), <span class="fu">everything</span>())</span>
-<span id="cb22-258"><a href="#cb22-258"></a><span class="in">```</span></span>
-<span id="cb22-259"><a href="#cb22-259"></a></span>
+<span id="cb22-252"><a href="#cb22-252"></a></span>
+<span id="cb22-253"><a href="#cb22-253"></a><span class="co"># On affiche la base avec les nouvelles variables en premières</span></span>
+<span id="cb22-254"><a href="#cb22-254"></a>df2 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-255"><a href="#cb22-255"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"bis"</span>), <span class="fu">everything</span>())</span>
+<span id="cb22-256"><a href="#cb22-256"></a><span class="in">```</span></span>
+<span id="cb22-257"><a href="#cb22-257"></a></span>
+<span id="cb22-258"><a href="#cb22-258"></a></span>
+<span id="cb22-259"><a href="#cb22-259"></a>On a bien crée automatiquement de nouvelles variables, tout en conservant les anciennes.</span>
 <span id="cb22-260"><a href="#cb22-260"></a></span>
-<span id="cb22-261"><a href="#cb22-261"></a>On a bien crée automatiquement de nouvelles variables, tout en conservant les anciennes.</span>
+<span id="cb22-261"><a href="#cb22-261"></a></span>
 <span id="cb22-262"><a href="#cb22-262"></a></span>
 <span id="cb22-263"><a href="#cb22-263"></a></span>
 <span id="cb22-264"><a href="#cb22-264"></a></span>
@@ -1067,8 +1064,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb22-275"><a href="#cb22-275"></a></span>
 <span id="cb22-276"><a href="#cb22-276"></a></span>
 <span id="cb22-277"><a href="#cb22-277"></a></span>
-<span id="cb22-278"><a href="#cb22-278"></a></span>
-<span id="cb22-279"><a href="#cb22-279"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

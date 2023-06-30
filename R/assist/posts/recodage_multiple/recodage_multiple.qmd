@@ -5,8 +5,6 @@ title: "Recodage multiple"
 
 categories:
   - valeur manquante
-  - boucle
-  - dplyr
   - recodage
   
 author: 

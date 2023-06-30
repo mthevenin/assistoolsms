@@ -18,6 +18,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/R/assist/posts/fonction_table_auto/fonction_table_auto.html",
       "/R/assist/posts/weight_norm/weight_norm.html",
       "/R/assist/posts/import_json/JSON.html",
       "/R/assist/posts/recodage_multiple/recodage_multiple.html",
@@ -37,6 +38,7 @@
   {
     "listing": "/R/index.html",
     "items": [
+      "/R/assist/posts/fonction_table_auto/fonction_table_auto.html",
       "/R/assist/posts/weight_norm/weight_norm.html",
       "/R/assist/posts/import_json/JSON.html",
       "/R/assist/posts/recodage_multiple/recodage_multiple.html",
