@@ -120,21 +120,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
  <span class="menu-text">Autres</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-autres-supports" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Autres Supports</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-autres-supports">    
-        <li>
-    <a class="dropdown-item" href="https://mthevenin.github.io/stata_fr/index.html" rel="" target="">
- <span class="dropdown-text">Stata</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../supports.html" rel="" target="">
+ <span class="menu-text">Autres Supports</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="https://benegarbi.github.io/AtelierQO_R/" rel="" target="">
- <span class="dropdown-text">Analyse textuelle</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -1191,110 +1180,109 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-105"><a href="#cb12-105"></a></span>
 <span id="cb12-106"><a href="#cb12-106"></a>La fonction <span class="in">`stringdist_join`</span>, du package **fuzzyjoin**, permet de faire une jointure avec une incertitude sur la clé de jonction des fichiers.  </span>
 <span id="cb12-107"><a href="#cb12-107"></a>  </span>
-<span id="cb12-108"><a href="#cb12-108"></a></span>
-<span id="cb12-109"><a href="#cb12-109"></a></span>
-<span id="cb12-110"><a href="#cb12-110"></a><span class="in">```{r crebases, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
-<span id="cb12-111"><a href="#cb12-111"></a></span>
-<span id="cb12-112"><a href="#cb12-112"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb12-113"><a href="#cb12-113"></a></span>
-<span id="cb12-114"><a href="#cb12-114"></a>BAP_BMS <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"D:/D/Marc/SMS/assistoolsms/R/assist/posts/fuzzyjoin/Martigues.BAP.Ined.rds"</span>)</span>
-<span id="cb12-115"><a href="#cb12-115"></a>Den     <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"D:/D/Marc/SMS/assistoolsms/R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds"</span>)</span>
-<span id="cb12-116"><a href="#cb12-116"></a></span>
-<span id="cb12-117"><a href="#cb12-117"></a>BAP.Vars <span class="ot">=</span> BAP_BMS <span class="sc">%&gt;%</span></span>
-<span id="cb12-118"><a href="#cb12-118"></a>  <span class="fu">filter</span>(<span class="fu">as.numeric</span>(Annee)<span class="sc">&lt;</span><span class="dv">1705</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-119"><a href="#cb12-119"></a>  <span class="fu">select</span>(<span class="at">PERE.Nom=</span>Ego.nom,<span class="at">PERE.Prenom=</span>Pere.prenom) <span class="sc">%&gt;%</span></span>
-<span id="cb12-120"><a href="#cb12-120"></a>  <span class="fu">mutate</span>(<span class="at">Nobs.BAP=</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb12-121"><a href="#cb12-121"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(PERE.Nom) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(PERE.Prenom)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-122"><a href="#cb12-122"></a>  <span class="fu">filter</span>(<span class="fu">substr</span>(PERE.Nom,<span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">==</span><span class="st">"A"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-123"><a href="#cb12-123"></a>  <span class="fu">distinct</span>(PERE.Nom,PERE.Prenom,<span class="at">.keep_all=</span>T)</span>
+<span id="cb12-108"><a href="#cb12-108"></a>  </span>
+<span id="cb12-109"><a href="#cb12-109"></a><span class="in">```{r crebases, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb12-110"><a href="#cb12-110"></a></span>
+<span id="cb12-111"><a href="#cb12-111"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb12-112"><a href="#cb12-112"></a></span>
+<span id="cb12-113"><a href="#cb12-113"></a>BAP_BMS <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.BAP.Ined.rds"</span>)</span>
+<span id="cb12-114"><a href="#cb12-114"></a>Den     <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds"</span>)</span>
+<span id="cb12-115"><a href="#cb12-115"></a></span>
+<span id="cb12-116"><a href="#cb12-116"></a>BAP.Vars <span class="ot">=</span> BAP_BMS <span class="sc">%&gt;%</span></span>
+<span id="cb12-117"><a href="#cb12-117"></a>  <span class="fu">filter</span>(<span class="fu">as.numeric</span>(Annee)<span class="sc">&lt;</span><span class="dv">1705</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-118"><a href="#cb12-118"></a>  <span class="fu">select</span>(<span class="at">PERE.Nom=</span>Ego.nom,<span class="at">PERE.Prenom=</span>Pere.prenom) <span class="sc">%&gt;%</span></span>
+<span id="cb12-119"><a href="#cb12-119"></a>  <span class="fu">mutate</span>(<span class="at">Nobs.BAP=</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb12-120"><a href="#cb12-120"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(PERE.Nom) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(PERE.Prenom)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-121"><a href="#cb12-121"></a>  <span class="fu">filter</span>(<span class="fu">substr</span>(PERE.Nom,<span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">==</span><span class="st">"A"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-122"><a href="#cb12-122"></a>  <span class="fu">distinct</span>(PERE.Nom,PERE.Prenom,<span class="at">.keep_all=</span>T)</span>
+<span id="cb12-123"><a href="#cb12-123"></a></span>
 <span id="cb12-124"><a href="#cb12-124"></a></span>
-<span id="cb12-125"><a href="#cb12-125"></a></span>
-<span id="cb12-126"><a href="#cb12-126"></a>REC.Vars<span class="ot">=</span> Den <span class="sc">%&gt;%</span></span>
-<span id="cb12-127"><a href="#cb12-127"></a>  <span class="fu">select</span>(Ego.nom,Ego.prenom) <span class="sc">%&gt;%</span></span>
-<span id="cb12-128"><a href="#cb12-128"></a>  <span class="fu">mutate</span>(<span class="at">Nobs.REC=</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb12-129"><a href="#cb12-129"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Ego.nom) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(Ego.prenom)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-130"><a href="#cb12-130"></a>  <span class="fu">filter</span>(<span class="fu">substr</span>(Ego.nom,<span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">==</span><span class="st">"A"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-131"><a href="#cb12-131"></a>  <span class="fu">mutate</span>(<span class="at">Ego.nom=</span><span class="fu">toupper</span>(Ego.nom),<span class="at">Ego.prenom=</span><span class="fu">toupper</span>(Ego.prenom)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-132"><a href="#cb12-132"></a>  <span class="fu">distinct</span>(Ego.nom,Ego.prenom,<span class="at">.keep_all=</span>T)</span>
-<span id="cb12-133"><a href="#cb12-133"></a></span>
-<span id="cb12-134"><a href="#cb12-134"></a><span class="in">```</span></span>
+<span id="cb12-125"><a href="#cb12-125"></a>REC.Vars<span class="ot">=</span> Den <span class="sc">%&gt;%</span></span>
+<span id="cb12-126"><a href="#cb12-126"></a>  <span class="fu">select</span>(Ego.nom,Ego.prenom) <span class="sc">%&gt;%</span></span>
+<span id="cb12-127"><a href="#cb12-127"></a>  <span class="fu">mutate</span>(<span class="at">Nobs.REC=</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb12-128"><a href="#cb12-128"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Ego.nom) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(Ego.prenom)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-129"><a href="#cb12-129"></a>  <span class="fu">filter</span>(<span class="fu">substr</span>(Ego.nom,<span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">==</span><span class="st">"A"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-130"><a href="#cb12-130"></a>  <span class="fu">mutate</span>(<span class="at">Ego.nom=</span><span class="fu">toupper</span>(Ego.nom),<span class="at">Ego.prenom=</span><span class="fu">toupper</span>(Ego.prenom)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-131"><a href="#cb12-131"></a>  <span class="fu">distinct</span>(Ego.nom,Ego.prenom,<span class="at">.keep_all=</span>T)</span>
+<span id="cb12-132"><a href="#cb12-132"></a></span>
+<span id="cb12-133"><a href="#cb12-133"></a><span class="in">```</span></span>
+<span id="cb12-134"><a href="#cb12-134"></a></span>
 <span id="cb12-135"><a href="#cb12-135"></a></span>
 <span id="cb12-136"><a href="#cb12-136"></a></span>
-<span id="cb12-137"><a href="#cb12-137"></a></span>
-<span id="cb12-138"><a href="#cb12-138"></a>Ci-dessous le début du **fichier des Baptêmes**</span>
-<span id="cb12-139"><a href="#cb12-139"></a></span>
-<span id="cb12-140"><a href="#cb12-140"></a><span class="in">```{r Print-bap}</span></span>
-<span id="cb12-141"><a href="#cb12-141"></a><span class="co">#| results="asis" </span></span>
-<span id="cb12-142"><a href="#cb12-142"></a></span>
-<span id="cb12-143"><a href="#cb12-143"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-144"><a href="#cb12-144"></a><span class="fu">kable</span>(<span class="fu">head</span>(BAP.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-145"><a href="#cb12-145"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-146"><a href="#cb12-146"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
-<span id="cb12-147"><a href="#cb12-147"></a><span class="in">```</span></span>
-<span id="cb12-148"><a href="#cb12-148"></a></span>
-<span id="cb12-149"><a href="#cb12-149"></a><span class="kw">&lt;br&gt;</span></span>
-<span id="cb12-150"><a href="#cb12-150"></a></span>
-<span id="cb12-151"><a href="#cb12-151"></a>Ci-dessous le début du **fichier de recensement**</span>
-<span id="cb12-152"><a href="#cb12-152"></a></span>
-<span id="cb12-153"><a href="#cb12-153"></a><span class="in">```{r Print-rec}</span></span>
-<span id="cb12-154"><a href="#cb12-154"></a><span class="co">#| results="asis" </span></span>
-<span id="cb12-155"><a href="#cb12-155"></a></span>
-<span id="cb12-156"><a href="#cb12-156"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-157"><a href="#cb12-157"></a><span class="fu">kable</span>(<span class="fu">head</span>(REC.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-158"><a href="#cb12-158"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-159"><a href="#cb12-159"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
-<span id="cb12-160"><a href="#cb12-160"></a><span class="in">```</span></span>
-<span id="cb12-161"><a href="#cb12-161"></a></span>
-<span id="cb12-162"><a href="#cb12-162"></a><span class="kw">&lt;br&gt;</span></span>
-<span id="cb12-163"><a href="#cb12-163"></a></span>
-<span id="cb12-164"><a href="#cb12-164"></a>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **`inner_join`**.</span>
-<span id="cb12-165"><a href="#cb12-165"></a></span>
-<span id="cb12-166"><a href="#cb12-166"></a><span class="in">```{r Print-join}</span></span>
-<span id="cb12-167"><a href="#cb12-167"></a><span class="co">#| results="asis" </span></span>
-<span id="cb12-168"><a href="#cb12-168"></a></span>
-<span id="cb12-169"><a href="#cb12-169"></a>Z1 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
-<span id="cb12-170"><a href="#cb12-170"></a>  <span class="fu">inner_join</span>(REC.Vars,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"PERE.Nom"</span><span class="ot">=</span><span class="st">"Ego.nom"</span>,<span class="st">"PERE.Prenom"</span><span class="ot">=</span><span class="st">"Ego.prenom"</span>))</span>
+<span id="cb12-137"><a href="#cb12-137"></a>Ci-dessous le début du **fichier des Baptêmes**</span>
+<span id="cb12-138"><a href="#cb12-138"></a></span>
+<span id="cb12-139"><a href="#cb12-139"></a><span class="in">```{r Print-bap}</span></span>
+<span id="cb12-140"><a href="#cb12-140"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-141"><a href="#cb12-141"></a></span>
+<span id="cb12-142"><a href="#cb12-142"></a><span class="co"># Affichage début de fichier</span></span>
+<span id="cb12-143"><a href="#cb12-143"></a><span class="fu">kable</span>(<span class="fu">head</span>(BAP.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-144"><a href="#cb12-144"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-145"><a href="#cb12-145"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-146"><a href="#cb12-146"></a><span class="in">```</span></span>
+<span id="cb12-147"><a href="#cb12-147"></a></span>
+<span id="cb12-148"><a href="#cb12-148"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb12-149"><a href="#cb12-149"></a></span>
+<span id="cb12-150"><a href="#cb12-150"></a>Ci-dessous le début du **fichier de recensement**</span>
+<span id="cb12-151"><a href="#cb12-151"></a></span>
+<span id="cb12-152"><a href="#cb12-152"></a><span class="in">```{r Print-rec}</span></span>
+<span id="cb12-153"><a href="#cb12-153"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-154"><a href="#cb12-154"></a></span>
+<span id="cb12-155"><a href="#cb12-155"></a><span class="co"># Affichage début de fichier</span></span>
+<span id="cb12-156"><a href="#cb12-156"></a><span class="fu">kable</span>(<span class="fu">head</span>(REC.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-157"><a href="#cb12-157"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-158"><a href="#cb12-158"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-159"><a href="#cb12-159"></a><span class="in">```</span></span>
+<span id="cb12-160"><a href="#cb12-160"></a></span>
+<span id="cb12-161"><a href="#cb12-161"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb12-162"><a href="#cb12-162"></a></span>
+<span id="cb12-163"><a href="#cb12-163"></a>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **`inner_join`**.</span>
+<span id="cb12-164"><a href="#cb12-164"></a></span>
+<span id="cb12-165"><a href="#cb12-165"></a><span class="in">```{r Print-join}</span></span>
+<span id="cb12-166"><a href="#cb12-166"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-167"><a href="#cb12-167"></a></span>
+<span id="cb12-168"><a href="#cb12-168"></a>Z1 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
+<span id="cb12-169"><a href="#cb12-169"></a>  <span class="fu">inner_join</span>(REC.Vars,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"PERE.Nom"</span><span class="ot">=</span><span class="st">"Ego.nom"</span>,<span class="st">"PERE.Prenom"</span><span class="ot">=</span><span class="st">"Ego.prenom"</span>))</span>
+<span id="cb12-170"><a href="#cb12-170"></a></span>
 <span id="cb12-171"><a href="#cb12-171"></a></span>
-<span id="cb12-172"><a href="#cb12-172"></a></span>
-<span id="cb12-173"><a href="#cb12-173"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-174"><a href="#cb12-174"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z1,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-175"><a href="#cb12-175"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-176"><a href="#cb12-176"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
-<span id="cb12-177"><a href="#cb12-177"></a><span class="in">```</span></span>
-<span id="cb12-178"><a href="#cb12-178"></a></span>
-<span id="cb12-179"><a href="#cb12-179"></a><span class="kw">&lt;br&gt;</span></span>
-<span id="cb12-180"><a href="#cb12-180"></a>  </span>
-<span id="cb12-181"><a href="#cb12-181"></a>On souhaite maintenant unifier les individus portant le même prénom et différent d'une lettre sur le nom de famille, pour prendre en compte les variantes orthographiques minimes.  </span>
-<span id="cb12-182"><a href="#cb12-182"></a></span>
-<span id="cb12-183"><a href="#cb12-183"></a><span class="in">```{r Print-fuzzy}</span></span>
-<span id="cb12-184"><a href="#cb12-184"></a><span class="co">#| results="asis" </span></span>
-<span id="cb12-185"><a href="#cb12-185"></a></span>
-<span id="cb12-186"><a href="#cb12-186"></a>Z2 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
-<span id="cb12-187"><a href="#cb12-187"></a>  </span>
-<span id="cb12-188"><a href="#cb12-188"></a>  <span class="co"># max_dist = Distance maximale de égale à un entre les deux patronymes</span></span>
-<span id="cb12-189"><a href="#cb12-189"></a>  <span class="co"># distance_col =  nom de la variable créée contenant la valeur de distance</span></span>
-<span id="cb12-190"><a href="#cb12-190"></a>  <span class="fu">stringdist_inner_join</span>(REC.Vars,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"PERE.Nom"</span><span class="ot">=</span><span class="st">"Ego.nom"</span>),<span class="at">max_dist=</span><span class="dv">1</span>,<span class="at">distance_col=</span><span class="st">"V_Dist"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-191"><a href="#cb12-191"></a>  </span>
-<span id="cb12-192"><a href="#cb12-192"></a>  <span class="co"># On ne garde que les distances égales à 1</span></span>
-<span id="cb12-193"><a href="#cb12-193"></a>  <span class="fu">filter</span>(V_Dist<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-194"><a href="#cb12-194"></a>  </span>
-<span id="cb12-195"><a href="#cb12-195"></a>  <span class="co"># On ne conserve que les individus de même prénom</span></span>
-<span id="cb12-196"><a href="#cb12-196"></a>  <span class="fu">filter</span>(<span class="fu">stringdist</span>(PERE.Prenom,Ego.prenom)<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-197"><a href="#cb12-197"></a>  </span>
-<span id="cb12-198"><a href="#cb12-198"></a>  <span class="co"># Suppression variable de distance</span></span>
-<span id="cb12-199"><a href="#cb12-199"></a>  <span class="fu">select</span>(<span class="sc">-</span>V_Dist)</span>
+<span id="cb12-172"><a href="#cb12-172"></a><span class="co"># Affichage début de fichier</span></span>
+<span id="cb12-173"><a href="#cb12-173"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z1,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-174"><a href="#cb12-174"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-175"><a href="#cb12-175"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-176"><a href="#cb12-176"></a><span class="in">```</span></span>
+<span id="cb12-177"><a href="#cb12-177"></a></span>
+<span id="cb12-178"><a href="#cb12-178"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb12-179"><a href="#cb12-179"></a>  </span>
+<span id="cb12-180"><a href="#cb12-180"></a>On souhaite maintenant unifier les individus portant le même prénom et différent d'une lettre sur le nom de famille, pour prendre en compte les variantes orthographiques minimes.  </span>
+<span id="cb12-181"><a href="#cb12-181"></a></span>
+<span id="cb12-182"><a href="#cb12-182"></a><span class="in">```{r Print-fuzzy}</span></span>
+<span id="cb12-183"><a href="#cb12-183"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-184"><a href="#cb12-184"></a></span>
+<span id="cb12-185"><a href="#cb12-185"></a>Z2 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
+<span id="cb12-186"><a href="#cb12-186"></a>  </span>
+<span id="cb12-187"><a href="#cb12-187"></a>  <span class="co"># max_dist = Distance maximale de égale à un entre les deux patronymes</span></span>
+<span id="cb12-188"><a href="#cb12-188"></a>  <span class="co"># distance_col =  nom de la variable créée contenant la valeur de distance</span></span>
+<span id="cb12-189"><a href="#cb12-189"></a>  <span class="fu">stringdist_inner_join</span>(REC.Vars,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"PERE.Nom"</span><span class="ot">=</span><span class="st">"Ego.nom"</span>),<span class="at">max_dist=</span><span class="dv">1</span>,<span class="at">distance_col=</span><span class="st">"V_Dist"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-190"><a href="#cb12-190"></a>  </span>
+<span id="cb12-191"><a href="#cb12-191"></a>  <span class="co"># On ne garde que les distances égales à 1</span></span>
+<span id="cb12-192"><a href="#cb12-192"></a>  <span class="fu">filter</span>(V_Dist<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-193"><a href="#cb12-193"></a>  </span>
+<span id="cb12-194"><a href="#cb12-194"></a>  <span class="co"># On ne conserve que les individus de même prénom</span></span>
+<span id="cb12-195"><a href="#cb12-195"></a>  <span class="fu">filter</span>(<span class="fu">stringdist</span>(PERE.Prenom,Ego.prenom)<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-196"><a href="#cb12-196"></a>  </span>
+<span id="cb12-197"><a href="#cb12-197"></a>  <span class="co"># Suppression variable de distance</span></span>
+<span id="cb12-198"><a href="#cb12-198"></a>  <span class="fu">select</span>(<span class="sc">-</span>V_Dist)</span>
+<span id="cb12-199"><a href="#cb12-199"></a></span>
 <span id="cb12-200"><a href="#cb12-200"></a></span>
-<span id="cb12-201"><a href="#cb12-201"></a></span>
-<span id="cb12-202"><a href="#cb12-202"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-203"><a href="#cb12-203"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z2,<span class="at">n=</span><span class="dv">30</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-204"><a href="#cb12-204"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-205"><a href="#cb12-205"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
-<span id="cb12-206"><a href="#cb12-206"></a><span class="in">```</span></span>
-<span id="cb12-207"><a href="#cb12-207"></a>  </span>
+<span id="cb12-201"><a href="#cb12-201"></a><span class="co"># Affichage début de fichier</span></span>
+<span id="cb12-202"><a href="#cb12-202"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z2,<span class="at">n=</span><span class="dv">30</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-203"><a href="#cb12-203"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-204"><a href="#cb12-204"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-205"><a href="#cb12-205"></a><span class="in">```</span></span>
+<span id="cb12-206"><a href="#cb12-206"></a>  </span>
+<span id="cb12-207"><a href="#cb12-207"></a></span>
 <span id="cb12-208"><a href="#cb12-208"></a></span>
 <span id="cb12-209"><a href="#cb12-209"></a></span>
-<span id="cb12-210"><a href="#cb12-210"></a></span>
-<span id="cb12-211"><a href="#cb12-211"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-210"><a href="#cb12-210"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

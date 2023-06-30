@@ -1,21 +1,5 @@
 [
   {
-    "listing": "/Autres/assist/index.html",
-    "items": [
-      "/Autres/assist/posts/git_rstudio/git_rstudio.html",
-      "/Autres/assist/posts/whispers/whisper.html",
-      "/Autres/assist/posts/remove_nul/remove_nul.html"
-    ]
-  },
-  {
-    "listing": "/Autres/index.html",
-    "items": [
-      "/Autres/assist/posts/git_rstudio/git_rstudio.html",
-      "/Autres/assist/posts/whispers/whisper.html",
-      "/Autres/assist/posts/remove_nul/remove_nul.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/R/assist/posts/weight_norm/weight_norm.html",
@@ -35,7 +19,7 @@
     ]
   },
   {
-    "listing": "/R/index.html",
+    "listing": "/R/assist/index.html",
     "items": [
       "/R/assist/posts/weight_norm/weight_norm.html",
       "/R/assist/posts/import_json/JSON.html",
@@ -48,8 +32,9 @@
     ]
   },
   {
-    "listing": "/R/assist/index.html",
+    "listing": "/R/index.html",
     "items": [
+      "/R/assist/posts/weight_norm/weight_norm.html",
       "/R/assist/posts/import_json/JSON.html",
       "/R/assist/posts/recodage_multiple/recodage_multiple.html",
       "/R/assist/posts/ifelse_casewhen/ifelse_casewhen.html",

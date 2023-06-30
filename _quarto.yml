@@ -19,11 +19,7 @@ website:
       - text: "Autres"
         href: Autres/index.qmd
       - text: "Autres Supports"
-        menu: 
-          - text: "Stata"
-            href: https://mthevenin.github.io/stata_fr/index.html
-          - text: "Analyse textuelle"
-            href: https://benegarbi.github.io/AtelierQO_R/
+        href: supports.qmd
 
 page-navigation: true
 back-to-top-navigation: false

@@ -110,8 +110,8 @@ La fonction `stringdist_join`, du package **fuzzyjoin**, permet de faire une joi
 
 library(kableExtra)
 
-BAP_BMS = readRDS(file = "D:/D/Marc/SMS/assistoolsms/R/assist/posts/fuzzyjoin/Martigues.BAP.Ined.rds")
-Den     = readRDS(file = "D:/D/Marc/SMS/assistoolsms/R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds")
+BAP_BMS = readRDS(file = "D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.BAP.Ined.rds")
+Den     = readRDS(file = "D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds")
 
 BAP.Vars = BAP_BMS %>%
   filter(as.numeric(Annee)<1705) %>%

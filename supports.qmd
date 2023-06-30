@@ -1,0 +1,13 @@
+---
+title: "Autres supports de formation"
+
+description: | 
+ Liens vers des supports de formation en libre accès du service Méthode Statistiques de l'Ined 
+---
+
+
+- [STATA](https://mthevenin.github.io/stata_fr/index.html)
+- [ANALYSE TEXTUELLE](https://benegarbi.github.io/AGD_QO/)
+- [ANALYSE DES DUREES](https://mthevenin.github.io/analyse_duree/)
+
+
