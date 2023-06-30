@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Supprimer un fichier nul avec git</title>
+<title>SMS_site – fiches30-06</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,21 +57,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
@@ -89,7 +85,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../../../sms.css">
+<link rel="stylesheet" href="sms.css">
 </head>
 
 <body class="nav-fixed">
@@ -99,8 +95,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/coding2.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -109,19 +105,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
+    <a class="nav-link" href="./R/index.html" rel="" target="">
  <span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Quarto/index.html" rel="" target="">
+    <a class="nav-link" href="./Quarto/index.html" rel="" target="">
  <span class="menu-text">Quarto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
+    <a class="nav-link" href="./Autres/index.html" rel="" target="">
  <span class="menu-text">Autres</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../supports.html" rel="" target="">
+    <a class="nav-link" href="./supports.html" rel="" target="">
  <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
@@ -132,100 +128,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Supprimer un fichier nul avec git</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-                                <div class="quarto-categories">
-                <div class="quarto-category">git</div>
-                <div class="quarto-category">Problème fichier</div>
-              </div>
-                  </div>
-  </div>
-    
-  <div class="quarto-title-meta-author">
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
-    
-      <div class="quarto-title-meta-contents">
-      <p class="author">Marc Thévenin </p>
-    </div>
-      <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              Ined
-            </p>
-        </div>
-      </div>
-
-  <div class="quarto-title-meta">
-
-        
-      <div>
-      <div class="quarto-title-meta-heading">Date de publication</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">12 juin 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="remove_nul.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="remove_nul.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#tableau-des-fonctions-utilisées-dans-la-fiche" id="toc-tableau-des-fonctions-utilisées-dans-la-fiche" class="nav-link active" data-scroll-target="#tableau-des-fonctions-utilisées-dans-la-fiche">Tableau des fonctions utilisées dans la fiche</a></li>
+  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions">Extensions</a></li>
+  <li><a href="#lien-documentation" id="toc-lien-documentation" class="nav-link" data-scroll-target="#lien-documentation">Lien documentation</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 
 
 
-
-<p>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers <strong>nul</strong>, qui sont créés assez régulièrement chez moi avec <em>Quarto</em>.</p>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Impossible de modifier le fichier"><img src="img/img1.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
-<figcaption class="figure-caption">Impossible de modifier le fichier</figcaption>
-</figure>
-</div>
-<p>On peut nénmoins facilement les supprimer avec une installation de <strong>git</strong> sur son ordinateur <a href="https://git-scm.com/downloads">[Intallation de git]</a></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-A l’Ined
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Git</strong> est intégré à <strong>Applined</strong>, et peut donc être directement installé via cette application.</p>
-</div>
-</div>
-<p><strong>Suppression du fichier</strong></p>
-<ul>
-<li>Dans le répertoire où se trouve ce type de fichier, fait un clic droit</li>
-<li>Ouvrir la console: <strong><code>git bash here</code></strong></li>
-<li>Exécuter <strong><code>rm nul</code></strong></li>
-</ul>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="clic droit + ouvrir la console (git bash here) + rm nul"><img src="img/img2.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
-<figcaption class="figure-caption">clic droit + ouvrir la console (<strong>git bash here</strong>) + <code>rm nul</code></figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><a href="img/img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Le fichier est supprimé"><img src="img/img3.png" class="img-fluid figure-img" style="width:60.0%"></a></p>
-<figcaption class="figure-caption">Le fichier est supprimé</figcaption>
-</figure>
-</div>
+<section id="tableau-des-fonctions-utilisées-dans-la-fiche" class="level2">
+<h2 class="anchored" data-anchor-id="tableau-des-fonctions-utilisées-dans-la-fiche">Tableau des fonctions utilisées dans la fiche</h2>
+<p>Exemple de tableau des fonctions pour la fiche d’Elodie (on peut aller en mode visual sur un qmd vierge si on préfère). Le titre est en dessous du tableau=&gt; <code>: **Fonctions utilisées dans la fiche**</code></p>
+<table class="table">
+<caption><strong>Fonctions utilisées dans la fiche</strong></caption>
+<thead>
+<tr class="header">
+<th>Packages</th>
+<th>Fonctions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>questionr</strong></td>
+<td><code>wtd.table</code> - <code>cprop</code> - <code>lprop</code></td>
+</tr>
+<tr class="even">
+<td><strong>survey</strong></td>
+<td><code>svydesign</code> - <code>svytable</code> - <code>svymean</code> - <code>svyglm</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Base R</strong></td>
+<td><code>mean</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="extensions" class="level2">
+<h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
+<p>L’extension lightbox est très bien pour l’insersion d’image/graphique. En local pour l’activer, elle doit être installée (si une fiche dans un répertoire, l’installer à chaque fois): dans le terminal =&gt; <code>quarto add quarto-ext/lightbox</code>. Si vous utilisez une autre extension, me l’indiquer que je l’installe dans le répertoire du support.</p>
+</section>
+<section id="lien-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="lien-documentation">Lien documentation</h2>
+<p>De préférence, je préfèrerai qu’elle soit en début de document, sous le tableau des fonctions.</p>
 
 
 <!-- -->
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -513,68 +473,67 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Supprimer un fichier nul avec git"</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Pondérations normalisées avec R"</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># toc-title: ""</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># subtitle: ""</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="an">categories:</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  - git</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  - Problème fichier</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">  </span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">    affiliations:</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="an">categories:</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">  - thème (cartographie, recodages)</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">  - package1</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">  - package2</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  </span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">  - name: "XXXXXXXX"</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">    affiliations:</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">      - name: "Ined [et/ou autre]"</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="an">date:</span><span class="co"> mois/jour/2023</span></span>
 <span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="an">date:</span><span class="co"> 06/12/2023</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="an">image:</span><span class="co"> "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="co">  html: default</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="co">  docx: default</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co">  pdf:  default</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># Si pas d'idée, par exemple pour R</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="an">image:</span><span class="co"> "https://www.r-project.org/Rlogo.png"</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co">  html: default</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co">  docx: default</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="co">#  pdf: default</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="co">#  odt: default</span></span>
 <span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="an">filters:</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="co">   - lightbox</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="co">---</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="co">#filters:</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="co">#  - lightbox</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="co">#lightbox: auto</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
 <span id="cb1-29"><a href="#cb1-29"></a></span>
-<span id="cb1-30"><a href="#cb1-30"></a></span>
-<span id="cb1-31"><a href="#cb1-31"></a>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d'effacer un répertoire. C'est le cas des fichiers **nul**, qui sont créés assez régulièrement chez moi avec *Quarto*.  </span>
-<span id="cb1-32"><a href="#cb1-32"></a></span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="al">![Impossible de modifier le fichier](img/img1.png)</span>{width=60% fig-align="left"}</span>
-<span id="cb1-34"><a href="#cb1-34"></a></span>
-<span id="cb1-35"><a href="#cb1-35"></a>On peut nénmoins facilement les supprimer avec une installation de **git** sur son ordinateur [<span class="co">[</span><span class="ot">Intallation de git</span><span class="co">]</span>](https://git-scm.com/downloads)</span>
-<span id="cb1-36"><a href="#cb1-36"></a></span>
-<span id="cb1-37"><a href="#cb1-37"></a>::: callout-tip</span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="co"> Penser à laisser un espace sur cette ligne. Le résumé doit apparaître en vert</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="co">---</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="fu">## Tableau des fonctions utilisées dans la fiche</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a>Exemple de tableau des fonctions pour la fiche d'Elodie (on peut aller en mode visual sur un qmd vierge si on préfère). </span>
+<span id="cb1-37"><a href="#cb1-37"></a>Le titre est en dessous du tableau=&gt; <span class="in">`: **Fonctions utilisées dans la fiche**`</span></span>
 <span id="cb1-38"><a href="#cb1-38"></a></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="fu">## A l'Ined</span></span>
-<span id="cb1-40"><a href="#cb1-40"></a></span>
-<span id="cb1-41"><a href="#cb1-41"></a>**Git** est intégré à **Applined**, et peut donc être directement installé via cette application.</span>
-<span id="cb1-42"><a href="#cb1-42"></a></span>
-<span id="cb1-43"><a href="#cb1-43"></a>:::</span>
+<span id="cb1-39"><a href="#cb1-39"></a>| Packages      | Fonctions                                       |</span>
+<span id="cb1-40"><a href="#cb1-40"></a>|---------------|-------------------------------------------------|</span>
+<span id="cb1-41"><a href="#cb1-41"></a>| **questionr** | <span class="in">`wtd.table`</span> - <span class="in">`cprop`</span> - <span class="in">`lprop`</span>                 |</span>
+<span id="cb1-42"><a href="#cb1-42"></a>| **survey**    | <span class="in">`svydesign`</span> - <span class="in">`svytable`</span> - <span class="in">`svymean`</span> - <span class="in">`svyglm`</span> |</span>
+<span id="cb1-43"><a href="#cb1-43"></a>| **Base R**    | <span class="in">`mean`</span>                                          |</span>
 <span id="cb1-44"><a href="#cb1-44"></a></span>
-<span id="cb1-45"><a href="#cb1-45"></a>**Suppression du fichier**  </span>
+<span id="cb1-45"><a href="#cb1-45"></a>: **Fonctions utilisées dans la fiche**</span>
 <span id="cb1-46"><a href="#cb1-46"></a></span>
-<span id="cb1-47"><a href="#cb1-47"></a><span class="ss">- </span>Dans le répertoire où se trouve ce type de fichier, fait un clic droit </span>
-<span id="cb1-48"><a href="#cb1-48"></a><span class="ss">- </span>Ouvrir la console:  **`git bash here`**</span>
-<span id="cb1-49"><a href="#cb1-49"></a><span class="ss">- </span>Exécuter **`rm nul`**</span>
-<span id="cb1-50"><a href="#cb1-50"></a></span>
-<span id="cb1-51"><a href="#cb1-51"></a><span class="al">![clic droit + ouvrir la console (**git bash here**) + `rm nul`](img/img2.png)</span>{width=60% fig-align="left"}</span>
-<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a></span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="fu">## Extensions</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a></span>
+<span id="cb1-50"><a href="#cb1-50"></a>L'extension lightbox est très bien pour l'insersion d'image/graphique. </span>
+<span id="cb1-51"><a href="#cb1-51"></a>En local pour l'activer, elle doit être installée (si une fiche dans un répertoire, l'installer à chaque fois): </span>
+<span id="cb1-52"><a href="#cb1-52"></a>dans le terminal =&gt; <span class="in">`quarto add quarto-ext/lightbox`</span>. Si vous utilisez une autre extension, me l'indiquer que je l'installe dans le répertoire du support.</span>
 <span id="cb1-53"><a href="#cb1-53"></a></span>
-<span id="cb1-54"><a href="#cb1-54"></a><span class="al">![Le fichier est supprimé](img/img3.png)</span>{width=60% fig-align="left"}</span>
-<span id="cb1-55"><a href="#cb1-55"></a></span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="fu">## Lien documentation</span></span>
 <span id="cb1-56"><a href="#cb1-56"></a></span>
-<span id="cb1-57"><a href="#cb1-57"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a>De préférence, je préfèrerai qu'elle soit en début de document, sous le tableau des fonctions.</span>
 <span id="cb1-58"><a href="#cb1-58"></a></span>
 <span id="cb1-59"><a href="#cb1-59"></a></span>
 <span id="cb1-60"><a href="#cb1-60"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":true,"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom"});</script>
 
 
 

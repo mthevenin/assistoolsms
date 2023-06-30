@@ -1,0 +1,61 @@
+---
+title: "Pondérations normalisées avec R"
+
+categories:
+  - thème (cartographie, recodages)
+  - package1
+  - package2
+  
+author: 
+  - name: "XXXXXXXX"
+    affiliations:
+      - name: "Ined [et/ou autre]"
+
+date: mois/jour/2023
+
+# Si pas d'idée, par exemple pour R
+image: "https://www.r-project.org/Rlogo.png"
+
+format: 
+  html: default
+  docx: default
+#  pdf: default
+#  odt: default
+
+#filters:
+#  - lightbox
+#lightbox: auto
+
+
+abstract: | 
+ Penser à laisser un espace sur cette ligne. Le résumé doit apparaître en vert
+---
+
+## Tableau des fonctions utilisées dans la fiche
+
+Exemple de tableau des fonctions pour la fiche d'Elodie (on peut aller en mode visual sur un qmd vierge si on préfère). 
+Le titre est en dessous du tableau=> `: **Fonctions utilisées dans la fiche**`
+
+| Packages      | Fonctions                                       |
+|---------------|-------------------------------------------------|
+| **questionr** | `wtd.table` - `cprop` - `lprop`                 |
+| **survey**    | `svydesign` - `svytable` - `svymean` - `svyglm` |
+| **Base R**    | `mean`                                          |
+
+: **Fonctions utilisées dans la fiche**
+
+
+## Extensions
+
+L'extension lightbox est très bien pour l'insersion d'image/graphique. 
+En local pour l'activer, elle doit être installée (si une fiche dans un répertoire, l'installer à chaque fois): 
+dans le terminal => `quarto add quarto-ext/lightbox`. Si vous utilisez une autre extension, me l'indiquer que je l'installe dans le répertoire du support.
+
+
+## Lien documentation
+
+De préférence, je préfèrerai qu'elle soit en début de document, sous le tableau des fonctions.
+
+
+
+
