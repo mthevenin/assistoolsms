@@ -4,10 +4,8 @@ title: "Recodage multiple"
 # subtitle: ""
 
 categories:
-  - valeur manquante
-  - boucle
-  - dplyr
-  - recodage
+  - Boucle
+  - Recodage
   
 author: 
   - name: "Arno Muller"
@@ -32,6 +30,13 @@ code-annotations: below
 abstract: | 
  Lors du nettoyage des données, on peut être amené à appliquer le même recodage à plusieurs variables aux modalités similaire (valeurs manquantes, Ne sait pas, Batterie de variables semblables, ... ). Pour éviter de copier-coller un même code, on peut facilement automatiser le processus sur R. 
 ---
+
+| Packages      | Fonctions                                                       |
+|---------------|-----------------------------------------------------------------|
+| **dplyr**     | `mutate_all` - `mutate_if` - `mutate_at` - `ifelse` - `select`  |
+| **Base R**    | `as.data.frame` - `for` - `grep` - `assign` - `get` - `paste`   |
+
+: **Fonctions utilisées dans la fiche**
 
 
 Il existe plusieurs solutions pour automatiser un recodage dans R, nous allons aborder certaines d'entre-elles mais cette liste est loin d'être exhaustive.
