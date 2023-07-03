@@ -5,7 +5,7 @@ title: "Récupérer et exécuter le test OLS de Grambsch-Therneau"
 # subtitle: ""
 
 categories:
-  - survival
+  - Test
   
 author: 
   - name: "Marc Thévenin"
@@ -29,6 +29,11 @@ abstract:  |
  Comment récupérer la variante du test de Grambsch-Therneau implémentée au package `survival` avant son passage à la v3. Permet de s'assurer une reproductibilité avec les autres applications statistiques (Stata, Sas, Python) avec des durées discrètes.
 
 ---
+
+| Package       | Fonctions                                       |
+|---------------|-------------------------------------------------|
+| **survival**  | `coxph` - `coxzph.old`                          |
+
 
 **Champ d'application** 
 

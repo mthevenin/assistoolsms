@@ -134,8 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-title column-body">
       <div class="quarto-title-block"><div><h1 class="title">Afficher des outputs de régression avec Jtools</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                                 <div class="quarto-categories">
-                <div class="quarto-category">jtools</div>
-                <div class="quarto-category">output</div>
+                <div class="quarto-category">Output</div>
               </div>
                   </div>
   </div>
@@ -199,6 +198,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<table class="table">
+<thead>
+<tr class="header">
+<th>Packages</th>
+<th>Fonctions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>jtools</strong></td>
+<td><code>summ</code></td>
+</tr>
+<tr class="even">
+<td><strong>survey</strong></td>
+<td><code>svydesign</code> <code>svyglm</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Base R</strong></td>
+<td><code>lm</code> <code>glm</code></td>
+</tr>
+</tbody>
+</table>
 <p><img src="https://jtools.jacob-long.com/logo.png" class="img-fluid" style="width:15.0%"></p>
 <ul>
 <li><a href="https://jtools.jacob-long.com/index.html">Documentation du package <strong>jtools</strong> (Jacob Long)</a></li>
@@ -248,33 +269,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="8" data-code-annotation="1" data-code-cell="annotated-cell-4">digits=4 =&gt; Les résultats sont reportés avec 4 décimales</span>
+<span data-code-annotation="1" data-code-lines="8" data-code-cell="annotated-cell-4">digits=4 =&gt; Les résultats sont reportés avec 4 décimales</span>
 </dd>
 </dl>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>MODEL INFO:
-Observations: 10351
-Dependent Variable: bpsystol
-Type: OLS linear regression 
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Observations</td>
+<td style="text-align: right;">10351</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Dependent variable</td>
+<td style="text-align: right;">bpsystol</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Type</td>
+<td style="text-align: right;">OLS linear regression</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">F(6,10344)</td>
+<td style="text-align: right;">552.2494</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">R²</td>
+<td style="text-align: right;">0.2426</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Adj. R²</td>
+<td style="text-align: right;">0.2422</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Est.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">S.E.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t val.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">(Intercept)</td>
+<td style="text-align: right;">102.2001</td>
+<td style="text-align: right;">0.8979</td>
+<td style="text-align: right;">113.8168</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">age</td>
+<td style="text-align: right;">0.6563</td>
+<td style="text-align: right;">0.0116</td>
+<td style="text-align: right;">56.5104</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(sex)Male</td>
+<td style="text-align: right;">4.0350</td>
+<td style="text-align: right;">0.3999</td>
+<td style="text-align: right;">10.0911</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">I(black)Not Black</td>
+<td style="text-align: right;">-4.6494</td>
+<td style="text-align: right;">0.6640</td>
+<td style="text-align: right;">-7.0019</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(region)NE</td>
+<td style="text-align: right;">0.2570</td>
+<td style="text-align: right;">0.5892</td>
+<td style="text-align: right;">0.4362</td>
+<td style="text-align: right;">0.6627</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">I(region)S</td>
+<td style="text-align: right;">-0.7920</td>
+<td style="text-align: right;">0.5450</td>
+<td style="text-align: right;">-1.4532</td>
+<td style="text-align: right;">0.1462</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(region)W</td>
+<td style="text-align: right;">-0.5221</td>
+<td style="text-align: right;">0.5543</td>
+<td style="text-align: right;">-0.9420</td>
+<td style="text-align: right;">0.3462</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><sup></sup> Standard errors: OLS</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tfoot>
 
-MODEL FIT:
-F(6,10344) = 552.2494, p = 0.0000
-R² = 0.2426
-Adj. R² = 0.2422 
-
-Standard errors: OLS
----------------------------------------------------------------
-                              Est.     S.E.     t val.        p
------------------------ ---------- -------- ---------- --------
-(Intercept)               102.2001   0.8979   113.8168   0.0000
-age                         0.6563   0.0116    56.5104   0.0000
-I(sex)Male                  4.0350   0.3999    10.0911   0.0000
-I(black)Not Black          -4.6494   0.6640    -7.0019   0.0000
-I(region)NE                 0.2570   0.5892     0.4362   0.6627
-I(region)S                 -0.7920   0.5450    -1.4532   0.1462
-I(region)W                 -0.5221   0.5543    -0.9420   0.3462
----------------------------------------------------------------</code></pre>
+</table>
+</div>
 </div>
 </div>
 </section>
@@ -289,36 +397,145 @@ I(region)W                 -0.5221   0.5543    -0.9420   0.3462
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="3" data-code-annotation="1" data-code-cell="annotated-cell-5">On ajoute des intervalles de confiance (<code>confint=TRUE</code>) et le report des estimateurs sous forme d’Odds Ratio (<code>exp=TRUE</code>)</span>
+<span data-code-annotation="1" data-code-lines="3" data-code-cell="annotated-cell-5">On ajoute des intervalles de confiance (<code>confint=TRUE</code>) et le report des estimateurs sous forme d’Odds Ratio (<code>exp=TRUE</code>)</span>
 </dd>
 </dl>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>MODEL INFO:
-Observations: 10351
-Dependent Variable: highbp
-Type: Generalized linear model
-  Family: binomial 
-  Link function: logit 
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Observations</td>
+<td style="text-align: right;">10351</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Dependent variable</td>
+<td style="text-align: right;">highbp</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Type</td>
+<td style="text-align: right;">Generalized linear model</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Family</td>
+<td style="text-align: right;">binomial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Link</td>
+<td style="text-align: right;">logit</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">χ²(6)</td>
+<td style="text-align: right;">1623.1601</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Pseudo-R² (Cragg-Uhler)</td>
+<td style="text-align: right;">0.1951</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Pseudo-R² (McFadden)</td>
+<td style="text-align: right;">0.1151</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">AIC</td>
+<td style="text-align: right;">12492.3709</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">BIC</td>
+<td style="text-align: right;">12543.0848</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">exp(Est.)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2.5%</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">97.5%</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">z val.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">(Intercept)</td>
+<td style="text-align: right;">0.0853</td>
+<td style="text-align: right;">0.0701</td>
+<td style="text-align: right;">0.1038</td>
+<td style="text-align: right;">-24.5720</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">age</td>
+<td style="text-align: right;">1.0496</td>
+<td style="text-align: right;">1.0469</td>
+<td style="text-align: right;">1.0524</td>
+<td style="text-align: right;">36.1832</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(sex)Male</td>
+<td style="text-align: right;">1.5483</td>
+<td style="text-align: right;">1.4223</td>
+<td style="text-align: right;">1.6856</td>
+<td style="text-align: right;">10.0890</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">I(black)Not Black</td>
+<td style="text-align: right;">0.5860</td>
+<td style="text-align: right;">0.5092</td>
+<td style="text-align: right;">0.6742</td>
+<td style="text-align: right;">-7.4663</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(region)NE</td>
+<td style="text-align: right;">1.1655</td>
+<td style="text-align: right;">1.0287</td>
+<td style="text-align: right;">1.3203</td>
+<td style="text-align: right;">2.4051</td>
+<td style="text-align: right;">0.0162</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">I(region)S</td>
+<td style="text-align: right;">1.0024</td>
+<td style="text-align: right;">0.8930</td>
+<td style="text-align: right;">1.1253</td>
+<td style="text-align: right;">0.0414</td>
+<td style="text-align: right;">0.9669</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(region)W</td>
+<td style="text-align: right;">1.0966</td>
+<td style="text-align: right;">0.9746</td>
+<td style="text-align: right;">1.2338</td>
+<td style="text-align: right;">1.5322</td>
+<td style="text-align: right;">0.1255</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><sup></sup> Standard errors: MLE</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tfoot>
 
-MODEL FIT:
-χ²(6) = 1623.1601, p = 0.0000
-Pseudo-R² (Cragg-Uhler) = 0.1951
-Pseudo-R² (McFadden) = 0.1151
-AIC = 12492.3709, BIC = 12543.0848 
-
-Standard errors: MLE
--------------------------------------------------------------------------
-                          exp(Est.)     2.5%    97.5%     z val.        p
------------------------ ----------- -------- -------- ---------- --------
-(Intercept)                  0.0853   0.0701   0.1038   -24.5720   0.0000
-age                          1.0496   1.0469   1.0524    36.1832   0.0000
-I(sex)Male                   1.5483   1.4223   1.6856    10.0890   0.0000
-I(black)Not Black            0.5860   0.5092   0.6742    -7.4663   0.0000
-I(region)NE                  1.1655   1.0287   1.3203     2.4051   0.0162
-I(region)S                   1.0024   0.8930   1.1253     0.0414   0.9669
-I(region)W                   1.0966   0.9746   1.2338     1.5322   0.1255
--------------------------------------------------------------------------</code></pre>
+</table>
+</div>
 </div>
 </div>
 </section>
@@ -326,38 +543,139 @@ I(region)W                   1.0966   0.9746   1.2338     1.5322   0.1255
 <h2 class="anchored" data-anchor-id="avec-la-fonction-svyglm-lien-logit">Avec la fonction <code>svyglm()</code> [lien logit]</h2>
 <p><a href="https://jtools.jacob-long.com/reference/summ.svyglm.html">Liste des options</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(survey)</span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>MODEL INFO:
-Observations: 10351
-Dependent Variable: highbp
-Type: Analysis of complex survey design 
- Family: binomial 
- Link function: logit 
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Observations</td>
+<td style="text-align: right;">10351</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Dependent variable</td>
+<td style="text-align: right;">highbp</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Type</td>
+<td style="text-align: right;">Survey-weighted generalized linear model</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Family</td>
+<td style="text-align: right;">binomial</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Link</td>
+<td style="text-align: right;">logit</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Pseudo-R² (Cragg-Uhler)</td>
+<td style="text-align: right;">0.1881</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Pseudo-R² (McFadden)</td>
+<td style="text-align: right;">0.1125</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">AIC</td>
+<td style="text-align: right;">12064.1922</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">exp(Est.)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2.5%</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">97.5%</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t val.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">(Intercept)</td>
+<td style="text-align: right;">0.0692</td>
+<td style="text-align: right;">0.0553</td>
+<td style="text-align: right;">0.0865</td>
+<td style="text-align: right;">-23.3763</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">age</td>
+<td style="text-align: right;">1.0530</td>
+<td style="text-align: right;">1.0497</td>
+<td style="text-align: right;">1.0562</td>
+<td style="text-align: right;">33.0767</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(sex)Male</td>
+<td style="text-align: right;">1.8298</td>
+<td style="text-align: right;">1.6529</td>
+<td style="text-align: right;">2.0256</td>
+<td style="text-align: right;">11.6459</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">I(black)Not Black</td>
+<td style="text-align: right;">0.5849</td>
+<td style="text-align: right;">0.4913</td>
+<td style="text-align: right;">0.6964</td>
+<td style="text-align: right;">-6.0259</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(region)NE</td>
+<td style="text-align: right;">1.1822</td>
+<td style="text-align: right;">1.0245</td>
+<td style="text-align: right;">1.3642</td>
+<td style="text-align: right;">2.2906</td>
+<td style="text-align: right;">0.0220</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">I(region)S</td>
+<td style="text-align: right;">0.9961</td>
+<td style="text-align: right;">0.8670</td>
+<td style="text-align: right;">1.1445</td>
+<td style="text-align: right;">-0.0549</td>
+<td style="text-align: right;">0.9562</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">I(region)W</td>
+<td style="text-align: right;">1.1225</td>
+<td style="text-align: right;">0.9737</td>
+<td style="text-align: right;">1.2940</td>
+<td style="text-align: right;">1.5928</td>
+<td style="text-align: right;">0.1112</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><sup></sup> Standard errors: Robust</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tfoot>
 
-MODEL FIT:
-Pseudo-R² (Cragg-Uhler) = 0.1881
-Pseudo-R² (McFadden) = 0.1125
-AIC = 12064.1922 
-
--------------------------------------------------------------------------
-                          exp(Est.)     2.5%    97.5%     t val.        p
------------------------ ----------- -------- -------- ---------- --------
-(Intercept)                  0.0692   0.0553   0.0865   -23.3763   0.0000
-age                          1.0530   1.0497   1.0562    33.0767   0.0000
-I(sex)Male                   1.8298   1.6529   2.0256    11.6459   0.0000
-I(black)Not Black            0.5849   0.4913   0.6964    -6.0259   0.0000
-I(region)NE                  1.1822   1.0245   1.3642     2.2906   0.0220
-I(region)S                   0.9961   0.8670   1.1445    -0.0549   0.9562
-I(region)W                   1.1225   0.9737   1.2940     1.5928   0.1112
--------------------------------------------------------------------------
-
-Estimated dispersion parameter = 0.984 </code></pre>
+</table>
+</div>
 </div>
 </div>
 
@@ -658,126 +976,132 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Afficher des outputs de régression avec Jtools"</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># subtitle: ""</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="an">categories:</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">  - jtools</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">  - output</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">  </span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">    affiliations:</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a></span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="an">date:</span><span class="co"> 06/21/2023</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="an">image:</span><span class="co"> "https://jtools.jacob-long.com/logo.png"</span></span>
-<span id="cb8-18"><a href="#cb8-18"></a></span>
-<span id="cb8-19"><a href="#cb8-19"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb8-20"><a href="#cb8-20"></a><span class="co">  html: default</span></span>
-<span id="cb8-21"><a href="#cb8-21"></a><span class="co">  docx: default</span></span>
-<span id="cb8-22"><a href="#cb8-22"></a><span class="co">#  pdf:  default</span></span>
-<span id="cb8-23"><a href="#cb8-23"></a></span>
-<span id="cb8-24"><a href="#cb8-24"></a><span class="co">#filters:</span></span>
-<span id="cb8-25"><a href="#cb8-25"></a><span class="co">#   - lightbox</span></span>
-<span id="cb8-26"><a href="#cb8-26"></a><span class="co">#lightbox: auto</span></span>
-<span id="cb8-27"><a href="#cb8-27"></a></span>
-<span id="cb8-28"><a href="#cb8-28"></a><span class="an">code-annotations:</span><span class="co"> below</span></span>
-<span id="cb8-29"><a href="#cb8-29"></a></span>
-<span id="cb8-30"><a href="#cb8-30"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb8-31"><a href="#cb8-31"></a><span class="co"> La fonction `summ` du package jtools (Jacob Long) permet d'obtenir des outputs de regression en format console de très bonne qualité. Il s'agit d'une très bonne alternative aux outputs par défaut. Ce package propose également des fonctionnalités d'exportation des outputs dans d'autres formats (html, docx, pdf ...) et des visualisations sous forme de graphique. Ces fonctionnalité ne seront pas traitées ici, l'accent étant mis sur la qualité d'un output console avec une durée d'exécution minimale. L'utilisation des fonctionnalités d'exportation, comme le très populaire package **`gtsummaty`** devrait être appliqué, selon nous, pour des raisons de durée d'exécution à un résultat final.</span></span>
-<span id="cb8-32"><a href="#cb8-32"></a><span class="co">---</span></span>
-<span id="cb8-33"><a href="#cb8-33"></a></span>
-<span id="cb8-34"><a href="#cb8-34"></a><span class="al">![](https://jtools.jacob-long.com/logo.png)</span>{width=15%}</span>
-<span id="cb8-35"><a href="#cb8-35"></a></span>
-<span id="cb8-36"><a href="#cb8-36"></a></span>
-<span id="cb8-37"><a href="#cb8-37"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Documentation du package **jtools** (Jacob Long)</span><span class="co">](https://jtools.jacob-long.com/index.html)</span></span>
-<span id="cb8-38"><a href="#cb8-38"></a><span class="ss">- </span>A ce jour, la maintenance du package est assurée <span class="co">[</span><span class="ot">version 2.2.1 à juin 2023</span><span class="co">]</span> </span>
-<span id="cb8-39"><a href="#cb8-39"></a><span class="ss">- </span>Les nombre de modèles pris en charge par le package est malheureusement assez réduit. On notera cependant la prise en charge de la fonction <span class="in">`svyglm`</span> du package survey. </span>
-<span id="cb8-40"><a href="#cb8-40"></a><span class="ss">- </span>Les fonctionnalités d'exportation ne seront pas traitées ici. </span>
-<span id="cb8-41"><a href="#cb8-41"></a></span>
-<span id="cb8-42"><a href="#cb8-42"></a><span class="fu"># **Installation**</span></span>
-<span id="cb8-43"><a href="#cb8-43"></a></span>
-<span id="cb8-44"><a href="#cb8-44"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb8-45"><a href="#cb8-45"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>)</span>
-<span id="cb8-46"><a href="#cb8-46"></a><span class="in">```</span></span>
-<span id="cb8-47"><a href="#cb8-47"></a></span>
-<span id="cb8-48"><a href="#cb8-48"></a>ou </span>
-<span id="cb8-49"><a href="#cb8-49"></a></span>
-<span id="cb8-50"><a href="#cb8-50"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb8-51"><a href="#cb8-51"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb8-52"><a href="#cb8-52"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jacob-long/jtools"</span>)</span>
-<span id="cb8-53"><a href="#cb8-53"></a><span class="in">```</span></span>
-<span id="cb8-54"><a href="#cb8-54"></a></span>
-<span id="cb8-55"><a href="#cb8-55"></a></span>
-<span id="cb8-56"><a href="#cb8-56"></a><span class="fu"># **Syntaxe de la fonction `summ()`**  </span></span>
-<span id="cb8-57"><a href="#cb8-57"></a></span>
-<span id="cb8-58"><a href="#cb8-58"></a>La syntaxe est particulièrement simple, elle consiste juste à appliquée à la fonction <span class="in">`summ()`</span> l'objet généré par la régression. Quelques options comme <span class="in">`digits`</span>, <span class="in">`confint`</span>, <span class="in">`exp`</span> permettent d'améliorer et enrichir l'output.</span>
-<span id="cb8-59"><a href="#cb8-59"></a></span>
-<span id="cb8-60"><a href="#cb8-60"></a><span class="in">```{r filename="syntaxe minimale", eval=FALSE}</span></span>
-<span id="cb8-61"><a href="#cb8-61"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x , <span class="at">data=</span>df)</span>
-<span id="cb8-62"><a href="#cb8-62"></a><span class="fu">summ</span>(fit)</span>
-<span id="cb8-63"><a href="#cb8-63"></a><span class="in">```</span></span>
-<span id="cb8-64"><a href="#cb8-64"></a></span>
-<span id="cb8-65"><a href="#cb8-65"></a></span>
-<span id="cb8-66"><a href="#cb8-66"></a><span class="fu"># **Exemples [^1]**</span></span>
-<span id="cb8-67"><a href="#cb8-67"></a></span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="ot">[^1]: </span>mesure de la tension artérielle (<span class="in">`lm`</span>) et du risque d'hypertension (<span class="in">`glm`</span> et <span class="in">`svyglm`</span>)</span>
-<span id="cb8-69"><a href="#cb8-69"></a></span>
-<span id="cb8-70"><a href="#cb8-70"></a></span>
-<span id="cb8-71"><a href="#cb8-71"></a><span class="fu">## Avec la fonction `lm()`</span></span>
-<span id="cb8-72"><a href="#cb8-72"></a></span>
-<span id="cb8-73"><a href="#cb8-73"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.lm.html)</span></span>
-<span id="cb8-74"><a href="#cb8-74"></a></span>
-<span id="cb8-77"><a href="#cb8-77"></a><span class="in">```{r}</span></span>
-<span id="cb8-78"><a href="#cb8-78"></a><span class="fu">library</span>(jtools)</span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="fu">library</span>(readr)</span>
-<span id="cb8-80"><a href="#cb8-80"></a></span>
-<span id="cb8-81"><a href="#cb8-81"></a>df <span class="ot">=</span>  <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/intro_logit/main/hypertension2.csv"</span>)</span>
-<span id="cb8-82"><a href="#cb8-82"></a></span>
-<span id="cb8-83"><a href="#cb8-83"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(bpsystol <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">data=</span>df)</span>
-<span id="cb8-84"><a href="#cb8-84"></a></span>
-<span id="cb8-85"><a href="#cb8-85"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>)  <span class="co">#&lt;1&gt;                                                       </span></span>
-<span id="cb8-86"><a href="#cb8-86"></a></span>
-<span id="cb8-87"><a href="#cb8-87"></a><span class="in">```</span></span>
-<span id="cb8-88"><a href="#cb8-88"></a></span>
-<span id="cb8-89"><a href="#cb8-89"></a></span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="ss">1. </span>digits=4 =&gt; Les résultats sont reportés avec 4 décimales      </span>
-<span id="cb8-91"><a href="#cb8-91"></a></span>
-<span id="cb8-92"><a href="#cb8-92"></a></span>
-<span id="cb8-93"><a href="#cb8-93"></a><span class="fu">## Avec la fonction `glm()` [lien logit]</span></span>
-<span id="cb8-94"><a href="#cb8-94"></a></span>
-<span id="cb8-95"><a href="#cb8-95"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.glm.html)</span></span>
-<span id="cb8-96"><a href="#cb8-96"></a></span>
-<span id="cb8-99"><a href="#cb8-99"></a><span class="in">```{r}</span></span>
-<span id="cb8-100"><a href="#cb8-100"></a>fit <span class="ot">=</span> <span class="fu">glm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">data=</span>df)   </span>
-<span id="cb8-101"><a href="#cb8-101"></a></span>
-<span id="cb8-102"><a href="#cb8-102"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)                                           <span class="co">#&lt;1&gt;</span></span>
-<span id="cb8-103"><a href="#cb8-103"></a></span>
-<span id="cb8-104"><a href="#cb8-104"></a><span class="in">```</span></span>
-<span id="cb8-105"><a href="#cb8-105"></a></span>
-<span id="cb8-106"><a href="#cb8-106"></a><span class="ss">1. </span>On ajoute des intervalles de confiance (<span class="in">`confint=TRUE`</span>) et le report des estimateurs sous forme d'Odds Ratio (<span class="in">`exp=TRUE`</span>)</span>
-<span id="cb8-107"><a href="#cb8-107"></a></span>
-<span id="cb8-108"><a href="#cb8-108"></a></span>
-<span id="cb8-109"><a href="#cb8-109"></a></span>
-<span id="cb8-110"><a href="#cb8-110"></a><span class="fu">## Avec la fonction `svyglm()` [lien logit]</span></span>
-<span id="cb8-111"><a href="#cb8-111"></a></span>
-<span id="cb8-112"><a href="#cb8-112"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.svyglm.html)</span></span>
-<span id="cb8-113"><a href="#cb8-113"></a></span>
-<span id="cb8-114"><a href="#cb8-114"></a><span class="in">```{r, message=FALSE, warning=FALSE}</span></span>
-<span id="cb8-115"><a href="#cb8-115"></a><span class="fu">library</span>(survey)</span>
-<span id="cb8-116"><a href="#cb8-116"></a></span>
-<span id="cb8-117"><a href="#cb8-117"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
-<span id="cb8-118"><a href="#cb8-118"></a></span>
-<span id="cb8-119"><a href="#cb8-119"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
-<span id="cb8-120"><a href="#cb8-120"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span>
-<span id="cb8-121"><a href="#cb8-121"></a><span class="in">```</span></span>
-<span id="cb8-122"><a href="#cb8-122"></a></span>
-<span id="cb8-123"><a href="#cb8-123"></a></span>
-<span id="cb8-124"><a href="#cb8-124"></a></span>
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Afficher des outputs de régression avec Jtools"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># subtitle: ""</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="an">categories:</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">  - Output</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">  </span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">    affiliations:</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="an">date:</span><span class="co"> 06/21/2023</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="an">image:</span><span class="co"> "https://jtools.jacob-long.com/logo.png"</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co">  html: default</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co">  docx: default</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="co">#  pdf:  default</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">#filters:</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#   - lightbox</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#lightbox: auto</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="an">code-annotations:</span><span class="co"> below</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="co"> La fonction `summ` du package jtools (Jacob Long) permet d'obtenir des outputs de regression en format console de très bonne qualité. Il s'agit d'une très bonne alternative aux outputs par défaut. Ce package propose également des fonctionnalités d'exportation des outputs dans d'autres formats (html, docx, pdf ...) et des visualisations sous forme de graphique. Ces fonctionnalité ne seront pas traitées ici, l'accent étant mis sur la qualité d'un output console avec une durée d'exécution minimale. L'utilisation des fonctionnalités d'exportation, comme le très populaire package **`gtsummaty`** devrait être appliqué, selon nous, pour des raisons de durée d'exécution à un résultat final.</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co">---</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a></span>
+<span id="cb5-33"><a href="#cb5-33"></a>| Packages      | Fonctions                                       |</span>
+<span id="cb5-34"><a href="#cb5-34"></a>|---------------|-------------------------------------------------|</span>
+<span id="cb5-35"><a href="#cb5-35"></a>| **jtools**    | <span class="in">`summ`</span>                                          |</span>
+<span id="cb5-36"><a href="#cb5-36"></a>| **survey**    | <span class="in">`svydesign`</span> <span class="in">`svyglm`</span>                            |</span>
+<span id="cb5-37"><a href="#cb5-37"></a>| **Base R**    | <span class="in">`lm`</span> <span class="in">`glm`</span>                                      |</span>
+<span id="cb5-38"><a href="#cb5-38"></a></span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="al">![](https://jtools.jacob-long.com/logo.png)</span>{width=15%}</span>
+<span id="cb5-41"><a href="#cb5-41"></a></span>
+<span id="cb5-42"><a href="#cb5-42"></a></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Documentation du package **jtools** (Jacob Long)</span><span class="co">](https://jtools.jacob-long.com/index.html)</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="ss">- </span>A ce jour, la maintenance du package est assurée <span class="co">[</span><span class="ot">version 2.2.1 à juin 2023</span><span class="co">]</span> </span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="ss">- </span>Les nombre de modèles pris en charge par le package est malheureusement assez réduit. On notera cependant la prise en charge de la fonction <span class="in">`svyglm`</span> du package survey. </span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="ss">- </span>Les fonctionnalités d'exportation ne seront pas traitées ici. </span>
+<span id="cb5-47"><a href="#cb5-47"></a></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="fu"># **Installation**</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>)</span>
+<span id="cb5-52"><a href="#cb5-52"></a><span class="in">```</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a></span>
+<span id="cb5-54"><a href="#cb5-54"></a>ou </span>
+<span id="cb5-55"><a href="#cb5-55"></a></span>
+<span id="cb5-56"><a href="#cb5-56"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb5-58"><a href="#cb5-58"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jacob-long/jtools"</span>)</span>
+<span id="cb5-59"><a href="#cb5-59"></a><span class="in">```</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a></span>
+<span id="cb5-61"><a href="#cb5-61"></a></span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="fu"># **Syntaxe de la fonction `summ()`**  </span></span>
+<span id="cb5-63"><a href="#cb5-63"></a></span>
+<span id="cb5-64"><a href="#cb5-64"></a>La syntaxe est particulièrement simple, elle consiste juste à appliquée à la fonction <span class="in">`summ()`</span> l'objet généré par la régression. Quelques options comme <span class="in">`digits`</span>, <span class="in">`confint`</span>, <span class="in">`exp`</span> permettent d'améliorer et enrichir l'output.</span>
+<span id="cb5-65"><a href="#cb5-65"></a></span>
+<span id="cb5-66"><a href="#cb5-66"></a><span class="in">```{r filename="syntaxe minimale", eval=FALSE}</span></span>
+<span id="cb5-67"><a href="#cb5-67"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x , <span class="at">data=</span>df)</span>
+<span id="cb5-68"><a href="#cb5-68"></a><span class="fu">summ</span>(fit)</span>
+<span id="cb5-69"><a href="#cb5-69"></a><span class="in">```</span></span>
+<span id="cb5-70"><a href="#cb5-70"></a></span>
+<span id="cb5-71"><a href="#cb5-71"></a></span>
+<span id="cb5-72"><a href="#cb5-72"></a><span class="fu"># **Exemples [^1]**</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a></span>
+<span id="cb5-74"><a href="#cb5-74"></a><span class="ot">[^1]: </span>mesure de la tension artérielle (<span class="in">`lm`</span>) et du risque d'hypertension (<span class="in">`glm`</span> et <span class="in">`svyglm`</span>)</span>
+<span id="cb5-75"><a href="#cb5-75"></a></span>
+<span id="cb5-76"><a href="#cb5-76"></a></span>
+<span id="cb5-77"><a href="#cb5-77"></a><span class="fu">## Avec la fonction `lm()`</span></span>
+<span id="cb5-78"><a href="#cb5-78"></a></span>
+<span id="cb5-79"><a href="#cb5-79"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.lm.html)</span></span>
+<span id="cb5-80"><a href="#cb5-80"></a></span>
+<span id="cb5-83"><a href="#cb5-83"></a><span class="in">```{r}</span></span>
+<span id="cb5-84"><a href="#cb5-84"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb5-85"><a href="#cb5-85"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-86"><a href="#cb5-86"></a></span>
+<span id="cb5-87"><a href="#cb5-87"></a>df <span class="ot">=</span>  <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/intro_logit/main/hypertension2.csv"</span>)</span>
+<span id="cb5-88"><a href="#cb5-88"></a></span>
+<span id="cb5-89"><a href="#cb5-89"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(bpsystol <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">data=</span>df)</span>
+<span id="cb5-90"><a href="#cb5-90"></a></span>
+<span id="cb5-91"><a href="#cb5-91"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>)  <span class="co">#&lt;1&gt;                                                       </span></span>
+<span id="cb5-92"><a href="#cb5-92"></a></span>
+<span id="cb5-93"><a href="#cb5-93"></a><span class="in">```</span></span>
+<span id="cb5-94"><a href="#cb5-94"></a></span>
+<span id="cb5-95"><a href="#cb5-95"></a></span>
+<span id="cb5-96"><a href="#cb5-96"></a><span class="ss">1. </span>digits=4 =&gt; Les résultats sont reportés avec 4 décimales      </span>
+<span id="cb5-97"><a href="#cb5-97"></a></span>
+<span id="cb5-98"><a href="#cb5-98"></a></span>
+<span id="cb5-99"><a href="#cb5-99"></a><span class="fu">## Avec la fonction `glm()` [lien logit]</span></span>
+<span id="cb5-100"><a href="#cb5-100"></a></span>
+<span id="cb5-101"><a href="#cb5-101"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.glm.html)</span></span>
+<span id="cb5-102"><a href="#cb5-102"></a></span>
+<span id="cb5-105"><a href="#cb5-105"></a><span class="in">```{r}</span></span>
+<span id="cb5-106"><a href="#cb5-106"></a>fit <span class="ot">=</span> <span class="fu">glm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">data=</span>df)   </span>
+<span id="cb5-107"><a href="#cb5-107"></a></span>
+<span id="cb5-108"><a href="#cb5-108"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)                                           <span class="co">#&lt;1&gt;</span></span>
+<span id="cb5-109"><a href="#cb5-109"></a></span>
+<span id="cb5-110"><a href="#cb5-110"></a><span class="in">```</span></span>
+<span id="cb5-111"><a href="#cb5-111"></a></span>
+<span id="cb5-112"><a href="#cb5-112"></a><span class="ss">1. </span>On ajoute des intervalles de confiance (<span class="in">`confint=TRUE`</span>) et le report des estimateurs sous forme d'Odds Ratio (<span class="in">`exp=TRUE`</span>)</span>
+<span id="cb5-113"><a href="#cb5-113"></a></span>
+<span id="cb5-114"><a href="#cb5-114"></a></span>
+<span id="cb5-115"><a href="#cb5-115"></a></span>
+<span id="cb5-116"><a href="#cb5-116"></a><span class="fu">## Avec la fonction `svyglm()` [lien logit]</span></span>
+<span id="cb5-117"><a href="#cb5-117"></a></span>
+<span id="cb5-118"><a href="#cb5-118"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.svyglm.html)</span></span>
+<span id="cb5-119"><a href="#cb5-119"></a></span>
+<span id="cb5-120"><a href="#cb5-120"></a><span class="in">```{r, message=FALSE, warning=FALSE}</span></span>
+<span id="cb5-121"><a href="#cb5-121"></a><span class="fu">library</span>(survey)</span>
+<span id="cb5-122"><a href="#cb5-122"></a></span>
+<span id="cb5-123"><a href="#cb5-123"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
+<span id="cb5-124"><a href="#cb5-124"></a></span>
+<span id="cb5-125"><a href="#cb5-125"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
+<span id="cb5-126"><a href="#cb5-126"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span>
+<span id="cb5-127"><a href="#cb5-127"></a><span class="in">```</span></span>
+<span id="cb5-128"><a href="#cb5-128"></a></span>
+<span id="cb5-129"><a href="#cb5-129"></a></span>
+<span id="cb5-130"><a href="#cb5-130"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

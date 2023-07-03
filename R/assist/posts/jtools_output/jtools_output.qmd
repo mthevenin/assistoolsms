@@ -4,8 +4,7 @@ title: "Afficher des outputs de régression avec Jtools"
 # subtitle: ""
 
 categories:
-  - jtools
-  - output
+  - Output
   
 author: 
   - name: "Marc Thévenin"
@@ -30,6 +29,13 @@ code-annotations: below
 abstract: | 
  La fonction `summ` du package jtools (Jacob Long) permet d'obtenir des outputs de regression en format console de très bonne qualité. Il s'agit d'une très bonne alternative aux outputs par défaut. Ce package propose également des fonctionnalités d'exportation des outputs dans d'autres formats (html, docx, pdf ...) et des visualisations sous forme de graphique. Ces fonctionnalité ne seront pas traitées ici, l'accent étant mis sur la qualité d'un output console avec une durée d'exécution minimale. L'utilisation des fonctionnalités d'exportation, comme le très populaire package **`gtsummaty`** devrait être appliqué, selon nous, pour des raisons de durée d'exécution à un résultat final.
 ---
+
+| Packages      | Fonctions                                       |
+|---------------|-------------------------------------------------|
+| **jtools**    | `summ`                                          |
+| **survey**    | `svydesign` `svyglm`                            |
+| **Base R**    | `lm` `glm`                                      |
+
 
 ![](https://jtools.jacob-long.com/logo.png){width=15%}
 

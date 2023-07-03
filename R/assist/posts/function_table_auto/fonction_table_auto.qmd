@@ -2,9 +2,8 @@
 title: "Fonction pour des tables automatiques"
 
 categories:
-  - Pondération
-  - Tables
-  - Exportation
+  - Tableau
+  - Output
   
 author: 
   - name: "Arno Muller"
