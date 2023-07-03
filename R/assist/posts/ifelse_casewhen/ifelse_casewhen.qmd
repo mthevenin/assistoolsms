@@ -1,13 +1,8 @@
 ---
-title: "Recoder des variables avec ifelse() ou case_when()"
-
-# subtitle: ""
+title: "Recoder des variables avec ifelse() - if_else - case_when()"
 
 categories:
-  - ifelse
-  - if_else
-  - case_when
-  - recodage
+  - Recodage
   
 author: 
   - name: "Arno Muller"
@@ -21,7 +16,6 @@ image: "https://www.r-project.org/Rlogo.png"
 format: 
   html: default
   docx: default
-#  pdf:  default
 
 filters:
   - lightbox
@@ -33,6 +27,14 @@ abstract: |
  Lors d'un recodage d'une variable, on peut être emmené à créer des catégories dépendantes d'une ou plusieurs conditions. Pour cela, la plus part des logiciels permettent des fonctions qui suivent le schéma : SI condition ALORS catégorie1 SINON catégorie2. 
  Sur R, plusieurs possibilités s'offrent à l'utilisateur.rice : notamment `ifelse()`, `if_else()`, `case_when()`.
 ---
+
+| Packages      | Fonctions                                       |
+|---------------|-------------------------------------------------|
+| **dplyr**     | `if_else` - `case_when` - `mutate`              |
+| **Base R**    | `ifelse` `table`                                |
+
+: **Fonctions utilisées dans la fiche**
+
 
 ![](img/Schema_ifelse_base.png){width="50%"}
 
