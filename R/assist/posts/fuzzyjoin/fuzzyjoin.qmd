@@ -2,9 +2,7 @@
 title: "Techniques appariements entre chaînes de caractères"
 
 categories:
-  - appariement
-  - stringdist
-  - fuzzyjoin
+  - Appariement
 
 author: 
   - name: "Arnaud Bringé"
@@ -39,6 +37,13 @@ Un des algorithmes les plus utilisés est l'**algorithme de Lehvenshtein**, qui 
 - Insertion de motifs. 
 - Suppression de motifs (équivalent à la règle précédente).
 - Substitution de motifs.
+
+
+| Packages       | Fonctions                                       |
+|----------------|-------------------------------------------------|
+| **stringdist** | `stringdist` - `amatch`                         |
+| **tidyverse**  | `inner_join`                                    |
+| **fuzzyjoin**  | `stringdist_inner_join`                         |
 
 
 Les packages utilisés seront les suivants:   

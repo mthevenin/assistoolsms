@@ -1,14 +1,9 @@
 ---
 title: "R avec VScode"
 
-# toc-title: ""
-# subtitle: ""
-
 categories:
-  - Interface
-  - IDE
-  - R
-  
+  - Editeur
+
 author: 
   - name: "Coralie Cottet"
     affiliations:
@@ -21,7 +16,6 @@ image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0
 format: 
   html: default
   docx: default
-#  pdf:  default
 
 filters:
    - lightbox
