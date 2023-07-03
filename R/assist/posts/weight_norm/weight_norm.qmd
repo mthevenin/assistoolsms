@@ -5,8 +5,6 @@ title: "Pondérations normalisées avec R"
 
 categories:
   - Pondération
-  - survey
-  - questionr
   
 author: 
   - name: "Elodie Baril"
