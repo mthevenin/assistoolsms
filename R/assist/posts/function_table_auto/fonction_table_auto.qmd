@@ -1,0 +1,521 @@
+---
+title: "Fonction pour des tables automatiques"
+
+categories:
+  - pondération
+  - tables
+  - export
+  
+author: 
+  - name: "Arno Muller"
+    affiliations:
+      - name: "Ined"
+
+date: 06/30/2023
+
+image: "https://www.r-project.org/Rlogo.png"
+
+format: 
+  html: default
+  docx: default
+
+filters:
+  - lightbox
+lightbox: auto
+
+code-annotations: below
+
+abstract: | 
+ Après avoir explorer des données, on peut vouloir compiler nos tables dans un même objet et l'exporter dans Excel pour les mettre en forme selon ses goûts. Il est possible d'automatiser le processus sur R.
+---
+
+# Introduction
+
+Il existe un large éventail de package R consacré à la gestion et la mise en forme de table et de tris croisés (`GT`, `flextable`, ...). S'ils sont souvent de grandes qualités, leur coût d'entrée peut être un peu élevé pour les utilisateurs.rices occasionnelles de R.
+
+Pour répondre aux besoins de ces derniers, vous trouverez ici une fonction qui permet de facilement compiler des tris à plats ou bivariées, pour explorer automatiquement un grand nombre de variables, utiliser une pondération et les exporter dans un document Excel.
+
+Pour une introduction aux tables et à la pondération, voir la [fiche](https://mthevenin.github.io/assistoolsms/R/assist/posts/weight_norm/weight_norm.html)
+
+## Données d'exemples
+
+Pour illustrer la mise en oeuvre de la fonction, on utilise les données d'exemples *hdv2003* du packages `questionr`. Ces données possèdent à la fois des variables sur des carastéristiques socio-démographiques, des pratiques et des goûts, et propose une variable de pondération : *poids*.
+
+```{r filename="Import des données d'exemples", warning=FALSE, message=FALSE}
+
+library(questionr)
+data("hdv2003")
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(DT)
+htmltools::tagList(DT::datatable(
+    hdv2003, 
+    extensions = 'Scroller', 
+    rownames = F, 
+    options = list(deferRender = F, 
+                   dom = 't',
+                   scrollY = 200,  
+                   scroller = TRUE, 
+                   scrollX = T,
+                   pageLength = 5)))
+```
+
+## Objectifs :
+
+-   Obtenir une table automatique avec les tris à plat d'un grand nombre de variables
+-   Croiser ces variables avec une variable choisie, par exemple le sexe ou la qualification et obtenir :
+    -   Les effectifs
+    -   Les pourcentages lignes
+    -   Les poucentages colonnes
+    -   Ajout d'un test du chi²
+-   Utiliser des pondérations
+-   Garder ou non les valeurs manquantes
+-   Exporter le tableau obtenu (Par exemple : image ci-dessous)
+
+![](img/ex_table.png){width="50%"}
+
+# Mise en oeuvre
+ 
+## Fonctionnement
+
+On utilise la fonction `table_auto()` qui ne fait partie d'aucun package, il faut donc la charger dans un premier temps dans R. Une fois la fonction chargée, il suffira de la lancer en renseignant les variables, et les options voulues (présence de valeurs manquantes, pondérations, exportation)
+
+## Paramètre de la fonction
+
++-----------------+--------------------------------------------------------------+
+| Paramètre       | Argument                                                     |
++=================+==============================================================+
+| **donnees**     | Une base de données                                          |
++-----------------+--------------------------------------------------------------+
+| **vars**        | Un vecteur avec les différentes variables en lignes          |
++-----------------+--------------------------------------------------------------+
+| **var_crois**   | -   Si vide : Tris à plat                                    |
+|                 |                                                              |
+|                 | -   Si une variable : Tris croisés                           |
++-----------------+--------------------------------------------------------------+
+| **table_type**  | -   Effectifs : "eff"                                        |
+|                 |                                                              |
+|                 | -   Pourcentage ligne : "pct_ligne"                          |
+|                 |                                                              |
+|                 | -   Pourcentage colonne : "pct_col"                          |
++-----------------+--------------------------------------------------------------+
+| **ponder**      | Une variable de pondération dans donnee                      |
++-----------------+--------------------------------------------------------------+
+| **val.manq**    | "oui" ou "non", garder ou non les valeurs manquantes         |
++-----------------+--------------------------------------------------------------+
+| **arrondi**     | Nombre de chiffre après la virgule                           |
++-----------------+--------------------------------------------------------------+
+| **sautdeligne** | "oui" ou "non", insérer une ligne vide entre chaque variable |
++-----------------+--------------------------------------------------------------+
+| **export_XLS**  | "oui" ou "non", si oui : création d'un fichier excel.        |
++-----------------+--------------------------------------------------------------+
+
+## Import de la fonction
+
+Lancer le code suivant, pour enregistrer la fonction dans l'environnement global : 
+
+```{r filename="Import de la fonction"}
+
+table_auto <- function(donnees, 
+                       vars, 
+                       var_crois   = NULL, 
+                       table_type  = "eff",
+                       ponder      = NULL, 
+                       val.manq    = "oui",
+                       arrondi     = 2, 
+                       sautdeligne = "oui",
+                       export_XLS  = "non"){
+  
+  ### GESTION LIBRARY ----
+  
+  # Liste des packages à charger
+  packages <- c("tidyverse", "questionr", "openxlsx")
+  
+  # Vérifier si les packages sont déjà installés
+  missing_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
+  
+  # Installer les packages manquants
+  if (length(missing_packages) > 0) {
+    message("Installation des packages manquants : ", paste(missing_packages, collapse = ", "))
+    install.packages(missing_packages, dependencies = TRUE)
+  }
+  
+  # Charger les packages
+  lapply(packages, require, character.only = TRUE)
+  
+  
+  
+  ### GESTION DES ERREURS ----
+  
+  # Vérification du parametre table_type
+  if (table_type != "eff" && table_type != "pct_ligne" && table_type != "pct_col") {
+    stop("Erreur : table_type doit être 'eff', 'pct_ligne', ou 'pct_col' ")
+  }
+  
+  # Vérification de parametre val.manq
+  if (val.manq != "oui" && val.manq != "non") {
+    stop("Erreur : val.manq doit être 'oui' ou 'non'")
+  }
+  
+  # Vérification de parametre sautdeligne
+  if (sautdeligne != "oui" && sautdeligne != "non") {
+    stop("Erreur : sautdeligne doit être 'oui' ou 'non'")
+  }
+  
+  # Vérification de parametre export_XLS
+  if (export_XLS != "oui" && export_XLS != "non") {
+    stop("Erreur : export_XLS doit être 'oui' ou 'non'")
+  }
+  
+  
+  ### GESTION DES PARAMETRES ----
+  
+  # Données : 
+  dt <- donnees
+  
+  # Variable à croiser : 
+  if(is.null(var_crois) == T){
+    var_crois_OK <- "NON"
+  } else{
+    var_crois_OK <- "OUI"
+  }
+  
+  # Variable pondération : 
+  if(is.null(ponder) == T){
+    ponder_calc <- rep(1,nrow(dt))
+  } else{
+    ponder_calc <- with(dt,get(ponder))
+  }
+  
+  # Valeurs manquantes
+  if(val.manq == "oui"){
+    NA_oupas <- "always"
+  } else if(val.manq == "non"){
+    NA_oupas <- "no"
+  }
+  
+  # Choix du type de pourcentage
+  if(table_type == "pct_ligne"){
+    pct_type <- 1
+  } else if(table_type == "pct_col"){
+    pct_type <- 2
+  }
+  
+  
+  ### CREATION DE LA TABLE EMPILEE ----
+  
+  # TABLE DES EFFECTIFS ----
+  if(table_type == "eff"){
+    
+    # Création table
+    desc_grp <- data.frame()
+    desc_T <- data.frame()
+    
+    for (i in c(1:length(vars))) {
+      
+      ### Création du tri à plat
+      desc_T <- rbind(desc_T,
+                      as.data.frame(wtd.table(dt[,vars[i]], 
+                                              weights = ponder_calc, 
+                                              useNA=NA_oupas)) %>% 
+                        rename(Levels = Var1,
+                               ENSEMBLE = Freq) %>%       
+                        mutate(Levels = as.character(Levels),
+                               Levels = if_else(is.na(Levels), "Val.Manq.", Levels)) %>% 
+                        mutate(Var = colnames(dt[vars[i]])) %>%  
+                        select(Var,Levels,ENSEMBLE))
+      
+      # Ajout de ligne blanche entre les variables
+      if(sautdeligne == "oui"){
+        desc_T <- rbind(desc_T, rep(NA, ncol(desc_T)))
+      }
+      
+      
+      ### Création tri croisé si var_crois_OK
+      if(var_crois_OK == "OUI"){
+        
+        
+        tab <- wtd.table(dt[,vars[i]], 
+                         with(dt,get(var_crois)),
+                         weights = ponder_calc, 
+                         useNA=NA_oupas)
+        
+        
+        
+        desc_grp <- rbind(desc_grp,
+                          as.data.frame(tab) %>% 
+                            pivot_wider(names_from = Var2, values_from = Freq) %>% 
+                            rename(Levels = Var1) %>% 
+                            mutate(Levels = as.character(Levels),
+                                   Levels = if_else(is.na(Levels), "Val.Manq.", Levels)) %>% 
+                            mutate(Var = colnames(dt[vars[i]]))    %>%
+                            mutate(pvalue = chisq.test(
+                              xtabs(ponder_calc~ 
+                                      get(colnames(dt[vars[i]]))+
+                                      get(var_crois),
+                                    data=dt))$p.value)              %>% 
+                            select(Var,Levels, everything()))
+        
+        # Ajout de ligne blanche entre les variables
+        if(sautdeligne == "oui"){
+          desc_grp <- rbind(desc_grp, rep(NA, ncol(desc_grp)))
+        }
+      }
+    }
+    
+    
+    
+    ## Création base finale propre pour trier croisé
+    if(var_crois_OK == "OUI"){
+      
+      desc_grp <- desc_grp %>% 
+        bind_cols(select(desc_T, "ENSEMBLE")) %>% 
+        mutate_at(colnames(.)[-c(1,2)], ~round(as.numeric(.),arrondi)) 
+      
+      tabdesc = as.data.frame(t(
+        c("", "ENSEMBLE", with(dt, round(wtd.table(get(var_crois), weights = ponder_calc, useNA=NA_oupas),2)),NA,sum(ponder_calc))))  %>%
+        `colnames<-`(colnames(desc_grp))
+      
+      if(sautdeligne == "oui"){
+        tabdesc <- rbind(tabdesc, rep(NA, ncol(tabdesc)))
+      }
+      
+      tabdesc <- tabdesc %>% 
+        rbind(desc_grp) %>% 
+        select(Var,Levels, ENSEMBLE, everything())
+      
+      
+      
+      ## Création base finale propre pour trier à plat
+    } else {
+      
+      desc_T <- desc_T %>% 
+        mutate_at(colnames(.)[-c(1,2)], ~round(as.numeric(.),arrondi)) 
+      
+      tabdesc = as.data.frame(t(
+        c("", "ENSEMBLE" ,sum(ponder_calc)))) %>%
+        `colnames<-`(colnames(desc_T))
+      
+      if(sautdeligne == "oui"){
+        tabdesc <- rbind(tabdesc, rep(NA, ncol(tabdesc)))
+      }
+      
+      tabdesc <- tabdesc %>% 
+        rbind(desc_T)
+    }
+    
+  }
+  
+  if(table_type %in% c("pct_ligne","pct_col")){
+    
+    desc_grp <- data.frame()
+    desc_T <- data.frame()
+    
+    
+    for (i in c(1:length(vars))) {
+      
+      
+      ### Création du tri à plat
+      desc_T <- rbind(desc_T,             
+                      as.data.frame(prop.table(
+                        wtd.table(dt[,vars[i]],  
+                                  weights = ponder_calc, 
+                                  useNA=NA_oupas))*100) %>% 
+                        rename(Levels = Var1,
+                               ENSEMBLE = Freq) %>%      
+                        mutate(Levels = as.character(Levels),
+                               Levels = if_else(is.na(Levels), "Val.Manq.", Levels)) %>% 
+                        mutate(Var = colnames(dt[vars[i]])) %>% 
+                        select(Var,Levels,ENSEMBLE))     
+      
+      
+      # Ajout de ligne blanche entre les variables
+      if(sautdeligne == "oui"){
+        desc_T <- rbind(desc_T, rep(NA, ncol(desc_T)))
+      }
+      
+      
+      ### Création tri croisé si var_crois_OK
+      if(var_crois_OK == "OUI"){
+        
+        
+        tab <- prop.table(wtd.table(dt[,vars[i]], 
+                                    with(dt,get(var_crois)),
+                                    weights = ponder_calc, 
+                                    useNA=NA_oupas),pct_type)*100
+        
+        
+        desc_grp <- rbind(desc_grp,
+                          as.data.frame(tab) %>% 
+                            pivot_wider(names_from = Var2, values_from = Freq) %>% 
+                            rename(Levels = Var1) %>% 
+                            mutate(Levels = as.character(Levels),
+                                   Levels = if_else(is.na(Levels), "Val.Manq.", Levels)) %>% 
+                            mutate_all(~ifelse(is.nan(.), 0, .)) %>% 
+                            mutate(Var = colnames(dt[vars[i]]))    %>% 
+                            mutate(pvalue = chisq.test(
+                              xtabs(ponder_calc~ 
+                                      get(colnames(dt[vars[i]]))+
+                                      get(var_crois),
+                                    data=dt))$p.value)    %>%
+                            select(Var,Levels, everything()))
+        
+        # Ajout de ligne blanche entre les variables
+        if(sautdeligne == "oui"){
+          desc_grp <- rbind(desc_grp, rep(NA, ncol(desc_grp)))
+        }
+      }
+    }
+    
+    
+    ## Création base finale propre pour trier croisé
+    if(var_crois_OK == "OUI"){
+      
+      # POUR POURCENTAGE LIGNE
+      if(pct_type == 1){
+        desc_grp <- desc_grp %>% 
+          bind_cols(desc_T %>% 
+                      mutate(ENSEMBLE= if_else(ENSEMBLE == 0, ENSEMBLE, 100)) %>% 
+                      select( "ENSEMBLE")) %>% 
+          mutate_at(colnames(.)[-c(1,2)], ~round(as.numeric(.),arrondi)) 
+        
+        tabdesc = as.data.frame(t(
+          c("", "ENSEMBLE", round(prop.table(with(dt, wtd.table(get(var_crois), weights = ponder_calc, useNA=NA_oupas)))*100,arrondi),
+            NA,100)))  %>%
+          `colnames<-`(colnames(desc_grp))
+        
+        if(sautdeligne == "oui"){
+          tabdesc <- rbind(tabdesc, rep(NA, ncol(tabdesc)))
+        }
+        
+        tabdesc <- tabdesc %>% 
+          rbind(desc_grp) %>% 
+          select(Var,Levels,ENSEMBLE, everything())
+        
+        # POUR POURCENTAGE COLONNES
+      } else if(pct_type == 2){
+        
+        desc_grp <- desc_grp %>% 
+          bind_cols(desc_T %>% 
+                      select( "ENSEMBLE")) %>% 
+          mutate_at(colnames(.)[-c(1,2)], ~round(as.numeric(.),arrondi)) 
+        
+        
+        tabdesc = as.data.frame(t(
+          c("", "ENSEMBLE", rep(100,length(with(dt,names(table(get(var_crois), useNA = NA_oupas))))),
+            NA,100)))  %>%
+          `colnames<-`(colnames(desc_grp))
+        
+        if(sautdeligne == "oui"){
+          tabdesc <- rbind(tabdesc, rep(NA, ncol(tabdesc)))
+        }
+        
+        tabdesc <- tabdesc %>% 
+          rbind(desc_grp) %>% 
+          select(Var,Levels,ENSEMBLE, everything())
+      }
+      
+      
+    } else {
+      # TRI A PLAT POURCENTAGE
+      desc_T <- desc_T %>% 
+        mutate_at(colnames(.)[-c(1,2)], ~round(as.numeric(.),arrondi)) 
+      
+      tabdesc = as.data.frame(t(
+        c("", "ENSEMBLE" ,100))) %>%
+        `colnames<-`(colnames(desc_T))
+      
+      if(sautdeligne == "oui"){
+        tabdesc <- rbind(tabdesc, rep(NA, ncol(tabdesc)))
+      }
+      
+      tabdesc <- tabdesc %>% 
+        rbind(desc_T)
+    }
+  }
+  
+  # Enregistrer le data.frame dans l'environnement global
+  assign("tabdesc", tabdesc, envir = .GlobalEnv)
+  
+  
+  # Export
+  if(export_XLS == "oui"){
+    # Spécifiez le nom du fichier Excel de destination
+    file_path <- "./table_empilee.xlsx"
+    # Créez un objet workbook
+    wb <- createWorkbook()
+    
+    # Ajoutez chaque data.frame en tant que feuille à l'objet workbook
+    addWorksheet(wb, table_type)
+    writeData(wb, table_type, tabdesc)
+    # Enregistrez l'objet workbook dans un fichier Excel
+    saveWorkbook(wb, file_path, overwrite = TRUE)
+  }
+  
+}
+
+```
+
+
+![](img/import_fct.png){width="75%"}
+
+
+## Choix des variables
+
+On définit les variables à croiser :
+
+```{r filename="Choix des variables"}
+
+vars      <- c("relig","trav.imp","trav.satisf","hard.rock","lecture.bd","peche.chasse","cuisine","bricol","cinema","sport"  )
+ponder    <- "poids"
+var_crois <- "sexe"
+
+
+```
+
+## Création du tableau empilé
+
+En lançant le code suivant, on crée le tableau **tabdesc**.
+
+```{r filename="Activation de la fonction", warning=FALSE, message=FALSE}
+table_auto(hdv2003,              # base de données
+           vars,                 # un vecteur avec les noms des variables
+           var_crois   = "sexe", # si NULL : tri à plat
+           table_type  = "eff",  # eff, pct_lign, ou pct_col
+           ponder      = NULL,   # mettre une variable de pondération
+           val.manq    = "non",  # si "oui" avec valeurs manquantes
+           arrondi     = 4,      # nb de chiffre après la virgule
+           sautdeligne = "oui",  # inserer une ligne blanche entre les variables
+           export_XLS  = "non")  # si "oui" export
+
+
+```
+
+```{r eval=FALSE}
+View(tabdesc)
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(DT)
+htmltools::tagList(DT::datatable(
+    tabdesc, 
+    extensions = 'Scroller', 
+    rownames = F, 
+    options = list(deferRender = F, 
+                   dom = 't',
+                   scrollY = 200,  
+                   scroller = TRUE, 
+                   scrollX = T,
+                   pageLength = 5)))
+```
+
+
+
+
+
+
+
+
