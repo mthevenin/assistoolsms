@@ -2,9 +2,9 @@
 title: "Fonction pour des tables automatiques"
 
 categories:
-  - pondération
-  - tables
-  - export
+  - Pondération
+  - Tables
+  - Exportation
   
 author: 
   - name: "Arno Muller"
@@ -17,7 +17,7 @@ image: "https://www.r-project.org/Rlogo.png"
 
 format: 
   html: default
-  docx: default
+#  docx: default
 
 filters:
   - lightbox
