@@ -82,5 +82,19 @@
     "title": "Fonction pour des tables automatiques",
     "section": "Création du tableau empilé",
     "text": "Création du tableau empilé\nEn lançant le code suivant, on crée le tableau tabdesc.\n\n\n\nActivation de la fonction\n\ntable_auto(hdv2003,              # base de données\n           vars,                 # un vecteur avec les noms des variables\n           var_crois   = \"sexe\", # si NULL : tri à plat\n           table_type  = \"eff\",  # eff, pct_lign, ou pct_col\n           ponder      = NULL,   # mettre une variable de pondération\n           val.manq    = \"non\",  # si \"oui\" avec valeurs manquantes\n           arrondi     = 4,      # nb de chiffre après la virgule\n           sautdeligne = \"oui\",  # inserer une ligne blanche entre les variables\n           export_XLS  = \"non\")  # si \"oui\" export\n\n\n\nView(tabdesc)"
+  },
+  {
+    "objectID": "R/assist/posts/import_json/JSON.html",
+    "href": "R/assist/posts/import_json/JSON.html",
+    "title": "Format JSON : de la liste au dataframe",
+    "section": "",
+    "text": "Fonctions utilisées dans la fiche\n\n\nPackages\nFonctions\n\n\n\n\njsonlite\nfromJSON\n\n\nrjson\nfromJSON\n\n\ndata.table\nrbindlist\n\n\nBase R\nas.data.frame - knitr - class"
+  },
+  {
+    "objectID": "R/assist/posts/import_json/JSON.html#footnotes",
+    "href": "R/assist/posts/import_json/JSON.html#footnotes",
+    "title": "Format JSON : de la liste au dataframe",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nhttps://ressources.data.sncf.com/explore/dataset/menus-des-bars-tgv/table/↩︎\nPour découvrir comment utiliser des listes : https://juba.github.io/tidyverse/16-structures-donnees.html#sec-listes↩︎"
   }
 ]

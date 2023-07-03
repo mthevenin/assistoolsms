@@ -4,10 +4,8 @@ title: "Format JSON : de la liste au dataframe"
 # subtitle: ""
 
 categories:
-  - JSON
-  - import
-  - list
-  - dataframe
+  - Json
+  - Importation
   
 author: 
   - name: "Arno Muller"
@@ -33,6 +31,15 @@ abstract: |
  Le format JSON est un format de plus en plus utilisé pour stocker des données, notamment pour les données issues du web. Cependant, sa structure particulière peut poser des problèmes pour obtenir un dataframe dans R.
 ---
 
+| Packages      | Fonctions                                       |
+|---------------|-------------------------------------------------|
+| **jsonlite**  | `fromJSON`                                      |
+| **rjson**     | `fromJSON`                                      |
+| **data.table**| `rbindlist`                                     |
+| **Base R**    | `as.data.frame` - `knitr` - `class`             |
+
+: **Fonctions utilisées dans la fiche**
+
 
 # Introduction
 
@@ -51,6 +58,7 @@ Pour les exemples ci-dessous nous utiliserons donc des données issues du site d
 
 # Importer des données avec `jsonlite`
 
+::: {.content-visible when-format="html"}
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -60,9 +68,15 @@ menu_TGV <- jsonlite::fromJSON("DATA/menus-des-bars-tgv.json")
 # Pour voir les 3 premières lignes
 library(knitr)
 kable(head(menu_TGV,3))
-
 ```
 
+::: 
+
+::: {.content-visible when-format="docx"}
+```{r message=FALSE, warning=FALSE}
+head(menu_TGV,3)
+```
+:::
 
 # Importer des données avec `rjson`
 
@@ -90,6 +104,8 @@ Dans notre cas plutôt simple, on remarque que la liste a autant d'élément que
 On va donc extraire ces informations et les compiler dans une base de donnée ordonnées.
 
 
+::: {.content-visible when-format="html"}
+
 ```{r warning=FALSE}
 
 # Convertir la liste en data frame par lignes
@@ -105,8 +121,24 @@ kable(head(menu_df2,3))
 
 ```
 
+:::
+
+::: {.content-visible when-format="docx"}
+
+```{r warning=FALSE}
+
+# Convertir la liste en data frame par lignes
+menu_df <- as.data.frame(do.call(rbind, menu_TGV))
+head(menu_df,3)
+```
 
 
+```{r warning=FALSE}
+# Même chose avec le package data.table
+library(data.table)
+menu_df2 <- rbindlist(menu_TGV)
+head(menu_df2,3)
 
+```
 
-
+:::
