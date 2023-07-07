@@ -48,7 +48,7 @@ toc: false
 ---
 
 
-<center>Version $\alpha$ juin 2023</center>
+<center>Version $\alpha +$ juillet 2023</center>
 
 
 <!-- Derniers ajouts R-->

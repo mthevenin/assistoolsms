@@ -1,0 +1,108 @@
+---
+title: "Utiliser R avec le notebook Jupyter"
+
+categories:
+  - Notebook
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 07/07/2023
+
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1200px-Jupyter_logo.svg.png"
+
+format: 
+  html: default
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+ On peut utiliser R avec le très populaire notebook Jupyter. Utilisé dans un navigateur, il permet de récupérer l'ensemble des cellules et les enregistrer dans un programme unique .R. Cette fiche décrit les différentes tapes pour utiliser ce notebook avec R, dans un navigateur ou avec l'Ide Vscode.
+---
+
+
+::: callout-tip
+
+Cliquer sur l'animation pour l'agrandir et la faire redémarrer au début
+
+:::
+
+
+# Installation
+
+## Ined
+
+- A l'Ined, l'installation de Python et Jupyter est directement accessible via le bureau vial'outil **Applined** mis à disposition par le Service Informatique. Dans la fenêtre de recherche: 
+ - Python puis l'installer.
+ - Jupyter puis l'installer.
+
+- Ouverture de Jupyter dans le navigateur: taper `cmd` dans la barre de recherche windows, puis `jupyter notebook`.  
+
+**Résumé des étapes**
+
+![](img/jupyter1.gif)
+
+## Hors Ined
+
+- La solution la plus simple est d'installer [Anaconda](https://www.anaconda.com/download), mais un nombre important d'applications seront installées. Je ne suis pas sur que, hors usage intensif de python, cela soit un quelconque intérêt.
+- Installer la version ***soft*** d'Anaconda, [miniconda](https://docs.conda.io/en/latest/miniconda.html), puis installer Jupyter via l'invit de commandes conda: `conda install jupyter` ou via l'invite de commandes window avec l'application de gestion des librairie Python ***pip***: `pip install jupyter`.  
+- L'ouverture de Jupyter se fera directement via un raccourci (conda) ou via l'invite de commande windows en tapant `jupyter noteboook`.
+
+
+# Installation du noyau R dans jupyter
+
+Vous pouvez suivre ce pas à pas: [lien](https://towardsdatascience.com/how-to-run-r-scripts-in-jupyter-15527148d2a). 
+
+Dans R:
+
+```markdown
+# install.packages("devtools")
+devtools::install_github("IRkernel/IRkernel")
+IRkernel::installspec()
+```
+
+# Utilisation du notebook
+
+- Aller dans *New*
+- Sélectionner le noyau R
+
+Par défaut, chaque nouvelle cellule est en mode *code*. Vous pouvez changer de mode dans une fenêtre (markdown, text, titre)
+
+![](img/jupyter2.gif)
+
+On peut exporter le notebook dans plusieurs formats. Cependant, la fonctionalité
+la plus intéressante est l'engistrement sous format .R de l'ensemble des cellules
+de type code. On obtient donc un programme complet.
+
+![](img/jupyter3.gif)
+
+Si on préfère on peut utiliser le notebook dans l'interface [Vscode](https://code.visualstudio.com/Download), il suffit d'y installer l'extension Jupyter.  
+
+- Permet d'avoir plusieurs notebook charger sur une interface, et de travailler parallèlement sur la console R [tutoriel d'installation](https://mthevenin.github.io/assistoolsms/R/assist/posts/R_vscode/R_vscode_doc.html).
+- Ne permet pas d'enregistrer l'ensemble des cellules en programme R.
+
+![](img/jupyter4.gif)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
