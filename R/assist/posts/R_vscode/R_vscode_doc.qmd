@@ -58,17 +58,6 @@ Maintenant que vous êtes sur VSCode, il faut cliquer sur l'icône situé sur le
 ![](img/icone_extension_vscode.png)
 
 
-::: callout-note
-
-## Pour Coralie (insertion d'image)
-
-* Plus facile d'utiliser `![](icone_extension_vscode.png)`
-* Tu peux ajouter des options type réduire la taille `![](icone_extension_vscode.png){width=70%}`
-* Ca permet d'appliquer des extensions à l'image, ici lightbox (voir captures plus bas)
-* La balise html classique ne permet pas l'exportation en format pdf
-
-:::
-
 Dans la barre de recherche il faut inscrire R, puis cliquer sur télécharger. 
 Télécharger également l'extension `Rtools` de la même manière que la précédente. Ensuite ouvrez un fichier en cliquant sur file, puis *new file* et selectionnez le langage dans lequel vous souhaitez coder (ici R). 
 
