@@ -1,0 +1,84 @@
+---
+title: "Transmettre un fichier html sans le répertoire associé généré automatiquement "
+
+categories:
+  - yaml
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 07/10/2023
+
+image: "https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg"
+
+format: 
+  html: default
+  docx: default
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+ Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l'intégralité de ces fichiers. Avec l'option `self_contained`, la page html est générée proprement sans fichiers additionnels.
+
+---
+
+Par défaut, en générant un simple page html avec quarto un répertoitre *nomfichier_html_files* est également créer.
+
+Par exemple on génère le fichier .qmd suivant, enregistré sous le nom **default.qmd**.  Le répertoire **default_html_files** est également généré lors du render de la page:
+
+
+![](img/img1.png){width=70%}  
+
+Le rendu html, conforme aux attentes, est le suivant:   
+
+
+![](img/img2.png){width=70%}
+
+
+Si on souhaite déplacer le fichier default.html seul, le répertoire *default_html_files* le suit inéxorablement. Même chose si on supprime le fichier html, le répertoire disparait également. 
+
+
+![](img/img3.gif){width=70%}
+
+Ainsi, si on transmet  seulement le fichier default.html, par exemple par mail, le rendu n'incorpera pas les éléments de styles et les éventuelles images présents dans le répertoire.
+
+
+![](img/img4.png){width=70%}
+
+**Solution**
+
+Ajouter l'option **`self-contained= true`** au yaml de la page
+
+```markdown
+
+---
+title: "html: self-contained"
+
+format: 
+  html: 
+    self-contained: true
+---
+
+```
+
+Le répertoire associé n'est plus généré lors du render, et tous les éléments qu'il comporte sont, comme sont nom l'indique, contenu dans la page html.
+
+![](img/img5.png){width=70%}
+
+Remarque: la taille du fichier html est bien évidemment plus élevée. Avec ce court exemple 938ko contre 22ko avec le répertoire associé.
+
+
+
+
+
+
+
+
+
+
+
+
