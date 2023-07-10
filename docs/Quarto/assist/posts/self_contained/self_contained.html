@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Transmettre un fichier html sans le répertoire associé généré automatiquement</title>
+<title>SMS_site - Transmettre un fichier html sans le répertoire *_html_libs généré automatiquement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,9 +135,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Transmettre un fichier html sans le répertoire associé généré automatiquement</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Transmettre un fichier html sans le répertoire *_html_libs généré automatiquement</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                                 <div class="quarto-categories">
                 <div class="quarto-category">yaml</div>
+                <div class="quarto-category">format</div>
               </div>
                   </div>
   </div>
@@ -521,78 +522,78 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Transmettre un fichier html sans le répertoire associé généré automatiquement "</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Transmettre un fichier html sans le répertoire *_html_libs généré automatiquement "</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="an">categories:</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="co">  - yaml</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">  </span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="an">date:</span><span class="co"> 07/10/2023</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="an">image:</span><span class="co"> "https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg"</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co">  html: default</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="co">  docx: default</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="an">filters:</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="co">   - lightbox</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb2-23"><a href="#cb2-23"></a></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="co"> Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l'intégralité de ces fichiers. Avec l'option `self_contained`, la page html est générée proprement sans fichiers additionnels.</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a></span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="co">---</span></span>
-<span id="cb2-28"><a href="#cb2-28"></a></span>
-<span id="cb2-29"><a href="#cb2-29"></a>Par défaut, en générant un simple page html avec quarto un répertoitre *nomfichier_html_files* est également créer.</span>
-<span id="cb2-30"><a href="#cb2-30"></a></span>
-<span id="cb2-31"><a href="#cb2-31"></a>Par exemple on génère le fichier .qmd suivant, enregistré sous le nom **default.qmd**.  Le répertoire **default_html_files** est également généré lors du render de la page:</span>
-<span id="cb2-32"><a href="#cb2-32"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">  - format</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">  </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">    affiliations:</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="an">date:</span><span class="co"> 07/10/2023</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="an">image:</span><span class="co"> "https://st4.depositphotos.com/28636338/38413/i/450/depositphotos_384138024-stock-photo-yaml-file-isolated-on-abstract.jpg"</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">  html: default</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">  docx: default</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="an">filters:</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co">   - lightbox</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co"> Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l'intégralité de ces fichiers. Avec l'option `self_contained`, la page html est générée proprement sans fichiers additionnels.</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co">---</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a>Par défaut, en générant un simple page html avec quarto un répertoitre *nomfichier_html_files* est également créer.</span>
+<span id="cb2-31"><a href="#cb2-31"></a></span>
+<span id="cb2-32"><a href="#cb2-32"></a>Par exemple on génère le fichier .qmd suivant, enregistré sous le nom **default.qmd**.  Le répertoire **default_html_files** est également généré lors du render de la page:</span>
 <span id="cb2-33"><a href="#cb2-33"></a></span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="al">![](img/img1.png)</span>{width=70%}  </span>
-<span id="cb2-35"><a href="#cb2-35"></a></span>
-<span id="cb2-36"><a href="#cb2-36"></a>Le rendu html, conforme aux attentes, est le suivant:   </span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
+<span id="cb2-34"><a href="#cb2-34"></a></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="al">![](img/img1.png)</span>{width=70%}  </span>
+<span id="cb2-36"><a href="#cb2-36"></a></span>
+<span id="cb2-37"><a href="#cb2-37"></a>Le rendu html, conforme aux attentes, est le suivant:   </span>
 <span id="cb2-38"><a href="#cb2-38"></a></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="al">![](img/img2.png)</span>{width=70%}</span>
-<span id="cb2-40"><a href="#cb2-40"></a></span>
+<span id="cb2-39"><a href="#cb2-39"></a></span>
+<span id="cb2-40"><a href="#cb2-40"></a><span class="al">![](img/img2.png)</span>{width=70%}</span>
 <span id="cb2-41"><a href="#cb2-41"></a></span>
-<span id="cb2-42"><a href="#cb2-42"></a>Si on souhaite déplacer le fichier default.html seul, le répertoire *default_html_files* le suit inéxorablement. Même chose si on supprime le fichier html, le répertoire disparait également. </span>
-<span id="cb2-43"><a href="#cb2-43"></a></span>
+<span id="cb2-42"><a href="#cb2-42"></a></span>
+<span id="cb2-43"><a href="#cb2-43"></a>Si on souhaite déplacer le fichier default.html seul, le répertoire *default_html_files* le suit inéxorablement. Même chose si on supprime le fichier html, le répertoire disparait également. </span>
 <span id="cb2-44"><a href="#cb2-44"></a></span>
-<span id="cb2-45"><a href="#cb2-45"></a><span class="al">![](img/img3.gif)</span>{width=70%}</span>
-<span id="cb2-46"><a href="#cb2-46"></a></span>
-<span id="cb2-47"><a href="#cb2-47"></a>Ainsi, si on transmet  seulement le fichier default.html, par exemple par mail, le rendu n'incorpera pas les éléments de styles et les éventuelles images présents dans le répertoire.</span>
-<span id="cb2-48"><a href="#cb2-48"></a></span>
+<span id="cb2-45"><a href="#cb2-45"></a></span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="al">![](img/img3.gif)</span>{width=70%}</span>
+<span id="cb2-47"><a href="#cb2-47"></a></span>
+<span id="cb2-48"><a href="#cb2-48"></a>Ainsi, si on transmet  seulement le fichier default.html, par exemple par mail, le rendu n'incorpera pas les éléments de styles et les éventuelles images présents dans le répertoire.</span>
 <span id="cb2-49"><a href="#cb2-49"></a></span>
-<span id="cb2-50"><a href="#cb2-50"></a><span class="al">![](img/img4.png)</span>{width=70%}</span>
-<span id="cb2-51"><a href="#cb2-51"></a></span>
-<span id="cb2-52"><a href="#cb2-52"></a>**Solution**</span>
-<span id="cb2-53"><a href="#cb2-53"></a></span>
-<span id="cb2-54"><a href="#cb2-54"></a>Ajouter l'option **`self-contained= true`** au yaml de la page</span>
-<span id="cb2-55"><a href="#cb2-55"></a></span>
-<span id="cb2-56"><a href="#cb2-56"></a><span class="in">```markdown</span></span>
-<span id="cb2-57"><a href="#cb2-57"></a></span>
-<span id="cb2-58"><a href="#cb2-58"></a>---</span>
-<span id="cb2-59"><a href="#cb2-59"></a>title: "html: self-contained"</span>
-<span id="cb2-60"><a href="#cb2-60"></a></span>
-<span id="cb2-61"><a href="#cb2-61"></a>format: </span>
-<span id="cb2-62"><a href="#cb2-62"></a>  html: </span>
-<span id="cb2-63"><a href="#cb2-63"></a>    self-contained: true</span>
-<span id="cb2-64"><a href="#cb2-64"></a>---</span>
-<span id="cb2-65"><a href="#cb2-65"></a></span>
-<span id="cb2-66"><a href="#cb2-66"></a><span class="in">```</span></span>
-<span id="cb2-67"><a href="#cb2-67"></a></span>
-<span id="cb2-68"><a href="#cb2-68"></a>Le répertoire associé n'est plus généré lors du render, et tous les éléments qu'il comporte sont, comme sont nom l'indique, contenu dans la page html.</span>
-<span id="cb2-69"><a href="#cb2-69"></a></span>
-<span id="cb2-70"><a href="#cb2-70"></a><span class="al">![](img/img5.png)</span>{width=70%}</span>
-<span id="cb2-71"><a href="#cb2-71"></a></span>
-<span id="cb2-72"><a href="#cb2-72"></a>Remarque: la taille du fichier html est bien évidemment plus élevée. Avec ce court exemple 938ko contre 22ko avec le répertoire associé.</span>
-<span id="cb2-73"><a href="#cb2-73"></a></span>
+<span id="cb2-50"><a href="#cb2-50"></a></span>
+<span id="cb2-51"><a href="#cb2-51"></a><span class="al">![](img/img4.png)</span>{width=70%}</span>
+<span id="cb2-52"><a href="#cb2-52"></a></span>
+<span id="cb2-53"><a href="#cb2-53"></a>**Solution**</span>
+<span id="cb2-54"><a href="#cb2-54"></a></span>
+<span id="cb2-55"><a href="#cb2-55"></a>Ajouter l'option **`self-contained= true`** au yaml de la page</span>
+<span id="cb2-56"><a href="#cb2-56"></a></span>
+<span id="cb2-57"><a href="#cb2-57"></a><span class="in">```markdown</span></span>
+<span id="cb2-58"><a href="#cb2-58"></a></span>
+<span id="cb2-59"><a href="#cb2-59"></a>---</span>
+<span id="cb2-60"><a href="#cb2-60"></a>title: "html: self-contained"</span>
+<span id="cb2-61"><a href="#cb2-61"></a></span>
+<span id="cb2-62"><a href="#cb2-62"></a>format: </span>
+<span id="cb2-63"><a href="#cb2-63"></a>  html: </span>
+<span id="cb2-64"><a href="#cb2-64"></a>    self-contained: true</span>
+<span id="cb2-65"><a href="#cb2-65"></a>---</span>
+<span id="cb2-66"><a href="#cb2-66"></a></span>
+<span id="cb2-67"><a href="#cb2-67"></a><span class="in">```</span></span>
+<span id="cb2-68"><a href="#cb2-68"></a></span>
+<span id="cb2-69"><a href="#cb2-69"></a>Le répertoire associé n'est plus généré lors du render, et tous les éléments qu'il comporte sont, comme sont nom l'indique, contenu dans la page html.</span>
+<span id="cb2-70"><a href="#cb2-70"></a></span>
+<span id="cb2-71"><a href="#cb2-71"></a><span class="al">![](img/img5.png)</span>{width=70%}</span>
+<span id="cb2-72"><a href="#cb2-72"></a></span>
+<span id="cb2-73"><a href="#cb2-73"></a>Remarque: la taille du fichier html est bien évidemment plus élevée. Avec ce court exemple 938ko contre 22ko avec le répertoire associé.</span>
 <span id="cb2-74"><a href="#cb2-74"></a></span>
 <span id="cb2-75"><a href="#cb2-75"></a></span>
 <span id="cb2-76"><a href="#cb2-76"></a></span>
@@ -602,10 +603,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-80"><a href="#cb2-80"></a></span>
 <span id="cb2-81"><a href="#cb2-81"></a></span>
 <span id="cb2-82"><a href="#cb2-82"></a></span>
-<span id="cb2-83"><a href="#cb2-83"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-83"><a href="#cb2-83"></a></span>
+<span id="cb2-84"><a href="#cb2-84"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":true,"openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":true,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox"});</script>
 
 
 

@@ -1,8 +1,9 @@
 ---
-title: "Transmettre un fichier html sans le répertoire associé généré automatiquement "
+title: "Transmettre un fichier html sans le répertoire *_html_libs généré automatiquement "
 
 categories:
   - yaml
+  - format
   
 author: 
   - name: "Marc Thévenin"
@@ -11,7 +12,7 @@ author:
 
 date: 07/10/2023
 
-image: "https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg"
+image: "https://st4.depositphotos.com/28636338/38413/i/450/depositphotos_384138024-stock-photo-yaml-file-isolated-on-abstract.jpg"
 
 format: 
   html: default
