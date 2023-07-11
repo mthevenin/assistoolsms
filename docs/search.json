@@ -382,7 +382,7 @@
     "href": "R/assist/posts/addins/addins.html",
     "title": "Produire des graphiques et recoder des variables sans écrire de code R",
     "section": "",
-    "text": "Fonctions utilisées dans la fiche\n\n\nPackages\nFonctions\n\n\n\n\nesquisse\nggplot2\n\n\nquestionr\nirec\nDans cette fiche vous verrez comment utiliser des Addins associés à certains packages de R qui permettent de produire le code R de façon interactive pour :\nCes exemples s’inspire des fiches pédagogiques produites dans le cadre de l’école d’été du Collège International des Sciences Territoriales.\nLe fichier utilisé ici contient 10% des individus de la table Ménages extraite de l’enquête DHS passée au Bénin en 2017 (vague 7).\nDocumation:"
+    "text": "Fonctions utilisées dans la fiche\n\n\nPackages\nFonctions\n\n\n\n\nesquisse\nggplot2\n\n\nquestionr\nirec\nDans cette fiche vous verrez comment utiliser des Addins associés à certains packages de R qui permettent de produire le code R de façon interactive pour :\nCes exemples s’inspire des fiches pédagogiques produites dans le cadre de l’école d’été du Collège International des Sciences Territoriales.\nLe fichier utilisé ici contient 10% des individus de la table Ménages extraite de l’enquête DHS passée au Bénin en 2017 (vague 7).\nDocumentation:\nInstallation des packages"
   },
   {
     "objectID": "R/assist/posts/addins/addins.html#tableau-des-fonctions-utilisées-dans-la-fiche",

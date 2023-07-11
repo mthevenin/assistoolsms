@@ -186,8 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#lien-documentation" id="toc-lien-documentation" class="nav-link active" data-scroll-target="#lien-documentation">Lien documentation</a></li>
-  <li><a href="#addins-esquisse" id="toc-addins-esquisse" class="nav-link" data-scroll-target="#addins-esquisse">Addins esquisse</a>
+  <li><a href="#addins-esquisse" id="toc-addins-esquisse" class="nav-link active" data-scroll-target="#addins-esquisse">Addins esquisse</a>
   <ul class="collapse">
   <li><a href="#chargement-des-données" id="toc-chargement-des-données" class="nav-link" data-scroll-target="#chargement-des-données">Chargement des données</a></li>
   <li><a href="#production-dun-graphique" id="toc-production-dun-graphique" class="nav-link" data-scroll-target="#production-dun-graphique">Production d’un graphique</a></li>
@@ -232,9 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Ces exemples s’inspire des fiches pédagogiques produites dans le cadre de <a href="http://ee2023.netlify.app/">l’école d’été du Collège International des Sciences Territoriales</a>.</p>
 <p>Le fichier utilisé ici contient 10% des individus de la table <em>Ménages</em> extraite de l’<a href="http://dhsprogram.com/">enquête DHS</a> passée au Bénin en 2017 (vague 7).</p>
-<p>Documation:</p>
-<section id="lien-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="lien-documentation">Lien documentation</h2>
+<p><strong>Documentation</strong>:</p>
 <ul>
 <li><p><a href="http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html"><strong>RStudio Addins</strong></a> sont des extensions pour l’environnement de développement intégré (IDE) RStudio</p></li>
 <li><p><a href="http://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html"><strong>Débuter avec Esquisse</strong></a></p></li>
@@ -244,7 +241,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Installation des packages</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>install.packages("esquisse")</span>
 <span id="cb1-2"><a href="#cb1-2"></a>install.packages("questionr")</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="addins-esquisse" class="level1">
 <h1>Addins esquisse</h1>
 <div class="cell">
@@ -739,167 +735,165 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb6-40"><a href="#cb6-40"></a></span>
 <span id="cb6-41"><a href="#cb6-41"></a>Ces exemples s'inspire des fiches pédagogiques produites dans le cadre de <span class="co">[</span><span class="ot">l'école d'été du Collège International des Sciences Territoriales</span><span class="co">](http://ee2023.netlify.app/)</span>.</span>
 <span id="cb6-42"><a href="#cb6-42"></a></span>
-<span id="cb6-43"><a href="#cb6-43"></a>Le fichier utilisé ici contient 10% des individus de la table *Ménages* extraite de l'<span class="co">[</span><span class="ot">enquête DHS</span><span class="co">](http://dhsprogram.com/)</span> passée au Bénin en 2017 (vague 7).</span>
+<span id="cb6-43"><a href="#cb6-43"></a>Le fichier utilisé ici contient 10% des individus de la table *Ménages* extraite de l'<span class="co">[</span><span class="ot">enquête DHS</span><span class="co">](http://dhsprogram.com/)</span> passée au Bénin en 2017 (vague 7).    </span>
 <span id="cb6-44"><a href="#cb6-44"></a></span>
 <span id="cb6-45"><a href="#cb6-45"></a></span>
-<span id="cb6-46"><a href="#cb6-46"></a>Documation:  </span>
+<span id="cb6-46"><a href="#cb6-46"></a>**Documentation**:  </span>
 <span id="cb6-47"><a href="#cb6-47"></a></span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="fu">## Lien documentation</span></span>
+<span id="cb6-48"><a href="#cb6-48"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**RStudio Addins**</span><span class="co">](http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html)</span> sont des extensions pour l'environnement de développement intégré (IDE) RStudio</span>
 <span id="cb6-49"><a href="#cb6-49"></a></span>
-<span id="cb6-50"><a href="#cb6-50"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**RStudio Addins**</span><span class="co">](http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html)</span> sont des extensions pour l'environnement de développement intégré (IDE) RStudio</span>
+<span id="cb6-50"><a href="#cb6-50"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Débuter avec Esquisse**</span><span class="co">](http://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)</span></span>
 <span id="cb6-51"><a href="#cb6-51"></a></span>
-<span id="cb6-52"><a href="#cb6-52"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Débuter avec Esquisse**</span><span class="co">](http://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)</span></span>
+<span id="cb6-52"><a href="#cb6-52"></a><span class="ss">-   </span>Séminaire R à l'Usage des Sciences Sociales, <span class="co">[</span><span class="ot">*Esquisse, moins tu sais coder plus tu vas rigoler*</span><span class="co">](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)</span></span>
 <span id="cb6-53"><a href="#cb6-53"></a></span>
-<span id="cb6-54"><a href="#cb6-54"></a><span class="ss">-   </span>Séminaire R à l'Usage des Sciences Sociales, <span class="co">[</span><span class="ot">*Esquisse, moins tu sais coder plus tu vas rigoler*</span><span class="co">](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)</span></span>
+<span id="cb6-54"><a href="#cb6-54"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**package questionr**</span><span class="co">](http://juba.github.io/questionr/articles/recoding_addins.html)</span></span>
 <span id="cb6-55"><a href="#cb6-55"></a></span>
-<span id="cb6-56"><a href="#cb6-56"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**package questionr**</span><span class="co">](http://juba.github.io/questionr/articles/recoding_addins.html)</span></span>
-<span id="cb6-57"><a href="#cb6-57"></a></span>
+<span id="cb6-56"><a href="#cb6-56"></a></span>
+<span id="cb6-57"><a href="#cb6-57"></a>**Installation des packages**</span>
 <span id="cb6-58"><a href="#cb6-58"></a></span>
-<span id="cb6-59"><a href="#cb6-59"></a>**Installation des packages**</span>
-<span id="cb6-60"><a href="#cb6-60"></a></span>
-<span id="cb6-61"><a href="#cb6-61"></a><span class="in">```markdown</span></span>
-<span id="cb6-62"><a href="#cb6-62"></a>install.packages("esquisse")</span>
-<span id="cb6-63"><a href="#cb6-63"></a>install.packages("questionr")</span>
-<span id="cb6-64"><a href="#cb6-64"></a><span class="in">```</span></span>
-<span id="cb6-65"><a href="#cb6-65"></a></span>
+<span id="cb6-59"><a href="#cb6-59"></a><span class="in">```markdown</span></span>
+<span id="cb6-60"><a href="#cb6-60"></a>install.packages("esquisse")</span>
+<span id="cb6-61"><a href="#cb6-61"></a>install.packages("questionr")</span>
+<span id="cb6-62"><a href="#cb6-62"></a><span class="in">```</span></span>
+<span id="cb6-63"><a href="#cb6-63"></a></span>
+<span id="cb6-64"><a href="#cb6-64"></a></span>
+<span id="cb6-65"><a href="#cb6-65"></a><span class="fu"># Addins esquisse</span></span>
 <span id="cb6-66"><a href="#cb6-66"></a></span>
-<span id="cb6-67"><a href="#cb6-67"></a><span class="fu"># Addins esquisse</span></span>
-<span id="cb6-68"><a href="#cb6-68"></a></span>
+<span id="cb6-67"><a href="#cb6-67"></a></span>
+<span id="cb6-68"><a href="#cb6-68"></a><span class="in">```{r filename="Chargement du package et des données P3_Menages"}</span></span>
 <span id="cb6-69"><a href="#cb6-69"></a></span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="in">```{r filename="Chargement du package et des données P3_Menages"}</span></span>
-<span id="cb6-71"><a href="#cb6-71"></a></span>
-<span id="cb6-72"><a href="#cb6-72"></a><span class="fu">library</span>(esquisse)</span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="fu">load</span>(<span class="st">"datas/P3_Menages.RData"</span>)</span>
-<span id="cb6-74"><a href="#cb6-74"></a><span class="in">```</span></span>
-<span id="cb6-75"><a href="#cb6-75"></a></span>
+<span id="cb6-70"><a href="#cb6-70"></a><span class="fu">library</span>(esquisse)</span>
+<span id="cb6-71"><a href="#cb6-71"></a><span class="fu">load</span>(<span class="st">"datas/P3_Menages.RData"</span>)</span>
+<span id="cb6-72"><a href="#cb6-72"></a><span class="in">```</span></span>
+<span id="cb6-73"><a href="#cb6-73"></a></span>
+<span id="cb6-74"><a href="#cb6-74"></a></span>
+<span id="cb6-75"><a href="#cb6-75"></a>On peut accéder à **esquisse** via le menu **Addins** de RStudio et en sélectionnant **ggplot2 builder**.</span>
 <span id="cb6-76"><a href="#cb6-76"></a></span>
-<span id="cb6-77"><a href="#cb6-77"></a>On peut accéder à **esquisse** via le menu **Addins** de RStudio et en sélectionnant **ggplot2 builder**.</span>
+<span id="cb6-77"><a href="#cb6-77"></a><span class="al">![](img/img1.png)</span>{width=45%}</span>
 <span id="cb6-78"><a href="#cb6-78"></a></span>
-<span id="cb6-79"><a href="#cb6-79"></a><span class="al">![](img/img1.png)</span>{width=45%}</span>
+<span id="cb6-79"><a href="#cb6-79"></a>Ou directement par la console:</span>
 <span id="cb6-80"><a href="#cb6-80"></a></span>
-<span id="cb6-81"><a href="#cb6-81"></a>Ou directement par la console:</span>
-<span id="cb6-82"><a href="#cb6-82"></a></span>
-<span id="cb6-83"><a href="#cb6-83"></a><span class="in">```markdown</span></span>
-<span id="cb6-84"><a href="#cb6-84"></a>esquisser()</span>
-<span id="cb6-85"><a href="#cb6-85"></a><span class="in">```</span></span>
+<span id="cb6-81"><a href="#cb6-81"></a><span class="in">```markdown</span></span>
+<span id="cb6-82"><a href="#cb6-82"></a>esquisser()</span>
+<span id="cb6-83"><a href="#cb6-83"></a><span class="in">```</span></span>
+<span id="cb6-84"><a href="#cb6-84"></a></span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="fu">## Chargement des données</span></span>
 <span id="cb6-86"><a href="#cb6-86"></a></span>
-<span id="cb6-87"><a href="#cb6-87"></a><span class="fu">## Chargement des données</span></span>
+<span id="cb6-87"><a href="#cb6-87"></a>Lorsque l'application est ouverte, on accède directement à la fenêtre de chargement des données. Ici, comme les données ont été chargée dans R, elles sont directement accessibles **`&lt;\&gt;environnement`**.</span>
 <span id="cb6-88"><a href="#cb6-88"></a></span>
-<span id="cb6-89"><a href="#cb6-89"></a>Lorsque l'application est ouverte, on accède directement à la fenêtre de chargement des données. Ici, comme les données ont été chargée dans R, elles sont directement accessibles **`&lt;\&gt;environnement`**.</span>
+<span id="cb6-89"><a href="#cb6-89"></a><span class="al">![](img/img2.png)</span>{width=50%}</span>
 <span id="cb6-90"><a href="#cb6-90"></a></span>
-<span id="cb6-91"><a href="#cb6-91"></a><span class="al">![](img/img2.png)</span>{width=50%}</span>
+<span id="cb6-91"><a href="#cb6-91"></a>Sélection et visualisation de la table à l'aide de l'onglet **View**.</span>
 <span id="cb6-92"><a href="#cb6-92"></a></span>
-<span id="cb6-93"><a href="#cb6-93"></a>Sélection et visualisation de la table à l'aide de l'onglet **View**.</span>
+<span id="cb6-93"><a href="#cb6-93"></a><span class="al">![](img/img3.png)</span>{width=50%}</span>
 <span id="cb6-94"><a href="#cb6-94"></a></span>
-<span id="cb6-95"><a href="#cb6-95"></a><span class="al">![](img/img3.png)</span>{width=50%}</span>
+<span id="cb6-95"><a href="#cb6-95"></a>Sous le nom de chaque variable, on peut voir son *type R* : *integer, factor, character*.</span>
 <span id="cb6-96"><a href="#cb6-96"></a></span>
-<span id="cb6-97"><a href="#cb6-97"></a>Sous le nom de chaque variable, on peut voir son *type R* : *integer, factor, character*.</span>
+<span id="cb6-97"><a href="#cb6-97"></a>On peut visualiser les *modalités* associées aux variables avec le bouton **Data** (en bas de la fenêtre).</span>
 <span id="cb6-98"><a href="#cb6-98"></a></span>
-<span id="cb6-99"><a href="#cb6-99"></a>On peut visualiser les *modalités* associées aux variables avec le bouton **Data** (en bas de la fenêtre).</span>
+<span id="cb6-99"><a href="#cb6-99"></a><span class="al">![](img/img4.png)</span>{width=50%}</span>
 <span id="cb6-100"><a href="#cb6-100"></a></span>
-<span id="cb6-101"><a href="#cb6-101"></a><span class="al">![](img/img4.png)</span>{width=50%}</span>
+<span id="cb6-101"><a href="#cb6-101"></a><span class="fu">## Production d'un graphique</span></span>
 <span id="cb6-102"><a href="#cb6-102"></a></span>
-<span id="cb6-103"><a href="#cb6-103"></a><span class="fu">## Production d'un graphique</span></span>
+<span id="cb6-103"><a href="#cb6-103"></a>La fenêtre d'esquisse permet de *choisir* les données à représenter et *propose un graphique* adapté au type de la variable dans R. Ici une ***box-plot***</span>
 <span id="cb6-104"><a href="#cb6-104"></a></span>
-<span id="cb6-105"><a href="#cb6-105"></a>La fenêtre d'esquisse permet de *choisir* les données à représenter et *propose un graphique* adapté au type de la variable dans R. Ici une ***box-plot***</span>
+<span id="cb6-105"><a href="#cb6-105"></a><span class="al">![](img/img5.png)</span>{width=50%}</span>
 <span id="cb6-106"><a href="#cb6-106"></a></span>
-<span id="cb6-107"><a href="#cb6-107"></a><span class="al">![](img/img5.png)</span>{width=50%}</span>
+<span id="cb6-107"><a href="#cb6-107"></a>On Sélectionne les variables par un **glisser/déposer** dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, ... du package ggplot2). </span>
 <span id="cb6-108"><a href="#cb6-108"></a></span>
-<span id="cb6-109"><a href="#cb6-109"></a>On Sélectionne les variables par un **glisser/déposer** dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, ... du package ggplot2). </span>
+<span id="cb6-109"><a href="#cb6-109"></a>Le rôle de ces options sont données en cliquant sur le bouton *display settings* qui se trouve en haut à droite de la fenêtre principale.</span>
 <span id="cb6-110"><a href="#cb6-110"></a></span>
-<span id="cb6-111"><a href="#cb6-111"></a>Le rôle de ces options sont données en cliquant sur le bouton *display settings* qui se trouve en haut à droite de la fenêtre principale.</span>
+<span id="cb6-111"><a href="#cb6-111"></a><span class="al">![](img/img5b.png)</span>{width=50%}</span>
 <span id="cb6-112"><a href="#cb6-112"></a></span>
-<span id="cb6-113"><a href="#cb6-113"></a><span class="al">![](img/img5b.png)</span>{width=50%}</span>
-<span id="cb6-114"><a href="#cb6-114"></a></span>
+<span id="cb6-113"><a href="#cb6-113"></a></span>
+<span id="cb6-114"><a href="#cb6-114"></a>Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz <span class="co">[</span><span class="ot">From data to Viz</span><span class="co">](http://www.data-to-viz.com/)</span>.  </span>
 <span id="cb6-115"><a href="#cb6-115"></a></span>
-<span id="cb6-116"><a href="#cb6-116"></a>Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz <span class="co">[</span><span class="ot">From data to Viz</span><span class="co">](http://www.data-to-viz.com/)</span>.  </span>
-<span id="cb6-117"><a href="#cb6-117"></a></span>
+<span id="cb6-116"><a href="#cb6-116"></a></span>
+<span id="cb6-117"><a href="#cb6-117"></a>Pour l'exemple, on va représenter le nombre de ménages par pays d'enquête *hv000* avec un graphique en barres.</span>
 <span id="cb6-118"><a href="#cb6-118"></a></span>
-<span id="cb6-119"><a href="#cb6-119"></a>Pour l'exemple, on va représenter le nombre de ménages par pays d'enquête *hv000* avec un graphique en barres.</span>
+<span id="cb6-119"><a href="#cb6-119"></a><span class="al">![](img/img6.png)</span>{width=50%}</span>
 <span id="cb6-120"><a href="#cb6-120"></a></span>
-<span id="cb6-121"><a href="#cb6-121"></a><span class="al">![](img/img6.png)</span>{width=50%}</span>
+<span id="cb6-121"><a href="#cb6-121"></a>Si on souhaite modifier orienter les barres à l'horizontal (recommandé) on va dans l'onglet **Plot options** puis on coche ***Flip coordinate***.</span>
 <span id="cb6-122"><a href="#cb6-122"></a></span>
-<span id="cb6-123"><a href="#cb6-123"></a>Si on souhaite modifier orienter les barres à l'horizontal (recommandé) on va dans l'onglet **Plot options** puis on coche ***Flip coordinate***.</span>
+<span id="cb6-123"><a href="#cb6-123"></a>On utilise le bouton **Plot options** pour changer la disposition (ici barres horizontales).</span>
 <span id="cb6-124"><a href="#cb6-124"></a></span>
-<span id="cb6-125"><a href="#cb6-125"></a>On utilise le bouton **Plot options** pour changer la disposition (ici barres horizontales).</span>
+<span id="cb6-125"><a href="#cb6-125"></a><span class="al">![](img/img7.png)</span>{width=50%}</span>
 <span id="cb6-126"><a href="#cb6-126"></a></span>
-<span id="cb6-127"><a href="#cb6-127"></a><span class="al">![](img/img7.png)</span>{width=50%}</span>
+<span id="cb6-127"><a href="#cb6-127"></a>On peut égalemet changer les titres du graphique dans l'onglet **Ad Labels &amp; Titles**, et son apparence (couleurs, thème) dans l'onglet **Appearance**.</span>
 <span id="cb6-128"><a href="#cb6-128"></a></span>
-<span id="cb6-129"><a href="#cb6-129"></a>On peut égalemet changer les titres du graphique dans l'onglet **Ad Labels &amp; Titles**, et son apparence (couleurs, thème) dans l'onglet **Appearance**.</span>
+<span id="cb6-129"><a href="#cb6-129"></a>::: {layout-ncol=2}</span>
 <span id="cb6-130"><a href="#cb6-130"></a></span>
-<span id="cb6-131"><a href="#cb6-131"></a>::: {layout-ncol=2}</span>
+<span id="cb6-131"><a href="#cb6-131"></a><span class="al">![](img/img8.png)</span></span>
 <span id="cb6-132"><a href="#cb6-132"></a></span>
-<span id="cb6-133"><a href="#cb6-133"></a><span class="al">![](img/img8.png)</span></span>
+<span id="cb6-133"><a href="#cb6-133"></a><span class="al">![](img/img9.png)</span></span>
 <span id="cb6-134"><a href="#cb6-134"></a></span>
-<span id="cb6-135"><a href="#cb6-135"></a><span class="al">![](img/img9.png)</span></span>
+<span id="cb6-135"><a href="#cb6-135"></a>:::</span>
 <span id="cb6-136"><a href="#cb6-136"></a></span>
-<span id="cb6-137"><a href="#cb6-137"></a>:::</span>
-<span id="cb6-138"><a href="#cb6-138"></a></span>
+<span id="cb6-137"><a href="#cb6-137"></a></span>
+<span id="cb6-138"><a href="#cb6-138"></a><span class="fu">## Exporter le code</span></span>
 <span id="cb6-139"><a href="#cb6-139"></a></span>
-<span id="cb6-140"><a href="#cb6-140"></a><span class="fu">## Exporter le code</span></span>
+<span id="cb6-140"><a href="#cb6-140"></a>L'onglet **Code** affiche le code généré par l'application. On peut le récupérer par simple copier/coller</span>
 <span id="cb6-141"><a href="#cb6-141"></a></span>
-<span id="cb6-142"><a href="#cb6-142"></a>L'onglet **Code** affiche le code généré par l'application. On peut le récupérer par simple copier/coller</span>
+<span id="cb6-142"><a href="#cb6-142"></a><span class="al">![](img/img10.png)</span>{width=70%}</span>
 <span id="cb6-143"><a href="#cb6-143"></a></span>
-<span id="cb6-144"><a href="#cb6-144"></a><span class="al">![](img/img10.png)</span>{width=70%}</span>
+<span id="cb6-144"><a href="#cb6-144"></a>Comme l'interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction **`geom_bar()`** l'option <span class="in">`color="black"`</span></span>
 <span id="cb6-145"><a href="#cb6-145"></a></span>
-<span id="cb6-146"><a href="#cb6-146"></a>Comme l'interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction **`geom_bar()`** l'option <span class="in">`color="black"`</span></span>
-<span id="cb6-147"><a href="#cb6-147"></a></span>
-<span id="cb6-148"><a href="#cb6-148"></a></span>
-<span id="cb6-151"><a href="#cb6-151"></a><span class="in">```{r}</span></span>
-<span id="cb6-152"><a href="#cb6-152"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb6-153"><a href="#cb6-153"></a></span>
-<span id="cb6-154"><a href="#cb6-154"></a><span class="fu">ggplot</span>(P3_Menages) <span class="sc">+</span></span>
-<span id="cb6-155"><a href="#cb6-155"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv000) <span class="sc">+</span></span>
-<span id="cb6-156"><a href="#cb6-156"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#FF6992"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb6-157"><a href="#cb6-157"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-158"><a href="#cb6-158"></a>    <span class="at">x =</span> <span class="st">"Enquête"</span>,</span>
-<span id="cb6-159"><a href="#cb6-159"></a>    <span class="at">y =</span> <span class="st">"Nombre de ménages"</span>,</span>
-<span id="cb6-160"><a href="#cb6-160"></a>    <span class="at">title =</span> <span class="st">"Ménages par pays et vagues d'enquête"</span>,</span>
-<span id="cb6-161"><a href="#cb6-161"></a>    <span class="at">caption =</span> <span class="st">"Source: DHS 2017"</span></span>
-<span id="cb6-162"><a href="#cb6-162"></a>  ) <span class="sc">+</span></span>
-<span id="cb6-163"><a href="#cb6-163"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb6-164"><a href="#cb6-164"></a>  <span class="fu">theme_light</span>()</span>
-<span id="cb6-165"><a href="#cb6-165"></a><span class="in">```</span></span>
-<span id="cb6-166"><a href="#cb6-166"></a></span>
+<span id="cb6-146"><a href="#cb6-146"></a></span>
+<span id="cb6-149"><a href="#cb6-149"></a><span class="in">```{r}</span></span>
+<span id="cb6-150"><a href="#cb6-150"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-151"><a href="#cb6-151"></a></span>
+<span id="cb6-152"><a href="#cb6-152"></a><span class="fu">ggplot</span>(P3_Menages) <span class="sc">+</span></span>
+<span id="cb6-153"><a href="#cb6-153"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv000) <span class="sc">+</span></span>
+<span id="cb6-154"><a href="#cb6-154"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#FF6992"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb6-155"><a href="#cb6-155"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-156"><a href="#cb6-156"></a>    <span class="at">x =</span> <span class="st">"Enquête"</span>,</span>
+<span id="cb6-157"><a href="#cb6-157"></a>    <span class="at">y =</span> <span class="st">"Nombre de ménages"</span>,</span>
+<span id="cb6-158"><a href="#cb6-158"></a>    <span class="at">title =</span> <span class="st">"Ménages par pays et vagues d'enquête"</span>,</span>
+<span id="cb6-159"><a href="#cb6-159"></a>    <span class="at">caption =</span> <span class="st">"Source: DHS 2017"</span></span>
+<span id="cb6-160"><a href="#cb6-160"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-161"><a href="#cb6-161"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb6-162"><a href="#cb6-162"></a>  <span class="fu">theme_light</span>()</span>
+<span id="cb6-163"><a href="#cb6-163"></a><span class="in">```</span></span>
+<span id="cb6-164"><a href="#cb6-164"></a></span>
+<span id="cb6-165"><a href="#cb6-165"></a></span>
+<span id="cb6-166"><a href="#cb6-166"></a>L'animation qui suit résume les différentes étapes (cliquer sur l'image pour la faire redémarrer au début et l'agrandir)</span>
 <span id="cb6-167"><a href="#cb6-167"></a></span>
-<span id="cb6-168"><a href="#cb6-168"></a>L'animation qui suit résume les différentes étapes (cliquer sur l'image pour la faire redémarrer au début et l'agrandir)</span>
-<span id="cb6-169"><a href="#cb6-169"></a></span>
+<span id="cb6-168"><a href="#cb6-168"></a></span>
+<span id="cb6-169"><a href="#cb6-169"></a><span class="al">![](img/addins.gif)</span>{width=70%}</span>
 <span id="cb6-170"><a href="#cb6-170"></a></span>
-<span id="cb6-171"><a href="#cb6-171"></a><span class="al">![](img/addins.gif)</span>{width=70%}</span>
-<span id="cb6-172"><a href="#cb6-172"></a></span>
+<span id="cb6-171"><a href="#cb6-171"></a></span>
+<span id="cb6-172"><a href="#cb6-172"></a><span class="fu"># Addins de questionr</span></span>
 <span id="cb6-173"><a href="#cb6-173"></a></span>
-<span id="cb6-174"><a href="#cb6-174"></a><span class="fu"># Addins de questionr</span></span>
+<span id="cb6-174"><a href="#cb6-174"></a>De la même façon, *questionr* permet de générer du code à partir du menu **Tools/Addins** de RStudio).</span>
 <span id="cb6-175"><a href="#cb6-175"></a></span>
-<span id="cb6-176"><a href="#cb6-176"></a>De la même façon, *questionr* permet de générer du code à partir du menu **Tools/Addins** de RStudio).</span>
+<span id="cb6-176"><a href="#cb6-176"></a><span class="fu">### Préparation de l'environnement</span></span>
 <span id="cb6-177"><a href="#cb6-177"></a></span>
-<span id="cb6-178"><a href="#cb6-178"></a><span class="fu">### Préparation de l'environnement</span></span>
-<span id="cb6-179"><a href="#cb6-179"></a></span>
-<span id="cb6-182"><a href="#cb6-182"></a><span class="in">```{r}</span></span>
-<span id="cb6-183"><a href="#cb6-183"></a><span class="co"># Appel du package questionr</span></span>
-<span id="cb6-184"><a href="#cb6-184"></a><span class="fu">library</span>(questionr)</span>
-<span id="cb6-185"><a href="#cb6-185"></a><span class="co"># Si besoin, on charge la table à visualiser (ici P3_Menages)</span></span>
-<span id="cb6-186"><a href="#cb6-186"></a><span class="co">#load("datas/P3_Menages.RData")</span></span>
-<span id="cb6-187"><a href="#cb6-187"></a><span class="in">```</span></span>
+<span id="cb6-180"><a href="#cb6-180"></a><span class="in">```{r}</span></span>
+<span id="cb6-181"><a href="#cb6-181"></a><span class="co"># Appel du package questionr</span></span>
+<span id="cb6-182"><a href="#cb6-182"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb6-183"><a href="#cb6-183"></a><span class="co"># Si besoin, on charge la table à visualiser (ici P3_Menages)</span></span>
+<span id="cb6-184"><a href="#cb6-184"></a><span class="co">#load("datas/P3_Menages.RData")</span></span>
+<span id="cb6-185"><a href="#cb6-185"></a><span class="in">```</span></span>
+<span id="cb6-186"><a href="#cb6-186"></a></span>
+<span id="cb6-187"><a href="#cb6-187"></a><span class="al">![](img/img11.png)</span></span>
 <span id="cb6-188"><a href="#cb6-188"></a></span>
-<span id="cb6-189"><a href="#cb6-189"></a><span class="al">![](img/img11.png)</span></span>
+<span id="cb6-189"><a href="#cb6-189"></a>On accède à la fenêtre de recodage en cliquant sur **Levels recoding**. Par exemple pour la variable *Pays et vague de l'enquête (hv000)*. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).</span>
 <span id="cb6-190"><a href="#cb6-190"></a></span>
-<span id="cb6-191"><a href="#cb6-191"></a>On accède à la fenêtre de recodage en cliquant sur **Levels recoding**. Par exemple pour la variable *Pays et vague de l'enquête (hv000)*. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).</span>
+<span id="cb6-191"><a href="#cb6-191"></a><span class="al">![](img/img11b.png)</span>{width=70%}</span>
 <span id="cb6-192"><a href="#cb6-192"></a></span>
-<span id="cb6-193"><a href="#cb6-193"></a><span class="al">![](img/img11b.png)</span>{width=70%}</span>
+<span id="cb6-193"><a href="#cb6-193"></a>On change l'intitulé des modalités (bouton **Recodage**).</span>
 <span id="cb6-194"><a href="#cb6-194"></a></span>
-<span id="cb6-195"><a href="#cb6-195"></a>On change l'intitulé des modalités (bouton **Recodage**).</span>
+<span id="cb6-195"><a href="#cb6-195"></a><span class="al">![](img/img12.png)</span>{width=70%}</span>
 <span id="cb6-196"><a href="#cb6-196"></a></span>
-<span id="cb6-197"><a href="#cb6-197"></a><span class="al">![](img/img12.png)</span>{width=70%}</span>
+<span id="cb6-197"><a href="#cb6-197"></a>On génère le code et on visualise le résultat (bouton **Code et Résultat**).</span>
 <span id="cb6-198"><a href="#cb6-198"></a></span>
-<span id="cb6-199"><a href="#cb6-199"></a>On génère le code et on visualise le résultat (bouton **Code et Résultat**).</span>
+<span id="cb6-199"><a href="#cb6-199"></a><span class="al">![](img/img13.png)</span>{width=70%}</span>
 <span id="cb6-200"><a href="#cb6-200"></a></span>
-<span id="cb6-201"><a href="#cb6-201"></a><span class="al">![](img/img13.png)</span>{width=70%}</span>
-<span id="cb6-202"><a href="#cb6-202"></a></span>
-<span id="cb6-203"><a href="#cb6-203"></a>De la même façon, on peut changer l'ordre des modalités d'une variable en sélectionnant l'Addin **Levels Ordering**.</span>
+<span id="cb6-201"><a href="#cb6-201"></a>De la même façon, on peut changer l'ordre des modalités d'une variable en sélectionnant l'Addin **Levels Ordering**.</span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":true,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":true});</script>
 
 
 

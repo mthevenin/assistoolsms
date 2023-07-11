@@ -40,12 +40,10 @@ Dans cette fiche vous verrez comment utiliser des *Addins* associés à certains
 
 Ces exemples s'inspire des fiches pédagogiques produites dans le cadre de [l'école d'été du Collège International des Sciences Territoriales](http://ee2023.netlify.app/).
 
-Le fichier utilisé ici contient 10% des individus de la table *Ménages* extraite de l'[enquête DHS](http://dhsprogram.com/) passée au Bénin en 2017 (vague 7).
+Le fichier utilisé ici contient 10% des individus de la table *Ménages* extraite de l'[enquête DHS](http://dhsprogram.com/) passée au Bénin en 2017 (vague 7).    
 
 
-Documation:  
-
-## Lien documentation
+**Documentation**:  
 
 -   [**RStudio Addins**](http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html) sont des extensions pour l'environnement de développement intégré (IDE) RStudio
 
