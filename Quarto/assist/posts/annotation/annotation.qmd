@@ -1,12 +1,9 @@
 ---
 title: "Commenter des lignes de codes"
 
-# toc-title: ""
-# subtitle: ""
-
 categories:
   - Quarto 1.3
-  - Code block
+  - Code
   
 author: 
   - name: "Marc Thévenin"
@@ -84,7 +81,7 @@ ggsurvplot(fit, conf.int = TRUE, risk.table = TRUE)                             
 
 
 Par défaut, les commentaires s'affichent en dessous du bloc. Deux autres options sont disponibles, qui affichent le 
-commentaire à droite de chaque ligne. On doit ajouter dans le yaml de la page l'option `code-annotations: select`, ou `code-annotations: over`
+commentaire à droite de chaque ligne: une en passant sur la ligne( `code-annotations: over`) et une en cliquant sur la ligne `code-annotations: select`).
 
 
 ````markdown

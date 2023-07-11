@@ -1,9 +1,9 @@
 ---
-title: "Transmettre un fichier html sans le répertoire *_html_libs généré automatiquement "
+title: "Transmettre un fichier html sans le répertoire *_html_libs"
 
 categories:
-  - yaml
-  - format
+  - Yaml
+  - Format
   
 author: 
   - name: "Marc Thévenin"

@@ -1,13 +1,9 @@
 ---
 title: "Modification de l'apparence des outputs avec un fichier .scss"
 
-# toc-title: ""
-# subtitle: ""
-
 categories:
-  - Output
-  - scss
-  - css
+  - Scss
+  - Css
   
 author: 
   - name: "Marc Thévenin"
@@ -21,11 +17,9 @@ image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Colo
 format: 
   html: default
   docx: default
-#  pdf:  default
 
 filters:
    - lightbox
-#   - nutshell
 lightbox: auto
 
 abstract: | 

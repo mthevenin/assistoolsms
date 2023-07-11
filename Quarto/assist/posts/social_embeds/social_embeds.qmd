@@ -1,11 +1,8 @@
 ---
 title: "Insertion d'une vidéo Youtube ou Viméo"
 
-# toc-title: ""
-# subtitle: ""
-
 categories:
-  - extension
+  - Extension
   
 author: 
   - name: "Marc Thévenin"
