@@ -58,7 +58,7 @@ toc: false
 ::: {.zoom-image}
 
 
-# **Derniers ajouts R**
+# **Derniers ajouts [R](https://mthevenin.github.io/assistoolsms/R/)**
 
 ::: {#latest-content-R}
 :::
@@ -74,7 +74,7 @@ toc: false
 ::: {.zoom-image}
 
 
-# **Derniers ajouts Quarto**
+# **Derniers ajouts [Quarto](https://mthevenin.github.io/assistoolsms/Quarto/)**
 
 ::: {#latest-content-Quarto}
 :::
@@ -91,7 +91,7 @@ toc: false
 ::: {.listing-block}
 ::: {.zoom-image}
 
-# **Derniers ajouts autres**
+# **Derniers ajouts [Autres](https://mthevenin.github.io/assistoolsms/Autres/)**
 
 ::: {#latest-content-Autres}
 :::
