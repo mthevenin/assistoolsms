@@ -21,7 +21,7 @@ filters:
 lightbox: auto
 
 abstract: | 
- On peut utiliser R avec le très populaire notebook Jupyter. Utilisé dans un navigateur, il permet de récupérer l'ensemble des cellules et les enregistrer dans un programme unique .R. Cette fiche décrit les différentes tapes pour utiliser ce notebook avec R, dans un navigateur ou avec l'Ide Vscode.
+ On peut utiliser R avec le très populaire notebook Jupyter. Utilisé dans un navigateur, il permet de récupérer l'ensemble des cellules et les enregistrer dans un programme unique .R. Cette fiche décrit les différentes étapes pour utiliser ce notebook avec R, dans un navigateur ou avec l'Ide Vscode.
 ---
 
 
