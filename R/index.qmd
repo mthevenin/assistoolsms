@@ -15,6 +15,5 @@ listing:
   max-description-length: 300
 ---
 
-- Faire une présentation
-- Eventuellement recenser les ressources principales: JL,JUBA...
+
 
