@@ -439,5 +439,12 @@
     "title": "Produire des graphiques et recoder des variables sans écrire de code R",
     "section": "Exporter le code",
     "text": "Exporter le code\nL’onglet Code affiche le code généré par l’application. On peut le récupérer par simple copier/coller\n\n\n\n\n\nComme l’interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction geom_bar() l’option color=\"black\"\n\nlibrary(ggplot2)\n\nggplot(P3_Menages) +\n  aes(x = hv000) +\n  geom_bar(fill = \"#FF6992\", color=\"black\") +\n  labs(\n    x = \"Enquête\",\n    y = \"Nombre de ménages\",\n    title = \"Ménages par pays et vagues d'enquête\",\n    caption = \"Source: DHS 2017\"\n  ) +\n  coord_flip() +\n  theme_light()\n\n\n\n\n\n\n\n\nL’animation qui suit résume les différentes étapes (cliquer sur l’image pour la faire redémarrer au début et l’agrandir)"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "",
+    "section": "",
+    "text": "Code\n\n\n\nContributions par ordre alphabétique:\n\nElodie Baril  \nArnaud Bringé \nCoralie Cottet \nBénédicte Garnier  \nArno Mulller  \nMarc Thévenin  \n\nMaintenance du support: Marc Thévenin"
   }
 ]
