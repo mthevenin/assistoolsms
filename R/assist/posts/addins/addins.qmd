@@ -1,0 +1,200 @@
+---
+title: "Produire des graphiques et recoder des variables sans écrire de code R"
+
+date: 07/10/2023
+
+categories:
+  - Addins
+  - Graphique
+  - Recodage
+
+author: 
+  - name: "Bénédicte Garnier"
+    affiliations:
+      - name: "Ined"
+
+image: "http://dreamrs.github.io/esquisse/logo.png"
+
+filters:
+   - lightbox
+   
+lightbox: auto
+
+abstract: |
+ Rstudio possède des **Addins** qui permettent  d'exécuter des fonctions R de façon interactive. Le code généré peut être sauvegardé pour l'insérer dans ses scripts R. Nous illustrons notre propos ici avec les packages **esquisse** pour visualiser des données ou produire des graphiques simples  et **questionr** pour recoder des variables.
+
+---
+
+
+| Packages      | Fonctions |
+|---------------|-----------|
+| **esquisse**  | `ggplot2` |
+| **questionr** | `irec`    |
+
+: **Fonctions utilisées dans la fiche**
+
+Dans cette fiche vous verrez comment utiliser des *Addins* associés à certains packages de R qui permettent de produire le code R de façon interactive pour :  
+
+- Générer des graphiques exploratoires [addins **esquisse**] 
+- Recoder des variables [addins **questionr**]
+
+Ces exemples s'inspire des fiches pédagogiques produites dans le cadre de [l'école d'été du Collège International des Sciences Territoriales](http://ee2023.netlify.app/).
+
+Le fichier utilisé ici contient 10% des individus de la table *Ménages* extraite de l'[enquête DHS](http://dhsprogram.com/) passée au Bénin en 2017 (vague 7).
+
+
+Documation:  
+
+## Lien documentation
+
+-   [**RStudio Addins**](http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html) sont des extensions pour l'environnement de développement intégré (IDE) RStudio
+
+-   [**Débuter avec Esquisse**](http://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)
+
+-   Séminaire R à l'Usage des Sciences Sociales, [*Esquisse, moins tu sais coder plus tu vas rigoler*](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)
+
+-   [**package questionr**](http://juba.github.io/questionr/articles/recoding_addins.html)
+
+
+**Installation des packages**
+
+```markdown
+install.packages("esquisse")
+install.packages("questionr")
+```
+
+
+# Addins esquisse
+
+
+```{r filename="Chargement du package et des données P3_Menages"}
+
+library(esquisse)
+load("datas/P3_Menages.RData")
+```
+
+
+On peut accéder à **esquisse** via le menu **Addins** de RStudio et en sélectionnant **ggplot2 builder**.
+
+![](img/img1.png){width=45%}
+
+Ou directement par la console:
+
+```markdown
+esquisser()
+```
+
+## Chargement des données
+
+Lorsque l'application est ouverte, on accède directement à la fenêtre de chargement des données. Ici, comme les données ont été chargée dans R, elles sont directement accessibles **`<\>environnement`**.
+
+![](img/img2.png){width=50%}
+
+Sélection et visualisation de la table à l'aide de l'onglet **View**.
+
+![](img/img3.png){width=50%}
+
+Sous le nom de chaque variable, on peut voir son *type R* : *integer, factor, character*.
+
+On peut visualiser les *modalités* associées aux variables avec le bouton **Data** (en bas de la fenêtre).
+
+![](img/img4.png){width=50%}
+
+## Production d'un graphique
+
+La fenêtre d'esquisse permet de *choisir* les données à représenter et *propose un graphique* adapté au type de la variable dans R. Ici une ***box-plot***
+
+![](img/img5.png){width=50%}
+
+On Sélectionne les variables par un **glisser/déposer** dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, ... du package ggplot2). 
+
+Le rôle de ces options sont données en cliquant sur le bouton *display settings* qui se trouve en haut à droite de la fenêtre principale.
+
+![](img/img5b.png){width=50%}
+
+
+Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz [From data to Viz](http://www.data-to-viz.com/).  
+
+
+Pour l'exemple, on va représenter le nombre de ménages par pays d'enquête *hv000* avec un graphique en barres.
+
+![](img/img6.png){width=50%}
+
+Si on souhaite modifier orienter les barres à l'horizontal (recommandé) on va dans l'onglet **Plot options** puis on coche ***Flip coordinate***.
+
+On utilise le bouton **Plot options** pour changer la disposition (ici barres horizontales).
+
+![](img/img7.png){width=50%}
+
+On peut égalemet changer les titres du graphique dans l'onglet **Ad Labels & Titles**, et son apparence (couleurs, thème) dans l'onglet **Appearance**.
+
+::: {layout-ncol=2}
+
+![](img/img8.png)
+
+![](img/img9.png)
+
+:::
+
+
+## Exporter le code
+
+L'onglet **Code** affiche le code généré par l'application. On peut le récupérer par simple copier/coller
+
+![](img/img10.png){width=70%}
+
+Comme l'interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction **`geom_bar()`** l'option `color="black"`
+
+
+```{r}
+library(ggplot2)
+
+ggplot(P3_Menages) +
+  aes(x = hv000) +
+  geom_bar(fill = "#FF6992", color="black") +
+  labs(
+    x = "Enquête",
+    y = "Nombre de ménages",
+    title = "Ménages par pays et vagues d'enquête",
+    caption = "Source: DHS 2017"
+  ) +
+  coord_flip() +
+  theme_light()
+```
+
+
+L'animation qui suit résume les différentes étapes (cliquer sur l'image pour la faire redémarrer au début et l'agrandir)
+
+
+![](img/addins.gif){width=70%}
+
+
+# Addins de questionr
+
+De la même façon, *questionr* permet de générer du code à partir du menu **Tools/Addins** de RStudio).
+
+### Préparation de l'environnement
+
+```{r}
+# Appel du package questionr
+library(questionr)
+# Si besoin, on charge la table à visualiser (ici P3_Menages)
+#load("datas/P3_Menages.RData")
+```
+
+![](img/img11.png)
+
+On accède à la fenêtre de recodage en cliquant sur **Levels recoding**. Par exemple pour la variable *Pays et vague de l'enquête (hv000)*. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).
+
+![](img/img11b.png){width=70%}
+
+On change l'intitulé des modalités (bouton **Recodage**).
+
+![](img/img12.png){width=70%}
+
+On génère le code et on visualise le résultat (bouton **Code et Résultat**).
+
+![](img/img13.png){width=70%}
+
+De la même façon, on peut changer l'ordre des modalités d'une variable en sélectionnant l'Addin **Levels Ordering**.
+

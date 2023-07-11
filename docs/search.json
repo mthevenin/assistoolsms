@@ -376,5 +376,68 @@
     "title": "Commenter des lignes de codes",
     "section": "",
     "text": "A la suite d’une ligne de code on indique le numéro de l’annotation:\n\nligne de code    #&lt;1&gt;\nligne de code    #&lt;2&gt;\n\nA la suite du bloc, on commente chaque annotation:\n\n\nCommentaire annotation 1\n\n\nCommentaire annotation 2 etc…\n\n\n\n```r \n# Dans le bloc de codes\nlibrary(readr)                                                                                                    # &lt;1&gt;\nlibrary(survival)                                                                                                 \nlibrary(survminer)                                                                                                \n                       \ndf &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")      # &lt;2&gt;\n\nfit &lt;- survfit(Surv(stime, died) ~ 1, data = df )                                                                 # &lt;3&gt;\n\nggsurvplot(fit, conf.int = TRUE, risk.table = TRUE)                                                               # &lt;4&gt;\n\n```\n# Dans le corp du document .qmd à la suite du bloc\n\n1. Chargement des packages\n2. Chargement de la base\n3. Calcul des estimateurs de Kaplan-Meier\n4. Graphique de la fonction de survie avec `ggsurvplot`\nDonne le rendu suivant:\n\n1library(readr)\nlibrary(survival)                                                                                                 \nlibrary(survminer)                                                                                                \n                       \n2df &lt;- read.csv(\"https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv\")\n\n3fit &lt;- survfit(Surv(stime, died) ~ 1, data = df )\n\n4ggsurvplot(fit, conf.int = TRUE, risk.table = TRUE)\n\n\n1\n\nChargement des packages\n\n2\n\nChargement de la base\n\n3\n\nCalcul des estimateurs de Kaplan-Meier\n\n4\n\nGraphique de la fonction de survie avec ggsurvplot\n\n\n\n\n\n\n\n\n\n\n\nPar défaut, les commentaires s’affichent en dessous du bloc. Deux autres options sont disponibles, qui affichent le commentaire à droite de chaque ligne: une en passant sur la ligne( code-annotations: over) et une en cliquant sur la ligne code-annotations: select).\n---\ntitle: \"titre page\"\ncode-annotations: select\n---\n\n\n\n\n\nEn savoir plus"
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html",
+    "href": "R/assist/posts/addins/addins.html",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "",
+    "text": "Fonctions utilisées dans la fiche\n\n\nPackages\nFonctions\n\n\n\n\nesquisse\nggplot2\n\n\nquestionr\nirec\nDans cette fiche vous verrez comment utiliser des Addins associés à certains packages de R qui permettent de produire le code R de façon interactive pour :\nCes exemples s’inspire des fiches pédagogiques produites dans le cadre de l’école d’été du Collège International des Sciences Territoriales.\nLe fichier utilisé ici contient 10% des individus de la table Ménages extraite de l’enquête DHS passée au Bénin en 2017 (vague 7).\nDocumation:"
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#tableau-des-fonctions-utilisées-dans-la-fiche",
+    "href": "R/assist/posts/addins/addins.html#tableau-des-fonctions-utilisées-dans-la-fiche",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "",
+    "text": "Le titre est en dessous du tableau=&gt; : **Fonctions utilisées dans la fiche**\n\nFonctions utilisées dans la fiche\n\n\nPackages\nFonctions\n\n\n\n\nesquisse\nggplot2\n\n\nquestionr\nirec\n\n\n\nDans cette fiche vous verrez comment utiliser des Addins associés à certains packages de R qui permettent de produire le code R de façon interactive pour : - générer des graphiques exploratoires - recoder des variables\nCet exemple s’inspire des fiches pédagogiques produites dans le cadre de l’école d’été du Collège International des Sciences Territoriales.\nLe fichier utilisé ici contient 10% des individus de la table Ménages extraite de l’[enquête DHS] passée au Bénin en 2017 (vague 7)."
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#utilisation-doutils-interactifs-via-des-addins",
+    "href": "R/assist/posts/addins/addins.html#utilisation-doutils-interactifs-via-des-addins",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "Utilisation d’outils interactifs via des Addins",
+    "text": "Utilisation d’outils interactifs via des Addins\n\nPréparation de l’environnement\n\n# Appel du package Esquisse\nlibrary(esquisse)\n# On charge la table à visualiser (ici P3_Menages)\nload(\"datas/P3_Menages.RData\")\n\n\n\nVisualiser les données avec esquisse\nAccès à esquisse via le menu Addins de RStudio et sélection de ggplot2 builder.\n\n\n\n\n\n\n\n\n\n\nSélection de la table et visualiser à l’aide du bouton View.\n\n\n\n\n\nSous le nom de chaque variable, on peut voir son type R : integer, factor, character.\nVisualiser les modalités des variables avec le bouton Data (bas de la fenêtre).\n\n\n\n\n\n\n\nProduire des graphiques\nLa fenêtre d’esquisse permet de choisir les données à représenter et propose un graphique adapté au type de la variable dans R.\n\n\n\n\n\nSélection des variables par un glisser/déposer dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, … du package ggplot2).\nPour en savoir plus sur les graphiques à produire en fonction des données à représenter voir le site de Y. Holtz From data to Viz\nIci va représenter le nombre de ménages par pays d’enquête hv000 avec un graphique en barres.\n\n\n\n\n\nOn utilise le bouton Plot options pour changer la disposition (ici barres horizontales).\n\n\n\n\n\nOn change les titres du graphique avec le bouton Ad Labels & Titles.\n\n\n\n\n\n\n\nExporter le code\nOn utilise le bouton Code pour copier/coller le code généré."
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#recoder-des-variables-avec-questionr",
+    "href": "R/assist/posts/addins/addins.html#recoder-des-variables-avec-questionr",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "Recoder des variables avec questionr",
+    "text": "Recoder des variables avec questionr\nDe la même façon, questionr permet de générer du code à partir du menu Tools/Addins de RStudio).\n\nPréparation de l’environnement\n\n# Appel du package questionr\nlibrary(questionr)\n\nWarning: le package 'questionr' a été compilé avec la version R 4.3.1\n\n# Si besoin, on charge la table à visualiser (ici P3_Menages)\nload(\"datas/P3_Menages.RData\")\n\n\n\n\n\n\nOn accède à la fenêtre de recodage. Par exemple pour la variable Pays et vague de l’enquête (hv000). On peut modifier le nom et type de varaible à générer (ici hv000_rec de type caractère).\n\n\n\n\n\nOn change l’intitulé des modalités (bouton Recodage).\n\n\n\n\n\nOn génère le code et on visualise le résultat (bouton Code et Résultat).\n\n\n\n\n\nDe la même façon, on peut changer l’ordre des modalités d’une variable en sélectionnant l’Addin Levels Ordering."
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#extensions",
+    "href": "R/assist/posts/addins/addins.html#extensions",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "Extensions",
+    "text": "Extensions\nL’extension lightbox est très bien pour l’insersion d’image/graphique. En local pour l’activer, elle doit être installée (si une fiche dans un répertoire, l’installer à chaque fois): dans le terminal =&gt; quarto add quarto-ext/lightbox. Si vous utilisez une autre extension, me l’indiquer que je l’installe dans le répertoire du support."
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#lien-documentation",
+    "href": "R/assist/posts/addins/addins.html#lien-documentation",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "Lien documentation",
+    "text": "Lien documentation\n\nRStudio Addins sont des extensions pour l’environnement de développement intégré (IDE) RStudio\nDébuter avec Esquisse\nSéminaire R à l’Usage des Sciences Sociales, Esquisse, moins tu sais coder plus tu vas rigoler\npackage questionr\n\nInstallation des packages\ninstall.packages(\"esquisse\")\ninstall.packages(\"questionr\")"
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#chargement-des-données",
+    "href": "R/assist/posts/addins/addins.html#chargement-des-données",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "Chargement des données",
+    "text": "Chargement des données\nLorsque l’application est ouverte, on accède directement à la fenêtre de chargement des données. Ici, comme les données ont été chargée dans R, elles sont directement accessibles &lt;\\&gt;environnement.\n\n\n\n\n\nSélection et visualisation de la table à l’aide de l’onglet View.\n\n\n\n\n\nSous le nom de chaque variable, on peut voir son type R : integer, factor, character.\nOn peut visualiser les modalités associées aux variables avec le bouton Data (en bas de la fenêtre)."
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#production-dun-graphique",
+    "href": "R/assist/posts/addins/addins.html#production-dun-graphique",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "Production d’un graphique",
+    "text": "Production d’un graphique\nLa fenêtre d’esquisse permet de choisir les données à représenter et propose un graphique adapté au type de la variable dans R. Ici une box-plot\n\n\n\n\n\nOn Sélectionne les variables par un glisser/déposer dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, … du package ggplot2).\nLe rôle de ces options sont données en cliquant sur le bouton display settings qui se trouve en haut à droite de la fenêtre principale.\n\n\n\n\n\nPour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz From data to Viz.\nPour l’exemple, on va représenter le nombre de ménages par pays d’enquête hv000 avec un graphique en barres.\n\n\n\n\n\nSi on souhaite modifier orienter les barres à l’horizontal (recommandé) on va dans l’onglet Plot options puis on coche Flip coordinate.\nOn utilise le bouton Plot options pour changer la disposition (ici barres horizontales).\n\n\n\n\n\nOn peut égalemet changer les titres du graphique dans l’onglet Ad Labels & Titles, et son apparence (couleurs, thème) dans l’onglet Appearance."
+  },
+  {
+    "objectID": "R/assist/posts/addins/addins.html#exporter-le-code",
+    "href": "R/assist/posts/addins/addins.html#exporter-le-code",
+    "title": "Produire des graphiques et recoder des variables sans écrire de code R",
+    "section": "Exporter le code",
+    "text": "Exporter le code\nL’onglet Code affiche le code généré par l’application. On peut le récupérer par simple copier/coller\n\n\n\n\n\nComme l’interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction geom_bar() l’option color=\"black\"\n\nlibrary(ggplot2)\n\nggplot(P3_Menages) +\n  aes(x = hv000) +\n  geom_bar(fill = \"#FF6992\", color=\"black\") +\n  labs(\n    x = \"Enquête\",\n    y = \"Nombre de ménages\",\n    title = \"Ménages par pays et vagues d'enquête\",\n    caption = \"Source: DHS 2017\"\n  ) +\n  coord_flip() +\n  theme_light()\n\n\n\n\n\n\n\n\nL’animation qui suit résume les différentes étapes (cliquer sur l’image pour la faire redémarrer au début et l’agrandir)"
   }
 ]
