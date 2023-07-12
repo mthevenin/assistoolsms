@@ -32,14 +32,14 @@
     "href": "R/assist/posts/function_table_auto/fonction_table_auto.html",
     "title": "Fonction pour des tables automatiques",
     "section": "",
-    "text": "Il existe un large éventail de package R consacré à la gestion et la mise en forme de table et de tris croisés (GT, flextable, …). S’ils sont souvent de grandes qualités, leur coût d’entrée peut être un peu élevé pour les utilisateurs.rices occasionnelles de R.\nPour répondre aux besoins de ces derniers, vous trouverez ici une fonction qui permet de facilement compiler des tris à plats ou bivariées, pour explorer automatiquement un grand nombre de variables, utiliser une pondération et les exporter dans un document Excel.\nPour une introduction aux tables et à la pondération, voir la fiche\n\n\nPour illustrer la mise en oeuvre de la fonction, on utilise les données d’exemples hdv2003 du packages questionr. Ces données possèdent à la fois des variables sur des carastéristiques socio-démographiques, des pratiques et des goûts, et propose une variable de pondération : poids.\n\n\n\nImport des données d'exemples\n\nlibrary(questionr)\ndata(\"hdv2003\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nObtenir une table automatique avec les tris à plat d’un grand nombre de variables\nCroiser ces variables avec une variable choisie, par exemple le sexe ou la qualification et obtenir :\n\nLes effectifs\nLes pourcentages lignes\nLes poucentages colonnes\nAjout d’un test du chi²\n\nUtiliser des pondérations\nGarder ou non les valeurs manquantes\nExporter le tableau obtenu (Par exemple : image ci-dessous)"
+    "text": "Il existe un large éventail de package R consacré à la gestion et la mise en forme de table et de tris croisés (GT, flextable, …). S’ils sont souvent de grandes qualités, leur coût d’entrée peut être un peu élevé pour les utilisateurs.rices occasionnelles de R.\nPour répondre aux besoins de ces derniers, vous trouverez ici une fonction qui permet de facilement compiler des tris à plats ou bivariées, pour explorer automatiquement un grand nombre de variables, utiliser une pondération et les exporter dans un document Excel.\nPour une introduction aux tables et à la pondération, voir la fiche\n\n\nPour illustrer la mise en oeuvre de la fonction, on utilise les données d’exemples hdv2003 du packages questionr. Ces données possèdent à la fois des variables sur des carastéristiques socio-démographiques, des pratiques et des goûts, et propose une variable de pondération : poids.\n\n\n\nImportation des données d'exemples\n\nlibrary(questionr)\ndata(\"hdv2003\")\n\n\n\n\n\n\n\n\nid\nage\nsexe\nnivetud\npoids\noccup\n\n\n\n\n1\n28\nFemme\nEnseignement superieur y compris technique superieur\n2634.398\nExerce une profession\n\n\n2\n23\nFemme\nNA\n9738.396\nEtudiant, eleve\n\n\n3\n59\nHomme\nDerniere annee d'etudes primaires\n3994.102\nExerce une profession\n\n\n4\n34\nHomme\nEnseignement superieur y compris technique superieur\n5731.662\nExerce une profession\n\n\n5\n71\nFemme\nDerniere annee d'etudes primaires\n4329.094\nRetraite\n\n\n6\n35\nFemme\nEnseignement technique ou professionnel court\n8674.699\nExerce une profession\n\n\n\n\n\n\n\n\n\n\n\nObtenir une table automatique avec les tris à plat d’un grand nombre de variables\nCroiser ces variables avec une variable choisie, par exemple le sexe ou la qualification et obtenir :\n\nLes effectifs\nLes pourcentages lignes\nLes poucentages colonnes\nAjout d’un test du chi²\n\nUtiliser des pondérations\nGarder ou non les valeurs manquantes\nExporter le tableau obtenu (Par exemple : image ci-dessous)"
   },
   {
     "objectID": "R/assist/posts/function_table_auto/fonction_table_auto.html#données-dexemples",
     "href": "R/assist/posts/function_table_auto/fonction_table_auto.html#données-dexemples",
     "title": "Fonction pour des tables automatiques",
     "section": "",
-    "text": "Pour illustrer la mise en oeuvre de la fonction, on utilise les données d’exemples hdv2003 du packages questionr. Ces données possèdent à la fois des variables sur des carastéristiques socio-démographiques, des pratiques et des goûts, et propose une variable de pondération : poids.\n\n\n\nImport des données d'exemples\n\nlibrary(questionr)\ndata(\"hdv2003\")"
+    "text": "Pour illustrer la mise en oeuvre de la fonction, on utilise les données d’exemples hdv2003 du packages questionr. Ces données possèdent à la fois des variables sur des carastéristiques socio-démographiques, des pratiques et des goûts, et propose une variable de pondération : poids.\n\n\n\nImportation des données d'exemples\n\nlibrary(questionr)\ndata(\"hdv2003\")\n\n\n\n\n\n\n\n\nid\nage\nsexe\nnivetud\npoids\noccup\n\n\n\n\n1\n28\nFemme\nEnseignement superieur y compris technique superieur\n2634.398\nExerce une profession\n\n\n2\n23\nFemme\nNA\n9738.396\nEtudiant, eleve\n\n\n3\n59\nHomme\nDerniere annee d'etudes primaires\n3994.102\nExerce une profession\n\n\n4\n34\nHomme\nEnseignement superieur y compris technique superieur\n5731.662\nExerce une profession\n\n\n5\n71\nFemme\nDerniere annee d'etudes primaires\n4329.094\nRetraite\n\n\n6\n35\nFemme\nEnseignement technique ou professionnel court\n8674.699\nExerce une profession"
   },
   {
     "objectID": "R/assist/posts/function_table_auto/fonction_table_auto.html#objectifs",
@@ -74,14 +74,14 @@
     "href": "R/assist/posts/function_table_auto/fonction_table_auto.html#choix-des-variables",
     "title": "Fonction pour des tables automatiques",
     "section": "Choix des variables",
-    "text": "Choix des variables\nOn définit les variables à croiser :\n\n\n\nChoix des variables\n\nvars      &lt;- c(\"relig\",\"trav.imp\",\"trav.satisf\",\"hard.rock\",\"lecture.bd\",\"peche.chasse\",\"cuisine\",\"bricol\",\"cinema\",\"sport\"  )\nponder    &lt;- \"poids\"\nvar_crois &lt;- \"sexe\""
+    "text": "Choix des variables\nOn définit les variables à croiser :\n\n\n\nChoix des variables\n\nvars      &lt;- c(\"relig\",\"trav.imp\",\"trav.satisf\",\"hard.rock\",\n               \"lecture.bd\",\"peche.chasse\",\"cuisine\",\n               \"bricol\",\"cinema\",\"sport\")\n\n\nOn peut également définir ici la variable de poids et celle à croiser, ou le faire directement dans la fonction.\n\n# On croise avec la variable sexe\nvar_crois &lt;- \"sexe\"\n# Si pas de croisement écrire NULL\nvar_crois &lt;- NULL\n\n# Variable de pondération\nponder    &lt;- \"poids\"\n# Si pas de pondération :\nponder    &lt;- NULL"
   },
   {
     "objectID": "R/assist/posts/function_table_auto/fonction_table_auto.html#création-du-tableau-empilé",
     "href": "R/assist/posts/function_table_auto/fonction_table_auto.html#création-du-tableau-empilé",
     "title": "Fonction pour des tables automatiques",
     "section": "Création du tableau empilé",
-    "text": "Création du tableau empilé\nEn lançant le code suivant, on crée le tableau tabdesc.\n\n\n\nActivation de la fonction\n\ntable_auto(hdv2003,              # base de données\n           vars,                 # un vecteur avec les noms des variables\n           var_crois   = \"sexe\", # si NULL : tri à plat\n           table_type  = \"eff\",  # eff, pct_lign, ou pct_col\n           ponder      = NULL,   # mettre une variable de pondération\n           val.manq    = \"non\",  # si \"oui\" avec valeurs manquantes\n           arrondi     = 4,      # nb de chiffre après la virgule\n           sautdeligne = \"oui\",  # inserer une ligne blanche entre les variables\n           export_XLS  = \"non\")  # si \"oui\" export\n\n\n\nView(tabdesc)"
+    "text": "Création du tableau empilé\nEn lançant le code suivant, on crée le data.frame tabdesc.\n\n\n\nActivation de la fonction\n\ntable_auto(hdv2003,              # Base de données\n           vars,                 # Un vecteur avec les noms des variables\n           var_crois   = \"sexe\", # Variable à croiser, si NULL : tri à plat\n           table_type  = \"eff\",  # Type de table : \"eff\", \"pct_lign\", \"pct_col\"\n           ponder      = NULL,   # Variable de ponder. , si NULL: pas de poids\n           val.manq    = \"non\",  # Si \"oui\" avec valeurs manquantes\n           arrondi     = 4,      # Nb de chiffres après la virgule\n           sautdeligne = \"oui\",  # Sauter des lignes entre les variables\n           export_XLS  = \"non\")  # Si \"oui\" créer un excel : tableau_empilee\n\n\n\nView(tabdesc)\n\n\n\n\n\n\n\nVar\nLevels\nENSEMBLE\nHomme\nFemme\npvalue\nddl\n\n\n\n\n\nENSEMBLE\n2000\n899\n1101\nNA\nNA\n\n\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nrelig\nPratiquant regulier\n266\n86\n180\n0,0000\n5\n\n\nrelig\nPratiquant occasionnel\n442\n170\n272\n0,0000\n5\n\n\nrelig\nAppartenance sans pratique\n760\n365\n395\n0,0000\n5\n\n\nrelig\nNi croyance ni appartenance\n399\n210\n189\n0,0000\n5\n\n\nrelig\nRejet\n93\n52\n41\n0,0000\n5\n\n\nrelig\nNSP ou NVPR\n40\n16\n24\n0,0000\n5\n\n\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\ntrav.imp\nLe plus important\n29\n13\n16\n0.0001\n3"
   },
   {
     "objectID": "R/assist/posts/import_json/JSON.html",
@@ -443,8 +443,15 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "",
+    "title": "Présentation",
     "section": "",
-    "text": "Code\n\n\n\nContributions par ordre alphabétique:\n\nElodie Baril  \nArnaud Bringé \nCoralie Cottet \nBénédicte Garnier  \nArno Mulller  \nMarc Thévenin  \n\nMaintenance du support: Marc Thévenin"
+    "text": "Contributions par ordre alphabétique:\n\nElodie Baril  \nArnaud Bringé \nCoralie Cottet \nBénédicte Garnier  \nArno Mulller  \nMarc Thévenin  \n\nMaintenance du support: Marc Thévenin"
+  },
+  {
+    "objectID": "R/assist/posts/function_table_auto/fonction_table_auto.html#import-de-la-fonction-table_auto",
+    "href": "R/assist/posts/function_table_auto/fonction_table_auto.html#import-de-la-fonction-table_auto",
+    "title": "Fonction pour des tables automatiques",
+    "section": "Import de la fonction table_auto()",
+    "text": "Import de la fonction table_auto()\nPour l’instant la fonction ne se trouve pas dans un package, il faut donc la charger dans l’environnement global de R depuis GitHub en utilisant le code suivant.\n\n\n\nChargement de la fonction depuis Github\n\nsource(\"https://raw.githubusercontent.com/arnomuller/table_auto/main/fonction_table_auto.R\")\n\n\n\n\n\n\n\nLe code de la fonction est disponible ici, si vous souhaitez lui apparter des modifications pour l’adapter à vos besoins."
   }
 ]
