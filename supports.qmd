@@ -2,7 +2,7 @@
 title: "Autres supports de formation"
 
 description: | 
- Liens vers des supports de formation en libre accès du service Méthode Statistiques de l'Ined 
+ Liens vers des supports de formation en libre accès du service Méthodes Statistiques de l'Ined 
 ---
 
 
