@@ -206,7 +206,7 @@ ggplot(tmp) +
 Chargement de la fonction
 
 ```{r}
-source("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/spag_plot.R")
+source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/spag_plot/spag_plot.R")
 ```
 
 
