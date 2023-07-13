@@ -583,79 +583,79 @@ code,year,pays,y
 61,2020,Turkey,1.92
 61,2021,Turkey,1.89
 61,2022,Turkey,1.88
-64,1950,United States of America,2.93
-64,1951,United States of America,3.11
-64,1952,United States of America,3.21
-64,1953,United States of America,3.28
-64,1954,United States of America,3.39
-64,1955,United States of America,3.44
-64,1956,United States of America,3.54
-64,1957,United States of America,3.61
-64,1958,United States of America,3.57
-64,1959,United States of America,3.58
-64,1960,United States of America,3.55
-64,1961,United States of America,3.52
-64,1962,United States of America,3.39
-64,1963,United States of America,3.27
-64,1964,United States of America,3.14
-64,1965,United States of America,2.86
-64,1966,United States of America,2.66
-64,1967,United States of America,2.52
-64,1968,United States of America,2.44
-64,1969,United States of America,2.43
-64,1970,United States of America,2.47
-64,1971,United States of America,2.26
-64,1972,United States of America,2.01
-64,1973,United States of America,1.87
-64,1974,United States of America,1.83
-64,1975,United States of America,1.77
-64,1976,United States of America,1.74
-64,1977,United States of America,1.78
-64,1978,United States of America,1.76
-64,1979,United States of America,1.8
-64,1980,United States of America,1.83
-64,1981,United States of America,1.81
-64,1982,United States of America,1.82
-64,1983,United States of America,1.8
-64,1984,United States of America,1.8
-64,1985,United States of America,1.84
-64,1986,United States of America,1.83
-64,1987,United States of America,1.87
-64,1988,United States of America,1.93
-64,1989,United States of America,2.01
-64,1990,United States of America,2.07
-64,1991,United States of America,2.05
-64,1992,United States of America,2.04
-64,1993,United States of America,2.01
-64,1994,United States of America,1.99
-64,1995,United States of America,1.97
-64,1996,United States of America,1.97
-64,1997,United States of America,1.97
-64,1998,United States of America,1.99
-64,1999,United States of America,2.01
-64,2000,United States of America,2.05
-64,2001,United States of America,2.03
-64,2002,United States of America,2.02
-64,2003,United States of America,2.04
-64,2004,United States of America,2.05
-64,2005,United States of America,2.06
-64,2006,United States of America,2.1
-64,2007,United States of America,2.11
-64,2008,United States of America,2.07
-64,2009,United States of America,2
-64,2010,United States of America,1.93
-64,2011,United States of America,1.89
-64,2012,United States of America,1.88
-64,2013,United States of America,1.86
-64,2014,United States of America,1.86
-64,2015,United States of America,1.84
-64,2016,United States of America,1.81
-64,2017,United States of America,1.76
-64,2018,United States of America,1.72
-64,2019,United States of America,1.69
-64,2020,United States of America,1.64
-64,2021,United States of America,1.66
-64,2022,United States of America,1.66
+64,1950,USA,2.93
+64,1951,USA,3.11
+64,1952,USA,3.21
+64,1953,USA,3.28
+64,1954,USA,3.39
+64,1955,USA,3.44
+64,1956,USA,3.54
+64,1957,USA,3.61
+64,1958,USA,3.57
+64,1959,USA,3.58
+64,1960,USA,3.55
+64,1961,USA,3.52
+64,1962,USA,3.39
+64,1963,USA,3.27
+64,1964,USA,3.14
+64,1965,USA,2.86
+64,1966,USA,2.66
+64,1967,USA,2.52
+64,1968,USA,2.44
+64,1969,USA,2.43
+64,1970,USA,2.47
+64,1971,USA,2.26
+64,1972,USA,2.01
+64,1973,USA,1.87
+64,1974,USA,1.83
+64,1975,USA,1.77
+64,1976,USA,1.74
+64,1977,USA,1.78
+64,1978,USA,1.76
+64,1979,USA,1.8
+64,1980,USA,1.83
+64,1981,USA,1.81
+64,1982,USA,1.82
+64,1983,USA,1.8
+64,1984,USA,1.8
+64,1985,USA,1.84
+64,1986,USA,1.83
+64,1987,USA,1.87
+64,1988,USA,1.93
+64,1989,USA,2.01
+64,1990,USA,2.07
+64,1991,USA,2.05
+64,1992,USA,2.04
+64,1993,USA,2.01
+64,1994,USA,1.99
+64,1995,USA,1.97
+64,1996,USA,1.97
+64,1997,USA,1.97
+64,1998,USA,1.99
+64,1999,USA,2.01
+64,2000,USA,2.05
+64,2001,USA,2.03
+64,2002,USA,2.02
+64,2003,USA,2.04
+64,2004,USA,2.05
+64,2005,USA,2.06
+64,2006,USA,2.1
+64,2007,USA,2.11
+64,2008,USA,2.07
+64,2009,USA,2
+64,2010,USA,1.93
+64,2011,USA,1.89
+64,2012,USA,1.88
+64,2013,USA,1.86
+64,2014,USA,1.86
+64,2015,USA,1.84
+64,2016,USA,1.81
+64,2017,USA,1.76
+64,2018,USA,1.72
+64,2019,USA,1.69
+64,2020,USA,1.64
+64,2021,USA,1.66
+64,2022,USA,1.66
 65,1950,Argentina,3.16
 65,1951,Argentina,3.16
 65,1952,Argentina,3.16

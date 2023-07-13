@@ -44,6 +44,13 @@ library(ggthemes)
 
 * Les données utilisées ici sont extraites des bases contextextuelles GGP coordonnées par le [datalab de l'Ined](http://datalab.site.ined.fr/fr/donnees-demographiques-contextuelles/). 
 
+
+::: callout-important
+
+Pour les graphiques seront présentés dans cette fiches, les données doivent être en format long, ici une observation du taux de fécondité par pays-année
+
+:::
+
 * On va regarder l'évolution du taux de fécondité de 12 pays de 1950 à 2022. 
 
 ```{r}
@@ -149,6 +156,89 @@ ggplot(tmp) +
   scale_y_continuous(breaks=seq(0,6,1)) +
   facet_wrap(vars(pays), ncol = 4L)
 ```
+
+
+On peut vouloir trier les sous graphiques selon un ordre particulier, ici ils sont simplement affichés par ordre alphabétique. 
+
+Si on souhaite par exemple, affiché les sous graphiques par ordre décroissant du taux de fécondité en 2022, donc d'Israel en haut à gauche à la Corée du Sud en bas à droite, on doit réarranger l'ordre de la variable **pays** avec le code suivant:
+
+```{r}
+pays_order <- df %>%
+  filter(year == 2022) %>% 
+  arrange(desc(y))
+pays_order <- as.character(pays_order[,"pays"])
+pays_order
+
+tmp <- df %>%
+  mutate(pays2=pays)
+tmp$pays <- factor(tmp$pays, levels = pays_order)
+tmp$pays2 <- factor(tmp$pays2, levels = pays_order)
+unique(tmp$pays2)
+```
+
+
+Et on réexécute le graphique précédent
+
+```{r}
+ggplot(tmp) +
+  aes(x = year, y = y) +
+  geom_line( data=tmp %>% dplyr::select(-pays), aes(group=pays2), color="grey", lwd=0.1) +    
+  geom_line(colour = "#C24168", lwd=1.4) +
+  labs(title = "Taux de fécondité") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),  
+        panel.grid.minor.y = element_blank()) + 
+  labs(x = "Années", 
+       y = "Taux de fécondité", 
+       title = "Taux de fécondité par pays de 1950 à 2022", 
+       caption = "Source: GGP - Datalab Ined",) +
+  scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
+  scale_y_continuous(breaks=seq(0,6,1)) +
+  facet_wrap(vars(pays), ncol = 4L)
+```
+
+## Une fonction pour simplifier et automatiser le code
+
+* Version 0.1 - Juillet 2023 [Arno Muller]
+* Des options seront ajoutées ultérieurement (couleurs, épaisseurs, options `thème()`, ....).
+
+Chargement de la fonction
+
+```{r}
+source("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/spag_plot.R")
+```
+
+
+Maintenant on va trier les graphiques pas ordre décroissant du taux de fécondité en 1950 
+
+```{r}
+df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
+df = df %>% mutate_if(is.character,as.factor)
+
+spag_plot(df,                  # Base de données au format long
+          var_x = "year",      # Variable en X (numérique)
+          var_y = "y",         # Variable en Y (numérique)
+          var_group= "pays",   # Variable de groupe (factor)
+          ordre =  1950,      # Ordre des plots ("alpha", valeur num de var_x, un vecteur)
+          decroiss = "oui",    # Ordre décroissant de l'ordre choisi au dessus
+          titre   = "TITRE",   # Choix du titre
+          titre_x = "Années",  # Choix du titre de l'axe X
+          titre_y   ="Taux",   # Choix du titre de l'axe Y
+          source    = "",      # Source des données
+          interval = 20,       # Echelle de X
+          n_col = 6)           # Nombre de colonnes pour les graphiques
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
