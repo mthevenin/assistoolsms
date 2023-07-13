@@ -81,7 +81,7 @@
     "href": "R/assist/posts/function_table_auto/fonction_table_auto.html#création-du-tableau-empilé",
     "title": "Fonction pour des tables automatiques",
     "section": "Création du tableau empilé",
-    "text": "Création du tableau empilé\nEn lançant le code suivant, on crée le data.frame tabdesc.\n\n\n\nActivation de la fonction\n\ntable_auto(hdv2003,              # Base de données\n           vars,                 # Un vecteur avec les noms des variables\n           var_crois   = \"sexe\", # Variable à croiser, si NULL : tri à plat\n           table_type  = \"eff\",  # Type de table : \"eff\", \"pct_lign\", \"pct_col\"\n           ponder      = NULL,   # Variable de ponder. , si NULL: pas de poids\n           val.manq    = \"non\",  # Si \"oui\" avec valeurs manquantes\n           arrondi     = 4,      # Nb de chiffres après la virgule\n           sautdeligne = \"oui\",  # Sauter des lignes entre les variables\n           export_XLS  = \"non\")  # Si \"oui\" créer un excel : tableau_empilee\n\n\n\nView(tabdesc)\n\n\n\n\n\n\n\nVar\nLevels\nENSEMBLE\nHomme\nFemme\npvalue\nddl\n\n\n\n\n\nENSEMBLE\n2000\n899\n1101\nNA\nNA\n\n\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nrelig\nPratiquant regulier\n266\n86\n180\n0,0000\n5\n\n\nrelig\nPratiquant occasionnel\n442\n170\n272\n0,0000\n5\n\n\nrelig\nAppartenance sans pratique\n760\n365\n395\n0,0000\n5\n\n\nrelig\nNi croyance ni appartenance\n399\n210\n189\n0,0000\n5\n\n\nrelig\nRejet\n93\n52\n41\n0,0000\n5\n\n\nrelig\nNSP ou NVPR\n40\n16\n24\n0,0000\n5\n\n\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\ntrav.imp\nLe plus important\n29\n13\n16\n0.0001\n3"
+    "text": "Création du tableau empilé\nEn lançant le code suivant, on crée le data.frame tabdesc.\n\n\n\nActivation de la fonction\n\ntable_auto(hdv2003,              # Base de données\n           vars,                 # Un vecteur avec les noms des variables\n           var_crois   = \"sexe\", # Variable à croiser, si NULL : tri à plat\n           table_type  = \"eff\",  # Type de table : \"eff\", \"pct_lign\", \"pct_col\"\n           ponder      = NULL,   # Variable de ponder. , si NULL: pas de poids\n           val.manq    = \"non\",  # Si \"oui\" avec valeurs manquantes\n           arrondi     = 4,      # Nb de chiffres après la virgule\n           sautdeligne = \"oui\",  # Sauter des lignes entre les variables\n           export_XLS  = \"non\")  # Si \"oui\" créer un excel : tableau_empilee\n\n\n\n\n\n\n\n\nVar\nLevels\nENSEMBLE\nHomme\nFemme\npvalue\nddl\n\n\n\n\n\nENSEMBLE\n2000\n899\n1101\nNA\nNA\n\n\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\nrelig\nPratiquant regulier\n266\n86\n180\n0,0000\n5\n\n\nrelig\nPratiquant occasionnel\n442\n170\n272\n0,0000\n5\n\n\nrelig\nAppartenance sans pratique\n760\n365\n395\n0,0000\n5\n\n\nrelig\nNi croyance ni appartenance\n399\n210\n189\n0,0000\n5\n\n\nrelig\nRejet\n93\n52\n41\n0,0000\n5\n\n\nrelig\nNSP ou NVPR\n40\n16\n24\n0,0000\n5\n\n\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\ntrav.imp\nLe plus important\n29\n13\n16\n0.0001\n3"
   },
   {
     "objectID": "R/assist/posts/import_json/JSON.html",
@@ -453,5 +453,26 @@
     "title": "Fonction pour des tables automatiques",
     "section": "Import de la fonction table_auto()",
     "text": "Import de la fonction table_auto()\nPour l’instant la fonction ne se trouve pas dans un package, il faut donc la charger dans l’environnement global de R depuis GitHub en utilisant le code suivant.\n\n\n\nChargement de la fonction depuis Github\n\nsource(\"https://raw.githubusercontent.com/arnomuller/table_auto/main/fonction_table_auto.R\")\n\n\n\n\n\n\n\nLe code de la fonction est disponible ici, si vous souhaitez lui apparter des modifications pour l’adapter à vos besoins."
+  },
+  {
+    "objectID": "R/assist/posts/spaghetti/spaghetti.html",
+    "href": "R/assist/posts/spaghetti/spaghetti.html",
+    "title": "Contrôler les effets spaghetti avec ggplot",
+    "section": "",
+    "text": "# pour récupérer la palette de couleur qualitatitive Tableau: \n# install.packages(ggthemes\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(ggthemes)"
+  },
+  {
+    "objectID": "R/assist/posts/spaghetti/spaghetti.html#graphique-combiné-simple",
+    "href": "R/assist/posts/spaghetti/spaghetti.html#graphique-combiné-simple",
+    "title": "Contrôler les effets spaghetti avec ggplot",
+    "section": "Graphique combiné simple",
+    "text": "Graphique combiné simple\nPar rapport au graphique précédent on va simplement générer des sous graphiques par pays, qui seront combinés avec l’option facet_wrap.\n\nggplot(df) +\n  aes(x = year, y = y) +\n  geom_line(colour = \"#C24168\", lwd=1.2) +\n  labs(title = \"Taux de fécondité\") +\n  theme_minimal() +\n  labs(x = \"Années\", \n       y = \"Taux de fécondité\", \n       title = \"Taux de fécondité par pays de 1950 à 2022\", \n       caption = \"Source: GGP - Datalab Ined\",) +\n  scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + \n  scale_y_continuous(breaks=seq(0,6,1)) +\n  facet_wrap(vars(pays), ncol = 4L)"
+  },
+  {
+    "objectID": "R/assist/posts/spaghetti/spaghetti.html#graphique-combiné-avec-highlighting",
+    "href": "R/assist/posts/spaghetti/spaghetti.html#graphique-combiné-avec-highlighting",
+    "title": "Contrôler les effets spaghetti avec ggplot",
+    "section": "Graphique combiné avec highlighting",
+    "text": "Graphique combiné avec highlighting\nOn peut combiné les deux approches, en gardant en arrière plan de chaque sous graphique les informations des autres graphiques. On peut donc ici, pour chaque pays, positionné l’information de chaque pays par rapport aux autres.\nLe principe du code a été récupéré dans le support de Yann Holtz consacré à ce problème Data to viz. On vous recommande très fortement d’utiliser ce support très riche, non seulement en éléments de programmation, mais également en conseils. En particulier la section mise en garde (caveats).\nLes courbes en arrière plan ont une épaisseur plus faible (lwd=0.1) et on une couleur unique ( color=\"grey ). Pour facilité la lecture, le quadrillage a été allégé dans l’option theme().\n\ntmp &lt;- df %&gt;%\n  mutate(pays2=pays)   \n\nggplot(tmp) +\n  aes(x = year, y = y) +\n  geom_line( data=tmp %&gt;% dplyr::select(-pays), aes(group=pays2), color=\"grey\", lwd=0.1) +    \n  geom_line(colour = \"#C24168\", lwd=1.4) +\n  labs(title = \"Taux de fécondité\") +\n  theme_minimal() +\n  theme(panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),  \n        panel.grid.minor.y = element_blank()) + \n  labs(x = \"Années\", \n       y = \"Taux de fécondité\", \n       title = \"Taux de fécondité par pays de 1950 à 2022\", \n       caption = \"Source: GGP - Datalab Ined\",) +\n  scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + \n  scale_y_continuous(breaks=seq(0,6,1)) +\n  facet_wrap(vars(pays), ncol = 4L)"
   }
 ]

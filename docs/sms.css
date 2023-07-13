@@ -595,6 +595,19 @@ div.quarto-post a {
   text-align: justify;
 }
 
+.quarto-grid-item div.listing-author {
+  margin-left: 0.5em;
+  padding: 15px;
+  text-align: left;
+}
+
+.quarto-grid-item div.listing-date {
+  margin-left: 0.5em;
+  padding: 15px;
+  text-align: left;
+}
+
+
 .quarto-grid-item .card-title {
   margin-top: 0.5em;
   margin-bottom: 0.75em;

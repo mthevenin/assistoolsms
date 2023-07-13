@@ -1,0 +1,877 @@
+code,year,pays,y
+20,1950,France,2.99
+20,1951,France,2.87
+20,1952,France,2.81
+20,1953,France,2.71
+20,1954,France,2.71
+20,1955,France,2.71
+20,1956,France,2.7
+20,1957,France,2.71
+20,1958,France,2.69
+20,1959,France,2.74
+20,1960,France,2.73
+20,1961,France,2.8
+20,1962,France,2.78
+20,1963,France,2.89
+20,1964,France,2.89
+20,1965,France,2.83
+20,1966,France,2.77
+20,1967,France,2.66
+20,1968,France,2.58
+20,1969,France,2.54
+20,1970,France,2.5
+20,1971,France,2.52
+20,1972,France,2.45
+20,1973,France,2.31
+20,1974,France,2.14
+20,1975,France,1.95
+20,1976,France,1.86
+20,1977,France,1.88
+20,1978,France,1.85
+20,1979,France,1.88
+20,1980,France,1.96
+20,1981,France,1.96
+20,1982,France,1.92
+20,1983,France,1.8
+20,1984,France,1.81
+20,1985,France,1.82
+20,1986,France,1.84
+20,1987,France,1.81
+20,1988,France,1.81
+20,1989,France,1.79
+20,1990,France,1.78
+20,1991,France,1.77
+20,1992,France,1.73
+20,1993,France,1.66
+20,1994,France,1.66
+20,1995,France,1.71
+20,1996,France,1.73
+20,1997,France,1.72
+20,1998,France,1.78
+20,1999,France,1.81
+20,2000,France,1.88
+20,2001,France,1.88
+20,2002,France,1.86
+20,2003,France,1.87
+20,2004,France,1.9
+20,2005,France,1.92
+20,2006,France,1.97
+20,2007,France,1.95
+20,2008,France,1.99
+20,2009,France,1.99
+20,2010,France,2.02
+20,2011,France,1.99
+20,2012,France,1.99
+20,2013,France,1.97
+20,2014,France,1.97
+20,2015,France,1.93
+20,2016,France,1.89
+20,2017,France,1.86
+20,2018,France,1.84
+20,2019,France,1.83
+20,2020,France,1.79
+20,2021,France,1.79
+20,2022,France,1.79
+24,1950,Germany,2.09
+24,1951,Germany,2.1
+24,1952,Germany,2.11
+24,1953,Germany,2.13
+24,1954,Germany,2.16
+24,1955,Germany,2.16
+24,1956,Germany,2.21
+24,1957,Germany,2.25
+24,1958,Germany,2.28
+24,1959,Germany,2.36
+24,1960,Germany,2.38
+24,1961,Germany,2.46
+24,1962,Germany,2.47
+24,1963,Germany,2.51
+24,1964,Germany,2.52
+24,1965,Germany,2.49
+24,1966,Germany,2.5
+24,1967,Germany,2.44
+24,1968,Germany,2.34
+24,1969,Germany,2.2
+24,1970,Germany,2.04
+24,1971,Germany,1.94
+24,1972,Germany,1.73
+24,1973,Germany,1.57
+24,1974,Germany,1.52
+24,1975,Germany,1.48
+24,1976,Germany,1.49
+24,1977,Germany,1.5
+24,1978,Germany,1.49
+24,1979,Germany,1.5
+24,1980,Germany,1.54
+24,1981,Germany,1.52
+24,1982,Germany,1.49
+24,1983,Germany,1.43
+24,1984,Germany,1.39
+24,1985,Germany,1.38
+24,1986,Germany,1.41
+24,1987,Germany,1.44
+24,1988,Germany,1.46
+24,1989,Germany,1.44
+24,1990,Germany,1.44
+24,1991,Germany,1.35
+24,1992,Germany,1.31
+24,1993,Germany,1.28
+24,1994,Germany,1.25
+24,1995,Germany,1.25
+24,1996,Germany,1.32
+24,1997,Germany,1.36
+24,1998,Germany,1.36
+24,1999,Germany,1.36
+24,2000,Germany,1.38
+24,2001,Germany,1.35
+24,2002,Germany,1.34
+24,2003,Germany,1.34
+24,2004,Germany,1.36
+24,2005,Germany,1.34
+24,2006,Germany,1.33
+24,2007,Germany,1.37
+24,2008,Germany,1.38
+24,2009,Germany,1.36
+24,2010,Germany,1.39
+24,2011,Germany,1.39
+24,2012,Germany,1.41
+24,2013,Germany,1.42
+24,2014,Germany,1.47
+24,2015,Germany,1.51
+24,2016,Germany,1.59
+24,2017,Germany,1.58
+24,2018,Germany,1.56
+24,2019,Germany,1.54
+24,2020,Germany,1.52
+24,2021,Germany,1.53
+24,2022,Germany,1.53
+27,1950,Iceland,3.85
+27,1951,Iceland,3.72
+27,1952,Iceland,3.79
+27,1953,Iceland,3.93
+27,1954,Iceland,3.91
+27,1955,Iceland,4.07
+27,1956,Iceland,4.14
+27,1957,Iceland,4.19
+27,1958,Iceland,4.09
+27,1959,Iceland,4.23
+27,1960,Iceland,4.26
+27,1961,Iceland,3.89
+27,1962,Iceland,3.98
+27,1963,Iceland,3.99
+27,1964,Iceland,3.88
+27,1965,Iceland,3.73
+27,1966,Iceland,3.57
+27,1967,Iceland,3.28
+27,1968,Iceland,3.07
+27,1969,Iceland,2.98
+27,1970,Iceland,2.82
+27,1971,Iceland,2.92
+27,1972,Iceland,3.08
+27,1973,Iceland,2.94
+27,1974,Iceland,2.66
+27,1975,Iceland,2.64
+27,1976,Iceland,2.52
+27,1977,Iceland,2.32
+27,1978,Iceland,2.35
+27,1979,Iceland,2.48
+27,1980,Iceland,2.47
+27,1981,Iceland,2.34
+27,1982,Iceland,2.28
+27,1983,Iceland,2.24
+27,1984,Iceland,2.08
+27,1985,Iceland,1.94
+27,1986,Iceland,1.93
+27,1987,Iceland,2.06
+27,1988,Iceland,2.24
+27,1989,Iceland,2.2
+27,1990,Iceland,2.29
+27,1991,Iceland,2.19
+27,1992,Iceland,2.21
+27,1993,Iceland,2.22
+27,1994,Iceland,2.14
+27,1995,Iceland,2.08
+27,1996,Iceland,2.12
+27,1997,Iceland,2.04
+27,1998,Iceland,2.04
+27,1999,Iceland,2
+27,2000,Iceland,2.07
+27,2001,Iceland,1.96
+27,2002,Iceland,1.94
+27,2003,Iceland,1.99
+27,2004,Iceland,2.04
+27,2005,Iceland,2.05
+27,2006,Iceland,2.08
+27,2007,Iceland,2.09
+27,2008,Iceland,2.15
+27,2009,Iceland,2.22
+27,2010,Iceland,2.19
+27,2011,Iceland,2.03
+27,2012,Iceland,2.04
+27,2013,Iceland,1.94
+27,2014,Iceland,1.93
+27,2015,Iceland,1.81
+27,2016,Iceland,1.75
+27,2017,Iceland,1.71
+27,2018,Iceland,1.71
+27,2019,Iceland,1.75
+27,2020,Iceland,1.74
+27,2021,Iceland,1.73
+27,2022,Iceland,1.73
+29,1950,Israel,4.47
+29,1951,Israel,4.55
+29,1952,Israel,4.57
+29,1953,Israel,4.5
+29,1954,Israel,4.07
+29,1955,Israel,4.08
+29,1956,Israel,4.1
+29,1957,Israel,3.93
+29,1958,Israel,3.99
+29,1959,Israel,4.04
+29,1960,Israel,4.05
+29,1961,Israel,3.86
+29,1962,Israel,3.85
+29,1963,Israel,3.88
+29,1964,Israel,4.02
+29,1965,Israel,4.05
+29,1966,Israel,3.98
+29,1967,Israel,3.82
+29,1968,Israel,3.91
+29,1969,Israel,3.95
+29,1970,Israel,4.11
+29,1971,Israel,4.2
+29,1972,Israel,3.81
+29,1973,Israel,3.89
+29,1974,Israel,3.91
+29,1975,Israel,3.84
+29,1976,Israel,3.82
+29,1977,Israel,3.48
+29,1978,Israel,3.39
+29,1979,Israel,3.35
+29,1980,Israel,3.3
+29,1981,Israel,3.22
+29,1982,Israel,3.14
+29,1983,Israel,3.31
+29,1984,Israel,3.28
+29,1985,Israel,3.27
+29,1986,Israel,3.24
+29,1987,Israel,3.08
+29,1988,Israel,3.21
+29,1989,Israel,3.18
+29,1990,Israel,3.18
+29,1991,Israel,3.15
+29,1992,Israel,2.94
+29,1993,Israel,2.9
+29,1994,Israel,2.88
+29,1995,Israel,2.94
+29,1996,Israel,3.05
+29,1997,Israel,2.94
+29,1998,Israel,2.98
+29,1999,Israel,2.94
+29,2000,Israel,2.95
+29,2001,Israel,2.89
+29,2002,Israel,2.89
+29,2003,Israel,2.94
+29,2004,Israel,2.9
+29,2005,Israel,2.84
+29,2006,Israel,2.88
+29,2007,Israel,2.9
+29,2008,Israel,2.96
+29,2009,Israel,2.97
+29,2010,Israel,3.03
+29,2011,Israel,3.01
+29,2012,Israel,3.05
+29,2013,Israel,3.03
+29,2014,Israel,3.08
+29,2015,Israel,3.25
+29,2016,Israel,3.28
+29,2017,Israel,3.11
+29,2018,Israel,3.09
+29,2019,Israel,3.22
+29,2020,Israel,3.03
+29,2021,Israel,2.98
+29,2022,Israel,2.95
+30,1950,Italy,2.53
+30,1951,Italy,2.38
+30,1952,Italy,2.31
+30,1953,Italy,2.27
+30,1954,Italy,2.33
+30,1955,Italy,2.32
+30,1956,Italy,2.32
+30,1957,Italy,2.33
+30,1958,Italy,2.31
+30,1959,Italy,2.38
+30,1960,Italy,2.38
+30,1961,Italy,2.42
+30,1962,Italy,2.45
+30,1963,Italy,2.51
+30,1964,Italy,2.65
+30,1965,Italy,2.6
+30,1966,Italy,2.58
+30,1967,Italy,2.5
+30,1968,Italy,2.49
+30,1969,Italy,2.46
+30,1970,Italy,2.39
+30,1971,Italy,2.4
+30,1972,Italy,2.35
+30,1973,Italy,2.31
+30,1974,Italy,2.29
+30,1975,Italy,2.17
+30,1976,Italy,2.04
+30,1977,Italy,1.93
+30,1978,Italy,1.84
+30,1979,Italy,1.73
+30,1980,Italy,1.64
+30,1981,Italy,1.58
+30,1982,Italy,1.56
+30,1983,Italy,1.51
+30,1984,Italy,1.46
+30,1985,Italy,1.42
+30,1986,Italy,1.35
+30,1987,Italy,1.33
+30,1988,Italy,1.36
+30,1989,Italy,1.33
+30,1990,Italy,1.33
+30,1991,Italy,1.31
+30,1992,Italy,1.3
+30,1993,Italy,1.25
+30,1994,Italy,1.22
+30,1995,Italy,1.19
+30,1996,Italy,1.2
+30,1997,Italy,1.21
+30,1998,Italy,1.21
+30,1999,Italy,1.24
+30,2000,Italy,1.25
+30,2001,Italy,1.25
+30,2002,Italy,1.27
+30,2003,Italy,1.29
+30,2004,Italy,1.34
+30,2005,Italy,1.34
+30,2006,Italy,1.37
+30,2007,Italy,1.4
+30,2008,Italy,1.44
+30,2009,Italy,1.45
+30,2010,Italy,1.45
+30,2011,Italy,1.43
+30,2012,Italy,1.42
+30,2013,Italy,1.38
+30,2014,Italy,1.37
+30,2015,Italy,1.35
+30,2016,Italy,1.34
+30,2017,Italy,1.32
+30,2018,Italy,1.29
+30,2019,Italy,1.26
+30,2020,Italy,1.26
+30,2021,Italy,1.28
+30,2022,Italy,1.29
+31,1950,Japan,3.66
+31,1951,Japan,3.25
+31,1952,Japan,2.96
+31,1953,Japan,2.68
+31,1954,Japan,2.48
+31,1955,Japan,2.37
+31,1956,Japan,2.23
+31,1957,Japan,2.06
+31,1958,Japan,2.12
+31,1959,Japan,2.06
+31,1960,Japan,2.01
+31,1961,Japan,1.99
+31,1962,Japan,2
+31,1963,Japan,2.03
+31,1964,Japan,2.07
+31,1965,Japan,2.14
+31,1966,Japan,1.63
+31,1967,Japan,2.17
+31,1968,Japan,2.09
+31,1969,Japan,2.07
+31,1970,Japan,2.09
+31,1971,Japan,2.1
+31,1972,Japan,2.1
+31,1973,Japan,2.13
+31,1974,Japan,2.06
+31,1975,Japan,1.94
+31,1976,Japan,1.86
+31,1977,Japan,1.81
+31,1978,Japan,1.79
+31,1979,Japan,1.76
+31,1980,Japan,1.75
+31,1981,Japan,1.7
+31,1982,Japan,1.72
+31,1983,Japan,1.75
+31,1984,Japan,1.76
+31,1985,Japan,1.74
+31,1986,Japan,1.68
+31,1987,Japan,1.69
+31,1988,Japan,1.66
+31,1989,Japan,1.57
+31,1990,Japan,1.52
+31,1991,Japan,1.53
+31,1992,Japan,1.5
+31,1993,Japan,1.46
+31,1994,Japan,1.49
+31,1995,Japan,1.42
+31,1996,Japan,1.43
+31,1997,Japan,1.39
+31,1998,Japan,1.38
+31,1999,Japan,1.34
+31,2000,Japan,1.37
+31,2001,Japan,1.33
+31,2002,Japan,1.32
+31,2003,Japan,1.29
+31,2004,Japan,1.29
+31,2005,Japan,1.27
+31,2006,Japan,1.32
+31,2007,Japan,1.34
+31,2008,Japan,1.37
+31,2009,Japan,1.37
+31,2010,Japan,1.39
+31,2011,Japan,1.39
+31,2012,Japan,1.41
+31,2013,Japan,1.43
+31,2014,Japan,1.42
+31,2015,Japan,1.44
+31,2016,Japan,1.43
+31,2017,Japan,1.35
+31,2018,Japan,1.33
+31,2019,Japan,1.29
+31,2020,Japan,1.29
+31,2021,Japan,1.3
+31,2022,Japan,1.3
+47,1950,Portugal,3.16
+47,1951,Portugal,3.19
+47,1952,Portugal,3.22
+47,1953,Portugal,3.06
+47,1954,Portugal,2.98
+47,1955,Portugal,3.14
+47,1956,Portugal,3.03
+47,1957,Portugal,3.15
+47,1958,Portugal,3.16
+47,1959,Portugal,3.16
+47,1960,Portugal,3.16
+47,1961,Portugal,3.2
+47,1962,Portugal,3.23
+47,1963,Portugal,3.13
+47,1964,Portugal,3.21
+47,1965,Portugal,3.15
+47,1966,Portugal,3.16
+47,1967,Portugal,3.16
+47,1968,Portugal,3.12
+47,1969,Portugal,3.12
+47,1970,Portugal,3.01
+47,1971,Portugal,3
+47,1972,Portugal,2.86
+47,1973,Portugal,2.76
+47,1974,Portugal,2.7
+47,1975,Portugal,2.75
+47,1976,Portugal,2.81
+47,1977,Portugal,2.68
+47,1978,Portugal,2.44
+47,1979,Portugal,2.31
+47,1980,Portugal,2.24
+47,1981,Portugal,2.13
+47,1982,Portugal,2.07
+47,1983,Portugal,1.95
+47,1984,Portugal,1.9
+47,1985,Portugal,1.73
+47,1986,Portugal,1.66
+47,1987,Portugal,1.62
+47,1988,Portugal,1.61
+47,1989,Portugal,1.57
+47,1990,Portugal,1.56
+47,1991,Portugal,1.56
+47,1992,Portugal,1.54
+47,1993,Portugal,1.51
+47,1994,Portugal,1.45
+47,1995,Portugal,1.41
+47,1996,Portugal,1.44
+47,1997,Portugal,1.47
+47,1998,Portugal,1.47
+47,1999,Portugal,1.5
+47,2000,Portugal,1.54
+47,2001,Portugal,1.46
+47,2002,Portugal,1.46
+47,2003,Portugal,1.44
+47,2004,Portugal,1.41
+47,2005,Portugal,1.41
+47,2006,Portugal,1.37
+47,2007,Portugal,1.35
+47,2008,Portugal,1.39
+47,2009,Portugal,1.35
+47,2010,Portugal,1.39
+47,2011,Portugal,1.34
+47,2012,Portugal,1.28
+47,2013,Portugal,1.21
+47,2014,Portugal,1.23
+47,2015,Portugal,1.3
+47,2016,Portugal,1.36
+47,2017,Portugal,1.38
+47,2018,Portugal,1.41
+47,2019,Portugal,1.42
+47,2020,Portugal,1.39
+47,2021,Portugal,1.36
+47,2022,Portugal,1.37
+61,1950,Turkey,6.47
+61,1951,Turkey,6.47
+61,1952,Turkey,6.47
+61,1953,Turkey,6.48
+61,1954,Turkey,6.47
+61,1955,Turkey,6.46
+61,1956,Turkey,6.46
+61,1957,Turkey,6.45
+61,1958,Turkey,6.43
+61,1959,Turkey,6.42
+61,1960,Turkey,6.38
+61,1961,Turkey,6.35
+61,1962,Turkey,6.29
+61,1963,Turkey,6.22
+61,1964,Turkey,6.13
+61,1965,Turkey,6.03
+61,1966,Turkey,5.93
+61,1967,Turkey,5.8
+61,1968,Turkey,5.75
+61,1969,Turkey,5.69
+61,1970,Turkey,5.62
+61,1971,Turkey,5.55
+61,1972,Turkey,5.46
+61,1973,Turkey,5.36
+61,1974,Turkey,5.23
+61,1975,Turkey,5.07
+61,1976,Turkey,4.92
+61,1977,Turkey,4.76
+61,1978,Turkey,4.67
+61,1979,Turkey,4.56
+61,1980,Turkey,4.43
+61,1981,Turkey,4.31
+61,1982,Turkey,4.17
+61,1983,Turkey,4.02
+61,1984,Turkey,3.89
+61,1985,Turkey,3.75
+61,1986,Turkey,3.63
+61,1987,Turkey,3.5
+61,1988,Turkey,3.39
+61,1989,Turkey,3.28
+61,1990,Turkey,3.13
+61,1991,Turkey,3.05
+61,1992,Turkey,2.94
+61,1993,Turkey,2.9
+61,1994,Turkey,2.85
+61,1995,Turkey,2.79
+61,1996,Turkey,2.79
+61,1997,Turkey,2.72
+61,1998,Turkey,2.67
+61,1999,Turkey,2.59
+61,2000,Turkey,2.51
+61,2001,Turkey,2.53
+61,2002,Turkey,2.32
+61,2003,Turkey,2.23
+61,2004,Turkey,2.22
+61,2005,Turkey,2.22
+61,2006,Turkey,2.23
+61,2007,Turkey,2.19
+61,2008,Turkey,2.18
+61,2009,Turkey,2.16
+61,2010,Turkey,2.14
+61,2011,Turkey,2.13
+61,2012,Turkey,2.15
+61,2013,Turkey,2.16
+61,2014,Turkey,2.2
+61,2015,Turkey,2.19
+61,2016,Turkey,2.18
+61,2017,Turkey,2.14
+61,2018,Turkey,2.05
+61,2019,Turkey,1.97
+61,2020,Turkey,1.92
+61,2021,Turkey,1.89
+61,2022,Turkey,1.88
+64,1950,United States of America,2.93
+64,1951,United States of America,3.11
+64,1952,United States of America,3.21
+64,1953,United States of America,3.28
+64,1954,United States of America,3.39
+64,1955,United States of America,3.44
+64,1956,United States of America,3.54
+64,1957,United States of America,3.61
+64,1958,United States of America,3.57
+64,1959,United States of America,3.58
+64,1960,United States of America,3.55
+64,1961,United States of America,3.52
+64,1962,United States of America,3.39
+64,1963,United States of America,3.27
+64,1964,United States of America,3.14
+64,1965,United States of America,2.86
+64,1966,United States of America,2.66
+64,1967,United States of America,2.52
+64,1968,United States of America,2.44
+64,1969,United States of America,2.43
+64,1970,United States of America,2.47
+64,1971,United States of America,2.26
+64,1972,United States of America,2.01
+64,1973,United States of America,1.87
+64,1974,United States of America,1.83
+64,1975,United States of America,1.77
+64,1976,United States of America,1.74
+64,1977,United States of America,1.78
+64,1978,United States of America,1.76
+64,1979,United States of America,1.8
+64,1980,United States of America,1.83
+64,1981,United States of America,1.81
+64,1982,United States of America,1.82
+64,1983,United States of America,1.8
+64,1984,United States of America,1.8
+64,1985,United States of America,1.84
+64,1986,United States of America,1.83
+64,1987,United States of America,1.87
+64,1988,United States of America,1.93
+64,1989,United States of America,2.01
+64,1990,United States of America,2.07
+64,1991,United States of America,2.05
+64,1992,United States of America,2.04
+64,1993,United States of America,2.01
+64,1994,United States of America,1.99
+64,1995,United States of America,1.97
+64,1996,United States of America,1.97
+64,1997,United States of America,1.97
+64,1998,United States of America,1.99
+64,1999,United States of America,2.01
+64,2000,United States of America,2.05
+64,2001,United States of America,2.03
+64,2002,United States of America,2.02
+64,2003,United States of America,2.04
+64,2004,United States of America,2.05
+64,2005,United States of America,2.06
+64,2006,United States of America,2.1
+64,2007,United States of America,2.11
+64,2008,United States of America,2.07
+64,2009,United States of America,2
+64,2010,United States of America,1.93
+64,2011,United States of America,1.89
+64,2012,United States of America,1.88
+64,2013,United States of America,1.86
+64,2014,United States of America,1.86
+64,2015,United States of America,1.84
+64,2016,United States of America,1.81
+64,2017,United States of America,1.76
+64,2018,United States of America,1.72
+64,2019,United States of America,1.69
+64,2020,United States of America,1.64
+64,2021,United States of America,1.66
+64,2022,United States of America,1.66
+65,1950,Argentina,3.16
+65,1951,Argentina,3.16
+65,1952,Argentina,3.16
+65,1953,Argentina,3.15
+65,1954,Argentina,3.14
+65,1955,Argentina,3.14
+65,1956,Argentina,3.15
+65,1957,Argentina,3.17
+65,1958,Argentina,3.11
+65,1959,Argentina,3.09
+65,1960,Argentina,3.07
+65,1961,Argentina,3.07
+65,1962,Argentina,3.11
+65,1963,Argentina,3.1
+65,1964,Argentina,3.08
+65,1965,Argentina,3.06
+65,1966,Argentina,3.05
+65,1967,Argentina,3.04
+65,1968,Argentina,3.03
+65,1969,Argentina,3.05
+65,1970,Argentina,3.09
+65,1971,Argentina,3.11
+65,1972,Argentina,3.15
+65,1973,Argentina,3.2
+65,1974,Argentina,3.25
+65,1975,Argentina,3.3
+65,1976,Argentina,3.34
+65,1977,Argentina,3.36
+65,1978,Argentina,3.36
+65,1979,Argentina,3.34
+65,1980,Argentina,3.3
+65,1981,Argentina,3.25
+65,1982,Argentina,3.2
+65,1983,Argentina,3.16
+65,1984,Argentina,3.12
+65,1985,Argentina,3.1
+65,1986,Argentina,3.08
+65,1987,Argentina,3.06
+65,1988,Argentina,3.04
+65,1989,Argentina,3.02
+65,1990,Argentina,3.03
+65,1991,Argentina,3.01
+65,1992,Argentina,2.99
+65,1993,Argentina,2.97
+65,1994,Argentina,2.94
+65,1995,Argentina,2.86
+65,1996,Argentina,2.78
+65,1997,Argentina,2.71
+65,1998,Argentina,2.66
+65,1999,Argentina,2.64
+65,2000,Argentina,2.59
+65,2001,Argentina,2.53
+65,2002,Argentina,2.49
+65,2003,Argentina,2.45
+65,2004,Argentina,2.43
+65,2005,Argentina,2.43
+65,2006,Argentina,2.4
+65,2007,Argentina,2.37
+65,2008,Argentina,2.34
+65,2009,Argentina,2.34
+65,2010,Argentina,2.35
+65,2011,Argentina,2.34
+65,2012,Argentina,2.33
+65,2013,Argentina,2.32
+65,2014,Argentina,2.31
+65,2015,Argentina,2.3
+65,2016,Argentina,2.24
+65,2017,Argentina,2.17
+65,2018,Argentina,2.04
+65,2019,Argentina,1.99
+65,2020,Argentina,1.91
+65,2021,Argentina,1.89
+65,2022,Argentina,1.88
+67,1950,Taiwan,6.57
+67,1951,Taiwan,6.64
+67,1952,Taiwan,6.68
+67,1953,Taiwan,6.67
+67,1954,Taiwan,6.64
+67,1955,Taiwan,6.57
+67,1956,Taiwan,6.47
+67,1957,Taiwan,6.32
+67,1958,Taiwan,6.15
+67,1959,Taiwan,5.95
+67,1960,Taiwan,5.8
+67,1961,Taiwan,5.67
+67,1962,Taiwan,5.54
+67,1963,Taiwan,5.38
+67,1964,Taiwan,5.2
+67,1965,Taiwan,4.99
+67,1966,Taiwan,4.77
+67,1967,Taiwan,4.53
+67,1968,Taiwan,4.34
+67,1969,Taiwan,4.15
+67,1970,Taiwan,3.95
+67,1971,Taiwan,3.69
+67,1972,Taiwan,3.42
+67,1973,Taiwan,3.23
+67,1974,Taiwan,3.07
+67,1975,Taiwan,2.97
+67,1976,Taiwan,2.99
+67,1977,Taiwan,2.78
+67,1978,Taiwan,2.71
+67,1979,Taiwan,2.65
+67,1980,Taiwan,2.54
+67,1981,Taiwan,2.45
+67,1982,Taiwan,2.32
+67,1983,Taiwan,2.18
+67,1984,Taiwan,2.04
+67,1985,Taiwan,1.89
+67,1986,Taiwan,1.76
+67,1987,Taiwan,1.74
+67,1988,Taiwan,1.78
+67,1989,Taiwan,1.75
+67,1990,Taiwan,1.77
+67,1991,Taiwan,1.75
+67,1992,Taiwan,1.75
+67,1993,Taiwan,1.77
+67,1994,Taiwan,1.77
+67,1995,Taiwan,1.77
+67,1996,Taiwan,1.76
+67,1997,Taiwan,1.71
+67,1998,Taiwan,1.57
+67,1999,Taiwan,1.53
+67,2000,Taiwan,1.46
+67,2001,Taiwan,1.39
+67,2002,Taiwan,1.32
+67,2003,Taiwan,1.25
+67,2004,Taiwan,1.19
+67,2005,Taiwan,1.14
+67,2006,Taiwan,1.12
+67,2007,Taiwan,1.09
+67,2008,Taiwan,1.05
+67,2009,Taiwan,.99
+67,2010,Taiwan,.91
+67,2011,Taiwan,1.03
+67,2012,Taiwan,1.13
+67,2013,Taiwan,1.12
+67,2014,Taiwan,1.16
+67,2015,Taiwan,1.17
+67,2016,Taiwan,1.16
+67,2017,Taiwan,1.13
+67,2018,Taiwan,1.1
+67,2019,Taiwan,1.09
+67,2020,Taiwan,1.1
+67,2021,Taiwan,1.11
+67,2022,Taiwan,1.13
+68,1950,Republic of Korea,5.97
+68,1951,Republic of Korea,5.96
+68,1952,Republic of Korea,5.94
+68,1953,Republic of Korea,6.03
+68,1954,Republic of Korea,6.07
+68,1955,Republic of Korea,6.11
+68,1956,Republic of Korea,6.15
+68,1957,Republic of Korea,6.19
+68,1958,Republic of Korea,6.16
+68,1959,Republic of Korea,6.07
+68,1960,Republic of Korea,5.95
+68,1961,Republic of Korea,5.81
+68,1962,Republic of Korea,5.62
+68,1963,Republic of Korea,5.41
+68,1964,Republic of Korea,5.19
+68,1965,Republic of Korea,5
+68,1966,Republic of Korea,4.81
+68,1967,Republic of Korea,4.63
+68,1968,Republic of Korea,4.49
+68,1969,Republic of Korea,4.47
+68,1970,Republic of Korea,4.41
+68,1971,Republic of Korea,4.25
+68,1972,Republic of Korea,4.07
+68,1973,Republic of Korea,3.89
+68,1974,Republic of Korea,3.68
+68,1975,Republic of Korea,3.41
+68,1976,Republic of Korea,3.18
+68,1977,Republic of Korea,3
+68,1978,Republic of Korea,2.78
+68,1979,Republic of Korea,2.74
+68,1980,Republic of Korea,2.72
+68,1981,Republic of Korea,2.63
+68,1982,Republic of Korea,2.44
+68,1983,Republic of Korea,2.17
+68,1984,Republic of Korea,1.93
+68,1985,Republic of Korea,1.75
+68,1986,Republic of Korea,1.66
+68,1987,Republic of Korea,1.59
+68,1988,Republic of Korea,1.57
+68,1989,Republic of Korea,1.58
+68,1990,Republic of Korea,1.6
+68,1991,Republic of Korea,1.67
+68,1992,Republic of Korea,1.7
+68,1993,Republic of Korea,1.67
+68,1994,Republic of Korea,1.65
+68,1995,Republic of Korea,1.63
+68,1996,Republic of Korea,1.58
+68,1997,Republic of Korea,1.55
+68,1998,Republic of Korea,1.49
+68,1999,Republic of Korea,1.45
+68,2000,Republic of Korea,1.42
+68,2001,Republic of Korea,1.3
+68,2002,Republic of Korea,1.2
+68,2003,Republic of Korea,1.17
+68,2004,Republic of Korea,1.14
+68,2005,Republic of Korea,1.1
+68,2006,Republic of Korea,1.13
+68,2007,Republic of Korea,1.19
+68,2008,Republic of Korea,1.18
+68,2009,Republic of Korea,1.17
+68,2010,Republic of Korea,1.22
+68,2011,Republic of Korea,1.25
+68,2012,Republic of Korea,1.26
+68,2013,Republic of Korea,1.21
+68,2014,Republic of Korea,1.2
+68,2015,Republic of Korea,1.2
+68,2016,Republic of Korea,1.15
+68,2017,Republic of Korea,1.05
+68,2018,Republic of Korea,.97
+68,2019,Republic of Korea,.91
+68,2020,Republic of Korea,.89
+68,2021,Republic of Korea,.88
+68,2022,Republic of Korea,.87

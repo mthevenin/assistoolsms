@@ -1,0 +1,158 @@
+---
+title: "Contrôler les effets spaghetti avec ggplot"
+
+categories:
+  - Graphique
+
+author: 
+  - name: "Arno Muller"
+    affiliations:
+      - name: "Ined"
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"        
+
+date: 07/12/2023
+
+image: "http://w7.pngwing.com/pngs/964/653/png-transparent-pasta-computer-icons-spaghetti-dish-symbol-spaghetti-miscellaneous-food-logo.png"
+
+format:
+  html: default
+
+filters:
+   - lightbox
+   
+lightbox: auto
+        
+abstract: | 
+ Un graphique devient très facilement illisible lorsque trop d'objets graphiques y sont introduits, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** (effet paella pour un nuage de points). Pour contrôler cette difficulté il est préconiser de réaliser un graphique de type **small-multiples** (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en termes de couleur et d'épaisseur de la courbe  tout en gardant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple du gris).
+---
+
+```{r,  message=FALSE, warning=FALSE}
+# pour récupérer la palette de couleur qualitatitive Tableau: 
+# install.packages(ggthemes
+
+library(dplyr)
+library(ggplot2)
+library(ggthemes) 
+```
+
+
+
+
+# L'effet spaghetti en images
+
+* Les données utilisées ici sont extraites des bases contextextuelles GGP coordonnées par le [datalab de l'Ined](http://datalab.site.ined.fr/fr/donnees-demographiques-contextuelles/). 
+
+* On va regarder l'évolution du taux de fécondité de 12 pays de 1950 à 2022. 
+
+```{r}
+df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
+df = df %>% mutate_if(is.character,as.factor)
+head(df)
+```
+
+
+* Les taux de fécondité sont renseignés par la variable *y*, les années par la variable *year* et les pays par la variable *pays*. 
+
+En empilant avec **`ggplot`** les 12 courbes d'évolution de la fécondité....
+
+
+```{r}
+ggplot(df) +
+ aes(x = year, y = y, colour = pays) +
+ geom_line(lwd=1) +
+ scale_color_tableau( palette = "Tableau 20") +
+ labs(x = "Années", y = "Taux de fécondité", title = "Taux de fécondité par pays de 1950 à 2022", 
+ caption = "Source: GGP - Datalab Ined", color = "Pays") +
+ scale_x_continuous(breaks=seq(1950,2020, 10))  +
+ theme_light() 
+```
+
+
+... C'est  illisible.  
+
+* On peut améliorer la lecture et naviguer dans le graphique avec un outil de visualisation dynamique, par exemple avec **plotly**. Mais c'est outils sont strictement réservé à une diffusion de type html. 
+
+
+```{r, message=FALSE, warning=FALSE}
+
+#install.packages(plotly)
+
+library(plotly)
+
+p = ggplot(df) +
+ aes(x = year, y = y, colour = pays) +
+ geom_line( lwd=1) +
+ scale_color_tableau( palette = "Tableau 20") +
+ labs(x = "Années", y = "Taux de fécondité", title = "Taux de fécondité par pays de 1950 à 2022", 
+ caption = "Source: GGP - Datalab Ined", color = "Pays") +
+  scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
+  scale_y_continuous(breaks=seq(0,6,1)) +
+ theme_light() 
+
+ggplotly(p)
+```
+
+
+* Pour une **visualisation statique**, il est fortement recommandé de visualiser ce type d'informations à l'aide d'un graphique combiné, appelé **small multiples** (ou facettes).  
+
+
+# Contrôle de l'effet spaghetti avec un graphique combiné
+
+## Graphique combiné simple
+
+Par rapport au graphique précédent on va simplement générer des sous graphiques par pays, qui seront combinés avec l'option **`facet_wrap`**. 
+
+```{r}
+ggplot(df) +
+  aes(x = year, y = y) +
+  geom_line(colour = "#C24168", lwd=1.2) +
+  labs(title = "Taux de fécondité") +
+  theme_minimal() +
+  labs(x = "Années", 
+       y = "Taux de fécondité", 
+       title = "Taux de fécondité par pays de 1950 à 2022", 
+       caption = "Source: GGP - Datalab Ined",) +
+  scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
+  scale_y_continuous(breaks=seq(0,6,1)) +
+  facet_wrap(vars(pays), ncol = 4L)
+```
+
+## Graphique combiné avec highlighting
+
+On peut combiné les deux approches, en gardant en arrière plan de chaque sous graphique les informations des autres graphiques. On peut donc ici, pour chaque pays, positionné l'information de chaque pays par rapport aux autres.
+
+Le principe du code a été récupéré dans le support de Yann Holtz consacré à ce problème [**Data to viz**](http://www.data-to-viz.com/caveat/spaghetti.html). On vous recommande très fortement
+d'utiliser ce support très riche, non seulement en éléments de programmation, mais également en conseils. En particulier la section **mise en garde** (*caveats*).
+
+Les courbes en arrière plan ont une épaisseur plus faible (`lwd=0.1`) et on une couleur unique ( `color="grey` ). Pour facilité la lecture, le quadrillage a été allégé dans l'option `theme()`. 
+
+```{r}
+tmp <- df %>%
+  mutate(pays2=pays)   
+
+ggplot(tmp) +
+  aes(x = year, y = y) +
+  geom_line( data=tmp %>% dplyr::select(-pays), aes(group=pays2), color="grey", lwd=0.1) +    
+  geom_line(colour = "#C24168", lwd=1.4) +
+  labs(title = "Taux de fécondité") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),  
+        panel.grid.minor.y = element_blank()) + 
+  labs(x = "Années", 
+       y = "Taux de fécondité", 
+       title = "Taux de fécondité par pays de 1950 à 2022", 
+       caption = "Source: GGP - Datalab Ined",) +
+  scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
+  scale_y_continuous(breaks=seq(0,6,1)) +
+  facet_wrap(vars(pays), ncol = 4L)
+```
+
+
+
+
+
+
+

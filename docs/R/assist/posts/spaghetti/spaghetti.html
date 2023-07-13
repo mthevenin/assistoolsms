@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Arno Muller">
+<meta name="author" content="Marc Thévenin">
+
+<title>SMS_site - Contrôler les effets spaghetti avec ggplot</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script src="../../../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="../../../../site_libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="../../../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../../../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../../../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../../../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../../../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+<link rel="stylesheet" href="../../../../sms.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
+ <span class="menu-text">R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../Quarto/index.html" rel="" target="">
+ <span class="menu-text">Quarto</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
+ <span class="menu-text">Autres</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../supports.html" rel="" target="">
+ <span class="menu-text">Autres Supports</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Contrôler les effets spaghetti avec ggplot</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Graphique</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice·s</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Arno Muller </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+        <div class="quarto-title-meta-contents">
+      <p class="author">Marc Thévenin </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">12 juillet 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Résumé</div>
+      <p>Un graphique devient très facilement illisible lorsque trop d’objets graphiques y sont introduits, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé <strong>effet spaghetti</strong> (effet paella pour un nuage de points). Pour contrôler cette difficulté il est préconiser de réaliser un graphique de type <strong>small-multiples</strong> (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en termes de couleur et d’épaisseur de la courbe tout en gardant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple du gris).</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#leffet-spaghetti-en-images" id="toc-leffet-spaghetti-en-images" class="nav-link active" data-scroll-target="#leffet-spaghetti-en-images">L’effet spaghetti en images</a></li>
+  <li><a href="#contrôle-de-leffet-spaghetti-avec-un-graphique-combiné" id="toc-contrôle-de-leffet-spaghetti-avec-un-graphique-combiné" class="nav-link" data-scroll-target="#contrôle-de-leffet-spaghetti-avec-un-graphique-combiné">Contrôle de l’effet spaghetti avec un graphique combiné</a>
+  <ul class="collapse">
+  <li><a href="#graphique-combiné-simple" id="toc-graphique-combiné-simple" class="nav-link" data-scroll-target="#graphique-combiné-simple">Graphique combiné simple</a></li>
+  <li><a href="#graphique-combiné-avec-highlighting" id="toc-graphique-combiné-avec-highlighting" class="nav-link" data-scroll-target="#graphique-combiné-avec-highlighting">Graphique combiné avec highlighting</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># pour récupérer la palette de couleur qualitatitive Tableau: </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># install.packages(ggthemes</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(ggthemes) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="leffet-spaghetti-en-images" class="level1">
+<h1>L’effet spaghetti en images</h1>
+<ul>
+<li><p>Les données utilisées ici sont extraites des bases contextextuelles GGP coordonnées par le <a href="http://datalab.site.ined.fr/fr/donnees-demographiques-contextuelles/">datalab de l’Ined</a>.</p></li>
+<li><p>On va regarder l’évolution du taux de fécondité de 12 pays de 1950 à 2022.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character,as.factor)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">head</span>(df)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  code year   pays    y
+1   20 1950 France 2.99
+2   20 1951 France 2.87
+3   20 1952 France 2.81
+4   20 1953 France 2.71
+5   20 1954 France 2.71
+6   20 1955 France 2.71</code></pre>
+</div>
+</div>
+<ul>
+<li>Les taux de fécondité sont renseignés par la variable <em>y</em>, les années par la variable <em>year</em> et les pays par la variable <em>pays</em>.</li>
+</ul>
+<p>En empilant avec <strong><code>ggplot</code></strong> les 12 courbes d’évolution de la fécondité….</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a> <span class="fu">geom_line</span>(<span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb4-6"><a href="#cb4-6"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a> <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>))  <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a> <span class="fu">theme_light</span>() </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="spaghetti_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="spaghetti_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>… C’est illisible.</p>
+<ul>
+<li>On peut améliorer la lecture et naviguer dans le graphique avec un outil de visualisation dynamique, par exemple avec <strong>plotly</strong>. Mais c’est outils sont strictement réservé à une diffusion de type html.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#install.packages(plotly)</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>p <span class="ot">=</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a> <span class="fu">geom_line</span>( <span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb5-10"><a href="#cb5-10"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a> <span class="fu">theme_light</span>() </span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="fu">ggplotly</span>(p)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5f4c71099122413bdf67" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-5f4c71099122413bdf67">{"x":{"data":[{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[3.1600000000000001,3.1600000000000001,3.1600000000000001,3.1499999999999999,3.1400000000000001,3.1400000000000001,3.1499999999999999,3.1699999999999999,3.1099999999999999,3.0899999999999999,3.0699999999999998,3.0699999999999998,3.1099999999999999,3.1000000000000001,3.0800000000000001,3.0600000000000001,3.0499999999999998,3.04,3.0299999999999998,3.0499999999999998,3.0899999999999999,3.1099999999999999,3.1499999999999999,3.2000000000000002,3.25,3.2999999999999998,3.3399999999999999,3.3599999999999999,3.3599999999999999,3.3399999999999999,3.2999999999999998,3.25,3.2000000000000002,3.1600000000000001,3.1200000000000001,3.1000000000000001,3.0800000000000001,3.0600000000000001,3.04,3.02,3.0299999999999998,3.0099999999999998,2.9900000000000002,2.9700000000000002,2.9399999999999999,2.8599999999999999,2.7799999999999998,2.71,2.6600000000000001,2.6400000000000001,2.5899999999999999,2.5299999999999998,2.4900000000000002,2.4500000000000002,2.4300000000000002,2.4300000000000002,2.3999999999999999,2.3700000000000001,2.3399999999999999,2.3399999999999999,2.3500000000000001,2.3399999999999999,2.3300000000000001,2.3199999999999998,2.3100000000000001,2.2999999999999998,2.2400000000000002,2.1699999999999999,2.04,1.99,1.9099999999999999,1.8899999999999999,1.8799999999999999],"text":["year: 1950<br />y: 3.16<br />pays: Argentina","year: 1951<br />y: 3.16<br />pays: Argentina","year: 1952<br />y: 3.16<br />pays: Argentina","year: 1953<br />y: 3.15<br />pays: Argentina","year: 1954<br />y: 3.14<br />pays: Argentina","year: 1955<br />y: 3.14<br />pays: Argentina","year: 1956<br />y: 3.15<br />pays: Argentina","year: 1957<br />y: 3.17<br />pays: Argentina","year: 1958<br />y: 3.11<br />pays: Argentina","year: 1959<br />y: 3.09<br />pays: Argentina","year: 1960<br />y: 3.07<br />pays: Argentina","year: 1961<br />y: 3.07<br />pays: Argentina","year: 1962<br />y: 3.11<br />pays: Argentina","year: 1963<br />y: 3.10<br />pays: Argentina","year: 1964<br />y: 3.08<br />pays: Argentina","year: 1965<br />y: 3.06<br />pays: Argentina","year: 1966<br />y: 3.05<br />pays: Argentina","year: 1967<br />y: 3.04<br />pays: Argentina","year: 1968<br />y: 3.03<br />pays: Argentina","year: 1969<br />y: 3.05<br />pays: Argentina","year: 1970<br />y: 3.09<br />pays: Argentina","year: 1971<br />y: 3.11<br />pays: Argentina","year: 1972<br />y: 3.15<br />pays: Argentina","year: 1973<br />y: 3.20<br />pays: Argentina","year: 1974<br />y: 3.25<br />pays: Argentina","year: 1975<br />y: 3.30<br />pays: Argentina","year: 1976<br />y: 3.34<br />pays: Argentina","year: 1977<br />y: 3.36<br />pays: Argentina","year: 1978<br />y: 3.36<br />pays: Argentina","year: 1979<br />y: 3.34<br />pays: Argentina","year: 1980<br />y: 3.30<br />pays: Argentina","year: 1981<br />y: 3.25<br />pays: Argentina","year: 1982<br />y: 3.20<br />pays: Argentina","year: 1983<br />y: 3.16<br />pays: Argentina","year: 1984<br />y: 3.12<br />pays: Argentina","year: 1985<br />y: 3.10<br />pays: Argentina","year: 1986<br />y: 3.08<br />pays: Argentina","year: 1987<br />y: 3.06<br />pays: Argentina","year: 1988<br />y: 3.04<br />pays: Argentina","year: 1989<br />y: 3.02<br />pays: Argentina","year: 1990<br />y: 3.03<br />pays: Argentina","year: 1991<br />y: 3.01<br />pays: Argentina","year: 1992<br />y: 2.99<br />pays: Argentina","year: 1993<br />y: 2.97<br />pays: Argentina","year: 1994<br />y: 2.94<br />pays: Argentina","year: 1995<br />y: 2.86<br />pays: Argentina","year: 1996<br />y: 2.78<br />pays: Argentina","year: 1997<br />y: 2.71<br />pays: Argentina","year: 1998<br />y: 2.66<br />pays: Argentina","year: 1999<br />y: 2.64<br />pays: Argentina","year: 2000<br />y: 2.59<br />pays: Argentina","year: 2001<br />y: 2.53<br />pays: Argentina","year: 2002<br />y: 2.49<br />pays: Argentina","year: 2003<br />y: 2.45<br />pays: Argentina","year: 2004<br />y: 2.43<br />pays: Argentina","year: 2005<br />y: 2.43<br />pays: Argentina","year: 2006<br />y: 2.40<br />pays: Argentina","year: 2007<br />y: 2.37<br />pays: Argentina","year: 2008<br />y: 2.34<br />pays: Argentina","year: 2009<br />y: 2.34<br />pays: Argentina","year: 2010<br />y: 2.35<br />pays: Argentina","year: 2011<br />y: 2.34<br />pays: Argentina","year: 2012<br />y: 2.33<br />pays: Argentina","year: 2013<br />y: 2.32<br />pays: Argentina","year: 2014<br />y: 2.31<br />pays: Argentina","year: 2015<br />y: 2.30<br />pays: Argentina","year: 2016<br />y: 2.24<br />pays: Argentina","year: 2017<br />y: 2.17<br />pays: Argentina","year: 2018<br />y: 2.04<br />pays: Argentina","year: 2019<br />y: 1.99<br />pays: Argentina","year: 2020<br />y: 1.91<br />pays: Argentina","year: 2021<br />y: 1.89<br />pays: Argentina","year: 2022<br />y: 1.88<br />pays: Argentina"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(78,121,167,1)","dash":"solid"},"hoveron":"points","name":"Argentina","legendgroup":"Argentina","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[2.9900000000000002,2.8700000000000001,2.8100000000000001,2.71,2.71,2.71,2.7000000000000002,2.71,2.6899999999999999,2.7400000000000002,2.73,2.7999999999999998,2.7799999999999998,2.8900000000000001,2.8900000000000001,2.8300000000000001,2.77,2.6600000000000001,2.5800000000000001,2.54,2.5,2.52,2.4500000000000002,2.3100000000000001,2.1400000000000001,1.95,1.8600000000000001,1.8799999999999999,1.8500000000000001,1.8799999999999999,1.96,1.96,1.9199999999999999,1.8,1.8100000000000001,1.8200000000000001,1.8400000000000001,1.8100000000000001,1.8100000000000001,1.79,1.78,1.77,1.73,1.6599999999999999,1.6599999999999999,1.71,1.73,1.72,1.78,1.8100000000000001,1.8799999999999999,1.8799999999999999,1.8600000000000001,1.8700000000000001,1.8999999999999999,1.9199999999999999,1.97,1.95,1.99,1.99,2.02,1.99,1.99,1.97,1.97,1.9299999999999999,1.8899999999999999,1.8600000000000001,1.8400000000000001,1.8300000000000001,1.79,1.79,1.79],"text":["year: 1950<br />y: 2.99<br />pays: France","year: 1951<br />y: 2.87<br />pays: France","year: 1952<br />y: 2.81<br />pays: France","year: 1953<br />y: 2.71<br />pays: France","year: 1954<br />y: 2.71<br />pays: France","year: 1955<br />y: 2.71<br />pays: France","year: 1956<br />y: 2.70<br />pays: France","year: 1957<br />y: 2.71<br />pays: France","year: 1958<br />y: 2.69<br />pays: France","year: 1959<br />y: 2.74<br />pays: France","year: 1960<br />y: 2.73<br />pays: France","year: 1961<br />y: 2.80<br />pays: France","year: 1962<br />y: 2.78<br />pays: France","year: 1963<br />y: 2.89<br />pays: France","year: 1964<br />y: 2.89<br />pays: France","year: 1965<br />y: 2.83<br />pays: France","year: 1966<br />y: 2.77<br />pays: France","year: 1967<br />y: 2.66<br />pays: France","year: 1968<br />y: 2.58<br />pays: France","year: 1969<br />y: 2.54<br />pays: France","year: 1970<br />y: 2.50<br />pays: France","year: 1971<br />y: 2.52<br />pays: France","year: 1972<br />y: 2.45<br />pays: France","year: 1973<br />y: 2.31<br />pays: France","year: 1974<br />y: 2.14<br />pays: France","year: 1975<br />y: 1.95<br />pays: France","year: 1976<br />y: 1.86<br />pays: France","year: 1977<br />y: 1.88<br />pays: France","year: 1978<br />y: 1.85<br />pays: France","year: 1979<br />y: 1.88<br />pays: France","year: 1980<br />y: 1.96<br />pays: France","year: 1981<br />y: 1.96<br />pays: France","year: 1982<br />y: 1.92<br />pays: France","year: 1983<br />y: 1.80<br />pays: France","year: 1984<br />y: 1.81<br />pays: France","year: 1985<br />y: 1.82<br />pays: France","year: 1986<br />y: 1.84<br />pays: France","year: 1987<br />y: 1.81<br />pays: France","year: 1988<br />y: 1.81<br />pays: France","year: 1989<br />y: 1.79<br />pays: France","year: 1990<br />y: 1.78<br />pays: France","year: 1991<br />y: 1.77<br />pays: France","year: 1992<br />y: 1.73<br />pays: France","year: 1993<br />y: 1.66<br />pays: France","year: 1994<br />y: 1.66<br />pays: France","year: 1995<br />y: 1.71<br />pays: France","year: 1996<br />y: 1.73<br />pays: France","year: 1997<br />y: 1.72<br />pays: France","year: 1998<br />y: 1.78<br />pays: France","year: 1999<br />y: 1.81<br />pays: France","year: 2000<br />y: 1.88<br />pays: France","year: 2001<br />y: 1.88<br />pays: France","year: 2002<br />y: 1.86<br />pays: France","year: 2003<br />y: 1.87<br />pays: France","year: 2004<br />y: 1.90<br />pays: France","year: 2005<br />y: 1.92<br />pays: France","year: 2006<br />y: 1.97<br />pays: France","year: 2007<br />y: 1.95<br />pays: France","year: 2008<br />y: 1.99<br />pays: France","year: 2009<br />y: 1.99<br />pays: France","year: 2010<br />y: 2.02<br />pays: France","year: 2011<br />y: 1.99<br />pays: France","year: 2012<br />y: 1.99<br />pays: France","year: 2013<br />y: 1.97<br />pays: France","year: 2014<br />y: 1.97<br />pays: France","year: 2015<br />y: 1.93<br />pays: France","year: 2016<br />y: 1.89<br />pays: France","year: 2017<br />y: 1.86<br />pays: France","year: 2018<br />y: 1.84<br />pays: France","year: 2019<br />y: 1.83<br />pays: France","year: 2020<br />y: 1.79<br />pays: France","year: 2021<br />y: 1.79<br />pays: France","year: 2022<br />y: 1.79<br />pays: France"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(160,203,232,1)","dash":"solid"},"hoveron":"points","name":"France","legendgroup":"France","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[2.0899999999999999,2.1000000000000001,2.1099999999999999,2.1299999999999999,2.1600000000000001,2.1600000000000001,2.21,2.25,2.2799999999999998,2.3599999999999999,2.3799999999999999,2.46,2.4700000000000002,2.5099999999999998,2.52,2.4900000000000002,2.5,2.4399999999999999,2.3399999999999999,2.2000000000000002,2.04,1.9399999999999999,1.73,1.5700000000000001,1.52,1.48,1.49,1.5,1.49,1.5,1.54,1.52,1.49,1.4299999999999999,1.3899999999999999,1.3799999999999999,1.4099999999999999,1.4399999999999999,1.46,1.4399999999999999,1.4399999999999999,1.3500000000000001,1.3100000000000001,1.28,1.25,1.25,1.3200000000000001,1.3600000000000001,1.3600000000000001,1.3600000000000001,1.3799999999999999,1.3500000000000001,1.3400000000000001,1.3400000000000001,1.3600000000000001,1.3400000000000001,1.3300000000000001,1.3700000000000001,1.3799999999999999,1.3600000000000001,1.3899999999999999,1.3899999999999999,1.4099999999999999,1.4199999999999999,1.47,1.51,1.5900000000000001,1.5800000000000001,1.5600000000000001,1.54,1.52,1.53,1.53],"text":["year: 1950<br />y: 2.09<br />pays: Germany","year: 1951<br />y: 2.10<br />pays: Germany","year: 1952<br />y: 2.11<br />pays: Germany","year: 1953<br />y: 2.13<br />pays: Germany","year: 1954<br />y: 2.16<br />pays: Germany","year: 1955<br />y: 2.16<br />pays: Germany","year: 1956<br />y: 2.21<br />pays: Germany","year: 1957<br />y: 2.25<br />pays: Germany","year: 1958<br />y: 2.28<br />pays: Germany","year: 1959<br />y: 2.36<br />pays: Germany","year: 1960<br />y: 2.38<br />pays: Germany","year: 1961<br />y: 2.46<br />pays: Germany","year: 1962<br />y: 2.47<br />pays: Germany","year: 1963<br />y: 2.51<br />pays: Germany","year: 1964<br />y: 2.52<br />pays: Germany","year: 1965<br />y: 2.49<br />pays: Germany","year: 1966<br />y: 2.50<br />pays: Germany","year: 1967<br />y: 2.44<br />pays: Germany","year: 1968<br />y: 2.34<br />pays: Germany","year: 1969<br />y: 2.20<br />pays: Germany","year: 1970<br />y: 2.04<br />pays: Germany","year: 1971<br />y: 1.94<br />pays: Germany","year: 1972<br />y: 1.73<br />pays: Germany","year: 1973<br />y: 1.57<br />pays: Germany","year: 1974<br />y: 1.52<br />pays: Germany","year: 1975<br />y: 1.48<br />pays: Germany","year: 1976<br />y: 1.49<br />pays: Germany","year: 1977<br />y: 1.50<br />pays: Germany","year: 1978<br />y: 1.49<br />pays: Germany","year: 1979<br />y: 1.50<br />pays: Germany","year: 1980<br />y: 1.54<br />pays: Germany","year: 1981<br />y: 1.52<br />pays: Germany","year: 1982<br />y: 1.49<br />pays: Germany","year: 1983<br />y: 1.43<br />pays: Germany","year: 1984<br />y: 1.39<br />pays: Germany","year: 1985<br />y: 1.38<br />pays: Germany","year: 1986<br />y: 1.41<br />pays: Germany","year: 1987<br />y: 1.44<br />pays: Germany","year: 1988<br />y: 1.46<br />pays: Germany","year: 1989<br />y: 1.44<br />pays: Germany","year: 1990<br />y: 1.44<br />pays: Germany","year: 1991<br />y: 1.35<br />pays: Germany","year: 1992<br />y: 1.31<br />pays: Germany","year: 1993<br />y: 1.28<br />pays: Germany","year: 1994<br />y: 1.25<br />pays: Germany","year: 1995<br />y: 1.25<br />pays: Germany","year: 1996<br />y: 1.32<br />pays: Germany","year: 1997<br />y: 1.36<br />pays: Germany","year: 1998<br />y: 1.36<br />pays: Germany","year: 1999<br />y: 1.36<br />pays: Germany","year: 2000<br />y: 1.38<br />pays: Germany","year: 2001<br />y: 1.35<br />pays: Germany","year: 2002<br />y: 1.34<br />pays: Germany","year: 2003<br />y: 1.34<br />pays: Germany","year: 2004<br />y: 1.36<br />pays: Germany","year: 2005<br />y: 1.34<br />pays: Germany","year: 2006<br />y: 1.33<br />pays: Germany","year: 2007<br />y: 1.37<br />pays: Germany","year: 2008<br />y: 1.38<br />pays: Germany","year: 2009<br />y: 1.36<br />pays: Germany","year: 2010<br />y: 1.39<br />pays: Germany","year: 2011<br />y: 1.39<br />pays: Germany","year: 2012<br />y: 1.41<br />pays: Germany","year: 2013<br />y: 1.42<br />pays: Germany","year: 2014<br />y: 1.47<br />pays: Germany","year: 2015<br />y: 1.51<br />pays: Germany","year: 2016<br />y: 1.59<br />pays: Germany","year: 2017<br />y: 1.58<br />pays: Germany","year: 2018<br />y: 1.56<br />pays: Germany","year: 2019<br />y: 1.54<br />pays: Germany","year: 2020<br />y: 1.52<br />pays: Germany","year: 2021<br />y: 1.53<br />pays: Germany","year: 2022<br />y: 1.53<br />pays: Germany"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(242,142,43,1)","dash":"solid"},"hoveron":"points","name":"Germany","legendgroup":"Germany","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[3.8500000000000001,3.7200000000000002,3.79,3.9300000000000002,3.9100000000000001,4.0700000000000003,4.1399999999999997,4.1900000000000004,4.0899999999999999,4.2300000000000004,4.2599999999999998,3.8900000000000001,3.98,3.9900000000000002,3.8799999999999999,3.73,3.5699999999999998,3.2799999999999998,3.0699999999999998,2.98,2.8199999999999998,2.9199999999999999,3.0800000000000001,2.9399999999999999,2.6600000000000001,2.6400000000000001,2.52,2.3199999999999998,2.3500000000000001,2.48,2.4700000000000002,2.3399999999999999,2.2799999999999998,2.2400000000000002,2.0800000000000001,1.9399999999999999,1.9299999999999999,2.0600000000000001,2.2400000000000002,2.2000000000000002,2.29,2.1899999999999999,2.21,2.2200000000000002,2.1400000000000001,2.0800000000000001,2.1200000000000001,2.04,2.04,2,2.0699999999999998,1.96,1.9399999999999999,1.99,2.04,2.0499999999999998,2.0800000000000001,2.0899999999999999,2.1499999999999999,2.2200000000000002,2.1899999999999999,2.0299999999999998,2.04,1.9399999999999999,1.9299999999999999,1.8100000000000001,1.75,1.71,1.71,1.75,1.74,1.73,1.73],"text":["year: 1950<br />y: 3.85<br />pays: Iceland","year: 1951<br />y: 3.72<br />pays: Iceland","year: 1952<br />y: 3.79<br />pays: Iceland","year: 1953<br />y: 3.93<br />pays: Iceland","year: 1954<br />y: 3.91<br />pays: Iceland","year: 1955<br />y: 4.07<br />pays: Iceland","year: 1956<br />y: 4.14<br />pays: Iceland","year: 1957<br />y: 4.19<br />pays: Iceland","year: 1958<br />y: 4.09<br />pays: Iceland","year: 1959<br />y: 4.23<br />pays: Iceland","year: 1960<br />y: 4.26<br />pays: Iceland","year: 1961<br />y: 3.89<br />pays: Iceland","year: 1962<br />y: 3.98<br />pays: Iceland","year: 1963<br />y: 3.99<br />pays: Iceland","year: 1964<br />y: 3.88<br />pays: Iceland","year: 1965<br />y: 3.73<br />pays: Iceland","year: 1966<br />y: 3.57<br />pays: Iceland","year: 1967<br />y: 3.28<br />pays: Iceland","year: 1968<br />y: 3.07<br />pays: Iceland","year: 1969<br />y: 2.98<br />pays: Iceland","year: 1970<br />y: 2.82<br />pays: Iceland","year: 1971<br />y: 2.92<br />pays: Iceland","year: 1972<br />y: 3.08<br />pays: Iceland","year: 1973<br />y: 2.94<br />pays: Iceland","year: 1974<br />y: 2.66<br />pays: Iceland","year: 1975<br />y: 2.64<br />pays: Iceland","year: 1976<br />y: 2.52<br />pays: Iceland","year: 1977<br />y: 2.32<br />pays: Iceland","year: 1978<br />y: 2.35<br />pays: Iceland","year: 1979<br />y: 2.48<br />pays: Iceland","year: 1980<br />y: 2.47<br />pays: Iceland","year: 1981<br />y: 2.34<br />pays: Iceland","year: 1982<br />y: 2.28<br />pays: Iceland","year: 1983<br />y: 2.24<br />pays: Iceland","year: 1984<br />y: 2.08<br />pays: Iceland","year: 1985<br />y: 1.94<br />pays: Iceland","year: 1986<br />y: 1.93<br />pays: Iceland","year: 1987<br />y: 2.06<br />pays: Iceland","year: 1988<br />y: 2.24<br />pays: Iceland","year: 1989<br />y: 2.20<br />pays: Iceland","year: 1990<br />y: 2.29<br />pays: Iceland","year: 1991<br />y: 2.19<br />pays: Iceland","year: 1992<br />y: 2.21<br />pays: Iceland","year: 1993<br />y: 2.22<br />pays: Iceland","year: 1994<br />y: 2.14<br />pays: Iceland","year: 1995<br />y: 2.08<br />pays: Iceland","year: 1996<br />y: 2.12<br />pays: Iceland","year: 1997<br />y: 2.04<br />pays: Iceland","year: 1998<br />y: 2.04<br />pays: Iceland","year: 1999<br />y: 2.00<br />pays: Iceland","year: 2000<br />y: 2.07<br />pays: Iceland","year: 2001<br />y: 1.96<br />pays: Iceland","year: 2002<br />y: 1.94<br />pays: Iceland","year: 2003<br />y: 1.99<br />pays: Iceland","year: 2004<br />y: 2.04<br />pays: Iceland","year: 2005<br />y: 2.05<br />pays: Iceland","year: 2006<br />y: 2.08<br />pays: Iceland","year: 2007<br />y: 2.09<br />pays: Iceland","year: 2008<br />y: 2.15<br />pays: Iceland","year: 2009<br />y: 2.22<br />pays: Iceland","year: 2010<br />y: 2.19<br />pays: Iceland","year: 2011<br />y: 2.03<br />pays: Iceland","year: 2012<br />y: 2.04<br />pays: Iceland","year: 2013<br />y: 1.94<br />pays: Iceland","year: 2014<br />y: 1.93<br />pays: Iceland","year: 2015<br />y: 1.81<br />pays: Iceland","year: 2016<br />y: 1.75<br />pays: Iceland","year: 2017<br />y: 1.71<br />pays: Iceland","year: 2018<br />y: 1.71<br />pays: Iceland","year: 2019<br />y: 1.75<br />pays: Iceland","year: 2020<br />y: 1.74<br />pays: Iceland","year: 2021<br />y: 1.73<br />pays: Iceland","year: 2022<br />y: 1.73<br />pays: Iceland"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(255,190,125,1)","dash":"solid"},"hoveron":"points","name":"Iceland","legendgroup":"Iceland","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[4.4699999999999998,4.5499999999999998,4.5700000000000003,4.5,4.0700000000000003,4.0800000000000001,4.0999999999999996,3.9300000000000002,3.9900000000000002,4.04,4.0499999999999998,3.8599999999999999,3.8500000000000001,3.8799999999999999,4.0199999999999996,4.0499999999999998,3.98,3.8199999999999998,3.9100000000000001,3.9500000000000002,4.1100000000000003,4.2000000000000002,3.8100000000000001,3.8900000000000001,3.9100000000000001,3.8399999999999999,3.8199999999999998,3.48,3.3900000000000001,3.3500000000000001,3.2999999999999998,3.2200000000000002,3.1400000000000001,3.3100000000000001,3.2799999999999998,3.27,3.2400000000000002,3.0800000000000001,3.21,3.1800000000000002,3.1800000000000002,3.1499999999999999,2.9399999999999999,2.8999999999999999,2.8799999999999999,2.9399999999999999,3.0499999999999998,2.9399999999999999,2.98,2.9399999999999999,2.9500000000000002,2.8900000000000001,2.8900000000000001,2.9399999999999999,2.8999999999999999,2.8399999999999999,2.8799999999999999,2.8999999999999999,2.96,2.9700000000000002,3.0299999999999998,3.0099999999999998,3.0499999999999998,3.0299999999999998,3.0800000000000001,3.25,3.2799999999999998,3.1099999999999999,3.0899999999999999,3.2200000000000002,3.0299999999999998,2.98,2.9500000000000002],"text":["year: 1950<br />y: 4.47<br />pays: Israel","year: 1951<br />y: 4.55<br />pays: Israel","year: 1952<br />y: 4.57<br />pays: Israel","year: 1953<br />y: 4.50<br />pays: Israel","year: 1954<br />y: 4.07<br />pays: Israel","year: 1955<br />y: 4.08<br />pays: Israel","year: 1956<br />y: 4.10<br />pays: Israel","year: 1957<br />y: 3.93<br />pays: Israel","year: 1958<br />y: 3.99<br />pays: Israel","year: 1959<br />y: 4.04<br />pays: Israel","year: 1960<br />y: 4.05<br />pays: Israel","year: 1961<br />y: 3.86<br />pays: Israel","year: 1962<br />y: 3.85<br />pays: Israel","year: 1963<br />y: 3.88<br />pays: Israel","year: 1964<br />y: 4.02<br />pays: Israel","year: 1965<br />y: 4.05<br />pays: Israel","year: 1966<br />y: 3.98<br />pays: Israel","year: 1967<br />y: 3.82<br />pays: Israel","year: 1968<br />y: 3.91<br />pays: Israel","year: 1969<br />y: 3.95<br />pays: Israel","year: 1970<br />y: 4.11<br />pays: Israel","year: 1971<br />y: 4.20<br />pays: Israel","year: 1972<br />y: 3.81<br />pays: Israel","year: 1973<br />y: 3.89<br />pays: Israel","year: 1974<br />y: 3.91<br />pays: Israel","year: 1975<br />y: 3.84<br />pays: Israel","year: 1976<br />y: 3.82<br />pays: Israel","year: 1977<br />y: 3.48<br />pays: Israel","year: 1978<br />y: 3.39<br />pays: Israel","year: 1979<br />y: 3.35<br />pays: Israel","year: 1980<br />y: 3.30<br />pays: Israel","year: 1981<br />y: 3.22<br />pays: Israel","year: 1982<br />y: 3.14<br />pays: Israel","year: 1983<br />y: 3.31<br />pays: Israel","year: 1984<br />y: 3.28<br />pays: Israel","year: 1985<br />y: 3.27<br />pays: Israel","year: 1986<br />y: 3.24<br />pays: Israel","year: 1987<br />y: 3.08<br />pays: Israel","year: 1988<br />y: 3.21<br />pays: Israel","year: 1989<br />y: 3.18<br />pays: Israel","year: 1990<br />y: 3.18<br />pays: Israel","year: 1991<br />y: 3.15<br />pays: Israel","year: 1992<br />y: 2.94<br />pays: Israel","year: 1993<br />y: 2.90<br />pays: Israel","year: 1994<br />y: 2.88<br />pays: Israel","year: 1995<br />y: 2.94<br />pays: Israel","year: 1996<br />y: 3.05<br />pays: Israel","year: 1997<br />y: 2.94<br />pays: Israel","year: 1998<br />y: 2.98<br />pays: Israel","year: 1999<br />y: 2.94<br />pays: Israel","year: 2000<br />y: 2.95<br />pays: Israel","year: 2001<br />y: 2.89<br />pays: Israel","year: 2002<br />y: 2.89<br />pays: Israel","year: 2003<br />y: 2.94<br />pays: Israel","year: 2004<br />y: 2.90<br />pays: Israel","year: 2005<br />y: 2.84<br />pays: Israel","year: 2006<br />y: 2.88<br />pays: Israel","year: 2007<br />y: 2.90<br />pays: Israel","year: 2008<br />y: 2.96<br />pays: Israel","year: 2009<br />y: 2.97<br />pays: Israel","year: 2010<br />y: 3.03<br />pays: Israel","year: 2011<br />y: 3.01<br />pays: Israel","year: 2012<br />y: 3.05<br />pays: Israel","year: 2013<br />y: 3.03<br />pays: Israel","year: 2014<br />y: 3.08<br />pays: Israel","year: 2015<br />y: 3.25<br />pays: Israel","year: 2016<br />y: 3.28<br />pays: Israel","year: 2017<br />y: 3.11<br />pays: Israel","year: 2018<br />y: 3.09<br />pays: Israel","year: 2019<br />y: 3.22<br />pays: Israel","year: 2020<br />y: 3.03<br />pays: Israel","year: 2021<br />y: 2.98<br />pays: Israel","year: 2022<br />y: 2.95<br />pays: Israel"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(89,161,79,1)","dash":"solid"},"hoveron":"points","name":"Israel","legendgroup":"Israel","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[2.5299999999999998,2.3799999999999999,2.3100000000000001,2.27,2.3300000000000001,2.3199999999999998,2.3199999999999998,2.3300000000000001,2.3100000000000001,2.3799999999999999,2.3799999999999999,2.4199999999999999,2.4500000000000002,2.5099999999999998,2.6499999999999999,2.6000000000000001,2.5800000000000001,2.5,2.4900000000000002,2.46,2.3900000000000001,2.3999999999999999,2.3500000000000001,2.3100000000000001,2.29,2.1699999999999999,2.04,1.9299999999999999,1.8400000000000001,1.73,1.6399999999999999,1.5800000000000001,1.5600000000000001,1.51,1.46,1.4199999999999999,1.3500000000000001,1.3300000000000001,1.3600000000000001,1.3300000000000001,1.3300000000000001,1.3100000000000001,1.3,1.25,1.22,1.1899999999999999,1.2,1.21,1.21,1.24,1.25,1.25,1.27,1.29,1.3400000000000001,1.3400000000000001,1.3700000000000001,1.3999999999999999,1.4399999999999999,1.45,1.45,1.4299999999999999,1.4199999999999999,1.3799999999999999,1.3700000000000001,1.3500000000000001,1.3400000000000001,1.3200000000000001,1.29,1.26,1.26,1.28,1.29],"text":["year: 1950<br />y: 2.53<br />pays: Italy","year: 1951<br />y: 2.38<br />pays: Italy","year: 1952<br />y: 2.31<br />pays: Italy","year: 1953<br />y: 2.27<br />pays: Italy","year: 1954<br />y: 2.33<br />pays: Italy","year: 1955<br />y: 2.32<br />pays: Italy","year: 1956<br />y: 2.32<br />pays: Italy","year: 1957<br />y: 2.33<br />pays: Italy","year: 1958<br />y: 2.31<br />pays: Italy","year: 1959<br />y: 2.38<br />pays: Italy","year: 1960<br />y: 2.38<br />pays: Italy","year: 1961<br />y: 2.42<br />pays: Italy","year: 1962<br />y: 2.45<br />pays: Italy","year: 1963<br />y: 2.51<br />pays: Italy","year: 1964<br />y: 2.65<br />pays: Italy","year: 1965<br />y: 2.60<br />pays: Italy","year: 1966<br />y: 2.58<br />pays: Italy","year: 1967<br />y: 2.50<br />pays: Italy","year: 1968<br />y: 2.49<br />pays: Italy","year: 1969<br />y: 2.46<br />pays: Italy","year: 1970<br />y: 2.39<br />pays: Italy","year: 1971<br />y: 2.40<br />pays: Italy","year: 1972<br />y: 2.35<br />pays: Italy","year: 1973<br />y: 2.31<br />pays: Italy","year: 1974<br />y: 2.29<br />pays: Italy","year: 1975<br />y: 2.17<br />pays: Italy","year: 1976<br />y: 2.04<br />pays: Italy","year: 1977<br />y: 1.93<br />pays: Italy","year: 1978<br />y: 1.84<br />pays: Italy","year: 1979<br />y: 1.73<br />pays: Italy","year: 1980<br />y: 1.64<br />pays: Italy","year: 1981<br />y: 1.58<br />pays: Italy","year: 1982<br />y: 1.56<br />pays: Italy","year: 1983<br />y: 1.51<br />pays: Italy","year: 1984<br />y: 1.46<br />pays: Italy","year: 1985<br />y: 1.42<br />pays: Italy","year: 1986<br />y: 1.35<br />pays: Italy","year: 1987<br />y: 1.33<br />pays: Italy","year: 1988<br />y: 1.36<br />pays: Italy","year: 1989<br />y: 1.33<br />pays: Italy","year: 1990<br />y: 1.33<br />pays: Italy","year: 1991<br />y: 1.31<br />pays: Italy","year: 1992<br />y: 1.30<br />pays: Italy","year: 1993<br />y: 1.25<br />pays: Italy","year: 1994<br />y: 1.22<br />pays: Italy","year: 1995<br />y: 1.19<br />pays: Italy","year: 1996<br />y: 1.20<br />pays: Italy","year: 1997<br />y: 1.21<br />pays: Italy","year: 1998<br />y: 1.21<br />pays: Italy","year: 1999<br />y: 1.24<br />pays: Italy","year: 2000<br />y: 1.25<br />pays: Italy","year: 2001<br />y: 1.25<br />pays: Italy","year: 2002<br />y: 1.27<br />pays: Italy","year: 2003<br />y: 1.29<br />pays: Italy","year: 2004<br />y: 1.34<br />pays: Italy","year: 2005<br />y: 1.34<br />pays: Italy","year: 2006<br />y: 1.37<br />pays: Italy","year: 2007<br />y: 1.40<br />pays: Italy","year: 2008<br />y: 1.44<br />pays: Italy","year: 2009<br />y: 1.45<br />pays: Italy","year: 2010<br />y: 1.45<br />pays: Italy","year: 2011<br />y: 1.43<br />pays: Italy","year: 2012<br />y: 1.42<br />pays: Italy","year: 2013<br />y: 1.38<br />pays: Italy","year: 2014<br />y: 1.37<br />pays: Italy","year: 2015<br />y: 1.35<br />pays: Italy","year: 2016<br />y: 1.34<br />pays: Italy","year: 2017<br />y: 1.32<br />pays: Italy","year: 2018<br />y: 1.29<br />pays: Italy","year: 2019<br />y: 1.26<br />pays: Italy","year: 2020<br />y: 1.26<br />pays: Italy","year: 2021<br />y: 1.28<br />pays: Italy","year: 2022<br />y: 1.29<br />pays: Italy"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(140,209,125,1)","dash":"solid"},"hoveron":"points","name":"Italy","legendgroup":"Italy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[3.6600000000000001,3.25,2.96,2.6800000000000002,2.48,2.3700000000000001,2.23,2.0600000000000001,2.1200000000000001,2.0600000000000001,2.0099999999999998,1.99,2,2.0299999999999998,2.0699999999999998,2.1400000000000001,1.6299999999999999,2.1699999999999999,2.0899999999999999,2.0699999999999998,2.0899999999999999,2.1000000000000001,2.1000000000000001,2.1299999999999999,2.0600000000000001,1.9399999999999999,1.8600000000000001,1.8100000000000001,1.79,1.76,1.75,1.7,1.72,1.75,1.76,1.74,1.6799999999999999,1.6899999999999999,1.6599999999999999,1.5700000000000001,1.52,1.53,1.5,1.46,1.49,1.4199999999999999,1.4299999999999999,1.3899999999999999,1.3799999999999999,1.3400000000000001,1.3700000000000001,1.3300000000000001,1.3200000000000001,1.29,1.29,1.27,1.3200000000000001,1.3400000000000001,1.3700000000000001,1.3700000000000001,1.3899999999999999,1.3899999999999999,1.4099999999999999,1.4299999999999999,1.4199999999999999,1.4399999999999999,1.4299999999999999,1.3500000000000001,1.3300000000000001,1.29,1.29,1.3,1.3],"text":["year: 1950<br />y: 3.66<br />pays: Japan","year: 1951<br />y: 3.25<br />pays: Japan","year: 1952<br />y: 2.96<br />pays: Japan","year: 1953<br />y: 2.68<br />pays: Japan","year: 1954<br />y: 2.48<br />pays: Japan","year: 1955<br />y: 2.37<br />pays: Japan","year: 1956<br />y: 2.23<br />pays: Japan","year: 1957<br />y: 2.06<br />pays: Japan","year: 1958<br />y: 2.12<br />pays: Japan","year: 1959<br />y: 2.06<br />pays: Japan","year: 1960<br />y: 2.01<br />pays: Japan","year: 1961<br />y: 1.99<br />pays: Japan","year: 1962<br />y: 2.00<br />pays: Japan","year: 1963<br />y: 2.03<br />pays: Japan","year: 1964<br />y: 2.07<br />pays: Japan","year: 1965<br />y: 2.14<br />pays: Japan","year: 1966<br />y: 1.63<br />pays: Japan","year: 1967<br />y: 2.17<br />pays: Japan","year: 1968<br />y: 2.09<br />pays: Japan","year: 1969<br />y: 2.07<br />pays: Japan","year: 1970<br />y: 2.09<br />pays: Japan","year: 1971<br />y: 2.10<br />pays: Japan","year: 1972<br />y: 2.10<br />pays: Japan","year: 1973<br />y: 2.13<br />pays: Japan","year: 1974<br />y: 2.06<br />pays: Japan","year: 1975<br />y: 1.94<br />pays: Japan","year: 1976<br />y: 1.86<br />pays: Japan","year: 1977<br />y: 1.81<br />pays: Japan","year: 1978<br />y: 1.79<br />pays: Japan","year: 1979<br />y: 1.76<br />pays: Japan","year: 1980<br />y: 1.75<br />pays: Japan","year: 1981<br />y: 1.70<br />pays: Japan","year: 1982<br />y: 1.72<br />pays: Japan","year: 1983<br />y: 1.75<br />pays: Japan","year: 1984<br />y: 1.76<br />pays: Japan","year: 1985<br />y: 1.74<br />pays: Japan","year: 1986<br />y: 1.68<br />pays: Japan","year: 1987<br />y: 1.69<br />pays: Japan","year: 1988<br />y: 1.66<br />pays: Japan","year: 1989<br />y: 1.57<br />pays: Japan","year: 1990<br />y: 1.52<br />pays: Japan","year: 1991<br />y: 1.53<br />pays: Japan","year: 1992<br />y: 1.50<br />pays: Japan","year: 1993<br />y: 1.46<br />pays: Japan","year: 1994<br />y: 1.49<br />pays: Japan","year: 1995<br />y: 1.42<br />pays: Japan","year: 1996<br />y: 1.43<br />pays: Japan","year: 1997<br />y: 1.39<br />pays: Japan","year: 1998<br />y: 1.38<br />pays: Japan","year: 1999<br />y: 1.34<br />pays: Japan","year: 2000<br />y: 1.37<br />pays: Japan","year: 2001<br />y: 1.33<br />pays: Japan","year: 2002<br />y: 1.32<br />pays: Japan","year: 2003<br />y: 1.29<br />pays: Japan","year: 2004<br />y: 1.29<br />pays: Japan","year: 2005<br />y: 1.27<br />pays: Japan","year: 2006<br />y: 1.32<br />pays: Japan","year: 2007<br />y: 1.34<br />pays: Japan","year: 2008<br />y: 1.37<br />pays: Japan","year: 2009<br />y: 1.37<br />pays: Japan","year: 2010<br />y: 1.39<br />pays: Japan","year: 2011<br />y: 1.39<br />pays: Japan","year: 2012<br />y: 1.41<br />pays: Japan","year: 2013<br />y: 1.43<br />pays: Japan","year: 2014<br />y: 1.42<br />pays: Japan","year: 2015<br />y: 1.44<br />pays: Japan","year: 2016<br />y: 1.43<br />pays: Japan","year: 2017<br />y: 1.35<br />pays: Japan","year: 2018<br />y: 1.33<br />pays: Japan","year: 2019<br />y: 1.29<br />pays: Japan","year: 2020<br />y: 1.29<br />pays: Japan","year: 2021<br />y: 1.30<br />pays: Japan","year: 2022<br />y: 1.30<br />pays: Japan"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(182,153,45,1)","dash":"solid"},"hoveron":"points","name":"Japan","legendgroup":"Japan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[3.1600000000000001,3.1899999999999999,3.2200000000000002,3.0600000000000001,2.98,3.1400000000000001,3.0299999999999998,3.1499999999999999,3.1600000000000001,3.1600000000000001,3.1600000000000001,3.2000000000000002,3.23,3.1299999999999999,3.21,3.1499999999999999,3.1600000000000001,3.1600000000000001,3.1200000000000001,3.1200000000000001,3.0099999999999998,3,2.8599999999999999,2.7599999999999998,2.7000000000000002,2.75,2.8100000000000001,2.6800000000000002,2.4399999999999999,2.3100000000000001,2.2400000000000002,2.1299999999999999,2.0699999999999998,1.95,1.8999999999999999,1.73,1.6599999999999999,1.6200000000000001,1.6100000000000001,1.5700000000000001,1.5600000000000001,1.5600000000000001,1.54,1.51,1.45,1.4099999999999999,1.4399999999999999,1.47,1.47,1.5,1.54,1.46,1.46,1.4399999999999999,1.4099999999999999,1.4099999999999999,1.3700000000000001,1.3500000000000001,1.3899999999999999,1.3500000000000001,1.3899999999999999,1.3400000000000001,1.28,1.21,1.23,1.3,1.3600000000000001,1.3799999999999999,1.4099999999999999,1.4199999999999999,1.3899999999999999,1.3600000000000001,1.3700000000000001],"text":["year: 1950<br />y: 3.16<br />pays: Portugal","year: 1951<br />y: 3.19<br />pays: Portugal","year: 1952<br />y: 3.22<br />pays: Portugal","year: 1953<br />y: 3.06<br />pays: Portugal","year: 1954<br />y: 2.98<br />pays: Portugal","year: 1955<br />y: 3.14<br />pays: Portugal","year: 1956<br />y: 3.03<br />pays: Portugal","year: 1957<br />y: 3.15<br />pays: Portugal","year: 1958<br />y: 3.16<br />pays: Portugal","year: 1959<br />y: 3.16<br />pays: Portugal","year: 1960<br />y: 3.16<br />pays: Portugal","year: 1961<br />y: 3.20<br />pays: Portugal","year: 1962<br />y: 3.23<br />pays: Portugal","year: 1963<br />y: 3.13<br />pays: Portugal","year: 1964<br />y: 3.21<br />pays: Portugal","year: 1965<br />y: 3.15<br />pays: Portugal","year: 1966<br />y: 3.16<br />pays: Portugal","year: 1967<br />y: 3.16<br />pays: Portugal","year: 1968<br />y: 3.12<br />pays: Portugal","year: 1969<br />y: 3.12<br />pays: Portugal","year: 1970<br />y: 3.01<br />pays: Portugal","year: 1971<br />y: 3.00<br />pays: Portugal","year: 1972<br />y: 2.86<br />pays: Portugal","year: 1973<br />y: 2.76<br />pays: Portugal","year: 1974<br />y: 2.70<br />pays: Portugal","year: 1975<br />y: 2.75<br />pays: Portugal","year: 1976<br />y: 2.81<br />pays: Portugal","year: 1977<br />y: 2.68<br />pays: Portugal","year: 1978<br />y: 2.44<br />pays: Portugal","year: 1979<br />y: 2.31<br />pays: Portugal","year: 1980<br />y: 2.24<br />pays: Portugal","year: 1981<br />y: 2.13<br />pays: Portugal","year: 1982<br />y: 2.07<br />pays: Portugal","year: 1983<br />y: 1.95<br />pays: Portugal","year: 1984<br />y: 1.90<br />pays: Portugal","year: 1985<br />y: 1.73<br />pays: Portugal","year: 1986<br />y: 1.66<br />pays: Portugal","year: 1987<br />y: 1.62<br />pays: Portugal","year: 1988<br />y: 1.61<br />pays: Portugal","year: 1989<br />y: 1.57<br />pays: Portugal","year: 1990<br />y: 1.56<br />pays: Portugal","year: 1991<br />y: 1.56<br />pays: Portugal","year: 1992<br />y: 1.54<br />pays: Portugal","year: 1993<br />y: 1.51<br />pays: Portugal","year: 1994<br />y: 1.45<br />pays: Portugal","year: 1995<br />y: 1.41<br />pays: Portugal","year: 1996<br />y: 1.44<br />pays: Portugal","year: 1997<br />y: 1.47<br />pays: Portugal","year: 1998<br />y: 1.47<br />pays: Portugal","year: 1999<br />y: 1.50<br />pays: Portugal","year: 2000<br />y: 1.54<br />pays: Portugal","year: 2001<br />y: 1.46<br />pays: Portugal","year: 2002<br />y: 1.46<br />pays: Portugal","year: 2003<br />y: 1.44<br />pays: Portugal","year: 2004<br />y: 1.41<br />pays: Portugal","year: 2005<br />y: 1.41<br />pays: Portugal","year: 2006<br />y: 1.37<br />pays: Portugal","year: 2007<br />y: 1.35<br />pays: Portugal","year: 2008<br />y: 1.39<br />pays: Portugal","year: 2009<br />y: 1.35<br />pays: Portugal","year: 2010<br />y: 1.39<br />pays: Portugal","year: 2011<br />y: 1.34<br />pays: Portugal","year: 2012<br />y: 1.28<br />pays: Portugal","year: 2013<br />y: 1.21<br />pays: Portugal","year: 2014<br />y: 1.23<br />pays: Portugal","year: 2015<br />y: 1.30<br />pays: Portugal","year: 2016<br />y: 1.36<br />pays: Portugal","year: 2017<br />y: 1.38<br />pays: Portugal","year: 2018<br />y: 1.41<br />pays: Portugal","year: 2019<br />y: 1.42<br />pays: Portugal","year: 2020<br />y: 1.39<br />pays: Portugal","year: 2021<br />y: 1.36<br />pays: Portugal","year: 2022<br />y: 1.37<br />pays: Portugal"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(241,206,99,1)","dash":"solid"},"hoveron":"points","name":"Portugal","legendgroup":"Portugal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[5.9699999999999998,5.96,5.9400000000000004,6.0300000000000002,6.0700000000000003,6.1100000000000003,6.1500000000000004,6.1900000000000004,6.1600000000000001,6.0700000000000003,5.9500000000000002,5.8099999999999996,5.6200000000000001,5.4100000000000001,5.1900000000000004,5,4.8099999999999996,4.6299999999999999,4.4900000000000002,4.4699999999999998,4.4100000000000001,4.25,4.0700000000000003,3.8900000000000001,3.6800000000000002,3.4100000000000001,3.1800000000000002,3,2.7799999999999998,2.7400000000000002,2.7200000000000002,2.6299999999999999,2.4399999999999999,2.1699999999999999,1.9299999999999999,1.75,1.6599999999999999,1.5900000000000001,1.5700000000000001,1.5800000000000001,1.6000000000000001,1.6699999999999999,1.7,1.6699999999999999,1.6499999999999999,1.6299999999999999,1.5800000000000001,1.55,1.49,1.45,1.4199999999999999,1.3,1.2,1.1699999999999999,1.1399999999999999,1.1000000000000001,1.1299999999999999,1.1899999999999999,1.1799999999999999,1.1699999999999999,1.22,1.25,1.26,1.21,1.2,1.2,1.1499999999999999,1.05,0.96999999999999997,0.91000000000000003,0.89000000000000001,0.88,0.87],"text":["year: 1950<br />y: 5.97<br />pays: Republic of Korea","year: 1951<br />y: 5.96<br />pays: Republic of Korea","year: 1952<br />y: 5.94<br />pays: Republic of Korea","year: 1953<br />y: 6.03<br />pays: Republic of Korea","year: 1954<br />y: 6.07<br />pays: Republic of Korea","year: 1955<br />y: 6.11<br />pays: Republic of Korea","year: 1956<br />y: 6.15<br />pays: Republic of Korea","year: 1957<br />y: 6.19<br />pays: Republic of Korea","year: 1958<br />y: 6.16<br />pays: Republic of Korea","year: 1959<br />y: 6.07<br />pays: Republic of Korea","year: 1960<br />y: 5.95<br />pays: Republic of Korea","year: 1961<br />y: 5.81<br />pays: Republic of Korea","year: 1962<br />y: 5.62<br />pays: Republic of Korea","year: 1963<br />y: 5.41<br />pays: Republic of Korea","year: 1964<br />y: 5.19<br />pays: Republic of Korea","year: 1965<br />y: 5.00<br />pays: Republic of Korea","year: 1966<br />y: 4.81<br />pays: Republic of Korea","year: 1967<br />y: 4.63<br />pays: Republic of Korea","year: 1968<br />y: 4.49<br />pays: Republic of Korea","year: 1969<br />y: 4.47<br />pays: Republic of Korea","year: 1970<br />y: 4.41<br />pays: Republic of Korea","year: 1971<br />y: 4.25<br />pays: Republic of Korea","year: 1972<br />y: 4.07<br />pays: Republic of Korea","year: 1973<br />y: 3.89<br />pays: Republic of Korea","year: 1974<br />y: 3.68<br />pays: Republic of Korea","year: 1975<br />y: 3.41<br />pays: Republic of Korea","year: 1976<br />y: 3.18<br />pays: Republic of Korea","year: 1977<br />y: 3.00<br />pays: Republic of Korea","year: 1978<br />y: 2.78<br />pays: Republic of Korea","year: 1979<br />y: 2.74<br />pays: Republic of Korea","year: 1980<br />y: 2.72<br />pays: Republic of Korea","year: 1981<br />y: 2.63<br />pays: Republic of Korea","year: 1982<br />y: 2.44<br />pays: Republic of Korea","year: 1983<br />y: 2.17<br />pays: Republic of Korea","year: 1984<br />y: 1.93<br />pays: Republic of Korea","year: 1985<br />y: 1.75<br />pays: Republic of Korea","year: 1986<br />y: 1.66<br />pays: Republic of Korea","year: 1987<br />y: 1.59<br />pays: Republic of Korea","year: 1988<br />y: 1.57<br />pays: Republic of Korea","year: 1989<br />y: 1.58<br />pays: Republic of Korea","year: 1990<br />y: 1.60<br />pays: Republic of Korea","year: 1991<br />y: 1.67<br />pays: Republic of Korea","year: 1992<br />y: 1.70<br />pays: Republic of Korea","year: 1993<br />y: 1.67<br />pays: Republic of Korea","year: 1994<br />y: 1.65<br />pays: Republic of Korea","year: 1995<br />y: 1.63<br />pays: Republic of Korea","year: 1996<br />y: 1.58<br />pays: Republic of Korea","year: 1997<br />y: 1.55<br />pays: Republic of Korea","year: 1998<br />y: 1.49<br />pays: Republic of Korea","year: 1999<br />y: 1.45<br />pays: Republic of Korea","year: 2000<br />y: 1.42<br />pays: Republic of Korea","year: 2001<br />y: 1.30<br />pays: Republic of Korea","year: 2002<br />y: 1.20<br />pays: Republic of Korea","year: 2003<br />y: 1.17<br />pays: Republic of Korea","year: 2004<br />y: 1.14<br />pays: Republic of Korea","year: 2005<br />y: 1.10<br />pays: Republic of Korea","year: 2006<br />y: 1.13<br />pays: Republic of Korea","year: 2007<br />y: 1.19<br />pays: Republic of Korea","year: 2008<br />y: 1.18<br />pays: Republic of Korea","year: 2009<br />y: 1.17<br />pays: Republic of Korea","year: 2010<br />y: 1.22<br />pays: Republic of Korea","year: 2011<br />y: 1.25<br />pays: Republic of Korea","year: 2012<br />y: 1.26<br />pays: Republic of Korea","year: 2013<br />y: 1.21<br />pays: Republic of Korea","year: 2014<br />y: 1.20<br />pays: Republic of Korea","year: 2015<br />y: 1.20<br />pays: Republic of Korea","year: 2016<br />y: 1.15<br />pays: Republic of Korea","year: 2017<br />y: 1.05<br />pays: Republic of Korea","year: 2018<br />y: 0.97<br />pays: Republic of Korea","year: 2019<br />y: 0.91<br />pays: Republic of Korea","year: 2020<br />y: 0.89<br />pays: Republic of Korea","year: 2021<br />y: 0.88<br />pays: Republic of Korea","year: 2022<br />y: 0.87<br />pays: Republic of Korea"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(73,152,148,1)","dash":"solid"},"hoveron":"points","name":"Republic of Korea","legendgroup":"Republic of Korea","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[6.5700000000000003,6.6399999999999997,6.6799999999999997,6.6699999999999999,6.6399999999999997,6.5700000000000003,6.4699999999999998,6.3200000000000003,6.1500000000000004,5.9500000000000002,5.7999999999999998,5.6699999999999999,5.54,5.3799999999999999,5.2000000000000002,4.9900000000000002,4.7699999999999996,4.5300000000000002,4.3399999999999999,4.1500000000000004,3.9500000000000002,3.6899999999999999,3.4199999999999999,3.23,3.0699999999999998,2.9700000000000002,2.9900000000000002,2.7799999999999998,2.71,2.6499999999999999,2.54,2.4500000000000002,2.3199999999999998,2.1800000000000002,2.04,1.8899999999999999,1.76,1.74,1.78,1.75,1.77,1.75,1.75,1.77,1.77,1.77,1.76,1.71,1.5700000000000001,1.53,1.46,1.3899999999999999,1.3200000000000001,1.25,1.1899999999999999,1.1399999999999999,1.1200000000000001,1.0900000000000001,1.05,0.98999999999999999,0.91000000000000003,1.03,1.1299999999999999,1.1200000000000001,1.1599999999999999,1.1699999999999999,1.1599999999999999,1.1299999999999999,1.1000000000000001,1.0900000000000001,1.1000000000000001,1.1100000000000001,1.1299999999999999],"text":["year: 1950<br />y: 6.57<br />pays: Taiwan","year: 1951<br />y: 6.64<br />pays: Taiwan","year: 1952<br />y: 6.68<br />pays: Taiwan","year: 1953<br />y: 6.67<br />pays: Taiwan","year: 1954<br />y: 6.64<br />pays: Taiwan","year: 1955<br />y: 6.57<br />pays: Taiwan","year: 1956<br />y: 6.47<br />pays: Taiwan","year: 1957<br />y: 6.32<br />pays: Taiwan","year: 1958<br />y: 6.15<br />pays: Taiwan","year: 1959<br />y: 5.95<br />pays: Taiwan","year: 1960<br />y: 5.80<br />pays: Taiwan","year: 1961<br />y: 5.67<br />pays: Taiwan","year: 1962<br />y: 5.54<br />pays: Taiwan","year: 1963<br />y: 5.38<br />pays: Taiwan","year: 1964<br />y: 5.20<br />pays: Taiwan","year: 1965<br />y: 4.99<br />pays: Taiwan","year: 1966<br />y: 4.77<br />pays: Taiwan","year: 1967<br />y: 4.53<br />pays: Taiwan","year: 1968<br />y: 4.34<br />pays: Taiwan","year: 1969<br />y: 4.15<br />pays: Taiwan","year: 1970<br />y: 3.95<br />pays: Taiwan","year: 1971<br />y: 3.69<br />pays: Taiwan","year: 1972<br />y: 3.42<br />pays: Taiwan","year: 1973<br />y: 3.23<br />pays: Taiwan","year: 1974<br />y: 3.07<br />pays: Taiwan","year: 1975<br />y: 2.97<br />pays: Taiwan","year: 1976<br />y: 2.99<br />pays: Taiwan","year: 1977<br />y: 2.78<br />pays: Taiwan","year: 1978<br />y: 2.71<br />pays: Taiwan","year: 1979<br />y: 2.65<br />pays: Taiwan","year: 1980<br />y: 2.54<br />pays: Taiwan","year: 1981<br />y: 2.45<br />pays: Taiwan","year: 1982<br />y: 2.32<br />pays: Taiwan","year: 1983<br />y: 2.18<br />pays: Taiwan","year: 1984<br />y: 2.04<br />pays: Taiwan","year: 1985<br />y: 1.89<br />pays: Taiwan","year: 1986<br />y: 1.76<br />pays: Taiwan","year: 1987<br />y: 1.74<br />pays: Taiwan","year: 1988<br />y: 1.78<br />pays: Taiwan","year: 1989<br />y: 1.75<br />pays: Taiwan","year: 1990<br />y: 1.77<br />pays: Taiwan","year: 1991<br />y: 1.75<br />pays: Taiwan","year: 1992<br />y: 1.75<br />pays: Taiwan","year: 1993<br />y: 1.77<br />pays: Taiwan","year: 1994<br />y: 1.77<br />pays: Taiwan","year: 1995<br />y: 1.77<br />pays: Taiwan","year: 1996<br />y: 1.76<br />pays: Taiwan","year: 1997<br />y: 1.71<br />pays: Taiwan","year: 1998<br />y: 1.57<br />pays: Taiwan","year: 1999<br />y: 1.53<br />pays: Taiwan","year: 2000<br />y: 1.46<br />pays: Taiwan","year: 2001<br />y: 1.39<br />pays: Taiwan","year: 2002<br />y: 1.32<br />pays: Taiwan","year: 2003<br />y: 1.25<br />pays: Taiwan","year: 2004<br />y: 1.19<br />pays: Taiwan","year: 2005<br />y: 1.14<br />pays: Taiwan","year: 2006<br />y: 1.12<br />pays: Taiwan","year: 2007<br />y: 1.09<br />pays: Taiwan","year: 2008<br />y: 1.05<br />pays: Taiwan","year: 2009<br />y: 0.99<br />pays: Taiwan","year: 2010<br />y: 0.91<br />pays: Taiwan","year: 2011<br />y: 1.03<br />pays: Taiwan","year: 2012<br />y: 1.13<br />pays: Taiwan","year: 2013<br />y: 1.12<br />pays: Taiwan","year: 2014<br />y: 1.16<br />pays: Taiwan","year: 2015<br />y: 1.17<br />pays: Taiwan","year: 2016<br />y: 1.16<br />pays: Taiwan","year: 2017<br />y: 1.13<br />pays: Taiwan","year: 2018<br />y: 1.10<br />pays: Taiwan","year: 2019<br />y: 1.09<br />pays: Taiwan","year: 2020<br />y: 1.10<br />pays: Taiwan","year: 2021<br />y: 1.11<br />pays: Taiwan","year: 2022<br />y: 1.13<br />pays: Taiwan"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(134,188,182,1)","dash":"solid"},"hoveron":"points","name":"Taiwan","legendgroup":"Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[6.4699999999999998,6.4699999999999998,6.4699999999999998,6.4800000000000004,6.4699999999999998,6.46,6.46,6.4500000000000002,6.4299999999999997,6.4199999999999999,6.3799999999999999,6.3499999999999996,6.29,6.2199999999999998,6.1299999999999999,6.0300000000000002,5.9299999999999997,5.7999999999999998,5.75,5.6900000000000004,5.6200000000000001,5.5499999999999998,5.46,5.3600000000000003,5.2300000000000004,5.0700000000000003,4.9199999999999999,4.7599999999999998,4.6699999999999999,4.5599999999999996,4.4299999999999997,4.3099999999999996,4.1699999999999999,4.0199999999999996,3.8900000000000001,3.75,3.6299999999999999,3.5,3.3900000000000001,3.2799999999999998,3.1299999999999999,3.0499999999999998,2.9399999999999999,2.8999999999999999,2.8500000000000001,2.79,2.79,2.7200000000000002,2.6699999999999999,2.5899999999999999,2.5099999999999998,2.5299999999999998,2.3199999999999998,2.23,2.2200000000000002,2.2200000000000002,2.23,2.1899999999999999,2.1800000000000002,2.1600000000000001,2.1400000000000001,2.1299999999999999,2.1499999999999999,2.1600000000000001,2.2000000000000002,2.1899999999999999,2.1800000000000002,2.1400000000000001,2.0499999999999998,1.97,1.9199999999999999,1.8899999999999999,1.8799999999999999],"text":["year: 1950<br />y: 6.47<br />pays: Turkey","year: 1951<br />y: 6.47<br />pays: Turkey","year: 1952<br />y: 6.47<br />pays: Turkey","year: 1953<br />y: 6.48<br />pays: Turkey","year: 1954<br />y: 6.47<br />pays: Turkey","year: 1955<br />y: 6.46<br />pays: Turkey","year: 1956<br />y: 6.46<br />pays: Turkey","year: 1957<br />y: 6.45<br />pays: Turkey","year: 1958<br />y: 6.43<br />pays: Turkey","year: 1959<br />y: 6.42<br />pays: Turkey","year: 1960<br />y: 6.38<br />pays: Turkey","year: 1961<br />y: 6.35<br />pays: Turkey","year: 1962<br />y: 6.29<br />pays: Turkey","year: 1963<br />y: 6.22<br />pays: Turkey","year: 1964<br />y: 6.13<br />pays: Turkey","year: 1965<br />y: 6.03<br />pays: Turkey","year: 1966<br />y: 5.93<br />pays: Turkey","year: 1967<br />y: 5.80<br />pays: Turkey","year: 1968<br />y: 5.75<br />pays: Turkey","year: 1969<br />y: 5.69<br />pays: Turkey","year: 1970<br />y: 5.62<br />pays: Turkey","year: 1971<br />y: 5.55<br />pays: Turkey","year: 1972<br />y: 5.46<br />pays: Turkey","year: 1973<br />y: 5.36<br />pays: Turkey","year: 1974<br />y: 5.23<br />pays: Turkey","year: 1975<br />y: 5.07<br />pays: Turkey","year: 1976<br />y: 4.92<br />pays: Turkey","year: 1977<br />y: 4.76<br />pays: Turkey","year: 1978<br />y: 4.67<br />pays: Turkey","year: 1979<br />y: 4.56<br />pays: Turkey","year: 1980<br />y: 4.43<br />pays: Turkey","year: 1981<br />y: 4.31<br />pays: Turkey","year: 1982<br />y: 4.17<br />pays: Turkey","year: 1983<br />y: 4.02<br />pays: Turkey","year: 1984<br />y: 3.89<br />pays: Turkey","year: 1985<br />y: 3.75<br />pays: Turkey","year: 1986<br />y: 3.63<br />pays: Turkey","year: 1987<br />y: 3.50<br />pays: Turkey","year: 1988<br />y: 3.39<br />pays: Turkey","year: 1989<br />y: 3.28<br />pays: Turkey","year: 1990<br />y: 3.13<br />pays: Turkey","year: 1991<br />y: 3.05<br />pays: Turkey","year: 1992<br />y: 2.94<br />pays: Turkey","year: 1993<br />y: 2.90<br />pays: Turkey","year: 1994<br />y: 2.85<br />pays: Turkey","year: 1995<br />y: 2.79<br />pays: Turkey","year: 1996<br />y: 2.79<br />pays: Turkey","year: 1997<br />y: 2.72<br />pays: Turkey","year: 1998<br />y: 2.67<br />pays: Turkey","year: 1999<br />y: 2.59<br />pays: Turkey","year: 2000<br />y: 2.51<br />pays: Turkey","year: 2001<br />y: 2.53<br />pays: Turkey","year: 2002<br />y: 2.32<br />pays: Turkey","year: 2003<br />y: 2.23<br />pays: Turkey","year: 2004<br />y: 2.22<br />pays: Turkey","year: 2005<br />y: 2.22<br />pays: Turkey","year: 2006<br />y: 2.23<br />pays: Turkey","year: 2007<br />y: 2.19<br />pays: Turkey","year: 2008<br />y: 2.18<br />pays: Turkey","year: 2009<br />y: 2.16<br />pays: Turkey","year: 2010<br />y: 2.14<br />pays: Turkey","year: 2011<br />y: 2.13<br />pays: Turkey","year: 2012<br />y: 2.15<br />pays: Turkey","year: 2013<br />y: 2.16<br />pays: Turkey","year: 2014<br />y: 2.20<br />pays: Turkey","year: 2015<br />y: 2.19<br />pays: Turkey","year: 2016<br />y: 2.18<br />pays: Turkey","year: 2017<br />y: 2.14<br />pays: Turkey","year: 2018<br />y: 2.05<br />pays: Turkey","year: 2019<br />y: 1.97<br />pays: Turkey","year: 2020<br />y: 1.92<br />pays: Turkey","year: 2021<br />y: 1.89<br />pays: Turkey","year: 2022<br />y: 1.88<br />pays: Turkey"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(225,87,89,1)","dash":"solid"},"hoveron":"points","name":"Turkey","legendgroup":"Turkey","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022],"y":[2.9300000000000002,3.1099999999999999,3.21,3.2799999999999998,3.3900000000000001,3.4399999999999999,3.54,3.6099999999999999,3.5699999999999998,3.5800000000000001,3.5499999999999998,3.52,3.3900000000000001,3.27,3.1400000000000001,2.8599999999999999,2.6600000000000001,2.52,2.4399999999999999,2.4300000000000002,2.4700000000000002,2.2599999999999998,2.0099999999999998,1.8700000000000001,1.8300000000000001,1.77,1.74,1.78,1.76,1.8,1.8300000000000001,1.8100000000000001,1.8200000000000001,1.8,1.8,1.8400000000000001,1.8300000000000001,1.8700000000000001,1.9299999999999999,2.0099999999999998,2.0699999999999998,2.0499999999999998,2.04,2.0099999999999998,1.99,1.97,1.97,1.97,1.99,2.0099999999999998,2.0499999999999998,2.0299999999999998,2.02,2.04,2.0499999999999998,2.0600000000000001,2.1000000000000001,2.1099999999999999,2.0699999999999998,2,1.9299999999999999,1.8899999999999999,1.8799999999999999,1.8600000000000001,1.8600000000000001,1.8400000000000001,1.8100000000000001,1.76,1.72,1.6899999999999999,1.6399999999999999,1.6599999999999999,1.6599999999999999],"text":["year: 1950<br />y: 2.93<br />pays: United States of America","year: 1951<br />y: 3.11<br />pays: United States of America","year: 1952<br />y: 3.21<br />pays: United States of America","year: 1953<br />y: 3.28<br />pays: United States of America","year: 1954<br />y: 3.39<br />pays: United States of America","year: 1955<br />y: 3.44<br />pays: United States of America","year: 1956<br />y: 3.54<br />pays: United States of America","year: 1957<br />y: 3.61<br />pays: United States of America","year: 1958<br />y: 3.57<br />pays: United States of America","year: 1959<br />y: 3.58<br />pays: United States of America","year: 1960<br />y: 3.55<br />pays: United States of America","year: 1961<br />y: 3.52<br />pays: United States of America","year: 1962<br />y: 3.39<br />pays: United States of America","year: 1963<br />y: 3.27<br />pays: United States of America","year: 1964<br />y: 3.14<br />pays: United States of America","year: 1965<br />y: 2.86<br />pays: United States of America","year: 1966<br />y: 2.66<br />pays: United States of America","year: 1967<br />y: 2.52<br />pays: United States of America","year: 1968<br />y: 2.44<br />pays: United States of America","year: 1969<br />y: 2.43<br />pays: United States of America","year: 1970<br />y: 2.47<br />pays: United States of America","year: 1971<br />y: 2.26<br />pays: United States of America","year: 1972<br />y: 2.01<br />pays: United States of America","year: 1973<br />y: 1.87<br />pays: United States of America","year: 1974<br />y: 1.83<br />pays: United States of America","year: 1975<br />y: 1.77<br />pays: United States of America","year: 1976<br />y: 1.74<br />pays: United States of America","year: 1977<br />y: 1.78<br />pays: United States of America","year: 1978<br />y: 1.76<br />pays: United States of America","year: 1979<br />y: 1.80<br />pays: United States of America","year: 1980<br />y: 1.83<br />pays: United States of America","year: 1981<br />y: 1.81<br />pays: United States of America","year: 1982<br />y: 1.82<br />pays: United States of America","year: 1983<br />y: 1.80<br />pays: United States of America","year: 1984<br />y: 1.80<br />pays: United States of America","year: 1985<br />y: 1.84<br />pays: United States of America","year: 1986<br />y: 1.83<br />pays: United States of America","year: 1987<br />y: 1.87<br />pays: United States of America","year: 1988<br />y: 1.93<br />pays: United States of America","year: 1989<br />y: 2.01<br />pays: United States of America","year: 1990<br />y: 2.07<br />pays: United States of America","year: 1991<br />y: 2.05<br />pays: United States of America","year: 1992<br />y: 2.04<br />pays: United States of America","year: 1993<br />y: 2.01<br />pays: United States of America","year: 1994<br />y: 1.99<br />pays: United States of America","year: 1995<br />y: 1.97<br />pays: United States of America","year: 1996<br />y: 1.97<br />pays: United States of America","year: 1997<br />y: 1.97<br />pays: United States of America","year: 1998<br />y: 1.99<br />pays: United States of America","year: 1999<br />y: 2.01<br />pays: United States of America","year: 2000<br />y: 2.05<br />pays: United States of America","year: 2001<br />y: 2.03<br />pays: United States of America","year: 2002<br />y: 2.02<br />pays: United States of America","year: 2003<br />y: 2.04<br />pays: United States of America","year: 2004<br />y: 2.05<br />pays: United States of America","year: 2005<br />y: 2.06<br />pays: United States of America","year: 2006<br />y: 2.10<br />pays: United States of America","year: 2007<br />y: 2.11<br />pays: United States of America","year: 2008<br />y: 2.07<br />pays: United States of America","year: 2009<br />y: 2.00<br />pays: United States of America","year: 2010<br />y: 1.93<br />pays: United States of America","year: 2011<br />y: 1.89<br />pays: United States of America","year: 2012<br />y: 1.88<br />pays: United States of America","year: 2013<br />y: 1.86<br />pays: United States of America","year: 2014<br />y: 1.86<br />pays: United States of America","year: 2015<br />y: 1.84<br />pays: United States of America","year: 2016<br />y: 1.81<br />pays: United States of America","year: 2017<br />y: 1.76<br />pays: United States of America","year: 2018<br />y: 1.72<br />pays: United States of America","year: 2019<br />y: 1.69<br />pays: United States of America","year: 2020<br />y: 1.64<br />pays: United States of America","year: 2021<br />y: 1.66<br />pays: United States of America","year: 2022<br />y: 1.66<br />pays: United States of America"],"type":"scatter","mode":"lines","line":{"width":3.7795275590551185,"color":"rgba(255,157,154,1)","dash":"solid"},"hoveron":"points","name":"United States of America","legendgroup":"United States of America","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":31.415525114155255},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Taux de fécondité par pays de 1950 à 2022","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1946.4000000000001,2025.5999999999999],"tickmode":"array","ticktext":["1950","1960","1970","1980","1990","2000","2010","2020"],"tickvals":[1950,1960,1970,1980,1990,2000,2010,2020],"categoryorder":"array","categoryarray":["1950","1960","1970","1980","1990","2000","2010","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.6529680365296811,"tickwidth":0.33208800332088001,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088001,"zeroline":false,"anchor":"y","title":{"text":"Années","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.57950000000000002,6.9704999999999995],"tickmode":"array","ticktext":["1","2","3","4","5","6"],"tickvals":[1,2,3,3.9999999999999996,5,6],"categoryorder":"array","categoryarray":["1","2","3","4","5","6"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.6529680365296811,"tickwidth":0.33208800332088001,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088001,"zeroline":false,"anchor":"x","title":{"text":"Taux de fécondité","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Pays","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"35ac30844a8e":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"35ac30844a8e","visdat":{"35ac30844a8e":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ul>
+<li>Pour une <strong>visualisation statique</strong>, il est fortement recommandé de visualiser ce type d’informations à l’aide d’un graphique combiné, appelé <strong>small multiples</strong> (ou facettes).</li>
+</ul>
+</section>
+<section id="contrôle-de-leffet-spaghetti-avec-un-graphique-combiné" class="level1">
+<h1>Contrôle de l’effet spaghetti avec un graphique combiné</h1>
+<section id="graphique-combiné-simple" class="level2">
+<h2 class="anchored" data-anchor-id="graphique-combiné-simple">Graphique combiné simple</h2>
+<p>Par rapport au graphique précédent on va simplement générer des sous graphiques par pays, qui seront combinés avec l’option <strong><code>facet_wrap</code></strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
+<span id="cb6-7"><a href="#cb6-7"></a>       <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, </span>
+<span id="cb6-8"><a href="#cb6-8"></a>       <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb6-11"><a href="#cb6-11"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> 4L)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="spaghetti_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="spaghetti_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="graphique-combiné-avec-highlighting" class="level2">
+<h2 class="anchored" data-anchor-id="graphique-combiné-avec-highlighting">Graphique combiné avec highlighting</h2>
+<p>On peut combiné les deux approches, en gardant en arrière plan de chaque sous graphique les informations des autres graphiques. On peut donc ici, pour chaque pays, positionné l’information de chaque pays par rapport aux autres.</p>
+<p>Le principe du code a été récupéré dans le support de Yann Holtz consacré à ce problème <a href="http://www.data-to-viz.com/caveat/spaghetti.html"><strong>Data to viz</strong></a>. On vous recommande très fortement d’utiliser ce support très riche, non seulement en éléments de programmation, mais également en conseils. En particulier la section <strong>mise en garde</strong> (<em>caveats</em>).</p>
+<p>Les courbes en arrière plan ont une épaisseur plus faible (<code>lwd=0.1</code>) et on une couleur unique ( <code>color="grey</code> ). Pour facilité la lecture, le quadrillage a été allégé dans l’option <code>theme()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)   </span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
+<span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-11"><a href="#cb7-11"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb7-12"><a href="#cb7-12"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb7-13"><a href="#cb7-13"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
+<span id="cb7-14"><a href="#cb7-14"></a>       <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, </span>
+<span id="cb7-15"><a href="#cb7-15"></a>       <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb7-16"><a href="#cb7-16"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb7-18"><a href="#cb7-18"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> 4L)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="spaghetti_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="spaghetti_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Contrôler les effets spaghetti avec ggplot"</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="an">categories:</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">  - Graphique</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">  - name: "Arno Muller"</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">    affiliations:</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">    affiliations:</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">      - name: "Ined"        </span></span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="an">date:</span><span class="co"> 07/12/2023</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="an">image:</span><span class="co"> "http://w7.pngwing.com/pngs/964/653/png-transparent-pasta-computer-icons-spaghetti-dish-symbol-spaghetti-miscellaneous-food-logo.png"</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="an">format:</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">  html: default</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="an">filters:</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="co">   - lightbox</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="co">   </span></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="co">        </span></span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb8-28"><a href="#cb8-28"></a><span class="co"> Un graphique devient très facilement illisible lorsque trop d'objets graphiques y sont introduits, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** (effet paella pour un nuage de points). Pour contrôler cette difficulté il est préconiser de réaliser un graphique de type **small-multiples** (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en termes de couleur et d'épaisseur de la courbe  tout en gardant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple du gris).</span></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="co">---</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a></span>
+<span id="cb8-31"><a href="#cb8-31"></a><span class="in">```{r,  message=FALSE, warning=FALSE}</span></span>
+<span id="cb8-32"><a href="#cb8-32"></a><span class="co"># pour récupérer la palette de couleur qualitatitive Tableau: </span></span>
+<span id="cb8-33"><a href="#cb8-33"></a><span class="co"># install.packages(ggthemes</span></span>
+<span id="cb8-34"><a href="#cb8-34"></a></span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-36"><a href="#cb8-36"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-37"><a href="#cb8-37"></a><span class="fu">library</span>(ggthemes) </span>
+<span id="cb8-38"><a href="#cb8-38"></a><span class="in">```</span></span>
+<span id="cb8-39"><a href="#cb8-39"></a></span>
+<span id="cb8-40"><a href="#cb8-40"></a></span>
+<span id="cb8-41"><a href="#cb8-41"></a></span>
+<span id="cb8-42"><a href="#cb8-42"></a></span>
+<span id="cb8-43"><a href="#cb8-43"></a><span class="fu"># L'effet spaghetti en images</span></span>
+<span id="cb8-44"><a href="#cb8-44"></a></span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="ss">* </span>Les données utilisées ici sont extraites des bases contextextuelles GGP coordonnées par le <span class="co">[</span><span class="ot">datalab de l'Ined</span><span class="co">](http://datalab.site.ined.fr/fr/donnees-demographiques-contextuelles/)</span>. </span>
+<span id="cb8-46"><a href="#cb8-46"></a></span>
+<span id="cb8-47"><a href="#cb8-47"></a><span class="ss">* </span>On va regarder l'évolution du taux de fécondité de 12 pays de 1950 à 2022. </span>
+<span id="cb8-48"><a href="#cb8-48"></a></span>
+<span id="cb8-51"><a href="#cb8-51"></a><span class="in">```{r}</span></span>
+<span id="cb8-52"><a href="#cb8-52"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv"</span>)</span>
+<span id="cb8-53"><a href="#cb8-53"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character,as.factor)</span>
+<span id="cb8-54"><a href="#cb8-54"></a><span class="fu">head</span>(df)</span>
+<span id="cb8-55"><a href="#cb8-55"></a><span class="in">```</span></span>
+<span id="cb8-56"><a href="#cb8-56"></a></span>
+<span id="cb8-57"><a href="#cb8-57"></a></span>
+<span id="cb8-58"><a href="#cb8-58"></a><span class="ss">* </span>Les taux de fécondité sont renseignés par la variable *y*, les années par la variable *year* et les pays par la variable *pays*. </span>
+<span id="cb8-59"><a href="#cb8-59"></a></span>
+<span id="cb8-60"><a href="#cb8-60"></a>En empilant avec **`ggplot`** les 12 courbes d'évolution de la fécondité....</span>
+<span id="cb8-61"><a href="#cb8-61"></a></span>
+<span id="cb8-62"><a href="#cb8-62"></a></span>
+<span id="cb8-65"><a href="#cb8-65"></a><span class="in">```{r}</span></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb8-67"><a href="#cb8-67"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
+<span id="cb8-68"><a href="#cb8-68"></a> <span class="fu">geom_line</span>(<span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-69"><a href="#cb8-69"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
+<span id="cb8-70"><a href="#cb8-70"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb8-71"><a href="#cb8-71"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
+<span id="cb8-72"><a href="#cb8-72"></a> <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>))  <span class="sc">+</span></span>
+<span id="cb8-73"><a href="#cb8-73"></a> <span class="fu">theme_light</span>() </span>
+<span id="cb8-74"><a href="#cb8-74"></a><span class="in">```</span></span>
+<span id="cb8-75"><a href="#cb8-75"></a></span>
+<span id="cb8-76"><a href="#cb8-76"></a></span>
+<span id="cb8-77"><a href="#cb8-77"></a>... C'est  illisible.  </span>
+<span id="cb8-78"><a href="#cb8-78"></a></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="ss">* </span>On peut améliorer la lecture et naviguer dans le graphique avec un outil de visualisation dynamique, par exemple avec **plotly**. Mais c'est outils sont strictement réservé à une diffusion de type html. </span>
+<span id="cb8-80"><a href="#cb8-80"></a></span>
+<span id="cb8-81"><a href="#cb8-81"></a></span>
+<span id="cb8-82"><a href="#cb8-82"></a><span class="in">```{r, message=FALSE, warning=FALSE}</span></span>
+<span id="cb8-83"><a href="#cb8-83"></a></span>
+<span id="cb8-84"><a href="#cb8-84"></a><span class="co">#install.packages(plotly)</span></span>
+<span id="cb8-85"><a href="#cb8-85"></a></span>
+<span id="cb8-86"><a href="#cb8-86"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb8-87"><a href="#cb8-87"></a></span>
+<span id="cb8-88"><a href="#cb8-88"></a>p <span class="ot">=</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb8-89"><a href="#cb8-89"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a> <span class="fu">geom_line</span>( <span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-91"><a href="#cb8-91"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
+<span id="cb8-92"><a href="#cb8-92"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb8-93"><a href="#cb8-93"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
+<span id="cb8-94"><a href="#cb8-94"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb8-95"><a href="#cb8-95"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-96"><a href="#cb8-96"></a> <span class="fu">theme_light</span>() </span>
+<span id="cb8-97"><a href="#cb8-97"></a></span>
+<span id="cb8-98"><a href="#cb8-98"></a><span class="fu">ggplotly</span>(p)</span>
+<span id="cb8-99"><a href="#cb8-99"></a><span class="in">```</span></span>
+<span id="cb8-100"><a href="#cb8-100"></a></span>
+<span id="cb8-101"><a href="#cb8-101"></a></span>
+<span id="cb8-102"><a href="#cb8-102"></a><span class="ss">* </span>Pour une **visualisation statique**, il est fortement recommandé de visualiser ce type d'informations à l'aide d'un graphique combiné, appelé **small multiples** (ou facettes).  </span>
+<span id="cb8-103"><a href="#cb8-103"></a></span>
+<span id="cb8-104"><a href="#cb8-104"></a></span>
+<span id="cb8-105"><a href="#cb8-105"></a><span class="fu"># Contrôle de l'effet spaghetti avec un graphique combiné</span></span>
+<span id="cb8-106"><a href="#cb8-106"></a></span>
+<span id="cb8-107"><a href="#cb8-107"></a><span class="fu">## Graphique combiné simple</span></span>
+<span id="cb8-108"><a href="#cb8-108"></a></span>
+<span id="cb8-109"><a href="#cb8-109"></a>Par rapport au graphique précédent on va simplement générer des sous graphiques par pays, qui seront combinés avec l'option **`facet_wrap`**. </span>
+<span id="cb8-110"><a href="#cb8-110"></a></span>
+<span id="cb8-113"><a href="#cb8-113"></a><span class="in">```{r}</span></span>
+<span id="cb8-114"><a href="#cb8-114"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb8-115"><a href="#cb8-115"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
+<span id="cb8-116"><a href="#cb8-116"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb8-117"><a href="#cb8-117"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
+<span id="cb8-118"><a href="#cb8-118"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-119"><a href="#cb8-119"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
+<span id="cb8-120"><a href="#cb8-120"></a>       <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, </span>
+<span id="cb8-121"><a href="#cb8-121"></a>       <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb8-122"><a href="#cb8-122"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
+<span id="cb8-123"><a href="#cb8-123"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb8-124"><a href="#cb8-124"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-125"><a href="#cb8-125"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> 4L)</span>
+<span id="cb8-126"><a href="#cb8-126"></a><span class="in">```</span></span>
+<span id="cb8-127"><a href="#cb8-127"></a></span>
+<span id="cb8-128"><a href="#cb8-128"></a><span class="fu">## Graphique combiné avec highlighting</span></span>
+<span id="cb8-129"><a href="#cb8-129"></a></span>
+<span id="cb8-130"><a href="#cb8-130"></a>On peut combiné les deux approches, en gardant en arrière plan de chaque sous graphique les informations des autres graphiques. On peut donc ici, pour chaque pays, positionné l'information de chaque pays par rapport aux autres.</span>
+<span id="cb8-131"><a href="#cb8-131"></a></span>
+<span id="cb8-132"><a href="#cb8-132"></a>Le principe du code a été récupéré dans le support de Yann Holtz consacré à ce problème <span class="co">[</span><span class="ot">**Data to viz**</span><span class="co">](http://www.data-to-viz.com/caveat/spaghetti.html)</span>. On vous recommande très fortement</span>
+<span id="cb8-133"><a href="#cb8-133"></a>d'utiliser ce support très riche, non seulement en éléments de programmation, mais également en conseils. En particulier la section **mise en garde** (*caveats*).</span>
+<span id="cb8-134"><a href="#cb8-134"></a></span>
+<span id="cb8-135"><a href="#cb8-135"></a>Les courbes en arrière plan ont une épaisseur plus faible (<span class="in">`lwd=0.1`</span>) et on une couleur unique ( <span class="in">`color="grey`</span> ). Pour facilité la lecture, le quadrillage a été allégé dans l'option <span class="in">`theme()`</span>. </span>
+<span id="cb8-136"><a href="#cb8-136"></a></span>
+<span id="cb8-139"><a href="#cb8-139"></a><span class="in">```{r}</span></span>
+<span id="cb8-140"><a href="#cb8-140"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb8-141"><a href="#cb8-141"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)   </span>
+<span id="cb8-142"><a href="#cb8-142"></a></span>
+<span id="cb8-143"><a href="#cb8-143"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
+<span id="cb8-144"><a href="#cb8-144"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
+<span id="cb8-145"><a href="#cb8-145"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
+<span id="cb8-146"><a href="#cb8-146"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb8-147"><a href="#cb8-147"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
+<span id="cb8-148"><a href="#cb8-148"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-149"><a href="#cb8-149"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-150"><a href="#cb8-150"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb8-151"><a href="#cb8-151"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb8-152"><a href="#cb8-152"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
+<span id="cb8-153"><a href="#cb8-153"></a>       <span class="at">y =</span> <span class="st">"Taux de fécondité"</span>, </span>
+<span id="cb8-154"><a href="#cb8-154"></a>       <span class="at">title =</span> <span class="st">"Taux de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb8-155"><a href="#cb8-155"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
+<span id="cb8-156"><a href="#cb8-156"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb8-157"><a href="#cb8-157"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-158"><a href="#cb8-158"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> 4L)</span>
+<span id="cb8-159"><a href="#cb8-159"></a><span class="in">```</span></span>
+<span id="cb8-160"><a href="#cb8-160"></a></span>
+<span id="cb8-161"><a href="#cb8-161"></a></span>
+<span id="cb8-162"><a href="#cb8-162"></a></span>
+<span id="cb8-163"><a href="#cb8-163"></a></span>
+<span id="cb8-164"><a href="#cb8-164"></a></span>
+<span id="cb8-165"><a href="#cb8-165"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"loop":true,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});</script>
+
+
+
+</body></html>

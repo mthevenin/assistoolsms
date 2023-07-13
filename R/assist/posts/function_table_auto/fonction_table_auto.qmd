@@ -16,14 +16,12 @@ image: "https://www.r-project.org/Rlogo.png"
 
 format: 
   html: default
-#  docx: default
+  docx: default
 
 filters:
   - lightbox
 
 lightbox: auto
-
-code-annotations: below
 
 abstract: | 
  Après avoir explorer des données, on peut vouloir compiler nos tables dans un même objet et l'exporter dans Excel pour les mettre en forme selon ses goûts. Il est possible d'automatiser le processus sur R.
@@ -171,12 +169,6 @@ table_auto(hdv2003,              # Base de données
            export_XLS  = "non")  # Si "oui" créer un excel : tableau_empilee
 
 
-```
-
-
-
-```{r eval=FALSE}
-View(tabdesc)
 ```
 
 

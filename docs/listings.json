@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/addins/addins.html",
       "/R/assist/posts/R_jupyter/R_jupyter.html",
       "/R/assist/posts/function_table_auto/fonction_table_auto.html",
@@ -25,6 +26,7 @@
   {
     "listing": "/R/assist/index.html",
     "items": [
+      "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/addins/addins.html",
       "/R/assist/posts/R_jupyter/R_jupyter.html",
       "/R/assist/posts/function_table_auto/fonction_table_auto.html",
@@ -41,6 +43,7 @@
   {
     "listing": "/R/index.html",
     "items": [
+      "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/addins/addins.html",
       "/R/assist/posts/R_jupyter/R_jupyter.html",
       "/R/assist/posts/function_table_auto/fonction_table_auto.html",
