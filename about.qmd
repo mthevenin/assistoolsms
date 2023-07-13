@@ -22,4 +22,4 @@ Contributions par ordre alphabétique:
 
 
 
-Maintenance du support: **Marc Thévenin**  
+Maintenance du support: **Marc Thévenin**   [{{< fa brands github >}}](http://github.com/mthevenin/assistoolsms)
