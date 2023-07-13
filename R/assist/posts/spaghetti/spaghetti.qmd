@@ -14,7 +14,7 @@ author:
 
 date: 07/12/2023
 
-image: "http://w7.pngwing.com/pngs/964/653/png-transparent-pasta-computer-icons-spaghetti-dish-symbol-spaghetti-miscellaneous-food-logo.png"
+image: "logo.png"
 
 format:
   html: default
@@ -203,7 +203,7 @@ ggplot(tmp) +
 * Version 0.1 - Juillet 2023 [Arno Muller]
 * Des options seront ajoutées ultérieurement (couleurs, épaisseurs, options `thème()`, ....).
 
-Chargement de la fonction
+Chargement de la fonction:
 
 ```{r}
 source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/spag_plot/spag_plot.R")
