@@ -31,18 +31,6 @@ listing:
     page-size: 3
     feed: false
     max-description-length: 300
-  - id: latest-content-Quarto
-    contents: 
-    - /Quarto
-    - "!index.qmd"
-    sort: "date desc"
-    type: grid
-    categories: true
-    sort-ui: false
-    filter-ui: false
-    page-size: 3
-    feed: false
-    max-description-length: 300 
        
 toc: false 
 ---
@@ -60,6 +48,8 @@ toc: false
 
 # **Derniers ajouts [R](https://mthevenin.github.io/assistoolsms/R/)**
 
+Fiches sur des problématiques exclusives à **R**.
+
 ::: {#latest-content-R}
 :::
 
@@ -67,23 +57,6 @@ toc: false
 :::
 :::
 
-<!-- Derniers ajouts Quarto-->
-
-::: {.content-container}
-::: {.listing-block}
-::: {.zoom-image}
-
-
-# **Derniers ajouts [Quarto](https://mthevenin.github.io/assistoolsms/Quarto/)**
-
-::: {#latest-content-Quarto}
-:::
-
-:::
-:::
-:::
-
- 
 
 <!-- Derniers ajouts Autres-->
 
@@ -91,7 +64,9 @@ toc: false
 ::: {.listing-block}
 ::: {.zoom-image}
 
-# **Derniers ajouts [Autres](https://mthevenin.github.io/assistoolsms/Autres/)**
+# **Derniers ajouts [Othe-R](https://mthevenin.github.io/assistoolsms/Autres/)**
+
+Fiches sur des problématiques liées à l'utilisation de **Quarto**, **git**...
 
 ::: {#latest-content-Autres}
 :::
@@ -99,7 +74,6 @@ toc: false
 :::
 :::
 :::
-
 
 
 ::: {.footer-text}

@@ -14,9 +14,7 @@ website:
     left:
       - text: "R"
         href: R/index.qmd
-      - text: "Quarto"
-        href: Quarto/index.qmd
-      - text: "Autres"
+      - text: "Othe-R"
         href: Autres/index.qmd
       - text: "Autres Supports"
         href: supports.qmd

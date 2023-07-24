@@ -1,0 +1,364 @@
+---
+title: "Statistiques descriptives à partir d'enquêtes DHS"
+
+date: 07/19/2023
+  
+categories:
+  - Recodage
+  - Statistiques descriptives
+
+author: 
+  - name: "Bénédicte Garnier"
+    affiliations:
+      - name: "Ined"
+
+image: "https://www.globaldietarydatabase.org/sites/default/files/inline-images/dhs%20logo%203x2_0.png"
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+ Nous allons montrer comment s'approprier des données issues des **Enquêtes Démographiques et de Santé** (DHS) pour produire des statistiques univariées avec R.
+
+---
+
+
+| Packages        | Fonctions                                 |
+|-----------------|-------------------------------------------|
+| **readstata13** | `read.dta13`                              |
+| **rio**         | `factorize`                               |
+| **dyplyr**      |  `mutate` `group by` `summerize`          |
+| **questionr**   | `freq`                                    |
+| **Base R**      | `str - summary`                           |
+
+: **Fonctions utilisées dans la fiche**
+
+Les [enquêtes Démographiques et de Santé (DHS)](http://dhsprogram.com/) sont régulièrement utilisées par les chercheurs travaillant sur le continent africain, l'amérique centrale et du sud ou l'asie du sud. 
+
+Les fichiers issus de questionnaires *Ménages*, *Femmes* et *Hommes* ont la même structure dans tous les pays participant à chaque phase de l'enquête : 400 enquêtes dans 90 pays en 2023. Les régles de recodage sont définies dans le [Standard recode manuel DHS 6](www.dhsprogram.com/pubs/pdf/DHSG4/Recode6_DHS_22March2013_DHSG4.pdf)
+
+Cet exemple s'inspire des fiches pédagogiques produites dans le cadre de l'[école d'été du Collège International des Sciences Territoriales](http://ee2023.netlify.app/) avec la lecture de fichiers téléchargés, l'identification des types de variables et la production d'indicateurs et de graphiques simples.
+
+
+**Documentation** :
+
+- [**Enquêtes Démographiques et de Santé (DHS)**](http://dhsprogram.com/)
+
+- [**Statistique descriptive univariée et bivariée** de H.Pecout et T.Giraud ](http://huguespecout.github.io/Initiation_R_stats/)
+
+- [Les **jointures avec R** par L. Vaudor](http://perso.ens-lyon.fr/lise.vaudor/combinaisons-et-jointures-de-tables-avec-dplyr/)
+
+
+**Installation des packages** : 
+
+```markdown
+install.packages("readstata13")
+install.packages("rio")
+install.packages("dyplyr")
+install.packages("questionr")
+```
+
+**Fichiers à disposition** :
+
+Les fichiers contiennent 10% des individus des tables téléchargées du site [enquêtes DHS](https://dhsprogram.com/) au *format Stata* (.dta) et rassemblent les réponses de l'enquête passée au Bénin en 2017 (vague 7).
+
+Nous utilisons ici uniquement les fichiers *niveau Ménages*, *niveau Femmes*, et *niveau Enfants* de l'enquête passée au Bénin en 2017 (vague 7). Ces fichiers sont initialement au *format Stata* (.dta). 
+
+| Pays  | Niveau Ménages | Niveau Femmes | Niveau Enfants |
+|-------|----------------|---------------|----------------|
+| Bénin | B1_BN          | B2_BN         | B4_BN          |
+
+On va selectionner quelques variables à partir des fichiers initiaux.
+
+
+
+## Appel des packages
+
+```{r, warning=FALSE, message=FALSE}
+library(readstata13)
+library(rio)
+library(dplyr)
+library(questionr)
+library(tidyverse)
+library(esquisse)
+```
+
+# Création de tables R à partir de fichiers Stata
+
+* Table *BE_Menages*
+
+On lit le fichier contenant les caractéristiques des logements des *Ménages* et on sélectionne les variables suivantes :
+
+| Variable | Label / Intitulé                        |
+|----------|-----------------------------------------|
+| hhid     | Case Identification                     |
+| hv000    | Country code and phase                  |
+| hv001    | Cluster number                          |
+| hv002    | Household number                        |
+| hv003    | Respondent's line number                |
+| hv024    | Region                                  |
+| hv025    | Type of place of residence              |
+| hv219    | Sex of head of household                |
+| hv220    | Age of head of household                |
+| hv219    | Has telephone (land-line)               |
+| hv227    | Has mosquito bed net for sleeping       |
+| hv230b   | Presence of water at hand washing place |
+
+```{r, warning=FALSE, message=FALSE}
+Be_Menages = read.dta13("datas/B1_BN.dta",generate.factors=T,fromEncoding="latin1") %>%
+  factorize()  %>%
+  data.frame() %>% 
+    # Selection des variables
+  select(c(hhid,hv000,hv001,hv002,hv003,hv024,hv025,hv230b,hv227,hv219,hv220,hv221)) 
+```
+
+
+```{r filename="Afficher le contenu de la table "}
+  str(Be_Menages)
+```
+
+
+* Table *BE_Femmes*
+
+On lit le fichier contenant les caractéristiques des *Femmes* enquêtées et on sélectionne les variables :
+
+| Variable | Label / Intitulé                       |
+|----------|----------------------------------------|
+| caseid   | Case Identification                    |
+| v000     | Country code and phase                 |
+| v001     | Cluster number                         |
+| v002     | Household number                       |
+| v003     | Respondent's line number               |
+| v704     | Husband/partner's occupation           |
+| v705     | Husband/partner's occupation (grouped) |
+| v716     | Respondent's occupation                |
+| v149     | Educational attainment                 |
+
+```{r, warning=FALSE, message=FALSE}
+Be_Femmes = read.dta13("datas/B2_BN.dta",generate.factors=T,fromEncoding="latin1") %>%
+  factorize() %>%
+  data.frame() %>% 
+    # Selection des variables 
+  select(c(caseid,v000,v001,v002,v003,v704,v705,v716,v149))
+```
+
+```{r filename="Afficher le contenu de la table "}
+  str(Be_Femmes)
+```
+
+*  Table *BE_Enfants*
+
+On lit le fichier contenant les caractéristiques des *Enfants* (avec Education et santé) et on sélectionne les variables :
+
+| Variable | Label / Intitulé                          |
+|----------|-------------------------------------------|
+| caseid   | Case Identification                       |
+| v001     | Cluster number                            |
+| v002     | Household number                          |
+| v003     | Respondent's line number                  |
+| v716     | Respondent's occupation                   |
+| v717     | Respondent's occupation (grouped)         |
+| v719     | Respondent works for family, others, self |
+| v218     | Number of living children                 |
+| v130     | Religion                                  |
+| v131     | Ethnicity                                 |
+| v101     | Region                                    |
+| v102     | Type of place of residence                |
+| v106     | Highest educational level                 |
+| v107     | Highest year of education                 |
+| v113     | Source of drinking water                  |
+| v115     | Time to get to water source               |
+
+```{r, warning=FALSE, message=FALSE }
+Be_Enfants = read.dta13("datas/B4_BN.dta",generate.factors=T,fromEncoding="latin1") %>%
+  factorize() %>%
+  data.frame() %>% 
+
+# Selection des variables 
+  select(c(caseid,v000,v001,v002,v003,v716,v717,v719,v218,v130,v131,v101,v102,v106,v107,v113,v115))
+```
+
+```{r filename="Afficher le contenu de la table "}
+  str(Be_Enfants)
+```
+
+La variable *caseid* de la table *Enfants* du *Bénin* est de type *entier (int)* alors que la variable *caseid* d'autres tables *Enfants* (par exemple du *Togo* ou du *Mali*) est *chaîne de caractères (char)*. On va changer son type en chaîne de caractères avec la fonction **`mutate`** à laquelle sera associée une autre fonction: `as.character`.
+
+```{r}
+Be_Enfants= Be_Enfants %>%
+   mutate(caseid=as.character(caseid)) 
+```
+
+# Comprendre l'organisation des tables entre elles
+
+On s'attache en particulier aux identifiants des individus de chacune des tables *Menages*, *Femmes* et *Enfants* pour en comprendre l'organisation et les liens possibles entre elles.
+
+* **Table ménage**
+
+| Variable | Label / Intitulé                                             |
+|----------|--------------------------------------------------------------|
+| hhid     | Case Identification                                          |
+| hv001    | Cluster number                                               |
+| hv002    | Household number                                             |
+| hv003    | Respondent's line number (answering Household questionnaire) |
+| ...      | ...                                                          |
+
+* **Table Femmes et table Enfants**
+
+| Variable | Label / Intitulé         |
+|----------|--------------------------|
+| caseid   | Case Identification      |
+| v001     | Cluster number           |
+| v002     | Household number         |
+| v003     | Respondent's line number |
+| ...      | ...                      |
+
+On pourra reconstituer le numéro du ménage à laquelle appartient chaque femme de la table *Femmes* à l'aide des variables v001, v002 et v003 qui sont des chaînes de caractères (char) que l'on pourra concaténer avec la fonction **`paste`** (casesid=v001+v002+v003).
+
+Pour illuster ce propos, nous pouvons regarder l'organisation de fichiers issus de 5 ménages enquêtés au Togo en 2013.
+
+![](img/img1.png){width="90%"}
+
+*Caseid,* l'identifiant du premier enfant de la table *Enfants*, a pour valeur *4962*. Il appartient au 1er ménage de la table *Ménages.*
+
+Les 5e et 6e enfants de la table *Enfants* appartiennent au 5e ménage de la table *Ménages* et on retrouve la correspondance avec la table *Femmes*.
+
+On pourra donc faire des jointures entre les tables *Ménages*, *Femmes* et *Enfants*.
+
+
+# Statistiques univariées
+
+## Afficher le contenu des tables
+
+Pour rappel, la fonction `str(matable)` permet d'afficher le nombre d'observations et de variables d'une table R mais aussi son *type* qui conditionne l'utilisation de fonctions.
+
+Une variable qualitative peut être stockée en *factor* ou *character* et une variable numérique en *integer* pour des nombres entiers).
+
+```{r}
+str(Be_Menages)
+```
+
+La table contient 1416 observations et 12 variables. On dénombre 1416 ménages au Bénin.
+
+La variable *hhid* (identifiant du ménage) est de type character (char), la variable *hv001* (cluster number) est de type entier (int) et la variable *hv003* (numéro du répondant) est de type facteur (Factor).
+
+## Répartition des ménages ...
+
+*  **Selon le type de commune**
+
+La variable *hv025* (milieu rural ou urbain) est une variable qualitative de type *facteur* (Factor) .
+
+```{r type}
+# Comme la variable est de type Factor on peut utiliser la fonction summary qui va afficher les effectif
+summary(Be_Menages$hv025)
+
+# On utilise la fonction freq du package questionr pour afficher aussi les %
+freq(Be_Menages$hv025, cum=F)
+
+```
+
+On trouve 800 Menages habitant en milieu rural, soit près de 57% des ménages interrogés au Bénin dans notre échantillon.
+
+* **...Selon le fait de posséder une moustiquaire**
+
+On prend la variable *hv227:Has mosquito bed net for sleeping* de la table *Ménages* pour calculer la répartition et faire le graphique associé
+
+```{r filename="Répartition"}
+freq(Be_Menages$hv227, cum=F)
+```
+
+```{r filename="Graphique"}
+ggplot(Be_Menages) +
+  aes(x = hv227) +
+  geom_bar(position = "dodge", fill = "#112446") +
+  coord_flip() +
+  theme_minimal()
+```
+
+Près de 94% des ménages de notre fichier possèdent une moustiquaire pour dormir.
+
+* **...Selon l'accès à l'eau pour se laver les mains**
+
+On prend la variable *hv230b* (*Presence of water at hand washing place*) de la table *Ménages*
+
+```{r filename="Répartition"}
+# Répartition
+freq(Be_Menages$hv230b, cum=F)
+```
+
+```{r filename="Graphique"}
+ggplot(Be_Menages) +
+  aes(x = hv230b) +
+  geom_bar(position = "dodge", fill = "#112446") +
+  coord_flip() +
+  theme_minimal()
+```
+
+Parmi les répondants à cette question (près de 55% des ménages), seulement près d'un tiers a accès à l'eau pour se laver les mains.
+
+* **...Selon l'âge des chefs de ménage**
+
+La variable hv220 (age) est de type *facteur*, on peut calculer la répartition.
+
+```{r}
+freq(Be_Menages$hv220,cum=T)
+```
+
+Les modalités de la variable *h220* sont ordonnées, le calcul des fréquences cumulées a un sens et on peut dire que la moité des chefs de ménages a moins de 42 ans.
+
+
+## Composition des ménages
+
+Ici on se sert des informations des tables *Femmes* et *Enfants* pour calculer leur nombre dans les ménages de notre échantillon ... On crée un *identifiant ménage (hhid)* pour chacune des tables. Et on ajoute ce nouvelle variable dans chacune des tables.
+
+* **Nombre de femmes par ménage** 
+
+On génère un compteur pour calculer le nombre de femmes par ménages (qui ont un identifiant de ménage identique): *Nbfem*. On ajoute cette nouvelle variable dans la table Femmes. Cette variable est une variable numérique de type *integer* (int) dans R. On peut alors calculer la répartition du nombre de femmes dans les menages.
+
+```{r filename="création de la variable nombre de femmes par ménage"}
+Be_Femmes2<-Be_Femmes%>% 
+  mutate(hhid=paste(v001,v002,sep=" "))
+# On générère la variable nombreb de femmes par ménage : Nbfem
+Be_Femmes3=Be_Femmes2 %>%
+  group_by(hhid) %>%
+  summarise(Nbfem = n())
+```
+
+```{r filename="Récupération de la variable Nbfem dans la table"}
+# On ajoute les variables de la table avec le nombre de femmes dans la table femme 
+Be_Femmes22<-Be_Femmes3 %>%
+  left_join(Be_Femmes2,by="hhid")
+```
+
+```{r }
+# Si variable numérique
+summary(Be_Femmes22$Nbfem)
+# Si variable discrète
+table(Be_Femmes22$Nbfem)
+
+```
+
+On dénombre 1445 ménages composés d'une femme, 138 de 2 femmes et 10 ménages de 3 ou 4 femmes dans l'echantillon extrait de l'enquête passée au Bénin.
+
+* Nombre moyen d'enfants vivants dans les ménages
+
+On peut calculer et représenter sur un graphique le nombre d'enfants vivants (*v218:Number of living children*)
+
+```{r}
+summary(Be_Enfants$v218)
+```
+
+Parmi les enfants vivants de la table *Enfants* on trouve au minimum 0 enfants vivants et 10 au maximum. On trouve en moyenne 3,5 enfants vivants par ménages et la moitié des ménages enquêtés ont 3 enfants.
+
+On peut visualiser ces statistiques sur un graphique de type Box-Plot. Le code *ggplot* a été récupéré à partir d'un graphique généré avec **esquisse** [lien fiche](https://mthevenin.github.io/assistoolsms/R/assist/posts/addins/addins.html#addins-esquisse)
+
+```{r}
+ggplot(Be_Enfants) +
+  aes(x = "", y = v218) +
+  geom_boxplot(fill = "#526747") +
+  theme_classic()
+```
+
+
+

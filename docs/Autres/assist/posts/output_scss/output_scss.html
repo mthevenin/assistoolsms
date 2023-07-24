@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Marc Thévenin">
+
+<title>SMS_site - Modification de l’apparence des outputs avec un fichier .scss</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../../sms.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
+ <span class="menu-text">R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
+ <span class="menu-text">Othe-R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../supports.html" rel="" target="">
+ <span class="menu-text">Autres Supports</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Modification de l’apparence des outputs avec un fichier .scss</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Quarto</div>
+                <div class="quarto-category">Scss</div>
+                <div class="quarto-category">Css</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Marc Thévenin </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">20 juin 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Résumé</div>
+      <p>A la suite d’un code, le report de l’output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d’un contour, à l’aide des variables sass et d’un code .css ajoutés à un fichier .scss</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="output_scss.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Par défaut le rendu des outputs console bruts (<code>theme: default</code>) est le suivant:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img" data-with="80%"></a></p>
+</figure>
+</div>
+<ul>
+<li>Avec un fichier .scss on peut modifier le rendu de cet output.
+<ul>
+<li>Un fichier styles.scss est généré automatiquement à la création d’un projet</li>
+<li>Pour une page simple, on peut le créer facilement facilement à partir d’un fichier de type texte, en le renommant avec l’extension <code>.scss</code>, par exemple <code>styles.scss</code>.</li>
+</ul></li>
+<li>On ajoute des éléments de modification de l’apparence au fichier .scss</li>
+<li>On indique dans le yaml de la page ou le _quarto.yml du projet qu’on applique ces modifications.</li>
+</ul>
+<p><strong>Modifications de l’output console dans un fichier .scss</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>$code-block-stdoutcolor: #37424a;</span>
+<span id="cb1-2"><a href="#cb1-2"></a>$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);</span>
+<span id="cb1-3"><a href="#cb1-3"></a>$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>/*-- scss:rules --*/</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>.cell-output-display pre, .cell-output-stdout pre {</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    background-color: $code-block-stdoutcolor-lighter !important;</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    border: 1.5px solid $code-block-stdoutcolor-light;</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    border-radius: .25rem;</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    border-left: 4px;</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    border-left-style: solid;</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    border-left-color: $code-block-stdoutcolor;</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    padding: .4em;</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    color: #37424a</span>
+<span id="cb1-16"><a href="#cb1-16"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a>.cell-output pre code {</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    background-color: transparent;</span>
+<span id="cb1-21"><a href="#cb1-21"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ici on a modifier la couleur du fond (ici un gris:<code>#37424a</code>), l’épaisseur du contour (plus importante à gauche), le radius des angles du contour etc…</p>
+<p><strong>yaml de la page ou du template quarto.yml du projet</strong></p>
+<p>Pour le yaml d’une page simple avec le fichier styles.scss</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">title="Changement couleur output"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="an">format:</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">  html:</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">    theme: [default, style.scss]</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Après exécution du programme, le rendu de l’output est le suivant:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Sepal.Length ~ Petal.Length, data = iris)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.24675 -0.29657 -0.01515  0.27676  1.00269 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   4.30660    0.07839   54.94   &lt;2e-16
+Petal.Length  0.40892    0.01889   21.65   &lt;2e-16
+
+Residual standard error: 0.4071 on 148 degrees of freedom
+Multiple R-squared:   0.76, Adjusted R-squared:  0.7583 
+F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exportation pdf
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si le document est exporté en PDF avec l’option <code>formats</code> dans le yaml, les modifications ne sont pas prises en compte.</p>
+</div>
+</div>
+
+
+<!-- -->
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Modification de l'apparence des outputs avec un fichier .scss"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="an">categories:</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">  - Quarto</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">  - Scss</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">  - Css</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">  </span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">    affiliations:</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="an">date:</span><span class="co"> 06/20/2023</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co">  html: default</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co">  docx: default</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="an">filters:</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">   - lightbox</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co"> A la suite d'un code, le report  de l'output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d'un contour, à l'aide des variables sass et d'un code .css ajoutés à un fichier .scss </span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">---</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a></span>
+<span id="cb5-30"><a href="#cb5-30"></a>Par défaut le rendu des outputs console bruts (<span class="in">`theme: default`</span>) est le suivant:  </span>
+<span id="cb5-31"><a href="#cb5-31"></a></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="al">![](img/img1.png)</span>{with=80%}</span>
+<span id="cb5-33"><a href="#cb5-33"></a></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="ss">- </span>Avec un fichier .scss on peut modifier le rendu de cet output. </span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="ss">  -  </span>Un fichier styles.scss est généré automatiquement à la création d'un projet</span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="ss">  - </span>Pour une page simple, on peut le créer facilement  facilement à partir d'un fichier de type texte, en le renommant avec l'extension <span class="in">`.scss`</span>, par exemple <span class="in">`styles.scss`</span>.</span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="ss">- </span>On ajoute des éléments de modification de l'apparence au fichier .scss</span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="ss">- </span>On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique ces modifications.  </span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a>**Modifications de l'output console dans un fichier .scss** </span>
+<span id="cb5-41"><a href="#cb5-41"></a></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="in">```markdown</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a>$code-block-stdoutcolor: #37424a;</span>
+<span id="cb5-44"><a href="#cb5-44"></a>$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);</span>
+<span id="cb5-45"><a href="#cb5-45"></a>$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);</span>
+<span id="cb5-46"><a href="#cb5-46"></a></span>
+<span id="cb5-47"><a href="#cb5-47"></a>/*-- scss:rules --*/</span>
+<span id="cb5-48"><a href="#cb5-48"></a></span>
+<span id="cb5-49"><a href="#cb5-49"></a>.cell-output-display pre, .cell-output-stdout pre {</span>
+<span id="cb5-50"><a href="#cb5-50"></a>    background-color: $code-block-stdoutcolor-lighter !important;</span>
+<span id="cb5-51"><a href="#cb5-51"></a>    border: 1.5px solid $code-block-stdoutcolor-light;</span>
+<span id="cb5-52"><a href="#cb5-52"></a>    border-radius: .25rem;</span>
+<span id="cb5-53"><a href="#cb5-53"></a>    border-left: 4px;</span>
+<span id="cb5-54"><a href="#cb5-54"></a>    border-left-style: solid;</span>
+<span id="cb5-55"><a href="#cb5-55"></a>    border-left-color: $code-block-stdoutcolor;</span>
+<span id="cb5-56"><a href="#cb5-56"></a>    padding: .4em;</span>
+<span id="cb5-57"><a href="#cb5-57"></a>    color: #37424a</span>
+<span id="cb5-58"><a href="#cb5-58"></a>}</span>
+<span id="cb5-59"><a href="#cb5-59"></a></span>
+<span id="cb5-60"><a href="#cb5-60"></a></span>
+<span id="cb5-61"><a href="#cb5-61"></a>.cell-output pre code {</span>
+<span id="cb5-62"><a href="#cb5-62"></a>    background-color: transparent;</span>
+<span id="cb5-63"><a href="#cb5-63"></a>}</span>
+<span id="cb5-64"><a href="#cb5-64"></a></span>
+<span id="cb5-65"><a href="#cb5-65"></a><span class="in">```</span></span>
+<span id="cb5-66"><a href="#cb5-66"></a>Ici on a modifier la couleur du fond (ici un gris:<span class="in">`#37424a`</span>), l'épaisseur du contour (plus importante à gauche), le radius des angles du contour etc...</span>
+<span id="cb5-67"><a href="#cb5-67"></a></span>
+<span id="cb5-68"><a href="#cb5-68"></a></span>
+<span id="cb5-69"><a href="#cb5-69"></a>**yaml de la page ou du template quarto.yml du projet**  </span>
+<span id="cb5-70"><a href="#cb5-70"></a></span>
+<span id="cb5-71"><a href="#cb5-71"></a></span>
+<span id="cb5-72"><a href="#cb5-72"></a>Pour le yaml d'une page simple avec le fichier styles.scss</span>
+<span id="cb5-73"><a href="#cb5-73"></a></span>
+<span id="cb5-74"><a href="#cb5-74"></a><span class="in">```markdown</span></span>
+<span id="cb5-75"><a href="#cb5-75"></a>---</span>
+<span id="cb5-76"><a href="#cb5-76"></a></span>
+<span id="cb5-77"><a href="#cb5-77"></a>title="Changement couleur output"</span>
+<span id="cb5-78"><a href="#cb5-78"></a></span>
+<span id="cb5-79"><a href="#cb5-79"></a>format:</span>
+<span id="cb5-80"><a href="#cb5-80"></a>  html:</span>
+<span id="cb5-81"><a href="#cb5-81"></a>    theme: <span class="co">[</span><span class="ot">default, style.scss</span><span class="co">]</span></span>
+<span id="cb5-82"><a href="#cb5-82"></a>---</span>
+<span id="cb5-83"><a href="#cb5-83"></a><span class="in">```</span></span>
+<span id="cb5-84"><a href="#cb5-84"></a></span>
+<span id="cb5-85"><a href="#cb5-85"></a>Après exécution du programme, le rendu de l'output est le suivant:</span>
+<span id="cb5-86"><a href="#cb5-86"></a></span>
+<span id="cb5-89"><a href="#cb5-89"></a><span class="in">```{r}</span></span>
+<span id="cb5-90"><a href="#cb5-90"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
+<span id="cb5-91"><a href="#cb5-91"></a></span>
+<span id="cb5-92"><a href="#cb5-92"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span>
+<span id="cb5-93"><a href="#cb5-93"></a><span class="in">```</span></span>
+<span id="cb5-94"><a href="#cb5-94"></a></span>
+<span id="cb5-95"><a href="#cb5-95"></a></span>
+<span id="cb5-96"><a href="#cb5-96"></a>::: callout-warning</span>
+<span id="cb5-97"><a href="#cb5-97"></a></span>
+<span id="cb5-98"><a href="#cb5-98"></a><span class="fu">## Exportation pdf</span></span>
+<span id="cb5-99"><a href="#cb5-99"></a></span>
+<span id="cb5-100"><a href="#cb5-100"></a>Si le document est exporté en PDF avec l'option <span class="in">`formats`</span> dans le yaml, les modifications ne sont pas prises en compte. </span>
+<span id="cb5-101"><a href="#cb5-101"></a></span>
+<span id="cb5-102"><a href="#cb5-102"></a>:::</span>
+<span id="cb5-103"><a href="#cb5-103"></a></span>
+<span id="cb5-104"><a href="#cb5-104"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":true,"openEffect":"zoom"});</script>
+
+
+
+</body></html>

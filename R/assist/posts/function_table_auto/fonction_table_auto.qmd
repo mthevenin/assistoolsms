@@ -2,8 +2,8 @@
 title: "Fonction pour des tables automatiques"
 
 categories:
+  - Statistiques descriptives
   - Tableau
-  - Output
   
 author: 
   - name: "Arno Muller"
@@ -16,7 +16,7 @@ image: "https://www.r-project.org/Rlogo.png"
 
 format: 
   html: default
-  docx: default
+#  docx: default
 
 filters:
   - lightbox

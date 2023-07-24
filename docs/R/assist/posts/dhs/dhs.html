@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bénédicte Garnier">
+
+<title>SMS_site - Statistiques descriptives à partir d’enquêtes DHS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../../sms.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
+ <span class="menu-text">R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
+ <span class="menu-text">Othe-R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../supports.html" rel="" target="">
+ <span class="menu-text">Autres Supports</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Statistiques descriptives à partir d’enquêtes DHS</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Recodage</div>
+                <div class="quarto-category">Statistiques descriptives</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Bénédicte Garnier </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">19 juillet 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Résumé</div>
+      <p>Nous allons montrer comment s’approprier des données issues des <strong>Enquêtes Démographiques et de Santé</strong> (DHS) pour produire des statistiques univariées avec R.</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#appel-des-packages" id="toc-appel-des-packages" class="nav-link active" data-scroll-target="#appel-des-packages">Appel des packages</a></li>
+  <li><a href="#création-de-tables-r-à-partir-de-fichiers-stata" id="toc-création-de-tables-r-à-partir-de-fichiers-stata" class="nav-link" data-scroll-target="#création-de-tables-r-à-partir-de-fichiers-stata">Création de tables R à partir de fichiers Stata</a></li>
+  <li><a href="#comprendre-lorganisation-des-tables-entre-elles" id="toc-comprendre-lorganisation-des-tables-entre-elles" class="nav-link" data-scroll-target="#comprendre-lorganisation-des-tables-entre-elles">Comprendre l’organisation des tables entre elles</a></li>
+  <li><a href="#statistiques-univariées" id="toc-statistiques-univariées" class="nav-link" data-scroll-target="#statistiques-univariées">Statistiques univariées</a>
+  <ul class="collapse">
+  <li><a href="#afficher-le-contenu-des-tables" id="toc-afficher-le-contenu-des-tables" class="nav-link" data-scroll-target="#afficher-le-contenu-des-tables">Afficher le contenu des tables</a></li>
+  <li><a href="#répartition-des-ménages" id="toc-répartition-des-ménages" class="nav-link" data-scroll-target="#répartition-des-ménages">Répartition des ménages …</a></li>
+  <li><a href="#composition-des-ménages" id="toc-composition-des-ménages" class="nav-link" data-scroll-target="#composition-des-ménages">Composition des ménages</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<table class="table">
+<caption><strong>Fonctions utilisées dans la fiche</strong></caption>
+<thead>
+<tr class="header">
+<th>Packages</th>
+<th>Fonctions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>readstata13</strong></td>
+<td><code>read.dta13</code></td>
+</tr>
+<tr class="even">
+<td><strong>rio</strong></td>
+<td><code>factorize</code></td>
+</tr>
+<tr class="odd">
+<td><strong>dyplyr</strong></td>
+<td><code>mutate</code> <code>group by</code> <code>summerize</code></td>
+</tr>
+<tr class="even">
+<td><strong>questionr</strong></td>
+<td><code>freq</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Base R</strong></td>
+<td><code>str - summary</code></td>
+</tr>
+</tbody>
+</table>
+<p>Les <a href="http://dhsprogram.com/">enquêtes Démographiques et de Santé (DHS)</a> sont régulièrement utilisées par les chercheurs travaillant sur le continent africain, l’amérique centrale et du sud ou l’asie du sud.</p>
+<p>Les fichiers issus de questionnaires <em>Ménages</em>, <em>Femmes</em> et <em>Hommes</em> ont la même structure dans tous les pays participant à chaque phase de l’enquête : 400 enquêtes dans 90 pays en 2023. Les régles de recodage sont définies dans le <a href="www.dhsprogram.com/pubs/pdf/DHSG4/Recode6_DHS_22March2013_DHSG4.pdf">Standard recode manuel DHS 6</a></p>
+<p>Cet exemple s’inspire des fiches pédagogiques produites dans le cadre de l’<a href="http://ee2023.netlify.app/">école d’été du Collège International des Sciences Territoriales</a> avec la lecture de fichiers téléchargés, l’identification des types de variables et la production d’indicateurs et de graphiques simples.</p>
+<p><strong>Documentation</strong> :</p>
+<ul>
+<li><p><a href="http://dhsprogram.com/"><strong>Enquêtes Démographiques et de Santé (DHS)</strong></a></p></li>
+<li><p><a href="http://huguespecout.github.io/Initiation_R_stats/"><strong>Statistique descriptive univariée et bivariée</strong> de H.Pecout et T.Giraud</a></p></li>
+<li><p><a href="http://perso.ens-lyon.fr/lise.vaudor/combinaisons-et-jointures-de-tables-avec-dplyr/">Les <strong>jointures avec R</strong> par L. Vaudor</a></p></li>
+</ul>
+<p><strong>Installation des packages</strong> :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>install.packages("readstata13")</span>
+<span id="cb1-2"><a href="#cb1-2"></a>install.packages("rio")</span>
+<span id="cb1-3"><a href="#cb1-3"></a>install.packages("dyplyr")</span>
+<span id="cb1-4"><a href="#cb1-4"></a>install.packages("questionr")</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Fichiers à disposition</strong> :</p>
+<p>Les fichiers contiennent 10% des individus des tables téléchargées du site <a href="https://dhsprogram.com/">enquêtes DHS</a> au <em>format Stata</em> (.dta) et rassemblent les réponses de l’enquête passée au Bénin en 2017 (vague 7).</p>
+<p>Nous utilisons ici uniquement les fichiers <em>niveau Ménages</em>, <em>niveau Femmes</em>, et <em>niveau Enfants</em> de l’enquête passée au Bénin en 2017 (vague 7). Ces fichiers sont initialement au <em>format Stata</em> (.dta).</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Pays</th>
+<th>Niveau Ménages</th>
+<th>Niveau Femmes</th>
+<th>Niveau Enfants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bénin</td>
+<td>B1_BN</td>
+<td>B2_BN</td>
+<td>B4_BN</td>
+</tr>
+</tbody>
+</table>
+<p>On va selectionner quelques variables à partir des fichiers initiaux.</p>
+<section id="appel-des-packages" class="level2">
+<h2 class="anchored" data-anchor-id="appel-des-packages">Appel des packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(readstata13)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(rio)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">library</span>(esquisse)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="création-de-tables-r-à-partir-de-fichiers-stata" class="level1">
+<h1>Création de tables R à partir de fichiers Stata</h1>
+<ul>
+<li>Table <em>BE_Menages</em></li>
+</ul>
+<p>On lit le fichier contenant les caractéristiques des logements des <em>Ménages</em> et on sélectionne les variables suivantes :</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Label / Intitulé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hhid</td>
+<td>Case Identification</td>
+</tr>
+<tr class="even">
+<td>hv000</td>
+<td>Country code and phase</td>
+</tr>
+<tr class="odd">
+<td>hv001</td>
+<td>Cluster number</td>
+</tr>
+<tr class="even">
+<td>hv002</td>
+<td>Household number</td>
+</tr>
+<tr class="odd">
+<td>hv003</td>
+<td>Respondent’s line number</td>
+</tr>
+<tr class="even">
+<td>hv024</td>
+<td>Region</td>
+</tr>
+<tr class="odd">
+<td>hv025</td>
+<td>Type of place of residence</td>
+</tr>
+<tr class="even">
+<td>hv219</td>
+<td>Sex of head of household</td>
+</tr>
+<tr class="odd">
+<td>hv220</td>
+<td>Age of head of household</td>
+</tr>
+<tr class="even">
+<td>hv219</td>
+<td>Has telephone (land-line)</td>
+</tr>
+<tr class="odd">
+<td>hv227</td>
+<td>Has mosquito bed net for sleeping</td>
+</tr>
+<tr class="even">
+<td>hv230b</td>
+<td>Presence of water at hand washing place</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>Be_Menages <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B1_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">factorize</span>()  <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="co"># Selection des variables</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">select</span>(<span class="fu">c</span>(hhid,hv000,hv001,hv002,hv003,hv024,hv025,hv230b,hv227,hv219,hv220,hv221)) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Afficher le contenu de la table </strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>  <span class="fu">str</span>(Be_Menages)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1416 obs. of  12 variables:
+ $ hhid  : chr  "       1  46" "       1 119" "       1 131" "       1 143" ...
+ $ hv000 : chr  "BJ7" "BJ7" "BJ7" "BJ7" ...
+ $ hv001 : int  1 1 1 1 2 3 3 4 6 6 ...
+ $ hv002 : int  46 119 131 143 25 11 47 149 37 63 ...
+ $ hv003 : Factor w/ 10 levels "incomplete household",..: 5 2 5 2 2 2 5 5 5 2 ...
+ $ hv024 : Factor w/ 12 levels "alibori","atacora",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ hv025 : Factor w/ 2 levels "urban","rural": 2 2 2 2 2 2 2 2 2 2 ...
+ $ hv230b: Factor w/ 2 levels "water not available",..: NA NA NA NA 1 NA NA 1 NA 1 ...
+ $ hv227 : Factor w/ 2 levels "no","yes": 2 2 1 1 2 1 2 2 2 2 ...
+ $ hv219 : Factor w/ 2 levels "male","female": 1 1 1 1 1 2 1 1 1 1 ...
+ $ hv220 : Factor w/ 78 levels "16","17","18",..: 50 20 22 58 32 50 13 25 21 29 ...
+ $ hv221 : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<ul>
+<li>Table <em>BE_Femmes</em></li>
+</ul>
+<p>On lit le fichier contenant les caractéristiques des <em>Femmes</em> enquêtées et on sélectionne les variables :</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Label / Intitulé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>caseid</td>
+<td>Case Identification</td>
+</tr>
+<tr class="even">
+<td>v000</td>
+<td>Country code and phase</td>
+</tr>
+<tr class="odd">
+<td>v001</td>
+<td>Cluster number</td>
+</tr>
+<tr class="even">
+<td>v002</td>
+<td>Household number</td>
+</tr>
+<tr class="odd">
+<td>v003</td>
+<td>Respondent’s line number</td>
+</tr>
+<tr class="even">
+<td>v704</td>
+<td>Husband/partner’s occupation</td>
+</tr>
+<tr class="odd">
+<td>v705</td>
+<td>Husband/partner’s occupation (grouped)</td>
+</tr>
+<tr class="even">
+<td>v716</td>
+<td>Respondent’s occupation</td>
+</tr>
+<tr class="odd">
+<td>v149</td>
+<td>Educational attainment</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>Be_Femmes <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B2_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">factorize</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="co"># Selection des variables </span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">select</span>(<span class="fu">c</span>(caseid,v000,v001,v002,v003,v704,v705,v716,v149))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Afficher le contenu de la table </strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>  <span class="fu">str</span>(Be_Femmes)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1593 obs. of  9 variables:
+ $ caseid: chr  "       1  15  4" "       1  46  2" "       1  46  5" "       1  52  5" ...
+ $ v000  : chr  "BJ7" "BJ7" "BJ7" "BJ7" ...
+ $ v001  : int  1 1 1 1 1 1 2 2 3 3 ...
+ $ v002  : int  15 46 46 52 76 119 13 76 2 13 ...
+ $ v003  : int  4 2 5 5 2 3 2 9 27 2 ...
+ $ v704  : Factor w/ 238 levels "not working and didn't work in last 12 months",..: 130 23 126 22 7 5 237 22 1 150 ...
+ $ v705  : Factor w/ 12 levels "did not work",..: 4 6 4 6 5 5 11 6 1 4 ...
+ $ v716  : Factor w/ 238 levels "not working and didn't work in last 12 months",..: 232 159 153 1 156 1 156 1 64 156 ...
+ $ v149  : Factor w/ 6 levels "no education",..: 2 1 1 1 1 1 1 1 1 4 ...</code></pre>
+</div>
+</div>
+<ul>
+<li>Table <em>BE_Enfants</em></li>
+</ul>
+<p>On lit le fichier contenant les caractéristiques des <em>Enfants</em> (avec Education et santé) et on sélectionne les variables :</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Label / Intitulé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>caseid</td>
+<td>Case Identification</td>
+</tr>
+<tr class="even">
+<td>v001</td>
+<td>Cluster number</td>
+</tr>
+<tr class="odd">
+<td>v002</td>
+<td>Household number</td>
+</tr>
+<tr class="even">
+<td>v003</td>
+<td>Respondent’s line number</td>
+</tr>
+<tr class="odd">
+<td>v716</td>
+<td>Respondent’s occupation</td>
+</tr>
+<tr class="even">
+<td>v717</td>
+<td>Respondent’s occupation (grouped)</td>
+</tr>
+<tr class="odd">
+<td>v719</td>
+<td>Respondent works for family, others, self</td>
+</tr>
+<tr class="even">
+<td>v218</td>
+<td>Number of living children</td>
+</tr>
+<tr class="odd">
+<td>v130</td>
+<td>Religion</td>
+</tr>
+<tr class="even">
+<td>v131</td>
+<td>Ethnicity</td>
+</tr>
+<tr class="odd">
+<td>v101</td>
+<td>Region</td>
+</tr>
+<tr class="even">
+<td>v102</td>
+<td>Type of place of residence</td>
+</tr>
+<tr class="odd">
+<td>v106</td>
+<td>Highest educational level</td>
+</tr>
+<tr class="even">
+<td>v107</td>
+<td>Highest year of education</td>
+</tr>
+<tr class="odd">
+<td>v113</td>
+<td>Source of drinking water</td>
+</tr>
+<tr class="even">
+<td>v115</td>
+<td>Time to get to water source</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>Be_Enfants <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B4_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">factorize</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># Selection des variables </span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">select</span>(<span class="fu">c</span>(caseid,v000,v001,v002,v003,v716,v717,v719,v218,v130,v131,v101,v102,v106,v107,v113,v115))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Afficher le contenu de la table </strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>  <span class="fu">str</span>(Be_Enfants)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1359 obs. of  17 variables:
+ $ caseid: int  225 482 532 563 642 1212 1648 2258 3135 3178 ...
+ $ v000  : chr  "BJ7" "BJ7" "BJ7" "BJ7" ...
+ $ v001  : int  2 4 5 5 6 1 1 2 3 3 ...
+ $ v002  : int  2 8 3 6 4 21 64 25 13 17 ...
+ $ v003  : int  5 2 2 3 2 2 8 8 5 8 ...
+ $ v716  : Factor w/ 238 levels "not working and didn't work in last 12 months",..: 23 4 62 156 156 153 1 1 62 153 ...
+ $ v717  : Factor w/ 12 levels "not working",..: 6 5 9 4 4 4 1 1 9 4 ...
+ $ v719  : Factor w/ 3 levels "for family member",..: 1 3 3 3 3 3 NA NA 3 3 ...
+ $ v218  : int  1 2 4 4 5 4 5 1 3 5 ...
+ $ v130  : Factor w/ 11 levels "vodoun","other traditional",..: 3 4 3 10 3 3 3 3 3 3 ...
+ $ v131  : Factor w/ 10 levels "adja and related",..: 2 2 2 2 7 2 7 7 2 2 ...
+ $ v101  : Factor w/ 12 levels "alibori","atacora",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ v102  : Factor w/ 2 levels "urban","rural": 2 2 2 2 2 2 2 2 2 2 ...
+ $ v106  : Factor w/ 4 levels "no education",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ v107  : Factor w/ 8 levels "no years completed at level v106",..: NA NA NA NA NA NA NA NA NA NA ...
+ $ v113  : Factor w/ 21 levels "piped water",..: 10 10 9 14 10 10 10 21 10 10 ...
+ $ v115  : Factor w/ 33 levels "0","1","10","100",..: 3 3 31 3 18 14 31 32 31 14 ...</code></pre>
+</div>
+</div>
+<p>La variable <em>caseid</em> de la table <em>Enfants</em> du <em>Bénin</em> est de type <em>entier (int)</em> alors que la variable <em>caseid</em> d’autres tables <em>Enfants</em> (par exemple du <em>Togo</em> ou du <em>Mali</em>) est <em>chaîne de caractères (char)</em>. On va changer son type en chaîne de caractères avec la fonction <strong><code>mutate</code></strong> à laquelle sera associée une autre fonction: <code>as.character</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>Be_Enfants<span class="ot">=</span> Be_Enfants <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>   <span class="fu">mutate</span>(<span class="at">caseid=</span><span class="fu">as.character</span>(caseid)) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="comprendre-lorganisation-des-tables-entre-elles" class="level1">
+<h1>Comprendre l’organisation des tables entre elles</h1>
+<p>On s’attache en particulier aux identifiants des individus de chacune des tables <em>Menages</em>, <em>Femmes</em> et <em>Enfants</em> pour en comprendre l’organisation et les liens possibles entre elles.</p>
+<ul>
+<li><strong>Table ménage</strong></li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Label / Intitulé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hhid</td>
+<td>Case Identification</td>
+</tr>
+<tr class="even">
+<td>hv001</td>
+<td>Cluster number</td>
+</tr>
+<tr class="odd">
+<td>hv002</td>
+<td>Household number</td>
+</tr>
+<tr class="even">
+<td>hv003</td>
+<td>Respondent’s line number (answering Household questionnaire)</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Table Femmes et table Enfants</strong></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Label / Intitulé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>caseid</td>
+<td>Case Identification</td>
+</tr>
+<tr class="even">
+<td>v001</td>
+<td>Cluster number</td>
+</tr>
+<tr class="odd">
+<td>v002</td>
+<td>Household number</td>
+</tr>
+<tr class="even">
+<td>v003</td>
+<td>Respondent’s line number</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>On pourra reconstituer le numéro du ménage à laquelle appartient chaque femme de la table <em>Femmes</em> à l’aide des variables v001, v002 et v003 qui sont des chaînes de caractères (char) que l’on pourra concaténer avec la fonction <strong><code>paste</code></strong> (casesid=v001+v002+v003).</p>
+<p>Pour illuster ce propos, nous pouvons regarder l’organisation de fichiers issus de 5 ménages enquêtés au Togo en 2013.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
+</figure>
+</div>
+<p><em>Caseid,</em> l’identifiant du premier enfant de la table <em>Enfants</em>, a pour valeur <em>4962</em>. Il appartient au 1er ménage de la table <em>Ménages.</em></p>
+<p>Les 5e et 6e enfants de la table <em>Enfants</em> appartiennent au 5e ménage de la table <em>Ménages</em> et on retrouve la correspondance avec la table <em>Femmes</em>.</p>
+<p>On pourra donc faire des jointures entre les tables <em>Ménages</em>, <em>Femmes</em> et <em>Enfants</em>.</p>
+</section>
+<section id="statistiques-univariées" class="level1">
+<h1>Statistiques univariées</h1>
+<section id="afficher-le-contenu-des-tables" class="level2">
+<h2 class="anchored" data-anchor-id="afficher-le-contenu-des-tables">Afficher le contenu des tables</h2>
+<p>Pour rappel, la fonction <code>str(matable)</code> permet d’afficher le nombre d’observations et de variables d’une table R mais aussi son <em>type</em> qui conditionne l’utilisation de fonctions.</p>
+<p>Une variable qualitative peut être stockée en <em>factor</em> ou <em>character</em> et une variable numérique en <em>integer</em> pour des nombres entiers).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">str</span>(Be_Menages)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1416 obs. of  12 variables:
+ $ hhid  : chr  "       1  46" "       1 119" "       1 131" "       1 143" ...
+ $ hv000 : chr  "BJ7" "BJ7" "BJ7" "BJ7" ...
+ $ hv001 : int  1 1 1 1 2 3 3 4 6 6 ...
+ $ hv002 : int  46 119 131 143 25 11 47 149 37 63 ...
+ $ hv003 : Factor w/ 10 levels "incomplete household",..: 5 2 5 2 2 2 5 5 5 2 ...
+ $ hv024 : Factor w/ 12 levels "alibori","atacora",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ hv025 : Factor w/ 2 levels "urban","rural": 2 2 2 2 2 2 2 2 2 2 ...
+ $ hv230b: Factor w/ 2 levels "water not available",..: NA NA NA NA 1 NA NA 1 NA 1 ...
+ $ hv227 : Factor w/ 2 levels "no","yes": 2 2 1 1 2 1 2 2 2 2 ...
+ $ hv219 : Factor w/ 2 levels "male","female": 1 1 1 1 1 2 1 1 1 1 ...
+ $ hv220 : Factor w/ 78 levels "16","17","18",..: 50 20 22 58 32 50 13 25 21 29 ...
+ $ hv221 : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<p>La table contient 1416 observations et 12 variables. On dénombre 1416 ménages au Bénin.</p>
+<p>La variable <em>hhid</em> (identifiant du ménage) est de type character (char), la variable <em>hv001</em> (cluster number) est de type entier (int) et la variable <em>hv003</em> (numéro du répondant) est de type facteur (Factor).</p>
+</section>
+<section id="répartition-des-ménages" class="level2">
+<h2 class="anchored" data-anchor-id="répartition-des-ménages">Répartition des ménages …</h2>
+<ul>
+<li><strong>Selon le type de commune</strong></li>
+</ul>
+<p>La variable <em>hv025</em> (milieu rural ou urbain) est une variable qualitative de type <em>facteur</em> (Factor) .</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Comme la variable est de type Factor on peut utiliser la fonction summary qui va afficher les effectif</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">summary</span>(Be_Menages<span class="sc">$</span>hv025)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>urban rural 
+  616   800 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># On utilise la fonction freq du package questionr pour afficher aussi les %</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv025, <span class="at">cum=</span>F)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        n    % val%
+urban 616 43.5 43.5
+rural 800 56.5 56.5</code></pre>
+</div>
+</div>
+<p>On trouve 800 Menages habitant en milieu rural, soit près de 57% des ménages interrogés au Bénin dans notre échantillon.</p>
+<ul>
+<li><strong>…Selon le fait de posséder une moustiquaire</strong></li>
+</ul>
+<p>On prend la variable <em>hv227:Has mosquito bed net for sleeping</em> de la table <em>Ménages</em> pour calculer la répartition et faire le graphique associé</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Répartition</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv227, <span class="at">cum=</span>F)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       n    % val%
+no    89  6.3  6.3
+yes 1327 93.7 93.7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Graphique</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(Be_Menages) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv227) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">fill =</span> <span class="st">"#112446"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="dhs_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="dhs_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Près de 94% des ménages de notre fichier possèdent une moustiquaire pour dormir.</p>
+<ul>
+<li><strong>…Selon l’accès à l’eau pour se laver les mains</strong></li>
+</ul>
+<p>On prend la variable <em>hv230b</em> (<em>Presence of water at hand washing place</em>) de la table <em>Ménages</em></p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Répartition</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Répartition</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv230b, <span class="at">cum=</span>F)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      n    % val%
+water not available 441 31.1   57
+water is available  333 23.5   43
+NA                  642 45.3   NA</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Graphique</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(Be_Menages) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv230b) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">fill =</span> <span class="st">"#112446"</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="dhs_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="dhs_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Parmi les répondants à cette question (près de 55% des ménages), seulement près d’un tiers a accès à l’eau pour se laver les mains.</p>
+<ul>
+<li><strong>…Selon l’âge des chefs de ménage</strong></li>
+</ul>
+<p>La variable hv220 (age) est de type <em>facteur</em>, on peut calculer la répartition.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv220,<span class="at">cum=</span>T)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            n   % val%  %cum val%cum
+16          2 0.1  0.1   0.1     0.1
+17          1 0.1  0.1   0.2     0.2
+18          2 0.1  0.1   0.4     0.4
+19          5 0.4  0.4   0.7     0.7
+20          6 0.4  0.4   1.1     1.1
+21          9 0.6  0.6   1.8     1.8
+22         17 1.2  1.2   3.0     3.0
+23         17 1.2  1.2   4.2     4.2
+24         17 1.2  1.2   5.4     5.4
+25         41 2.9  2.9   8.3     8.3
+26         17 1.2  1.2   9.5     9.5
+27         29 2.0  2.0  11.5    11.5
+28         49 3.5  3.5  15.0    15.0
+29         30 2.1  2.1  17.1    17.1
+30         55 3.9  3.9  21.0    21.0
+31         29 2.0  2.0  23.0    23.0
+32         52 3.7  3.7  26.7    26.7
+33         31 2.2  2.2  28.9    28.9
+34         30 2.1  2.1  31.0    31.0
+35         51 3.6  3.6  34.6    34.6
+36         18 1.3  1.3  35.9    35.9
+37         43 3.0  3.0  38.9    38.9
+38         28 2.0  2.0  40.9    40.9
+39         26 1.8  1.8  42.7    42.7
+40         53 3.7  3.7  46.5    46.5
+41         35 2.5  2.5  48.9    48.9
+42         32 2.3  2.3  51.2    51.2
+43         28 2.0  2.0  53.2    53.2
+44         18 1.3  1.3  54.4    54.4
+45         61 4.3  4.3  58.8    58.8
+46         21 1.5  1.5  60.2    60.2
+47         37 2.6  2.6  62.9    62.9
+48         17 1.2  1.2  64.1    64.1
+49         24 1.7  1.7  65.7    65.7
+50         25 1.8  1.8  67.5    67.5
+51         13 0.9  0.9  68.4    68.4
+52         27 1.9  1.9  70.3    70.3
+53         16 1.1  1.1  71.5    71.5
+54         11 0.8  0.8  72.2    72.2
+55         30 2.1  2.1  74.4    74.4
+56         17 1.2  1.2  75.6    75.6
+57         33 2.3  2.3  77.9    77.9
+58         17 1.2  1.2  79.1    79.1
+59          7 0.5  0.5  79.6    79.6
+60         31 2.2  2.2  81.8    81.8
+61         17 1.2  1.2  83.0    83.0
+62         20 1.4  1.4  84.4    84.4
+63         11 0.8  0.8  85.2    85.2
+64          3 0.2  0.2  85.4    85.4
+65         26 1.8  1.8  87.2    87.2
+66         13 0.9  0.9  88.1    88.1
+67         15 1.1  1.1  89.2    89.2
+68         19 1.3  1.3  90.5    90.5
+69         11 0.8  0.8  91.3    91.3
+70         26 1.8  1.8  93.1    93.1
+71         14 1.0  1.0  94.1    94.1
+72         10 0.7  0.7  94.8    94.8
+73          7 0.5  0.5  95.3    95.3
+74          4 0.3  0.3  95.6    95.6
+75         10 0.7  0.7  96.3    96.3
+76          5 0.4  0.4  96.7    96.7
+77          7 0.5  0.5  97.2    97.2
+78          6 0.4  0.4  97.6    97.6
+79          2 0.1  0.1  97.7    97.7
+80          9 0.6  0.6  98.4    98.4
+81          3 0.2  0.2  98.6    98.6
+82          3 0.2  0.2  98.8    98.8
+83          1 0.1  0.1  98.9    98.9
+84          1 0.1  0.1  98.9    98.9
+85          6 0.4  0.4  99.4    99.4
+86          1 0.1  0.1  99.4    99.4
+87          2 0.1  0.1  99.6    99.6
+88          1 0.1  0.1  99.6    99.6
+90          2 0.1  0.1  99.8    99.8
+92          2 0.1  0.1  99.9    99.9
+95          1 0.1  0.1 100.0   100.0
+97+         0 0.0  0.0 100.0   100.0
+don't know  0 0.0  0.0 100.0   100.0</code></pre>
+</div>
+</div>
+<p>Les modalités de la variable <em>h220</em> sont ordonnées, le calcul des fréquences cumulées a un sens et on peut dire que la moité des chefs de ménages a moins de 42 ans.</p>
+</section>
+<section id="composition-des-ménages" class="level2">
+<h2 class="anchored" data-anchor-id="composition-des-ménages">Composition des ménages</h2>
+<p>Ici on se sert des informations des tables <em>Femmes</em> et <em>Enfants</em> pour calculer leur nombre dans les ménages de notre échantillon … On crée un <em>identifiant ménage (hhid)</em> pour chacune des tables. Et on ajoute ce nouvelle variable dans chacune des tables.</p>
+<ul>
+<li><strong>Nombre de femmes par ménage</strong></li>
+</ul>
+<p>On génère un compteur pour calculer le nombre de femmes par ménages (qui ont un identifiant de ménage identique): <em>Nbfem</em>. On ajoute cette nouvelle variable dans la table Femmes. Cette variable est une variable numérique de type <em>integer</em> (int) dans R. On peut alors calculer la répartition du nombre de femmes dans les menages.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>création de la variable nombre de femmes par ménage</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>Be_Femmes2<span class="ot">&lt;-</span>Be_Femmes<span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">mutate</span>(<span class="at">hhid=</span><span class="fu">paste</span>(v001,v002,<span class="at">sep=</span><span class="st">" "</span>))</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="co"># On générère la variable nombreb de femmes par ménage : Nbfem</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>Be_Femmes3<span class="ot">=</span>Be_Femmes2 <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">group_by</span>(hhid) <span class="sc">%&gt;%</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>  <span class="fu">summarise</span>(<span class="at">Nbfem =</span> <span class="fu">n</span>())</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Récupération de la variable Nbfem dans la table</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># On ajoute les variables de la table avec le nombre de femmes dans la table femme </span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>Be_Femmes22<span class="ot">&lt;-</span>Be_Femmes3 <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">left_join</span>(Be_Femmes2,<span class="at">by=</span><span class="st">"hhid"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Si variable numérique</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">summary</span>(Be_Femmes22<span class="sc">$</span>Nbfem)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   1.000   1.102   1.000   4.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Si variable discrète</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">table</span>(Be_Femmes22<span class="sc">$</span>Nbfem)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   1    2    3    4 
+1445  138    6    4 </code></pre>
+</div>
+</div>
+<p>On dénombre 1445 ménages composés d’une femme, 138 de 2 femmes et 10 ménages de 3 ou 4 femmes dans l’echantillon extrait de l’enquête passée au Bénin.</p>
+<ul>
+<li>Nombre moyen d’enfants vivants dans les ménages</li>
+</ul>
+<p>On peut calculer et représenter sur un graphique le nombre d’enfants vivants (<em>v218:Number of living children</em>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">summary</span>(Be_Enfants<span class="sc">$</span>v218)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   2.000   3.000   3.491   5.000  10.000 </code></pre>
+</div>
+</div>
+<p>Parmi les enfants vivants de la table <em>Enfants</em> on trouve au minimum 0 enfants vivants et 10 au maximum. On trouve en moyenne 3,5 enfants vivants par ménages et la moitié des ménages enquêtés ont 3 enfants.</p>
+<p>On peut visualiser ces statistiques sur un graphique de type Box-Plot. Le code <em>ggplot</em> a été récupéré à partir d’un graphique généré avec <strong>esquisse</strong> <a href="https://mthevenin.github.io/assistoolsms/R/assist/posts/addins/addins.html#addins-esquisse">lien fiche</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">ggplot</span>(Be_Enfants) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> v218) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#526747"</span>) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="dhs_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="dhs_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb36" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">---</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="an">title:</span><span class="co"> "Statistiques descriptives à partir d'enquêtes DHS"</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="an">date:</span><span class="co"> 07/19/2023</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="co">  </span></span>
+<span id="cb36-6"><a href="#cb36-6"></a><span class="an">categories:</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="co">  - Recodage</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="co">  - Statistiques descriptives</span></span>
+<span id="cb36-9"><a href="#cb36-9"></a></span>
+<span id="cb36-10"><a href="#cb36-10"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb36-11"><a href="#cb36-11"></a><span class="co">  - name: "Bénédicte Garnier"</span></span>
+<span id="cb36-12"><a href="#cb36-12"></a><span class="co">    affiliations:</span></span>
+<span id="cb36-13"><a href="#cb36-13"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb36-14"><a href="#cb36-14"></a></span>
+<span id="cb36-15"><a href="#cb36-15"></a><span class="an">image:</span><span class="co"> "https://www.globaldietarydatabase.org/sites/default/files/inline-images/dhs%20logo%203x2_0.png"</span></span>
+<span id="cb36-16"><a href="#cb36-16"></a></span>
+<span id="cb36-17"><a href="#cb36-17"></a><span class="an">filters:</span></span>
+<span id="cb36-18"><a href="#cb36-18"></a><span class="co">   - lightbox</span></span>
+<span id="cb36-19"><a href="#cb36-19"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb36-20"><a href="#cb36-20"></a></span>
+<span id="cb36-21"><a href="#cb36-21"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb36-22"><a href="#cb36-22"></a><span class="co"> Nous allons montrer comment s'approprier des données issues des **Enquêtes Démographiques et de Santé** (DHS) pour produire des statistiques univariées avec R.</span></span>
+<span id="cb36-23"><a href="#cb36-23"></a></span>
+<span id="cb36-24"><a href="#cb36-24"></a><span class="co">---</span></span>
+<span id="cb36-25"><a href="#cb36-25"></a></span>
+<span id="cb36-26"><a href="#cb36-26"></a></span>
+<span id="cb36-27"><a href="#cb36-27"></a>| Packages        | Fonctions                                 |</span>
+<span id="cb36-28"><a href="#cb36-28"></a>|-----------------|-------------------------------------------|</span>
+<span id="cb36-29"><a href="#cb36-29"></a>| **readstata13** | <span class="in">`read.dta13`</span>                              |</span>
+<span id="cb36-30"><a href="#cb36-30"></a>| **rio**         | <span class="in">`factorize`</span>                               |</span>
+<span id="cb36-31"><a href="#cb36-31"></a>| **dyplyr**      |  <span class="in">`mutate`</span> <span class="in">`group by`</span> <span class="in">`summerize`</span>          |</span>
+<span id="cb36-32"><a href="#cb36-32"></a>| **questionr**   | <span class="in">`freq`</span>                                    |</span>
+<span id="cb36-33"><a href="#cb36-33"></a>| **Base R**      | <span class="in">`str - summary`</span>                           |</span>
+<span id="cb36-34"><a href="#cb36-34"></a></span>
+<span id="cb36-35"><a href="#cb36-35"></a>: **Fonctions utilisées dans la fiche**</span>
+<span id="cb36-36"><a href="#cb36-36"></a></span>
+<span id="cb36-37"><a href="#cb36-37"></a>Les <span class="co">[</span><span class="ot">enquêtes Démographiques et de Santé (DHS)</span><span class="co">](http://dhsprogram.com/)</span> sont régulièrement utilisées par les chercheurs travaillant sur le continent africain, l'amérique centrale et du sud ou l'asie du sud. </span>
+<span id="cb36-38"><a href="#cb36-38"></a></span>
+<span id="cb36-39"><a href="#cb36-39"></a>Les fichiers issus de questionnaires *Ménages*, *Femmes* et *Hommes* ont la même structure dans tous les pays participant à chaque phase de l'enquête : 400 enquêtes dans 90 pays en 2023. Les régles de recodage sont définies dans le <span class="co">[</span><span class="ot">Standard recode manuel DHS 6</span><span class="co">](www.dhsprogram.com/pubs/pdf/DHSG4/Recode6_DHS_22March2013_DHSG4.pdf)</span></span>
+<span id="cb36-40"><a href="#cb36-40"></a></span>
+<span id="cb36-41"><a href="#cb36-41"></a>Cet exemple s'inspire des fiches pédagogiques produites dans le cadre de l'<span class="co">[</span><span class="ot">école d'été du Collège International des Sciences Territoriales</span><span class="co">](http://ee2023.netlify.app/)</span> avec la lecture de fichiers téléchargés, l'identification des types de variables et la production d'indicateurs et de graphiques simples.</span>
+<span id="cb36-42"><a href="#cb36-42"></a></span>
+<span id="cb36-43"><a href="#cb36-43"></a></span>
+<span id="cb36-44"><a href="#cb36-44"></a>**Documentation** :</span>
+<span id="cb36-45"><a href="#cb36-45"></a></span>
+<span id="cb36-46"><a href="#cb36-46"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Enquêtes Démographiques et de Santé (DHS)**</span><span class="co">](http://dhsprogram.com/)</span></span>
+<span id="cb36-47"><a href="#cb36-47"></a></span>
+<span id="cb36-48"><a href="#cb36-48"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**Statistique descriptive univariée et bivariée** de H.Pecout et T.Giraud </span><span class="co">](http://huguespecout.github.io/Initiation_R_stats/)</span></span>
+<span id="cb36-49"><a href="#cb36-49"></a></span>
+<span id="cb36-50"><a href="#cb36-50"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Les **jointures avec R** par L. Vaudor</span><span class="co">](http://perso.ens-lyon.fr/lise.vaudor/combinaisons-et-jointures-de-tables-avec-dplyr/)</span></span>
+<span id="cb36-51"><a href="#cb36-51"></a></span>
+<span id="cb36-52"><a href="#cb36-52"></a></span>
+<span id="cb36-53"><a href="#cb36-53"></a>**Installation des packages** : </span>
+<span id="cb36-54"><a href="#cb36-54"></a></span>
+<span id="cb36-55"><a href="#cb36-55"></a><span class="in">```markdown</span></span>
+<span id="cb36-56"><a href="#cb36-56"></a>install.packages("readstata13")</span>
+<span id="cb36-57"><a href="#cb36-57"></a>install.packages("rio")</span>
+<span id="cb36-58"><a href="#cb36-58"></a>install.packages("dyplyr")</span>
+<span id="cb36-59"><a href="#cb36-59"></a>install.packages("questionr")</span>
+<span id="cb36-60"><a href="#cb36-60"></a><span class="in">```</span></span>
+<span id="cb36-61"><a href="#cb36-61"></a></span>
+<span id="cb36-62"><a href="#cb36-62"></a>**Fichiers à disposition** :</span>
+<span id="cb36-63"><a href="#cb36-63"></a></span>
+<span id="cb36-64"><a href="#cb36-64"></a>Les fichiers contiennent 10% des individus des tables téléchargées du site <span class="co">[</span><span class="ot">enquêtes DHS</span><span class="co">](https://dhsprogram.com/)</span> au *format Stata* (.dta) et rassemblent les réponses de l'enquête passée au Bénin en 2017 (vague 7).</span>
+<span id="cb36-65"><a href="#cb36-65"></a></span>
+<span id="cb36-66"><a href="#cb36-66"></a>Nous utilisons ici uniquement les fichiers *niveau Ménages*, *niveau Femmes*, et *niveau Enfants* de l'enquête passée au Bénin en 2017 (vague 7). Ces fichiers sont initialement au *format Stata* (.dta). </span>
+<span id="cb36-67"><a href="#cb36-67"></a></span>
+<span id="cb36-68"><a href="#cb36-68"></a>| Pays  | Niveau Ménages | Niveau Femmes | Niveau Enfants |</span>
+<span id="cb36-69"><a href="#cb36-69"></a>|-------|----------------|---------------|----------------|</span>
+<span id="cb36-70"><a href="#cb36-70"></a>| Bénin | B1_BN          | B2_BN         | B4_BN          |</span>
+<span id="cb36-71"><a href="#cb36-71"></a></span>
+<span id="cb36-72"><a href="#cb36-72"></a>On va selectionner quelques variables à partir des fichiers initiaux.</span>
+<span id="cb36-73"><a href="#cb36-73"></a></span>
+<span id="cb36-74"><a href="#cb36-74"></a></span>
+<span id="cb36-75"><a href="#cb36-75"></a></span>
+<span id="cb36-76"><a href="#cb36-76"></a><span class="fu">## Appel des packages</span></span>
+<span id="cb36-77"><a href="#cb36-77"></a></span>
+<span id="cb36-78"><a href="#cb36-78"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb36-79"><a href="#cb36-79"></a><span class="fu">library</span>(readstata13)</span>
+<span id="cb36-80"><a href="#cb36-80"></a><span class="fu">library</span>(rio)</span>
+<span id="cb36-81"><a href="#cb36-81"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb36-82"><a href="#cb36-82"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb36-83"><a href="#cb36-83"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb36-84"><a href="#cb36-84"></a><span class="fu">library</span>(esquisse)</span>
+<span id="cb36-85"><a href="#cb36-85"></a><span class="in">```</span></span>
+<span id="cb36-86"><a href="#cb36-86"></a></span>
+<span id="cb36-87"><a href="#cb36-87"></a><span class="fu"># Création de tables R à partir de fichiers Stata</span></span>
+<span id="cb36-88"><a href="#cb36-88"></a></span>
+<span id="cb36-89"><a href="#cb36-89"></a><span class="ss">* </span>Table *BE_Menages*</span>
+<span id="cb36-90"><a href="#cb36-90"></a></span>
+<span id="cb36-91"><a href="#cb36-91"></a>On lit le fichier contenant les caractéristiques des logements des *Ménages* et on sélectionne les variables suivantes :</span>
+<span id="cb36-92"><a href="#cb36-92"></a></span>
+<span id="cb36-93"><a href="#cb36-93"></a>| Variable | Label / Intitulé                        |</span>
+<span id="cb36-94"><a href="#cb36-94"></a>|----------|-----------------------------------------|</span>
+<span id="cb36-95"><a href="#cb36-95"></a>| hhid     | Case Identification                     |</span>
+<span id="cb36-96"><a href="#cb36-96"></a>| hv000    | Country code and phase                  |</span>
+<span id="cb36-97"><a href="#cb36-97"></a>| hv001    | Cluster number                          |</span>
+<span id="cb36-98"><a href="#cb36-98"></a>| hv002    | Household number                        |</span>
+<span id="cb36-99"><a href="#cb36-99"></a>| hv003    | Respondent's line number                |</span>
+<span id="cb36-100"><a href="#cb36-100"></a>| hv024    | Region                                  |</span>
+<span id="cb36-101"><a href="#cb36-101"></a>| hv025    | Type of place of residence              |</span>
+<span id="cb36-102"><a href="#cb36-102"></a>| hv219    | Sex of head of household                |</span>
+<span id="cb36-103"><a href="#cb36-103"></a>| hv220    | Age of head of household                |</span>
+<span id="cb36-104"><a href="#cb36-104"></a>| hv219    | Has telephone (land-line)               |</span>
+<span id="cb36-105"><a href="#cb36-105"></a>| hv227    | Has mosquito bed net for sleeping       |</span>
+<span id="cb36-106"><a href="#cb36-106"></a>| hv230b   | Presence of water at hand washing place |</span>
+<span id="cb36-107"><a href="#cb36-107"></a></span>
+<span id="cb36-108"><a href="#cb36-108"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb36-109"><a href="#cb36-109"></a>Be_Menages <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B1_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-110"><a href="#cb36-110"></a>  <span class="fu">factorize</span>()  <span class="sc">%&gt;%</span></span>
+<span id="cb36-111"><a href="#cb36-111"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb36-112"><a href="#cb36-112"></a>    <span class="co"># Selection des variables</span></span>
+<span id="cb36-113"><a href="#cb36-113"></a>  <span class="fu">select</span>(<span class="fu">c</span>(hhid,hv000,hv001,hv002,hv003,hv024,hv025,hv230b,hv227,hv219,hv220,hv221)) </span>
+<span id="cb36-114"><a href="#cb36-114"></a><span class="in">```</span></span>
+<span id="cb36-115"><a href="#cb36-115"></a></span>
+<span id="cb36-116"><a href="#cb36-116"></a></span>
+<span id="cb36-117"><a href="#cb36-117"></a><span class="in">```{r filename="Afficher le contenu de la table "}</span></span>
+<span id="cb36-118"><a href="#cb36-118"></a>  <span class="fu">str</span>(Be_Menages)</span>
+<span id="cb36-119"><a href="#cb36-119"></a><span class="in">```</span></span>
+<span id="cb36-120"><a href="#cb36-120"></a></span>
+<span id="cb36-121"><a href="#cb36-121"></a></span>
+<span id="cb36-122"><a href="#cb36-122"></a><span class="ss">* </span>Table *BE_Femmes*</span>
+<span id="cb36-123"><a href="#cb36-123"></a></span>
+<span id="cb36-124"><a href="#cb36-124"></a>On lit le fichier contenant les caractéristiques des *Femmes* enquêtées et on sélectionne les variables :</span>
+<span id="cb36-125"><a href="#cb36-125"></a></span>
+<span id="cb36-126"><a href="#cb36-126"></a>| Variable | Label / Intitulé                       |</span>
+<span id="cb36-127"><a href="#cb36-127"></a>|----------|----------------------------------------|</span>
+<span id="cb36-128"><a href="#cb36-128"></a>| caseid   | Case Identification                    |</span>
+<span id="cb36-129"><a href="#cb36-129"></a>| v000     | Country code and phase                 |</span>
+<span id="cb36-130"><a href="#cb36-130"></a>| v001     | Cluster number                         |</span>
+<span id="cb36-131"><a href="#cb36-131"></a>| v002     | Household number                       |</span>
+<span id="cb36-132"><a href="#cb36-132"></a>| v003     | Respondent's line number               |</span>
+<span id="cb36-133"><a href="#cb36-133"></a>| v704     | Husband/partner's occupation           |</span>
+<span id="cb36-134"><a href="#cb36-134"></a>| v705     | Husband/partner's occupation (grouped) |</span>
+<span id="cb36-135"><a href="#cb36-135"></a>| v716     | Respondent's occupation                |</span>
+<span id="cb36-136"><a href="#cb36-136"></a>| v149     | Educational attainment                 |</span>
+<span id="cb36-137"><a href="#cb36-137"></a></span>
+<span id="cb36-138"><a href="#cb36-138"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
+<span id="cb36-139"><a href="#cb36-139"></a>Be_Femmes <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B2_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-140"><a href="#cb36-140"></a>  <span class="fu">factorize</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb36-141"><a href="#cb36-141"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb36-142"><a href="#cb36-142"></a>    <span class="co"># Selection des variables </span></span>
+<span id="cb36-143"><a href="#cb36-143"></a>  <span class="fu">select</span>(<span class="fu">c</span>(caseid,v000,v001,v002,v003,v704,v705,v716,v149))</span>
+<span id="cb36-144"><a href="#cb36-144"></a><span class="in">```</span></span>
+<span id="cb36-145"><a href="#cb36-145"></a></span>
+<span id="cb36-146"><a href="#cb36-146"></a><span class="in">```{r filename="Afficher le contenu de la table "}</span></span>
+<span id="cb36-147"><a href="#cb36-147"></a>  <span class="fu">str</span>(Be_Femmes)</span>
+<span id="cb36-148"><a href="#cb36-148"></a><span class="in">```</span></span>
+<span id="cb36-149"><a href="#cb36-149"></a></span>
+<span id="cb36-150"><a href="#cb36-150"></a><span class="ss">*  </span>Table *BE_Enfants*</span>
+<span id="cb36-151"><a href="#cb36-151"></a></span>
+<span id="cb36-152"><a href="#cb36-152"></a>On lit le fichier contenant les caractéristiques des *Enfants* (avec Education et santé) et on sélectionne les variables :</span>
+<span id="cb36-153"><a href="#cb36-153"></a></span>
+<span id="cb36-154"><a href="#cb36-154"></a>| Variable | Label / Intitulé                          |</span>
+<span id="cb36-155"><a href="#cb36-155"></a>|----------|-------------------------------------------|</span>
+<span id="cb36-156"><a href="#cb36-156"></a>| caseid   | Case Identification                       |</span>
+<span id="cb36-157"><a href="#cb36-157"></a>| v001     | Cluster number                            |</span>
+<span id="cb36-158"><a href="#cb36-158"></a>| v002     | Household number                          |</span>
+<span id="cb36-159"><a href="#cb36-159"></a>| v003     | Respondent's line number                  |</span>
+<span id="cb36-160"><a href="#cb36-160"></a>| v716     | Respondent's occupation                   |</span>
+<span id="cb36-161"><a href="#cb36-161"></a>| v717     | Respondent's occupation (grouped)         |</span>
+<span id="cb36-162"><a href="#cb36-162"></a>| v719     | Respondent works for family, others, self |</span>
+<span id="cb36-163"><a href="#cb36-163"></a>| v218     | Number of living children                 |</span>
+<span id="cb36-164"><a href="#cb36-164"></a>| v130     | Religion                                  |</span>
+<span id="cb36-165"><a href="#cb36-165"></a>| v131     | Ethnicity                                 |</span>
+<span id="cb36-166"><a href="#cb36-166"></a>| v101     | Region                                    |</span>
+<span id="cb36-167"><a href="#cb36-167"></a>| v102     | Type of place of residence                |</span>
+<span id="cb36-168"><a href="#cb36-168"></a>| v106     | Highest educational level                 |</span>
+<span id="cb36-169"><a href="#cb36-169"></a>| v107     | Highest year of education                 |</span>
+<span id="cb36-170"><a href="#cb36-170"></a>| v113     | Source of drinking water                  |</span>
+<span id="cb36-171"><a href="#cb36-171"></a>| v115     | Time to get to water source               |</span>
+<span id="cb36-172"><a href="#cb36-172"></a></span>
+<span id="cb36-173"><a href="#cb36-173"></a><span class="in">```{r, warning=FALSE, message=FALSE }</span></span>
+<span id="cb36-174"><a href="#cb36-174"></a>Be_Enfants <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B4_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-175"><a href="#cb36-175"></a>  <span class="fu">factorize</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb36-176"><a href="#cb36-176"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb36-177"><a href="#cb36-177"></a></span>
+<span id="cb36-178"><a href="#cb36-178"></a><span class="co"># Selection des variables </span></span>
+<span id="cb36-179"><a href="#cb36-179"></a>  <span class="fu">select</span>(<span class="fu">c</span>(caseid,v000,v001,v002,v003,v716,v717,v719,v218,v130,v131,v101,v102,v106,v107,v113,v115))</span>
+<span id="cb36-180"><a href="#cb36-180"></a><span class="in">```</span></span>
+<span id="cb36-181"><a href="#cb36-181"></a></span>
+<span id="cb36-182"><a href="#cb36-182"></a><span class="in">```{r filename="Afficher le contenu de la table "}</span></span>
+<span id="cb36-183"><a href="#cb36-183"></a>  <span class="fu">str</span>(Be_Enfants)</span>
+<span id="cb36-184"><a href="#cb36-184"></a><span class="in">```</span></span>
+<span id="cb36-185"><a href="#cb36-185"></a></span>
+<span id="cb36-186"><a href="#cb36-186"></a>La variable *caseid* de la table *Enfants* du *Bénin* est de type *entier (int)* alors que la variable *caseid* d'autres tables *Enfants* (par exemple du *Togo* ou du *Mali*) est *chaîne de caractères (char)*. On va changer son type en chaîne de caractères avec la fonction **`mutate`** à laquelle sera associée une autre fonction: <span class="in">`as.character`</span>.</span>
+<span id="cb36-187"><a href="#cb36-187"></a></span>
+<span id="cb36-190"><a href="#cb36-190"></a><span class="in">```{r}</span></span>
+<span id="cb36-191"><a href="#cb36-191"></a>Be_Enfants<span class="ot">=</span> Be_Enfants <span class="sc">%&gt;%</span></span>
+<span id="cb36-192"><a href="#cb36-192"></a>   <span class="fu">mutate</span>(<span class="at">caseid=</span><span class="fu">as.character</span>(caseid)) </span>
+<span id="cb36-193"><a href="#cb36-193"></a><span class="in">```</span></span>
+<span id="cb36-194"><a href="#cb36-194"></a></span>
+<span id="cb36-195"><a href="#cb36-195"></a><span class="fu"># Comprendre l'organisation des tables entre elles</span></span>
+<span id="cb36-196"><a href="#cb36-196"></a></span>
+<span id="cb36-197"><a href="#cb36-197"></a>On s'attache en particulier aux identifiants des individus de chacune des tables *Menages*, *Femmes* et *Enfants* pour en comprendre l'organisation et les liens possibles entre elles.</span>
+<span id="cb36-198"><a href="#cb36-198"></a></span>
+<span id="cb36-199"><a href="#cb36-199"></a><span class="ss">* </span>**Table ménage**</span>
+<span id="cb36-200"><a href="#cb36-200"></a></span>
+<span id="cb36-201"><a href="#cb36-201"></a>| Variable | Label / Intitulé                                             |</span>
+<span id="cb36-202"><a href="#cb36-202"></a>|----------|--------------------------------------------------------------|</span>
+<span id="cb36-203"><a href="#cb36-203"></a>| hhid     | Case Identification                                          |</span>
+<span id="cb36-204"><a href="#cb36-204"></a>| hv001    | Cluster number                                               |</span>
+<span id="cb36-205"><a href="#cb36-205"></a>| hv002    | Household number                                             |</span>
+<span id="cb36-206"><a href="#cb36-206"></a>| hv003    | Respondent's line number (answering Household questionnaire) |</span>
+<span id="cb36-207"><a href="#cb36-207"></a>| ...      | ...                                                          |</span>
+<span id="cb36-208"><a href="#cb36-208"></a></span>
+<span id="cb36-209"><a href="#cb36-209"></a><span class="ss">* </span>**Table Femmes et table Enfants**</span>
+<span id="cb36-210"><a href="#cb36-210"></a></span>
+<span id="cb36-211"><a href="#cb36-211"></a>| Variable | Label / Intitulé         |</span>
+<span id="cb36-212"><a href="#cb36-212"></a>|----------|--------------------------|</span>
+<span id="cb36-213"><a href="#cb36-213"></a>| caseid   | Case Identification      |</span>
+<span id="cb36-214"><a href="#cb36-214"></a>| v001     | Cluster number           |</span>
+<span id="cb36-215"><a href="#cb36-215"></a>| v002     | Household number         |</span>
+<span id="cb36-216"><a href="#cb36-216"></a>| v003     | Respondent's line number |</span>
+<span id="cb36-217"><a href="#cb36-217"></a>| ...      | ...                      |</span>
+<span id="cb36-218"><a href="#cb36-218"></a></span>
+<span id="cb36-219"><a href="#cb36-219"></a>On pourra reconstituer le numéro du ménage à laquelle appartient chaque femme de la table *Femmes* à l'aide des variables v001, v002 et v003 qui sont des chaînes de caractères (char) que l'on pourra concaténer avec la fonction **`paste`** (casesid=v001+v002+v003).</span>
+<span id="cb36-220"><a href="#cb36-220"></a></span>
+<span id="cb36-221"><a href="#cb36-221"></a>Pour illuster ce propos, nous pouvons regarder l'organisation de fichiers issus de 5 ménages enquêtés au Togo en 2013.</span>
+<span id="cb36-222"><a href="#cb36-222"></a></span>
+<span id="cb36-223"><a href="#cb36-223"></a><span class="al">![](img/img1.png)</span>{width="90%"}</span>
+<span id="cb36-224"><a href="#cb36-224"></a></span>
+<span id="cb36-225"><a href="#cb36-225"></a>*Caseid,* l'identifiant du premier enfant de la table *Enfants*, a pour valeur *4962*. Il appartient au 1er ménage de la table *Ménages.*</span>
+<span id="cb36-226"><a href="#cb36-226"></a></span>
+<span id="cb36-227"><a href="#cb36-227"></a>Les 5e et 6e enfants de la table *Enfants* appartiennent au 5e ménage de la table *Ménages* et on retrouve la correspondance avec la table *Femmes*.</span>
+<span id="cb36-228"><a href="#cb36-228"></a></span>
+<span id="cb36-229"><a href="#cb36-229"></a>On pourra donc faire des jointures entre les tables *Ménages*, *Femmes* et *Enfants*.</span>
+<span id="cb36-230"><a href="#cb36-230"></a></span>
+<span id="cb36-231"><a href="#cb36-231"></a></span>
+<span id="cb36-232"><a href="#cb36-232"></a><span class="fu"># Statistiques univariées</span></span>
+<span id="cb36-233"><a href="#cb36-233"></a></span>
+<span id="cb36-234"><a href="#cb36-234"></a><span class="fu">## Afficher le contenu des tables</span></span>
+<span id="cb36-235"><a href="#cb36-235"></a></span>
+<span id="cb36-236"><a href="#cb36-236"></a>Pour rappel, la fonction <span class="in">`str(matable)`</span> permet d'afficher le nombre d'observations et de variables d'une table R mais aussi son *type* qui conditionne l'utilisation de fonctions.</span>
+<span id="cb36-237"><a href="#cb36-237"></a></span>
+<span id="cb36-238"><a href="#cb36-238"></a>Une variable qualitative peut être stockée en *factor* ou *character* et une variable numérique en *integer* pour des nombres entiers).</span>
+<span id="cb36-239"><a href="#cb36-239"></a></span>
+<span id="cb36-242"><a href="#cb36-242"></a><span class="in">```{r}</span></span>
+<span id="cb36-243"><a href="#cb36-243"></a><span class="fu">str</span>(Be_Menages)</span>
+<span id="cb36-244"><a href="#cb36-244"></a><span class="in">```</span></span>
+<span id="cb36-245"><a href="#cb36-245"></a></span>
+<span id="cb36-246"><a href="#cb36-246"></a>La table contient 1416 observations et 12 variables. On dénombre 1416 ménages au Bénin.</span>
+<span id="cb36-247"><a href="#cb36-247"></a></span>
+<span id="cb36-248"><a href="#cb36-248"></a>La variable *hhid* (identifiant du ménage) est de type character (char), la variable *hv001* (cluster number) est de type entier (int) et la variable *hv003* (numéro du répondant) est de type facteur (Factor).</span>
+<span id="cb36-249"><a href="#cb36-249"></a></span>
+<span id="cb36-250"><a href="#cb36-250"></a><span class="fu">## Répartition des ménages ...</span></span>
+<span id="cb36-251"><a href="#cb36-251"></a></span>
+<span id="cb36-252"><a href="#cb36-252"></a><span class="ss">*  </span>**Selon le type de commune**</span>
+<span id="cb36-253"><a href="#cb36-253"></a></span>
+<span id="cb36-254"><a href="#cb36-254"></a>La variable *hv025* (milieu rural ou urbain) est une variable qualitative de type *facteur* (Factor) .</span>
+<span id="cb36-255"><a href="#cb36-255"></a></span>
+<span id="cb36-256"><a href="#cb36-256"></a><span class="in">```{r type}</span></span>
+<span id="cb36-257"><a href="#cb36-257"></a><span class="co"># Comme la variable est de type Factor on peut utiliser la fonction summary qui va afficher les effectif</span></span>
+<span id="cb36-258"><a href="#cb36-258"></a><span class="fu">summary</span>(Be_Menages<span class="sc">$</span>hv025)</span>
+<span id="cb36-259"><a href="#cb36-259"></a></span>
+<span id="cb36-260"><a href="#cb36-260"></a><span class="co"># On utilise la fonction freq du package questionr pour afficher aussi les %</span></span>
+<span id="cb36-261"><a href="#cb36-261"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv025, <span class="at">cum=</span>F)</span>
+<span id="cb36-262"><a href="#cb36-262"></a></span>
+<span id="cb36-263"><a href="#cb36-263"></a><span class="in">```</span></span>
+<span id="cb36-264"><a href="#cb36-264"></a></span>
+<span id="cb36-265"><a href="#cb36-265"></a>On trouve 800 Menages habitant en milieu rural, soit près de 57% des ménages interrogés au Bénin dans notre échantillon.</span>
+<span id="cb36-266"><a href="#cb36-266"></a></span>
+<span id="cb36-267"><a href="#cb36-267"></a><span class="ss">* </span>**...Selon le fait de posséder une moustiquaire**</span>
+<span id="cb36-268"><a href="#cb36-268"></a></span>
+<span id="cb36-269"><a href="#cb36-269"></a>On prend la variable *hv227:Has mosquito bed net for sleeping* de la table *Ménages* pour calculer la répartition et faire le graphique associé</span>
+<span id="cb36-270"><a href="#cb36-270"></a></span>
+<span id="cb36-271"><a href="#cb36-271"></a><span class="in">```{r filename="Répartition"}</span></span>
+<span id="cb36-272"><a href="#cb36-272"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv227, <span class="at">cum=</span>F)</span>
+<span id="cb36-273"><a href="#cb36-273"></a><span class="in">```</span></span>
+<span id="cb36-274"><a href="#cb36-274"></a></span>
+<span id="cb36-275"><a href="#cb36-275"></a><span class="in">```{r filename="Graphique"}</span></span>
+<span id="cb36-276"><a href="#cb36-276"></a><span class="fu">ggplot</span>(Be_Menages) <span class="sc">+</span></span>
+<span id="cb36-277"><a href="#cb36-277"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv227) <span class="sc">+</span></span>
+<span id="cb36-278"><a href="#cb36-278"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">fill =</span> <span class="st">"#112446"</span>) <span class="sc">+</span></span>
+<span id="cb36-279"><a href="#cb36-279"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb36-280"><a href="#cb36-280"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb36-281"><a href="#cb36-281"></a><span class="in">```</span></span>
+<span id="cb36-282"><a href="#cb36-282"></a></span>
+<span id="cb36-283"><a href="#cb36-283"></a>Près de 94% des ménages de notre fichier possèdent une moustiquaire pour dormir.</span>
+<span id="cb36-284"><a href="#cb36-284"></a></span>
+<span id="cb36-285"><a href="#cb36-285"></a><span class="ss">* </span>**...Selon l'accès à l'eau pour se laver les mains**</span>
+<span id="cb36-286"><a href="#cb36-286"></a></span>
+<span id="cb36-287"><a href="#cb36-287"></a>On prend la variable *hv230b* (*Presence of water at hand washing place*) de la table *Ménages*</span>
+<span id="cb36-288"><a href="#cb36-288"></a></span>
+<span id="cb36-289"><a href="#cb36-289"></a><span class="in">```{r filename="Répartition"}</span></span>
+<span id="cb36-290"><a href="#cb36-290"></a><span class="co"># Répartition</span></span>
+<span id="cb36-291"><a href="#cb36-291"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv230b, <span class="at">cum=</span>F)</span>
+<span id="cb36-292"><a href="#cb36-292"></a><span class="in">```</span></span>
+<span id="cb36-293"><a href="#cb36-293"></a></span>
+<span id="cb36-294"><a href="#cb36-294"></a><span class="in">```{r filename="Graphique"}</span></span>
+<span id="cb36-295"><a href="#cb36-295"></a><span class="fu">ggplot</span>(Be_Menages) <span class="sc">+</span></span>
+<span id="cb36-296"><a href="#cb36-296"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv230b) <span class="sc">+</span></span>
+<span id="cb36-297"><a href="#cb36-297"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">fill =</span> <span class="st">"#112446"</span>) <span class="sc">+</span></span>
+<span id="cb36-298"><a href="#cb36-298"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb36-299"><a href="#cb36-299"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb36-300"><a href="#cb36-300"></a><span class="in">```</span></span>
+<span id="cb36-301"><a href="#cb36-301"></a></span>
+<span id="cb36-302"><a href="#cb36-302"></a>Parmi les répondants à cette question (près de 55% des ménages), seulement près d'un tiers a accès à l'eau pour se laver les mains.</span>
+<span id="cb36-303"><a href="#cb36-303"></a></span>
+<span id="cb36-304"><a href="#cb36-304"></a><span class="ss">* </span>**...Selon l'âge des chefs de ménage**</span>
+<span id="cb36-305"><a href="#cb36-305"></a></span>
+<span id="cb36-306"><a href="#cb36-306"></a>La variable hv220 (age) est de type *facteur*, on peut calculer la répartition.</span>
+<span id="cb36-307"><a href="#cb36-307"></a></span>
+<span id="cb36-310"><a href="#cb36-310"></a><span class="in">```{r}</span></span>
+<span id="cb36-311"><a href="#cb36-311"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv220,<span class="at">cum=</span>T)</span>
+<span id="cb36-312"><a href="#cb36-312"></a><span class="in">```</span></span>
+<span id="cb36-313"><a href="#cb36-313"></a></span>
+<span id="cb36-314"><a href="#cb36-314"></a>Les modalités de la variable *h220* sont ordonnées, le calcul des fréquences cumulées a un sens et on peut dire que la moité des chefs de ménages a moins de 42 ans.</span>
+<span id="cb36-315"><a href="#cb36-315"></a></span>
+<span id="cb36-316"><a href="#cb36-316"></a></span>
+<span id="cb36-317"><a href="#cb36-317"></a><span class="fu">## Composition des ménages</span></span>
+<span id="cb36-318"><a href="#cb36-318"></a></span>
+<span id="cb36-319"><a href="#cb36-319"></a>Ici on se sert des informations des tables *Femmes* et *Enfants* pour calculer leur nombre dans les ménages de notre échantillon ... On crée un *identifiant ménage (hhid)* pour chacune des tables. Et on ajoute ce nouvelle variable dans chacune des tables.</span>
+<span id="cb36-320"><a href="#cb36-320"></a></span>
+<span id="cb36-321"><a href="#cb36-321"></a><span class="ss">* </span>**Nombre de femmes par ménage** </span>
+<span id="cb36-322"><a href="#cb36-322"></a></span>
+<span id="cb36-323"><a href="#cb36-323"></a>On génère un compteur pour calculer le nombre de femmes par ménages (qui ont un identifiant de ménage identique): *Nbfem*. On ajoute cette nouvelle variable dans la table Femmes. Cette variable est une variable numérique de type *integer* (int) dans R. On peut alors calculer la répartition du nombre de femmes dans les menages.</span>
+<span id="cb36-324"><a href="#cb36-324"></a></span>
+<span id="cb36-325"><a href="#cb36-325"></a><span class="in">```{r filename="création de la variable nombre de femmes par ménage"}</span></span>
+<span id="cb36-326"><a href="#cb36-326"></a>Be_Femmes2<span class="ot">&lt;-</span>Be_Femmes<span class="sc">%&gt;%</span> </span>
+<span id="cb36-327"><a href="#cb36-327"></a>  <span class="fu">mutate</span>(<span class="at">hhid=</span><span class="fu">paste</span>(v001,v002,<span class="at">sep=</span><span class="st">" "</span>))</span>
+<span id="cb36-328"><a href="#cb36-328"></a><span class="co"># On générère la variable nombreb de femmes par ménage : Nbfem</span></span>
+<span id="cb36-329"><a href="#cb36-329"></a>Be_Femmes3<span class="ot">=</span>Be_Femmes2 <span class="sc">%&gt;%</span></span>
+<span id="cb36-330"><a href="#cb36-330"></a>  <span class="fu">group_by</span>(hhid) <span class="sc">%&gt;%</span></span>
+<span id="cb36-331"><a href="#cb36-331"></a>  <span class="fu">summarise</span>(<span class="at">Nbfem =</span> <span class="fu">n</span>())</span>
+<span id="cb36-332"><a href="#cb36-332"></a><span class="in">```</span></span>
+<span id="cb36-333"><a href="#cb36-333"></a></span>
+<span id="cb36-334"><a href="#cb36-334"></a><span class="in">```{r filename="Récupération de la variable Nbfem dans la table"}</span></span>
+<span id="cb36-335"><a href="#cb36-335"></a><span class="co"># On ajoute les variables de la table avec le nombre de femmes dans la table femme </span></span>
+<span id="cb36-336"><a href="#cb36-336"></a>Be_Femmes22<span class="ot">&lt;-</span>Be_Femmes3 <span class="sc">%&gt;%</span></span>
+<span id="cb36-337"><a href="#cb36-337"></a>  <span class="fu">left_join</span>(Be_Femmes2,<span class="at">by=</span><span class="st">"hhid"</span>)</span>
+<span id="cb36-338"><a href="#cb36-338"></a><span class="in">```</span></span>
+<span id="cb36-339"><a href="#cb36-339"></a></span>
+<span id="cb36-340"><a href="#cb36-340"></a><span class="in">```{r }</span></span>
+<span id="cb36-341"><a href="#cb36-341"></a><span class="co"># Si variable numérique</span></span>
+<span id="cb36-342"><a href="#cb36-342"></a><span class="fu">summary</span>(Be_Femmes22<span class="sc">$</span>Nbfem)</span>
+<span id="cb36-343"><a href="#cb36-343"></a><span class="co"># Si variable discrète</span></span>
+<span id="cb36-344"><a href="#cb36-344"></a><span class="fu">table</span>(Be_Femmes22<span class="sc">$</span>Nbfem)</span>
+<span id="cb36-345"><a href="#cb36-345"></a></span>
+<span id="cb36-346"><a href="#cb36-346"></a><span class="in">```</span></span>
+<span id="cb36-347"><a href="#cb36-347"></a></span>
+<span id="cb36-348"><a href="#cb36-348"></a>On dénombre 1445 ménages composés d'une femme, 138 de 2 femmes et 10 ménages de 3 ou 4 femmes dans l'echantillon extrait de l'enquête passée au Bénin.</span>
+<span id="cb36-349"><a href="#cb36-349"></a></span>
+<span id="cb36-350"><a href="#cb36-350"></a><span class="ss">* </span>Nombre moyen d'enfants vivants dans les ménages</span>
+<span id="cb36-351"><a href="#cb36-351"></a></span>
+<span id="cb36-352"><a href="#cb36-352"></a>On peut calculer et représenter sur un graphique le nombre d'enfants vivants (*v218:Number of living children*)</span>
+<span id="cb36-353"><a href="#cb36-353"></a></span>
+<span id="cb36-356"><a href="#cb36-356"></a><span class="in">```{r}</span></span>
+<span id="cb36-357"><a href="#cb36-357"></a><span class="fu">summary</span>(Be_Enfants<span class="sc">$</span>v218)</span>
+<span id="cb36-358"><a href="#cb36-358"></a><span class="in">```</span></span>
+<span id="cb36-359"><a href="#cb36-359"></a></span>
+<span id="cb36-360"><a href="#cb36-360"></a>Parmi les enfants vivants de la table *Enfants* on trouve au minimum 0 enfants vivants et 10 au maximum. On trouve en moyenne 3,5 enfants vivants par ménages et la moitié des ménages enquêtés ont 3 enfants.</span>
+<span id="cb36-361"><a href="#cb36-361"></a></span>
+<span id="cb36-362"><a href="#cb36-362"></a>On peut visualiser ces statistiques sur un graphique de type Box-Plot. Le code *ggplot* a été récupéré à partir d'un graphique généré avec **esquisse** <span class="co">[</span><span class="ot">lien fiche</span><span class="co">](https://mthevenin.github.io/assistoolsms/R/assist/posts/addins/addins.html#addins-esquisse)</span></span>
+<span id="cb36-363"><a href="#cb36-363"></a></span>
+<span id="cb36-366"><a href="#cb36-366"></a><span class="in">```{r}</span></span>
+<span id="cb36-367"><a href="#cb36-367"></a><span class="fu">ggplot</span>(Be_Enfants) <span class="sc">+</span></span>
+<span id="cb36-368"><a href="#cb36-368"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> v218) <span class="sc">+</span></span>
+<span id="cb36-369"><a href="#cb36-369"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#526747"</span>) <span class="sc">+</span></span>
+<span id="cb36-370"><a href="#cb36-370"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb36-371"><a href="#cb36-371"></a><span class="in">```</span></span>
+<span id="cb36-372"><a href="#cb36-372"></a></span>
+<span id="cb36-373"><a href="#cb36-373"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":true,"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});</script>
+
+
+
+</body></html>

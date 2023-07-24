@@ -1,0 +1,103 @@
+---
+title: "Modification de l'apparence des outputs avec un fichier .scss"
+
+categories:
+  - Quarto
+  - Scss
+  - Css
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 06/20/2023
+
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"
+
+format: 
+  html: default
+  docx: default
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+ A la suite d'un code, le report  de l'output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d'un contour, à l'aide des variables sass et d'un code .css ajoutés à un fichier .scss 
+---
+
+Par défaut le rendu des outputs console bruts (`theme: default`) est le suivant:  
+
+![](img/img1.png){with=80%}
+
+- Avec un fichier .scss on peut modifier le rendu de cet output. 
+  -  Un fichier styles.scss est généré automatiquement à la création d'un projet
+  - Pour une page simple, on peut le créer facilement  facilement à partir d'un fichier de type texte, en le renommant avec l'extension `.scss`, par exemple `styles.scss`.
+- On ajoute des éléments de modification de l'apparence au fichier .scss
+- On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique ces modifications.  
+
+**Modifications de l'output console dans un fichier .scss** 
+
+```markdown
+$code-block-stdoutcolor: #37424a;
+$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);
+$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
+
+/*-- scss:rules --*/
+
+.cell-output-display pre, .cell-output-stdout pre {
+    background-color: $code-block-stdoutcolor-lighter !important;
+    border: 1.5px solid $code-block-stdoutcolor-light;
+    border-radius: .25rem;
+    border-left: 4px;
+    border-left-style: solid;
+    border-left-color: $code-block-stdoutcolor;
+    padding: .4em;
+    color: #37424a
+}
+
+
+.cell-output pre code {
+    background-color: transparent;
+}
+
+```
+Ici on a modifier la couleur du fond (ici un gris:`#37424a`), l'épaisseur du contour (plus importante à gauche), le radius des angles du contour etc...
+
+
+**yaml de la page ou du template quarto.yml du projet**  
+
+
+Pour le yaml d'une page simple avec le fichier styles.scss
+
+```markdown
+---
+
+title="Changement couleur output"
+
+format:
+  html:
+    theme: [default, style.scss]
+---
+```
+
+Après exécution du programme, le rendu de l'output est le suivant:
+
+```{r}
+options(show.signif.stars=FALSE)
+
+summary(lm(Sepal.Length~Petal.Length, data=iris))
+```
+
+
+::: callout-warning
+
+## Exportation pdf
+
+Si le document est exporté en PDF avec l'option `formats` dans le yaml, les modifications ne sont pas prises en compte. 
+
+:::
+
+
+
