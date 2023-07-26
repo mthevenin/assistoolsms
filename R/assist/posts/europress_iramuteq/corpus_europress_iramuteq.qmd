@@ -1,0 +1,645 @@
+---
+title: "Créer un corpus de texte issu d'Europresse au format d'Iramuteq"
+
+categories:
+  - Web Scrapping
+  - Analyse textuelle
+  
+author: 
+  - name: "Arno Muller"
+    affiliations:
+      - name: "Ined"
+
+date: 07/26/2023
+
+image: "img/tri_logo.png"
+
+format: 
+  html: default
+
+filters:
+  - lightbox
+lightbox: auto
+
+code-annotations: below
+
+abstract: | 
+ Si *Iramuteq* est un logiciel pratique, qui permet à un public peu familier des logiciels statistiques de faire des analyses textuelles, l'étape de création du corpus de texte peut présenter quelques difficultés. C'est plus particulièrement le cas lorsque le corpus est directement récupéré en ligne comme cela est le cas depuis le site *Europresse*. Nous proposons ici une solution pour créer ce corpus avec R, de la récupération des textes à la création du corpus dans un format adapté à son exploitation sur Iramuteq. 
+---
+
+![](img/tri_logo.png){width="50%"}
+
+# Introduction
+
+Cette fiche s'inscrit dans la continuité d'un tutoriel publié par *Corentin Roquebert* et que vous pouvez retrouver [ici](https://quanti.hypotheses.org/1416).
+Le tutoriel est très complet et permet de comprendre la création du premier corpus au format *.html* directement depuis le site d'[Europresse](https://nouveau.europresse.com/Login/), étape sur laquelle nous passerons donc très rapidement.
+
+Nous reprendrons ici chaque étape depuis la recherche des textes sur le site d'*Europresse*, en passant par l'apurement du fichier récupéré sur R, à sa mise en forme pour pouvoir l'importer sur *Iramuteq*. 
+Ce qui me permettra d'apporter quelques mises à jour au tutoriel cité plus haut, mais sans entrer dans le même niveau de détail.
+
+# Chercher des textes sur *Europresse*
+
+## Se connecter au site d'*Europresse*
+
+Europresse est un service payant, mais certains instituts et certaines universités permettent d'y accéder.\
+À l'Ined, *Europresse* est disponible en se connectant depuis le site de l'[Humathèque](https://campus-condorcet.primo.exlibrisgroup.com/discovery/fulldisplay?context=L&vid=33CCP_INST:CCP&search_scope=ALL&tab=ALL&docid=alma991008362598005786).
+
+Si le lien ne marche pas vous pouvez suivre le chemin suivant :
+
+1)  Se connecter au site de l'Humathèque Campus Condorcet : [lien](https://www.humatheque-condorcet.fr/)\
+2)  Chercher un mot-clé quelconque :
+
+![](img/Humatheque1.png){width="50%"}
+
+3)  Se rendre dans l'onglet **Presse**, ce qui nous amène à la page d'*Europresse*.
+
+![](img/Humatheque2.png){width="50%"}
+
+4)  Se connecter à son compte Ined pour obtenir le lien vers *Europresse*.
+
+![](img/Humatheque3.png){width="50%"}
+
+![](img/Humatheque4.png){width="50%"}
+
+5)  Cliquer sur le lien vers le site d'*Europresse*
+
+![](img/Humatheque5.png){width="50%"}
+
+## Créer un corpus d'articles de presses
+
+La page d'accueil d'Europresse, dirige automatiquement vers la version **étudiante**, mais il est préférable de passer par la version **classique** du site.
+
+![](img/Europress_rech_1.png){width="50%"}
+
+En vous connectant à la version classique, vous obtiendrez la page suivante, à partir de laquelle on retourne vers une recherche **simple**, puis dans une recherche **avancée**.
+
+![](img/Europress_rech_2.png){width="50%"}
+
+À partir de l'écran de **recherche avancée**, on peut sélectionner les articles qu'on désire intégrer au corpus de texte.\
+Dans notre cas, on cherche les occurrences du mot **Ined**, dans la **presse** en **français**, sur l'**ensemble de la période** couverte par Europresse.
+
+![](img/Europress_rech_3.png){width="50%"}
+
+On arrive donc sur la page suivante :
+
+![](img/Europress_rech_4.png){width="50%"}
+
+**ATTENTION :**
+
+Avant d'exporter le fichier, il faut prendre plusieurs précautions :
+
+-   **Trier** les articles du plus récent au plus ancien (ou inversement, mais pas par pertinence).\
+-   **Scroller** (défiler) les articles au maximum. Par défaut, *Europresse* ne charge que les 50 premiers articles, à chaque fois qu'on scrolle, on en charge 50 autres, etc.\
+-   Nombre **maximum d'articles : 1000**. On ne peut donc pas télécharger tous les 15 000 articles correspondant à ma recherche d'un coup. Il faudra s'y reprendre 1000 par 1000, en changeant la période de recherche en faisant débuter la recherche suivante à la date du dernier article chargé dans la recherche précédente.\
+-   **Sélectionner le maximum d'articles** avec la case à cocher.\
+-   Créer le fichier en cliquant sur la **disquette** et sélectionner le **format HTML**.
+
+![](img/Europress_rech_5.png){width="25%"}
+
+On obtient dans les téléchargements un fichier HTML qui commence par *biblioeuropresse*, qui contient l'ensemble des articles. Vous pouvez l'ouvrir pour les lire dans votre navigateur Web.
+
+Dans les étapes suivantes, nous allons utiliser ce fichier pour créer un corpus de texte utilisable dans Iramuteq.
+
+# Mettre en forme dans R
+
+À partir d'ici nous allons apporter quelques changements aux fonctions proposés par Corentin Roquebert, car il semblerait qu'elles ne fonctionnent plus. Ce qui nous permettra de détailler le contenu de ses fonctions.
+
+**Attention** : Si le code peut sembler complexe aux premiers abords, vous aurez uniquement besoin de changer le chemin d'accès vers votre fichier, le reste est automatique.
+
+## Initialisation de R
+
+On commence par installer et charger les packages nécessaires.
+
+```{r filename = "Packages", message=FALSE, warning=FALSE}
+
+# Packages nécessaires
+load.lib <- c("xml2", "stringr", "stringdist", "stringi","lubridate", "dplyr", "tidyr","purrr") 
+# Installation des manquants
+install.lib <- load.lib[!load.lib %in% installed.packages()]
+for (lib in install.lib) install.packages(lib,dependencies=TRUE) 
+# On charge les packages
+sapply(load.lib,require,character=TRUE)
+
+```
+
+Puis, on importe le fichier HTML, crée depuis le site d'*Europresse*.
+
+```{r filename = "Import texte HTML", message=FALSE, warning=FALSE}
+
+# On ouvre la base HTML obtenue
+html <- "DATA/biblioeuropresse20230710105912.HTML"
+# Lire le fichier HTML
+doc <- read_html(html)
+# Sélectionner les articles
+articles <- xml_find_all(doc, "//article")
+
+```
+
+## Création de variables
+
+Pour chaque article, nous allons récupérer un certain nombre d'information contenu dans les métadonnées, comme le nom du journal qui l'a publié ou la date de publication par exemple.
+
+### Journal
+
+```{r filename = "Variable journal (1)", message=FALSE, warning=FALSE}
+
+journal <- map_chr(articles, ~ {
+  tmp <- xml_find_first(.x, ".//header/div[@class='rdp__DocPublicationName']") %>%
+    xml_text(trim = TRUE)
+  if (is.null(tmp)) tmp <- NA_character_
+  tmp
+})
+
+journal[1:6]
+
+```
+
+On remarque qu'il y a des articles sans journaux renseignés (c'est particulièrement le cas pour les sites web). En réalité, le nom de la source est seulement stocké dans un autre emplacement qu'on récupère dans le code suivant.
+
+```{r filename = "Variable journal (2)", message=FALSE, warning=FALSE}
+
+journal_manquant <- map_chr(articles, ~ {
+  tmp <- xml_find_first(.x, "./header/div[@class='sm-margin-bottom']") %>%
+    xml_text(trim = TRUE)
+  if (is.null(tmp)) tmp <- NA_character_
+  tmp
+})
+
+journal_manquant[1:6]
+
+```
+
+On a bien récupéré les sources des articles. On s'occupera de la mise en forme de la variable plus loin.
+
+### Auteur.rice
+
+Dans certains cas, on peut également récupérer les noms des auteurs.rices des articles. Ce n'est pas le cas ici, il semblerait que l'information ne soit pas toujours disponible.
+
+```{r filename = "Variable auteur", message=FALSE, warning=FALSE}
+auteur <- map_chr(articles, ~ {
+  tmp <- xml_find_first(.x, "./header/div[@class='docAuthors']") %>%
+    xml_text(trim = TRUE)
+  if (is.null(tmp)) tmp <- NA_character_
+  tmp
+})
+
+```
+
+### Titre de l'article
+
+On récupère également le titre de l'article.
+
+```{r filename = "Variable titre", message=FALSE, warning=FALSE}
+
+titre <- map_chr(articles, ~ {
+  tmp <- xml_find_first(.x, "./header/div[@class='titreArticle']") %>%
+    xml_text(trim = TRUE)
+  if (is.null(tmp)) tmp <- NA_character_
+  tmp
+})
+
+```
+
+### Date
+
+Concernant la date, elle est disponible pour l'ensemble des articles.
+
+```{r filename = "Variable date (1)", message=FALSE, warning=FALSE}
+
+date <- map_chr(articles, ~ {
+  tmp <- xml_find_first(.x, ".//div[@class='publiC-lblNodoc']") %>%
+    xml_text(trim = TRUE)
+  if (is.null(tmp)) tmp <- NA_character_
+  tmp <- substr(tmp, 6, 13)
+})
+# On met la date au bon format
+date <- as.Date(date, "%Y%m%d") 
+date[1:6]
+
+```
+
+Mais comme pour les noms des journaux, elle peut être stockée dans différents emplacements, ou bizarrement soumise à des fautes de frappes. Dans la partie suivante on récupère les dates manquantes, qui sont stockés dans le même emplacement que le nom des jounaux manquants. Je commence donc par créer une fonction qui récupère la date au lieu du nom du journal dans cet emplacement.
+
+```{r filename = "Variable date (2)", message=FALSE, warning=FALSE}
+
+# Fonction pour extraire le deuxième élément correspondant au critère donné
+get_second_element <- function(node, xpath) {
+  found_elements <- xml_find_all(node, xpath)
+  if (length(found_elements) >= 2) {
+    return(found_elements[[2]] %>% xml_text(trim = TRUE))
+  } else {
+    return(NA_character_)
+  }
+}
+
+# Récupérer le deuxième élément pour chaque article
+date_manquant <- map_chr(articles, get_second_element, xpath = "./header/div[@class='sm-margin-bottom']")
+date_manquant[1:6]
+
+```
+
+**Attention**, on voit que le nombre de mots de l'article est stocké au même emplacement que la date manquante. Nous allons nous occuper de mettre en forme les dates dans les parties suivantes.
+
+## Texte
+
+On récupère finalement les textes des articles.
+
+```{r filename = "Variable texte", message=FALSE, warning=FALSE}
+texte <- map_chr(articles, ~ {
+  tmp <- xml_find_first(.x, ".//div[@class='DocText clearfix']") %>%
+    xml_text(trim = TRUE)
+  if (is.null(tmp)) tmp <- NA_character_
+  tmp
+})
+```
+
+## Création de la base de données
+
+On compile toutes les variables au sein d'une unique base de données manipulable, que l'on pourra apurer plus facilement.
+
+### Compilation des variables
+
+```{r filename = "Création base"}
+
+txt <- data.frame(Journal = journal,
+                  Titre = titre,
+                  Date = date,
+                  Date_manq = date_manquant,
+                  Auteur = auteur,
+                  Texte = texte) 
+
+```
+
+On obtient une base de données avec autant de lignes que d'articles et 5 variables.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(kableExtra)
+
+kable(head(txt,6)) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "300px")
+```
+
+### Correction des valeurs manquantes
+
+#### Journaux manquants
+
+On remplace Journal par journal_manquant quand ils n'existent pas. Et on supprime les espaces et les sauts de lignes dans les noms de journaux pour faciliter les recodages plus tard.
+
+```{r filename = "Ajout journaux manquants"}
+txt <- txt %>% 
+  mutate(Journal = ifelse(is.na(Journal), journal_manquant, Journal)) %>% 
+  mutate(Journal = gsub("\n", "", Journal)) %>% 
+  mutate(Journal = gsub(" ", "", Journal))
+```
+
+#### Dates manquantes
+
+Pour les dates, il faut faire attention à plusieurs éléments :\
+- Le format Jour/Mois/Année, doit être identique.\
+- Les dates manquantes contiennent également le nombre de mots de l'article. Il faut donc isoler la date.
+
+```{r filename = "Ajout dates manquants", warning=FALSE, message=FALSE}
+txt <- txt %>% 
+  # J'enlève les caractères spéciaux pour pouvoir utiliser
+  # la fonction separate()
+  mutate(Date_manq = str_replace(Date_manq, "é", "e"),
+         Date_manq = str_replace(Date_manq, "û", "u")) %>% 
+  # separate() permet d'isoler le jour, le mois, l'année, et le nombre de mots
+  # pour les dates manquantes, dans 5 variables
+  separate(Date_manq, c("jour", "mois", "annee", "lettre", "mots")) %>% 
+  # Attention : pour les sources anglaise, le mois et le jour sont inversés
+  # Je les inverse dans jour2 et mois2
+  mutate(jour2 = if_else(substr(mois,1,1) %in% c(0:9), mois, jour),
+         mois2 = if_else(substr(jour,1,1) %in% c(0:9), mois, jour)) %>% 
+  # Je supprime les variables inutiles
+  select(-c(lettre,mots, jour, mois)) %>% 
+  # Je crée une nouvelle variable de date en collant l'année, le mois, le jour
+  mutate(date2 = paste(annee, mois2, jour2),
+         # Je dois réecrire février et aôut correctement
+         date2 = str_replace(date2, "fevrier", "février"),
+         date2 = str_replace(date2, "aout", "août"),
+         # Je transforme en format date.
+         date2 = as_date(ymd(paste(date2)))) %>% 
+  # Je remplace la date quand elle est manquante 
+  mutate(Date = ifelse(is.na(Date), date2, Date))  %>% 
+  # Si la date est avant 2000, c'est une erreur de frappe, on prend l'autre date
+  mutate(Date = as_date(Date)) %>% 
+  mutate(Date = ifelse(Date < ymd("2000-01-01"), date2, Date)) %>% 
+  mutate(Date = as_date(Date))  %>% 
+  # Je garde les variables d'intérêts
+  select(-c(jour2, mois2, annee, date2)) %>% 
+  # Je trie dans l'ordre croissant de parution
+  arrange(Date)
+
+```
+
+Les warnings sont normaux et ne posent pas de problèmes.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+kable(head(txt,6)) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "300px")
+```
+
+On a bien récupéré les dates et les noms de journaux.
+
+# Suppression des doublons
+
+Avec *Europresse*, on obtient souvent des articles publiés en doublons, ce sont particulièrement les cas pour les articles issus de sites internet. Pour la suite, le tutoriel de Corentin Roquebert fonctionne toujours, je réutilise donc son code pour gérer identifier et supprimer les doublons.
+
+On commence par supprimer les textes trop courts, puis on isole des extraits en début et fin de texte pour les comparer entre chaque article et voir s'ils sont suffisamment proches pour être considérés comme étant des doublons grâce à un algorithme.
+
+```{r filename = "Suppression articles courts"}
+
+articles <- txt %>%  
+  filter(nchar(Texte) > 500) %>% 
+  mutate(extrait_debut = str_sub(Texte, 50, 150), 
+         extrait_fin = str_sub(Texte, -150, -50)) 
+```
+
+## Comparaison des débuts de textes
+
+```{r filename = "Doublons en début"}
+
+# Calcul des paires de distance
+# C'est ici qu'a lieu le calcul de distance entre tous les textes.
+dist <- stringdistmatrix(articles$extrait_debut) 
+## Conversion en matrice 
+m <- as.matrix(dist)
+# Dans la matrice, on met 1000 comme valeur pour toutes les valeurs en dessous 
+# de la diagonale, pour éviter d'avoir deux fois la même mesure
+m[lower.tri(m)] <- 1000 
+# Dans la matrice, on met 1000 comme valeur pour la diagonale 
+# pour ne pas enlever un texte parce qu'il ressemble à lui-même...
+diag(m) <- 1000 
+
+# Sélection des paires proches
+# On regarde les positions pour lesquelles l'indice de dissimilarité est 
+# inférieure à 50. C'est ici donc qu'on fixe le seuil et qu'on peut le changer !  
+indices <- which(m < 50, arr.ind = TRUE) 
+
+## Vérifications
+verif_dbt <- cbind(articles$extrait_debut[indices[,1]], 
+                   articles$extrait_debut[indices[,2]])
+# On peut regarder ce qui a été considéré comme trop proche pour faire varier le seuil.
+
+## Suppression des articles proches
+articles <- articles %>% slice(-indices[,2])
+
+```
+
+## Comparaison des fins de textes
+
+```{r filename = "Doublons en fin"}
+
+## Calcul des paires de distance
+dist <- stringdistmatrix(articles$extrait_fin)
+
+## Conversion en matrice 
+m <- as.matrix(dist)
+m[lower.tri(m)] <- 1000 
+diag(m) <- 1000
+
+## Sélection des paires proches
+indices <- which(m < 50, arr.ind = TRUE)
+
+## Vérifications
+test <- cbind(articles$extrait_fin[indices[,1]], articles$extrait_fin[indices[,2]])
+
+## Suppression des articles proches
+articles <- articles %>% 
+  slice(-indices[,2])
+
+```
+
+On a donc supprimé tous les textes trop similaires. Nous pouvons donc supprimer les deux nouvelles variables d'extraits devenues inutiles.
+
+```{r filename = "Nettoyage"}
+
+articles <- articles %>% 
+  select(-c(extrait_debut,extrait_fin)) 
+
+```
+
+# Créer de nouvelles variables
+
+Une fois l'apurement effectué, vous pouvez ajouter des caractéristiques supplémentaires à chacun des articles. On peut penser à des variables construites comme :\
+- *Taille de l'article* : Long vs court\
+- *Type de presse* : Nationale, régionale, gratuite\
+- *Orientation politique de la source* - etc.
+
+Ici, nous nous contenterons de recoder la date pour ne garder que l'année, et le nom du journal pour avoir des catégories plus propres.
+
+## Recoder les journaux
+
+**Je reprends la méthode et les explications utilisées par Corentin Roquebert dans son tutoriel.**\
+Elle consiste à ne garder que les principales sources (grands journaux), et à regrouper les sources plus petites (presses régionales, féminines, etc.)
+
+### Création variable + principes du nettoyage
+
+On commence par créer la variable *CJournal* et mettre tous les journaux dans une catégorie "Autre", pour recoder ensuite les journaux sélectionnés.
+
+```{r filename = "Recoder les journaux (1)"}
+
+# Catégorie rebut
+articles$CJournal<- "Autre" 
+
+```
+
+Pour recoder les journaux, alors que la variable *Journal* n'est pas propre, on cherche des chaînes de caractères pour isoler les journaux un à un.
+
+```{r filename = "Recoder les journaux (2)"}
+
+
+# Exemple pour le Figaro :
+articles$CJournal[stri_detect_fixed(articles$Journal, "figaro",case_insensitive=T)] <- "Figaro"
+
+```
+
+Ici, le code met "Figaro" comme modalité de la nouvelle variable *CJournal* à partir du moment où la chaîne de caractères "figaro" est renseignée dans la variable initiale (Journal). On prend donc toutes les variations de ce journal (ici, on a tout aussi bien "Le Figaro", "le Figaro", "Figaro magazine", "Figaro Economie, n°1256", "Figaro web", les variations sont innombrables) et on les assimile. L'argument case_insensitive permet de ne pas se soucier des majuscules.
+
+Puis on passe à des cas plus complexes :
+
+```{r filename = "Recoder les journaux (3)"}
+
+# Un autre cas : Le Monde
+articles$CJournal[stri_detect_fixed(articles$Journal, "monde",case_insensitive=T)] <- "Monde"
+
+```
+
+Ici, le cas est un peu plus épineux. En effet, il y a d'autres journaux qui ont la chaîne de caractères "monde" dans leur titre, comme "le Monde Diplomatique". Il est donc important de faire ce recodage au début, avant de faire celui où l'on va chercher "monde diplo" par exemple, qui va ainsi "corriger" l'erreur qu'on avait faite dans un premier temps. Il faut donc faire attention à l'ordre dans lequel on effectue ces recodages.
+
+### Exploration des journaux à recoder
+
+On applique cette méthode à toutes les autres catégories :
+
+Pour ça, je trie les journaux pour savoir qu'elles sont les catégories que je vais garder.
+
+```{r filename = "Recoder les journaux (4)"}
+
+N_art <- articles %>% 
+  group_by(Journal) %>% 
+  summarise(N_art= n()) %>% 
+  arrange(desc(N_art),Journal)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+kable(N_art) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "250px")
+```
+
+### Recodage des journaux
+
+On procède aux recodages des journaux suivants.
+
+```{r filename = "Recoder les journaux (5)"}
+
+articles$CJournal[stri_detect_fixed(articles$Journal, "bulletinquoti",case_insensitive=T)] <- "BulletinQuoti"
+articles$CJournal[stri_detect_fixed(articles$Journal, "huienfr",case_insensitive=T)]       <- "AJF"
+articles$CJournal[stri_detect_fixed(articles$Journal, "chos",case_insensitive=T)]          <- "Echos"  
+articles$CJournal[stri_detect_fixed(articles$Journal, "libération",case_insensitive=T)]    <- "Liberation"
+articles$CJournal[stri_detect_fixed(articles$Journal, "ouest-fr",case_insensitive=T)]      <- "OF"
+articles$CJournal[stri_detect_fixed(articles$Journal, "afp",case_insensitive=T)]           <- "AFP"
+articles$CJournal[stri_detect_fixed(articles$Journal, "croix",case_insensitive=T)]         <- "Croix"
+articles$CJournal[stri_detect_fixed(articles$Journal, "express",case_insensitive=T)]       <- "Express"
+articles$CJournal[stri_detect_fixed(articles$Journal, "sciencesetave",case_insensitive=T)] <- "SciencesAvenir"
+articles$CJournal[stri_detect_fixed(articles$Journal, "obs",case_insensitive=T)]           <- "Obs" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "sudouest",case_insensitive=T)]      <- "SudOuest" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "20min",case_insensitive=T)]         <- "20min" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "huma",case_insensitive=T)]          <- "Humanites" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "valeursact",case_insensitive=T)]    <- "ValeursActu" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "point",case_insensitive=T)]         <- "LePoint" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "challen",case_insensitive=T)]       <- "Challenges" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "lavie",case_insensitive=T)]         <- "LaVie" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "l'hist",case_insensitive=T)]        <- "Histoire" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "pèleri",case_insensitive=T)]        <- "Pelerin" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "télégra",case_insensitive=T)]       <- "Telegramme" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "tribun",case_insensitive=T)]        <- "LaTribune" 
+articles$CJournal[stri_detect_fixed(articles$Journal, "biba",case_insensitive=T)]          <- "Biba" 
+```
+
+### Regrouper plusieurs journaux dans une catégorie
+
+On peut également unifier certains journaux par une catégorie. Ici, on change un peu le code : on met la même modalité si dans la variable initiale, on a une des chaînes de caractères qu'on demande :
+
+```{r filename = "Recoder les journaux (6)"}
+articles$CJournal[stri_detect_regex(articles$Journal, 
+"lejournalde|voixdun|provence|midilibre|vellerép|bienpublic|
+populaireducentr|berry|indépendant|nordéclair|charente|yonne|estrépu|
+havre|mainelib|dépêche|voixde|courrier|lejournaldu|Parisnormandie|
+larépubliquedu|ducentre|bliquedespy|lameuse|dernièreh|aisne|dordogne|
+chorépub]|lalibre|corse|union|nordlittoral|centrepresse|paris-normandie|presseocéan]",
+                                    case_insensitive=T)] <- "Rég"
+
+
+```
+
+Ici, le but est de ne pas surcharger le nombre de titres de presse en unifiant tous les journaux régionaux qui avaient relativement peu de résultats dans mes requêtes (en revanche, les grands titres de la presse quotidienne régionale sont conservés en propre)
+
+### Résultat du recodage
+
+```{r filename = "Table des journaux propres"}
+table(articles$CJournal,useNA = "always")
+
+```
+
+On voit qu'il reste encore un grand nombre d'articles dans la catégorie "Autre".\
+On explore les journaux qui n'ont pas été attribués à une catégorie :
+
+```{r filename = "Table des journaux restants", eval=FALSE}
+
+table(articles[articles$CJournal == "Autre",]$Journal)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+art_rebut <- articles %>% 
+  filter(CJournal == "Autre") %>% 
+  group_by(Journal) %>% 
+  summarise(N_journ = n())
+
+kable(art_rebut) %>%
+   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %>%
+   scroll_box(height = "250px")
+```
+
+## Variable année
+
+Pour pouvoir utiliser la date dans Iramuteq, nous faisons le choix de ne garder que l'année.
+
+```{r filename = "Variable année"}
+
+articles <- articles %>% 
+  mutate(Annee = as.numeric(format(Date, "%Y")))
+
+```
+
+# Exporter le fichier au format d'*Iramuteq*
+
+On obtient une base de données dans laquelle chaque ligne correspond à un article, avec une colonne qui contient le texte à étudier dans *Iramuteq* et les autres qui permettent de le caractériser.
+
+Pour l'instant, le fichier (sans doublons) contiendra au maximum 1000 lignes à cause de la restriction dans *Europresse*.\
+Cependant, vous pouvez reproduire la manipulation plusieurs fois pour obtenir plusieurs bases que vous fusionnerez ici (avec un `rbind`, par exemple).
+
+Maintenant, il faut mettre la base dans un format "étoilé" lisible par *Iramuteq*.
+
+## Objectif :
+
+Pour pouvoir être lu par *Iramuteq*, notre fichier doit respecter un certain nombre de conventions présentées ci-après :
+
+-   être un fichier **.txt**\
+-   chaque texte est précédé d'une ligne qui commence par quatre étoiles : \*\*\*\*\
+-   cette ligne contient les métadonnées (variables) qui caractérisent le texte\
+-   chaque métadonnée est précédée d'une étoile, puis du nom de la variable, un underscore "\_", et la valeur de la modalité.
+
+![](img/format_etoile.png){width="75%"}
+
+Pour faciliter le processus, nous proposons une fonction qui met en forme la table créée précédemment directement dans le format voulu par Iramuteq.
+
+## La fonction: `format_iramuteq()`
+
+Une fonction pour transformer un data.frame avec une variable de texte, en un document **.txt** adapté à l'analyse textuelle sur Iramuteq.
+
+Pour l'instant, la fonction ne se trouve pas dans un package, il faut donc la charger dans l'environnement global de R depuis GitHub en utilisant le code suivant.
+
+```{r filename = "import fonction format"}
+
+source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/format_iramuteq/format_iramuteq.R")
+
+```
+
+### Paramètres de la fonction
+
+**articles** : Une base de données avec une variable texte et des métadonnées (années, source, etc.)\
+**nom_fichier** : Le nom du fichier .txt en sortie\
+**var_texte** : Le nom de la variable de texte (entre "")\
+**vars_métadonnees** : Un vecteur avec les variables de métadonnées
+
+### Création du corpus
+
+```{r filename = "Création du corpus", eval=FALSE}
+
+format_iramuteq(dataframe = articles, 
+                nom_fichier = "corpus_iramuteq_ined.txt", 
+                var_texte = "Texte", 
+                vars_metadonnees = c("CJournal", "Annee"))
+
+```
+::: callout-warning 
+
+## Précautions à prendre
+
+Iramuteq étant un format particulier, la fonction prendra quelques précautions :
+
+1)  Il faut supprimer les espaces et les "\_" dans les noms des variables métadonnées\
+2)  Il faut supprimer les espaces et les "\_" dans les valeurs des variables métadonnées\
+3)  Il faut supprimer les \* présentent dans les textes.
+
+Ces 3 points sont pris en compte dans la fonction `format_iramuteq()`, et informera l'utilisateur.rice des modifications par un **warning**.
+
+:::

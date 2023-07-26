@@ -1,0 +1,199 @@
+---
+title: "Générer des graphes de mot avec R.temis"
+
+categories:
+- Analyse textuelle
+
+author: 
+  - name: "Coralie Cottet"
+    affiliations:
+      - name: "Ensai-Ined"
+
+date: 07/25/2023
+
+image: "http://rtemis.hypotheses.org/files/2019/01/2019.01.21.BGarnier_Pas_%C3%A0_Pas_sous_R.temisStudio_V0_html_4395b9b1d02c56de.png"
+
+format: 
+  html: default
+
+filters:
+  - lightbox
+lightbox: auto
+
+abstract: |
+ Pour réaliser un nuage ou un graphe de mots avec R, l'utilisation des packages **`R.temis`**, **`dplyr`** et **`tibble`** s'avèrent particulièrement utiles.  
+ Le package `R.temis` fournit des fonctions pour les traitements de statistiques textuelles comme la création d'un tableau lexical ou le calcul d'occurences des mots). De son côté, `dplyr` fournit des fonctions pour la manipulation de données, telles que la sélection de colonnes, le filtrage de données et l'agrégation de données, qui sont utilisées dans le code pour nettoyer et préparer les données textuelles. Enfin, `tibble` fournit une classe de données pour stocker des données tabulaires, qui est plus efficace que la classe de données par défaut de R. Cette classe de données est utilisée dans le code pour stocker les données textuelles nettoyées et préparées.
+---
+
+
+**Documentation**:  
+
+- [R.temis](http://rtemis.hypotheses.org/)
+- [[dplyr - Officiel](http://dplyr.tidyverse.org/)] [[dplyr - Julien Barnier](http://juba.github.io/tidyverse/10-dplyr.html)] 
+- [tibble](https://tibble.tidyverse.org/)
+
+
+```markdown
+install.packages(R.temis)
+install.packages(dplyr) # ou (tidyverse)
+install.packages(tibble) # ou (tidyverse)
+```
+
+```{r warning=FALSE, message= FALSE}
+# Appel des packages (à installer si besoin)
+library("R.temis")
+library("dplyr") 
+library("tibble")
+```
+
+Concernant le choix du corpus, nous avons sélectionné les voeux prononcés par François Hollande de 2013 à 2017. Les textes retranscrits dans des fichiers de type texte (.txt) et placé dans un seul dossier nommé *dossier_de_texte*. 
+
+```{r message=FALSE }
+
+# import des textes avec la fonction import_corpus
+
+corpus1 <- import_corpus("dossier_de_texte", format="txt", language ="fr")
+
+# découpage en unités textuelles de 5 paragraphes pour un meilleur rendu 
+
+corpus<-split_documents(corpus1, 5, preserveMetadata = TRUE)
+
+```
+
+
+Les *stop words* (ou mots vides) sont des mots très courants d’une langue comme les prépositions, les articles, les pronoms, etc., qui sont souvent omis lors de l’analyse car en général ils ne portent pas de sens important pour la compréhension globale du texte.
+La fonction **`build_dtm`** est utilisée pour construire une matrice de termes-document (ou **tableau lexical**) à partir d’un corpus de textes. La matrice de termes-document (ou Tableau Lexical) est une représentation quantitative d'un corpus de textes, où chaque colonne représente un terme et chaque ligne représente un document. Ici les documents sont les unités textuelles (composées de 5) paragraphes.
+
+On choisit de supprimer les mots vides.
+
+On passe maintenant à la création du tableau lexical (dtm) sans mots outils et avec les mots d’au moins 1 lettre.
+
+
+```{r}
+#on crée le tableau lexical avec la fonction build_dtm
+
+dtm <-build_dtm(corpus, remove_stopwords = T, min_length = 1)
+
+# Calcul des occurrences des mots dans le corpus de textes
+
+frequent_terms(dtm) 
+
+```
+
+Le mot *france* est prononcé 66 fois dans l'ensemble des 5 discours et représente 1,95% des occurences totales.
+
+On va maintenant affiner l'analyse.
+
+On aimerait aussi retirer les mots *a* et *plus* et rassembler sous un même mot  les termes *tout*, *toutes* et *tous* en *tous.tes* à titre d’exemple.
+
+On crée le dictionnaire qui affiche les mots initiaux et les racines des mots (Term). Il va servir à lemmatiser le corpus.
+
+La lemmatisation consiste à remplacer les mots initiaux par des termes: la racine des mots ou une forme personnalisée (comme c'est le cas ici)
+
+```{r}
+
+# Création d'un dictionnaire de mot
+dic <-dictionary(dtm) 
+
+dic2 = dic %>%
+  rownames_to_column(var="word") %>% 
+  mutate(Term = word)
+
+row.names(dic2) <- dic2$word
+
+# Remplacer les mots spécifiés par tous.tes
+dic2$Term[dic2$word == "toutes"] <- "tous.tes"
+dic2$Term[dic2$word == "tout"] <- "tous.tes"
+dic2$Term[dic2$word == "tous"] <- "tous.tes"
+
+# Lemmatisation
+dtmlem <-combine_terms(dtm, dic2)
+
+# Ensemble de mots à retirer
+mots_a_retirer <- c("a", "plus")
+
+# Suppression de mots dans le tableau lexical
+dtm2<-dtmlem[, !colnames(dtmlem) %in% mots_a_retirer]
+
+
+frequent_terms(dtm2)
+```
+
+On voit que les occurences du "tous.tes" (64) correspondent bien à la somme des occurences de tout (24), tous(24) et toutes(16).
+
+
+On passe à l'affichage du Nuage de mot
+
+Ce graphique permet de visualiser les mots les plus **occurents** d’un corpus de textes. 
+
+```{r}
+
+# On affiche au maximum 50 mots et les mots d’au moins une occurrence
+cloud<-word_cloud(dtm2, color= 'black', min.freq=1,n =50) 
+title(main = "Mots les plus fréquents dans les discours de F.Hollande entre 2013 et 2017")
+
+```
+
+
+La taille de la police est proportionelle à l'occurence du *mot*: France (66), année (33) et entreprise (11).
+
+
+Et pour finir, l'affichage d’un graphe de mots
+
+La fonction **`terms_graph`** du package R.temis permet de générer un réseau de mots qui est affiché dans une fenêtre interactive igraph. Les termes ou mots sont représentés par des sommets (ou nœuds) du graphe, les liens représentent les **cooccurrences** entre les mots les plus fréquents. Leur placement dans l’espace graphique est déterminé par un algorithme d’énergie. 
+
+```{r}
+# Créer un graphique d'analyse de co-occurrences de termes
+
+Tree<-terms_graph(dtm2, min_occ = 10, interactive = T,
+            vertex.size = 0.01, vertex.color = "lightblue",
+            label.cex = 0.1)
+
+```
+
+![](tree.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

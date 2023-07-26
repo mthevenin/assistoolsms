@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
+      "/R/assist/posts/nuage_de_mot/nuage_de_mot.html",
       "/R/assist/posts/dhs/dhs.html",
       "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/addins/addins.html",
@@ -51,6 +53,8 @@
   {
     "listing": "/R/assist/index.html",
     "items": [
+      "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
+      "/R/assist/posts/nuage_de_mot/nuage_de_mot.html",
       "/R/assist/posts/dhs/dhs.html",
       "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/addins/addins.html",
@@ -69,6 +73,8 @@
   {
     "listing": "/R/index.html",
     "items": [
+      "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
+      "/R/assist/posts/nuage_de_mot/nuage_de_mot.html",
       "/R/assist/posts/dhs/dhs.html",
       "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/addins/addins.html",
