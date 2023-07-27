@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/R/assist/posts/mapsf/map_sf.html",
       "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
       "/R/assist/posts/nuage_de_mot/nuage_de_mot.html",
       "/R/assist/posts/dhs/dhs.html",
@@ -53,6 +54,7 @@
   {
     "listing": "/R/assist/index.html",
     "items": [
+      "/R/assist/posts/mapsf/map_sf.html",
       "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
       "/R/assist/posts/nuage_de_mot/nuage_de_mot.html",
       "/R/assist/posts/dhs/dhs.html",
@@ -73,6 +75,7 @@
   {
     "listing": "/R/index.html",
     "items": [
+      "/R/assist/posts/mapsf/map_sf.html",
       "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
       "/R/assist/posts/nuage_de_mot/nuage_de_mot.html",
       "/R/assist/posts/dhs/dhs.html",
