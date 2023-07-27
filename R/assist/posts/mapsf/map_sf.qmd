@@ -74,18 +74,18 @@ cours_deau<-st_read(dsn="https://opendata.paris.fr/api/explore/v2.1/catalog/data
 ```
 
 
-```{r filename="Affichage du fond de carte des arrondissements"}
+```{r filename="Affichage du fond de carte des arrondissements avec cours d'eau"}
+
+# Arrondissements
 mf_map(x = arrondissements, border = "black") 
-```
 
-{r filename="Affichage des cours d'eau"}
+# Ajout des cours d'eau
 mf_map(x=cours_deau,lwd=2,border="lightblue",col="lightblue",add=TRUE)
-
+```
 
 ```{r filename="Fond noir"}
 mf_theme("darkula")
 ```
-
 
 
 # Différents types de cartes

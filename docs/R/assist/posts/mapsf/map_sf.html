@@ -258,9 +258,13 @@ Geodetic CRS:  WGS 84</code></pre>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>Affichage du fond de carte des arrondissements</strong></pre>
+<pre><strong>Affichage du fond de carte des arrondissements avec cours d'eau</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements, <span class="at">border =</span> <span class="st">"black"</span>) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Arrondissements</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements, <span class="at">border =</span> <span class="st">"black"</span>) </span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># Ajout des cours d'eau</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">mf_map</span>(<span class="at">x=</span>cours_deau,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">border=</span><span class="st">"lightblue"</span>,<span class="at">col=</span><span class="st">"lightblue"</span>,<span class="at">add=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -270,7 +274,6 @@ Geodetic CRS:  WGS 84</code></pre>
 </div>
 </div>
 </div>
-<p>{r filename=“Affichage des cours d’eau”} mf_map(x=cours_deau,lwd=2,border=“lightblue”,col=“lightblue”,add=TRUE)</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -847,18 +850,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-74"><a href="#cb15-74"></a><span class="in">```</span></span>
 <span id="cb15-75"><a href="#cb15-75"></a></span>
 <span id="cb15-76"><a href="#cb15-76"></a></span>
-<span id="cb15-77"><a href="#cb15-77"></a><span class="in">```{r filename="Affichage du fond de carte des arrondissements"}</span></span>
-<span id="cb15-78"><a href="#cb15-78"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements, <span class="at">border =</span> <span class="st">"black"</span>) </span>
-<span id="cb15-79"><a href="#cb15-79"></a><span class="in">```</span></span>
-<span id="cb15-80"><a href="#cb15-80"></a></span>
-<span id="cb15-81"><a href="#cb15-81"></a>{r filename="Affichage des cours d'eau"}</span>
-<span id="cb15-82"><a href="#cb15-82"></a>mf_map(x=cours_deau,lwd=2,border="lightblue",col="lightblue",add=TRUE)</span>
-<span id="cb15-83"><a href="#cb15-83"></a></span>
-<span id="cb15-84"><a href="#cb15-84"></a></span>
-<span id="cb15-85"><a href="#cb15-85"></a><span class="in">```{r filename="Fond noir"}</span></span>
-<span id="cb15-86"><a href="#cb15-86"></a><span class="fu">mf_theme</span>(<span class="st">"darkula"</span>)</span>
-<span id="cb15-87"><a href="#cb15-87"></a><span class="in">```</span></span>
-<span id="cb15-88"><a href="#cb15-88"></a></span>
+<span id="cb15-77"><a href="#cb15-77"></a><span class="in">```{r filename="Affichage du fond de carte des arrondissements avec cours d'eau"}</span></span>
+<span id="cb15-78"><a href="#cb15-78"></a></span>
+<span id="cb15-79"><a href="#cb15-79"></a><span class="co"># Arrondissements</span></span>
+<span id="cb15-80"><a href="#cb15-80"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements, <span class="at">border =</span> <span class="st">"black"</span>) </span>
+<span id="cb15-81"><a href="#cb15-81"></a></span>
+<span id="cb15-82"><a href="#cb15-82"></a><span class="co"># Ajout des cours d'eau</span></span>
+<span id="cb15-83"><a href="#cb15-83"></a><span class="fu">mf_map</span>(<span class="at">x=</span>cours_deau,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">border=</span><span class="st">"lightblue"</span>,<span class="at">col=</span><span class="st">"lightblue"</span>,<span class="at">add=</span><span class="cn">TRUE</span>)</span>
+<span id="cb15-84"><a href="#cb15-84"></a><span class="in">```</span></span>
+<span id="cb15-85"><a href="#cb15-85"></a></span>
+<span id="cb15-86"><a href="#cb15-86"></a><span class="in">```{r filename="Fond noir"}</span></span>
+<span id="cb15-87"><a href="#cb15-87"></a><span class="fu">mf_theme</span>(<span class="st">"darkula"</span>)</span>
+<span id="cb15-88"><a href="#cb15-88"></a><span class="in">```</span></span>
 <span id="cb15-89"><a href="#cb15-89"></a></span>
 <span id="cb15-90"><a href="#cb15-90"></a></span>
 <span id="cb15-91"><a href="#cb15-91"></a><span class="fu"># Différents types de cartes</span></span>
@@ -1031,7 +1034,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":true,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});</script>
 
 
 
