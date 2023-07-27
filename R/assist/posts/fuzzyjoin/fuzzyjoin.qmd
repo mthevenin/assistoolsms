@@ -1,5 +1,5 @@
 ---
-title: "Techniques appariements entre chaînes de caractères"
+title: "Techniques d'appariements entre chaînes de caractères"
 
 categories:
   - Appariement
