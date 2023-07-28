@@ -8,6 +8,9 @@ author:
   - name: "Coralie Cottet"
     affiliations:
       - name: "Ensai-Ined"
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
 
 date: 07/27/2023
 
