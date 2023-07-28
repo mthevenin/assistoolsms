@@ -116,7 +116,7 @@ mf_map(
   var = "pop" ,
   type = "prop",  
   leg_title = "Population totale\12 271 794",
-  col="blue",
+  col="#C24168",
   add= TRUE,
   inches=0.2)
 
@@ -178,7 +178,7 @@ arrondissements2 <- cbind(arrondissements2, bords_politiques)
 
 # Choix des couleurs
 
-colors <- c("EELV" = "#00CC66", "LR" = "#0066CC", "PS" = "#FF0066")
+colors <- c("EELV" = "#31a354", "LR" = "#3182bd", "PS" = "#C24168")
 
 # Placer les carrés sur les centroïdes des polygones des arrondissements.
 arr_c<-st_centroid(arrondissements2)
@@ -247,12 +247,84 @@ mf_label(
 ```
 
 
-# Pour aller plus loin: regroupement de polygones
+
+# Pour aller plus loin: regroupement de polygones  
 
 
-[Maj en cours]
+**Exemple 1: fusion des arrondissements 15 et 16 avec aggrégation de la population**
+
+L'objectif est de fusionner les données de deux arrondissements (le 15ème et le 16ème) en un seul arrondissement sur le fond de carte, et d'agréger leur population.
+
+Les étapes sont :
+
+* Sélection des polygones géométriques des 15ème (Vaugirard) et 16ème (Passy) arrondissements dans le dataset des arrondissements.
+
+* Fusionner ces deux polygones en un seul avec la fonction st_union(). On obtient un nouveau polygone contenant la géométrie unifiée.
+
+* Aggreger les valeurs de leur population pour le nouveau polygone.
+
+* Renommer les informations d'identification du nouveau secteur  (ici son nom).
+
+* Créer un nouveau dataset avec ces informations pour le nouveau secteur.
+
+* Remplacer dans le dataset original les informations des deux arrondissements par celles du nouveau secteur.
 
 
+On obtient ainsi un nouveau dataset des arrondissements dans lequel les 15ème et 16ème ont été fusionnés . Ce nouveau secteur fusionné peut alors être représenté sur le fond de carte.    
 
+
+```{r filename="Récupération des informations nécessaires"}
+arrondissements2 = select(arrondissements, c_ar, l_aroff, geom_x_y, pop)
+arrondissements2 = arrange(arrondissements2, c_ar)
+```
+
+
+```{r filename="Sélection des deux polygones à fusionner"}
+poly1 = arrondissements2[arrondissements2$c_ar == 15, ]
+poly2 = arrondissements2[arrondissements2$c_ar == 16, ] 
+```
+
+
+```{r filename="Fusion des deux polygones"}
+new_poly = st_union(poly1, poly2) 
+```
+
+```{r filename="Agregation des deux populations"}
+new_poly$pop = new_poly$pop+ new_poly$pop.1
+```
+
+```{r filename="Changement du nom de la zône"}
+new_poly$l_aroff = "Fusion 15 et 16" # changer le nom de l'arrondissement
+```
+
+```{r filename="Insertion de la fusion dans la base arrondissements"}
+arrondissements_fus <- subset(new_poly, select = c(c_ar, l_aroff, geom_x_y, pop))
+
+# On supprime les lignes des deux arrondissements fusionner
+arrondissements2 = filter(arrondissements2, c_ar<15 | c_ar>16)
+
+# On insère la ligne des arrondissements fusionnés dans la base arrondissement
+arrondissements2 = rbind(arrondissements2, arrondissements_fus)
+```
+
+
+```{r filename="Exécution de la carte"}
+
+mf_map(x = arrondissements2,border= "black")
+mf_map(x = arrondissements2,
+       # variable à représenter: population des arrondissements
+       var = "pop",
+       # type de carte : symboles proportionnels
+       type = "prop",
+       leg_title = "Population des arrondissements",
+       col="#C24168",
+       add= TRUE,
+       inches=0.2)
+```
+
+
+**Exemple 2: fusion des 4 premiers arrondissements aux élections de 2020**
+
+[maj en cours]
 
 
