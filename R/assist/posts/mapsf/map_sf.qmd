@@ -229,7 +229,7 @@ mf_map(
   cex = 2,
   lwd = .5,
   leg_title = "",
-  leg_pos= "topright",
+  leg_pos= c(2.43, 48.91396),
   border="black"
 )
 
@@ -247,9 +247,7 @@ mf_label(
 ```
 
 
-
 # Pour aller plus loin: regroupement de polygones  
-
 
 **Exemple 1: fusion des arrondissements 15 et 16 avec aggrégation de la population**
 
@@ -294,10 +292,11 @@ new_poly$pop = new_poly$pop+ new_poly$pop.1
 ```
 
 ```{r filename="Changement du nom de la zône"}
-new_poly$l_aroff = "Fusion 15 et 16" # changer le nom de l'arrondissement
+new_poly$l_aroff = "Fusion 15 et 16"
 ```
 
 ```{r filename="Insertion de la fusion dans la base arrondissements"}
+# Il est très important de mettre les éléments dans le même ordre que celui du tableau
 arrondissements_fus <- subset(new_poly, select = c(c_ar, l_aroff, geom_x_y, pop))
 
 # On supprime les lignes des deux arrondissements fusionner
@@ -323,8 +322,93 @@ mf_map(x = arrondissements2,
 ```
 
 
+
 **Exemple 2: fusion des 4 premiers arrondissements aux élections de 2020**
 
-[maj en cours]
+
+Pour les élections municipales de 2020, les 4 premiers arrondissements de la ville ont été fusionnés. Cette zône a été appelée **Centre**, et le choix de la localisation de mairie s'est porté sur le 3ème arrondissement.   
+
+
+Le code ci-dessous procède à la fusion de ces 4 arrondissements
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| results: false
+
+arrondissements <- st_read(dsn = "https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&timezone=Europe/Berlin&lang=fr")
+arrondissements <- subset(arrondissements, select = c(c_ar, l_aroff,geometry))
+
+
+poly1 = arrondissements[arrondissements$c_ar == "1", ] 
+poly2 = arrondissements[arrondissements$c_ar == "2", ]
+poly3 = arrondissements[arrondissements$c_ar == "3", ]
+poly4 = arrondissements[arrondissements$c_ar == "4", ]
+
+poly12   = st_union(poly1, poly2) 
+poly34   = st_union(poly3,poly4)
+new_poly = st_union(poly12,poly34)
+
+new_poly$l_aroff = "Centre" # changer le nom de l'arrondissement
+new_poly$c_ar    =  "3"     # changer le code de l'arrondissement
+
+# Il est très important de mettre les éléments dans le même ordre que celui du tableau
+arrondissements_fus = subset(new_poly, select = c(c_ar, l_aroff,geometry))
+
+arrondissements = filter(arrondissements, c_ar>4)
+arrondissements = rbind(arrondissements, arrondissements_fus)
+
+mf_map(x = arrondissements,border= "black")
+
+bords_politiques = c("Gauche","Droite","Droite","Droite","Droite","Droite","Gauche","Gauche","Ecolo","Gauche","Gauche","Droite","Droite","Droite","Gauche","Gauche","Gauche")
+colors <- c( "Droite" = "#3182bd", "Ecolo" = "#31a354",  "Gauche" = "#C24168")
+
+
+# c_ar est passé en string => repasser en numérique pour arrange
+arrondissements$c_ar = as.numeric(arrondissements$c_ar)
+arrondissements = arrange(arrondissements, c_ar)
+arrondissements = cbind(arrondissements, bords_politiques)
+
+# label: on change la valeur 3 par centre pour la zône fusionnée
+arrondissements$c_ar2 = as.character(arrondissements$c_ar)
+arrondissements$c_ar2[arrondissements$c_ar2 == "3"]  = "Centre"
+```
+
+Carte électorale à l'issue des élections de 2020
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+mf_map(
+  x = arrondissements,
+  var = "bords_politiques",
+  pal=colors,
+  type="typo",
+  cex = 2,
+  lwd = .5,
+  leg_title = "",
+  leg_pos= c(2.43, 48.91396),
+  border="black"
+)
+
+mf_layout(
+  title = "Bord politique des maires de Paris aux élections de 2020",
+  credits = paste0(
+    "mapsf ",
+    packageVersion("mapsf")
+  )
+)
+
+mf_label(
+  x = arrondissements, var = "c_ar2", col = "grey", halo = TRUE, overlap = FALSE, lines = FALSE,
+)
+```
+
+
+
+
+
+
 
 
