@@ -70,7 +70,7 @@ ggplot(df) +
  aes(x = year, y = y, colour = pays) +
  geom_line(lwd=1) +
  scale_color_tableau( palette = "Tableau 20") +
- labs(x = "Années", y = "Taux de fécondité", title = "Taux de fécondité par pays de 1950 à 2022", 
+ labs(x = "Années", y = "ICF", title = "Indices conjoncturels de fécondité par pays de 1950 à 2022", 
  caption = "Source: GGP - Datalab Ined", color = "Pays") +
  scale_x_continuous(breaks=seq(1950,2020, 10))  +
  theme_light() 
@@ -92,7 +92,7 @@ p = ggplot(df) +
  aes(x = year, y = y, colour = pays) +
  geom_line( lwd=1) +
  scale_color_tableau( palette = "Tableau 20") +
- labs(x = "Années", y = "Taux de fécondité", title = "Taux de fécondité par pays de 1950 à 2022", 
+ labs(x = "Années", y = "ICF", title = "Indices conjoncturels de fécondité par pays de 1950 à 2022", 
  caption = "Source: GGP - Datalab Ined", color = "Pays") +
   scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
   scale_y_continuous(breaks=seq(0,6,1)) +
@@ -118,8 +118,8 @@ ggplot(df) +
   labs(title = "Taux de fécondité") +
   theme_minimal() +
   labs(x = "Années", 
-       y = "Taux de fécondité", 
-       title = "Taux de fécondité par pays de 1950 à 2022", 
+       y = "ICF", 
+       title = "Indices conjoncturels de fécondité par pays de 1950 à 2022", 
        caption = "Source: GGP - Datalab Ined",) +
   scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
   scale_y_continuous(breaks=seq(0,6,1)) +
@@ -149,8 +149,8 @@ ggplot(tmp) +
         panel.grid.minor.x = element_blank(),  
         panel.grid.minor.y = element_blank()) + 
   labs(x = "Années", 
-       y = "Taux de fécondité", 
-       title = "Taux de fécondité par pays de 1950 à 2022", 
+       y = "ICF", 
+       title = "Indices conjoncturels de fécondité par pays de 1950 à 2022", 
        caption = "Source: GGP - Datalab Ined",) +
   scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
   scale_y_continuous(breaks=seq(0,6,1)) +
@@ -190,8 +190,8 @@ ggplot(tmp) +
         panel.grid.minor.x = element_blank(),  
         panel.grid.minor.y = element_blank()) + 
   labs(x = "Années", 
-       y = "Taux de fécondité", 
-       title = "Taux de fécondité par pays de 1950 à 2022", 
+       y = "ICF", 
+       title = "Indices conjoncturels de fécondité par pays de 1950 à 2022", 
        caption = "Source: GGP - Datalab Ined",) +
   scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
   scale_y_continuous(breaks=seq(0,6,1)) +
