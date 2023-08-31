@@ -20,6 +20,7 @@ Présentations et/ou vidéos disponibles:
 * [Tuto Mate-Shs ](https://www.youtube.com/channel/UClFXVZYEVvs3x24lRooYUgQ)
 * [Rencontres R 2023](https://github.com/Rencontres-R/Rencontres_R_2023)
 * [Geocomputation with R](https://r.geocompx.org/)
+* [UseR!](https://www.r-project.org/conferences/)
 
 # Ouvrages -en
 
@@ -29,7 +30,8 @@ Présentations et/ou vidéos disponibles:
 
 # Revue
 
-* [Journal of Statistical Software](https://www.jstatsoft.org/index)^[Non dédié à R, mais les articles lui sont devenus très largement dédiés]
+* [R Journal](https://journal.r-project.org/issues.html)
+* [Journal of Statistical Software](https://www.jstatsoft.org/index)^[Non dédié à R, mais les articles dédiés sont devenus largement majoritaires]
 
 
 # Supports en ligne proposés par le service SMS de l'Ined
