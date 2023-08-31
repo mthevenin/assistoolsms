@@ -36,8 +36,7 @@ Présentations et/ou vidéos disponibles:
 
 # Supports en ligne proposés par le service SMS de l'Ined
 
-* [Stata](https://mthevenin.github.io/stata_fr/index.html)
 * [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
 * [Introduction à l'analyse des durées en présence de données censurées à droite ](https://mthevenin.github.io/analyse_duree/)
-
+* [Stata](https://mthevenin.github.io/stata_fr/index.html)
 
