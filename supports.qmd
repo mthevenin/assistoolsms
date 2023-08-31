@@ -1,13 +1,41 @@
 ---
-title: "Autres supports de formation"
+title: "Supports en ligne"
 
-description: | 
- Liens vers des supports de formation en libre accès du service Méthodes Statistiques de l'Ined 
+#description: | 
+#Liens vers des supports de formation en libre accès service Méthodes Statistiques de l'Ined 
 ---
 
+# Supports R généralistes
 
-- [STATA](https://mthevenin.github.io/stata_fr/index.html)
-- [ANALYSE TEXTUELLE](https://benegarbi.github.io/AGD_QO/)
-- [ANALYSE DES DUREES](https://mthevenin.github.io/analyse_duree/)
+* [UtilitR](https://www.utilitr.org/)
+* [Introduction à R et au tidyverse](https://juba.github.io/tidyverse/)
+* [R-Bloggers](https://www.r-bloggers.com/)
+* [The R Graph Gallery](https://r-graph-gallery.com/index.html)
+
+# Séminaires, webinaires et conférences
+
+Présentations et/ou vidéos disponibles: 
+
+* [Séminaire Russ](https://russ.site.ined.fr/fr)
+* [Tuto Mate-Shs ](https://www.youtube.com/channel/UClFXVZYEVvs3x24lRooYUgQ)
+* [Rencontres R 2023](https://github.com/Rencontres-R/Rencontres_R_2023)
+* [Geocomputation with R](https://r.geocompx.org/)
+
+# Ouvrages -en
+
+* [R for Data Science](https://r4ds.had.co.nz/)
+* [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
+* [Geocomputation with R](https://r.geocompx.org/)
+
+# Revue
+
+* [Journal of Statistical Software](https://www.jstatsoft.org/index)^[Non dédié à R, mais les articles lui sont devenus très largement dédiés]
+
+
+# Supports en ligne proposés par le service SMS de l'Ined
+
+* [Stata](https://mthevenin.github.io/stata_fr/index.html)
+* [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
+* [Introduction à l'analyse des durées en présence de données censurées à droite ](https://mthevenin.github.io/analyse_duree/)
 
 

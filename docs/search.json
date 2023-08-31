@@ -2,9 +2,9 @@
   {
     "objectID": "supports.html",
     "href": "supports.html",
-    "title": "Autres supports de formation",
+    "title": "Supports en ligne",
     "section": "",
-    "text": "STATA\nANALYSE TEXTUELLE\nANALYSE DES DUREES"
+    "text": "UtilitR\nIntroduction à R et au tidyverse\nR-Bloggers\nThe R Graph Gallery"
   },
   {
     "objectID": "R/assist/posts/weight_norm/weight_norm.html",
@@ -621,5 +621,12 @@
     "title": "Réaliser des cartes thématiques avec Mapsf",
     "section": "Les cartes pour une variable qualitative nominale",
     "text": "Les cartes pour une variable qualitative nominale\nOn peut aussi représenter un autre type de variable: qualitative nominale. Pour illuster cette fiche on va représenter les bords politiques des mairies de chaque arrondissement. Pour cela, on produit une carte choroplèthes mais avec des couleurs sans dégradé (palettee qualitative).\n\nPenser à trier la base par numéro d’arrondissement avant de fusionner les informations sur les bords politiques (arrange())\nBien vérifier que les couleurs, ici fortement informatives, correspondent bien aux bords politiques. Sans raison apparente, il a été ici nécessaire de les renseigner dans l’ordre EELV, LR et PS.\n\n\narrondissements2 = select(arrondissements, c_ar, l_aroff, geom_x_y, geometry)\narrondissements2 = arrange(arrondissements2, c_ar)\n\nbords_politiques &lt;- c(\"LR\", \"EELV\", \"PS\", \"PS\", \"LR\", \"LR\", \"LR\", \"LR\", \"LR\", \"PS\", \"PS\", \"PS\", \"PS\", \"PS\", \"LR\", \"LR\", \"LR\", \"PS\", \"PS\", \"PS\")\n# Le maire du 2e arrondissement de Paris était EELV entre 2014 et 2015.\n\n\narrondissements2 &lt;- cbind(arrondissements2, bords_politiques)\n\n# Choix des couleurs\n\ncolors &lt;- c(\"EELV\" = \"#31a354\", \"LR\" = \"#3182bd\", \"PS\" = \"#C24168\")\n\n# Placer les carrés sur les centroïdes des polygones des arrondissements.\narr_c&lt;-st_centroid(arrondissements2)\n\n\n\nmf_map(x = arrondissements2, border = \"black\")\n\n# Choix  du symbol rectangle (pch=15)\nmf_map(\n  x = arr_c,\n  var = \"bords_politiques\",\n  pal=colors,\n  type=\"symb\",\n  pch=15,\n  cex = 2,\n  lwd = .5,\n  leg_title = \"\",\n  border=\"black\"\n)\n\n\n# habillage additionnel\nmf_layout(\n  title = \"Bord politique des maires de Paris entre 2014 et 2020\",\n  credits = paste0(\n    \"mapsf \",\n    packageVersion(\"mapsf\")\n  )\n)\n\n\n\n\n\n\n\n\nIl est courant de représenter les cartes électorales en remplissant les aires géographiques par des couleurs. Par rapport au graphique précédent, il suffit d’utiliser type=\"typo\" et de retirer l’argument pch. On ajoute également le numéro de l’arrondissement avec la fonction mf_label.\n\n\nShow the code\nmf_map(\n  x = arrondissements2,\n  # var à représenter  \n  var = \"bords_politiques\",\n  pal=colors,\n  type=\"typo\",\n  cex = 2,\n  lwd = .5,\n  leg_title = \"\",\n  leg_pos= c(2.43, 48.91396),\n  border=\"black\"\n)\n\nmf_layout(\n  title = \"Bord politique des maires de Paris entre 2014 et 2020\",\n  credits = paste0(\n    \"mapsf \",\n    packageVersion(\"mapsf\")\n  )\n)\n\nmf_label(\n  x = arrondissements2, var = \"c_ar\", col = \"grey\", halo = TRUE, overlap = FALSE, lines = FALSE,\n)"
+  },
+  {
+    "objectID": "supports.html#footnotes",
+    "href": "supports.html#footnotes",
+    "title": "Supports en ligne",
+    "section": "Notes de bas de page",
+    "text": "Notes de bas de page\n\n\nNon dédié à R, mais les articles lui sont devenus très largement dédiés↩︎"
   }
 ]
