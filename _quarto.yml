@@ -48,4 +48,6 @@ highlight-style: dracula
 execute: 
   freeze: auto
 
-
+comments:
+  giscus:
+    repo: mthevenin/assistoolsms
