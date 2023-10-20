@@ -23,10 +23,10 @@
   {
     "listing": "/Autres/assist/index.html",
     "items": [
+      "/Autres/assist/posts/whispers/whisper.html",
       "/Autres/assist/posts/self_contained/self_contained.html",
       "/Autres/assist/posts/git_rstudio/git_rstudio.html",
       "/Autres/assist/posts/output_scss/output_scss.html",
-      "/Autres/assist/posts/whispers/whisper.html",
       "/Autres/assist/posts/annotation/annotation.html",
       "/Autres/assist/posts/social_embeds/social_embeds.html",
       "/Autres/assist/posts/remove_nul/remove_nul.html"
@@ -35,10 +35,10 @@
   {
     "listing": "/Autres/index.html",
     "items": [
+      "/Autres/assist/posts/whispers/whisper.html",
       "/Autres/assist/posts/self_contained/self_contained.html",
       "/Autres/assist/posts/git_rstudio/git_rstudio.html",
       "/Autres/assist/posts/output_scss/output_scss.html",
-      "/Autres/assist/posts/whispers/whisper.html",
       "/Autres/assist/posts/annotation/annotation.html",
       "/Autres/assist/posts/social_embeds/social_embeds.html",
       "/Autres/assist/posts/remove_nul/remove_nul.html"
@@ -63,10 +63,10 @@
       "/R/assist/posts/jtools_output/jtools_output.html",
       "/R/assist/posts/coxzph/coxzph.html",
       "/R/assist/posts/R_vscode/R_vscode_doc.html",
+      "/Autres/assist/posts/whispers/whisper.html",
       "/Autres/assist/posts/self_contained/self_contained.html",
       "/Autres/assist/posts/git_rstudio/git_rstudio.html",
       "/Autres/assist/posts/output_scss/output_scss.html",
-      "/Autres/assist/posts/whispers/whisper.html",
       "/Autres/assist/posts/annotation/annotation.html",
       "/Autres/assist/posts/social_embeds/social_embeds.html",
       "/Autres/assist/posts/remove_nul/remove_nul.html"

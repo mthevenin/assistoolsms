@@ -1,5 +1,5 @@
 ---
-title: "Vérifier l'installation de ffmpeg pour utiliser Whisper"
+title: "Vérifier l'installation de ffmpeg pour utiliser Whisper [Maj]"
 
 categories:
   - Python
@@ -11,7 +11,7 @@ author:
     affiliations:
       - name: "Ined"
 
-date: 06/20/2023
+date: 10/20/2023
 
 image: "https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Picture.png"
 
@@ -25,16 +25,36 @@ filters:
 lightbox: auto
 
 abstract: | 
- Le paquet de retranscription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès de ffmpeg doit être impérativement présent dans les variables d'environnement
- 
+ Le paquet de retranscription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès de ffmpeg doit être impérativement présent dans les variables d'environnement.
 ---
+
+
+- Première version de la fiche: 29 Juin 2023
+- Maj 20 octobre 2023: problème de compatibilité entre les dernières versions de Python et Whisper 
+
+
+::: callout-note
+
+## Compatibilité entre les versions de Python et Whisper
+
+Lors d'une assistance d'installation (10-10-23), il est apparu que la dernière version de python 1.12 n'était pas compatible avec la dernière version de Whisper. Cela sera certainement résolu prochainement, mais si un message d'erreur apparait lors de l'importation de Whisper `import whisper`, 
+
+Pour cette fiche, la version de Python utilisée est la 1.10. Lors de l'assistance d'installation en octobre nous avons donc du installer la version de Python 1.10.
+
+Vous pouvez indiquer la présence de message d'erreur lors de l'importation de la librarie dans la zône de discussion.
+
+:::
+
+
 
 - [Tutoriel d'installation de whisper](https://github.com/openai/whisper)
 
 - Message d'erreur indiquant un problème d'installation de ffmpeg: **`FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable`**
 
+- [MAJ 20 octobre 2023] Pour installer ffmpeg, je conseille de récupérer directement l'archive avec les exécutables, par exemple: [ffmpeg-git-essentials.7z.ver .sha256](https://www.gyan.dev/ffmpeg/builds/)
+
 - Vérifier la bonne installation de ffmpeg:
-   - ouvrir l'invite de commande windows (taper `cmd` dans la barre de tâche)
+   - Ouvrir l'invite de commande windows (taper `cmd` dans la barre de tâche)
    - taper `ffmpeg` dans la console
    - Si le message renvoyé indique que **ffmpeg n’est pas reconnu en tant que commande interne**, soit l'encodeur n'est pas installé, soit il est installé mais le chemin d'accès n'a pas été ajouté aux variables d'environnement.
    - pour ajouter une variable d'environnement: 
@@ -55,12 +75,15 @@ result = model.transcribe("C:/Users/thevenin_m/Desktop/mlk.mp3",  verbose = True
 ```
 
 
+- Je conseille ce document pour une utilisation pleine et entière de Whisper, avec enregistrement d'un fichier texte de la retranscription: [tutoriel Cnrs](https://www.css.cnrs.fr/whisper-pour-retranscrire-des-entretiens/)
+
+
 ::: callout-tip
 
 ## Installation de ffmpeg à  l'Ined
 
-- Envisager l'installation automatique de ffmpeg via **applined**
-- Il est fort possible que vous deviez utiliser votre compte administrateur pour modifier les variables environnement
+- Envisager avec le service informatique d'installer automatiquement  ffmpeg via **applined**
+- Il est fort possible de devoir utiliser votre compte administrateur pour ajouter le chemin d'accès à l'exécutable aux variables environnement
 
 :::
 
