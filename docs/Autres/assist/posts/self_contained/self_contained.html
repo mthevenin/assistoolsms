@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="abstract-title">Résumé</div>
-      <p>Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l’intégralité de ces fichiers. Avec l’option <code>self_contained</code>, la page html est générée proprement sans fichiers additionnels.</p>
+      <p>Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l’intégralité de ces fichiers. Avec l’option <code>self_contained</code>, la page html est générée proprement sans fichiers additionnels. <strong>Les éléments qui suivent ne doivent pas être appliqués à un contenu html plus enrichi comme un site, un book ou un blog</strong>.</p>
     </div>
   </div>
   
@@ -185,33 +185,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Par défaut, en générant un simple page html avec quarto un répertoitre <em>nomfichier_html_files</em> est également créer.</p>
-<p>Par exemple on génère le fichier .qmd suivant, enregistré sous le nom <strong>default.qmd</strong>. Le répertoire <strong>default_html_files</strong> est également généré lors du render de la page:</p>
+<p>Par défaut, en générant une simple page html de type notebook avec quarto, un répertoitre <em>nomfichier_html_files</em> est également créer.</p>
+<p>Par exemple on génère le fichier .qmd, enregistré sous le nom <strong>default.qmd</strong>. Le répertoire <strong>default_html_files</strong> est également généré lors de la compilation en html de la page:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
 </figure>
 </div>
-<p>Le rendu html, conforme aux attentes, est le suivant:</p>
+<p>Le rendu, conforme aux attentes, est le suivant:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/img2.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
 </figure>
 </div>
-<p>Si on souhaite déplacer le fichier default.html seul, le répertoire <em>default_html_files</em> le suit inéxorablement. Même chose si on supprime le fichier html, le répertoire disparait également.</p>
+<p>Si on souhaite déplacer le fichier default.html seul, le répertoire <em>default_html_files</em> le suivra. Même chose si on supprime le fichier html, le répertoire disparait également.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img/img3.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/img3.gif" class="img-fluid figure-img" style="width:70.0%"></a></p>
 </figure>
 </div>
-<p>Ainsi, si on transmet seulement le fichier default.html, par exemple par mail, le rendu n’incorpera pas les éléments de styles et les éventuelles images présents dans le répertoire.</p>
+<p>Ainsi, si on transmet seulement le fichier default.html, par exemple par mail, le rendu n’incorpera pas les éléments de styles et les éventuelles images présentes dans le répertoire.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img/img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/img4.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
 </figure>
 </div>
 <p><strong>Solution</strong></p>
-<p>Ajouter l’option <strong><code>self-contained= true</code></strong> au yaml de la page</p>
+<p>Ajouter l’option <strong><code>self-contained= true</code></strong> au yaml (métadonnées) de la page</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2"></a>---</span>
 <span id="cb1-3"><a href="#cb1-3"></a>title: "html: self-contained"</span>
@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/img5.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
 </figure>
 </div>
-<p>Remarque: la taille du fichier html est bien évidemment plus élevée. Avec ce court exemple 938ko contre 22ko avec le répertoire associé.</p>
+<p>Remarque: la taille du fichier html est bien évidemment plus élevée. Avec ce court exemple 938ko avec l’option <code>self_contained</code> contre 22ko avec le répertoire associé.</p>
 
 
 <!-- -->
@@ -544,36 +544,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-23"><a href="#cb2-23"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
 <span id="cb2-24"><a href="#cb2-24"></a></span>
 <span id="cb2-25"><a href="#cb2-25"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="co"> Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l'intégralité de ces fichiers. Avec l'option `self_contained`, la page html est générée proprement sans fichiers additionnels.</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co"> Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l'intégralité de ces fichiers. Avec l'option `self_contained`, la page html est générée proprement sans fichiers additionnels. **Les éléments qui suivent ne doivent pas être appliqués à un contenu html plus enrichi comme un site, un book ou un blog**.</span></span>
 <span id="cb2-27"><a href="#cb2-27"></a></span>
 <span id="cb2-28"><a href="#cb2-28"></a><span class="co">---</span></span>
 <span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a>Par défaut, en générant un simple page html avec quarto un répertoitre *nomfichier_html_files* est également créer.</span>
+<span id="cb2-30"><a href="#cb2-30"></a>Par défaut, en générant une simple page html de type notebook avec quarto, un répertoitre *nomfichier_html_files* est également créer.</span>
 <span id="cb2-31"><a href="#cb2-31"></a></span>
-<span id="cb2-32"><a href="#cb2-32"></a>Par exemple on génère le fichier .qmd suivant, enregistré sous le nom **default.qmd**.  Le répertoire **default_html_files** est également généré lors du render de la page:</span>
+<span id="cb2-32"><a href="#cb2-32"></a>Par exemple on génère le fichier .qmd, enregistré sous le nom **default.qmd**.  Le répertoire **default_html_files** est également généré lors de la compilation en html de la page:</span>
 <span id="cb2-33"><a href="#cb2-33"></a></span>
 <span id="cb2-34"><a href="#cb2-34"></a></span>
 <span id="cb2-35"><a href="#cb2-35"></a><span class="al">![](img/img1.png)</span>{width=70%}  </span>
 <span id="cb2-36"><a href="#cb2-36"></a></span>
-<span id="cb2-37"><a href="#cb2-37"></a>Le rendu html, conforme aux attentes, est le suivant:   </span>
+<span id="cb2-37"><a href="#cb2-37"></a>Le rendu, conforme aux attentes, est le suivant:   </span>
 <span id="cb2-38"><a href="#cb2-38"></a></span>
 <span id="cb2-39"><a href="#cb2-39"></a></span>
 <span id="cb2-40"><a href="#cb2-40"></a><span class="al">![](img/img2.png)</span>{width=70%}</span>
 <span id="cb2-41"><a href="#cb2-41"></a></span>
 <span id="cb2-42"><a href="#cb2-42"></a></span>
-<span id="cb2-43"><a href="#cb2-43"></a>Si on souhaite déplacer le fichier default.html seul, le répertoire *default_html_files* le suit inéxorablement. Même chose si on supprime le fichier html, le répertoire disparait également. </span>
+<span id="cb2-43"><a href="#cb2-43"></a>Si on souhaite déplacer le fichier default.html seul, le répertoire *default_html_files* le suivra. Même chose si on supprime le fichier html, le répertoire disparait également. </span>
 <span id="cb2-44"><a href="#cb2-44"></a></span>
 <span id="cb2-45"><a href="#cb2-45"></a></span>
 <span id="cb2-46"><a href="#cb2-46"></a><span class="al">![](img/img3.gif)</span>{width=70%}</span>
 <span id="cb2-47"><a href="#cb2-47"></a></span>
-<span id="cb2-48"><a href="#cb2-48"></a>Ainsi, si on transmet  seulement le fichier default.html, par exemple par mail, le rendu n'incorpera pas les éléments de styles et les éventuelles images présents dans le répertoire.</span>
+<span id="cb2-48"><a href="#cb2-48"></a>Ainsi, si on transmet  seulement le fichier default.html, par exemple par mail, le rendu n'incorpera pas les éléments de styles et les éventuelles images présentes dans le répertoire.</span>
 <span id="cb2-49"><a href="#cb2-49"></a></span>
 <span id="cb2-50"><a href="#cb2-50"></a></span>
 <span id="cb2-51"><a href="#cb2-51"></a><span class="al">![](img/img4.png)</span>{width=70%}</span>
 <span id="cb2-52"><a href="#cb2-52"></a></span>
 <span id="cb2-53"><a href="#cb2-53"></a>**Solution**</span>
 <span id="cb2-54"><a href="#cb2-54"></a></span>
-<span id="cb2-55"><a href="#cb2-55"></a>Ajouter l'option **`self-contained= true`** au yaml de la page</span>
+<span id="cb2-55"><a href="#cb2-55"></a>Ajouter l'option **`self-contained= true`** au yaml (métadonnées) de la page</span>
 <span id="cb2-56"><a href="#cb2-56"></a></span>
 <span id="cb2-57"><a href="#cb2-57"></a><span class="in">```markdown</span></span>
 <span id="cb2-58"><a href="#cb2-58"></a></span>
@@ -591,7 +591,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-70"><a href="#cb2-70"></a></span>
 <span id="cb2-71"><a href="#cb2-71"></a><span class="al">![](img/img5.png)</span>{width=70%}</span>
 <span id="cb2-72"><a href="#cb2-72"></a></span>
-<span id="cb2-73"><a href="#cb2-73"></a>Remarque: la taille du fichier html est bien évidemment plus élevée. Avec ce court exemple 938ko contre 22ko avec le répertoire associé.</span>
+<span id="cb2-73"><a href="#cb2-73"></a>Remarque: la taille du fichier html est bien évidemment plus élevée. Avec ce court exemple 938ko avec l'option <span class="in">`self_contained`</span> contre 22ko avec le répertoire associé.</span>
 <span id="cb2-74"><a href="#cb2-74"></a></span>
 <span id="cb2-75"><a href="#cb2-75"></a></span>
 <span id="cb2-76"><a href="#cb2-76"></a></span>
@@ -605,7 +605,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-84"><a href="#cb2-84"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":true,"descPosition":"bottom"});</script>
 
 
 
