@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bénédicte Garnier">
+
+<title>SMS_site - Consolider sa reproductibilité avec le package prefixer</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../../sms.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
+ <span class="menu-text">R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
+ <span class="menu-text">Othe-R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../supports.html" rel="" target="">
+ <span class="menu-text">Autres Supports</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Consolider sa reproductibilité avec le package prefixer</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Addins</div>
+                <div class="quarto-category">Reproductibilité</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Bénédicte Garnier </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">24 octobre 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Résumé</div>
+      <p>Il est très simple d’ajouter, dans un script R, les noms des packages aux appels des fonctions. Sous forme de préfixes, ces indications permettent de repérer les packages utilisés et donc faciliter sa reproductibilité de l’analyse. Nous prenons ici l’exemple d’un script générant un nuage de mots à partir du package de statistique textuelle R.temis.</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#le-script-dorigine" id="toc-le-script-dorigine" class="nav-link active" data-scroll-target="#le-script-dorigine">Le script d’origine</a></li>
+  <li><a href="#ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" id="toc-ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" class="nav-link" data-scroll-target="#ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer">Ajouter le nom des packages aux fonctions avec <code>prefixer</code></a>
+  <ul class="collapse">
+  <li><a href="#installer-le-package-prefixer-à-partir-de-github" id="toc-installer-le-package-prefixer-à-partir-de-github" class="nav-link" data-scroll-target="#installer-le-package-prefixer-à-partir-de-github">Installer le package <em>prefixer</em> à partir de GitHub</a></li>
+  <li><a href="#prefixer-le-script" id="toc-prefixer-le-script" class="nav-link" data-scroll-target="#prefixer-le-script">Prefixer le script</a></li>
+  <li><a href="#utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" id="toc-utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" class="nav-link" data-scroll-target="#utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe">Utiliser la fenêtre shiny permettant de choisir le préfixe</a></li>
+  </ul></li>
+  <li><a href="#résultat-le-script-est-enrichi" id="toc-résultat-le-script-est-enrichi" class="nav-link" data-scroll-target="#résultat-le-script-est-enrichi">Résultat: le script est enrichi</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell">
+<style type="text/css">
+.scroll_output {
+max-height: 400px;
+overflow-y: scroll;
+}
+</style>
+</div>
+<table class="table">
+<caption><strong>Fonctions utilisées dans la fiche</strong></caption>
+<thead>
+<tr class="header">
+<th>Packages</th>
+<th>Fonctions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>prefixer</strong></td>
+<td><code>prefixer</code></td>
+</tr>
+<tr class="even">
+<td><strong>R.temis</strong></td>
+<td><code>import_corpus</code></td>
+</tr>
+<tr class="odd">
+<td><strong>R.temis</strong></td>
+<td><code>build_dtm</code></td>
+</tr>
+<tr class="even">
+<td><strong>R.temis</strong></td>
+<td><code>frequent_terms</code></td>
+</tr>
+<tr class="odd">
+<td><strong>R.temis</strong></td>
+<td><code>combine_terms</code></td>
+</tr>
+<tr class="even">
+<td><strong>R.temis</strong></td>
+<td><code>word_cloud</code></td>
+</tr>
+</tbody>
+</table>
+<p>Pour illustrer ce propos, nous reprennons le script de la fiche de Coralie Cottet <a href="http://mthevenin.github.io/assistoolsms/R/assist/posts/nuage_de_mot/nuage_de_mot.html"><em>Générer des graphes de mot avec R.temis</em></a>. Nous allons ajouter un prefixe à chaque fonction utilisée pour générer un nuage de mots.</p>
+<p><strong>Documentation</strong> :</p>
+<ul>
+<li><p><a href="http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html"><strong>RStudio Addins</strong></a> sont des extensions pour l’environnement de développement intégré (IDE) RStudio</p></li>
+<li><p><a href="http://rdrr.io/github/dreamRs/prefixer/man/prefixer.html"><strong>prefixer: Shiny Gadget to interactively prefix function in a script </strong></a></p></li>
+<li><p>Séminaire R à l’Usage des Sciences Sociales, <a href="http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/"><em>Esquisse, moins tu sais coder plus tu vas rigoler</em></a></p></li>
+</ul>
+<p><strong>Installation des packages</strong> :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>install.packages("remotes")</span>
+<span id="cb1-2"><a href="#cb1-2"></a>install.packages("R.temis")</span>
+<span id="cb1-3"><a href="#cb1-3"></a>install.packages("dyplyr")</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Fichiers à utilisés</strong> :</p>
+<p>Les <a href="http://www.vie-publique.fr/discours-dans-lactualite/269998-les-voeux-des-presidents-de-la-republique-depuis-1974">voeux du président Hollande pour les années 2013 à 2017</a>.</p>
+<p>Chaque discours correspond à un fichier texte et ces 5 discours sont placés dans un dossier unique appelé <em>dossier_de_textes</em></p>
+<section id="le-script-dorigine" class="level1">
+<h1>Le script d’origine</h1>
+<div class="cell scroll_output">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="do">## Appel des packages</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(R.temis)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="do">## Statistiques textuelles</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="do">## Création du tableau lexical associé au corpus des discours</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>corpusv <span class="ot">&lt;-</span> <span class="fu">import_corpus</span>(<span class="st">"datas/dossier_de_textes"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># Création du tableau lexical associé </span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>dtm <span class="ot">&lt;-</span><span class="fu">build_dtm</span>(corpusv, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
+<span id="cb2-15"><a href="#cb2-15"></a>dtm</span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span id="cb2-18"><a href="#cb2-18"></a></span>
+<span id="cb2-19"><a href="#cb2-19"></a></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="do">## Afficher les occurrences des mots du corpus</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co"># Calcul des occurrences des mots </span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="fu">frequent_terms</span>(dtm) </span>
+<span id="cb2-23"><a href="#cb2-23"></a></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="do">#### Personalisation du lexique</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span id="cb2-29"><a href="#cb2-29"></a>dic <span class="ot">&lt;-</span><span class="fu">dictionary</span>(dtm) </span>
+<span id="cb2-30"><a href="#cb2-30"></a></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
+<span id="cb2-33"><a href="#cb2-33"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-34"><a href="#cb2-34"></a>  <span class="fu">mutate</span>(<span class="at">Term =</span> word)</span>
+<span id="cb2-35"><a href="#cb2-35"></a></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
+<span id="cb2-37"><a href="#cb2-37"></a></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a></span>
+<span id="cb2-43"><a href="#cb2-43"></a><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span id="cb2-44"><a href="#cb2-44"></a>dtmlem <span class="ot">&lt;-</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
+<span id="cb2-45"><a href="#cb2-45"></a></span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="co"># Ensemble de mots à retirer</span></span>
+<span id="cb2-47"><a href="#cb2-47"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
+<span id="cb2-48"><a href="#cb2-48"></a></span>
+<span id="cb2-49"><a href="#cb2-49"></a><span class="co"># Suppression de mots dans le tableau lexical</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
+<span id="cb2-51"><a href="#cb2-51"></a></span>
+<span id="cb2-52"><a href="#cb2-52"></a><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span id="cb2-53"><a href="#cb2-53"></a><span class="fu">frequent_terms</span>(dtm2)</span>
+<span id="cb2-54"><a href="#cb2-54"></a></span>
+<span id="cb2-55"><a href="#cb2-55"></a></span>
+<span id="cb2-56"><a href="#cb2-56"></a><span class="do">### Affichage du nuage de mots</span></span>
+<span id="cb2-57"><a href="#cb2-57"></a></span>
+<span id="cb2-58"><a href="#cb2-58"></a>cloud<span class="ot">&lt;-</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
+<span id="cb2-59"><a href="#cb2-59"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" class="level1">
+<h1>Ajouter le nom des packages aux fonctions avec <code>prefixer</code></h1>
+<section id="installer-le-package-prefixer-à-partir-de-github" class="level2">
+<h2 class="anchored" data-anchor-id="installer-le-package-prefixer-à-partir-de-github">Installer le package <em>prefixer</em> à partir de GitHub</h2>
+<p>L’addin prefix est disponible sur la forge logicielle de <em>dreamRs</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">install_github</span>(<span class="st">"dreamRs/prefixer"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Celui-ci permet d’ouvrir une interface qui propose pour chaque fonction du script de lui ajouter un préfixe composé du nom de la fonction suivi de <code>::</code></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</section>
+<section id="prefixer-le-script" class="level2">
+<h2 class="anchored" data-anchor-id="prefixer-le-script">Prefixer le script</h2>
+<p>A la fin du script R, on charge le package <code>prefixer</code> puis on ouvre l’interface avec la commande <code>prefixer()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="do">## Appel du package</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(prefixer)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="do">## Ouverture de l'interface RShiny</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">prefixer</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dans le cas de notre script</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/img2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</section>
+<section id="utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" class="level2">
+<h2 class="anchored" data-anchor-id="utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe">Utiliser la fenêtre shiny permettant de choisir le préfixe</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/mov1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/mov1.gif" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="résultat-le-script-est-enrichi" class="level1">
+<h1>Résultat: le script est enrichi</h1>
+<div class="cell scroll_output">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="do">## Statistiques textuelles</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="do">## Création du tableau lexical associé au corpus des discours</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>corpusv <span class="ot">&lt;-</span> R.temis<span class="sc">::</span><span class="fu">import_corpus</span>(<span class="st">"datas/dossier_de_textes"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># Création du tableau lexical associé </span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a>dtm <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">build_dtm</span>(corpusv, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
+<span id="cb5-11"><a href="#cb5-11"></a>dtm</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="do">## Afficher les occurrences des mots du corpus</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="co"># Calcul des occurrences des mots </span></span>
+<span id="cb5-18"><a href="#cb5-18"></a>R.temis<span class="sc">::</span><span class="fu">frequent_terms</span>(dtm) </span>
+<span id="cb5-19"><a href="#cb5-19"></a></span>
+<span id="cb5-20"><a href="#cb5-20"></a></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="do">#### Personalisation du lexique</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span id="cb5-26"><a href="#cb5-26"></a>dic <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">dictionary</span>(dtm) </span>
+<span id="cb5-27"><a href="#cb5-27"></a></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-31"><a href="#cb5-31"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Term =</span> stringr<span class="sc">::</span>word)</span>
+<span id="cb5-32"><a href="#cb5-32"></a></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
+<span id="cb5-34"><a href="#cb5-34"></a></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a>dtmlem <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
+<span id="cb5-42"><a href="#cb5-42"></a></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="co"># Ensemble de mots à retirer</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
+<span id="cb5-45"><a href="#cb5-45"></a></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co"># Suppression de mots dans le tableau lexical</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
+<span id="cb5-48"><a href="#cb5-48"></a></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a>R.temis<span class="sc">::</span><span class="fu">frequent_terms</span>(dtm2)</span>
+<span id="cb5-51"><a href="#cb5-51"></a></span>
+<span id="cb5-52"><a href="#cb5-52"></a></span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="do">### Affichage du nuage de mots</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a></span>
+<span id="cb5-55"><a href="#cb5-55"></a>cloud<span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
+<span id="cb5-56"><a href="#cb5-56"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Consolider sa reproductibilité avec le package prefixer"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="an">date:</span><span class="co"> 10/24/2023</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">  </span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="an">categories:</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">  - Addins</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">  - Reproductibilité</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="an">image:</span><span class="co"> "http://github.com/dreamRs/prefixer/raw/master/man/figures/logo_prefixer.png"</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">  - name: "Bénédicte Garnier"</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">    affiliations:</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="an">filters:</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">   - lightbox</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">  Il est très simple d'ajouter, dans un script R, les noms des packages aux appels des fonctions. Sous forme de préfixes, ces indications permettent de repérer les packages utilisés et donc faciliter sa reproductibilité de l'analyse. Nous prenons ici l'exemple d'un script générant un nuage de mots à partir du package de statistique textuelle R.temis. </span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">  </span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">---</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="in">```{css, echo = FALSE}</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="op">.</span><span class="fu">scroll_output</span> <span class="op">{</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a>max<span class="op">-</span>height<span class="op">:</span> 400px<span class="op">;</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a>overflow<span class="op">-</span>y<span class="op">:</span> scroll<span class="op">;</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="op">}</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="in">```</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a></span>
+<span id="cb6-34"><a href="#cb6-34"></a></span>
+<span id="cb6-35"><a href="#cb6-35"></a></span>
+<span id="cb6-36"><a href="#cb6-36"></a>| Packages        | Fonctions                                 |</span>
+<span id="cb6-37"><a href="#cb6-37"></a>|-----------------|-------------------------------------------|</span>
+<span id="cb6-38"><a href="#cb6-38"></a>| **prefixer**    | <span class="in">`prefixer`</span>                                |</span>
+<span id="cb6-39"><a href="#cb6-39"></a>| **R.temis**     | <span class="in">`import_corpus`</span>                           |</span>
+<span id="cb6-40"><a href="#cb6-40"></a>| **R.temis**     | <span class="in">`build_dtm`</span>                               |</span>
+<span id="cb6-41"><a href="#cb6-41"></a>| **R.temis**     | <span class="in">`frequent_terms`</span>                          |</span>
+<span id="cb6-42"><a href="#cb6-42"></a>| **R.temis**     | <span class="in">`combine_terms`</span>                           |</span>
+<span id="cb6-43"><a href="#cb6-43"></a>| **R.temis**     | <span class="in">`word_cloud`</span>                              |</span>
+<span id="cb6-44"><a href="#cb6-44"></a></span>
+<span id="cb6-45"><a href="#cb6-45"></a></span>
+<span id="cb6-46"><a href="#cb6-46"></a>: **Fonctions utilisées dans la fiche**</span>
+<span id="cb6-47"><a href="#cb6-47"></a></span>
+<span id="cb6-48"><a href="#cb6-48"></a>Pour illustrer ce propos, nous reprennons le script de la fiche de Coralie Cottet <span class="co">[</span><span class="ot">*Générer des graphes de mot avec R.temis*</span><span class="co">](http://mthevenin.github.io/assistoolsms/R/assist/posts/nuage_de_mot/nuage_de_mot.html)</span>. Nous allons ajouter un prefixe à chaque fonction utilisée pour générer un nuage de mots. </span>
+<span id="cb6-49"><a href="#cb6-49"></a></span>
+<span id="cb6-50"><a href="#cb6-50"></a></span>
+<span id="cb6-51"><a href="#cb6-51"></a>**Documentation** :</span>
+<span id="cb6-52"><a href="#cb6-52"></a></span>
+<span id="cb6-53"><a href="#cb6-53"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**RStudio Addins**</span><span class="co">](http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html)</span> sont des extensions pour l'environnement de développement intégré (IDE) RStudio</span>
+<span id="cb6-54"><a href="#cb6-54"></a></span>
+<span id="cb6-55"><a href="#cb6-55"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**prefixer: Shiny Gadget to interactively prefix function in a script **</span><span class="co">](http://rdrr.io/github/dreamRs/prefixer/man/prefixer.html)</span></span>
+<span id="cb6-56"><a href="#cb6-56"></a></span>
+<span id="cb6-57"><a href="#cb6-57"></a><span class="ss">-   </span>Séminaire R à l'Usage des Sciences Sociales, <span class="co">[</span><span class="ot">*Esquisse, moins tu sais coder plus tu vas rigoler*</span><span class="co">](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)</span></span>
+<span id="cb6-58"><a href="#cb6-58"></a></span>
+<span id="cb6-59"><a href="#cb6-59"></a></span>
+<span id="cb6-60"><a href="#cb6-60"></a>**Installation des packages** : </span>
+<span id="cb6-61"><a href="#cb6-61"></a></span>
+<span id="cb6-62"><a href="#cb6-62"></a><span class="in">```markdown</span></span>
+<span id="cb6-63"><a href="#cb6-63"></a>install.packages("remotes")</span>
+<span id="cb6-64"><a href="#cb6-64"></a>install.packages("R.temis")</span>
+<span id="cb6-65"><a href="#cb6-65"></a>install.packages("dyplyr")</span>
+<span id="cb6-66"><a href="#cb6-66"></a></span>
+<span id="cb6-67"><a href="#cb6-67"></a><span class="in">```</span></span>
+<span id="cb6-68"><a href="#cb6-68"></a></span>
+<span id="cb6-69"><a href="#cb6-69"></a>**Fichiers à utilisés** :</span>
+<span id="cb6-70"><a href="#cb6-70"></a></span>
+<span id="cb6-71"><a href="#cb6-71"></a>Les <span class="co">[</span><span class="ot">voeux du président Hollande pour les années 2013 à 2017</span><span class="co">](http://www.vie-publique.fr/discours-dans-lactualite/269998-les-voeux-des-presidents-de-la-republique-depuis-1974)</span>. </span>
+<span id="cb6-72"><a href="#cb6-72"></a></span>
+<span id="cb6-73"><a href="#cb6-73"></a>Chaque discours correspond à un fichier texte et ces 5 discours sont placés dans un dossier unique appelé *dossier_de_textes*  </span>
+<span id="cb6-74"><a href="#cb6-74"></a></span>
+<span id="cb6-75"><a href="#cb6-75"></a><span class="fu"># Le script d'origine</span></span>
+<span id="cb6-76"><a href="#cb6-76"></a></span>
+<span id="cb6-77"><a href="#cb6-77"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb6-78"><a href="#cb6-78"></a><span class="co">#| class: scroll_output </span></span>
+<span id="cb6-79"><a href="#cb6-79"></a></span>
+<span id="cb6-80"><a href="#cb6-80"></a><span class="do">## Appel des packages</span></span>
+<span id="cb6-81"><a href="#cb6-81"></a><span class="fu">library</span>(R.temis)</span>
+<span id="cb6-82"><a href="#cb6-82"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-83"><a href="#cb6-83"></a></span>
+<span id="cb6-84"><a href="#cb6-84"></a><span class="do">## Statistiques textuelles</span></span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="do">## Création du tableau lexical associé au corpus des discours</span></span>
+<span id="cb6-86"><a href="#cb6-86"></a></span>
+<span id="cb6-87"><a href="#cb6-87"></a><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span id="cb6-88"><a href="#cb6-88"></a>corpusv <span class="ot">&lt;-</span> <span class="fu">import_corpus</span>(<span class="st">"datas/dossier_de_textes"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
+<span id="cb6-89"><a href="#cb6-89"></a></span>
+<span id="cb6-90"><a href="#cb6-90"></a><span class="co"># Création du tableau lexical associé </span></span>
+<span id="cb6-91"><a href="#cb6-91"></a><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span id="cb6-92"><a href="#cb6-92"></a></span>
+<span id="cb6-93"><a href="#cb6-93"></a>dtm <span class="ot">&lt;-</span><span class="fu">build_dtm</span>(corpusv, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
+<span id="cb6-94"><a href="#cb6-94"></a>dtm</span>
+<span id="cb6-95"><a href="#cb6-95"></a></span>
+<span id="cb6-96"><a href="#cb6-96"></a><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span id="cb6-97"><a href="#cb6-97"></a></span>
+<span id="cb6-98"><a href="#cb6-98"></a></span>
+<span id="cb6-99"><a href="#cb6-99"></a><span class="do">## Afficher les occurrences des mots du corpus</span></span>
+<span id="cb6-100"><a href="#cb6-100"></a><span class="co"># Calcul des occurrences des mots </span></span>
+<span id="cb6-101"><a href="#cb6-101"></a><span class="fu">frequent_terms</span>(dtm) </span>
+<span id="cb6-102"><a href="#cb6-102"></a></span>
+<span id="cb6-103"><a href="#cb6-103"></a><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span id="cb6-104"><a href="#cb6-104"></a></span>
+<span id="cb6-105"><a href="#cb6-105"></a><span class="do">#### Personalisation du lexique</span></span>
+<span id="cb6-106"><a href="#cb6-106"></a></span>
+<span id="cb6-107"><a href="#cb6-107"></a><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span id="cb6-108"><a href="#cb6-108"></a>dic <span class="ot">&lt;-</span><span class="fu">dictionary</span>(dtm) </span>
+<span id="cb6-109"><a href="#cb6-109"></a></span>
+<span id="cb6-110"><a href="#cb6-110"></a><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span id="cb6-111"><a href="#cb6-111"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
+<span id="cb6-112"><a href="#cb6-112"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-113"><a href="#cb6-113"></a>  <span class="fu">mutate</span>(<span class="at">Term =</span> word)</span>
+<span id="cb6-114"><a href="#cb6-114"></a></span>
+<span id="cb6-115"><a href="#cb6-115"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
+<span id="cb6-116"><a href="#cb6-116"></a></span>
+<span id="cb6-117"><a href="#cb6-117"></a><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span id="cb6-118"><a href="#cb6-118"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb6-119"><a href="#cb6-119"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb6-120"><a href="#cb6-120"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb6-121"><a href="#cb6-121"></a></span>
+<span id="cb6-122"><a href="#cb6-122"></a><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span id="cb6-123"><a href="#cb6-123"></a>dtmlem <span class="ot">&lt;-</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
+<span id="cb6-124"><a href="#cb6-124"></a></span>
+<span id="cb6-125"><a href="#cb6-125"></a><span class="co"># Ensemble de mots à retirer</span></span>
+<span id="cb6-126"><a href="#cb6-126"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
+<span id="cb6-127"><a href="#cb6-127"></a></span>
+<span id="cb6-128"><a href="#cb6-128"></a><span class="co"># Suppression de mots dans le tableau lexical</span></span>
+<span id="cb6-129"><a href="#cb6-129"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
+<span id="cb6-130"><a href="#cb6-130"></a></span>
+<span id="cb6-131"><a href="#cb6-131"></a><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span id="cb6-132"><a href="#cb6-132"></a><span class="fu">frequent_terms</span>(dtm2)</span>
+<span id="cb6-133"><a href="#cb6-133"></a></span>
+<span id="cb6-134"><a href="#cb6-134"></a></span>
+<span id="cb6-135"><a href="#cb6-135"></a><span class="do">### Affichage du nuage de mots</span></span>
+<span id="cb6-136"><a href="#cb6-136"></a></span>
+<span id="cb6-137"><a href="#cb6-137"></a>cloud<span class="ot">&lt;-</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
+<span id="cb6-138"><a href="#cb6-138"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span>)</span>
+<span id="cb6-139"><a href="#cb6-139"></a></span>
+<span id="cb6-140"><a href="#cb6-140"></a><span class="in">```</span></span>
+<span id="cb6-141"><a href="#cb6-141"></a></span>
+<span id="cb6-142"><a href="#cb6-142"></a></span>
+<span id="cb6-143"><a href="#cb6-143"></a><span class="fu"># Ajouter le nom des packages aux fonctions avec `prefixer`</span></span>
+<span id="cb6-144"><a href="#cb6-144"></a></span>
+<span id="cb6-145"><a href="#cb6-145"></a><span class="fu">## Installer le package *prefixer* à partir de GitHub</span></span>
+<span id="cb6-146"><a href="#cb6-146"></a></span>
+<span id="cb6-147"><a href="#cb6-147"></a>L'addin prefix est disponible sur la forge logicielle de *dreamRs*</span>
+<span id="cb6-148"><a href="#cb6-148"></a></span>
+<span id="cb6-149"><a href="#cb6-149"></a><span class="in">```{r instal_pref, eval=FALSE }</span></span>
+<span id="cb6-150"><a href="#cb6-150"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb6-151"><a href="#cb6-151"></a><span class="fu">install_github</span>(<span class="st">"dreamRs/prefixer"</span>)</span>
+<span id="cb6-152"><a href="#cb6-152"></a><span class="in">```</span></span>
+<span id="cb6-153"><a href="#cb6-153"></a></span>
+<span id="cb6-154"><a href="#cb6-154"></a></span>
+<span id="cb6-155"><a href="#cb6-155"></a>Celui-ci permet d'ouvrir une interface qui propose pour chaque fonction du script de lui ajouter un préfixe composé du nom de la fonction suivi de <span class="in">`::`</span></span>
+<span id="cb6-156"><a href="#cb6-156"></a></span>
+<span id="cb6-157"><a href="#cb6-157"></a><span class="al">![](img/img1.png)</span></span>
+<span id="cb6-158"><a href="#cb6-158"></a></span>
+<span id="cb6-159"><a href="#cb6-159"></a><span class="fu">## Prefixer le script</span></span>
+<span id="cb6-160"><a href="#cb6-160"></a></span>
+<span id="cb6-161"><a href="#cb6-161"></a>A la fin du script R, on charge le package <span class="in">`prefixer`</span> puis on ouvre l'interface avec la commande <span class="in">`prefixer()`</span> </span>
+<span id="cb6-162"><a href="#cb6-162"></a></span>
+<span id="cb6-163"><a href="#cb6-163"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb6-164"><a href="#cb6-164"></a><span class="do">## Appel du package</span></span>
+<span id="cb6-165"><a href="#cb6-165"></a><span class="fu">library</span>(prefixer)</span>
+<span id="cb6-166"><a href="#cb6-166"></a><span class="do">## Ouverture de l'interface RShiny</span></span>
+<span id="cb6-167"><a href="#cb6-167"></a><span class="fu">prefixer</span>()</span>
+<span id="cb6-168"><a href="#cb6-168"></a><span class="in">```</span></span>
+<span id="cb6-169"><a href="#cb6-169"></a></span>
+<span id="cb6-170"><a href="#cb6-170"></a>Dans le cas de notre script</span>
+<span id="cb6-171"><a href="#cb6-171"></a></span>
+<span id="cb6-172"><a href="#cb6-172"></a><span class="al">![](img/img2.png)</span></span>
+<span id="cb6-173"><a href="#cb6-173"></a></span>
+<span id="cb6-174"><a href="#cb6-174"></a><span class="fu">## Utiliser la fenêtre shiny permettant de choisir le préfixe</span></span>
+<span id="cb6-175"><a href="#cb6-175"></a></span>
+<span id="cb6-176"><a href="#cb6-176"></a><span class="al">![](img/mov1.gif)</span></span>
+<span id="cb6-177"><a href="#cb6-177"></a></span>
+<span id="cb6-178"><a href="#cb6-178"></a><span class="fu"># Résultat: le script est enrichi</span></span>
+<span id="cb6-179"><a href="#cb6-179"></a></span>
+<span id="cb6-180"><a href="#cb6-180"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb6-181"><a href="#cb6-181"></a><span class="co">#| class: scroll_output </span></span>
+<span id="cb6-182"><a href="#cb6-182"></a></span>
+<span id="cb6-183"><a href="#cb6-183"></a><span class="do">## Statistiques textuelles</span></span>
+<span id="cb6-184"><a href="#cb6-184"></a><span class="do">## Création du tableau lexical associé au corpus des discours</span></span>
+<span id="cb6-185"><a href="#cb6-185"></a></span>
+<span id="cb6-186"><a href="#cb6-186"></a><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span id="cb6-187"><a href="#cb6-187"></a>corpusv <span class="ot">&lt;-</span> R.temis<span class="sc">::</span><span class="fu">import_corpus</span>(<span class="st">"datas/dossier_de_textes"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
+<span id="cb6-188"><a href="#cb6-188"></a></span>
+<span id="cb6-189"><a href="#cb6-189"></a><span class="co"># Création du tableau lexical associé </span></span>
+<span id="cb6-190"><a href="#cb6-190"></a><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span id="cb6-191"><a href="#cb6-191"></a></span>
+<span id="cb6-192"><a href="#cb6-192"></a>dtm <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">build_dtm</span>(corpusv, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
+<span id="cb6-193"><a href="#cb6-193"></a>dtm</span>
+<span id="cb6-194"><a href="#cb6-194"></a></span>
+<span id="cb6-195"><a href="#cb6-195"></a><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span id="cb6-196"><a href="#cb6-196"></a></span>
+<span id="cb6-197"><a href="#cb6-197"></a></span>
+<span id="cb6-198"><a href="#cb6-198"></a><span class="do">## Afficher les occurrences des mots du corpus</span></span>
+<span id="cb6-199"><a href="#cb6-199"></a><span class="co"># Calcul des occurrences des mots </span></span>
+<span id="cb6-200"><a href="#cb6-200"></a>R.temis<span class="sc">::</span><span class="fu">frequent_terms</span>(dtm) </span>
+<span id="cb6-201"><a href="#cb6-201"></a></span>
+<span id="cb6-202"><a href="#cb6-202"></a></span>
+<span id="cb6-203"><a href="#cb6-203"></a><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span id="cb6-204"><a href="#cb6-204"></a></span>
+<span id="cb6-205"><a href="#cb6-205"></a><span class="do">#### Personalisation du lexique</span></span>
+<span id="cb6-206"><a href="#cb6-206"></a></span>
+<span id="cb6-207"><a href="#cb6-207"></a><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span id="cb6-208"><a href="#cb6-208"></a>dic <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">dictionary</span>(dtm) </span>
+<span id="cb6-209"><a href="#cb6-209"></a></span>
+<span id="cb6-210"><a href="#cb6-210"></a><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span id="cb6-211"><a href="#cb6-211"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
+<span id="cb6-212"><a href="#cb6-212"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-213"><a href="#cb6-213"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Term =</span> stringr<span class="sc">::</span>word)</span>
+<span id="cb6-214"><a href="#cb6-214"></a></span>
+<span id="cb6-215"><a href="#cb6-215"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
+<span id="cb6-216"><a href="#cb6-216"></a></span>
+<span id="cb6-217"><a href="#cb6-217"></a><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span id="cb6-218"><a href="#cb6-218"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb6-219"><a href="#cb6-219"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb6-220"><a href="#cb6-220"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb6-221"><a href="#cb6-221"></a></span>
+<span id="cb6-222"><a href="#cb6-222"></a><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span id="cb6-223"><a href="#cb6-223"></a>dtmlem <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
+<span id="cb6-224"><a href="#cb6-224"></a></span>
+<span id="cb6-225"><a href="#cb6-225"></a><span class="co"># Ensemble de mots à retirer</span></span>
+<span id="cb6-226"><a href="#cb6-226"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
+<span id="cb6-227"><a href="#cb6-227"></a></span>
+<span id="cb6-228"><a href="#cb6-228"></a><span class="co"># Suppression de mots dans le tableau lexical</span></span>
+<span id="cb6-229"><a href="#cb6-229"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
+<span id="cb6-230"><a href="#cb6-230"></a></span>
+<span id="cb6-231"><a href="#cb6-231"></a><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span id="cb6-232"><a href="#cb6-232"></a>R.temis<span class="sc">::</span><span class="fu">frequent_terms</span>(dtm2)</span>
+<span id="cb6-233"><a href="#cb6-233"></a></span>
+<span id="cb6-234"><a href="#cb6-234"></a></span>
+<span id="cb6-235"><a href="#cb6-235"></a><span class="do">### Affichage du nuage de mots</span></span>
+<span id="cb6-236"><a href="#cb6-236"></a></span>
+<span id="cb6-237"><a href="#cb6-237"></a>cloud<span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
+<span id="cb6-238"><a href="#cb6-238"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span>)</span>
+<span id="cb6-239"><a href="#cb6-239"></a></span>
+<span id="cb6-240"><a href="#cb6-240"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":true});</script>
+
+
+
+</body></html>

@@ -663,5 +663,47 @@
     "title": "Déployer un contenu html sur gitlab",
     "section": "Générer sur Gitlab un projet pour déployer du contenu html",
     "text": "Générer sur Gitlab un projet pour déployer du contenu html\n\n\n\n\n\n\n1. Créer un nouveau projet\n\n\n\n\n\n2. Créer un projet à partir d’un template\n\n\n\n\n\n3. Sélectionner le template html\n\n\n\n\n\n\n\n4. Paramétrer et créer le projet\n\n\n\n\n\nEn haut à droite cliquer sur New project\nCliquer sur Create from template\nSélectionner le template Pages/Plain HTML en cliquant sur use template\nParamétrer et créer le projet:\n\nDonner un nom au projet qui s’ajoutera au nom de domaine\nVous pour modifier le nom de domaine (voir la fenêtre ouverte dans l’image)\nVérifier que le projet est de type public (visibility levels)"
+  },
+  {
+    "objectID": "R/assist/posts/pkg_prefix/pkg_prefix.html",
+    "href": "R/assist/posts/pkg_prefix/pkg_prefix.html",
+    "title": "Consolider sa reproductibilité avec le package prefixer",
+    "section": "",
+    "text": "Pour illustrer ce propos, nous reprennons le script de la fiche de Coralie Cottet Générer des graphes de mot avec R.temis. Nous allons ajouter un prefixe à chaque fonction utilisée pour générer un nuage de mots.\nDocumentation :\nInstallation des packages :\nFichiers à utilisés :\nLes voeux du président Hollande pour les années 2013 à 2017.\nChaque discours correspond à un fichier texte et ces 5 discours sont placés dans un dossier unique appelé dossier_de_textes"
+  },
+  {
+    "objectID": "R/assist/posts/pkg_prefix/pkg_prefix.html#ajouter-le-nom-des-packages-aux-fonctions",
+    "href": "R/assist/posts/pkg_prefix/pkg_prefix.html#ajouter-le-nom-des-packages-aux-fonctions",
+    "title": "Consolider sa réplicabilité avec le package prefixer",
+    "section": "Ajouter le nom des packages aux fonctions",
+    "text": "Ajouter le nom des packages aux fonctions\n\nInstaller le package prefixer à partir de GitHub\nL’addin prefix est disponible sur la forge logicielle de dreamRs\n\ninstall.packages(\"remotes\")\ninstall_github(\"dreamRs/prefixer\")\n\nCelui-ci permet d’ouvrir une interface qui propose pour chaque fonction du script de lui ajouter un préfixe composé du nom de la fonction suivi de ::\n\n\n\nPrefixer le script\nA la fin du script R, on charge le package prefixer puis on ouvre l’interface avec la commande prefixer()\n\n## Appel du package\nlibrary(prefixer)\n## Ouverture de l'interface RShiny\nprefixer()\n\nDans le cas de notre script"
+  },
+  {
+    "objectID": "R/assist/posts/pkg_prefix/pkg_prefix.html#ouvre-la-fenêtre-shiny-permettant-de-choisir-le-préfixe",
+    "href": "R/assist/posts/pkg_prefix/pkg_prefix.html#ouvre-la-fenêtre-shiny-permettant-de-choisir-le-préfixe",
+    "title": "Consolider sa réplicabilité avec le package prefixer",
+    "section": "Ouvre la fenêtre shiny permettant de choisir le préfixe ……",
+    "text": "Ouvre la fenêtre shiny permettant de choisir le préfixe ……"
+  },
+  {
+    "objectID": "R/assist/posts/pkg_prefix/pkg_prefix.html#installer-le-package-prefixer-à-partir-de-github",
+    "href": "R/assist/posts/pkg_prefix/pkg_prefix.html#installer-le-package-prefixer-à-partir-de-github",
+    "title": "Consolider sa reproductibilité avec le package prefixer",
+    "section": "Installer le package prefixer à partir de GitHub",
+    "text": "Installer le package prefixer à partir de GitHub\nL’addin prefix est disponible sur la forge logicielle de dreamRs\n\ninstall.packages(\"remotes\")\ninstall_github(\"dreamRs/prefixer\")\n\nCelui-ci permet d’ouvrir une interface qui propose pour chaque fonction du script de lui ajouter un préfixe composé du nom de la fonction suivi de ::"
+  },
+  {
+    "objectID": "R/assist/posts/pkg_prefix/pkg_prefix.html#prefixer-le-script",
+    "href": "R/assist/posts/pkg_prefix/pkg_prefix.html#prefixer-le-script",
+    "title": "Consolider sa reproductibilité avec le package prefixer",
+    "section": "Prefixer le script",
+    "text": "Prefixer le script\nA la fin du script R, on charge le package prefixer puis on ouvre l’interface avec la commande prefixer()\n\n## Appel du package\nlibrary(prefixer)\n## Ouverture de l'interface RShiny\nprefixer()\n\nDans le cas de notre script"
+  },
+  {
+    "objectID": "R/assist/posts/pkg_prefix/pkg_prefix.html#utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe",
+    "href": "R/assist/posts/pkg_prefix/pkg_prefix.html#utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe",
+    "title": "Consolider sa reproductibilité avec le package prefixer",
+    "section": "Utiliser la fenêtre shiny permettant de choisir le préfixe",
+    "text": "Utiliser la fenêtre shiny permettant de choisir le préfixe"
   }
 ]
