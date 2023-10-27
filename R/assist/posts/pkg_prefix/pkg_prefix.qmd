@@ -20,7 +20,7 @@ filters:
 lightbox: auto
 
 abstract: | 
-  Il est très simple d'ajouter, dans un script R, les noms des packages aux appels des fonctions. Sous forme de préfixes, ces indications permettent de repérer les packages utilisés et donc faciliter sa reproductibilité de l'analyse. Nous prenons ici l'exemple d'un script générant un nuage de mots à partir du package de statistique textuelle R.temis. 
+  Il est très simple d'ajouter, dans un script R, les noms des packages aux appels des fonctions. Sous forme de préfixes, ces indications permettent de repérer les packages utilisés et donc faciliter la reproductibilité de l'analyse. Nous prenons ici l'exemple d'un script générant un nuage de mots à partir du package de statistique textuelle R.temis. 
   
 ---
 

@@ -1,0 +1,322 @@
+---
+title: "Modifier la couleur d'un texte ou d'un paragraphe"
+
+categories:
+  - Quarto
+  - Scss
+  - Css
+
+format: 
+  html:
+    css:  style.css
+
+theme:
+  - style_couleur.scss
+        
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 10/27/2023
+
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. Classiquement on utilise soit un balisage html, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.
+---
+
+Ce document n'est pas une présentation générale des possibilité offertes par l'utilisation des **variables SASS** avec un fichier de type **`.scss`. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d'un texte.
+
+
+## Balise html brute
+
+Avec de l'html brut, on modifie la couleur d'un texte à l'aide d'une balise **`span`**. On utilisera les attributs **`color`** pour la couleur du texte, et **`background-color`** pour la modification de la couleur du fond.
+
+*Je veux que TEXTE soit en rouge*
+
+``` md
+Je veux que <span style="color:red"> TEXTE</span> soit en rouge.
+```
+
+**Résultat**: Je veux que [TEXTE]{style="color:red"} soit en rouge.
+
+``` md
+Je veux que <span style="color:red; background-color:yellow"> TEXTE</span> soit en rouge sur fond jaune
+```
+
+**Résultat**: Je veux que [TEXTE]{style="color:red; background-color:yellow"} soit en rouge sur fond jaune.
+
+
+## Ajouter directement un style css dans le fichier Quarto
+
+On définit le style, dans une **classe** appelée ici `.text-red`
+
+``` md
+<style>                                                      
+ .text-red {
+        color: red;
+      }     
+</style>
+```
+
+```{=html}
+<style>                                                      
+ .text-red {
+        color: red;
+      }     
+</style>
+```
+Et on va appliquer ce style à du texte:
+
+-   Soit comme précédemment avec une balise `<span>`
+
+``` md
+Je veux que <span style=".text-red"> TEXTE</span> soit en rouge 
+```
+
+***Résultat***: Je veux que [TEXTE]{style=".text-red"} soit en rouge
+
+-   Soit, **ce qui est fortement recommandé avec Quarto**, avec un attribut dont la syntaxe est `[TEXTE]{style}`
+
+***Résultat***: Je veux que [TEXTE]{.text-red} soit en rouge
+
+::: callout-tip
+### Changement de la couleur d'un paragraphe ou d'un texte long
+
+La méthode précédente, qui se substitue à une balise html `span`, est pratique pour un mot ou une phrase que l'on souhaite mettre en avant. Pour un paragraphe il est préférable d'utiliser l'équivalent Quarto d'une balise `div`, ouverte et fermée avec `:::` :
+
+``` md
+::: {.text-red}
+  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. 
+  Classiquement on  utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. 
+  On peut encore améliorer  la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.
+:::
+```
+
+***Résultat***:
+
+::: text-red
+Le formatage d'un document utilisant du markdown ne permet pas de modifier à la voler la couleur d'un mot ou d'un texte.  
+Classiquement, on utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css.  
+On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.
+:::
+:::
+
+::: callout-note
+### Définition d'une couleur à la *volée*
+
+On est pas obligé ici de définir un style préalable avec un nom spécifique. Si le changement de couleur intervient rarement ou une seul fois, on peut également changer la couleur avec
+
+``` md
+Je veux que [TEXTE]{style="color: red"} soit en rouge 
+```
+
+***Résultat***: Je veux que [TEXTE]{style="color: red"} soit en rouge
+:::
+
+## Ajouter un style à un fichier css
+
+Pour ne pas alourdir le fichier .qmd, il est préférable de définir les styles dans un fichier `.css`. Il s'agit d'un simple fichier texte que l'on peut directement générer avec **nouveau fichier**. Dans un projet (toujours conseillé), un fichier vide `style.css` est directement généré[^1].
+
+[^1]: On peut le nommer à sa guise
+
+-   Dans le yaml de la page (ou le `_quarto.yml` du projet)
+
+``` md
+---
+title: "Utilisation d'un fichier css"
+format: 
+  html:
+    css: style.css
+---
+```
+
+-   Pour définir les styles dans un fichier css, il n'y a pas besoin de la balise `style`
+
+``` md
+
+.text-indigo {
+        color: #6610f2;
+      }  
+```
+
+Dans le document Quarto:
+
+``` md
+Je veux que [TEXTE]{.text-indigo} soit en indigo 
+```
+
+***Résultat***: Je veux que [TEXTE]{.text-indigo} soit en indigo
+
+::: callout-tip
+### Ajout d'attributs et de classes
+
+**Ajout d'un attribut**
+
+Sans définir une nouvelle classe, on peut ajouter un attribut à ce type de formatage. Par exemple, on souhaite mettre une couleur de fond avec l'attribut `background-color: pink`.
+
+``` md
+Je veux que [TEXTE]{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose
+```
+
+***Résultat***: Je veux que [TEXTE]{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose
+
+**Ajout de classes**
+
+Dans le fichier css on génère une nouvelle classe indiquant un fond de type jaune.
+
+``` md
+.bgtext-yellow {
+        background-color: #f4bd61;
+      }     
+```
+
+On peut alors simplement ajouter cette nouvelle classe `bgtext-yellow` à celle qui  demande une couleur indigo
+
+``` md
+Je veux que [TEXTE]{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune 
+```
+
+***Résultat***: Je veux que [TEXTE]{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune
+
+
+On verra en fin de fiche, en habillant un paragraphe, que l'on peut ajouter une classe à la définition d'un autre attribut. Par exemple la classe `.text-indigo` pour définir la couleur d'un contour.
+
+:::
+
+## Générer les attributs d'un thème dans un fichier scss
+
+* Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type [**bootstrap**](https://bootswatch.com/)^[le thème par défaut n'est pas dans la liste, mais on peut le récupérer. Pour chaque thème, il est possible de récupérer l'ensemble des fichiers source permettant d'affecter le thème choisi au contenu html (cliquer sur download).
+* Lorsqu'on génère un projet Quarto, un fichier vide **style.scss** est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l'enregistrer avec l'extension `.scss`.
+* Définir les styles à partir d'un fichier `.scss` facilite l'affectation d'attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges .....
+* Ces définitions préalables sont appelées **variables SASS**^[Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d'autant que la syntaxe de ces variables ressemblent à s'en méprendre aux macro variables de cette application], que l'on peut soit générer facilement: `$couleur1=red;` ou utiliser les couleurs du thème choisi. 
+  * Il me semble préférable pour conserver l'homogénéité de l'habillage du document d'utiliser les couleurs prédéfinies du thème sélectionné
+  * On peut peut récupérer facilement ces couleurs sur le site [bootswatch](https://bootswatch.com/) comme indiquer   * On peut récupérer le squelette d'un fichier `.scss` pour les 26 à cette adresse [[fichiers scss des 26 thèmes  pour les couleurs](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)]
+* Une fois dans Rstudio, dans le fichier scss comprend: 
+  * La définition des attribus de type couleur
+  * Les affectations des couleurs dans des classes
+  
+***Définition des couleurs sous forme de variables SASS***  
+
+* Les échelles de gris de blanc à noir (11 couleurs) et 10 couleurs de base. Les noms des variables sont identiques d'un thème à l'autres, seuls les codes couleurs changent
+* Une première affectation de ces couleurs à 7 autres variables SASS: `$primary`, `$secondary`, `$success`, `$info`, `$warning`, `$danger`, `$light`, `$dark`.
+
+On peut bien évidemment ajouter de nouvelles variables ou modifier l'affectarion, par exemple la couleur `$teal` au lieu de `$green` pour la variable `$success`
+
+
+![Couleur SASS du thème ***default***](img/img1.png){width=70%}
+
+
+***Affectation des couleurs sous forme de variable SASS à une classe***
+  
+Toutes les définitions se font en tête de fichier et la partie réservées aux affectations à des classes doit être impérativement précédée par: 
+
+```md
+/*-- scss:rules --*/
+```
+
+On peut alors affecter les variables SASS aux 7 classes de couleurs du thème à l'aide d'un style css
+
+![Affectation des couleurs à une classe](img/img2.png){width=70%}
+
+Si on se centente d'utiliser ce squelette de sccs, il n'y a rien eu à faire jusqu'à ce stade.
+
+***Appel du fichier scss dans le document quarto***
+
+Comme pour un fichier css, il faut indiquer dans le yaml de la page ou du projet Quarto l'utilisation de ce fichier. 
+
+* Avec le thème par défaut et en utilisant le fichier ` style_default.scss` dans mon dépôt github: 
+
+```md
+format: 
+  html:
+    css: style.css
+    
+theme:
+  - style_default.scss
+```        
+
+* En utilisant un autre thème bootstrap, par exemple **lux** 
+
+```md
+format: 
+  html:
+    css: style.css
+    
+theme:
+  - lux
+  - style_lux.scss
+```    
+
+On a plus qu'à appliquer une des couleurs du thème au texte:
+
+Je veux utiliser la couleur [DANGER]{.danger} à mon texte
+
+Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j'ai donc ajouté un fond): 
+<div style="background-color:#919aa1; padding-left:5px; padding-right:5px; border-radius: 10px">
+-   Couleur [PRIMARY]{.primary}
+
+-   Couleur [SECONDARY]{.secondary}
+
+-   Couleur [SUCCES]{.success}
+
+-   Couleur [INFO]{.info}
+
+-   Couleur [WARNING]{.warning}
+
+-   Couleur [DANGER]{.danger}
+
+-   Couleur [LIGHT]{.light}
+
+-   Couleur [DARK]{.dark}
+</div>
+
+***Attribus supplémentaire à l'aide des variables SASS et limite sur les couleurs de fond***
+
+
+A la volée on peut vouloir également ajouter des attribus supplémentaires au texte.  
+
+On remarque que la couleur **light** est vraiment très très light (pour ne pas dire invisible). On peut donc vouloir ajouter une couleur de fond, celle définie avec la variable `$dark`.
+En css l'attribut est **`background-color`**.  
+
+Les classes de couleur définies dans le fichier scss ne s'applique pas au couleur de fond. Il font donc soit ajouter manuellement le code couleur correspondant à l'attribut dark, ou ajouter une ou plusieurs classes supplémentaires aux fichier scss (préférable). 
+
+Si on ajoute la classe bg-dark au fichier scss
+
+```md
+// Ajout classe bg-dark pour le background du text dans style_default.scss
+
+.bg-dark{background-color: $dark}
+```
+
+On va mettre le [fond dark à la couleur light]{.light .bg-dark}
+
+***Pour aller un peu plus loin***   
+
+
+Si on souhaite améliorer l'habillage du texte, avec par exemple une légère marge à gauche et à droite du texte ou adoucir l'angle du cadre, on peut utiliser les attributs **`padding-left`**, **`padding-right`**, **`border-radius`**. Ces attributs peuvent être ajouté à la volée ou paramétré dans le fichier scss, toujours à l'aide de variables SASS. 
+
+```md
+....[Amélioration de l'habillage]{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...
+```
+
+....[Amélioration de l'habillage]{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...
+
+
+Si on souhaite ajouter un contour, on peut ajouter des attributs comme **`border`** (épaisseur du trait) et **`border-style:solid`**. On inversera ici la couleur du texte et du fond après avoir créer une classe `bg-light`
+
+```md
+....[Amélioration de l'habillage]{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...
+```
+
+....[Amélioration de l'habillage]{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...
+
+
+
+
+
