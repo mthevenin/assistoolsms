@@ -30,7 +30,7 @@ abstract: |
   Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. Classiquement on utilise soit un balisage html, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.
 ---
 
-Ce document n'est pas une présentation générale des possibilité offertes par l'utilisation des **variables SASS** avec un fichier de type **`.scss`. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d'un texte.
+Ce document n'est pas une présentation générale des possibilité offertes par l'utilisation des **variables SASS** avec un fichier de type **`.scss`**. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d'un texte.
 
 
 ## Balise html brute
@@ -71,17 +71,12 @@ On définit le style, dans une **classe** appelée ici `.text-red`
       }     
 </style>
 ```
-Et on va appliquer ce style à du texte:
 
--   Soit comme précédemment avec une balise `<span>`
+Et on va appliquer ce style au texte Soit avec la nouvelle syntaxe Quarto  **`[TEXTE]{style}`**
 
-``` md
-Je veux que <span style=".text-red"> TEXTE</span> soit en rouge 
-```
-
-***Résultat***: Je veux que [TEXTE]{style=".text-red"} soit en rouge
-
--   Soit, **ce qui est fortement recommandé avec Quarto**, avec un attribut dont la syntaxe est `[TEXTE]{style}`
+```md
+ Je veux que [TEXTE]{.text-red} soit en rouge
+``` 
 
 ***Résultat***: Je veux que [TEXTE]{.text-red} soit en rouge
 
@@ -154,7 +149,7 @@ Je veux que [TEXTE]{.text-indigo} soit en indigo
 ***Résultat***: Je veux que [TEXTE]{.text-indigo} soit en indigo
 
 ::: callout-tip
-### Ajout d'attributs et de classes
+### Ajouter des classes et des attributs
 
 **Ajout d'un attribut**
 
@@ -191,13 +186,17 @@ On verra en fin de fiche, en habillant un paragraphe, que l'on peut ajouter une 
 
 ## Générer les attributs d'un thème dans un fichier scss
 
-* Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type [**bootstrap**](https://bootswatch.com/)^[le thème par défaut n'est pas dans la liste, mais on peut le récupérer. Pour chaque thème, il est possible de récupérer l'ensemble des fichiers source permettant d'affecter le thème choisi au contenu html (cliquer sur download).
-* Lorsqu'on génère un projet Quarto, un fichier vide **style.scss** est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l'enregistrer avec l'extension `.scss`.
-* Définir les styles à partir d'un fichier `.scss` facilite l'affectation d'attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges .....
+* Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type [**bootstrap**](https://bootswatch.com/)^[le thème par défaut n'est pas dans la liste, mais il  a  récupéreé]. Pour chaque thème, il est possible de récupérer l'ensemble des fichiers source permettant d'affecter le thème choisi au contenu html (cliquer sur download).  
+
+* Lorsqu'on génère un projet Quarto, un fichier vide **style.scss** est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l'enregistrer avec l'extension `.scss`.  
+
+* Définir les styles à partir d'un fichier `.scss` facilite l'affectation d'attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges .....  
+
 * Ces définitions préalables sont appelées **variables SASS**^[Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d'autant que la syntaxe de ces variables ressemblent à s'en méprendre aux macro variables de cette application], que l'on peut soit générer facilement: `$couleur1=red;` ou utiliser les couleurs du thème choisi. 
   * Il me semble préférable pour conserver l'homogénéité de l'habillage du document d'utiliser les couleurs prédéfinies du thème sélectionné
   * On peut peut récupérer facilement ces couleurs sur le site [bootswatch](https://bootswatch.com/) comme indiquer plus haut
-  * On peut récupérer le squelette d'un fichier `.scss` pour les 26 à cette adresse [[fichiers scss des 26 thèmes  pour les couleurs](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)]
+  * On peut récupérer le squelette d'un fichier `.scss` pour les 26 à cette adresse [[fichiers scss des 26 thèmes  pour les couleurs](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)  
+  
 * Une fois dans Rstudio, dans le fichier scss comprend: 
   * La définition des attribus de type couleur
   * Les affectations des couleurs dans des classes

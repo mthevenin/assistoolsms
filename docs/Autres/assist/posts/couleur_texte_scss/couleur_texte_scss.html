@@ -196,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Ce document n’est pas une présentation générale des possibilité offertes par l’utilisation des <strong>variables SASS</strong> avec un fichier de type **<code>.scss</code>. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d’un texte.</p>
+<p>Ce document n’est pas une présentation générale des possibilité offertes par l’utilisation des <strong>variables SASS</strong> avec un fichier de type <strong><code>.scss</code></strong>. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d’un texte.</p>
 <section id="balise-html-brute" class="level2">
 <h2 class="anchored" data-anchor-id="balise-html-brute">Balise html brute</h2>
 <p>Avec de l’html brut, on modifie la couleur d’un texte à l’aide d’une balise <strong><code>span</code></strong>. On utilisera les attributs <strong><code>color</code></strong> pour la couleur du texte, et <strong><code>background-color</code></strong> pour la modification de la couleur du fond.</p>
@@ -219,15 +219,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         color: red;
       }     
 </style>
-<p>Et on va appliquer ce style à du texte:</p>
-<ul>
-<li>Soit comme précédemment avec une balise <code>&lt;span&gt;</code></li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a>Je veux que <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">".text-red"</span><span class="kw">&gt;</span> TEXTE<span class="kw">&lt;/span&gt;</span> soit en rouge </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong><em>Résultat</em></strong>: Je veux que <span style=".text-red">TEXTE</span> soit en rouge</p>
-<ul>
-<li>Soit, <strong>ce qui est fortement recommandé avec Quarto</strong>, avec un attribut dont la syntaxe est <code>[TEXTE]{style}</code></li>
-</ul>
+<p>Et on va appliquer ce style au texte Soit avec la nouvelle syntaxe Quarto <strong><code>[TEXTE]{style}</code></strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a> Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><em>Résultat</em></strong>: Je veux que <span class="text-red">TEXTE</span> soit en rouge</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -297,7 +290,7 @@ Définition d’une couleur à la <em>volée</em>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Ajout d’attributs et de classes
+Ajouter des classes et des attributs
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -320,16 +313,16 @@ Ajout d’attributs et de classes
 <section id="générer-les-attributs-dun-thème-dans-un-fichier-scss" class="level2">
 <h2 class="anchored" data-anchor-id="générer-les-attributs-dun-thème-dans-un-fichier-scss">Générer les attributs d’un thème dans un fichier scss</h2>
 <ul>
-<li>Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type <a href="https://bootswatch.com/"><strong>bootstrap</strong></a>^[le thème par défaut n’est pas dans la liste, mais on peut le récupérer. Pour chaque thème, il est possible de récupérer l’ensemble des fichiers source permettant d’affecter le thème choisi au contenu html (cliquer sur download).</li>
-<li>Lorsqu’on génère un projet Quarto, un fichier vide <strong>style.scss</strong> est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l’enregistrer avec l’extension <code>.scss</code>.</li>
-<li>Définir les styles à partir d’un fichier <code>.scss</code> facilite l’affectation d’attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges …..</li>
-<li>Ces définitions préalables sont appelées <strong>variables SASS</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, que l’on peut soit générer facilement: <code>$couleur1=red;</code> ou utiliser les couleurs du thème choisi.
+<li><p>Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type <a href="https://bootswatch.com/"><strong>bootstrap</strong></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Pour chaque thème, il est possible de récupérer l’ensemble des fichiers source permettant d’affecter le thème choisi au contenu html (cliquer sur download).</p></li>
+<li><p>Lorsqu’on génère un projet Quarto, un fichier vide <strong>style.scss</strong> est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l’enregistrer avec l’extension <code>.scss</code>.</p></li>
+<li><p>Définir les styles à partir d’un fichier <code>.scss</code> facilite l’affectation d’attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges …..</p></li>
+<li><p>Ces définitions préalables sont appelées <strong>variables SASS</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, que l’on peut soit générer facilement: <code>$couleur1=red;</code> ou utiliser les couleurs du thème choisi.</p>
 <ul>
 <li>Il me semble préférable pour conserver l’homogénéité de l’habillage du document d’utiliser les couleurs prédéfinies du thème sélectionné</li>
 <li>On peut peut récupérer facilement ces couleurs sur le site <a href="https://bootswatch.com/">bootswatch</a> comme indiquer plus haut</li>
-<li>On peut récupérer le squelette d’un fichier <code>.scss</code> pour les 26 à cette adresse [<a href="https://github.com/mthevenin/quarto/tree/main/scss_color_theme">fichiers scss des 26 thèmes pour les couleurs</a>]</li>
+<li>On peut récupérer le squelette d’un fichier <code>.scss</code> pour les 26 à cette adresse [<a href="https://github.com/mthevenin/quarto/tree/main/scss_color_theme">fichiers scss des 26 thèmes pour les couleurs</a></li>
 </ul></li>
-<li>Une fois dans Rstudio, dans le fichier scss comprend:
+<li><p>Une fois dans Rstudio, dans le fichier scss comprend:</p>
 <ul>
 <li>La définition des attribus de type couleur</li>
 <li>Les affectations des couleurs dans des classes</li>
@@ -421,7 +414,8 @@ Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j’ai 
 
 <ol>
 <li id="fn1"><p>On peut le nommer à sa guise<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d’autant que la syntaxe de ces variables ressemblent à s’en méprendre aux macro variables de cette application<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>le thème par défaut n’est pas dans la liste, mais il a récupéreé<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d’autant que la syntaxe de ces variables ressemblent à s’en méprendre aux macro variables de cette application<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -742,7 +736,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-30"><a href="#cb19-30"></a><span class="co">  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. Classiquement on utilise soit un balisage html, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span></span>
 <span id="cb19-31"><a href="#cb19-31"></a><span class="co">---</span></span>
 <span id="cb19-32"><a href="#cb19-32"></a></span>
-<span id="cb19-33"><a href="#cb19-33"></a>Ce document n'est pas une présentation générale des possibilité offertes par l'utilisation des **variables SASS** avec un fichier de type **<span class="in">`.scss`</span>. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d'un texte.</span>
+<span id="cb19-33"><a href="#cb19-33"></a>Ce document n'est pas une présentation générale des possibilité offertes par l'utilisation des **variables SASS** avec un fichier de type **`.scss`**. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d'un texte.</span>
 <span id="cb19-34"><a href="#cb19-34"></a></span>
 <span id="cb19-35"><a href="#cb19-35"></a></span>
 <span id="cb19-36"><a href="#cb19-36"></a><span class="fu">## Balise html brute</span></span>
@@ -783,258 +777,257 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-71"><a href="#cb19-71"></a><span class="in">      }     </span></span>
 <span id="cb19-72"><a href="#cb19-72"></a><span class="in">&lt;/style&gt;</span></span>
 <span id="cb19-73"><a href="#cb19-73"></a><span class="in">```</span></span>
-<span id="cb19-74"><a href="#cb19-74"></a>Et on va appliquer ce style à du texte:</span>
-<span id="cb19-75"><a href="#cb19-75"></a></span>
-<span id="cb19-76"><a href="#cb19-76"></a><span class="ss">-   </span>Soit comme précédemment avec une balise <span class="in">`&lt;span&gt;`</span></span>
-<span id="cb19-77"><a href="#cb19-77"></a></span>
-<span id="cb19-78"><a href="#cb19-78"></a><span class="in">``` md</span></span>
-<span id="cb19-79"><a href="#cb19-79"></a>Je veux que <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">".text-red"</span><span class="kw">&gt;</span> TEXTE<span class="kw">&lt;/span&gt;</span> soit en rouge </span>
-<span id="cb19-80"><a href="#cb19-80"></a><span class="in">```</span></span>
-<span id="cb19-81"><a href="#cb19-81"></a></span>
-<span id="cb19-82"><a href="#cb19-82"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style=".text-red"} soit en rouge</span>
-<span id="cb19-83"><a href="#cb19-83"></a></span>
-<span id="cb19-84"><a href="#cb19-84"></a><span class="ss">-   </span>Soit, **ce qui est fortement recommandé avec Quarto**, avec un attribut dont la syntaxe est <span class="in">`[TEXTE]{style}`</span></span>
+<span id="cb19-74"><a href="#cb19-74"></a></span>
+<span id="cb19-75"><a href="#cb19-75"></a>Et on va appliquer ce style au texte Soit avec la nouvelle syntaxe Quarto  **`[TEXTE]{style}`**</span>
+<span id="cb19-76"><a href="#cb19-76"></a></span>
+<span id="cb19-77"><a href="#cb19-77"></a><span class="in">```md</span></span>
+<span id="cb19-78"><a href="#cb19-78"></a> Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span>
+<span id="cb19-79"><a href="#cb19-79"></a><span class="in">```</span> </span>
+<span id="cb19-80"><a href="#cb19-80"></a></span>
+<span id="cb19-81"><a href="#cb19-81"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span>
+<span id="cb19-82"><a href="#cb19-82"></a></span>
+<span id="cb19-83"><a href="#cb19-83"></a>::: callout-tip</span>
+<span id="cb19-84"><a href="#cb19-84"></a><span class="fu">### Changement de la couleur d'un paragraphe ou d'un texte long</span></span>
 <span id="cb19-85"><a href="#cb19-85"></a></span>
-<span id="cb19-86"><a href="#cb19-86"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span>
+<span id="cb19-86"><a href="#cb19-86"></a>La méthode précédente, qui se substitue à une balise html <span class="in">`span`</span>, est pratique pour un mot ou une phrase que l'on souhaite mettre en avant. Pour un paragraphe il est préférable d'utiliser l'équivalent Quarto d'une balise <span class="in">`div`</span>, ouverte et fermée avec <span class="in">`:::`</span> :</span>
 <span id="cb19-87"><a href="#cb19-87"></a></span>
-<span id="cb19-88"><a href="#cb19-88"></a>::: callout-tip</span>
-<span id="cb19-89"><a href="#cb19-89"></a><span class="fu">### Changement de la couleur d'un paragraphe ou d'un texte long</span></span>
-<span id="cb19-90"><a href="#cb19-90"></a></span>
-<span id="cb19-91"><a href="#cb19-91"></a>La méthode précédente, qui se substitue à une balise html <span class="in">`span`</span>, est pratique pour un mot ou une phrase que l'on souhaite mettre en avant. Pour un paragraphe il est préférable d'utiliser l'équivalent Quarto d'une balise <span class="in">`div`</span>, ouverte et fermée avec <span class="in">`:::`</span> :</span>
-<span id="cb19-92"><a href="#cb19-92"></a></span>
-<span id="cb19-93"><a href="#cb19-93"></a><span class="in">``` md</span></span>
-<span id="cb19-94"><a href="#cb19-94"></a>::: {.text-red}</span>
-<span id="cb19-95"><a href="#cb19-95"></a>  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. </span>
-<span id="cb19-96"><a href="#cb19-96"></a>  Classiquement on  utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. </span>
-<span id="cb19-97"><a href="#cb19-97"></a>  On peut encore améliorer  la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
-<span id="cb19-98"><a href="#cb19-98"></a>:::</span>
-<span id="cb19-99"><a href="#cb19-99"></a><span class="in">```</span></span>
-<span id="cb19-100"><a href="#cb19-100"></a></span>
-<span id="cb19-101"><a href="#cb19-101"></a>***Résultat***:</span>
-<span id="cb19-102"><a href="#cb19-102"></a></span>
-<span id="cb19-103"><a href="#cb19-103"></a>::: text-red</span>
-<span id="cb19-104"><a href="#cb19-104"></a>Le formatage d'un document utilisant du markdown ne permet pas de modifier à la voler la couleur d'un mot ou d'un texte.  </span>
-<span id="cb19-105"><a href="#cb19-105"></a>Classiquement, on utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css.  </span>
-<span id="cb19-106"><a href="#cb19-106"></a>On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
-<span id="cb19-107"><a href="#cb19-107"></a>:::</span>
-<span id="cb19-108"><a href="#cb19-108"></a>:::</span>
+<span id="cb19-88"><a href="#cb19-88"></a><span class="in">``` md</span></span>
+<span id="cb19-89"><a href="#cb19-89"></a>::: {.text-red}</span>
+<span id="cb19-90"><a href="#cb19-90"></a>  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. </span>
+<span id="cb19-91"><a href="#cb19-91"></a>  Classiquement on  utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. </span>
+<span id="cb19-92"><a href="#cb19-92"></a>  On peut encore améliorer  la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
+<span id="cb19-93"><a href="#cb19-93"></a>:::</span>
+<span id="cb19-94"><a href="#cb19-94"></a><span class="in">```</span></span>
+<span id="cb19-95"><a href="#cb19-95"></a></span>
+<span id="cb19-96"><a href="#cb19-96"></a>***Résultat***:</span>
+<span id="cb19-97"><a href="#cb19-97"></a></span>
+<span id="cb19-98"><a href="#cb19-98"></a>::: text-red</span>
+<span id="cb19-99"><a href="#cb19-99"></a>Le formatage d'un document utilisant du markdown ne permet pas de modifier à la voler la couleur d'un mot ou d'un texte.  </span>
+<span id="cb19-100"><a href="#cb19-100"></a>Classiquement, on utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css.  </span>
+<span id="cb19-101"><a href="#cb19-101"></a>On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
+<span id="cb19-102"><a href="#cb19-102"></a>:::</span>
+<span id="cb19-103"><a href="#cb19-103"></a>:::</span>
+<span id="cb19-104"><a href="#cb19-104"></a></span>
+<span id="cb19-105"><a href="#cb19-105"></a>::: callout-note</span>
+<span id="cb19-106"><a href="#cb19-106"></a><span class="fu">### Définition d'une couleur à la *volée*</span></span>
+<span id="cb19-107"><a href="#cb19-107"></a></span>
+<span id="cb19-108"><a href="#cb19-108"></a>On est pas obligé ici de définir un style préalable avec un nom spécifique. Si le changement de couleur intervient rarement ou une seul fois, on peut également changer la couleur avec</span>
 <span id="cb19-109"><a href="#cb19-109"></a></span>
-<span id="cb19-110"><a href="#cb19-110"></a>::: callout-note</span>
-<span id="cb19-111"><a href="#cb19-111"></a><span class="fu">### Définition d'une couleur à la *volée*</span></span>
-<span id="cb19-112"><a href="#cb19-112"></a></span>
-<span id="cb19-113"><a href="#cb19-113"></a>On est pas obligé ici de définir un style préalable avec un nom spécifique. Si le changement de couleur intervient rarement ou une seul fois, on peut également changer la couleur avec</span>
-<span id="cb19-114"><a href="#cb19-114"></a></span>
-<span id="cb19-115"><a href="#cb19-115"></a><span class="in">``` md</span></span>
-<span id="cb19-116"><a href="#cb19-116"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge </span>
-<span id="cb19-117"><a href="#cb19-117"></a><span class="in">```</span></span>
+<span id="cb19-110"><a href="#cb19-110"></a><span class="in">``` md</span></span>
+<span id="cb19-111"><a href="#cb19-111"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge </span>
+<span id="cb19-112"><a href="#cb19-112"></a><span class="in">```</span></span>
+<span id="cb19-113"><a href="#cb19-113"></a></span>
+<span id="cb19-114"><a href="#cb19-114"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge</span>
+<span id="cb19-115"><a href="#cb19-115"></a>:::</span>
+<span id="cb19-116"><a href="#cb19-116"></a></span>
+<span id="cb19-117"><a href="#cb19-117"></a><span class="fu">## Ajouter un style à un fichier css</span></span>
 <span id="cb19-118"><a href="#cb19-118"></a></span>
-<span id="cb19-119"><a href="#cb19-119"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge</span>
-<span id="cb19-120"><a href="#cb19-120"></a>:::</span>
-<span id="cb19-121"><a href="#cb19-121"></a></span>
-<span id="cb19-122"><a href="#cb19-122"></a><span class="fu">## Ajouter un style à un fichier css</span></span>
-<span id="cb19-123"><a href="#cb19-123"></a></span>
-<span id="cb19-124"><a href="#cb19-124"></a>Pour ne pas alourdir le fichier .qmd, il est préférable de définir les styles dans un fichier <span class="in">`.css`</span>. Il s'agit d'un simple fichier texte que l'on peut directement générer avec **nouveau fichier**. Dans un projet (toujours conseillé), un fichier vide <span class="in">`style.css`</span> est directement généré<span class="ot">[^1]</span>.</span>
-<span id="cb19-125"><a href="#cb19-125"></a></span>
-<span id="cb19-126"><a href="#cb19-126"></a><span class="ot">[^1]: </span>On peut le nommer à sa guise</span>
-<span id="cb19-127"><a href="#cb19-127"></a></span>
-<span id="cb19-128"><a href="#cb19-128"></a><span class="ss">-   </span>Dans le yaml de la page (ou le <span class="in">`_quarto.yml`</span> du projet)</span>
-<span id="cb19-129"><a href="#cb19-129"></a></span>
-<span id="cb19-130"><a href="#cb19-130"></a><span class="in">``` md</span></span>
+<span id="cb19-119"><a href="#cb19-119"></a>Pour ne pas alourdir le fichier .qmd, il est préférable de définir les styles dans un fichier <span class="in">`.css`</span>. Il s'agit d'un simple fichier texte que l'on peut directement générer avec **nouveau fichier**. Dans un projet (toujours conseillé), un fichier vide <span class="in">`style.css`</span> est directement généré<span class="ot">[^1]</span>.</span>
+<span id="cb19-120"><a href="#cb19-120"></a></span>
+<span id="cb19-121"><a href="#cb19-121"></a><span class="ot">[^1]: </span>On peut le nommer à sa guise</span>
+<span id="cb19-122"><a href="#cb19-122"></a></span>
+<span id="cb19-123"><a href="#cb19-123"></a><span class="ss">-   </span>Dans le yaml de la page (ou le <span class="in">`_quarto.yml`</span> du projet)</span>
+<span id="cb19-124"><a href="#cb19-124"></a></span>
+<span id="cb19-125"><a href="#cb19-125"></a><span class="in">``` md</span></span>
+<span id="cb19-126"><a href="#cb19-126"></a>---</span>
+<span id="cb19-127"><a href="#cb19-127"></a>title: "Utilisation d'un fichier css"</span>
+<span id="cb19-128"><a href="#cb19-128"></a>format: </span>
+<span id="cb19-129"><a href="#cb19-129"></a>  html:</span>
+<span id="cb19-130"><a href="#cb19-130"></a>    css: style.css</span>
 <span id="cb19-131"><a href="#cb19-131"></a>---</span>
-<span id="cb19-132"><a href="#cb19-132"></a>title: "Utilisation d'un fichier css"</span>
-<span id="cb19-133"><a href="#cb19-133"></a>format: </span>
-<span id="cb19-134"><a href="#cb19-134"></a>  html:</span>
-<span id="cb19-135"><a href="#cb19-135"></a>    css: style.css</span>
-<span id="cb19-136"><a href="#cb19-136"></a>---</span>
-<span id="cb19-137"><a href="#cb19-137"></a><span class="in">```</span></span>
-<span id="cb19-138"><a href="#cb19-138"></a></span>
-<span id="cb19-139"><a href="#cb19-139"></a><span class="ss">-   </span>Pour définir les styles dans un fichier css, il n'y a pas besoin de la balise <span class="in">`style`</span></span>
-<span id="cb19-140"><a href="#cb19-140"></a></span>
-<span id="cb19-141"><a href="#cb19-141"></a><span class="in">``` md</span></span>
+<span id="cb19-132"><a href="#cb19-132"></a><span class="in">```</span></span>
+<span id="cb19-133"><a href="#cb19-133"></a></span>
+<span id="cb19-134"><a href="#cb19-134"></a><span class="ss">-   </span>Pour définir les styles dans un fichier css, il n'y a pas besoin de la balise <span class="in">`style`</span></span>
+<span id="cb19-135"><a href="#cb19-135"></a></span>
+<span id="cb19-136"><a href="#cb19-136"></a><span class="in">``` md</span></span>
+<span id="cb19-137"><a href="#cb19-137"></a></span>
+<span id="cb19-138"><a href="#cb19-138"></a>.text-indigo {</span>
+<span id="cb19-139"><a href="#cb19-139"></a>        color: #6610f2;</span>
+<span id="cb19-140"><a href="#cb19-140"></a>      }  </span>
+<span id="cb19-141"><a href="#cb19-141"></a><span class="in">```</span></span>
 <span id="cb19-142"><a href="#cb19-142"></a></span>
-<span id="cb19-143"><a href="#cb19-143"></a>.text-indigo {</span>
-<span id="cb19-144"><a href="#cb19-144"></a>        color: #6610f2;</span>
-<span id="cb19-145"><a href="#cb19-145"></a>      }  </span>
-<span id="cb19-146"><a href="#cb19-146"></a><span class="in">```</span></span>
-<span id="cb19-147"><a href="#cb19-147"></a></span>
-<span id="cb19-148"><a href="#cb19-148"></a>Dans le document Quarto:</span>
-<span id="cb19-149"><a href="#cb19-149"></a></span>
-<span id="cb19-150"><a href="#cb19-150"></a><span class="in">``` md</span></span>
-<span id="cb19-151"><a href="#cb19-151"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo </span>
-<span id="cb19-152"><a href="#cb19-152"></a><span class="in">```</span></span>
+<span id="cb19-143"><a href="#cb19-143"></a>Dans le document Quarto:</span>
+<span id="cb19-144"><a href="#cb19-144"></a></span>
+<span id="cb19-145"><a href="#cb19-145"></a><span class="in">``` md</span></span>
+<span id="cb19-146"><a href="#cb19-146"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo </span>
+<span id="cb19-147"><a href="#cb19-147"></a><span class="in">```</span></span>
+<span id="cb19-148"><a href="#cb19-148"></a></span>
+<span id="cb19-149"><a href="#cb19-149"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo</span>
+<span id="cb19-150"><a href="#cb19-150"></a></span>
+<span id="cb19-151"><a href="#cb19-151"></a>::: callout-tip</span>
+<span id="cb19-152"><a href="#cb19-152"></a><span class="fu">### Ajouter des classes et des attributs</span></span>
 <span id="cb19-153"><a href="#cb19-153"></a></span>
-<span id="cb19-154"><a href="#cb19-154"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo</span>
+<span id="cb19-154"><a href="#cb19-154"></a>**Ajout d'un attribut**</span>
 <span id="cb19-155"><a href="#cb19-155"></a></span>
-<span id="cb19-156"><a href="#cb19-156"></a>::: callout-tip</span>
-<span id="cb19-157"><a href="#cb19-157"></a><span class="fu">### Ajout d'attributs et de classes</span></span>
-<span id="cb19-158"><a href="#cb19-158"></a></span>
-<span id="cb19-159"><a href="#cb19-159"></a>**Ajout d'un attribut**</span>
-<span id="cb19-160"><a href="#cb19-160"></a></span>
-<span id="cb19-161"><a href="#cb19-161"></a>Sans définir une nouvelle classe, on peut ajouter un attribut à ce type de formatage. Par exemple, on souhaite mettre une couleur de fond avec l'attribut <span class="in">`background-color: pink`</span>.</span>
-<span id="cb19-162"><a href="#cb19-162"></a></span>
-<span id="cb19-163"><a href="#cb19-163"></a><span class="in">``` md</span></span>
-<span id="cb19-164"><a href="#cb19-164"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span>
-<span id="cb19-165"><a href="#cb19-165"></a><span class="in">```</span></span>
-<span id="cb19-166"><a href="#cb19-166"></a></span>
-<span id="cb19-167"><a href="#cb19-167"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span>
-<span id="cb19-168"><a href="#cb19-168"></a></span>
-<span id="cb19-169"><a href="#cb19-169"></a>**Ajout de classes**</span>
-<span id="cb19-170"><a href="#cb19-170"></a></span>
-<span id="cb19-171"><a href="#cb19-171"></a>Dans le fichier css on génère une nouvelle classe indiquant un fond de type jaune.</span>
-<span id="cb19-172"><a href="#cb19-172"></a></span>
-<span id="cb19-173"><a href="#cb19-173"></a><span class="in">``` md</span></span>
-<span id="cb19-174"><a href="#cb19-174"></a>.bgtext-yellow {</span>
-<span id="cb19-175"><a href="#cb19-175"></a>        background-color: #f4bd61;</span>
-<span id="cb19-176"><a href="#cb19-176"></a>      }     </span>
-<span id="cb19-177"><a href="#cb19-177"></a><span class="in">```</span></span>
-<span id="cb19-178"><a href="#cb19-178"></a></span>
-<span id="cb19-179"><a href="#cb19-179"></a>On peut alors simplement ajouter cette nouvelle classe <span class="in">`bgtext-yellow`</span> à celle qui  demande une couleur indigo</span>
-<span id="cb19-180"><a href="#cb19-180"></a></span>
-<span id="cb19-181"><a href="#cb19-181"></a><span class="in">``` md</span></span>
-<span id="cb19-182"><a href="#cb19-182"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune </span>
-<span id="cb19-183"><a href="#cb19-183"></a><span class="in">```</span></span>
+<span id="cb19-156"><a href="#cb19-156"></a>Sans définir une nouvelle classe, on peut ajouter un attribut à ce type de formatage. Par exemple, on souhaite mettre une couleur de fond avec l'attribut <span class="in">`background-color: pink`</span>.</span>
+<span id="cb19-157"><a href="#cb19-157"></a></span>
+<span id="cb19-158"><a href="#cb19-158"></a><span class="in">``` md</span></span>
+<span id="cb19-159"><a href="#cb19-159"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span>
+<span id="cb19-160"><a href="#cb19-160"></a><span class="in">```</span></span>
+<span id="cb19-161"><a href="#cb19-161"></a></span>
+<span id="cb19-162"><a href="#cb19-162"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span>
+<span id="cb19-163"><a href="#cb19-163"></a></span>
+<span id="cb19-164"><a href="#cb19-164"></a>**Ajout de classes**</span>
+<span id="cb19-165"><a href="#cb19-165"></a></span>
+<span id="cb19-166"><a href="#cb19-166"></a>Dans le fichier css on génère une nouvelle classe indiquant un fond de type jaune.</span>
+<span id="cb19-167"><a href="#cb19-167"></a></span>
+<span id="cb19-168"><a href="#cb19-168"></a><span class="in">``` md</span></span>
+<span id="cb19-169"><a href="#cb19-169"></a>.bgtext-yellow {</span>
+<span id="cb19-170"><a href="#cb19-170"></a>        background-color: #f4bd61;</span>
+<span id="cb19-171"><a href="#cb19-171"></a>      }     </span>
+<span id="cb19-172"><a href="#cb19-172"></a><span class="in">```</span></span>
+<span id="cb19-173"><a href="#cb19-173"></a></span>
+<span id="cb19-174"><a href="#cb19-174"></a>On peut alors simplement ajouter cette nouvelle classe <span class="in">`bgtext-yellow`</span> à celle qui  demande une couleur indigo</span>
+<span id="cb19-175"><a href="#cb19-175"></a></span>
+<span id="cb19-176"><a href="#cb19-176"></a><span class="in">``` md</span></span>
+<span id="cb19-177"><a href="#cb19-177"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune </span>
+<span id="cb19-178"><a href="#cb19-178"></a><span class="in">```</span></span>
+<span id="cb19-179"><a href="#cb19-179"></a></span>
+<span id="cb19-180"><a href="#cb19-180"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune</span>
+<span id="cb19-181"><a href="#cb19-181"></a></span>
+<span id="cb19-182"><a href="#cb19-182"></a></span>
+<span id="cb19-183"><a href="#cb19-183"></a>On verra en fin de fiche, en habillant un paragraphe, que l'on peut ajouter une classe à la définition d'un autre attribut. Par exemple la classe <span class="in">`.text-indigo`</span> pour définir la couleur d'un contour.</span>
 <span id="cb19-184"><a href="#cb19-184"></a></span>
-<span id="cb19-185"><a href="#cb19-185"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune</span>
+<span id="cb19-185"><a href="#cb19-185"></a>:::</span>
 <span id="cb19-186"><a href="#cb19-186"></a></span>
-<span id="cb19-187"><a href="#cb19-187"></a></span>
-<span id="cb19-188"><a href="#cb19-188"></a>On verra en fin de fiche, en habillant un paragraphe, que l'on peut ajouter une classe à la définition d'un autre attribut. Par exemple la classe <span class="in">`.text-indigo`</span> pour définir la couleur d'un contour.</span>
-<span id="cb19-189"><a href="#cb19-189"></a></span>
-<span id="cb19-190"><a href="#cb19-190"></a>:::</span>
-<span id="cb19-191"><a href="#cb19-191"></a></span>
-<span id="cb19-192"><a href="#cb19-192"></a><span class="fu">## Générer les attributs d'un thème dans un fichier scss</span></span>
-<span id="cb19-193"><a href="#cb19-193"></a></span>
-<span id="cb19-194"><a href="#cb19-194"></a><span class="ss">* </span>Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type <span class="co">[</span><span class="ot">**bootstrap**</span><span class="co">](https://bootswatch.com/)</span>^[le thème par défaut n'est pas dans la liste, mais on peut le récupérer. Pour chaque thème, il est possible de récupérer l'ensemble des fichiers source permettant d'affecter le thème choisi au contenu html (cliquer sur download).</span>
-<span id="cb19-195"><a href="#cb19-195"></a><span class="ss">* </span>Lorsqu'on génère un projet Quarto, un fichier vide **style.scss** est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l'enregistrer avec l'extension <span class="in">`.scss`</span>.</span>
-<span id="cb19-196"><a href="#cb19-196"></a><span class="ss">* </span>Définir les styles à partir d'un fichier <span class="in">`.scss`</span> facilite l'affectation d'attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges .....</span>
-<span id="cb19-197"><a href="#cb19-197"></a><span class="ss">* </span>Ces définitions préalables sont appelées **variables SASS**^<span class="co">[</span><span class="ot">Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d'autant que la syntaxe de ces variables ressemblent à s'en méprendre aux macro variables de cette application</span><span class="co">]</span>, que l'on peut soit générer facilement: <span class="in">`$couleur1=red;`</span> ou utiliser les couleurs du thème choisi. </span>
-<span id="cb19-198"><a href="#cb19-198"></a><span class="ss">  * </span>Il me semble préférable pour conserver l'homogénéité de l'habillage du document d'utiliser les couleurs prédéfinies du thème sélectionné</span>
-<span id="cb19-199"><a href="#cb19-199"></a><span class="ss">  * </span>On peut peut récupérer facilement ces couleurs sur le site <span class="co">[</span><span class="ot">bootswatch</span><span class="co">](https://bootswatch.com/)</span> comme indiquer plus haut</span>
-<span id="cb19-200"><a href="#cb19-200"></a><span class="ss">  * </span>On peut récupérer le squelette d'un fichier <span class="in">`.scss`</span> pour les 26 à cette adresse [<span class="co">[</span><span class="ot">fichiers scss des 26 thèmes  pour les couleurs</span><span class="co">](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)</span>]</span>
-<span id="cb19-201"><a href="#cb19-201"></a><span class="ss">* </span>Une fois dans Rstudio, dans le fichier scss comprend: </span>
-<span id="cb19-202"><a href="#cb19-202"></a><span class="ss">  * </span>La définition des attribus de type couleur</span>
-<span id="cb19-203"><a href="#cb19-203"></a><span class="ss">  * </span>Les affectations des couleurs dans des classes</span>
-<span id="cb19-204"><a href="#cb19-204"></a>  </span>
-<span id="cb19-205"><a href="#cb19-205"></a>***Définition des couleurs sous forme de variables SASS***  </span>
-<span id="cb19-206"><a href="#cb19-206"></a></span>
-<span id="cb19-207"><a href="#cb19-207"></a><span class="ss">* </span>Les échelles de gris de blanc à noir (11 couleurs) et 10 couleurs de base. Les noms des variables sont identiques d'un thème à l'autres, seuls les codes couleurs changent</span>
-<span id="cb19-208"><a href="#cb19-208"></a><span class="ss">* </span>Une première affectation de ces couleurs à 7 autres variables SASS: <span class="in">`$primary`</span>, <span class="in">`$secondary`</span>, <span class="in">`$success`</span>, <span class="in">`$info`</span>, <span class="in">`$warning`</span>, <span class="in">`$danger`</span>, <span class="in">`$light`</span>, <span class="in">`$dark`</span>.</span>
-<span id="cb19-209"><a href="#cb19-209"></a></span>
-<span id="cb19-210"><a href="#cb19-210"></a>On peut bien évidemment ajouter de nouvelles variables ou modifier l'affectarion, par exemple la couleur <span class="in">`$teal`</span> au lieu de <span class="in">`$green`</span> pour la variable <span class="in">`$success`</span></span>
+<span id="cb19-187"><a href="#cb19-187"></a><span class="fu">## Générer les attributs d'un thème dans un fichier scss</span></span>
+<span id="cb19-188"><a href="#cb19-188"></a></span>
+<span id="cb19-189"><a href="#cb19-189"></a><span class="ss">* </span>Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type <span class="co">[</span><span class="ot">**bootstrap**</span><span class="co">](https://bootswatch.com/)</span>^<span class="co">[</span><span class="ot">le thème par défaut n'est pas dans la liste, mais il  a  récupéreé</span><span class="co">]</span>. Pour chaque thème, il est possible de récupérer l'ensemble des fichiers source permettant d'affecter le thème choisi au contenu html (cliquer sur download).  </span>
+<span id="cb19-190"><a href="#cb19-190"></a></span>
+<span id="cb19-191"><a href="#cb19-191"></a><span class="ss">* </span>Lorsqu'on génère un projet Quarto, un fichier vide **style.scss** est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l'enregistrer avec l'extension <span class="in">`.scss`</span>.  </span>
+<span id="cb19-192"><a href="#cb19-192"></a></span>
+<span id="cb19-193"><a href="#cb19-193"></a><span class="ss">* </span>Définir les styles à partir d'un fichier <span class="in">`.scss`</span> facilite l'affectation d'attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges .....  </span>
+<span id="cb19-194"><a href="#cb19-194"></a></span>
+<span id="cb19-195"><a href="#cb19-195"></a><span class="ss">* </span>Ces définitions préalables sont appelées **variables SASS**^<span class="co">[</span><span class="ot">Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d'autant que la syntaxe de ces variables ressemblent à s'en méprendre aux macro variables de cette application</span><span class="co">]</span>, que l'on peut soit générer facilement: <span class="in">`$couleur1=red;`</span> ou utiliser les couleurs du thème choisi. </span>
+<span id="cb19-196"><a href="#cb19-196"></a><span class="ss">  * </span>Il me semble préférable pour conserver l'homogénéité de l'habillage du document d'utiliser les couleurs prédéfinies du thème sélectionné</span>
+<span id="cb19-197"><a href="#cb19-197"></a><span class="ss">  * </span>On peut peut récupérer facilement ces couleurs sur le site <span class="co">[</span><span class="ot">bootswatch</span><span class="co">](https://bootswatch.com/)</span> comme indiquer plus haut</span>
+<span id="cb19-198"><a href="#cb19-198"></a><span class="ss">  * </span>On peut récupérer le squelette d'un fichier <span class="in">`.scss`</span> pour les 26 à cette adresse [<span class="co">[</span><span class="ot">fichiers scss des 26 thèmes  pour les couleurs</span><span class="co">](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)</span>  </span>
+<span id="cb19-199"><a href="#cb19-199"></a>  </span>
+<span id="cb19-200"><a href="#cb19-200"></a><span class="ss">* </span>Une fois dans Rstudio, dans le fichier scss comprend: </span>
+<span id="cb19-201"><a href="#cb19-201"></a><span class="ss">  * </span>La définition des attribus de type couleur</span>
+<span id="cb19-202"><a href="#cb19-202"></a><span class="ss">  * </span>Les affectations des couleurs dans des classes</span>
+<span id="cb19-203"><a href="#cb19-203"></a>  </span>
+<span id="cb19-204"><a href="#cb19-204"></a>***Définition des couleurs sous forme de variables SASS***  </span>
+<span id="cb19-205"><a href="#cb19-205"></a></span>
+<span id="cb19-206"><a href="#cb19-206"></a><span class="ss">* </span>Les échelles de gris de blanc à noir (11 couleurs) et 10 couleurs de base. Les noms des variables sont identiques d'un thème à l'autres, seuls les codes couleurs changent</span>
+<span id="cb19-207"><a href="#cb19-207"></a><span class="ss">* </span>Une première affectation de ces couleurs à 7 autres variables SASS: <span class="in">`$primary`</span>, <span class="in">`$secondary`</span>, <span class="in">`$success`</span>, <span class="in">`$info`</span>, <span class="in">`$warning`</span>, <span class="in">`$danger`</span>, <span class="in">`$light`</span>, <span class="in">`$dark`</span>.</span>
+<span id="cb19-208"><a href="#cb19-208"></a></span>
+<span id="cb19-209"><a href="#cb19-209"></a>On peut bien évidemment ajouter de nouvelles variables ou modifier l'affectarion, par exemple la couleur <span class="in">`$teal`</span> au lieu de <span class="in">`$green`</span> pour la variable <span class="in">`$success`</span></span>
+<span id="cb19-210"><a href="#cb19-210"></a></span>
 <span id="cb19-211"><a href="#cb19-211"></a></span>
-<span id="cb19-212"><a href="#cb19-212"></a></span>
-<span id="cb19-213"><a href="#cb19-213"></a><span class="al">![Couleur SASS du thème ***default***](img/img1.png)</span>{width=70%}</span>
+<span id="cb19-212"><a href="#cb19-212"></a><span class="al">![Couleur SASS du thème ***default***](img/img1.png)</span>{width=70%}</span>
+<span id="cb19-213"><a href="#cb19-213"></a></span>
 <span id="cb19-214"><a href="#cb19-214"></a></span>
-<span id="cb19-215"><a href="#cb19-215"></a></span>
-<span id="cb19-216"><a href="#cb19-216"></a>***Affectation des couleurs sous forme de variable SASS à une classe***</span>
-<span id="cb19-217"><a href="#cb19-217"></a>  </span>
-<span id="cb19-218"><a href="#cb19-218"></a>Toutes les définitions se font en tête de fichier et la partie réservées aux affectations à des classes doit être impérativement précédée par: </span>
-<span id="cb19-219"><a href="#cb19-219"></a></span>
-<span id="cb19-220"><a href="#cb19-220"></a><span class="in">```md</span></span>
-<span id="cb19-221"><a href="#cb19-221"></a>/*-- scss:rules --*/</span>
-<span id="cb19-222"><a href="#cb19-222"></a><span class="in">```</span></span>
-<span id="cb19-223"><a href="#cb19-223"></a></span>
-<span id="cb19-224"><a href="#cb19-224"></a>On peut alors affecter les variables SASS aux 7 classes de couleurs du thème à l'aide d'un style css</span>
-<span id="cb19-225"><a href="#cb19-225"></a></span>
-<span id="cb19-226"><a href="#cb19-226"></a><span class="al">![Affectation des couleurs à une classe](img/img2.png)</span>{width=70%}</span>
-<span id="cb19-227"><a href="#cb19-227"></a></span>
-<span id="cb19-228"><a href="#cb19-228"></a>Si on se centente d'utiliser ce squelette de sccs, il n'y a rien eu à faire jusqu'à ce stade.</span>
-<span id="cb19-229"><a href="#cb19-229"></a></span>
-<span id="cb19-230"><a href="#cb19-230"></a>***Appel du fichier scss dans le document quarto***</span>
-<span id="cb19-231"><a href="#cb19-231"></a></span>
-<span id="cb19-232"><a href="#cb19-232"></a>Comme pour un fichier css, il faut indiquer dans le yaml de la page ou du projet Quarto l'utilisation de ce fichier. </span>
-<span id="cb19-233"><a href="#cb19-233"></a></span>
-<span id="cb19-234"><a href="#cb19-234"></a><span class="ss">* </span>Avec le thème par défaut et en utilisant le fichier <span class="in">` style_default.scss`</span> dans mon dépôt github: </span>
-<span id="cb19-235"><a href="#cb19-235"></a></span>
-<span id="cb19-236"><a href="#cb19-236"></a><span class="in">```md</span></span>
-<span id="cb19-237"><a href="#cb19-237"></a>format: </span>
-<span id="cb19-238"><a href="#cb19-238"></a>  html:</span>
-<span id="cb19-239"><a href="#cb19-239"></a>    css: style.css</span>
-<span id="cb19-240"><a href="#cb19-240"></a>    </span>
-<span id="cb19-241"><a href="#cb19-241"></a>theme:</span>
-<span id="cb19-242"><a href="#cb19-242"></a><span class="ss">  - </span>style_default.scss</span>
-<span id="cb19-243"><a href="#cb19-243"></a><span class="in">```        </span></span>
-<span id="cb19-244"><a href="#cb19-244"></a></span>
-<span id="cb19-245"><a href="#cb19-245"></a><span class="in">* En utilisant un autre thème bootstrap, par exemple **lux** </span></span>
-<span id="cb19-246"><a href="#cb19-246"></a></span>
-<span id="cb19-247"><a href="#cb19-247"></a><span class="in">```md</span></span>
-<span id="cb19-248"><a href="#cb19-248"></a><span class="in">format: </span></span>
-<span id="cb19-249"><a href="#cb19-249"></a><span class="in">  html:</span></span>
-<span id="cb19-250"><a href="#cb19-250"></a><span class="in">    css: style.css</span></span>
-<span id="cb19-251"><a href="#cb19-251"></a><span class="in">    </span></span>
-<span id="cb19-252"><a href="#cb19-252"></a><span class="in">theme:</span></span>
-<span id="cb19-253"><a href="#cb19-253"></a><span class="in">  - lux</span></span>
-<span id="cb19-254"><a href="#cb19-254"></a><span class="in">  - style_lux.scss</span></span>
-<span id="cb19-255"><a href="#cb19-255"></a><span class="in">```</span>    </span>
-<span id="cb19-256"><a href="#cb19-256"></a></span>
-<span id="cb19-257"><a href="#cb19-257"></a>On a plus qu'à appliquer une des couleurs du thème au texte:</span>
-<span id="cb19-258"><a href="#cb19-258"></a></span>
-<span id="cb19-259"><a href="#cb19-259"></a>Je veux utiliser la couleur <span class="co">[</span><span class="ot">DANGER</span><span class="co">]</span>{.danger} à mon texte</span>
-<span id="cb19-260"><a href="#cb19-260"></a></span>
-<span id="cb19-261"><a href="#cb19-261"></a>Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j'ai donc ajouté un fond): </span>
-<span id="cb19-262"><a href="#cb19-262"></a><span class="kw">&lt;div</span> <span class="er">style</span><span class="ot">=</span><span class="st">"background-color:#919aa1; padding-left:5px; padding-right:5px; border-radius: 10px"</span><span class="kw">&gt;</span></span>
-<span id="cb19-263"><a href="#cb19-263"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">PRIMARY</span><span class="co">]</span>{.primary}</span>
-<span id="cb19-264"><a href="#cb19-264"></a></span>
-<span id="cb19-265"><a href="#cb19-265"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">SECONDARY</span><span class="co">]</span>{.secondary}</span>
-<span id="cb19-266"><a href="#cb19-266"></a></span>
-<span id="cb19-267"><a href="#cb19-267"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">SUCCES</span><span class="co">]</span>{.success}</span>
-<span id="cb19-268"><a href="#cb19-268"></a></span>
-<span id="cb19-269"><a href="#cb19-269"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">INFO</span><span class="co">]</span>{.info}</span>
-<span id="cb19-270"><a href="#cb19-270"></a></span>
-<span id="cb19-271"><a href="#cb19-271"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">WARNING</span><span class="co">]</span>{.warning}</span>
-<span id="cb19-272"><a href="#cb19-272"></a></span>
-<span id="cb19-273"><a href="#cb19-273"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">DANGER</span><span class="co">]</span>{.danger}</span>
-<span id="cb19-274"><a href="#cb19-274"></a></span>
-<span id="cb19-275"><a href="#cb19-275"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">LIGHT</span><span class="co">]</span>{.light}</span>
-<span id="cb19-276"><a href="#cb19-276"></a></span>
-<span id="cb19-277"><a href="#cb19-277"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">DARK</span><span class="co">]</span>{.dark}</span>
-<span id="cb19-278"><a href="#cb19-278"></a><span class="kw">&lt;/div&gt;</span></span>
-<span id="cb19-279"><a href="#cb19-279"></a></span>
-<span id="cb19-280"><a href="#cb19-280"></a>***Attribus supplémentaire à l'aide des variables SASS et limite sur les couleurs de fond***</span>
+<span id="cb19-215"><a href="#cb19-215"></a>***Affectation des couleurs sous forme de variable SASS à une classe***</span>
+<span id="cb19-216"><a href="#cb19-216"></a>  </span>
+<span id="cb19-217"><a href="#cb19-217"></a>Toutes les définitions se font en tête de fichier et la partie réservées aux affectations à des classes doit être impérativement précédée par: </span>
+<span id="cb19-218"><a href="#cb19-218"></a></span>
+<span id="cb19-219"><a href="#cb19-219"></a><span class="in">```md</span></span>
+<span id="cb19-220"><a href="#cb19-220"></a>/*-- scss:rules --*/</span>
+<span id="cb19-221"><a href="#cb19-221"></a><span class="in">```</span></span>
+<span id="cb19-222"><a href="#cb19-222"></a></span>
+<span id="cb19-223"><a href="#cb19-223"></a>On peut alors affecter les variables SASS aux 7 classes de couleurs du thème à l'aide d'un style css</span>
+<span id="cb19-224"><a href="#cb19-224"></a></span>
+<span id="cb19-225"><a href="#cb19-225"></a><span class="al">![Affectation des couleurs à une classe](img/img2.png)</span>{width=70%}</span>
+<span id="cb19-226"><a href="#cb19-226"></a></span>
+<span id="cb19-227"><a href="#cb19-227"></a>Si on se centente d'utiliser ce squelette de sccs, il n'y a rien eu à faire jusqu'à ce stade.</span>
+<span id="cb19-228"><a href="#cb19-228"></a></span>
+<span id="cb19-229"><a href="#cb19-229"></a>***Appel du fichier scss dans le document quarto***</span>
+<span id="cb19-230"><a href="#cb19-230"></a></span>
+<span id="cb19-231"><a href="#cb19-231"></a>Comme pour un fichier css, il faut indiquer dans le yaml de la page ou du projet Quarto l'utilisation de ce fichier. </span>
+<span id="cb19-232"><a href="#cb19-232"></a></span>
+<span id="cb19-233"><a href="#cb19-233"></a><span class="ss">* </span>Avec le thème par défaut et en utilisant le fichier <span class="in">` style_default.scss`</span> dans mon dépôt github: </span>
+<span id="cb19-234"><a href="#cb19-234"></a></span>
+<span id="cb19-235"><a href="#cb19-235"></a><span class="in">```md</span></span>
+<span id="cb19-236"><a href="#cb19-236"></a>format: </span>
+<span id="cb19-237"><a href="#cb19-237"></a>  html:</span>
+<span id="cb19-238"><a href="#cb19-238"></a>    css: style.css</span>
+<span id="cb19-239"><a href="#cb19-239"></a>    </span>
+<span id="cb19-240"><a href="#cb19-240"></a>theme:</span>
+<span id="cb19-241"><a href="#cb19-241"></a><span class="ss">  - </span>style_default.scss</span>
+<span id="cb19-242"><a href="#cb19-242"></a><span class="in">```        </span></span>
+<span id="cb19-243"><a href="#cb19-243"></a></span>
+<span id="cb19-244"><a href="#cb19-244"></a><span class="in">* En utilisant un autre thème bootstrap, par exemple **lux** </span></span>
+<span id="cb19-245"><a href="#cb19-245"></a></span>
+<span id="cb19-246"><a href="#cb19-246"></a><span class="in">```md</span></span>
+<span id="cb19-247"><a href="#cb19-247"></a><span class="in">format: </span></span>
+<span id="cb19-248"><a href="#cb19-248"></a><span class="in">  html:</span></span>
+<span id="cb19-249"><a href="#cb19-249"></a><span class="in">    css: style.css</span></span>
+<span id="cb19-250"><a href="#cb19-250"></a><span class="in">    </span></span>
+<span id="cb19-251"><a href="#cb19-251"></a><span class="in">theme:</span></span>
+<span id="cb19-252"><a href="#cb19-252"></a><span class="in">  - lux</span></span>
+<span id="cb19-253"><a href="#cb19-253"></a><span class="in">  - style_lux.scss</span></span>
+<span id="cb19-254"><a href="#cb19-254"></a><span class="in">```</span>    </span>
+<span id="cb19-255"><a href="#cb19-255"></a></span>
+<span id="cb19-256"><a href="#cb19-256"></a>On a plus qu'à appliquer une des couleurs du thème au texte:</span>
+<span id="cb19-257"><a href="#cb19-257"></a></span>
+<span id="cb19-258"><a href="#cb19-258"></a>Je veux utiliser la couleur <span class="co">[</span><span class="ot">DANGER</span><span class="co">]</span>{.danger} à mon texte</span>
+<span id="cb19-259"><a href="#cb19-259"></a></span>
+<span id="cb19-260"><a href="#cb19-260"></a>Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j'ai donc ajouté un fond): </span>
+<span id="cb19-261"><a href="#cb19-261"></a><span class="kw">&lt;div</span> <span class="er">style</span><span class="ot">=</span><span class="st">"background-color:#919aa1; padding-left:5px; padding-right:5px; border-radius: 10px"</span><span class="kw">&gt;</span></span>
+<span id="cb19-262"><a href="#cb19-262"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">PRIMARY</span><span class="co">]</span>{.primary}</span>
+<span id="cb19-263"><a href="#cb19-263"></a></span>
+<span id="cb19-264"><a href="#cb19-264"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">SECONDARY</span><span class="co">]</span>{.secondary}</span>
+<span id="cb19-265"><a href="#cb19-265"></a></span>
+<span id="cb19-266"><a href="#cb19-266"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">SUCCES</span><span class="co">]</span>{.success}</span>
+<span id="cb19-267"><a href="#cb19-267"></a></span>
+<span id="cb19-268"><a href="#cb19-268"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">INFO</span><span class="co">]</span>{.info}</span>
+<span id="cb19-269"><a href="#cb19-269"></a></span>
+<span id="cb19-270"><a href="#cb19-270"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">WARNING</span><span class="co">]</span>{.warning}</span>
+<span id="cb19-271"><a href="#cb19-271"></a></span>
+<span id="cb19-272"><a href="#cb19-272"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">DANGER</span><span class="co">]</span>{.danger}</span>
+<span id="cb19-273"><a href="#cb19-273"></a></span>
+<span id="cb19-274"><a href="#cb19-274"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">LIGHT</span><span class="co">]</span>{.light}</span>
+<span id="cb19-275"><a href="#cb19-275"></a></span>
+<span id="cb19-276"><a href="#cb19-276"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">DARK</span><span class="co">]</span>{.dark}</span>
+<span id="cb19-277"><a href="#cb19-277"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="cb19-278"><a href="#cb19-278"></a></span>
+<span id="cb19-279"><a href="#cb19-279"></a>***Attribus supplémentaire à l'aide des variables SASS et limite sur les couleurs de fond***</span>
+<span id="cb19-280"><a href="#cb19-280"></a></span>
 <span id="cb19-281"><a href="#cb19-281"></a></span>
-<span id="cb19-282"><a href="#cb19-282"></a></span>
-<span id="cb19-283"><a href="#cb19-283"></a>A la volée on peut vouloir également ajouter des attribus supplémentaires au texte.  </span>
-<span id="cb19-284"><a href="#cb19-284"></a></span>
-<span id="cb19-285"><a href="#cb19-285"></a>On remarque que la couleur **light** est vraiment très très light (pour ne pas dire invisible). On peut donc vouloir ajouter une couleur de fond, celle définie avec la variable <span class="in">`$dark`</span>.</span>
-<span id="cb19-286"><a href="#cb19-286"></a>En css l'attribut est **`background-color`**.  </span>
-<span id="cb19-287"><a href="#cb19-287"></a></span>
-<span id="cb19-288"><a href="#cb19-288"></a>Les classes de couleur définies dans le fichier scss ne s'applique pas au couleur de fond. Il font donc soit ajouter manuellement le code couleur correspondant à l'attribut dark, ou ajouter une ou plusieurs classes supplémentaires aux fichier scss (préférable). </span>
-<span id="cb19-289"><a href="#cb19-289"></a></span>
-<span id="cb19-290"><a href="#cb19-290"></a>Si on ajoute la classe bg-dark au fichier scss</span>
-<span id="cb19-291"><a href="#cb19-291"></a></span>
-<span id="cb19-292"><a href="#cb19-292"></a><span class="in">```md</span></span>
-<span id="cb19-293"><a href="#cb19-293"></a>// Ajout classe bg-dark pour le background du text dans style_default.scss</span>
-<span id="cb19-294"><a href="#cb19-294"></a></span>
-<span id="cb19-295"><a href="#cb19-295"></a>.bg-dark{background-color: $dark}</span>
-<span id="cb19-296"><a href="#cb19-296"></a><span class="in">```</span></span>
-<span id="cb19-297"><a href="#cb19-297"></a></span>
-<span id="cb19-298"><a href="#cb19-298"></a>On va mettre le <span class="co">[</span><span class="ot">fond dark à la couleur light</span><span class="co">]</span>{.light .bg-dark}</span>
-<span id="cb19-299"><a href="#cb19-299"></a></span>
-<span id="cb19-300"><a href="#cb19-300"></a>***Pour aller un peu plus loin***   </span>
+<span id="cb19-282"><a href="#cb19-282"></a>A la volée on peut vouloir également ajouter des attribus supplémentaires au texte.  </span>
+<span id="cb19-283"><a href="#cb19-283"></a></span>
+<span id="cb19-284"><a href="#cb19-284"></a>On remarque que la couleur **light** est vraiment très très light (pour ne pas dire invisible). On peut donc vouloir ajouter une couleur de fond, celle définie avec la variable <span class="in">`$dark`</span>.</span>
+<span id="cb19-285"><a href="#cb19-285"></a>En css l'attribut est **`background-color`**.  </span>
+<span id="cb19-286"><a href="#cb19-286"></a></span>
+<span id="cb19-287"><a href="#cb19-287"></a>Les classes de couleur définies dans le fichier scss ne s'applique pas au couleur de fond. Il font donc soit ajouter manuellement le code couleur correspondant à l'attribut dark, ou ajouter une ou plusieurs classes supplémentaires aux fichier scss (préférable). </span>
+<span id="cb19-288"><a href="#cb19-288"></a></span>
+<span id="cb19-289"><a href="#cb19-289"></a>Si on ajoute la classe bg-dark au fichier scss</span>
+<span id="cb19-290"><a href="#cb19-290"></a></span>
+<span id="cb19-291"><a href="#cb19-291"></a><span class="in">```md</span></span>
+<span id="cb19-292"><a href="#cb19-292"></a>// Ajout classe bg-dark pour le background du text dans style_default.scss</span>
+<span id="cb19-293"><a href="#cb19-293"></a></span>
+<span id="cb19-294"><a href="#cb19-294"></a>.bg-dark{background-color: $dark}</span>
+<span id="cb19-295"><a href="#cb19-295"></a><span class="in">```</span></span>
+<span id="cb19-296"><a href="#cb19-296"></a></span>
+<span id="cb19-297"><a href="#cb19-297"></a>On va mettre le <span class="co">[</span><span class="ot">fond dark à la couleur light</span><span class="co">]</span>{.light .bg-dark}</span>
+<span id="cb19-298"><a href="#cb19-298"></a></span>
+<span id="cb19-299"><a href="#cb19-299"></a>***Pour aller un peu plus loin***   </span>
+<span id="cb19-300"><a href="#cb19-300"></a></span>
 <span id="cb19-301"><a href="#cb19-301"></a></span>
-<span id="cb19-302"><a href="#cb19-302"></a></span>
-<span id="cb19-303"><a href="#cb19-303"></a>Si on souhaite améliorer l'habillage du texte, avec par exemple une légère marge à gauche et à droite du texte ou adoucir l'angle du cadre, on peut utiliser les attributs **`padding-left`**, **`padding-right`**, **`border-radius`**. Ces attributs peuvent être ajouté à la volée ou paramétré dans le fichier scss, toujours à l'aide de variables SASS. </span>
-<span id="cb19-304"><a href="#cb19-304"></a></span>
-<span id="cb19-305"><a href="#cb19-305"></a><span class="in">```md</span></span>
-<span id="cb19-306"><a href="#cb19-306"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span>
-<span id="cb19-307"><a href="#cb19-307"></a><span class="in">```</span></span>
-<span id="cb19-308"><a href="#cb19-308"></a></span>
-<span id="cb19-309"><a href="#cb19-309"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span>
+<span id="cb19-302"><a href="#cb19-302"></a>Si on souhaite améliorer l'habillage du texte, avec par exemple une légère marge à gauche et à droite du texte ou adoucir l'angle du cadre, on peut utiliser les attributs **`padding-left`**, **`padding-right`**, **`border-radius`**. Ces attributs peuvent être ajouté à la volée ou paramétré dans le fichier scss, toujours à l'aide de variables SASS. </span>
+<span id="cb19-303"><a href="#cb19-303"></a></span>
+<span id="cb19-304"><a href="#cb19-304"></a><span class="in">```md</span></span>
+<span id="cb19-305"><a href="#cb19-305"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span>
+<span id="cb19-306"><a href="#cb19-306"></a><span class="in">```</span></span>
+<span id="cb19-307"><a href="#cb19-307"></a></span>
+<span id="cb19-308"><a href="#cb19-308"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span>
+<span id="cb19-309"><a href="#cb19-309"></a></span>
 <span id="cb19-310"><a href="#cb19-310"></a></span>
-<span id="cb19-311"><a href="#cb19-311"></a></span>
-<span id="cb19-312"><a href="#cb19-312"></a>Si on souhaite ajouter un contour, on peut ajouter des attributs comme **`border`** (épaisseur du trait) et **`border-style:solid`**. On inversera ici la couleur du texte et du fond après avoir créer une classe <span class="in">`bg-light`</span></span>
-<span id="cb19-313"><a href="#cb19-313"></a></span>
-<span id="cb19-314"><a href="#cb19-314"></a><span class="in">```md</span></span>
-<span id="cb19-315"><a href="#cb19-315"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span>
-<span id="cb19-316"><a href="#cb19-316"></a><span class="in">```</span></span>
-<span id="cb19-317"><a href="#cb19-317"></a></span>
-<span id="cb19-318"><a href="#cb19-318"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span>
+<span id="cb19-311"><a href="#cb19-311"></a>Si on souhaite ajouter un contour, on peut ajouter des attributs comme **`border`** (épaisseur du trait) et **`border-style:solid`**. On inversera ici la couleur du texte et du fond après avoir créer une classe <span class="in">`bg-light`</span></span>
+<span id="cb19-312"><a href="#cb19-312"></a></span>
+<span id="cb19-313"><a href="#cb19-313"></a><span class="in">```md</span></span>
+<span id="cb19-314"><a href="#cb19-314"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span>
+<span id="cb19-315"><a href="#cb19-315"></a><span class="in">```</span></span>
+<span id="cb19-316"><a href="#cb19-316"></a></span>
+<span id="cb19-317"><a href="#cb19-317"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span>
+<span id="cb19-318"><a href="#cb19-318"></a></span>
 <span id="cb19-319"><a href="#cb19-319"></a></span>
 <span id="cb19-320"><a href="#cb19-320"></a></span>
-<span id="cb19-321"><a href="#cb19-321"></a></span>
-<span id="cb19-322"><a href="#cb19-322"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-321"><a href="#cb19-321"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","loop":true,"selector":".lightbox","closeEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"loop":true,"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});</script>
 
 
 
