@@ -11,7 +11,7 @@ format:
     css:  style.css
 
 theme:
-  - style_couleur.scss
+  - sms.scss
         
 author: 
   - name: "Marc Thévenin"
@@ -196,7 +196,8 @@ On verra en fin de fiche, en habillant un paragraphe, que l'on peut ajouter une 
 * Définir les styles à partir d'un fichier `.scss` facilite l'affectation d'attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges .....
 * Ces définitions préalables sont appelées **variables SASS**^[Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d'autant que la syntaxe de ces variables ressemblent à s'en méprendre aux macro variables de cette application], que l'on peut soit générer facilement: `$couleur1=red;` ou utiliser les couleurs du thème choisi. 
   * Il me semble préférable pour conserver l'homogénéité de l'habillage du document d'utiliser les couleurs prédéfinies du thème sélectionné
-  * On peut peut récupérer facilement ces couleurs sur le site [bootswatch](https://bootswatch.com/) comme indiquer   * On peut récupérer le squelette d'un fichier `.scss` pour les 26 à cette adresse [[fichiers scss des 26 thèmes  pour les couleurs](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)]
+  * On peut peut récupérer facilement ces couleurs sur le site [bootswatch](https://bootswatch.com/) comme indiquer plus haut
+  * On peut récupérer le squelette d'un fichier `.scss` pour les 26 à cette adresse [[fichiers scss des 26 thèmes  pour les couleurs](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)]
 * Une fois dans Rstudio, dans le fichier scss comprend: 
   * La définition des attribus de type couleur
   * Les affectations des couleurs dans des classes
