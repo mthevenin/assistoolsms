@@ -315,8 +315,3 @@ Si on souhaite ajouter un contour, on peut ajouter des attributs comme **`border
 ```
 
 ....[Amélioration de l'habillage]{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...
-
-
-
-
-

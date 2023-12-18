@@ -1,5 +1,5 @@
 ---
-title: "Déployer un contenu html sur gitlab"
+title: "Déployer un contenu html sur gitlab [maj]"
 
 categories:
   - Gitlab
@@ -10,7 +10,7 @@ author:
     affiliations:
       - name: "Ined"
 
-date: 10/23/2023
+date: 12/18/2023
 
 image: img/gitlab_logo.png
 
@@ -25,10 +25,21 @@ abstract: |
  Par rapport à Github le déploiement de contenus html sur Gitlab sans compte associé de type *humanum* pour la recherche en sciences sociales, demande quelques manipulations supplémentaires. Les éléments qui suivent donnent la marche à suivre, sous forme de pas à pas. Ces opérations se font sans aucune ligne de codes.
 ---
 
+::: callout-note
+
+## Remarque décembre 2023
+
+* Par rapport aux captures faites il y a quelques mois, le yaml de configuration généré par gitlab avec le template html du projet a été modifié  (visiblement ce sont des changements réguliers sur gitlab). Mais visiblement pas d'impact sur la suite des manipulations.
+* Il est possible lors du déploiement de la page qu'une erreur 404 s'affiche avec une adresse de site un peu bizarre. Si c'est le cas, pensez à nettoyer l'historique du navigateur, cela devrait remettre les choses dans l'ordre.
+* J'ai testé le déploiement d'un contenu assez enrichi, et tout est ok avec Quarto [[lien]](https://mthevenin.gitlab.io/analyse_duree/)
+* Visiblement Posit (ex Rstudio) n'incite pas à l'utilisation de Gitlab pour le déploiement de la documentation, il semble impossible d'insérer un icône gitlab avec le lien du dépôt sur la navbar ou la sidebar. J'ai ajouté comme j'ai pu le lien du dépôt gitlab sur le support figurant en lien dans le point précédent.
+:::
+
+
 Prérequis: 
 
 - Créer un compte sur [Gitlab](https://gitlab.com/) 
-- Avoir une version d'une IDE compatible avec [Quarto](https://quarto.org/docs/get-started/) (Rsudio, Vscode). 
+- Avoir une version d'une IDE compatible avec [Quarto](https://quarto.org/docs/get-started/) (Rsudio, Vscode après installation de l'extension). 
 
 
 ## Générer sur Gitlab un projet pour déployer du contenu html
@@ -52,12 +63,12 @@ Prérequis:
 
 2. Cliquer sur **Create from template**
 
-3. Sélectionner le template **Pages/Plain HTML** en cliquant sur **use template**
+3. Sélectionner le template **Pages/Plain HTML** en cliquant sur **Use template**
 
 4. Paramétrer et créer le projet:
    * Donner un nom au projet qui s'ajoutera au nom de domaine 
    * Vous pour modifier le nom de domaine (voir la fenêtre ouverte dans l'image)
-   * Vérifier que le projet est de type **public** (visibility levels)
+   * Vérifier que le projet est de type **public** (visibility levels) si vous le souhaitez
 
 
 ## Générer le template de déploiement d'une page html
@@ -66,11 +77,11 @@ Prérequis:
 
 ::: {layout-ncol=3}
 
-![1. Ouvrir la page **pipelines** et lancer le job](img/img4.png)
+![1. Ouvrir la page **pipelines** et lancer le job](img/img4.png) 
 
-![2. Exécuter le job associé à *Pages/Plain HTML* ](img/img5.png)
+![2. Exécuter le job associé à *Pages/Plain HTML* ](img/img5.png) 
 
-![3. Déployer la page associer au template ](img/img6.png)
+![3. Déployer la page associer au template ](img/img6.png) 
 
 ![4. Résumé du job](img/img7.png)
 
@@ -80,17 +91,17 @@ Prérequis:
 
 :::
 
-1. Dans la liste de navigation à gauche sélectionner **Build** et cliquer sur **Pipeline**. Cliquer en haut à gauche sur le bouton **Run pipeline**
+1. Dans la liste de navigation à gauche sélectionner **Build** et cliquer sur **Pipeline**. Cliquer en haut à gauche sur le bouton **Run pipeline**.
 
-2. Cliquer de nouveau sur le bouton **Run pipeline** 
+2. Cliquer de nouveau sur le bouton **Run pipeline**. 
 
-3. Cliquer sur **pages**
+3. Cliquer sur **pages**.
 
-4. Une page résumant les opérations et indiquant que tout s'est bien déroulé s'affiche
+4. Une page résumant les opérations et indiquant que tout s'est bien déroulé s'affiche.
 
-5. Dans la liste de navigation à gauche, aller sur **Deploy** et cliquer sur **pages**
-   * Vous pouvez décocher **use unique domain** pour réduire la longueur du nom de domaine 
-   * Cliquer sur le lien en dessous
+5. Dans la liste de navigation à gauche, aller sur **Deploy** et cliquer sur **pages**.
+   * Vous pouvez décocher **use unique domain** pour réduire la longueur du nom de domaine.
+   * Cliquer sur le lien qui a été généré.
 
 
 En retournant sur le projet (ici **tuto_assistools**) Vous avez tous les fichiers qui vous permettrons de créer un projet avec Quarto et déployer le notebook ou le site sur gitlab.  
@@ -100,7 +111,7 @@ En retournant sur le projet (ici **tuto_assistools**) Vous avez tous les fichier
 
 * Ne pas supprimer ou modifier le fichier **`gitlab-ci.yml** lorsque, comme moi, vous n'y comprenez strictement rien.
 
-* Vous pouvez surpprimer le répertoire **public** ou les fichiers qu'il contient, mais je conseille de faire ceci sur le projet en local
+* Vous pouvez surpprimer le répertoire **public** ou les fichiers qu'il contient, mais je conseille de faire ceci sur le projet en local.
 
 :::
 
@@ -110,19 +121,16 @@ En retournant sur le projet (ici **tuto_assistools**) Vous avez tous les fichier
 Vous pouver maintenant récupérer l'adresse du projet en cliquant sur le bouton **clone** pour créer votre projet de notebook ou site avec Quarto.
 
 
-Vous pouver maintenant récupérer l'adresse du projet en cliquant sur le bouton **clone** pour créer votre projet de notebook ou site avec Quarto.
-
-
 ## Avec Quarto 
 
 * Créer un projet en mode **VERSION CONTROL** et utiliser le lien récupéré sur gitlab (bouton clone). 
 
-* Même pour un simple notebook (une page html) il vous faudra un fichier de métadonnées  **`_quarto.yml`**:
-  - Soit on le génère à partir d'un fichier texte
-  - Soit on le récupère un `_quarto.yml` existant.
-* Dans le fichier `_quarto.yml`, il vous faudra changer le répertoire de destination des fichiers d'affichage du notebook ou du site, qui doit s'appeler **`public`**  
-  * Par défaut Quarto génère un répertoire de destination appelé `_site`
-    Pour changer le répertoir: **`output_dir: public`**.  
+* Même pour un simple notebook (une page html) il vous faudra un fichier de configuration  **`_quarto.yml`**:
+  - Soit on le génère à partir d'un fichier texte.
+  - Soit on  récupère un `_quarto.yml` existant.
+* Dans le fichier `_quarto.yml`, il vous faudra changer le répertoire de destination des fichiers d'affichage du notebook ou du site, qui doit s'appeler **`public`**.  
+  * Par défaut Quarto génère un répertoire de destination appelé `_site`.
+    Pour changer le répertoire: **`output_dir: public`**.  
     
 A minima pour un notebook, votre fichier `_quarto.yml` devra comporter les élèments suivants: 
 
@@ -132,15 +140,15 @@ project:
   output-dir: public
 ```
 
-* Vous pouvez supprimer les fichiers se trouvant dans le répertoire public (page html test)
-* Le nom du fichier `.qmd` du notebook ou de la page d'accueil du site doit être nommé **`index.qmd`**
-* Une fois la compilation de la page ou du site effectuée on peut synchroniser le projet en local sur celui qui a été généré sur gitlab. 
+* Vous pouvez supprimer les fichiers se trouvant dans le répertoire **public** (page html test).
+* Le nom du fichier `.qmd` du notebook ou de la page d'accueil du site doivent être nommés **`index.qmd`**.
+* Une fois la compilation de la page ou du site effectuée, on peut mettre à jour la page par defaut générée sur gitlab: `git add .` + renseigner le `commit` + `push`. 
 
 ::: callout-warning
 
 ## gitignore
 
-Il est toujours bon de rappeler qu'il est fortement déconseillé de synchroniser les dépôts sans mettre une exception sur les bases de données utilisées. 
+Rappel: il est fortement déconseillé de synchroniser les dépôts sans mettre une exception sur les bases de données utilisées. 
 On fait cela simplement dans le fichier .gitignore, en ajoutant par exemple une exception automatique par type de fichier. Si on veut exclure les fichiers de type **csv**, on ajout au fichier .gitignore: 
 
 ```md

@@ -1,0 +1,62 @@
+---
+title: "Modifier la couleur d'un texte avec Quarto et un fichier scss"
+
+categories:
+  - Quarto
+  - Scss
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 10/27/2023
+
+image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+ Le formatage d'un document utilisant du markdown ne permet pas de modifier à la voler la couleur d'un mot ou d'un texte. Classiquement, on peut alors utiliser un balisage html classique, une définition d'un style qui sera affecté à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition des styles dans un fichier .scss à l'aide de variables dites SASS.
+---
+
+
+## Balise html brute
+
+
+*Je veux que TEXTE soit en rouge* 
+
+
+```md
+Je veux que <span style="color:red"> TEXTE</span> soit en rouge.
+```
+Je veux que <span style="color:red"> TEXTE</span> soit en rouge.
+
+```md
+Je veux que <span style="color:red; background-color:yellow"> TEXTE</span> soit en rouge sur fond jaune
+```
+Je veux que <span style="color:red; background-color:yellow"> TEXTE</span> soit en rouge sur fond jaune.
+
+
+## Ajouter directement un style dans le fichier Quarto
+
+
+
+
+
+
+
+
+## Ajouter un style à un fichier css
+
+
+## Ajouter des variables sass d'un thème dans un fichier scss  
+
+
+
+
+
+
+
