@@ -37,7 +37,7 @@ comments: false
 ---
 
 
-<center>Dernières mises à jour: **Octobre 2023**</center>
+<center>Dernières mises à jour: **Janvier 2024**</center>
 
 
 <!-- Derniers ajouts R-->

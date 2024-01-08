@@ -1,0 +1,63 @@
+---
+title: "Version 1.4 de Quarto"
+
+categories:
+  - Quarto
+  
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 01/08/2024
+
+image: "https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg"
+
+format: 
+  html: default
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: | 
+ Juste des infos. La nouvelle version de Quarto est sortie le 07 janvier 2024: intégration de l'extension lightbox au logiciel, deux nouveaux formats (dashboard et manuscript), possibilité de mettre des cross reference aux encadrée callout.... 
+---
+
+* [[Téléchargement et notes de version]](https://quarto.org/docs/download/) 
+
+Les quelques ajouts que j'ai repéré après un premier rapide coup d'oeil.   
+
+## Lightbox
+
+* L'indispensable option **lightbox** qui permet d'aggrandir des images a été incluse au logiciel. Il n'est plus nécessaire d'installer l'extension.
+* Si l'extension a déjà utilisée, elle fonctionne toujours. Un message informe que **lightbox** a été ajouté à Quarto.
+* Doc: <https://quarto.org/docs/prerelease/1.4/lightbox.html>
+
+
+## Format **Dashboard**
+
+* Doc: <https://quarto.org/docs/dashboards/>
+
+## Format **Manuscript**
+
+* A tester rapidement, et faire une fiche dédiée.
+* Sous un format projet, permet d'associer à un article sans bloc de codes, les notebooks associés.
+* Doc: <https://quarto.org/docs/manuscripts/>
+
+## Cross reference des **callouts**
+
+* On peut appeler un encadré informatif tout au long d'un document (lien). Très utile. Par exemple on met un warning dans une section et on peut rappeler ce warning plus tard dans le document.  
+* Doc: <https://quarto.org/docs/authoring/cross-references-callouts.html#tip-example>
+
+
+
+
+
+
+
+
+
+
+
+

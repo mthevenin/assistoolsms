@@ -22,13 +22,17 @@ filters:
 lightbox: auto
 
 abstract: | 
- Par rapport à Github le déploiement de contenus html sur Gitlab sans compte associé de type *humanum* pour la recherche en sciences sociales, demande quelques manipulations supplémentaires. Les éléments qui suivent donnent la marche à suivre, sous forme de pas à pas. Ces opérations se font sans aucune ligne de codes.
+ Par rapport à Github le déploiement de contenus html sur Gitlab  demande quelques manipulations supplémentaires. Les éléments qui suivent donnent la marche à suivre, sous forme de pas à pas. Ces opérations se font sans aucune ligne de codes.
 ---
+
+
 
 ::: callout-note
 
 ## Remarque décembre 2023
 
+
+* En pleine rédaction d'un support se formation, un tutoriel plus complet a été rédigé. Un lien sera mis prochainement.
 * Par rapport aux captures faites il y a quelques mois, le yaml de configuration généré par gitlab avec le template html du projet a été modifié  (visiblement ce sont des changements réguliers sur gitlab). Mais visiblement pas d'impact sur la suite des manipulations.
 * Il est possible lors du déploiement de la page qu'une erreur 404 s'affiche avec une adresse de site un peu bizarre. Si c'est le cas, pensez à nettoyer l'historique du navigateur, cela devrait remettre les choses dans l'ordre.
 * J'ai testé le déploiement d'un contenu assez enrichi, et tout est ok avec Quarto [[lien]](https://mthevenin.gitlab.io/analyse_duree/)
