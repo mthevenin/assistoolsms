@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,12 +82,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
 }</script>
-
 <script src="../../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -98,10 +98,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -112,21 +112,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
- <span class="menu-text">R</span></a>
+    <a class="nav-link" href="../../../../R/index.html"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../../../../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../../../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -149,12 +149,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="quarto-title-meta-contents">
       <p class="author">Arno Muller </p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               Ined
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Résumé</div>
+      <div class="block-title">Résumé</div>
       <p>Si <em>Iramuteq</em> est un logiciel pratique, qui permet à un public peu familier des logiciels statistiques de faire des analyses textuelles, l’étape de création du corpus de texte peut présenter quelques difficultés. C’est plus particulièrement le cas lorsque le corpus est directement récupéré en ligne comme cela est le cas depuis le site <em>Europresse</em>. Nous proposons ici une solution pour créer ce corpus avec R, de la récupération des textes à la création du corpus dans un format adapté à son exploitation sur Iramuteq.</p>
     </div>
   </div>
@@ -242,11 +242,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/tri_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/tri_logo.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+
+<p><a href="img/tri_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/tri_logo.png" class="img-fluid" style="width:50.0%"></a></p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Cette fiche s’inscrit dans la continuité d’un tutoriel publié par <em>Corentin Roquebert</em> et que vous pouvez retrouver <a href="https://quanti.hypotheses.org/1416">ici</a>. Le tutoriel est très complet et permet de comprendre la création du premier corpus au format <em>.html</em> directement depuis le site d’<a href="https://nouveau.europresse.com/Login/">Europresse</a>, étape sur laquelle nous passerons donc très rapidement.</p>
@@ -264,68 +261,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>Chercher un mot-clé quelconque :</li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Humatheque1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/Humatheque1.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Humatheque1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/Humatheque1.png" class="img-fluid" style="width:50.0%"></a></p>
 <ol start="3" type="1">
 <li>Se rendre dans l’onglet <strong>Presse</strong>, ce qui nous amène à la page d’<em>Europresse</em>.</li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Humatheque2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/Humatheque2.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Humatheque2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/Humatheque2.png" class="img-fluid" style="width:50.0%"></a></p>
 <ol start="4" type="1">
 <li>Se connecter à son compte Ined pour obtenir le lien vers <em>Europresse</em>.</li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Humatheque3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/Humatheque3.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Humatheque4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/Humatheque4.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Humatheque3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/Humatheque3.png" class="img-fluid" style="width:50.0%"></a></p>
+<p><a href="img/Humatheque4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/Humatheque4.png" class="img-fluid" style="width:50.0%"></a></p>
 <ol start="5" type="1">
 <li>Cliquer sur le lien vers le site d’<em>Europresse</em></li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Humatheque5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/Humatheque5.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Humatheque5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/Humatheque5.png" class="img-fluid" style="width:50.0%"></a></p>
 </section>
 <section id="créer-un-corpus-darticles-de-presses" class="level2">
 <h2 class="anchored" data-anchor-id="créer-un-corpus-darticles-de-presses">Créer un corpus d’articles de presses</h2>
 <p>La page d’accueil d’Europresse, dirige automatiquement vers la version <strong>étudiante</strong>, mais il est préférable de passer par la version <strong>classique</strong> du site.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Europress_rech_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/Europress_rech_1.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Europress_rech_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/Europress_rech_1.png" class="img-fluid" style="width:50.0%"></a></p>
 <p>En vous connectant à la version classique, vous obtiendrez la page suivante, à partir de laquelle on retourne vers une recherche <strong>simple</strong>, puis dans une recherche <strong>avancée</strong>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Europress_rech_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/Europress_rech_2.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Europress_rech_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/Europress_rech_2.png" class="img-fluid" style="width:50.0%"></a></p>
 <p>À partir de l’écran de <strong>recherche avancée</strong>, on peut sélectionner les articles qu’on désire intégrer au corpus de texte.<br>
 Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la <strong>presse</strong> en <strong>français</strong>, sur l’<strong>ensemble de la période</strong> couverte par Europresse.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Europress_rech_3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/Europress_rech_3.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Europress_rech_3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/Europress_rech_3.png" class="img-fluid" style="width:50.0%"></a></p>
 <p>On arrive donc sur la page suivante :</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Europress_rech_4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img/Europress_rech_4.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Europress_rech_4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img/Europress_rech_4.png" class="img-fluid" style="width:50.0%"></a></p>
 <p><strong>ATTENTION :</strong></p>
 <p>Avant d’exporter le fichier, il faut prendre plusieurs précautions :</p>
 <ul>
@@ -339,11 +300,7 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 </li>
 <li>Créer le fichier en cliquant sur la <strong>disquette</strong> et sélectionner le <strong>format HTML</strong>.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/Europress_rech_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/Europress_rech_5.png" class="img-fluid figure-img" style="width:25.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/Europress_rech_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/Europress_rech_5.png" class="img-fluid" style="width:25.0%"></a></p>
 <p>On obtient dans les téléchargements un fichier HTML qui commence par <em>biblioeuropresse</em>, qui contient l’ensemble des articles. Vous pouvez l’ouvrir pour les lire dans votre navigateur Web.</p>
 <p>Dans les étapes suivantes, nous allons utiliser ce fichier pour créer un corpus de texte utilisable dans Iramuteq.</p>
 </section>
@@ -2296,11 +2253,7 @@ Cependant, vous pouvez reproduire la manipulation plusieurs fois pour obtenir pl
 </li>
 <li>chaque métadonnée est précédée d’une étoile, puis du nom de la variable, un underscore “_”, et la valeur de la modalité.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/format_etoile.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img/format_etoile.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/format_etoile.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img/format_etoile.png" class="img-fluid" style="width:75.0%"></a></p>
 <p>Pour faciliter le processus, nous proposons une fonction qui met en forme la table créée précédemment directement dans le format voulu par Iramuteq.</p>
 </section>
 <section id="la-fonction-format_iramuteq" class="level2">
@@ -2495,10 +2448,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2508,8 +2460,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2522,6 +2483,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2565,6 +2645,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2590,6 +2671,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2650,7 +2757,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb34" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1"></a><span class="co">---</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="an">title:</span><span class="co"> "Créer un corpus de texte issu d'Europresse au format d'Iramuteq"</span></span>
 <span id="cb34-3"><a href="#cb34-3"></a></span>
@@ -2765,13 +2874,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-112"><a href="#cb34-112"></a></span>
 <span id="cb34-113"><a href="#cb34-113"></a><span class="in">```{r filename = "Packages", message=FALSE, warning=FALSE}</span></span>
 <span id="cb34-114"><a href="#cb34-114"></a></span>
-<span id="cb34-115"><a href="#cb34-115"></a><span class="co"># Packages nécessaires</span></span>
-<span id="cb34-116"><a href="#cb34-116"></a>load.lib <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"xml2"</span>, <span class="st">"stringr"</span>, <span class="st">"stringdist"</span>, <span class="st">"stringi"</span>,<span class="st">"lubridate"</span>, <span class="st">"dplyr"</span>, <span class="st">"tidyr"</span>,<span class="st">"purrr"</span>) </span>
-<span id="cb34-117"><a href="#cb34-117"></a><span class="co"># Installation des manquants</span></span>
-<span id="cb34-118"><a href="#cb34-118"></a>install.lib <span class="ot">&lt;-</span> load.lib[<span class="sc">!</span>load.lib <span class="sc">%in%</span> <span class="fu">installed.packages</span>()]</span>
-<span id="cb34-119"><a href="#cb34-119"></a><span class="cf">for</span> (lib <span class="cf">in</span> install.lib) <span class="fu">install.packages</span>(lib,<span class="at">dependencies=</span><span class="cn">TRUE</span>) </span>
-<span id="cb34-120"><a href="#cb34-120"></a><span class="co"># On charge les packages</span></span>
-<span id="cb34-121"><a href="#cb34-121"></a><span class="fu">sapply</span>(load.lib,require,<span class="at">character=</span><span class="cn">TRUE</span>)</span>
+<span id="cb34-115"><a href="#cb34-115"></a><span class="in"># Packages nécessaires</span></span>
+<span id="cb34-116"><a href="#cb34-116"></a><span class="in">load.lib &lt;- c("xml2", "stringr", "stringdist", "stringi","lubridate", "dplyr", "tidyr","purrr") </span></span>
+<span id="cb34-117"><a href="#cb34-117"></a><span class="in"># Installation des manquants</span></span>
+<span id="cb34-118"><a href="#cb34-118"></a><span class="in">install.lib &lt;- load.lib[!load.lib %in% installed.packages()]</span></span>
+<span id="cb34-119"><a href="#cb34-119"></a><span class="in">for (lib in install.lib) install.packages(lib,dependencies=TRUE) </span></span>
+<span id="cb34-120"><a href="#cb34-120"></a><span class="in"># On charge les packages</span></span>
+<span id="cb34-121"><a href="#cb34-121"></a><span class="in">sapply(load.lib,require,character=TRUE)</span></span>
 <span id="cb34-122"><a href="#cb34-122"></a></span>
 <span id="cb34-123"><a href="#cb34-123"></a><span class="in">```</span></span>
 <span id="cb34-124"><a href="#cb34-124"></a></span>
@@ -2779,12 +2888,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-126"><a href="#cb34-126"></a></span>
 <span id="cb34-127"><a href="#cb34-127"></a><span class="in">```{r filename = "Import texte HTML", message=FALSE, warning=FALSE}</span></span>
 <span id="cb34-128"><a href="#cb34-128"></a></span>
-<span id="cb34-129"><a href="#cb34-129"></a><span class="co"># On ouvre la base HTML obtenue</span></span>
-<span id="cb34-130"><a href="#cb34-130"></a>html <span class="ot">&lt;-</span> <span class="st">"DATA/biblioeuropresse20230710105912.HTML"</span></span>
-<span id="cb34-131"><a href="#cb34-131"></a><span class="co"># Lire le fichier HTML</span></span>
-<span id="cb34-132"><a href="#cb34-132"></a>doc <span class="ot">&lt;-</span> <span class="fu">read_html</span>(html)</span>
-<span id="cb34-133"><a href="#cb34-133"></a><span class="co"># Sélectionner les articles</span></span>
-<span id="cb34-134"><a href="#cb34-134"></a>articles <span class="ot">&lt;-</span> <span class="fu">xml_find_all</span>(doc, <span class="st">"//article"</span>)</span>
+<span id="cb34-129"><a href="#cb34-129"></a><span class="in"># On ouvre la base HTML obtenue</span></span>
+<span id="cb34-130"><a href="#cb34-130"></a><span class="in">html &lt;- "DATA/biblioeuropresse20230710105912.HTML"</span></span>
+<span id="cb34-131"><a href="#cb34-131"></a><span class="in"># Lire le fichier HTML</span></span>
+<span id="cb34-132"><a href="#cb34-132"></a><span class="in">doc &lt;- read_html(html)</span></span>
+<span id="cb34-133"><a href="#cb34-133"></a><span class="in"># Sélectionner les articles</span></span>
+<span id="cb34-134"><a href="#cb34-134"></a><span class="in">articles &lt;- xml_find_all(doc, "//article")</span></span>
 <span id="cb34-135"><a href="#cb34-135"></a></span>
 <span id="cb34-136"><a href="#cb34-136"></a><span class="in">```</span></span>
 <span id="cb34-137"><a href="#cb34-137"></a></span>
@@ -2796,14 +2905,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-143"><a href="#cb34-143"></a></span>
 <span id="cb34-144"><a href="#cb34-144"></a><span class="in">```{r filename = "Variable journal (1)", message=FALSE, warning=FALSE}</span></span>
 <span id="cb34-145"><a href="#cb34-145"></a></span>
-<span id="cb34-146"><a href="#cb34-146"></a>journal <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb34-147"><a href="#cb34-147"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">".//header/div[@class='rdp__DocPublicationName']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-148"><a href="#cb34-148"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-149"><a href="#cb34-149"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb34-150"><a href="#cb34-150"></a>  tmp</span>
-<span id="cb34-151"><a href="#cb34-151"></a>})</span>
+<span id="cb34-146"><a href="#cb34-146"></a><span class="in">journal &lt;- map_chr(articles, ~ {</span></span>
+<span id="cb34-147"><a href="#cb34-147"></a><span class="in">  tmp &lt;- xml_find_first(.x, ".//header/div[@class='rdp__DocPublicationName']") %&gt;%</span></span>
+<span id="cb34-148"><a href="#cb34-148"></a><span class="in">    xml_text(trim = TRUE)</span></span>
+<span id="cb34-149"><a href="#cb34-149"></a><span class="in">  if (is.null(tmp)) tmp &lt;- NA_character_</span></span>
+<span id="cb34-150"><a href="#cb34-150"></a><span class="in">  tmp</span></span>
+<span id="cb34-151"><a href="#cb34-151"></a><span class="in">})</span></span>
 <span id="cb34-152"><a href="#cb34-152"></a></span>
-<span id="cb34-153"><a href="#cb34-153"></a>journal[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb34-153"><a href="#cb34-153"></a><span class="in">journal[1:6]</span></span>
 <span id="cb34-154"><a href="#cb34-154"></a></span>
 <span id="cb34-155"><a href="#cb34-155"></a><span class="in">```</span></span>
 <span id="cb34-156"><a href="#cb34-156"></a></span>
@@ -2811,14 +2920,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-158"><a href="#cb34-158"></a></span>
 <span id="cb34-159"><a href="#cb34-159"></a><span class="in">```{r filename = "Variable journal (2)", message=FALSE, warning=FALSE}</span></span>
 <span id="cb34-160"><a href="#cb34-160"></a></span>
-<span id="cb34-161"><a href="#cb34-161"></a>journal_manquant <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb34-162"><a href="#cb34-162"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">"./header/div[@class='sm-margin-bottom']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-163"><a href="#cb34-163"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-164"><a href="#cb34-164"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb34-165"><a href="#cb34-165"></a>  tmp</span>
-<span id="cb34-166"><a href="#cb34-166"></a>})</span>
+<span id="cb34-161"><a href="#cb34-161"></a><span class="in">journal_manquant &lt;- map_chr(articles, ~ {</span></span>
+<span id="cb34-162"><a href="#cb34-162"></a><span class="in">  tmp &lt;- xml_find_first(.x, "./header/div[@class='sm-margin-bottom']") %&gt;%</span></span>
+<span id="cb34-163"><a href="#cb34-163"></a><span class="in">    xml_text(trim = TRUE)</span></span>
+<span id="cb34-164"><a href="#cb34-164"></a><span class="in">  if (is.null(tmp)) tmp &lt;- NA_character_</span></span>
+<span id="cb34-165"><a href="#cb34-165"></a><span class="in">  tmp</span></span>
+<span id="cb34-166"><a href="#cb34-166"></a><span class="in">})</span></span>
 <span id="cb34-167"><a href="#cb34-167"></a></span>
-<span id="cb34-168"><a href="#cb34-168"></a>journal_manquant[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb34-168"><a href="#cb34-168"></a><span class="in">journal_manquant[1:6]</span></span>
 <span id="cb34-169"><a href="#cb34-169"></a></span>
 <span id="cb34-170"><a href="#cb34-170"></a><span class="in">```</span></span>
 <span id="cb34-171"><a href="#cb34-171"></a></span>
@@ -2829,12 +2938,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-176"><a href="#cb34-176"></a>Dans certains cas, on peut également récupérer les noms des auteurs.rices des articles. Ce n'est pas le cas ici, il semblerait que l'information ne soit pas toujours disponible.</span>
 <span id="cb34-177"><a href="#cb34-177"></a></span>
 <span id="cb34-178"><a href="#cb34-178"></a><span class="in">```{r filename = "Variable auteur", message=FALSE, warning=FALSE}</span></span>
-<span id="cb34-179"><a href="#cb34-179"></a>auteur <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb34-180"><a href="#cb34-180"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">"./header/div[@class='docAuthors']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-181"><a href="#cb34-181"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-182"><a href="#cb34-182"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb34-183"><a href="#cb34-183"></a>  tmp</span>
-<span id="cb34-184"><a href="#cb34-184"></a>})</span>
+<span id="cb34-179"><a href="#cb34-179"></a><span class="in">auteur &lt;- map_chr(articles, ~ {</span></span>
+<span id="cb34-180"><a href="#cb34-180"></a><span class="in">  tmp &lt;- xml_find_first(.x, "./header/div[@class='docAuthors']") %&gt;%</span></span>
+<span id="cb34-181"><a href="#cb34-181"></a><span class="in">    xml_text(trim = TRUE)</span></span>
+<span id="cb34-182"><a href="#cb34-182"></a><span class="in">  if (is.null(tmp)) tmp &lt;- NA_character_</span></span>
+<span id="cb34-183"><a href="#cb34-183"></a><span class="in">  tmp</span></span>
+<span id="cb34-184"><a href="#cb34-184"></a><span class="in">})</span></span>
 <span id="cb34-185"><a href="#cb34-185"></a></span>
 <span id="cb34-186"><a href="#cb34-186"></a><span class="in">```</span></span>
 <span id="cb34-187"><a href="#cb34-187"></a></span>
@@ -2844,12 +2953,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-191"><a href="#cb34-191"></a></span>
 <span id="cb34-192"><a href="#cb34-192"></a><span class="in">```{r filename = "Variable titre", message=FALSE, warning=FALSE}</span></span>
 <span id="cb34-193"><a href="#cb34-193"></a></span>
-<span id="cb34-194"><a href="#cb34-194"></a>titre <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb34-195"><a href="#cb34-195"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">"./header/div[@class='titreArticle']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-196"><a href="#cb34-196"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-197"><a href="#cb34-197"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb34-198"><a href="#cb34-198"></a>  tmp</span>
-<span id="cb34-199"><a href="#cb34-199"></a>})</span>
+<span id="cb34-194"><a href="#cb34-194"></a><span class="in">titre &lt;- map_chr(articles, ~ {</span></span>
+<span id="cb34-195"><a href="#cb34-195"></a><span class="in">  tmp &lt;- xml_find_first(.x, "./header/div[@class='titreArticle']") %&gt;%</span></span>
+<span id="cb34-196"><a href="#cb34-196"></a><span class="in">    xml_text(trim = TRUE)</span></span>
+<span id="cb34-197"><a href="#cb34-197"></a><span class="in">  if (is.null(tmp)) tmp &lt;- NA_character_</span></span>
+<span id="cb34-198"><a href="#cb34-198"></a><span class="in">  tmp</span></span>
+<span id="cb34-199"><a href="#cb34-199"></a><span class="in">})</span></span>
 <span id="cb34-200"><a href="#cb34-200"></a></span>
 <span id="cb34-201"><a href="#cb34-201"></a><span class="in">```</span></span>
 <span id="cb34-202"><a href="#cb34-202"></a></span>
@@ -2859,15 +2968,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-206"><a href="#cb34-206"></a></span>
 <span id="cb34-207"><a href="#cb34-207"></a><span class="in">```{r filename = "Variable date (1)", message=FALSE, warning=FALSE}</span></span>
 <span id="cb34-208"><a href="#cb34-208"></a></span>
-<span id="cb34-209"><a href="#cb34-209"></a>date <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb34-210"><a href="#cb34-210"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">".//div[@class='publiC-lblNodoc']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-211"><a href="#cb34-211"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-212"><a href="#cb34-212"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb34-213"><a href="#cb34-213"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">substr</span>(tmp, <span class="dv">6</span>, <span class="dv">13</span>)</span>
-<span id="cb34-214"><a href="#cb34-214"></a>})</span>
-<span id="cb34-215"><a href="#cb34-215"></a><span class="co"># On met la date au bon format</span></span>
-<span id="cb34-216"><a href="#cb34-216"></a>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(date, <span class="st">"%Y%m%d"</span>) </span>
-<span id="cb34-217"><a href="#cb34-217"></a>date[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb34-209"><a href="#cb34-209"></a><span class="in">date &lt;- map_chr(articles, ~ {</span></span>
+<span id="cb34-210"><a href="#cb34-210"></a><span class="in">  tmp &lt;- xml_find_first(.x, ".//div[@class='publiC-lblNodoc']") %&gt;%</span></span>
+<span id="cb34-211"><a href="#cb34-211"></a><span class="in">    xml_text(trim = TRUE)</span></span>
+<span id="cb34-212"><a href="#cb34-212"></a><span class="in">  if (is.null(tmp)) tmp &lt;- NA_character_</span></span>
+<span id="cb34-213"><a href="#cb34-213"></a><span class="in">  tmp &lt;- substr(tmp, 6, 13)</span></span>
+<span id="cb34-214"><a href="#cb34-214"></a><span class="in">})</span></span>
+<span id="cb34-215"><a href="#cb34-215"></a><span class="in"># On met la date au bon format</span></span>
+<span id="cb34-216"><a href="#cb34-216"></a><span class="in">date &lt;- as.Date(date, "%Y%m%d") </span></span>
+<span id="cb34-217"><a href="#cb34-217"></a><span class="in">date[1:6]</span></span>
 <span id="cb34-218"><a href="#cb34-218"></a></span>
 <span id="cb34-219"><a href="#cb34-219"></a><span class="in">```</span></span>
 <span id="cb34-220"><a href="#cb34-220"></a></span>
@@ -2875,19 +2984,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-222"><a href="#cb34-222"></a></span>
 <span id="cb34-223"><a href="#cb34-223"></a><span class="in">```{r filename = "Variable date (2)", message=FALSE, warning=FALSE}</span></span>
 <span id="cb34-224"><a href="#cb34-224"></a></span>
-<span id="cb34-225"><a href="#cb34-225"></a><span class="co"># Fonction pour extraire le deuxième élément correspondant au critère donné</span></span>
-<span id="cb34-226"><a href="#cb34-226"></a>get_second_element <span class="ot">&lt;-</span> <span class="cf">function</span>(node, xpath) {</span>
-<span id="cb34-227"><a href="#cb34-227"></a>  found_elements <span class="ot">&lt;-</span> <span class="fu">xml_find_all</span>(node, xpath)</span>
-<span id="cb34-228"><a href="#cb34-228"></a>  <span class="cf">if</span> (<span class="fu">length</span>(found_elements) <span class="sc">&gt;=</span> <span class="dv">2</span>) {</span>
-<span id="cb34-229"><a href="#cb34-229"></a>    <span class="fu">return</span>(found_elements[[<span class="dv">2</span>]] <span class="sc">%&gt;%</span> <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb34-230"><a href="#cb34-230"></a>  } <span class="cf">else</span> {</span>
-<span id="cb34-231"><a href="#cb34-231"></a>    <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
-<span id="cb34-232"><a href="#cb34-232"></a>  }</span>
-<span id="cb34-233"><a href="#cb34-233"></a>}</span>
+<span id="cb34-225"><a href="#cb34-225"></a><span class="in"># Fonction pour extraire le deuxième élément correspondant au critère donné</span></span>
+<span id="cb34-226"><a href="#cb34-226"></a><span class="in">get_second_element &lt;- function(node, xpath) {</span></span>
+<span id="cb34-227"><a href="#cb34-227"></a><span class="in">  found_elements &lt;- xml_find_all(node, xpath)</span></span>
+<span id="cb34-228"><a href="#cb34-228"></a><span class="in">  if (length(found_elements) &gt;= 2) {</span></span>
+<span id="cb34-229"><a href="#cb34-229"></a><span class="in">    return(found_elements[[2]] %&gt;% xml_text(trim = TRUE))</span></span>
+<span id="cb34-230"><a href="#cb34-230"></a><span class="in">  } else {</span></span>
+<span id="cb34-231"><a href="#cb34-231"></a><span class="in">    return(NA_character_)</span></span>
+<span id="cb34-232"><a href="#cb34-232"></a><span class="in">  }</span></span>
+<span id="cb34-233"><a href="#cb34-233"></a><span class="in">}</span></span>
 <span id="cb34-234"><a href="#cb34-234"></a></span>
-<span id="cb34-235"><a href="#cb34-235"></a><span class="co"># Récupérer le deuxième élément pour chaque article</span></span>
-<span id="cb34-236"><a href="#cb34-236"></a>date_manquant <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, get_second_element, <span class="at">xpath =</span> <span class="st">"./header/div[@class='sm-margin-bottom']"</span>)</span>
-<span id="cb34-237"><a href="#cb34-237"></a>date_manquant[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb34-235"><a href="#cb34-235"></a><span class="in"># Récupérer le deuxième élément pour chaque article</span></span>
+<span id="cb34-236"><a href="#cb34-236"></a><span class="in">date_manquant &lt;- map_chr(articles, get_second_element, xpath = "./header/div[@class='sm-margin-bottom']")</span></span>
+<span id="cb34-237"><a href="#cb34-237"></a><span class="in">date_manquant[1:6]</span></span>
 <span id="cb34-238"><a href="#cb34-238"></a></span>
 <span id="cb34-239"><a href="#cb34-239"></a><span class="in">```</span></span>
 <span id="cb34-240"><a href="#cb34-240"></a></span>
@@ -2898,12 +3007,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-245"><a href="#cb34-245"></a>On récupère finalement les textes des articles.</span>
 <span id="cb34-246"><a href="#cb34-246"></a></span>
 <span id="cb34-247"><a href="#cb34-247"></a><span class="in">```{r filename = "Variable texte", message=FALSE, warning=FALSE}</span></span>
-<span id="cb34-248"><a href="#cb34-248"></a>texte <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb34-249"><a href="#cb34-249"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">".//div[@class='DocText clearfix']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-250"><a href="#cb34-250"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb34-251"><a href="#cb34-251"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb34-252"><a href="#cb34-252"></a>  tmp</span>
-<span id="cb34-253"><a href="#cb34-253"></a>})</span>
+<span id="cb34-248"><a href="#cb34-248"></a><span class="in">texte &lt;- map_chr(articles, ~ {</span></span>
+<span id="cb34-249"><a href="#cb34-249"></a><span class="in">  tmp &lt;- xml_find_first(.x, ".//div[@class='DocText clearfix']") %&gt;%</span></span>
+<span id="cb34-250"><a href="#cb34-250"></a><span class="in">    xml_text(trim = TRUE)</span></span>
+<span id="cb34-251"><a href="#cb34-251"></a><span class="in">  if (is.null(tmp)) tmp &lt;- NA_character_</span></span>
+<span id="cb34-252"><a href="#cb34-252"></a><span class="in">  tmp</span></span>
+<span id="cb34-253"><a href="#cb34-253"></a><span class="in">})</span></span>
 <span id="cb34-254"><a href="#cb34-254"></a><span class="in">```</span></span>
 <span id="cb34-255"><a href="#cb34-255"></a></span>
 <span id="cb34-256"><a href="#cb34-256"></a><span class="fu">## Création de la base de données</span></span>
@@ -2914,23 +3023,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-261"><a href="#cb34-261"></a></span>
 <span id="cb34-262"><a href="#cb34-262"></a><span class="in">```{r filename = "Création base"}</span></span>
 <span id="cb34-263"><a href="#cb34-263"></a></span>
-<span id="cb34-264"><a href="#cb34-264"></a>txt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Journal =</span> journal,</span>
-<span id="cb34-265"><a href="#cb34-265"></a>                  <span class="at">Titre =</span> titre,</span>
-<span id="cb34-266"><a href="#cb34-266"></a>                  <span class="at">Date =</span> date,</span>
-<span id="cb34-267"><a href="#cb34-267"></a>                  <span class="at">Date_manq =</span> date_manquant,</span>
-<span id="cb34-268"><a href="#cb34-268"></a>                  <span class="at">Auteur =</span> auteur,</span>
-<span id="cb34-269"><a href="#cb34-269"></a>                  <span class="at">Texte =</span> texte) </span>
+<span id="cb34-264"><a href="#cb34-264"></a><span class="in">txt &lt;- data.frame(Journal = journal,</span></span>
+<span id="cb34-265"><a href="#cb34-265"></a><span class="in">                  Titre = titre,</span></span>
+<span id="cb34-266"><a href="#cb34-266"></a><span class="in">                  Date = date,</span></span>
+<span id="cb34-267"><a href="#cb34-267"></a><span class="in">                  Date_manq = date_manquant,</span></span>
+<span id="cb34-268"><a href="#cb34-268"></a><span class="in">                  Auteur = auteur,</span></span>
+<span id="cb34-269"><a href="#cb34-269"></a><span class="in">                  Texte = texte) </span></span>
 <span id="cb34-270"><a href="#cb34-270"></a></span>
 <span id="cb34-271"><a href="#cb34-271"></a><span class="in">```</span></span>
 <span id="cb34-272"><a href="#cb34-272"></a></span>
 <span id="cb34-273"><a href="#cb34-273"></a>On obtient une base de données avec autant de lignes que d'articles et 5 variables.</span>
 <span id="cb34-274"><a href="#cb34-274"></a></span>
 <span id="cb34-275"><a href="#cb34-275"></a><span class="in">```{r, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
-<span id="cb34-276"><a href="#cb34-276"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb34-276"><a href="#cb34-276"></a><span class="in">library(kableExtra)</span></span>
 <span id="cb34-277"><a href="#cb34-277"></a></span>
-<span id="cb34-278"><a href="#cb34-278"></a><span class="fu">kable</span>(<span class="fu">head</span>(txt,<span class="dv">6</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-279"><a href="#cb34-279"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-280"><a href="#cb34-280"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb34-278"><a href="#cb34-278"></a><span class="in">kable(head(txt,6)) %&gt;%</span></span>
+<span id="cb34-279"><a href="#cb34-279"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb34-280"><a href="#cb34-280"></a><span class="in">   scroll_box(height = "300px")</span></span>
 <span id="cb34-281"><a href="#cb34-281"></a><span class="in">```</span></span>
 <span id="cb34-282"><a href="#cb34-282"></a></span>
 <span id="cb34-283"><a href="#cb34-283"></a><span class="fu">### Correction des valeurs manquantes</span></span>
@@ -2940,10 +3049,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-287"><a href="#cb34-287"></a>On remplace Journal par journal_manquant quand ils n'existent pas. Et on supprime les espaces et les sauts de lignes dans les noms de journaux pour faciliter les recodages plus tard.</span>
 <span id="cb34-288"><a href="#cb34-288"></a></span>
 <span id="cb34-289"><a href="#cb34-289"></a><span class="in">```{r filename = "Ajout journaux manquants"}</span></span>
-<span id="cb34-290"><a href="#cb34-290"></a>txt <span class="ot">&lt;-</span> txt <span class="sc">%&gt;%</span> </span>
-<span id="cb34-291"><a href="#cb34-291"></a>  <span class="fu">mutate</span>(<span class="at">Journal =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Journal), journal_manquant, Journal)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-292"><a href="#cb34-292"></a>  <span class="fu">mutate</span>(<span class="at">Journal =</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">""</span>, Journal)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-293"><a href="#cb34-293"></a>  <span class="fu">mutate</span>(<span class="at">Journal =</span> <span class="fu">gsub</span>(<span class="st">" "</span>, <span class="st">""</span>, Journal))</span>
+<span id="cb34-290"><a href="#cb34-290"></a><span class="in">txt &lt;- txt %&gt;% </span></span>
+<span id="cb34-291"><a href="#cb34-291"></a><span class="in">  mutate(Journal = ifelse(is.na(Journal), journal_manquant, Journal)) %&gt;% </span></span>
+<span id="cb34-292"><a href="#cb34-292"></a><span class="in">  mutate(Journal = gsub("\n", "", Journal)) %&gt;% </span></span>
+<span id="cb34-293"><a href="#cb34-293"></a><span class="in">  mutate(Journal = gsub(" ", "", Journal))</span></span>
 <span id="cb34-294"><a href="#cb34-294"></a><span class="in">```</span></span>
 <span id="cb34-295"><a href="#cb34-295"></a></span>
 <span id="cb34-296"><a href="#cb34-296"></a><span class="fu">#### Dates manquantes</span></span>
@@ -2953,46 +3062,46 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-300"><a href="#cb34-300"></a><span class="ss">- </span>Les dates manquantes contiennent également le nombre de mots de l'article. Il faut donc isoler la date.</span>
 <span id="cb34-301"><a href="#cb34-301"></a></span>
 <span id="cb34-302"><a href="#cb34-302"></a><span class="in">```{r filename = "Ajout dates manquants", warning=FALSE, message=FALSE}</span></span>
-<span id="cb34-303"><a href="#cb34-303"></a>txt <span class="ot">&lt;-</span> txt <span class="sc">%&gt;%</span> </span>
-<span id="cb34-304"><a href="#cb34-304"></a>  <span class="co"># J'enlève les caractères spéciaux pour pouvoir utiliser</span></span>
-<span id="cb34-305"><a href="#cb34-305"></a>  <span class="co"># la fonction separate()</span></span>
-<span id="cb34-306"><a href="#cb34-306"></a>  <span class="fu">mutate</span>(<span class="at">Date_manq =</span> <span class="fu">str_replace</span>(Date_manq, <span class="st">"é"</span>, <span class="st">"e"</span>),</span>
-<span id="cb34-307"><a href="#cb34-307"></a>         <span class="at">Date_manq =</span> <span class="fu">str_replace</span>(Date_manq, <span class="st">"û"</span>, <span class="st">"u"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-308"><a href="#cb34-308"></a>  <span class="co"># separate() permet d'isoler le jour, le mois, l'année, et le nombre de mots</span></span>
-<span id="cb34-309"><a href="#cb34-309"></a>  <span class="co"># pour les dates manquantes, dans 5 variables</span></span>
-<span id="cb34-310"><a href="#cb34-310"></a>  <span class="fu">separate</span>(Date_manq, <span class="fu">c</span>(<span class="st">"jour"</span>, <span class="st">"mois"</span>, <span class="st">"annee"</span>, <span class="st">"lettre"</span>, <span class="st">"mots"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-311"><a href="#cb34-311"></a>  <span class="co"># Attention : pour les sources anglaise, le mois et le jour sont inversés</span></span>
-<span id="cb34-312"><a href="#cb34-312"></a>  <span class="co"># Je les inverse dans jour2 et mois2</span></span>
-<span id="cb34-313"><a href="#cb34-313"></a>  <span class="fu">mutate</span>(<span class="at">jour2 =</span> <span class="fu">if_else</span>(<span class="fu">substr</span>(mois,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>), mois, jour),</span>
-<span id="cb34-314"><a href="#cb34-314"></a>         <span class="at">mois2 =</span> <span class="fu">if_else</span>(<span class="fu">substr</span>(jour,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>), mois, jour)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-315"><a href="#cb34-315"></a>  <span class="co"># Je supprime les variables inutiles</span></span>
-<span id="cb34-316"><a href="#cb34-316"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(lettre,mots, jour, mois)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-317"><a href="#cb34-317"></a>  <span class="co"># Je crée une nouvelle variable de date en collant l'année, le mois, le jour</span></span>
-<span id="cb34-318"><a href="#cb34-318"></a>  <span class="fu">mutate</span>(<span class="at">date2 =</span> <span class="fu">paste</span>(annee, mois2, jour2),</span>
-<span id="cb34-319"><a href="#cb34-319"></a>         <span class="co"># Je dois réecrire février et aôut correctement</span></span>
-<span id="cb34-320"><a href="#cb34-320"></a>         <span class="at">date2 =</span> <span class="fu">str_replace</span>(date2, <span class="st">"fevrier"</span>, <span class="st">"février"</span>),</span>
-<span id="cb34-321"><a href="#cb34-321"></a>         <span class="at">date2 =</span> <span class="fu">str_replace</span>(date2, <span class="st">"aout"</span>, <span class="st">"août"</span>),</span>
-<span id="cb34-322"><a href="#cb34-322"></a>         <span class="co"># Je transforme en format date.</span></span>
-<span id="cb34-323"><a href="#cb34-323"></a>         <span class="at">date2 =</span> <span class="fu">as_date</span>(<span class="fu">ymd</span>(<span class="fu">paste</span>(date2)))) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-324"><a href="#cb34-324"></a>  <span class="co"># Je remplace la date quand elle est manquante </span></span>
-<span id="cb34-325"><a href="#cb34-325"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Date), date2, Date))  <span class="sc">%&gt;%</span> </span>
-<span id="cb34-326"><a href="#cb34-326"></a>  <span class="co"># Si la date est avant 2000, c'est une erreur de frappe, on prend l'autre date</span></span>
-<span id="cb34-327"><a href="#cb34-327"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as_date</span>(Date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-328"><a href="#cb34-328"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">ifelse</span>(Date <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="st">"2000-01-01"</span>), date2, Date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-329"><a href="#cb34-329"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as_date</span>(Date))  <span class="sc">%&gt;%</span> </span>
-<span id="cb34-330"><a href="#cb34-330"></a>  <span class="co"># Je garde les variables d'intérêts</span></span>
-<span id="cb34-331"><a href="#cb34-331"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(jour2, mois2, annee, date2)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-332"><a href="#cb34-332"></a>  <span class="co"># Je trie dans l'ordre croissant de parution</span></span>
-<span id="cb34-333"><a href="#cb34-333"></a>  <span class="fu">arrange</span>(Date)</span>
+<span id="cb34-303"><a href="#cb34-303"></a><span class="in">txt &lt;- txt %&gt;% </span></span>
+<span id="cb34-304"><a href="#cb34-304"></a><span class="in">  # J'enlève les caractères spéciaux pour pouvoir utiliser</span></span>
+<span id="cb34-305"><a href="#cb34-305"></a><span class="in">  # la fonction separate()</span></span>
+<span id="cb34-306"><a href="#cb34-306"></a><span class="in">  mutate(Date_manq = str_replace(Date_manq, "é", "e"),</span></span>
+<span id="cb34-307"><a href="#cb34-307"></a><span class="in">         Date_manq = str_replace(Date_manq, "û", "u")) %&gt;% </span></span>
+<span id="cb34-308"><a href="#cb34-308"></a><span class="in">  # separate() permet d'isoler le jour, le mois, l'année, et le nombre de mots</span></span>
+<span id="cb34-309"><a href="#cb34-309"></a><span class="in">  # pour les dates manquantes, dans 5 variables</span></span>
+<span id="cb34-310"><a href="#cb34-310"></a><span class="in">  separate(Date_manq, c("jour", "mois", "annee", "lettre", "mots")) %&gt;% </span></span>
+<span id="cb34-311"><a href="#cb34-311"></a><span class="in">  # Attention : pour les sources anglaise, le mois et le jour sont inversés</span></span>
+<span id="cb34-312"><a href="#cb34-312"></a><span class="in">  # Je les inverse dans jour2 et mois2</span></span>
+<span id="cb34-313"><a href="#cb34-313"></a><span class="in">  mutate(jour2 = if_else(substr(mois,1,1) %in% c(0:9), mois, jour),</span></span>
+<span id="cb34-314"><a href="#cb34-314"></a><span class="in">         mois2 = if_else(substr(jour,1,1) %in% c(0:9), mois, jour)) %&gt;% </span></span>
+<span id="cb34-315"><a href="#cb34-315"></a><span class="in">  # Je supprime les variables inutiles</span></span>
+<span id="cb34-316"><a href="#cb34-316"></a><span class="in">  select(-c(lettre,mots, jour, mois)) %&gt;% </span></span>
+<span id="cb34-317"><a href="#cb34-317"></a><span class="in">  # Je crée une nouvelle variable de date en collant l'année, le mois, le jour</span></span>
+<span id="cb34-318"><a href="#cb34-318"></a><span class="in">  mutate(date2 = paste(annee, mois2, jour2),</span></span>
+<span id="cb34-319"><a href="#cb34-319"></a><span class="in">         # Je dois réecrire février et aôut correctement</span></span>
+<span id="cb34-320"><a href="#cb34-320"></a><span class="in">         date2 = str_replace(date2, "fevrier", "février"),</span></span>
+<span id="cb34-321"><a href="#cb34-321"></a><span class="in">         date2 = str_replace(date2, "aout", "août"),</span></span>
+<span id="cb34-322"><a href="#cb34-322"></a><span class="in">         # Je transforme en format date.</span></span>
+<span id="cb34-323"><a href="#cb34-323"></a><span class="in">         date2 = as_date(ymd(paste(date2)))) %&gt;% </span></span>
+<span id="cb34-324"><a href="#cb34-324"></a><span class="in">  # Je remplace la date quand elle est manquante </span></span>
+<span id="cb34-325"><a href="#cb34-325"></a><span class="in">  mutate(Date = ifelse(is.na(Date), date2, Date))  %&gt;% </span></span>
+<span id="cb34-326"><a href="#cb34-326"></a><span class="in">  # Si la date est avant 2000, c'est une erreur de frappe, on prend l'autre date</span></span>
+<span id="cb34-327"><a href="#cb34-327"></a><span class="in">  mutate(Date = as_date(Date)) %&gt;% </span></span>
+<span id="cb34-328"><a href="#cb34-328"></a><span class="in">  mutate(Date = ifelse(Date &lt; ymd("2000-01-01"), date2, Date)) %&gt;% </span></span>
+<span id="cb34-329"><a href="#cb34-329"></a><span class="in">  mutate(Date = as_date(Date))  %&gt;% </span></span>
+<span id="cb34-330"><a href="#cb34-330"></a><span class="in">  # Je garde les variables d'intérêts</span></span>
+<span id="cb34-331"><a href="#cb34-331"></a><span class="in">  select(-c(jour2, mois2, annee, date2)) %&gt;% </span></span>
+<span id="cb34-332"><a href="#cb34-332"></a><span class="in">  # Je trie dans l'ordre croissant de parution</span></span>
+<span id="cb34-333"><a href="#cb34-333"></a><span class="in">  arrange(Date)</span></span>
 <span id="cb34-334"><a href="#cb34-334"></a></span>
 <span id="cb34-335"><a href="#cb34-335"></a><span class="in">```</span></span>
 <span id="cb34-336"><a href="#cb34-336"></a></span>
 <span id="cb34-337"><a href="#cb34-337"></a>Les warnings sont normaux et ne posent pas de problèmes.</span>
 <span id="cb34-338"><a href="#cb34-338"></a></span>
 <span id="cb34-339"><a href="#cb34-339"></a><span class="in">```{r, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
-<span id="cb34-340"><a href="#cb34-340"></a><span class="fu">kable</span>(<span class="fu">head</span>(txt,<span class="dv">6</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-341"><a href="#cb34-341"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-342"><a href="#cb34-342"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb34-340"><a href="#cb34-340"></a><span class="in">kable(head(txt,6)) %&gt;%</span></span>
+<span id="cb34-341"><a href="#cb34-341"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb34-342"><a href="#cb34-342"></a><span class="in">   scroll_box(height = "300px")</span></span>
 <span id="cb34-343"><a href="#cb34-343"></a><span class="in">```</span></span>
 <span id="cb34-344"><a href="#cb34-344"></a></span>
 <span id="cb34-345"><a href="#cb34-345"></a>On a bien récupéré les dates et les noms de journaux.</span>
@@ -3005,40 +3114,40 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-352"><a href="#cb34-352"></a></span>
 <span id="cb34-353"><a href="#cb34-353"></a><span class="in">```{r filename = "Suppression articles courts"}</span></span>
 <span id="cb34-354"><a href="#cb34-354"></a></span>
-<span id="cb34-355"><a href="#cb34-355"></a>articles <span class="ot">&lt;-</span> txt <span class="sc">%&gt;%</span>  </span>
-<span id="cb34-356"><a href="#cb34-356"></a>  <span class="fu">filter</span>(<span class="fu">nchar</span>(Texte) <span class="sc">&gt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-357"><a href="#cb34-357"></a>  <span class="fu">mutate</span>(<span class="at">extrait_debut =</span> <span class="fu">str_sub</span>(Texte, <span class="dv">50</span>, <span class="dv">150</span>), </span>
-<span id="cb34-358"><a href="#cb34-358"></a>         <span class="at">extrait_fin =</span> <span class="fu">str_sub</span>(Texte, <span class="sc">-</span><span class="dv">150</span>, <span class="sc">-</span><span class="dv">50</span>)) </span>
+<span id="cb34-355"><a href="#cb34-355"></a><span class="in">articles &lt;- txt %&gt;%  </span></span>
+<span id="cb34-356"><a href="#cb34-356"></a><span class="in">  filter(nchar(Texte) &gt; 500) %&gt;% </span></span>
+<span id="cb34-357"><a href="#cb34-357"></a><span class="in">  mutate(extrait_debut = str_sub(Texte, 50, 150), </span></span>
+<span id="cb34-358"><a href="#cb34-358"></a><span class="in">         extrait_fin = str_sub(Texte, -150, -50)) </span></span>
 <span id="cb34-359"><a href="#cb34-359"></a><span class="in">```</span></span>
 <span id="cb34-360"><a href="#cb34-360"></a></span>
 <span id="cb34-361"><a href="#cb34-361"></a><span class="fu">## Comparaison des débuts de textes</span></span>
 <span id="cb34-362"><a href="#cb34-362"></a></span>
 <span id="cb34-363"><a href="#cb34-363"></a><span class="in">```{r filename = "Doublons en début"}</span></span>
 <span id="cb34-364"><a href="#cb34-364"></a></span>
-<span id="cb34-365"><a href="#cb34-365"></a><span class="co"># Calcul des paires de distance</span></span>
-<span id="cb34-366"><a href="#cb34-366"></a><span class="co"># C'est ici qu'a lieu le calcul de distance entre tous les textes.</span></span>
-<span id="cb34-367"><a href="#cb34-367"></a>dist <span class="ot">&lt;-</span> <span class="fu">stringdistmatrix</span>(articles<span class="sc">$</span>extrait_debut) </span>
-<span id="cb34-368"><a href="#cb34-368"></a><span class="do">## Conversion en matrice </span></span>
-<span id="cb34-369"><a href="#cb34-369"></a>m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dist)</span>
-<span id="cb34-370"><a href="#cb34-370"></a><span class="co"># Dans la matrice, on met 1000 comme valeur pour toutes les valeurs en dessous </span></span>
-<span id="cb34-371"><a href="#cb34-371"></a><span class="co"># de la diagonale, pour éviter d'avoir deux fois la même mesure</span></span>
-<span id="cb34-372"><a href="#cb34-372"></a>m[<span class="fu">lower.tri</span>(m)] <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb34-373"><a href="#cb34-373"></a><span class="co"># Dans la matrice, on met 1000 comme valeur pour la diagonale </span></span>
-<span id="cb34-374"><a href="#cb34-374"></a><span class="co"># pour ne pas enlever un texte parce qu'il ressemble à lui-même...</span></span>
-<span id="cb34-375"><a href="#cb34-375"></a><span class="fu">diag</span>(m) <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
+<span id="cb34-365"><a href="#cb34-365"></a><span class="in"># Calcul des paires de distance</span></span>
+<span id="cb34-366"><a href="#cb34-366"></a><span class="in"># C'est ici qu'a lieu le calcul de distance entre tous les textes.</span></span>
+<span id="cb34-367"><a href="#cb34-367"></a><span class="in">dist &lt;- stringdistmatrix(articles$extrait_debut) </span></span>
+<span id="cb34-368"><a href="#cb34-368"></a><span class="in">## Conversion en matrice </span></span>
+<span id="cb34-369"><a href="#cb34-369"></a><span class="in">m &lt;- as.matrix(dist)</span></span>
+<span id="cb34-370"><a href="#cb34-370"></a><span class="in"># Dans la matrice, on met 1000 comme valeur pour toutes les valeurs en dessous </span></span>
+<span id="cb34-371"><a href="#cb34-371"></a><span class="in"># de la diagonale, pour éviter d'avoir deux fois la même mesure</span></span>
+<span id="cb34-372"><a href="#cb34-372"></a><span class="in">m[lower.tri(m)] &lt;- 1000 </span></span>
+<span id="cb34-373"><a href="#cb34-373"></a><span class="in"># Dans la matrice, on met 1000 comme valeur pour la diagonale </span></span>
+<span id="cb34-374"><a href="#cb34-374"></a><span class="in"># pour ne pas enlever un texte parce qu'il ressemble à lui-même...</span></span>
+<span id="cb34-375"><a href="#cb34-375"></a><span class="in">diag(m) &lt;- 1000 </span></span>
 <span id="cb34-376"><a href="#cb34-376"></a></span>
-<span id="cb34-377"><a href="#cb34-377"></a><span class="co"># Sélection des paires proches</span></span>
-<span id="cb34-378"><a href="#cb34-378"></a><span class="co"># On regarde les positions pour lesquelles l'indice de dissimilarité est </span></span>
-<span id="cb34-379"><a href="#cb34-379"></a><span class="co"># inférieure à 50. C'est ici donc qu'on fixe le seuil et qu'on peut le changer !  </span></span>
-<span id="cb34-380"><a href="#cb34-380"></a>indices <span class="ot">&lt;-</span> <span class="fu">which</span>(m <span class="sc">&lt;</span> <span class="dv">50</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb34-377"><a href="#cb34-377"></a><span class="in"># Sélection des paires proches</span></span>
+<span id="cb34-378"><a href="#cb34-378"></a><span class="in"># On regarde les positions pour lesquelles l'indice de dissimilarité est </span></span>
+<span id="cb34-379"><a href="#cb34-379"></a><span class="in"># inférieure à 50. C'est ici donc qu'on fixe le seuil et qu'on peut le changer !  </span></span>
+<span id="cb34-380"><a href="#cb34-380"></a><span class="in">indices &lt;- which(m &lt; 50, arr.ind = TRUE) </span></span>
 <span id="cb34-381"><a href="#cb34-381"></a></span>
-<span id="cb34-382"><a href="#cb34-382"></a><span class="do">## Vérifications</span></span>
-<span id="cb34-383"><a href="#cb34-383"></a>verif_dbt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(articles<span class="sc">$</span>extrait_debut[indices[,<span class="dv">1</span>]], </span>
-<span id="cb34-384"><a href="#cb34-384"></a>                   articles<span class="sc">$</span>extrait_debut[indices[,<span class="dv">2</span>]])</span>
-<span id="cb34-385"><a href="#cb34-385"></a><span class="co"># On peut regarder ce qui a été considéré comme trop proche pour faire varier le seuil.</span></span>
+<span id="cb34-382"><a href="#cb34-382"></a><span class="in">## Vérifications</span></span>
+<span id="cb34-383"><a href="#cb34-383"></a><span class="in">verif_dbt &lt;- cbind(articles$extrait_debut[indices[,1]], </span></span>
+<span id="cb34-384"><a href="#cb34-384"></a><span class="in">                   articles$extrait_debut[indices[,2]])</span></span>
+<span id="cb34-385"><a href="#cb34-385"></a><span class="in"># On peut regarder ce qui a été considéré comme trop proche pour faire varier le seuil.</span></span>
 <span id="cb34-386"><a href="#cb34-386"></a></span>
-<span id="cb34-387"><a href="#cb34-387"></a><span class="do">## Suppression des articles proches</span></span>
-<span id="cb34-388"><a href="#cb34-388"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="sc">-</span>indices[,<span class="dv">2</span>])</span>
+<span id="cb34-387"><a href="#cb34-387"></a><span class="in">## Suppression des articles proches</span></span>
+<span id="cb34-388"><a href="#cb34-388"></a><span class="in">articles &lt;- articles %&gt;% slice(-indices[,2])</span></span>
 <span id="cb34-389"><a href="#cb34-389"></a></span>
 <span id="cb34-390"><a href="#cb34-390"></a><span class="in">```</span></span>
 <span id="cb34-391"><a href="#cb34-391"></a></span>
@@ -3046,23 +3155,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-393"><a href="#cb34-393"></a></span>
 <span id="cb34-394"><a href="#cb34-394"></a><span class="in">```{r filename = "Doublons en fin"}</span></span>
 <span id="cb34-395"><a href="#cb34-395"></a></span>
-<span id="cb34-396"><a href="#cb34-396"></a><span class="do">## Calcul des paires de distance</span></span>
-<span id="cb34-397"><a href="#cb34-397"></a>dist <span class="ot">&lt;-</span> <span class="fu">stringdistmatrix</span>(articles<span class="sc">$</span>extrait_fin)</span>
+<span id="cb34-396"><a href="#cb34-396"></a><span class="in">## Calcul des paires de distance</span></span>
+<span id="cb34-397"><a href="#cb34-397"></a><span class="in">dist &lt;- stringdistmatrix(articles$extrait_fin)</span></span>
 <span id="cb34-398"><a href="#cb34-398"></a></span>
-<span id="cb34-399"><a href="#cb34-399"></a><span class="do">## Conversion en matrice </span></span>
-<span id="cb34-400"><a href="#cb34-400"></a>m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dist)</span>
-<span id="cb34-401"><a href="#cb34-401"></a>m[<span class="fu">lower.tri</span>(m)] <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb34-402"><a href="#cb34-402"></a><span class="fu">diag</span>(m) <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb34-399"><a href="#cb34-399"></a><span class="in">## Conversion en matrice </span></span>
+<span id="cb34-400"><a href="#cb34-400"></a><span class="in">m &lt;- as.matrix(dist)</span></span>
+<span id="cb34-401"><a href="#cb34-401"></a><span class="in">m[lower.tri(m)] &lt;- 1000 </span></span>
+<span id="cb34-402"><a href="#cb34-402"></a><span class="in">diag(m) &lt;- 1000</span></span>
 <span id="cb34-403"><a href="#cb34-403"></a></span>
-<span id="cb34-404"><a href="#cb34-404"></a><span class="do">## Sélection des paires proches</span></span>
-<span id="cb34-405"><a href="#cb34-405"></a>indices <span class="ot">&lt;-</span> <span class="fu">which</span>(m <span class="sc">&lt;</span> <span class="dv">50</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-404"><a href="#cb34-404"></a><span class="in">## Sélection des paires proches</span></span>
+<span id="cb34-405"><a href="#cb34-405"></a><span class="in">indices &lt;- which(m &lt; 50, arr.ind = TRUE)</span></span>
 <span id="cb34-406"><a href="#cb34-406"></a></span>
-<span id="cb34-407"><a href="#cb34-407"></a><span class="do">## Vérifications</span></span>
-<span id="cb34-408"><a href="#cb34-408"></a>test <span class="ot">&lt;-</span> <span class="fu">cbind</span>(articles<span class="sc">$</span>extrait_fin[indices[,<span class="dv">1</span>]], articles<span class="sc">$</span>extrait_fin[indices[,<span class="dv">2</span>]])</span>
+<span id="cb34-407"><a href="#cb34-407"></a><span class="in">## Vérifications</span></span>
+<span id="cb34-408"><a href="#cb34-408"></a><span class="in">test &lt;- cbind(articles$extrait_fin[indices[,1]], articles$extrait_fin[indices[,2]])</span></span>
 <span id="cb34-409"><a href="#cb34-409"></a></span>
-<span id="cb34-410"><a href="#cb34-410"></a><span class="do">## Suppression des articles proches</span></span>
-<span id="cb34-411"><a href="#cb34-411"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb34-412"><a href="#cb34-412"></a>  <span class="fu">slice</span>(<span class="sc">-</span>indices[,<span class="dv">2</span>])</span>
+<span id="cb34-410"><a href="#cb34-410"></a><span class="in">## Suppression des articles proches</span></span>
+<span id="cb34-411"><a href="#cb34-411"></a><span class="in">articles &lt;- articles %&gt;% </span></span>
+<span id="cb34-412"><a href="#cb34-412"></a><span class="in">  slice(-indices[,2])</span></span>
 <span id="cb34-413"><a href="#cb34-413"></a></span>
 <span id="cb34-414"><a href="#cb34-414"></a><span class="in">```</span></span>
 <span id="cb34-415"><a href="#cb34-415"></a></span>
@@ -3070,8 +3179,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-417"><a href="#cb34-417"></a></span>
 <span id="cb34-418"><a href="#cb34-418"></a><span class="in">```{r filename = "Nettoyage"}</span></span>
 <span id="cb34-419"><a href="#cb34-419"></a></span>
-<span id="cb34-420"><a href="#cb34-420"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb34-421"><a href="#cb34-421"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(extrait_debut,extrait_fin)) </span>
+<span id="cb34-420"><a href="#cb34-420"></a><span class="in">articles &lt;- articles %&gt;% </span></span>
+<span id="cb34-421"><a href="#cb34-421"></a><span class="in">  select(-c(extrait_debut,extrait_fin)) </span></span>
 <span id="cb34-422"><a href="#cb34-422"></a></span>
 <span id="cb34-423"><a href="#cb34-423"></a><span class="in">```</span></span>
 <span id="cb34-424"><a href="#cb34-424"></a></span>
@@ -3095,8 +3204,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-442"><a href="#cb34-442"></a></span>
 <span id="cb34-443"><a href="#cb34-443"></a><span class="in">```{r filename = "Recoder les journaux (1)"}</span></span>
 <span id="cb34-444"><a href="#cb34-444"></a></span>
-<span id="cb34-445"><a href="#cb34-445"></a><span class="co"># Catégorie rebut</span></span>
-<span id="cb34-446"><a href="#cb34-446"></a>articles<span class="sc">$</span>CJournal<span class="ot">&lt;-</span> <span class="st">"Autre"</span> </span>
+<span id="cb34-445"><a href="#cb34-445"></a><span class="in"># Catégorie rebut</span></span>
+<span id="cb34-446"><a href="#cb34-446"></a><span class="in">articles$CJournal&lt;- "Autre" </span></span>
 <span id="cb34-447"><a href="#cb34-447"></a></span>
 <span id="cb34-448"><a href="#cb34-448"></a><span class="in">```</span></span>
 <span id="cb34-449"><a href="#cb34-449"></a></span>
@@ -3105,8 +3214,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-452"><a href="#cb34-452"></a><span class="in">```{r filename = "Recoder les journaux (2)"}</span></span>
 <span id="cb34-453"><a href="#cb34-453"></a></span>
 <span id="cb34-454"><a href="#cb34-454"></a></span>
-<span id="cb34-455"><a href="#cb34-455"></a><span class="co"># Exemple pour le Figaro :</span></span>
-<span id="cb34-456"><a href="#cb34-456"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"figaro"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"Figaro"</span></span>
+<span id="cb34-455"><a href="#cb34-455"></a><span class="in"># Exemple pour le Figaro :</span></span>
+<span id="cb34-456"><a href="#cb34-456"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "figaro",case_insensitive=T)] &lt;- "Figaro"</span></span>
 <span id="cb34-457"><a href="#cb34-457"></a></span>
 <span id="cb34-458"><a href="#cb34-458"></a><span class="in">```</span></span>
 <span id="cb34-459"><a href="#cb34-459"></a></span>
@@ -3116,8 +3225,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-463"><a href="#cb34-463"></a></span>
 <span id="cb34-464"><a href="#cb34-464"></a><span class="in">```{r filename = "Recoder les journaux (3)"}</span></span>
 <span id="cb34-465"><a href="#cb34-465"></a></span>
-<span id="cb34-466"><a href="#cb34-466"></a><span class="co"># Un autre cas : Le Monde</span></span>
-<span id="cb34-467"><a href="#cb34-467"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"monde"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"Monde"</span></span>
+<span id="cb34-466"><a href="#cb34-466"></a><span class="in"># Un autre cas : Le Monde</span></span>
+<span id="cb34-467"><a href="#cb34-467"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "monde",case_insensitive=T)] &lt;- "Monde"</span></span>
 <span id="cb34-468"><a href="#cb34-468"></a></span>
 <span id="cb34-469"><a href="#cb34-469"></a><span class="in">```</span></span>
 <span id="cb34-470"><a href="#cb34-470"></a></span>
@@ -3131,18 +3240,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-478"><a href="#cb34-478"></a></span>
 <span id="cb34-479"><a href="#cb34-479"></a><span class="in">```{r filename = "Recoder les journaux (4)"}</span></span>
 <span id="cb34-480"><a href="#cb34-480"></a></span>
-<span id="cb34-481"><a href="#cb34-481"></a>N_art <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb34-482"><a href="#cb34-482"></a>  <span class="fu">group_by</span>(Journal) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-483"><a href="#cb34-483"></a>  <span class="fu">summarise</span>(<span class="at">N_art=</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-484"><a href="#cb34-484"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(N_art),Journal)</span>
+<span id="cb34-481"><a href="#cb34-481"></a><span class="in">N_art &lt;- articles %&gt;% </span></span>
+<span id="cb34-482"><a href="#cb34-482"></a><span class="in">  group_by(Journal) %&gt;% </span></span>
+<span id="cb34-483"><a href="#cb34-483"></a><span class="in">  summarise(N_art= n()) %&gt;% </span></span>
+<span id="cb34-484"><a href="#cb34-484"></a><span class="in">  arrange(desc(N_art),Journal)</span></span>
 <span id="cb34-485"><a href="#cb34-485"></a></span>
 <span id="cb34-486"><a href="#cb34-486"></a><span class="in">```</span></span>
 <span id="cb34-487"><a href="#cb34-487"></a></span>
 <span id="cb34-488"><a href="#cb34-488"></a><span class="in">```{r, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb34-489"><a href="#cb34-489"></a></span>
-<span id="cb34-490"><a href="#cb34-490"></a><span class="fu">kable</span>(N_art) <span class="sc">%&gt;%</span></span>
-<span id="cb34-491"><a href="#cb34-491"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-492"><a href="#cb34-492"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"250px"</span>)</span>
+<span id="cb34-490"><a href="#cb34-490"></a><span class="in">kable(N_art) %&gt;%</span></span>
+<span id="cb34-491"><a href="#cb34-491"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb34-492"><a href="#cb34-492"></a><span class="in">   scroll_box(height = "250px")</span></span>
 <span id="cb34-493"><a href="#cb34-493"></a><span class="in">```</span></span>
 <span id="cb34-494"><a href="#cb34-494"></a></span>
 <span id="cb34-495"><a href="#cb34-495"></a><span class="fu">### Recodage des journaux</span></span>
@@ -3151,28 +3260,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-498"><a href="#cb34-498"></a></span>
 <span id="cb34-499"><a href="#cb34-499"></a><span class="in">```{r filename = "Recoder les journaux (5)"}</span></span>
 <span id="cb34-500"><a href="#cb34-500"></a></span>
-<span id="cb34-501"><a href="#cb34-501"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"bulletinquoti"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"BulletinQuoti"</span></span>
-<span id="cb34-502"><a href="#cb34-502"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"huienfr"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"AJF"</span></span>
-<span id="cb34-503"><a href="#cb34-503"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"chos"</span>,<span class="at">case_insensitive=</span>T)]          <span class="ot">&lt;-</span> <span class="st">"Echos"</span>  </span>
-<span id="cb34-504"><a href="#cb34-504"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"libération"</span>,<span class="at">case_insensitive=</span>T)]    <span class="ot">&lt;-</span> <span class="st">"Liberation"</span></span>
-<span id="cb34-505"><a href="#cb34-505"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"ouest-fr"</span>,<span class="at">case_insensitive=</span>T)]      <span class="ot">&lt;-</span> <span class="st">"OF"</span></span>
-<span id="cb34-506"><a href="#cb34-506"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"afp"</span>,<span class="at">case_insensitive=</span>T)]           <span class="ot">&lt;-</span> <span class="st">"AFP"</span></span>
-<span id="cb34-507"><a href="#cb34-507"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"croix"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"Croix"</span></span>
-<span id="cb34-508"><a href="#cb34-508"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"express"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"Express"</span></span>
-<span id="cb34-509"><a href="#cb34-509"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"sciencesetave"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"SciencesAvenir"</span></span>
-<span id="cb34-510"><a href="#cb34-510"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"obs"</span>,<span class="at">case_insensitive=</span>T)]           <span class="ot">&lt;-</span> <span class="st">"Obs"</span> </span>
-<span id="cb34-511"><a href="#cb34-511"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"sudouest"</span>,<span class="at">case_insensitive=</span>T)]      <span class="ot">&lt;-</span> <span class="st">"SudOuest"</span> </span>
-<span id="cb34-512"><a href="#cb34-512"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"20min"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"20min"</span> </span>
-<span id="cb34-513"><a href="#cb34-513"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"huma"</span>,<span class="at">case_insensitive=</span>T)]          <span class="ot">&lt;-</span> <span class="st">"Humanites"</span> </span>
-<span id="cb34-514"><a href="#cb34-514"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"valeursact"</span>,<span class="at">case_insensitive=</span>T)]    <span class="ot">&lt;-</span> <span class="st">"ValeursActu"</span> </span>
-<span id="cb34-515"><a href="#cb34-515"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"point"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"LePoint"</span> </span>
-<span id="cb34-516"><a href="#cb34-516"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"challen"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"Challenges"</span> </span>
-<span id="cb34-517"><a href="#cb34-517"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"lavie"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"LaVie"</span> </span>
-<span id="cb34-518"><a href="#cb34-518"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"l'hist"</span>,<span class="at">case_insensitive=</span>T)]        <span class="ot">&lt;-</span> <span class="st">"Histoire"</span> </span>
-<span id="cb34-519"><a href="#cb34-519"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"pèleri"</span>,<span class="at">case_insensitive=</span>T)]        <span class="ot">&lt;-</span> <span class="st">"Pelerin"</span> </span>
-<span id="cb34-520"><a href="#cb34-520"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"télégra"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"Telegramme"</span> </span>
-<span id="cb34-521"><a href="#cb34-521"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"tribun"</span>,<span class="at">case_insensitive=</span>T)]        <span class="ot">&lt;-</span> <span class="st">"LaTribune"</span> </span>
-<span id="cb34-522"><a href="#cb34-522"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"biba"</span>,<span class="at">case_insensitive=</span>T)]          <span class="ot">&lt;-</span> <span class="st">"Biba"</span> </span>
+<span id="cb34-501"><a href="#cb34-501"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "bulletinquoti",case_insensitive=T)] &lt;- "BulletinQuoti"</span></span>
+<span id="cb34-502"><a href="#cb34-502"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "huienfr",case_insensitive=T)]       &lt;- "AJF"</span></span>
+<span id="cb34-503"><a href="#cb34-503"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "chos",case_insensitive=T)]          &lt;- "Echos"  </span></span>
+<span id="cb34-504"><a href="#cb34-504"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "libération",case_insensitive=T)]    &lt;- "Liberation"</span></span>
+<span id="cb34-505"><a href="#cb34-505"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "ouest-fr",case_insensitive=T)]      &lt;- "OF"</span></span>
+<span id="cb34-506"><a href="#cb34-506"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "afp",case_insensitive=T)]           &lt;- "AFP"</span></span>
+<span id="cb34-507"><a href="#cb34-507"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "croix",case_insensitive=T)]         &lt;- "Croix"</span></span>
+<span id="cb34-508"><a href="#cb34-508"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "express",case_insensitive=T)]       &lt;- "Express"</span></span>
+<span id="cb34-509"><a href="#cb34-509"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "sciencesetave",case_insensitive=T)] &lt;- "SciencesAvenir"</span></span>
+<span id="cb34-510"><a href="#cb34-510"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "obs",case_insensitive=T)]           &lt;- "Obs" </span></span>
+<span id="cb34-511"><a href="#cb34-511"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "sudouest",case_insensitive=T)]      &lt;- "SudOuest" </span></span>
+<span id="cb34-512"><a href="#cb34-512"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "20min",case_insensitive=T)]         &lt;- "20min" </span></span>
+<span id="cb34-513"><a href="#cb34-513"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "huma",case_insensitive=T)]          &lt;- "Humanites" </span></span>
+<span id="cb34-514"><a href="#cb34-514"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "valeursact",case_insensitive=T)]    &lt;- "ValeursActu" </span></span>
+<span id="cb34-515"><a href="#cb34-515"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "point",case_insensitive=T)]         &lt;- "LePoint" </span></span>
+<span id="cb34-516"><a href="#cb34-516"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "challen",case_insensitive=T)]       &lt;- "Challenges" </span></span>
+<span id="cb34-517"><a href="#cb34-517"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "lavie",case_insensitive=T)]         &lt;- "LaVie" </span></span>
+<span id="cb34-518"><a href="#cb34-518"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "l'hist",case_insensitive=T)]        &lt;- "Histoire" </span></span>
+<span id="cb34-519"><a href="#cb34-519"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "pèleri",case_insensitive=T)]        &lt;- "Pelerin" </span></span>
+<span id="cb34-520"><a href="#cb34-520"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "télégra",case_insensitive=T)]       &lt;- "Telegramme" </span></span>
+<span id="cb34-521"><a href="#cb34-521"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "tribun",case_insensitive=T)]        &lt;- "LaTribune" </span></span>
+<span id="cb34-522"><a href="#cb34-522"></a><span class="in">articles$CJournal[stri_detect_fixed(articles$Journal, "biba",case_insensitive=T)]          &lt;- "Biba" </span></span>
 <span id="cb34-523"><a href="#cb34-523"></a><span class="in">```</span></span>
 <span id="cb34-524"><a href="#cb34-524"></a></span>
 <span id="cb34-525"><a href="#cb34-525"></a><span class="fu">### Regrouper plusieurs journaux dans une catégorie</span></span>
@@ -3180,13 +3289,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-527"><a href="#cb34-527"></a>On peut également unifier certains journaux par une catégorie. Ici, on change un peu le code : on met la même modalité si dans la variable initiale, on a une des chaînes de caractères qu'on demande :</span>
 <span id="cb34-528"><a href="#cb34-528"></a></span>
 <span id="cb34-529"><a href="#cb34-529"></a><span class="in">```{r filename = "Recoder les journaux (6)"}</span></span>
-<span id="cb34-530"><a href="#cb34-530"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_regex</span>(articles<span class="sc">$</span>Journal, </span>
-<span id="cb34-531"><a href="#cb34-531"></a><span class="st">"lejournalde|voixdun|provence|midilibre|vellerép|bienpublic|</span></span>
-<span id="cb34-532"><a href="#cb34-532"></a><span class="st">populaireducentr|berry|indépendant|nordéclair|charente|yonne|estrépu|</span></span>
-<span id="cb34-533"><a href="#cb34-533"></a><span class="st">havre|mainelib|dépêche|voixde|courrier|lejournaldu|Parisnormandie|</span></span>
-<span id="cb34-534"><a href="#cb34-534"></a><span class="st">larépubliquedu|ducentre|bliquedespy|lameuse|dernièreh|aisne|dordogne|</span></span>
-<span id="cb34-535"><a href="#cb34-535"></a><span class="st">chorépub]|lalibre|corse|union|nordlittoral|centrepresse|paris-normandie|presseocéan]"</span>,</span>
-<span id="cb34-536"><a href="#cb34-536"></a>                                    <span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"Rég"</span></span>
+<span id="cb34-530"><a href="#cb34-530"></a><span class="in">articles$CJournal[stri_detect_regex(articles$Journal, </span></span>
+<span id="cb34-531"><a href="#cb34-531"></a><span class="in">"lejournalde|voixdun|provence|midilibre|vellerép|bienpublic|</span></span>
+<span id="cb34-532"><a href="#cb34-532"></a><span class="in">populaireducentr|berry|indépendant|nordéclair|charente|yonne|estrépu|</span></span>
+<span id="cb34-533"><a href="#cb34-533"></a><span class="in">havre|mainelib|dépêche|voixde|courrier|lejournaldu|Parisnormandie|</span></span>
+<span id="cb34-534"><a href="#cb34-534"></a><span class="in">larépubliquedu|ducentre|bliquedespy|lameuse|dernièreh|aisne|dordogne|</span></span>
+<span id="cb34-535"><a href="#cb34-535"></a><span class="in">chorépub]|lalibre|corse|union|nordlittoral|centrepresse|paris-normandie|presseocéan]",</span></span>
+<span id="cb34-536"><a href="#cb34-536"></a><span class="in">                                    case_insensitive=T)] &lt;- "Rég"</span></span>
 <span id="cb34-537"><a href="#cb34-537"></a></span>
 <span id="cb34-538"><a href="#cb34-538"></a></span>
 <span id="cb34-539"><a href="#cb34-539"></a><span class="in">```</span></span>
@@ -3196,7 +3305,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-543"><a href="#cb34-543"></a><span class="fu">### Résultat du recodage</span></span>
 <span id="cb34-544"><a href="#cb34-544"></a></span>
 <span id="cb34-545"><a href="#cb34-545"></a><span class="in">```{r filename = "Table des journaux propres"}</span></span>
-<span id="cb34-546"><a href="#cb34-546"></a><span class="fu">table</span>(articles<span class="sc">$</span>CJournal,<span class="at">useNA =</span> <span class="st">"always"</span>)</span>
+<span id="cb34-546"><a href="#cb34-546"></a><span class="in">table(articles$CJournal,useNA = "always")</span></span>
 <span id="cb34-547"><a href="#cb34-547"></a></span>
 <span id="cb34-548"><a href="#cb34-548"></a><span class="in">```</span></span>
 <span id="cb34-549"><a href="#cb34-549"></a></span>
@@ -3205,20 +3314,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-552"><a href="#cb34-552"></a></span>
 <span id="cb34-553"><a href="#cb34-553"></a><span class="in">```{r filename = "Table des journaux restants", eval=FALSE}</span></span>
 <span id="cb34-554"><a href="#cb34-554"></a></span>
-<span id="cb34-555"><a href="#cb34-555"></a><span class="fu">table</span>(articles[articles<span class="sc">$</span>CJournal <span class="sc">==</span> <span class="st">"Autre"</span>,]<span class="sc">$</span>Journal)</span>
+<span id="cb34-555"><a href="#cb34-555"></a><span class="in">table(articles[articles$CJournal == "Autre",]$Journal)</span></span>
 <span id="cb34-556"><a href="#cb34-556"></a></span>
 <span id="cb34-557"><a href="#cb34-557"></a><span class="in">```</span></span>
 <span id="cb34-558"><a href="#cb34-558"></a></span>
 <span id="cb34-559"><a href="#cb34-559"></a><span class="in">```{r, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb34-560"><a href="#cb34-560"></a></span>
-<span id="cb34-561"><a href="#cb34-561"></a>art_rebut <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb34-562"><a href="#cb34-562"></a>  <span class="fu">filter</span>(CJournal <span class="sc">==</span> <span class="st">"Autre"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-563"><a href="#cb34-563"></a>  <span class="fu">group_by</span>(Journal) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-564"><a href="#cb34-564"></a>  <span class="fu">summarise</span>(<span class="at">N_journ =</span> <span class="fu">n</span>())</span>
+<span id="cb34-561"><a href="#cb34-561"></a><span class="in">art_rebut &lt;- articles %&gt;% </span></span>
+<span id="cb34-562"><a href="#cb34-562"></a><span class="in">  filter(CJournal == "Autre") %&gt;% </span></span>
+<span id="cb34-563"><a href="#cb34-563"></a><span class="in">  group_by(Journal) %&gt;% </span></span>
+<span id="cb34-564"><a href="#cb34-564"></a><span class="in">  summarise(N_journ = n())</span></span>
 <span id="cb34-565"><a href="#cb34-565"></a></span>
-<span id="cb34-566"><a href="#cb34-566"></a><span class="fu">kable</span>(art_rebut) <span class="sc">%&gt;%</span></span>
-<span id="cb34-567"><a href="#cb34-567"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-568"><a href="#cb34-568"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"250px"</span>)</span>
+<span id="cb34-566"><a href="#cb34-566"></a><span class="in">kable(art_rebut) %&gt;%</span></span>
+<span id="cb34-567"><a href="#cb34-567"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb34-568"><a href="#cb34-568"></a><span class="in">   scroll_box(height = "250px")</span></span>
 <span id="cb34-569"><a href="#cb34-569"></a><span class="in">```</span></span>
 <span id="cb34-570"><a href="#cb34-570"></a></span>
 <span id="cb34-571"><a href="#cb34-571"></a><span class="fu">## Variable année</span></span>
@@ -3227,8 +3336,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-574"><a href="#cb34-574"></a></span>
 <span id="cb34-575"><a href="#cb34-575"></a><span class="in">```{r filename = "Variable année"}</span></span>
 <span id="cb34-576"><a href="#cb34-576"></a></span>
-<span id="cb34-577"><a href="#cb34-577"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb34-578"><a href="#cb34-578"></a>  <span class="fu">mutate</span>(<span class="at">Annee =</span> <span class="fu">as.numeric</span>(<span class="fu">format</span>(Date, <span class="st">"%Y"</span>)))</span>
+<span id="cb34-577"><a href="#cb34-577"></a><span class="in">articles &lt;- articles %&gt;% </span></span>
+<span id="cb34-578"><a href="#cb34-578"></a><span class="in">  mutate(Annee = as.numeric(format(Date, "%Y")))</span></span>
 <span id="cb34-579"><a href="#cb34-579"></a></span>
 <span id="cb34-580"><a href="#cb34-580"></a><span class="in">```</span></span>
 <span id="cb34-581"><a href="#cb34-581"></a></span>
@@ -3262,7 +3371,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-609"><a href="#cb34-609"></a></span>
 <span id="cb34-610"><a href="#cb34-610"></a><span class="in">```{r filename = "import fonction format"}</span></span>
 <span id="cb34-611"><a href="#cb34-611"></a></span>
-<span id="cb34-612"><a href="#cb34-612"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/arnomuller/Fonction_R/main/format_iramuteq/format_iramuteq.R"</span>)</span>
+<span id="cb34-612"><a href="#cb34-612"></a><span class="in">source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/format_iramuteq/format_iramuteq.R")</span></span>
 <span id="cb34-613"><a href="#cb34-613"></a></span>
 <span id="cb34-614"><a href="#cb34-614"></a><span class="in">```</span></span>
 <span id="cb34-615"><a href="#cb34-615"></a></span>
@@ -3277,10 +3386,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-624"><a href="#cb34-624"></a></span>
 <span id="cb34-625"><a href="#cb34-625"></a><span class="in">```{r filename = "Création du corpus", eval=FALSE}</span></span>
 <span id="cb34-626"><a href="#cb34-626"></a></span>
-<span id="cb34-627"><a href="#cb34-627"></a><span class="fu">format_iramuteq</span>(<span class="at">dataframe =</span> articles, </span>
-<span id="cb34-628"><a href="#cb34-628"></a>                <span class="at">nom_fichier =</span> <span class="st">"corpus_iramuteq_ined.txt"</span>, </span>
-<span id="cb34-629"><a href="#cb34-629"></a>                <span class="at">var_texte =</span> <span class="st">"Texte"</span>, </span>
-<span id="cb34-630"><a href="#cb34-630"></a>                <span class="at">vars_metadonnees =</span> <span class="fu">c</span>(<span class="st">"CJournal"</span>, <span class="st">"Annee"</span>))</span>
+<span id="cb34-627"><a href="#cb34-627"></a><span class="in">format_iramuteq(dataframe = articles, </span></span>
+<span id="cb34-628"><a href="#cb34-628"></a><span class="in">                nom_fichier = "corpus_iramuteq_ined.txt", </span></span>
+<span id="cb34-629"><a href="#cb34-629"></a><span class="in">                var_texte = "Texte", </span></span>
+<span id="cb34-630"><a href="#cb34-630"></a><span class="in">                vars_metadonnees = c("CJournal", "Annee"))</span></span>
 <span id="cb34-631"><a href="#cb34-631"></a></span>
 <span id="cb34-632"><a href="#cb34-632"></a><span class="in">```</span></span>
 <span id="cb34-633"><a href="#cb34-633"></a>::: callout-warning </span>
@@ -3298,7 +3407,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-645"><a href="#cb34-645"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -79,6 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
@@ -92,10 +93,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -106,21 +107,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
- <span class="menu-text">R</span></a>
+    <a class="nav-link" href="../../../../R/index.html"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../../../../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../../../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -142,12 +143,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="quarto-title-meta-contents">
       <p class="author">Marc Thévenin </p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               Ined
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -164,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Résumé</div>
+      <div class="block-title">Résumé</div>
       <p>La fonction <code>summ</code> du package jtools (Jacob Long) permet d’obtenir des outputs de regression en format console de très bonne qualité. Il s’agit d’une très bonne alternative aux outputs par défaut. Ce package propose également des fonctionnalités d’exportation des outputs dans d’autres formats (html, docx, pdf …) et des visualisations sous forme de graphique. Ces fonctionnalité ne seront pas traitées ici, l’accent étant mis sur la qualité d’un output console avec une durée d’exécution minimale. L’utilisation des fonctionnalités d’exportation, comme le très populaire package <strong><code>gtsummaty</code></strong> devrait être appliqué, selon nous, pour des raisons de durée d’exécution à un résultat final.</p>
     </div>
   </div>
@@ -190,6 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -265,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="8">digits=4 =&gt; Les résultats sont reportés avec 4 décimales</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="8" data-code-annotation="1">digits=4 =&gt; Les résultats sont reportés avec 4 décimales</span>
 </dd>
 </dl>
 </div>
@@ -393,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="1" data-code-lines="3">On ajoute des intervalles de confiance (<code>confint=TRUE</code>) et le report des estimateurs sous forme d’Odds Ratio (<code>exp=TRUE</code>)</span>
+<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="1">On ajoute des intervalles de confiance (<code>confint=TRUE</code>) et le report des estimateurs sous forme d’Odds Ratio (<code>exp=TRUE</code>)</span>
 </dd>
 </dl>
 </div>
@@ -818,10 +820,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -831,8 +832,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -845,6 +855,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -888,6 +1017,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -913,6 +1043,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -973,7 +1129,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Afficher des outputs de régression avec Jtools"</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
@@ -1024,14 +1182,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-48"><a href="#cb5-48"></a><span class="fu"># **Installation**</span></span>
 <span id="cb5-49"><a href="#cb5-49"></a></span>
 <span id="cb5-50"><a href="#cb5-50"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb5-51"><a href="#cb5-51"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>)</span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="in">install.packages("jtools")</span></span>
 <span id="cb5-52"><a href="#cb5-52"></a><span class="in">```</span></span>
 <span id="cb5-53"><a href="#cb5-53"></a></span>
 <span id="cb5-54"><a href="#cb5-54"></a>ou </span>
 <span id="cb5-55"><a href="#cb5-55"></a></span>
 <span id="cb5-56"><a href="#cb5-56"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb5-57"><a href="#cb5-57"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb5-58"><a href="#cb5-58"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jacob-long/jtools"</span>)</span>
+<span id="cb5-57"><a href="#cb5-57"></a><span class="in">install.packages("devtools")</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a><span class="in">devtools::install_github("jacob-long/jtools")</span></span>
 <span id="cb5-59"><a href="#cb5-59"></a><span class="in">```</span></span>
 <span id="cb5-60"><a href="#cb5-60"></a></span>
 <span id="cb5-61"><a href="#cb5-61"></a></span>
@@ -1040,8 +1198,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-64"><a href="#cb5-64"></a>La syntaxe est particulièrement simple, elle consiste juste à appliquée à la fonction <span class="in">`summ()`</span> l'objet généré par la régression. Quelques options comme <span class="in">`digits`</span>, <span class="in">`confint`</span>, <span class="in">`exp`</span> permettent d'améliorer et enrichir l'output.</span>
 <span id="cb5-65"><a href="#cb5-65"></a></span>
 <span id="cb5-66"><a href="#cb5-66"></a><span class="in">```{r filename="syntaxe minimale", eval=FALSE}</span></span>
-<span id="cb5-67"><a href="#cb5-67"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x , <span class="at">data=</span>df)</span>
-<span id="cb5-68"><a href="#cb5-68"></a><span class="fu">summ</span>(fit)</span>
+<span id="cb5-67"><a href="#cb5-67"></a><span class="in">fit = lm(y ~ x , data=df)</span></span>
+<span id="cb5-68"><a href="#cb5-68"></a><span class="in">summ(fit)</span></span>
 <span id="cb5-69"><a href="#cb5-69"></a><span class="in">```</span></span>
 <span id="cb5-70"><a href="#cb5-70"></a></span>
 <span id="cb5-71"><a href="#cb5-71"></a></span>
@@ -1090,12 +1248,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-118"><a href="#cb5-118"></a><span class="co">[</span><span class="ot">Liste des options</span><span class="co">](https://jtools.jacob-long.com/reference/summ.svyglm.html)</span></span>
 <span id="cb5-119"><a href="#cb5-119"></a></span>
 <span id="cb5-120"><a href="#cb5-120"></a><span class="in">```{r, message=FALSE, warning=FALSE}</span></span>
-<span id="cb5-121"><a href="#cb5-121"></a><span class="fu">library</span>(survey)</span>
+<span id="cb5-121"><a href="#cb5-121"></a><span class="in">library(survey)</span></span>
 <span id="cb5-122"><a href="#cb5-122"></a></span>
-<span id="cb5-123"><a href="#cb5-123"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
+<span id="cb5-123"><a href="#cb5-123"></a><span class="in">w = svydesign(id=~1, weights=~w, data=df)</span></span>
 <span id="cb5-124"><a href="#cb5-124"></a></span>
-<span id="cb5-125"><a href="#cb5-125"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
-<span id="cb5-126"><a href="#cb5-126"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span>
+<span id="cb5-125"><a href="#cb5-125"></a><span class="in">fit = svyglm(highbp ~ age + I(sex) + I(black) + I(region), family=binomial, design=w)</span></span>
+<span id="cb5-126"><a href="#cb5-126"></a><span class="in">summ(fit, digits=4, confint=TRUE, exp=TRUE)    </span></span>
 <span id="cb5-127"><a href="#cb5-127"></a><span class="in">```</span></span>
 <span id="cb5-128"><a href="#cb5-128"></a></span>
 <span id="cb5-129"><a href="#cb5-129"></a></span>
@@ -1103,6 +1261,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

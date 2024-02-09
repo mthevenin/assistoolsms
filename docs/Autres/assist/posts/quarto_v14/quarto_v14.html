@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -444,7 +444,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -687,39 +692,39 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-16"><a href="#cb1-16"></a><span class="an">format:</span><span class="co"> </span></span>
 <span id="cb1-17"><a href="#cb1-17"></a><span class="co">  html: default</span></span>
 <span id="cb1-18"><a href="#cb1-18"></a></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="an">filters:</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="co">   - lightbox</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="co"> Juste des infos. La nouvelle version de Quarto est sortie le 07 janvier 2024: intégration de l'extension lightbox au logiciel, deux nouveaux formats (dashboard et manuscript), possibilité de mettre des cross reference aux encadrée callout.... </span></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="co">---</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="co"> Juste des infos. La nouvelle version de Quarto est sortie le 07 janvier 2024: intégration de l'extension lightbox au logiciel, deux nouveaux formats (dashboard et manuscript), possibilité de mettre des cross reference aux encadrée callout.... </span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="co">---</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="ss">* </span>[<span class="co">[</span><span class="ot">Téléchargement et notes de version</span><span class="co">]</span>](https://quarto.org/docs/download/) </span>
 <span id="cb1-26"><a href="#cb1-26"></a></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="ss">* </span>[<span class="co">[</span><span class="ot">Téléchargement et notes de version</span><span class="co">]</span>](https://quarto.org/docs/download/) </span>
+<span id="cb1-27"><a href="#cb1-27"></a>Les quelques ajouts que j'ai repéré après un premier rapide coup d'oeil.   </span>
 <span id="cb1-28"><a href="#cb1-28"></a></span>
-<span id="cb1-29"><a href="#cb1-29"></a>Les quelques ajouts que j'ai repéré après un premier rapide coup d'oeil.   </span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="fu">## Lightbox</span></span>
 <span id="cb1-30"><a href="#cb1-30"></a></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="fu">## Lightbox</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a></span>
-<span id="cb1-33"><a href="#cb1-33"></a><span class="ss">* </span>L'indispensable option **lightbox** qui permet d'aggrandir des images a été incluse au logiciel. Il n'est plus nécessaire d'installer l'extension.</span>
-<span id="cb1-34"><a href="#cb1-34"></a><span class="ss">* </span>Si l'extension a déjà utilisée, elle fonctionne toujours. Un message informe que **lightbox** a été ajouté à Quarto.</span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/prerelease/1.4/lightbox.html&gt;</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="ss">* </span>L'indispensable option **lightbox** qui permet d'aggrandir des images a été incluse au logiciel. Il n'est plus nécessaire d'installer l'extension.</span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="ss">* </span>Si l'extension a déjà utilisée, elle fonctionne toujours. Un message informe que **lightbox** a été ajouté à Quarto.</span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/prerelease/1.4/lightbox.html&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a></span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="fu">## Format **Dashboard**</span></span>
 <span id="cb1-37"><a href="#cb1-37"></a></span>
-<span id="cb1-38"><a href="#cb1-38"></a><span class="fu">## Format **Dashboard**</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/dashboards/&gt;</span></span>
 <span id="cb1-39"><a href="#cb1-39"></a></span>
-<span id="cb1-40"><a href="#cb1-40"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/dashboards/&gt;</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="fu">## Format **Manuscript**</span></span>
 <span id="cb1-41"><a href="#cb1-41"></a></span>
-<span id="cb1-42"><a href="#cb1-42"></a><span class="fu">## Format **Manuscript**</span></span>
-<span id="cb1-43"><a href="#cb1-43"></a></span>
-<span id="cb1-44"><a href="#cb1-44"></a><span class="ss">* </span>A tester rapidement, et faire une fiche dédiée.</span>
-<span id="cb1-45"><a href="#cb1-45"></a><span class="ss">* </span>Sous un format projet, permet d'associer à un article sans bloc de codes, les notebooks associés.</span>
-<span id="cb1-46"><a href="#cb1-46"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/manuscripts/&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="ss">* </span>A tester rapidement, et faire une fiche dédiée.</span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="ss">* </span>Sous un format projet, permet d'associer à un article sans bloc de codes, les notebooks associés.</span>
+<span id="cb1-44"><a href="#cb1-44"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/manuscripts/&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="fu">## Cross reference des **callouts**</span></span>
 <span id="cb1-47"><a href="#cb1-47"></a></span>
-<span id="cb1-48"><a href="#cb1-48"></a><span class="fu">## Cross reference des **callouts**</span></span>
-<span id="cb1-49"><a href="#cb1-49"></a></span>
-<span id="cb1-50"><a href="#cb1-50"></a><span class="ss">* </span>On peut appeler un encadré informatif tout au long d'un document (lien). Très utile. Par exemple on met un warning dans une section et on peut rappeler ce warning plus tard dans le document.  </span>
-<span id="cb1-51"><a href="#cb1-51"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/authoring/cross-references-callouts.html#tip-example&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="ss">* </span>On peut appeler un encadré informatif tout au long d'un document (lien). Très utile. Par exemple on met un warning dans une section et on peut rappeler ce warning plus tard dans le document.  </span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="ss">* </span>Doc: <span class="ot">&lt;https://quarto.org/docs/authoring/cross-references-callouts.html#tip-example&gt;</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a></span>
+<span id="cb1-51"><a href="#cb1-51"></a></span>
 <span id="cb1-52"><a href="#cb1-52"></a></span>
 <span id="cb1-53"><a href="#cb1-53"></a></span>
 <span id="cb1-54"><a href="#cb1-54"></a></span>
@@ -728,9 +733,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-57"><a href="#cb1-57"></a></span>
 <span id="cb1-58"><a href="#cb1-58"></a></span>
 <span id="cb1-59"><a href="#cb1-59"></a></span>
-<span id="cb1-60"><a href="#cb1-60"></a></span>
-<span id="cb1-61"><a href="#cb1-61"></a></span>
-<span id="cb1-62"><a href="#cb1-62"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-60"><a href="#cb1-60"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

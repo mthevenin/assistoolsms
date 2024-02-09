@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SMS_site – index</title>
+<title>SMS_site</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,6 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
@@ -119,16 +120,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../sms.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -139,21 +167,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../R/index.html" rel="" target="">
- <span class="menu-text">R</span></a>
+    <a class="nav-link" href="../../R/index.html"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -169,8 +197,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="listing-posts" class="quarto-listing quarto-listing-container-table">
 
+<div id="listing-posts" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -186,7 +214,7 @@ Auteur·rice
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1698148699878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-title-sort="Consolider sa reproductibilité avec le package prefixer" data-listing-filename-sort="pkg_prefix.qmd">
+<tr data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1698148699878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1037" data-listing-title-sort="Consolider sa reproductibilité avec le package prefixer" data-listing-filename-sort="pkg_prefix.qmd">
 <td>
 <span class="listing-date">24 oct. 2023</span>
 </td>
@@ -197,7 +225,7 @@ Auteur·rice
 <span class="listing-author">Bénédicte Garnier</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="Cartographie" data-listing-date-sort="1690408800000" data-listing-file-modified-sort="1690780496770" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-title-sort="Réaliser des cartes thématiques avec Mapsf" data-listing-filename-sort="map_sf.qmd">
+<tr data-index="1" data-categories="Cartographie" data-listing-date-sort="1690408800000" data-listing-file-modified-sort="1690780496770" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1599" data-listing-title-sort="Réaliser des cartes thématiques avec Mapsf" data-listing-filename-sort="map_sf.qmd">
 <td>
 <span class="listing-date">27 juil. 2023</span>
 </td>
@@ -208,7 +236,7 @@ Auteur·rice
 <span class="listing-author">Coralie Cottet</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="Web Scrapping,Analyse textuelle" data-listing-date-sort="1690322400000" data-listing-file-modified-sort="1690351301654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-title-sort="Créer un corpus de texte issu d'Europresse au format d'Iramuteq" data-listing-filename-sort="corpus_europress_iramuteq.qmd">
+<tr data-index="2" data-categories="Web Scrapping,Analyse textuelle" data-listing-date-sort="1690322400000" data-listing-file-modified-sort="1690351301654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3455" data-listing-title-sort="Créer un corpus de texte issu d'Europresse au format d'Iramuteq" data-listing-filename-sort="corpus_europress_iramuteq.qmd">
 <td>
 <span class="listing-date">26 juil. 2023</span>
 </td>
@@ -219,7 +247,7 @@ Auteur·rice
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1690358642160" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Générer des graphes de mot avec R.temis" data-listing-filename-sort="nuage_de_mot.qmd">
+<tr data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1690358642160" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="589" data-listing-title-sort="Générer des graphes de mot avec R.temis" data-listing-filename-sort="nuage_de_mot.qmd">
 <td>
 <span class="listing-date">25 juil. 2023</span>
 </td>
@@ -230,7 +258,7 @@ Auteur·rice
 <span class="listing-author">Coralie Cottet</span>
 </td>
 </tr>
-<tr data-index="4" data-categories="Recodage,Statistiques descriptives" data-listing-date-sort="1689717600000" data-listing-file-modified-sort="1690188877502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-title-sort="Statistiques descriptives à partir d'enquêtes DHS" data-listing-filename-sort="dhs.qmd">
+<tr data-index="4" data-categories="Recodage,Statistiques descriptives" data-listing-date-sort="1689717600000" data-listing-file-modified-sort="1690188877502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2974" data-listing-title-sort="Statistiques descriptives à partir d'enquêtes DHS" data-listing-filename-sort="dhs.qmd">
 <td>
 <span class="listing-date">19 juil. 2023</span>
 </td>
@@ -241,7 +269,7 @@ Auteur·rice
 <span class="listing-author">Bénédicte Garnier</span>
 </td>
 </tr>
-<tr data-index="5" data-categories="Graphique" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1693287278621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-title-sort="Contrôler les effets spaghetti avec ggplot" data-listing-filename-sort="spaghetti.qmd">
+<tr data-index="5" data-categories="Graphique" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1693287278621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Contrôler les effets spaghetti avec ggplot" data-listing-filename-sort="spaghetti.qmd">
 <td>
 <span class="listing-date">12 juil. 2023</span>
 </td>
@@ -252,7 +280,7 @@ Auteur·rice
 <span class="listing-author">Arno Muller, Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1689073742754" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Produire des graphiques et recoder des variables sans écrire de code R" data-listing-filename-sort="addins.qmd">
+<tr data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1689073742754" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="666" data-listing-title-sort="Produire des graphiques et recoder des variables sans écrire de code R" data-listing-filename-sort="addins.qmd">
 <td>
 <span class="listing-date">10 juil. 2023</span>
 </td>
@@ -263,7 +291,7 @@ Auteur·rice
 <span class="listing-author">Bénédicte Garnier</span>
 </td>
 </tr>
-<tr data-index="7" data-categories="Notebook" data-listing-date-sort="1688680800000" data-listing-file-modified-sort="1689075423972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Utiliser R avec le notebook Jupyter" data-listing-filename-sort="R_jupyter.qmd">
+<tr data-index="7" data-categories="Notebook" data-listing-date-sort="1688680800000" data-listing-file-modified-sort="1689075423972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279" data-listing-title-sort="Utiliser R avec le notebook Jupyter" data-listing-filename-sort="R_jupyter.qmd">
 <td>
 <span class="listing-date">7 juil. 2023</span>
 </td>
@@ -274,8 +302,7 @@ Auteur·rice
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-
-<tr data-index="8" data-categories="Statistiques descriptives,Tableau" data-listing-date-sort="1688076000000" data-listing-file-modified-sort="1690190378371" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-title-sort="Fonction pour des tables automatiques" data-listing-filename-sort="fonction_table_auto.qmd">
+<tr data-index="8" data-categories="Statistiques descriptives,Tableau" data-listing-date-sort="1688076000000" data-listing-file-modified-sort="1707479956742" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505" data-listing-title-sort="Fonction pour des tables automatiques" data-listing-filename-sort="fonction_table_auto.qmd">
 <td>
 <span class="listing-date">30 juin 2023</span>
 </td>
@@ -286,7 +313,7 @@ Auteur·rice
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688382043334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Pondérations normalisées avec R" data-listing-filename-sort="weight_norm.qmd">
+<tr data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688382043334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563" data-listing-title-sort="Pondérations normalisées avec R" data-listing-filename-sort="weight_norm.qmd">
 <td>
 <span class="listing-date">29 juin 2023</span>
 </td>
@@ -297,7 +324,7 @@ Auteur·rice
 <span class="listing-author">Elodie Baril</span>
 </td>
 </tr>
-<tr data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688380419481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Format JSON : de la liste au dataframe" data-listing-filename-sort="JSON.qmd">
+<tr data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688380419481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479" data-listing-title-sort="Format JSON : de la liste au dataframe" data-listing-filename-sort="JSON.qmd">
 <td>
 <span class="listing-date">28 juin 2023</span>
 </td>
@@ -308,7 +335,7 @@ Auteur·rice
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="11" data-categories="Boucle,Recodage" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688381626992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-title-sort="Recodage multiple" data-listing-filename-sort="recodage_multiple.qmd">
+<tr data-index="11" data-categories="Boucle,Recodage" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688381626992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1018" data-listing-title-sort="Recodage multiple" data-listing-filename-sort="recodage_multiple.qmd">
 <td>
 <span class="listing-date">28 juin 2023</span>
 </td>
@@ -319,7 +346,7 @@ Auteur·rice
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1688381009144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-title-sort="Recoder des variables avec ifelse() - if_else - case_when()" data-listing-filename-sort="ifelse_casewhen.qmd">
+<tr data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1688381009144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2562" data-listing-title-sort="Recoder des variables avec ifelse() - if_else - case_when()" data-listing-filename-sort="ifelse_casewhen.qmd">
 <td>
 <span class="listing-date">27 juin 2023</span>
 </td>
@@ -330,7 +357,7 @@ Auteur·rice
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="13" data-categories="Appariement" data-listing-date-sort="1687471200000" data-listing-file-modified-sort="1690460021322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="Techniques d'appariements entre chaînes de caractères" data-listing-filename-sort="fuzzyjoin.qmd">
+<tr data-index="13" data-categories="Appariement" data-listing-date-sort="1687471200000" data-listing-file-modified-sort="1690460021322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="901" data-listing-title-sort="Techniques d'appariements entre chaînes de caractères" data-listing-filename-sort="fuzzyjoin.qmd">
 <td>
 <span class="listing-date">23 juin 2023</span>
 </td>
@@ -341,7 +368,7 @@ Auteur·rice
 <span class="listing-author">Arnaud Bringé</span>
 </td>
 </tr>
-<tr data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1688384475884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Afficher des outputs de régression avec Jtools" data-listing-filename-sort="jtools_output.qmd">
+<tr data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1688384475884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511" data-listing-title-sort="Afficher des outputs de régression avec Jtools" data-listing-filename-sort="jtools_output.qmd">
 <td>
 <span class="listing-date">21 juin 2023</span>
 </td>
@@ -352,7 +379,7 @@ Auteur·rice
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1688384219017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Récupérer et exécuter le test OLS de Grambsch-Therneau" data-listing-filename-sort="coxzph.qmd">
+<tr data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1688384219017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="329" data-listing-title-sort="Récupérer et exécuter le test OLS de Grambsch-Therneau" data-listing-filename-sort="coxzph.qmd">
 <td>
 <span class="listing-date">13 juin 2023</span>
 </td>
@@ -363,7 +390,7 @@ Auteur·rice
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1688726459347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="R avec VScode" data-listing-filename-sort="R_vscode_doc.qmd">
+<tr data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1688726459347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239" data-listing-title-sort="R avec VScode" data-listing-filename-sort="R_vscode_doc.qmd">
 <td>
 <span class="listing-date">7 juin 2023</span>
 </td>
@@ -375,7 +402,6 @@ Auteur·rice
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 Aucun article correspondant
@@ -521,10 +547,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -534,8 +559,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -548,6 +582,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -591,6 +744,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -616,6 +770,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -694,6 +874,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-17"><a href="#cb1-17"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

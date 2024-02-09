@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -79,6 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
@@ -92,10 +93,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -106,21 +107,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
- <span class="menu-text">R</span></a>
+    <a class="nav-link" href="../../../../R/index.html"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../../../../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../../../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -142,12 +143,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="quarto-title-meta-contents">
       <p class="author">Elodie Baril </p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               Ined
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -164,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Résumé</div>
+      <div class="block-title">Résumé</div>
       <p>L’utilisation des poids normalisés sur la taille de l’échantillon s’avère obligatoire pour certaines analyses, en particulier pour obtenir des estimations robustes de la variance. La présente fiche présente avec les packages <code>questionr</code> et <code>survey</code>, deux manières d’introduire ces poids dans des analyses.</p>
     </div>
   </div>
@@ -193,6 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -704,10 +706,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -717,8 +718,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -731,6 +741,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -774,6 +903,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -799,6 +929,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -859,7 +1015,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb38" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb38-1"><a href="#cb38-1"></a><span class="co">---</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="an">title:</span><span class="co"> "Pondérations normalisées avec R"</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a></span>
@@ -911,17 +1069,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-49"><a href="#cb38-49"></a>Activation des packages et ouverture de la table d'exemple HDV</span>
 <span id="cb38-50"><a href="#cb38-50"></a></span>
 <span id="cb38-51"><a href="#cb38-51"></a><span class="in">```{r warning=FALSE,message=FALSE}</span></span>
-<span id="cb38-52"><a href="#cb38-52"></a><span class="co">#install.packages(questionr)</span></span>
-<span id="cb38-53"><a href="#cb38-53"></a><span class="co">#install.packages(survey)</span></span>
+<span id="cb38-52"><a href="#cb38-52"></a><span class="in">#install.packages(questionr)</span></span>
+<span id="cb38-53"><a href="#cb38-53"></a><span class="in">#install.packages(survey)</span></span>
 <span id="cb38-54"><a href="#cb38-54"></a></span>
-<span id="cb38-55"><a href="#cb38-55"></a><span class="fu">library</span>(questionr)</span>
-<span id="cb38-56"><a href="#cb38-56"></a><span class="fu">library</span>(survey)</span>
+<span id="cb38-55"><a href="#cb38-55"></a><span class="in">library(questionr)</span></span>
+<span id="cb38-56"><a href="#cb38-56"></a><span class="in">library(survey)</span></span>
 <span id="cb38-57"><a href="#cb38-57"></a></span>
-<span id="cb38-58"><a href="#cb38-58"></a><span class="co">#Utilisation de la table d'exemple Histoire de vie (hdv2003) </span></span>
-<span id="cb38-59"><a href="#cb38-59"></a><span class="fu">data</span>(<span class="st">"hdv2003"</span>)</span>
+<span id="cb38-58"><a href="#cb38-58"></a><span class="in">#Utilisation de la table d'exemple Histoire de vie (hdv2003) </span></span>
+<span id="cb38-59"><a href="#cb38-59"></a><span class="in">data("hdv2003")</span></span>
 <span id="cb38-60"><a href="#cb38-60"></a></span>
-<span id="cb38-61"><a href="#cb38-61"></a><span class="co"># Extrait du fichier</span></span>
-<span id="cb38-62"><a href="#cb38-62"></a>hdv2003[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb38-61"><a href="#cb38-61"></a><span class="in"># Extrait du fichier</span></span>
+<span id="cb38-62"><a href="#cb38-62"></a><span class="in">hdv2003[1:5,1:5]</span></span>
 <span id="cb38-63"><a href="#cb38-63"></a><span class="in">```</span></span>
 <span id="cb38-64"><a href="#cb38-64"></a></span>
 <span id="cb38-65"><a href="#cb38-65"></a>La variable pondérée du fichier s'appelle **poids**</span>
@@ -937,16 +1095,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-75"><a href="#cb38-75"></a><span class="ss">*  </span>Fonction **`wtd.table()`**</span>
 <span id="cb38-76"><a href="#cb38-76"></a></span>
 <span id="cb38-77"><a href="#cb38-77"></a><span class="in">```{r filename="fréquences sans pondération"}</span></span>
-<span id="cb38-78"><a href="#cb38-78"></a><span class="fu">table</span>(hdv2003<span class="sc">$</span>sexe)</span>
+<span id="cb38-78"><a href="#cb38-78"></a><span class="in">table(hdv2003$sexe)</span></span>
 <span id="cb38-79"><a href="#cb38-79"></a><span class="in">```</span></span>
 <span id="cb38-80"><a href="#cb38-80"></a></span>
 <span id="cb38-81"><a href="#cb38-81"></a><span class="in">```{r filename="fréquences avec pondérations"}</span></span>
 <span id="cb38-82"><a href="#cb38-82"></a></span>
-<span id="cb38-83"><a href="#cb38-83"></a><span class="co"># tris à plat avec l'option weights</span></span>
-<span id="cb38-84"><a href="#cb38-84"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>sexe, <span class="at">weights =</span> hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb38-83"><a href="#cb38-83"></a><span class="in"># tris à plat avec l'option weights</span></span>
+<span id="cb38-84"><a href="#cb38-84"></a><span class="in">wtd.table(hdv2003$sexe, weights = hdv2003$poids)</span></span>
 <span id="cb38-85"><a href="#cb38-85"></a></span>
-<span id="cb38-86"><a href="#cb38-86"></a><span class="co">#  tris croisé</span></span>
-<span id="cb38-87"><a href="#cb38-87"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb38-86"><a href="#cb38-86"></a><span class="in">#  tris croisé</span></span>
+<span id="cb38-87"><a href="#cb38-87"></a><span class="in">wtd.table(hdv2003$qualif,hdv2003$sexe,weights=hdv2003$poids)</span></span>
 <span id="cb38-88"><a href="#cb38-88"></a><span class="in">```</span></span>
 <span id="cb38-89"><a href="#cb38-89"></a></span>
 <span id="cb38-90"><a href="#cb38-90"></a></span>
@@ -954,11 +1112,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-92"><a href="#cb38-92"></a>**Pour normaliser la pondération on ajoute l'option `normwt=TRUE`**.  </span>
 <span id="cb38-93"><a href="#cb38-93"></a></span>
 <span id="cb38-94"><a href="#cb38-94"></a><span class="in">```{r filename="fréquences avec pondérations normalisées"}</span></span>
-<span id="cb38-95"><a href="#cb38-95"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span>
+<span id="cb38-95"><a href="#cb38-95"></a><span class="in">wtd.table(hdv2003$sexe,weights=hdv2003$poids, normwt=TRUE)</span></span>
 <span id="cb38-96"><a href="#cb38-96"></a><span class="in">```</span></span>
 <span id="cb38-97"><a href="#cb38-97"></a></span>
 <span id="cb38-98"><a href="#cb38-98"></a><span class="in">```{r filename="tri croisé avec pondérations normalisées"}</span></span>
-<span id="cb38-99"><a href="#cb38-99"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span>
+<span id="cb38-99"><a href="#cb38-99"></a><span class="in">wtd.table(hdv2003$qualif,hdv2003$sexe,weights=hdv2003$poids, normwt=TRUE)</span></span>
 <span id="cb38-100"><a href="#cb38-100"></a><span class="in">```</span></span>
 <span id="cb38-101"><a href="#cb38-101"></a></span>
 <span id="cb38-102"><a href="#cb38-102"></a></span>
@@ -966,7 +1124,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-104"><a href="#cb38-104"></a></span>
 <span id="cb38-105"><a href="#cb38-105"></a></span>
 <span id="cb38-106"><a href="#cb38-106"></a><span class="in">```{r filename="Stocker le resultat des fréquences pondérées dans un objet, ici res"}</span></span>
-<span id="cb38-107"><a href="#cb38-107"></a>res<span class="ot">=</span><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe, <span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span>
+<span id="cb38-107"><a href="#cb38-107"></a><span class="in">res=wtd.table(hdv2003$qualif,hdv2003$sexe, weights=hdv2003$poids, normwt=TRUE)</span></span>
 <span id="cb38-108"><a href="#cb38-108"></a><span class="in">```</span></span>
 <span id="cb38-109"><a href="#cb38-109"></a></span>
 <span id="cb38-110"><a href="#cb38-110"></a><span class="ss">* </span>On utilise les fonctions <span class="in">`cprop()`</span> et <span class="in">`lprop`</span>:</span>
@@ -990,7 +1148,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-130"><a href="#cb38-130"></a>On divise tout simplement chaque poids individuel par la moyenne des poids (fonction <span class="in">`mean()`</span>)</span>
 <span id="cb38-131"><a href="#cb38-131"></a></span>
 <span id="cb38-132"><a href="#cb38-132"></a><span class="in">```{r filename="creation d'une variable de pondération normalisée"}</span></span>
-<span id="cb38-133"><a href="#cb38-133"></a>hdv2003<span class="sc">$</span>poids_norm<span class="ot">=</span>hdv2003<span class="sc">$</span>poids<span class="sc">/</span><span class="fu">mean</span>(hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb38-133"><a href="#cb38-133"></a><span class="in">hdv2003$poids_norm=hdv2003$poids/mean(hdv2003$poids)</span></span>
 <span id="cb38-134"><a href="#cb38-134"></a><span class="in">```</span></span>
 <span id="cb38-135"><a href="#cb38-135"></a></span>
 <span id="cb38-136"><a href="#cb38-136"></a>Comme la normalisation se fait sur la taille de l'échantillon, la somme des poids normalisés est bien égale à l'effectif de celui-ci</span>
@@ -1005,7 +1163,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-147"><a href="#cb38-147"></a><span class="ss">* </span>Avant d'utiliser la fonction d'analyse on générère un objet renseignant les divers éléments entrant dans le design de l'enquête (ici seulement la variable *hdv2003$poids_norm*) avec la fonction **`svydesign`**</span>
 <span id="cb38-148"><a href="#cb38-148"></a></span>
 <span id="cb38-149"><a href="#cb38-149"></a><span class="in">```{r filename="Fonction svydesign"}</span></span>
-<span id="cb38-150"><a href="#cb38-150"></a>dfw <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> hdv2003, <span class="at">weights =</span> <span class="sc">~</span> hdv2003<span class="sc">$</span>poids)</span>
+<span id="cb38-150"><a href="#cb38-150"></a><span class="in">dfw &lt;- svydesign(ids = ~1, data = hdv2003, weights = ~ hdv2003$poids)</span></span>
 <span id="cb38-151"><a href="#cb38-151"></a><span class="in">```</span></span>
 <span id="cb38-152"><a href="#cb38-152"></a></span>
 <span id="cb38-153"><a href="#cb38-153"></a></span>
@@ -1019,18 +1177,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-161"><a href="#cb38-161"></a></span>
 <span id="cb38-162"><a href="#cb38-162"></a><span class="in">```{r filename="fréquences pondérées"}</span></span>
 <span id="cb38-163"><a href="#cb38-163"></a></span>
-<span id="cb38-164"><a href="#cb38-164"></a><span class="fu">svytable</span>(<span class="sc">~</span>sexe, dfw)</span>
+<span id="cb38-164"><a href="#cb38-164"></a><span class="in">svytable(~sexe, dfw)</span></span>
 <span id="cb38-165"><a href="#cb38-165"></a></span>
-<span id="cb38-166"><a href="#cb38-166"></a><span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span>
+<span id="cb38-166"><a href="#cb38-166"></a><span class="in">svytable(~ sexe + qualif, dfw)</span></span>
 <span id="cb38-167"><a href="#cb38-167"></a><span class="in">```</span></span>
 <span id="cb38-168"><a href="#cb38-168"></a></span>
 <span id="cb38-169"><a href="#cb38-169"></a><span class="in">```{r filename="Pourcentages pondérés"}</span></span>
-<span id="cb38-170"><a href="#cb38-170"></a>tab <span class="ot">&lt;-</span> <span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span>
+<span id="cb38-170"><a href="#cb38-170"></a><span class="in">tab &lt;- svytable(~ sexe + qualif, dfw)</span></span>
 <span id="cb38-171"><a href="#cb38-171"></a><span class="in">```</span></span>
 <span id="cb38-172"><a href="#cb38-172"></a></span>
 <span id="cb38-173"><a href="#cb38-173"></a><span class="in">```{r filename="Pourcentages pondérés"}</span></span>
-<span id="cb38-174"><a href="#cb38-174"></a><span class="fu">lprop</span>(tab)  <span class="co"># % ligne pondérée</span></span>
-<span id="cb38-175"><a href="#cb38-175"></a><span class="fu">cprop</span>(tab)  <span class="co"># % colonne pondérée</span></span>
+<span id="cb38-174"><a href="#cb38-174"></a><span class="in">lprop(tab)  # % ligne pondérée</span></span>
+<span id="cb38-175"><a href="#cb38-175"></a><span class="in">cprop(tab)  # % colonne pondérée</span></span>
 <span id="cb38-176"><a href="#cb38-176"></a><span class="in">```</span></span>
 <span id="cb38-177"><a href="#cb38-177"></a></span>
 <span id="cb38-178"><a href="#cb38-178"></a></span>
@@ -1039,20 +1197,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb38-181"><a href="#cb38-181"></a><span class="ss">* </span>Fonction <span class="in">`svymean`</span> et <span class="in">`svyby`</span></span>
 <span id="cb38-182"><a href="#cb38-182"></a></span>
 <span id="cb38-183"><a href="#cb38-183"></a><span class="in">```{r filename="Moyenne pondérée"}</span></span>
-<span id="cb38-184"><a href="#cb38-184"></a><span class="fu">svymean</span>(<span class="sc">~</span>age, dfw)</span>
+<span id="cb38-184"><a href="#cb38-184"></a><span class="in">svymean(~age, dfw)</span></span>
 <span id="cb38-185"><a href="#cb38-185"></a><span class="in">```</span></span>
 <span id="cb38-186"><a href="#cb38-186"></a></span>
 <span id="cb38-187"><a href="#cb38-187"></a><span class="ss">* </span>Si on souhaite calculer une moyenne par sous groupe, on utilise la fonction <span class="in">`svyby`</span> à laquelle on ajoute l'argument <span class="in">`svymean`</span> en option</span>
 <span id="cb38-188"><a href="#cb38-188"></a></span>
 <span id="cb38-189"><a href="#cb38-189"></a><span class="in">```{r filename="Moyennes pondérées par groupe"}</span></span>
-<span id="cb38-190"><a href="#cb38-190"></a><span class="fu">svyby</span>(<span class="sc">~</span>age, <span class="sc">~</span>sexe, dfw, svymean)</span>
+<span id="cb38-190"><a href="#cb38-190"></a><span class="in">svyby(~age, ~sexe, dfw, svymean)</span></span>
 <span id="cb38-191"><a href="#cb38-191"></a><span class="in">```</span></span>
 <span id="cb38-192"><a href="#cb38-192"></a></span>
 <span id="cb38-193"><a href="#cb38-193"></a><span class="ss">* </span>Modèle logistique avec <span class="in">`svyglm`</span></span>
 <span id="cb38-194"><a href="#cb38-194"></a></span>
 <span id="cb38-195"><a href="#cb38-195"></a><span class="in">```{r filename="Moyennes pondérées par groupe"}</span></span>
-<span id="cb38-196"><a href="#cb38-196"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
-<span id="cb38-197"><a href="#cb38-197"></a><span class="fu">summary</span>(<span class="fu">svyglm</span>(cuisine <span class="sc">~</span> age <span class="sc">+</span> sexe <span class="sc">+</span> occup <span class="sc">+</span> qualif, dfw, <span class="at">family=</span>binomial))</span>
+<span id="cb38-196"><a href="#cb38-196"></a><span class="in">options(show.signif.stars=FALSE)</span></span>
+<span id="cb38-197"><a href="#cb38-197"></a><span class="in">summary(svyglm(cuisine ~ age + sexe + occup + qualif, dfw, family=binomial))</span></span>
 <span id="cb38-198"><a href="#cb38-198"></a><span class="in">```</span></span>
 <span id="cb38-199"><a href="#cb38-199"></a></span>
 <span id="cb38-200"><a href="#cb38-200"></a>Vous pouvez retrouver dans la documentation l'ensemble des fonctions prises en charge.</span>
@@ -1063,6 +1221,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

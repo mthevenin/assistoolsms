@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,6 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
@@ -95,10 +96,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -109,21 +110,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
- <span class="menu-text">R</span></a>
+    <a class="nav-link" href="../../../../R/index.html"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../../../../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../../../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -146,12 +147,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="quarto-title-meta-contents">
       <p class="author">Bénédicte Garnier </p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               Ined
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -168,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Résumé</div>
+      <div class="block-title">Résumé</div>
       <p>Nous allons montrer comment s’approprier des données issues des <strong>Enquêtes Démographiques et de Santé</strong> (DHS) pour produire des statistiques univariées avec R.</p>
     </div>
   </div>
@@ -195,6 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -643,11 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>On pourra reconstituer le numéro du ménage à laquelle appartient chaque femme de la table <em>Femmes</em> à l’aide des variables v001, v002 et v003 qui sont des chaînes de caractères (char) que l’on pourra concaténer avec la fonction <strong><code>paste</code></strong> (casesid=v001+v002+v003).</p>
 <p>Pour illuster ce propos, nous pouvons regarder l’organisation de fichiers issus de 5 ménages enquêtés au Togo en 2013.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
-</figure>
-</div>
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid" style="width:90.0%"></a></p>
 <p><em>Caseid,</em> l’identifiant du premier enfant de la table <em>Enfants</em>, a pour valeur <em>4962</em>. Il appartient au 1er ménage de la table <em>Ménages.</em></p>
 <p>Les 5e et 6e enfants de la table <em>Enfants</em> appartiennent au 5e ménage de la table <em>Ménages</em> et on retrouve la correspondance avec la table <em>Femmes</em>.</p>
 <p>On pourra donc faire des jointures entre les tables <em>Ménages</em>, <em>Femmes</em> et <em>Enfants</em>.</p>
@@ -730,7 +728,7 @@ yes 1327 93.7 93.7</code></pre>
 <span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure class="figure">
 <p><a href="dhs_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="dhs_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
@@ -769,7 +767,7 @@ NA                  642 45.3   NA</code></pre>
 <span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure class="figure">
 <p><a href="dhs_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="dhs_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
@@ -932,7 +930,7 @@ don't know  0 0.0  0.0 100.0   100.0</code></pre>
 <span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#526747"</span>) <span class="sc">+</span></span>
 <span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure class="figure">
 <p><a href="dhs_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="dhs_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
@@ -1077,10 +1075,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1090,8 +1087,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1104,6 +1110,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1147,6 +1272,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1172,6 +1298,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1232,7 +1384,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb36" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">---</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="an">title:</span><span class="co"> "Statistiques descriptives à partir d'enquêtes DHS"</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a></span>
@@ -1311,12 +1465,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-76"><a href="#cb36-76"></a><span class="fu">## Appel des packages</span></span>
 <span id="cb36-77"><a href="#cb36-77"></a></span>
 <span id="cb36-78"><a href="#cb36-78"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb36-79"><a href="#cb36-79"></a><span class="fu">library</span>(readstata13)</span>
-<span id="cb36-80"><a href="#cb36-80"></a><span class="fu">library</span>(rio)</span>
-<span id="cb36-81"><a href="#cb36-81"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb36-82"><a href="#cb36-82"></a><span class="fu">library</span>(questionr)</span>
-<span id="cb36-83"><a href="#cb36-83"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb36-84"><a href="#cb36-84"></a><span class="fu">library</span>(esquisse)</span>
+<span id="cb36-79"><a href="#cb36-79"></a><span class="in">library(readstata13)</span></span>
+<span id="cb36-80"><a href="#cb36-80"></a><span class="in">library(rio)</span></span>
+<span id="cb36-81"><a href="#cb36-81"></a><span class="in">library(dplyr)</span></span>
+<span id="cb36-82"><a href="#cb36-82"></a><span class="in">library(questionr)</span></span>
+<span id="cb36-83"><a href="#cb36-83"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb36-84"><a href="#cb36-84"></a><span class="in">library(esquisse)</span></span>
 <span id="cb36-85"><a href="#cb36-85"></a><span class="in">```</span></span>
 <span id="cb36-86"><a href="#cb36-86"></a></span>
 <span id="cb36-87"><a href="#cb36-87"></a><span class="fu"># Création de tables R à partir de fichiers Stata</span></span>
@@ -1341,16 +1495,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-106"><a href="#cb36-106"></a>| hv230b   | Presence of water at hand washing place |</span>
 <span id="cb36-107"><a href="#cb36-107"></a></span>
 <span id="cb36-108"><a href="#cb36-108"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb36-109"><a href="#cb36-109"></a>Be_Menages <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B1_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-110"><a href="#cb36-110"></a>  <span class="fu">factorize</span>()  <span class="sc">%&gt;%</span></span>
-<span id="cb36-111"><a href="#cb36-111"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb36-112"><a href="#cb36-112"></a>    <span class="co"># Selection des variables</span></span>
-<span id="cb36-113"><a href="#cb36-113"></a>  <span class="fu">select</span>(<span class="fu">c</span>(hhid,hv000,hv001,hv002,hv003,hv024,hv025,hv230b,hv227,hv219,hv220,hv221)) </span>
+<span id="cb36-109"><a href="#cb36-109"></a><span class="in">Be_Menages = read.dta13("datas/B1_BN.dta",generate.factors=T,fromEncoding="latin1") %&gt;%</span></span>
+<span id="cb36-110"><a href="#cb36-110"></a><span class="in">  factorize()  %&gt;%</span></span>
+<span id="cb36-111"><a href="#cb36-111"></a><span class="in">  data.frame() %&gt;% </span></span>
+<span id="cb36-112"><a href="#cb36-112"></a><span class="in">    # Selection des variables</span></span>
+<span id="cb36-113"><a href="#cb36-113"></a><span class="in">  select(c(hhid,hv000,hv001,hv002,hv003,hv024,hv025,hv230b,hv227,hv219,hv220,hv221)) </span></span>
 <span id="cb36-114"><a href="#cb36-114"></a><span class="in">```</span></span>
 <span id="cb36-115"><a href="#cb36-115"></a></span>
 <span id="cb36-116"><a href="#cb36-116"></a></span>
 <span id="cb36-117"><a href="#cb36-117"></a><span class="in">```{r filename="Afficher le contenu de la table "}</span></span>
-<span id="cb36-118"><a href="#cb36-118"></a>  <span class="fu">str</span>(Be_Menages)</span>
+<span id="cb36-118"><a href="#cb36-118"></a><span class="in">  str(Be_Menages)</span></span>
 <span id="cb36-119"><a href="#cb36-119"></a><span class="in">```</span></span>
 <span id="cb36-120"><a href="#cb36-120"></a></span>
 <span id="cb36-121"><a href="#cb36-121"></a></span>
@@ -1371,15 +1525,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-136"><a href="#cb36-136"></a>| v149     | Educational attainment                 |</span>
 <span id="cb36-137"><a href="#cb36-137"></a></span>
 <span id="cb36-138"><a href="#cb36-138"></a><span class="in">```{r, warning=FALSE, message=FALSE}</span></span>
-<span id="cb36-139"><a href="#cb36-139"></a>Be_Femmes <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B2_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-140"><a href="#cb36-140"></a>  <span class="fu">factorize</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb36-141"><a href="#cb36-141"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb36-142"><a href="#cb36-142"></a>    <span class="co"># Selection des variables </span></span>
-<span id="cb36-143"><a href="#cb36-143"></a>  <span class="fu">select</span>(<span class="fu">c</span>(caseid,v000,v001,v002,v003,v704,v705,v716,v149))</span>
+<span id="cb36-139"><a href="#cb36-139"></a><span class="in">Be_Femmes = read.dta13("datas/B2_BN.dta",generate.factors=T,fromEncoding="latin1") %&gt;%</span></span>
+<span id="cb36-140"><a href="#cb36-140"></a><span class="in">  factorize() %&gt;%</span></span>
+<span id="cb36-141"><a href="#cb36-141"></a><span class="in">  data.frame() %&gt;% </span></span>
+<span id="cb36-142"><a href="#cb36-142"></a><span class="in">    # Selection des variables </span></span>
+<span id="cb36-143"><a href="#cb36-143"></a><span class="in">  select(c(caseid,v000,v001,v002,v003,v704,v705,v716,v149))</span></span>
 <span id="cb36-144"><a href="#cb36-144"></a><span class="in">```</span></span>
 <span id="cb36-145"><a href="#cb36-145"></a></span>
 <span id="cb36-146"><a href="#cb36-146"></a><span class="in">```{r filename="Afficher le contenu de la table "}</span></span>
-<span id="cb36-147"><a href="#cb36-147"></a>  <span class="fu">str</span>(Be_Femmes)</span>
+<span id="cb36-147"><a href="#cb36-147"></a><span class="in">  str(Be_Femmes)</span></span>
 <span id="cb36-148"><a href="#cb36-148"></a><span class="in">```</span></span>
 <span id="cb36-149"><a href="#cb36-149"></a></span>
 <span id="cb36-150"><a href="#cb36-150"></a><span class="ss">*  </span>Table *BE_Enfants*</span>
@@ -1406,16 +1560,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-171"><a href="#cb36-171"></a>| v115     | Time to get to water source               |</span>
 <span id="cb36-172"><a href="#cb36-172"></a></span>
 <span id="cb36-173"><a href="#cb36-173"></a><span class="in">```{r, warning=FALSE, message=FALSE }</span></span>
-<span id="cb36-174"><a href="#cb36-174"></a>Be_Enfants <span class="ot">=</span> <span class="fu">read.dta13</span>(<span class="st">"datas/B4_BN.dta"</span>,<span class="at">generate.factors=</span>T,<span class="at">fromEncoding=</span><span class="st">"latin1"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-175"><a href="#cb36-175"></a>  <span class="fu">factorize</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb36-176"><a href="#cb36-176"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb36-174"><a href="#cb36-174"></a><span class="in">Be_Enfants = read.dta13("datas/B4_BN.dta",generate.factors=T,fromEncoding="latin1") %&gt;%</span></span>
+<span id="cb36-175"><a href="#cb36-175"></a><span class="in">  factorize() %&gt;%</span></span>
+<span id="cb36-176"><a href="#cb36-176"></a><span class="in">  data.frame() %&gt;% </span></span>
 <span id="cb36-177"><a href="#cb36-177"></a></span>
-<span id="cb36-178"><a href="#cb36-178"></a><span class="co"># Selection des variables </span></span>
-<span id="cb36-179"><a href="#cb36-179"></a>  <span class="fu">select</span>(<span class="fu">c</span>(caseid,v000,v001,v002,v003,v716,v717,v719,v218,v130,v131,v101,v102,v106,v107,v113,v115))</span>
+<span id="cb36-178"><a href="#cb36-178"></a><span class="in"># Selection des variables </span></span>
+<span id="cb36-179"><a href="#cb36-179"></a><span class="in">  select(c(caseid,v000,v001,v002,v003,v716,v717,v719,v218,v130,v131,v101,v102,v106,v107,v113,v115))</span></span>
 <span id="cb36-180"><a href="#cb36-180"></a><span class="in">```</span></span>
 <span id="cb36-181"><a href="#cb36-181"></a></span>
 <span id="cb36-182"><a href="#cb36-182"></a><span class="in">```{r filename="Afficher le contenu de la table "}</span></span>
-<span id="cb36-183"><a href="#cb36-183"></a>  <span class="fu">str</span>(Be_Enfants)</span>
+<span id="cb36-183"><a href="#cb36-183"></a><span class="in">  str(Be_Enfants)</span></span>
 <span id="cb36-184"><a href="#cb36-184"></a><span class="in">```</span></span>
 <span id="cb36-185"><a href="#cb36-185"></a></span>
 <span id="cb36-186"><a href="#cb36-186"></a>La variable *caseid* de la table *Enfants* du *Bénin* est de type *entier (int)* alors que la variable *caseid* d'autres tables *Enfants* (par exemple du *Togo* ou du *Mali*) est *chaîne de caractères (char)*. On va changer son type en chaîne de caractères avec la fonction **`mutate`** à laquelle sera associée une autre fonction: <span class="in">`as.character`</span>.</span>
@@ -1485,11 +1639,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-254"><a href="#cb36-254"></a>La variable *hv025* (milieu rural ou urbain) est une variable qualitative de type *facteur* (Factor) .</span>
 <span id="cb36-255"><a href="#cb36-255"></a></span>
 <span id="cb36-256"><a href="#cb36-256"></a><span class="in">```{r type}</span></span>
-<span id="cb36-257"><a href="#cb36-257"></a><span class="co"># Comme la variable est de type Factor on peut utiliser la fonction summary qui va afficher les effectif</span></span>
-<span id="cb36-258"><a href="#cb36-258"></a><span class="fu">summary</span>(Be_Menages<span class="sc">$</span>hv025)</span>
+<span id="cb36-257"><a href="#cb36-257"></a><span class="in"># Comme la variable est de type Factor on peut utiliser la fonction summary qui va afficher les effectif</span></span>
+<span id="cb36-258"><a href="#cb36-258"></a><span class="in">summary(Be_Menages$hv025)</span></span>
 <span id="cb36-259"><a href="#cb36-259"></a></span>
-<span id="cb36-260"><a href="#cb36-260"></a><span class="co"># On utilise la fonction freq du package questionr pour afficher aussi les %</span></span>
-<span id="cb36-261"><a href="#cb36-261"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv025, <span class="at">cum=</span>F)</span>
+<span id="cb36-260"><a href="#cb36-260"></a><span class="in"># On utilise la fonction freq du package questionr pour afficher aussi les %</span></span>
+<span id="cb36-261"><a href="#cb36-261"></a><span class="in">freq(Be_Menages$hv025, cum=F)</span></span>
 <span id="cb36-262"><a href="#cb36-262"></a></span>
 <span id="cb36-263"><a href="#cb36-263"></a><span class="in">```</span></span>
 <span id="cb36-264"><a href="#cb36-264"></a></span>
@@ -1500,15 +1654,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-269"><a href="#cb36-269"></a>On prend la variable *hv227:Has mosquito bed net for sleeping* de la table *Ménages* pour calculer la répartition et faire le graphique associé</span>
 <span id="cb36-270"><a href="#cb36-270"></a></span>
 <span id="cb36-271"><a href="#cb36-271"></a><span class="in">```{r filename="Répartition"}</span></span>
-<span id="cb36-272"><a href="#cb36-272"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv227, <span class="at">cum=</span>F)</span>
+<span id="cb36-272"><a href="#cb36-272"></a><span class="in">freq(Be_Menages$hv227, cum=F)</span></span>
 <span id="cb36-273"><a href="#cb36-273"></a><span class="in">```</span></span>
 <span id="cb36-274"><a href="#cb36-274"></a></span>
 <span id="cb36-275"><a href="#cb36-275"></a><span class="in">```{r filename="Graphique"}</span></span>
-<span id="cb36-276"><a href="#cb36-276"></a><span class="fu">ggplot</span>(Be_Menages) <span class="sc">+</span></span>
-<span id="cb36-277"><a href="#cb36-277"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv227) <span class="sc">+</span></span>
-<span id="cb36-278"><a href="#cb36-278"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">fill =</span> <span class="st">"#112446"</span>) <span class="sc">+</span></span>
-<span id="cb36-279"><a href="#cb36-279"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb36-280"><a href="#cb36-280"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb36-276"><a href="#cb36-276"></a><span class="in">ggplot(Be_Menages) +</span></span>
+<span id="cb36-277"><a href="#cb36-277"></a><span class="in">  aes(x = hv227) +</span></span>
+<span id="cb36-278"><a href="#cb36-278"></a><span class="in">  geom_bar(position = "dodge", fill = "#112446") +</span></span>
+<span id="cb36-279"><a href="#cb36-279"></a><span class="in">  coord_flip() +</span></span>
+<span id="cb36-280"><a href="#cb36-280"></a><span class="in">  theme_minimal()</span></span>
 <span id="cb36-281"><a href="#cb36-281"></a><span class="in">```</span></span>
 <span id="cb36-282"><a href="#cb36-282"></a></span>
 <span id="cb36-283"><a href="#cb36-283"></a>Près de 94% des ménages de notre fichier possèdent une moustiquaire pour dormir.</span>
@@ -1518,16 +1672,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-287"><a href="#cb36-287"></a>On prend la variable *hv230b* (*Presence of water at hand washing place*) de la table *Ménages*</span>
 <span id="cb36-288"><a href="#cb36-288"></a></span>
 <span id="cb36-289"><a href="#cb36-289"></a><span class="in">```{r filename="Répartition"}</span></span>
-<span id="cb36-290"><a href="#cb36-290"></a><span class="co"># Répartition</span></span>
-<span id="cb36-291"><a href="#cb36-291"></a><span class="fu">freq</span>(Be_Menages<span class="sc">$</span>hv230b, <span class="at">cum=</span>F)</span>
+<span id="cb36-290"><a href="#cb36-290"></a><span class="in"># Répartition</span></span>
+<span id="cb36-291"><a href="#cb36-291"></a><span class="in">freq(Be_Menages$hv230b, cum=F)</span></span>
 <span id="cb36-292"><a href="#cb36-292"></a><span class="in">```</span></span>
 <span id="cb36-293"><a href="#cb36-293"></a></span>
 <span id="cb36-294"><a href="#cb36-294"></a><span class="in">```{r filename="Graphique"}</span></span>
-<span id="cb36-295"><a href="#cb36-295"></a><span class="fu">ggplot</span>(Be_Menages) <span class="sc">+</span></span>
-<span id="cb36-296"><a href="#cb36-296"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv230b) <span class="sc">+</span></span>
-<span id="cb36-297"><a href="#cb36-297"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">fill =</span> <span class="st">"#112446"</span>) <span class="sc">+</span></span>
-<span id="cb36-298"><a href="#cb36-298"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb36-299"><a href="#cb36-299"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb36-295"><a href="#cb36-295"></a><span class="in">ggplot(Be_Menages) +</span></span>
+<span id="cb36-296"><a href="#cb36-296"></a><span class="in">  aes(x = hv230b) +</span></span>
+<span id="cb36-297"><a href="#cb36-297"></a><span class="in">  geom_bar(position = "dodge", fill = "#112446") +</span></span>
+<span id="cb36-298"><a href="#cb36-298"></a><span class="in">  coord_flip() +</span></span>
+<span id="cb36-299"><a href="#cb36-299"></a><span class="in">  theme_minimal()</span></span>
 <span id="cb36-300"><a href="#cb36-300"></a><span class="in">```</span></span>
 <span id="cb36-301"><a href="#cb36-301"></a></span>
 <span id="cb36-302"><a href="#cb36-302"></a>Parmi les répondants à cette question (près de 55% des ménages), seulement près d'un tiers a accès à l'eau pour se laver les mains.</span>
@@ -1552,25 +1706,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb36-323"><a href="#cb36-323"></a>On génère un compteur pour calculer le nombre de femmes par ménages (qui ont un identifiant de ménage identique): *Nbfem*. On ajoute cette nouvelle variable dans la table Femmes. Cette variable est une variable numérique de type *integer* (int) dans R. On peut alors calculer la répartition du nombre de femmes dans les menages.</span>
 <span id="cb36-324"><a href="#cb36-324"></a></span>
 <span id="cb36-325"><a href="#cb36-325"></a><span class="in">```{r filename="création de la variable nombre de femmes par ménage"}</span></span>
-<span id="cb36-326"><a href="#cb36-326"></a>Be_Femmes2<span class="ot">&lt;-</span>Be_Femmes<span class="sc">%&gt;%</span> </span>
-<span id="cb36-327"><a href="#cb36-327"></a>  <span class="fu">mutate</span>(<span class="at">hhid=</span><span class="fu">paste</span>(v001,v002,<span class="at">sep=</span><span class="st">" "</span>))</span>
-<span id="cb36-328"><a href="#cb36-328"></a><span class="co"># On générère la variable nombreb de femmes par ménage : Nbfem</span></span>
-<span id="cb36-329"><a href="#cb36-329"></a>Be_Femmes3<span class="ot">=</span>Be_Femmes2 <span class="sc">%&gt;%</span></span>
-<span id="cb36-330"><a href="#cb36-330"></a>  <span class="fu">group_by</span>(hhid) <span class="sc">%&gt;%</span></span>
-<span id="cb36-331"><a href="#cb36-331"></a>  <span class="fu">summarise</span>(<span class="at">Nbfem =</span> <span class="fu">n</span>())</span>
+<span id="cb36-326"><a href="#cb36-326"></a><span class="in">Be_Femmes2&lt;-Be_Femmes%&gt;% </span></span>
+<span id="cb36-327"><a href="#cb36-327"></a><span class="in">  mutate(hhid=paste(v001,v002,sep=" "))</span></span>
+<span id="cb36-328"><a href="#cb36-328"></a><span class="in"># On générère la variable nombreb de femmes par ménage : Nbfem</span></span>
+<span id="cb36-329"><a href="#cb36-329"></a><span class="in">Be_Femmes3=Be_Femmes2 %&gt;%</span></span>
+<span id="cb36-330"><a href="#cb36-330"></a><span class="in">  group_by(hhid) %&gt;%</span></span>
+<span id="cb36-331"><a href="#cb36-331"></a><span class="in">  summarise(Nbfem = n())</span></span>
 <span id="cb36-332"><a href="#cb36-332"></a><span class="in">```</span></span>
 <span id="cb36-333"><a href="#cb36-333"></a></span>
 <span id="cb36-334"><a href="#cb36-334"></a><span class="in">```{r filename="Récupération de la variable Nbfem dans la table"}</span></span>
-<span id="cb36-335"><a href="#cb36-335"></a><span class="co"># On ajoute les variables de la table avec le nombre de femmes dans la table femme </span></span>
-<span id="cb36-336"><a href="#cb36-336"></a>Be_Femmes22<span class="ot">&lt;-</span>Be_Femmes3 <span class="sc">%&gt;%</span></span>
-<span id="cb36-337"><a href="#cb36-337"></a>  <span class="fu">left_join</span>(Be_Femmes2,<span class="at">by=</span><span class="st">"hhid"</span>)</span>
+<span id="cb36-335"><a href="#cb36-335"></a><span class="in"># On ajoute les variables de la table avec le nombre de femmes dans la table femme </span></span>
+<span id="cb36-336"><a href="#cb36-336"></a><span class="in">Be_Femmes22&lt;-Be_Femmes3 %&gt;%</span></span>
+<span id="cb36-337"><a href="#cb36-337"></a><span class="in">  left_join(Be_Femmes2,by="hhid")</span></span>
 <span id="cb36-338"><a href="#cb36-338"></a><span class="in">```</span></span>
 <span id="cb36-339"><a href="#cb36-339"></a></span>
 <span id="cb36-340"><a href="#cb36-340"></a><span class="in">```{r }</span></span>
-<span id="cb36-341"><a href="#cb36-341"></a><span class="co"># Si variable numérique</span></span>
-<span id="cb36-342"><a href="#cb36-342"></a><span class="fu">summary</span>(Be_Femmes22<span class="sc">$</span>Nbfem)</span>
-<span id="cb36-343"><a href="#cb36-343"></a><span class="co"># Si variable discrète</span></span>
-<span id="cb36-344"><a href="#cb36-344"></a><span class="fu">table</span>(Be_Femmes22<span class="sc">$</span>Nbfem)</span>
+<span id="cb36-341"><a href="#cb36-341"></a><span class="in"># Si variable numérique</span></span>
+<span id="cb36-342"><a href="#cb36-342"></a><span class="in">summary(Be_Femmes22$Nbfem)</span></span>
+<span id="cb36-343"><a href="#cb36-343"></a><span class="in"># Si variable discrète</span></span>
+<span id="cb36-344"><a href="#cb36-344"></a><span class="in">table(Be_Femmes22$Nbfem)</span></span>
 <span id="cb36-345"><a href="#cb36-345"></a></span>
 <span id="cb36-346"><a href="#cb36-346"></a><span class="in">```</span></span>
 <span id="cb36-347"><a href="#cb36-347"></a></span>
@@ -1599,7 +1753,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":true,"closeEffect":"zoom","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
 
 
 

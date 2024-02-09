@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -261,7 +261,7 @@ window.Quarto = {
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Quarto" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704702043679" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="134" data-listing-title-sort="Version 1.4 de Quarto" data-listing-filename-sort="quarto_v14.qmd">
+<tr data-index="0" data-categories="Quarto" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1707477499148" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="134" data-listing-title-sort="Version 1.4 de Quarto" data-listing-filename-sort="quarto_v14.qmd">
 <td>
 <span class="listing-date">8 janv. 2024</span>
 </td>
@@ -589,7 +589,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

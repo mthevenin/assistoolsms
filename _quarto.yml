@@ -35,10 +35,11 @@ format:
     css: sms.css
     toc: true
     grid:
-     sidebar-width: 50px
-     body-width:    1200px
-     margin-width:  500px
-     gutter-width: 2.5rem      
+      sidebar-width: 350px
+      body-width: 950px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    mainfont: "roboto"    
     code-line-numbers: true
     code-copy: true
     code-tools:

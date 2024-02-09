@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,6 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
@@ -118,16 +119,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../sms.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -138,21 +166,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../R/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">R</span></a>
+    <a class="nav-link active" href="../R/index.html" aria-current="page"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -181,6 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(17)</span></div><div class="category" data-category="Addins">Addins <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Analyse textuelle">Analyse textuelle <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Appariement">Appariement <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Boucle">Boucle <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Cartographie">Cartographie <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Editeur">Editeur <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Graphique">Graphique <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Importation">Importation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Json">Json <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Notebook">Notebook <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Output">Output <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Pondération">Pondération <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Recodage">Recodage <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Reproductibilité">Reproductibilité <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Statistiques descriptives">Statistiques descriptives <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Tableau">Tableau <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Test">Test <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Web Scrapping">Web Scrapping <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -217,7 +246,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-
 <table class="quarto-listing-table table">
 <thead>
 <tr>
@@ -233,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1698148699878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-title-sort="Consolider sa reproductibilité avec le package prefixer" data-listing-filename-sort="pkg_prefix.qmd">
+<tr data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1698148699878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1037" data-listing-title-sort="Consolider sa reproductibilité avec le package prefixer" data-listing-filename-sort="pkg_prefix.qmd">
 <td>
 <span class="listing-date">24 oct. 2023</span>
 </td>
@@ -244,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Bénédicte Garnier</span>
 </td>
 </tr>
-<tr data-index="1" data-categories="Cartographie" data-listing-date-sort="1690408800000" data-listing-file-modified-sort="1690780496770" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-title-sort="Réaliser des cartes thématiques avec Mapsf" data-listing-filename-sort="map_sf.qmd">
+<tr data-index="1" data-categories="Cartographie" data-listing-date-sort="1690408800000" data-listing-file-modified-sort="1690780496770" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1599" data-listing-title-sort="Réaliser des cartes thématiques avec Mapsf" data-listing-filename-sort="map_sf.qmd">
 <td>
 <span class="listing-date">27 juil. 2023</span>
 </td>
@@ -255,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Coralie Cottet</span>
 </td>
 </tr>
-<tr data-index="2" data-categories="Web Scrapping,Analyse textuelle" data-listing-date-sort="1690322400000" data-listing-file-modified-sort="1690351301654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-title-sort="Créer un corpus de texte issu d'Europresse au format d'Iramuteq" data-listing-filename-sort="corpus_europress_iramuteq.qmd">
+<tr data-index="2" data-categories="Web Scrapping,Analyse textuelle" data-listing-date-sort="1690322400000" data-listing-file-modified-sort="1690351301654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3455" data-listing-title-sort="Créer un corpus de texte issu d'Europresse au format d'Iramuteq" data-listing-filename-sort="corpus_europress_iramuteq.qmd">
 <td>
 <span class="listing-date">26 juil. 2023</span>
 </td>
@@ -266,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1690358642160" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Générer des graphes de mot avec R.temis" data-listing-filename-sort="nuage_de_mot.qmd">
+<tr data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1690358642160" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="589" data-listing-title-sort="Générer des graphes de mot avec R.temis" data-listing-filename-sort="nuage_de_mot.qmd">
 <td>
 <span class="listing-date">25 juil. 2023</span>
 </td>
@@ -277,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Coralie Cottet</span>
 </td>
 </tr>
-<tr data-index="4" data-categories="Recodage,Statistiques descriptives" data-listing-date-sort="1689717600000" data-listing-file-modified-sort="1690188877502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-title-sort="Statistiques descriptives à partir d'enquêtes DHS" data-listing-filename-sort="dhs.qmd">
+<tr data-index="4" data-categories="Recodage,Statistiques descriptives" data-listing-date-sort="1689717600000" data-listing-file-modified-sort="1690188877502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2974" data-listing-title-sort="Statistiques descriptives à partir d'enquêtes DHS" data-listing-filename-sort="dhs.qmd">
 <td>
 <span class="listing-date">19 juil. 2023</span>
 </td>
@@ -288,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Bénédicte Garnier</span>
 </td>
 </tr>
-<tr data-index="5" data-categories="Graphique" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1693287278621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-title-sort="Contrôler les effets spaghetti avec ggplot" data-listing-filename-sort="spaghetti.qmd">
+<tr data-index="5" data-categories="Graphique" data-listing-date-sort="1689112800000" data-listing-file-modified-sort="1693287278621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1227" data-listing-title-sort="Contrôler les effets spaghetti avec ggplot" data-listing-filename-sort="spaghetti.qmd">
 <td>
 <span class="listing-date">12 juil. 2023</span>
 </td>
@@ -299,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Arno Muller, Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1689073742754" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-title-sort="Produire des graphiques et recoder des variables sans écrire de code R" data-listing-filename-sort="addins.qmd">
+<tr data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1689073742754" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="666" data-listing-title-sort="Produire des graphiques et recoder des variables sans écrire de code R" data-listing-filename-sort="addins.qmd">
 <td>
 <span class="listing-date">10 juil. 2023</span>
 </td>
@@ -310,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Bénédicte Garnier</span>
 </td>
 </tr>
-<tr data-index="7" data-categories="Notebook" data-listing-date-sort="1688680800000" data-listing-file-modified-sort="1689075423972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Utiliser R avec le notebook Jupyter" data-listing-filename-sort="R_jupyter.qmd">
+<tr data-index="7" data-categories="Notebook" data-listing-date-sort="1688680800000" data-listing-file-modified-sort="1689075423972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279" data-listing-title-sort="Utiliser R avec le notebook Jupyter" data-listing-filename-sort="R_jupyter.qmd">
 <td>
 <span class="listing-date">7 juil. 2023</span>
 </td>
@@ -321,8 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-
-<tr data-index="8" data-categories="Statistiques descriptives,Tableau" data-listing-date-sort="1688076000000" data-listing-file-modified-sort="1690190378371" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-title-sort="Fonction pour des tables automatiques" data-listing-filename-sort="fonction_table_auto.qmd">
+<tr data-index="8" data-categories="Statistiques descriptives,Tableau" data-listing-date-sort="1688076000000" data-listing-file-modified-sort="1707479956742" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505" data-listing-title-sort="Fonction pour des tables automatiques" data-listing-filename-sort="fonction_table_auto.qmd">
 <td>
 <span class="listing-date">30 juin 2023</span>
 </td>
@@ -333,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688382043334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Pondérations normalisées avec R" data-listing-filename-sort="weight_norm.qmd">
+<tr data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688382043334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563" data-listing-title-sort="Pondérations normalisées avec R" data-listing-filename-sort="weight_norm.qmd">
 <td>
 <span class="listing-date">29 juin 2023</span>
 </td>
@@ -344,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Elodie Baril</span>
 </td>
 </tr>
-<tr data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688380419481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Format JSON : de la liste au dataframe" data-listing-filename-sort="JSON.qmd">
+<tr data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688380419481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479" data-listing-title-sort="Format JSON : de la liste au dataframe" data-listing-filename-sort="JSON.qmd">
 <td>
 <span class="listing-date">28 juin 2023</span>
 </td>
@@ -355,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="11" data-categories="Boucle,Recodage" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688381626992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-title-sort="Recodage multiple" data-listing-filename-sort="recodage_multiple.qmd">
+<tr data-index="11" data-categories="Boucle,Recodage" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688381626992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1018" data-listing-title-sort="Recodage multiple" data-listing-filename-sort="recodage_multiple.qmd">
 <td>
 <span class="listing-date">28 juin 2023</span>
 </td>
@@ -366,7 +393,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1688381009144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-title-sort="Recoder des variables avec ifelse() - if_else - case_when()" data-listing-filename-sort="ifelse_casewhen.qmd">
+<tr data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1688381009144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2562" data-listing-title-sort="Recoder des variables avec ifelse() - if_else - case_when()" data-listing-filename-sort="ifelse_casewhen.qmd">
 <td>
 <span class="listing-date">27 juin 2023</span>
 </td>
@@ -377,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="13" data-categories="Appariement" data-listing-date-sort="1687471200000" data-listing-file-modified-sort="1690460021322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="Techniques d'appariements entre chaînes de caractères" data-listing-filename-sort="fuzzyjoin.qmd">
+<tr data-index="13" data-categories="Appariement" data-listing-date-sort="1687471200000" data-listing-file-modified-sort="1690460021322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="901" data-listing-title-sort="Techniques d'appariements entre chaînes de caractères" data-listing-filename-sort="fuzzyjoin.qmd">
 <td>
 <span class="listing-date">23 juin 2023</span>
 </td>
@@ -388,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Arnaud Bringé</span>
 </td>
 </tr>
-<tr data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1688384475884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-title-sort="Afficher des outputs de régression avec Jtools" data-listing-filename-sort="jtools_output.qmd">
+<tr data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1688384475884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511" data-listing-title-sort="Afficher des outputs de régression avec Jtools" data-listing-filename-sort="jtools_output.qmd">
 <td>
 <span class="listing-date">21 juin 2023</span>
 </td>
@@ -399,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1688384219017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="Récupérer et exécuter le test OLS de Grambsch-Therneau" data-listing-filename-sort="coxzph.qmd">
+<tr data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1688384219017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="329" data-listing-title-sort="Récupérer et exécuter le test OLS de Grambsch-Therneau" data-listing-filename-sort="coxzph.qmd">
 <td>
 <span class="listing-date">13 juin 2023</span>
 </td>
@@ -410,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1688726459347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="R avec VScode" data-listing-filename-sort="R_vscode_doc.qmd">
+<tr data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1688726459347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239" data-listing-title-sort="R avec VScode" data-listing-filename-sort="R_vscode_doc.qmd">
 <td>
 <span class="listing-date">7 juin 2023</span>
 </td>
@@ -422,7 +449,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </td>
 </tr>
 </tbody>
-
 </table>
 <div class="listing-no-matching d-none">
 Aucun article correspondant
@@ -558,10 +584,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -571,8 +596,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -585,6 +619,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -628,6 +781,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -653,6 +807,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -713,7 +893,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Assistances R"</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="an">search:</span><span class="co"> false</span></span>
@@ -735,6 +917,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-19"><a href="#cb1-19"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -79,12 +79,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
 }</script>
-
 <script src="../../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -95,10 +95,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -109,21 +109,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
- <span class="menu-text">R</span></a>
+    <a class="nav-link" href="../../../../R/index.html"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../../../../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../../../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -145,12 +145,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="quarto-title-meta-contents">
       <p class="author">Arnaud Bringé </p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               Ined
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -186,6 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -291,7 +292,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">kable</span>(<span class="fu">head</span>(BAP.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped" data-quarto-postprocess="true">
 <thead>
@@ -356,14 +356,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 
-</div>
 <p><br></p>
 <p>Ci-dessous le début du <strong>fichier de recensement</strong></p>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Affichage début de fichier</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">kable</span>(<span class="fu">head</span>(REC.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb9-4"><a href="#cb9-4"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped" data-quarto-postprocess="true">
 <thead>
@@ -428,7 +426,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 
-</div>
 <p><br></p>
 <p>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe <strong><code>inner_join</code></strong>.</p>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>Z1 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
@@ -439,7 +436,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-6"><a href="#cb10-6"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z1,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb10-7"><a href="#cb10-7"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-8"><a href="#cb10-8"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped" data-quarto-postprocess="true">
 <thead>
@@ -515,7 +511,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 
-</div>
 <p><br></p>
 <p>On souhaite maintenant unifier les individus portant le même prénom et différent d’une lettre sur le nom de famille, pour prendre en compte les variantes orthographiques minimes.</p>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>Z2 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
@@ -538,7 +533,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-18"><a href="#cb11-18"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z2,<span class="at">n=</span><span class="dv">30</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb11-19"><a href="#cb11-19"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb11-20"><a href="#cb11-20"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped" data-quarto-postprocess="true">
 <thead>
@@ -796,7 +790,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 
-</div>
 
 
 <!-- -->
@@ -935,10 +928,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -948,8 +940,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -962,6 +963,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1005,6 +1125,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1030,6 +1151,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1090,7 +1237,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">---</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="an">title:</span><span class="co"> "Techniques d'appariements entre chaînes de caractères"</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
@@ -1116,7 +1265,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-23"><a href="#cb12-23"></a><span class="co">---</span></span>
 <span id="cb12-24"><a href="#cb12-24"></a></span>
 <span id="cb12-25"><a href="#cb12-25"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb12-26"><a href="#cb12-26"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-26"><a href="#cb12-26"></a><span class="in">knitr::opts_chunk$set(echo = TRUE)</span></span>
 <span id="cb12-27"><a href="#cb12-27"></a><span class="in">```</span></span>
 <span id="cb12-28"><a href="#cb12-28"></a></span>
 <span id="cb12-29"><a href="#cb12-29"></a><span class="fu"># Problématique</span></span>
@@ -1146,13 +1295,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-53"><a href="#cb12-53"></a><span class="ss">* </span><span class="co">[</span><span class="ot">fuzzyjoin</span><span class="co">](https://github.com/dgrtwo/fuzzyjoin)</span></span>
 <span id="cb12-54"><a href="#cb12-54"></a></span>
 <span id="cb12-55"><a href="#cb12-55"></a><span class="in">```{r Packages, warning=FALSE, message=FALSE}</span></span>
-<span id="cb12-56"><a href="#cb12-56"></a><span class="co">#install.packages(stringdist)</span></span>
-<span id="cb12-57"><a href="#cb12-57"></a><span class="co">#install.packages(tidyverse)</span></span>
-<span id="cb12-58"><a href="#cb12-58"></a><span class="co">#install.packages(fuzzyjoin)</span></span>
+<span id="cb12-56"><a href="#cb12-56"></a><span class="in">#install.packages(stringdist)</span></span>
+<span id="cb12-57"><a href="#cb12-57"></a><span class="in">#install.packages(tidyverse)</span></span>
+<span id="cb12-58"><a href="#cb12-58"></a><span class="in">#install.packages(fuzzyjoin)</span></span>
 <span id="cb12-59"><a href="#cb12-59"></a></span>
-<span id="cb12-60"><a href="#cb12-60"></a><span class="fu">library</span>(stringdist)</span>
-<span id="cb12-61"><a href="#cb12-61"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb12-62"><a href="#cb12-62"></a><span class="fu">library</span>(fuzzyjoin)</span>
+<span id="cb12-60"><a href="#cb12-60"></a><span class="in">library(stringdist)</span></span>
+<span id="cb12-61"><a href="#cb12-61"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb12-62"><a href="#cb12-62"></a><span class="in">library(fuzzyjoin)</span></span>
 <span id="cb12-63"><a href="#cb12-63"></a><span class="in">```</span></span>
 <span id="cb12-64"><a href="#cb12-64"></a></span>
 <span id="cb12-65"><a href="#cb12-65"></a></span>
@@ -1164,13 +1313,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-71"><a href="#cb12-71"></a></span>
 <span id="cb12-72"><a href="#cb12-72"></a></span>
 <span id="cb12-73"><a href="#cb12-73"></a><span class="in">```{r Lehvenshtein}</span></span>
-<span id="cb12-74"><a href="#cb12-74"></a><span class="fu">stringdist</span>(<span class="st">"FROMONT"</span>, <span class="st">"FREMON"</span>, <span class="at">method =</span> <span class="st">"lv"</span>)</span>
+<span id="cb12-74"><a href="#cb12-74"></a><span class="in">stringdist("FROMONT", "FREMON", method = "lv")</span></span>
 <span id="cb12-75"><a href="#cb12-75"></a><span class="in">```</span></span>
 <span id="cb12-76"><a href="#cb12-76"></a></span>
 <span id="cb12-77"><a href="#cb12-77"></a>La comparaison peut se faire sur 2 ensembles de vecteurs, la comparaison sera effectuée terme à terme</span>
 <span id="cb12-78"><a href="#cb12-78"></a></span>
 <span id="cb12-79"><a href="#cb12-79"></a><span class="in">```{r Vecteurs}</span></span>
-<span id="cb12-80"><a href="#cb12-80"></a><span class="fu">stringdist</span>(<span class="fu">c</span>(<span class="st">"BLIER"</span>,<span class="st">"FROMONT"</span>),<span class="fu">c</span>(<span class="st">"BELIER"</span>,<span class="st">"FREMON"</span>), <span class="at">method =</span> <span class="st">"lv"</span>)</span>
+<span id="cb12-80"><a href="#cb12-80"></a><span class="in">stringdist(c("BLIER","FROMONT"),c("BELIER","FREMON"), method = "lv")</span></span>
 <span id="cb12-81"><a href="#cb12-81"></a><span class="in">```</span></span>
 <span id="cb12-82"><a href="#cb12-82"></a><span class="fu"># Exemples de distances</span></span>
 <span id="cb12-83"><a href="#cb12-83"></a></span>
@@ -1194,7 +1343,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-101"><a href="#cb12-101"></a></span>
 <span id="cb12-102"><a href="#cb12-102"></a></span>
 <span id="cb12-103"><a href="#cb12-103"></a><span class="in">```{r fonctions}</span></span>
-<span id="cb12-104"><a href="#cb12-104"></a><span class="fu">amatch</span>(<span class="st">"FROMONT"</span>,<span class="fu">c</span>(<span class="st">"FROMON"</span>,<span class="st">"BLIER"</span>,<span class="st">"FRAMONT"</span>), <span class="at">method =</span> <span class="st">"lv"</span>,<span class="at">maxDist=</span><span class="dv">2</span>)</span>
+<span id="cb12-104"><a href="#cb12-104"></a><span class="in">amatch("FROMONT",c("FROMON","BLIER","FRAMONT"), method = "lv",maxDist=2)</span></span>
 <span id="cb12-105"><a href="#cb12-105"></a><span class="in">```</span></span>
 <span id="cb12-106"><a href="#cb12-106"></a></span>
 <span id="cb12-107"><a href="#cb12-107"></a><span class="fu">## Utilisation dans le cas d'appariements de fichiers</span></span>
@@ -1206,27 +1355,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-113"><a href="#cb12-113"></a>  </span>
 <span id="cb12-114"><a href="#cb12-114"></a><span class="in">```{r crebases, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
 <span id="cb12-115"><a href="#cb12-115"></a></span>
-<span id="cb12-116"><a href="#cb12-116"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb12-116"><a href="#cb12-116"></a><span class="in">library(kableExtra)</span></span>
 <span id="cb12-117"><a href="#cb12-117"></a></span>
-<span id="cb12-118"><a href="#cb12-118"></a>BAP_BMS <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.BAP.Ined.rds"</span>)</span>
-<span id="cb12-119"><a href="#cb12-119"></a>Den     <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="at">file =</span> <span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds"</span>)</span>
+<span id="cb12-118"><a href="#cb12-118"></a><span class="in">BAP_BMS = readRDS(file = "D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.BAP.Ined.rds")</span></span>
+<span id="cb12-119"><a href="#cb12-119"></a><span class="in">Den     = readRDS(file = "D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds")</span></span>
 <span id="cb12-120"><a href="#cb12-120"></a></span>
-<span id="cb12-121"><a href="#cb12-121"></a>BAP.Vars <span class="ot">=</span> BAP_BMS <span class="sc">%&gt;%</span></span>
-<span id="cb12-122"><a href="#cb12-122"></a>  <span class="fu">filter</span>(<span class="fu">as.numeric</span>(Annee)<span class="sc">&lt;</span><span class="dv">1705</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-123"><a href="#cb12-123"></a>  <span class="fu">select</span>(<span class="at">PERE.Nom=</span>Ego.nom,<span class="at">PERE.Prenom=</span>Pere.prenom) <span class="sc">%&gt;%</span></span>
-<span id="cb12-124"><a href="#cb12-124"></a>  <span class="fu">mutate</span>(<span class="at">Nobs.BAP=</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb12-125"><a href="#cb12-125"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(PERE.Nom) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(PERE.Prenom)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-126"><a href="#cb12-126"></a>  <span class="fu">filter</span>(<span class="fu">substr</span>(PERE.Nom,<span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">==</span><span class="st">"A"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-127"><a href="#cb12-127"></a>  <span class="fu">distinct</span>(PERE.Nom,PERE.Prenom,<span class="at">.keep_all=</span>T)</span>
+<span id="cb12-121"><a href="#cb12-121"></a><span class="in">BAP.Vars = BAP_BMS %&gt;%</span></span>
+<span id="cb12-122"><a href="#cb12-122"></a><span class="in">  filter(as.numeric(Annee)&lt;1705) %&gt;%</span></span>
+<span id="cb12-123"><a href="#cb12-123"></a><span class="in">  select(PERE.Nom=Ego.nom,PERE.Prenom=Pere.prenom) %&gt;%</span></span>
+<span id="cb12-124"><a href="#cb12-124"></a><span class="in">  mutate(Nobs.BAP=row_number()) %&gt;%</span></span>
+<span id="cb12-125"><a href="#cb12-125"></a><span class="in">  filter(!is.na(PERE.Nom) &amp; !is.na(PERE.Prenom)) %&gt;%</span></span>
+<span id="cb12-126"><a href="#cb12-126"></a><span class="in">  filter(substr(PERE.Nom,1,1)=="A") %&gt;%</span></span>
+<span id="cb12-127"><a href="#cb12-127"></a><span class="in">  distinct(PERE.Nom,PERE.Prenom,.keep_all=T)</span></span>
 <span id="cb12-128"><a href="#cb12-128"></a></span>
 <span id="cb12-129"><a href="#cb12-129"></a></span>
-<span id="cb12-130"><a href="#cb12-130"></a>REC.Vars<span class="ot">=</span> Den <span class="sc">%&gt;%</span></span>
-<span id="cb12-131"><a href="#cb12-131"></a>  <span class="fu">select</span>(Ego.nom,Ego.prenom) <span class="sc">%&gt;%</span></span>
-<span id="cb12-132"><a href="#cb12-132"></a>  <span class="fu">mutate</span>(<span class="at">Nobs.REC=</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb12-133"><a href="#cb12-133"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Ego.nom) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(Ego.prenom)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-134"><a href="#cb12-134"></a>  <span class="fu">filter</span>(<span class="fu">substr</span>(Ego.nom,<span class="dv">1</span>,<span class="dv">1</span>)<span class="sc">==</span><span class="st">"A"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-135"><a href="#cb12-135"></a>  <span class="fu">mutate</span>(<span class="at">Ego.nom=</span><span class="fu">toupper</span>(Ego.nom),<span class="at">Ego.prenom=</span><span class="fu">toupper</span>(Ego.prenom)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-136"><a href="#cb12-136"></a>  <span class="fu">distinct</span>(Ego.nom,Ego.prenom,<span class="at">.keep_all=</span>T)</span>
+<span id="cb12-130"><a href="#cb12-130"></a><span class="in">REC.Vars= Den %&gt;%</span></span>
+<span id="cb12-131"><a href="#cb12-131"></a><span class="in">  select(Ego.nom,Ego.prenom) %&gt;%</span></span>
+<span id="cb12-132"><a href="#cb12-132"></a><span class="in">  mutate(Nobs.REC=row_number()) %&gt;%</span></span>
+<span id="cb12-133"><a href="#cb12-133"></a><span class="in">  filter(!is.na(Ego.nom) &amp; !is.na(Ego.prenom)) %&gt;%</span></span>
+<span id="cb12-134"><a href="#cb12-134"></a><span class="in">  filter(substr(Ego.nom,1,1)=="A") %&gt;%</span></span>
+<span id="cb12-135"><a href="#cb12-135"></a><span class="in">  mutate(Ego.nom=toupper(Ego.nom),Ego.prenom=toupper(Ego.prenom)) %&gt;%</span></span>
+<span id="cb12-136"><a href="#cb12-136"></a><span class="in">  distinct(Ego.nom,Ego.prenom,.keep_all=T)</span></span>
 <span id="cb12-137"><a href="#cb12-137"></a></span>
 <span id="cb12-138"><a href="#cb12-138"></a><span class="in">```</span></span>
 <span id="cb12-139"><a href="#cb12-139"></a></span>
@@ -1235,71 +1384,71 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-142"><a href="#cb12-142"></a>Ci-dessous le début du **fichier des Baptêmes**</span>
 <span id="cb12-143"><a href="#cb12-143"></a></span>
 <span id="cb12-144"><a href="#cb12-144"></a><span class="in">```{r Print-bap}</span></span>
-<span id="cb12-145"><a href="#cb12-145"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-145"><a href="#cb12-145"></a><span class="in">#| results="asis" </span></span>
 <span id="cb12-146"><a href="#cb12-146"></a></span>
-<span id="cb12-147"><a href="#cb12-147"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-148"><a href="#cb12-148"></a><span class="fu">kable</span>(<span class="fu">head</span>(BAP.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-149"><a href="#cb12-149"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-150"><a href="#cb12-150"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-147"><a href="#cb12-147"></a><span class="in"># Affichage début de fichier</span></span>
+<span id="cb12-148"><a href="#cb12-148"></a><span class="in">kable(head(BAP.Vars,n=10)) %&gt;%</span></span>
+<span id="cb12-149"><a href="#cb12-149"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb12-150"><a href="#cb12-150"></a><span class="in">   scroll_box(height = "300px")</span></span>
 <span id="cb12-151"><a href="#cb12-151"></a><span class="in">```</span></span>
 <span id="cb12-152"><a href="#cb12-152"></a></span>
-<span id="cb12-153"><a href="#cb12-153"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb12-153"><a href="#cb12-153"></a>&lt;br&gt;</span>
 <span id="cb12-154"><a href="#cb12-154"></a></span>
 <span id="cb12-155"><a href="#cb12-155"></a>Ci-dessous le début du **fichier de recensement**</span>
 <span id="cb12-156"><a href="#cb12-156"></a></span>
 <span id="cb12-157"><a href="#cb12-157"></a><span class="in">```{r Print-rec}</span></span>
-<span id="cb12-158"><a href="#cb12-158"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-158"><a href="#cb12-158"></a><span class="in">#| results="asis" </span></span>
 <span id="cb12-159"><a href="#cb12-159"></a></span>
-<span id="cb12-160"><a href="#cb12-160"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-161"><a href="#cb12-161"></a><span class="fu">kable</span>(<span class="fu">head</span>(REC.Vars,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-162"><a href="#cb12-162"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-163"><a href="#cb12-163"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-160"><a href="#cb12-160"></a><span class="in"># Affichage début de fichier</span></span>
+<span id="cb12-161"><a href="#cb12-161"></a><span class="in">kable(head(REC.Vars,n=10)) %&gt;%</span></span>
+<span id="cb12-162"><a href="#cb12-162"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb12-163"><a href="#cb12-163"></a><span class="in">   scroll_box(height = "300px")</span></span>
 <span id="cb12-164"><a href="#cb12-164"></a><span class="in">```</span></span>
 <span id="cb12-165"><a href="#cb12-165"></a></span>
-<span id="cb12-166"><a href="#cb12-166"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb12-166"><a href="#cb12-166"></a>&lt;br&gt;</span>
 <span id="cb12-167"><a href="#cb12-167"></a></span>
 <span id="cb12-168"><a href="#cb12-168"></a>Par une jointure classique, on veut sélectionner les individus portant le même nom et le même prénom dans les deux fichiers. On fait donc appel à une syntaxe **`inner_join`**.</span>
 <span id="cb12-169"><a href="#cb12-169"></a></span>
 <span id="cb12-170"><a href="#cb12-170"></a><span class="in">```{r Print-join}</span></span>
-<span id="cb12-171"><a href="#cb12-171"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-171"><a href="#cb12-171"></a><span class="in">#| results="asis" </span></span>
 <span id="cb12-172"><a href="#cb12-172"></a></span>
-<span id="cb12-173"><a href="#cb12-173"></a>Z1 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
-<span id="cb12-174"><a href="#cb12-174"></a>  <span class="fu">inner_join</span>(REC.Vars,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"PERE.Nom"</span><span class="ot">=</span><span class="st">"Ego.nom"</span>,<span class="st">"PERE.Prenom"</span><span class="ot">=</span><span class="st">"Ego.prenom"</span>))</span>
+<span id="cb12-173"><a href="#cb12-173"></a><span class="in">Z1 = BAP.Vars %&gt;%</span></span>
+<span id="cb12-174"><a href="#cb12-174"></a><span class="in">  inner_join(REC.Vars,by=c("PERE.Nom"="Ego.nom","PERE.Prenom"="Ego.prenom"))</span></span>
 <span id="cb12-175"><a href="#cb12-175"></a></span>
 <span id="cb12-176"><a href="#cb12-176"></a></span>
-<span id="cb12-177"><a href="#cb12-177"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-178"><a href="#cb12-178"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z1,<span class="at">n=</span><span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-179"><a href="#cb12-179"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-180"><a href="#cb12-180"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-177"><a href="#cb12-177"></a><span class="in"># Affichage début de fichier</span></span>
+<span id="cb12-178"><a href="#cb12-178"></a><span class="in">kable(head(Z1,n=10)) %&gt;%</span></span>
+<span id="cb12-179"><a href="#cb12-179"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb12-180"><a href="#cb12-180"></a><span class="in">   scroll_box(height = "300px")</span></span>
 <span id="cb12-181"><a href="#cb12-181"></a><span class="in">```</span></span>
 <span id="cb12-182"><a href="#cb12-182"></a></span>
-<span id="cb12-183"><a href="#cb12-183"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb12-183"><a href="#cb12-183"></a>&lt;br&gt;</span>
 <span id="cb12-184"><a href="#cb12-184"></a>  </span>
 <span id="cb12-185"><a href="#cb12-185"></a>On souhaite maintenant unifier les individus portant le même prénom et différent d'une lettre sur le nom de famille, pour prendre en compte les variantes orthographiques minimes.  </span>
 <span id="cb12-186"><a href="#cb12-186"></a></span>
 <span id="cb12-187"><a href="#cb12-187"></a><span class="in">```{r Print-fuzzy}</span></span>
-<span id="cb12-188"><a href="#cb12-188"></a><span class="co">#| results="asis" </span></span>
+<span id="cb12-188"><a href="#cb12-188"></a><span class="in">#| results="asis" </span></span>
 <span id="cb12-189"><a href="#cb12-189"></a></span>
-<span id="cb12-190"><a href="#cb12-190"></a>Z2 <span class="ot">=</span> BAP.Vars <span class="sc">%&gt;%</span></span>
-<span id="cb12-191"><a href="#cb12-191"></a>  </span>
-<span id="cb12-192"><a href="#cb12-192"></a>  <span class="co"># max_dist = Distance maximale de égale à un entre les deux patronymes</span></span>
-<span id="cb12-193"><a href="#cb12-193"></a>  <span class="co"># distance_col =  nom de la variable créée contenant la valeur de distance</span></span>
-<span id="cb12-194"><a href="#cb12-194"></a>  <span class="fu">stringdist_inner_join</span>(REC.Vars,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"PERE.Nom"</span><span class="ot">=</span><span class="st">"Ego.nom"</span>),<span class="at">max_dist=</span><span class="dv">1</span>,<span class="at">distance_col=</span><span class="st">"V_Dist"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-195"><a href="#cb12-195"></a>  </span>
-<span id="cb12-196"><a href="#cb12-196"></a>  <span class="co"># On ne garde que les distances égales à 1</span></span>
-<span id="cb12-197"><a href="#cb12-197"></a>  <span class="fu">filter</span>(V_Dist<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-198"><a href="#cb12-198"></a>  </span>
-<span id="cb12-199"><a href="#cb12-199"></a>  <span class="co"># On ne conserve que les individus de même prénom</span></span>
-<span id="cb12-200"><a href="#cb12-200"></a>  <span class="fu">filter</span>(<span class="fu">stringdist</span>(PERE.Prenom,Ego.prenom)<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-201"><a href="#cb12-201"></a>  </span>
-<span id="cb12-202"><a href="#cb12-202"></a>  <span class="co"># Suppression variable de distance</span></span>
-<span id="cb12-203"><a href="#cb12-203"></a>  <span class="fu">select</span>(<span class="sc">-</span>V_Dist)</span>
+<span id="cb12-190"><a href="#cb12-190"></a><span class="in">Z2 = BAP.Vars %&gt;%</span></span>
+<span id="cb12-191"><a href="#cb12-191"></a><span class="in">  </span></span>
+<span id="cb12-192"><a href="#cb12-192"></a><span class="in">  # max_dist = Distance maximale de égale à un entre les deux patronymes</span></span>
+<span id="cb12-193"><a href="#cb12-193"></a><span class="in">  # distance_col =  nom de la variable créée contenant la valeur de distance</span></span>
+<span id="cb12-194"><a href="#cb12-194"></a><span class="in">  stringdist_inner_join(REC.Vars,by=c("PERE.Nom"="Ego.nom"),max_dist=1,distance_col="V_Dist") %&gt;%</span></span>
+<span id="cb12-195"><a href="#cb12-195"></a><span class="in">  </span></span>
+<span id="cb12-196"><a href="#cb12-196"></a><span class="in">  # On ne garde que les distances égales à 1</span></span>
+<span id="cb12-197"><a href="#cb12-197"></a><span class="in">  filter(V_Dist==1) %&gt;%</span></span>
+<span id="cb12-198"><a href="#cb12-198"></a><span class="in">  </span></span>
+<span id="cb12-199"><a href="#cb12-199"></a><span class="in">  # On ne conserve que les individus de même prénom</span></span>
+<span id="cb12-200"><a href="#cb12-200"></a><span class="in">  filter(stringdist(PERE.Prenom,Ego.prenom)==0) %&gt;%</span></span>
+<span id="cb12-201"><a href="#cb12-201"></a><span class="in">  </span></span>
+<span id="cb12-202"><a href="#cb12-202"></a><span class="in">  # Suppression variable de distance</span></span>
+<span id="cb12-203"><a href="#cb12-203"></a><span class="in">  select(-V_Dist)</span></span>
 <span id="cb12-204"><a href="#cb12-204"></a></span>
 <span id="cb12-205"><a href="#cb12-205"></a></span>
-<span id="cb12-206"><a href="#cb12-206"></a><span class="co"># Affichage début de fichier</span></span>
-<span id="cb12-207"><a href="#cb12-207"></a><span class="fu">kable</span>(<span class="fu">head</span>(Z2,<span class="at">n=</span><span class="dv">30</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-208"><a href="#cb12-208"></a>   <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),<span class="at">full_width =</span> T,<span class="at">font_size =</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-209"><a href="#cb12-209"></a>   <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>)</span>
+<span id="cb12-206"><a href="#cb12-206"></a><span class="in"># Affichage début de fichier</span></span>
+<span id="cb12-207"><a href="#cb12-207"></a><span class="in">kable(head(Z2,n=30)) %&gt;%</span></span>
+<span id="cb12-208"><a href="#cb12-208"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
+<span id="cb12-209"><a href="#cb12-209"></a><span class="in">   scroll_box(height = "300px")</span></span>
 <span id="cb12-210"><a href="#cb12-210"></a><span class="in">```</span></span>
 <span id="cb12-211"><a href="#cb12-211"></a>  </span>
 <span id="cb12-212"><a href="#cb12-212"></a></span>
@@ -1308,6 +1457,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-215"><a href="#cb12-215"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 

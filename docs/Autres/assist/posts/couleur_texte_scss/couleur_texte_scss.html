@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,6 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "correspondance de plus dans ce document",
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuler",
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
@@ -96,10 +97,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
     </a>
@@ -110,21 +111,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../R/index.html" rel="" target="">
- <span class="menu-text">R</span></a>
+    <a class="nav-link" href="../../../../R/index.html"> 
+<span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html" rel="" target="">
- <span class="menu-text">Othe-R</span></a>
+    <a class="nav-link" href="../../../../Autres/index.html"> 
+<span class="menu-text">Othe-R</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../supports.html" rel="" target="">
- <span class="menu-text">Autres Supports</span></a>
+    <a class="nav-link" href="../../../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -148,12 +149,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="quarto-title-meta-contents">
       <p class="author">Marc Thévenin </p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               Ined
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -170,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   <div>
     <div class="abstract">
-      <div class="abstract-title">Résumé</div>
+      <div class="block-title">Résumé</div>
       <p>Le formatage d’un document utilisant du markdown ne permet pas de modifier à la volée la couleur d’un mot ou d’un texte. Classiquement on utilise soit un balisage html, soit une définition d’un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l’utilisation des styles dans un fichier .scss à l’aide de variables dites SASS.</p>
     </div>
   </div>
@@ -196,24 +197,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+
 <p>Ce document n’est pas une présentation générale des possibilité offertes par l’utilisation des <strong>variables SASS</strong> avec un fichier de type <strong><code>.scss</code></strong>. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d’un texte.</p>
 <section id="balise-html-brute" class="level2">
 <h2 class="anchored" data-anchor-id="balise-html-brute">Balise html brute</h2>
 <p>Avec de l’html brut, on modifie la couleur d’un texte à l’aide d’une balise <strong><code>span</code></strong>. On utilisera les attributs <strong><code>color</code></strong> pour la couleur du texte, et <strong><code>background-color</code></strong> pour la modification de la couleur du fond.</p>
 <p><em>Je veux que TEXTE soit en rouge</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>Je veux que <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color:red"</span><span class="kw">&gt;</span> TEXTE<span class="kw">&lt;/span&gt;</span> soit en rouge.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>Je veux que &lt;span style="color:red"&gt; TEXTE&lt;/span&gt; soit en rouge.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Résultat</strong>: Je veux que <span style="color:red">TEXTE</span> soit en rouge.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a>Je veux que <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color:red; background-color:yellow"</span><span class="kw">&gt;</span> TEXTE<span class="kw">&lt;/span&gt;</span> soit en rouge sur fond jaune</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a>Je veux que &lt;span style="color:red; background-color:yellow"&gt; TEXTE&lt;/span&gt; soit en rouge sur fond jaune</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Résultat</strong>: Je veux que <span style="color:red; background-color:yellow">TEXTE</span> soit en rouge sur fond jaune.</p>
 </section>
 <section id="ajouter-directement-un-style-css-dans-le-fichier-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="ajouter-directement-un-style-css-dans-le-fichier-quarto">Ajouter directement un style css dans le fichier Quarto</h2>
 <p>On définit le style, dans une <strong>classe</strong> appelée ici <code>.text-red</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">&lt;style&gt;</span>                                                      </span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>&lt;style&gt;                                                      </span>
 <span id="cb3-2"><a href="#cb3-2"></a> <span class="fu">.text-red</span> {</span>
-<span id="cb3-3"><a href="#cb3-3"></a>        <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>      }     </span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">&lt;/style&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5"></a>&lt;/style&gt;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <style>                                                      
  .text-red {
         color: red;
@@ -336,8 +338,8 @@ Ajouter des classes et des attributs
 <p>On peut bien évidemment ajouter de nouvelles variables ou modifier l’affectarion, par exemple la couleur <code>$teal</code> au lieu de <code>$green</code> pour la variable <code>$success</code></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img1.png" class="lightbox" title="Couleur SASS du thème default" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
-<figcaption class="figure-caption">Couleur SASS du thème <strong><em>default</em></strong></figcaption>
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Couleur SASS du thème default"><img src="img/img1.png" class="img-fluid figure-img" style="width:70.0%" alt="Couleur SASS du thème default"></a></p>
+<figcaption>Couleur SASS du thème <strong><em>default</em></strong></figcaption>
 </figure>
 </div>
 <p><strong><em>Affectation des couleurs sous forme de variable SASS à une classe</em></strong></p>
@@ -346,8 +348,8 @@ Ajouter des classes et des attributs
 <p>On peut alors affecter les variables SASS aux 7 classes de couleurs du thème à l’aide d’un style css</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img2.png" class="lightbox" title="Affectation des couleurs à une classe" data-gallery="quarto-lightbox-gallery-2"><img src="img/img2.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
-<figcaption class="figure-caption">Affectation des couleurs à une classe</figcaption>
+<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Affectation des couleurs à une classe"><img src="img/img2.png" class="img-fluid figure-img" style="width:70.0%" alt="Affectation des couleurs à une classe"></a></p>
+<figcaption>Affectation des couleurs à une classe</figcaption>
 </figure>
 </div>
 <p>Si on se centente d’utiliser ce squelette de sccs, il n’y a rien eu à faire jusqu’à ce stade.</p>
@@ -407,6 +409,10 @@ Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j’ai 
 
 <!-- -->
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Couleur SASS du thème <strong><em>default</em></strong></span>
+<span class="glightbox-desc lightbox-desc-2">Affectation des couleurs à une classe</span>
+</div>
 </section>
 
 
@@ -548,10 +554,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -561,8 +566,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -575,6 +589,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -618,6 +751,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -643,6 +777,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -703,7 +863,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">---</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="an">title:</span><span class="co"> "Modifier la couleur d'un texte ou d'un paragraphe"</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a></span>
@@ -746,13 +908,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-40"><a href="#cb19-40"></a>*Je veux que TEXTE soit en rouge*</span>
 <span id="cb19-41"><a href="#cb19-41"></a></span>
 <span id="cb19-42"><a href="#cb19-42"></a><span class="in">``` md</span></span>
-<span id="cb19-43"><a href="#cb19-43"></a>Je veux que <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color:red"</span><span class="kw">&gt;</span> TEXTE<span class="kw">&lt;/span&gt;</span> soit en rouge.</span>
+<span id="cb19-43"><a href="#cb19-43"></a>Je veux que &lt;span style="color:red"&gt; TEXTE&lt;/span&gt; soit en rouge.</span>
 <span id="cb19-44"><a href="#cb19-44"></a><span class="in">```</span></span>
 <span id="cb19-45"><a href="#cb19-45"></a></span>
 <span id="cb19-46"><a href="#cb19-46"></a>**Résultat**: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color:red"} soit en rouge.</span>
 <span id="cb19-47"><a href="#cb19-47"></a></span>
 <span id="cb19-48"><a href="#cb19-48"></a><span class="in">``` md</span></span>
-<span id="cb19-49"><a href="#cb19-49"></a>Je veux que <span class="kw">&lt;span</span> <span class="er">style</span><span class="ot">=</span><span class="st">"color:red; background-color:yellow"</span><span class="kw">&gt;</span> TEXTE<span class="kw">&lt;/span&gt;</span> soit en rouge sur fond jaune</span>
+<span id="cb19-49"><a href="#cb19-49"></a>Je veux que &lt;span style="color:red; background-color:yellow"&gt; TEXTE&lt;/span&gt; soit en rouge sur fond jaune</span>
 <span id="cb19-50"><a href="#cb19-50"></a><span class="in">```</span></span>
 <span id="cb19-51"><a href="#cb19-51"></a></span>
 <span id="cb19-52"><a href="#cb19-52"></a>**Résultat**: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color:red; background-color:yellow"} soit en rouge sur fond jaune.</span>
@@ -763,11 +925,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-57"><a href="#cb19-57"></a>On définit le style, dans une **classe** appelée ici <span class="in">`.text-red`</span></span>
 <span id="cb19-58"><a href="#cb19-58"></a></span>
 <span id="cb19-59"><a href="#cb19-59"></a><span class="in">``` md</span></span>
-<span id="cb19-60"><a href="#cb19-60"></a><span class="kw">&lt;style&gt;</span>                                                      </span>
+<span id="cb19-60"><a href="#cb19-60"></a>&lt;style&gt;                                                      </span>
 <span id="cb19-61"><a href="#cb19-61"></a> <span class="fu">.text-red</span> {</span>
-<span id="cb19-62"><a href="#cb19-62"></a>        <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb19-62"><a href="#cb19-62"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
 <span id="cb19-63"><a href="#cb19-63"></a>      }     </span>
-<span id="cb19-64"><a href="#cb19-64"></a><span class="kw">&lt;/style&gt;</span></span>
+<span id="cb19-64"><a href="#cb19-64"></a>&lt;/style&gt;</span>
 <span id="cb19-65"><a href="#cb19-65"></a><span class="in">```</span></span>
 <span id="cb19-66"><a href="#cb19-66"></a></span>
 <span id="cb19-67"><a href="#cb19-67"></a><span class="in">```{=html}</span></span>
@@ -964,7 +1126,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-258"><a href="#cb19-258"></a>Je veux utiliser la couleur <span class="co">[</span><span class="ot">DANGER</span><span class="co">]</span>{.danger} à mon texte</span>
 <span id="cb19-259"><a href="#cb19-259"></a></span>
 <span id="cb19-260"><a href="#cb19-260"></a>Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j'ai donc ajouté un fond): </span>
-<span id="cb19-261"><a href="#cb19-261"></a><span class="kw">&lt;div</span> <span class="er">style</span><span class="ot">=</span><span class="st">"background-color:#919aa1; padding-left:5px; padding-right:5px; border-radius: 10px"</span><span class="kw">&gt;</span></span>
+<span id="cb19-261"><a href="#cb19-261"></a>&lt;div style="background-color:#919aa1; padding-left:5px; padding-right:5px; border-radius: 10px"&gt;</span>
 <span id="cb19-262"><a href="#cb19-262"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">PRIMARY</span><span class="co">]</span>{.primary}</span>
 <span id="cb19-263"><a href="#cb19-263"></a></span>
 <span id="cb19-264"><a href="#cb19-264"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">SECONDARY</span><span class="co">]</span>{.secondary}</span>
@@ -980,7 +1142,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-274"><a href="#cb19-274"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">LIGHT</span><span class="co">]</span>{.light}</span>
 <span id="cb19-275"><a href="#cb19-275"></a></span>
 <span id="cb19-276"><a href="#cb19-276"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">DARK</span><span class="co">]</span>{.dark}</span>
-<span id="cb19-277"><a href="#cb19-277"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="cb19-277"><a href="#cb19-277"></a>&lt;/div&gt;</span>
 <span id="cb19-278"><a href="#cb19-278"></a></span>
 <span id="cb19-279"><a href="#cb19-279"></a>***Attribus supplémentaire à l'aide des variables SASS et limite sur les couleurs de fond***</span>
 <span id="cb19-280"><a href="#cb19-280"></a></span>
@@ -1023,7 +1185,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-317"><a href="#cb19-317"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
 
 
 

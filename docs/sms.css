@@ -310,6 +310,7 @@ div.csl-entry {
 
 /*-- sidebar --*/
 
+/*--
 .sidebar nav[role=doc-toc]>h2, .sidebar nav[role=doc-toc]>.h2 {
   font-family: 'Open Sans', sans-serif;
   font-size: .875rem;
@@ -342,6 +343,7 @@ div.csl-entry {
   padding-top: 0.2rem;
   color: black;
 }
+--*/
 
 .toc-actions a {
   /* text-decoration: none; */
