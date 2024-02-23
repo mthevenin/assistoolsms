@@ -18,7 +18,7 @@ listing:
     filter-ui: false
     page-size: 3
     feed: false
-    max-description-length: 300
+    max-description-length: 150
   - id: latest-content-Autres
     contents: 
     - /Autres
@@ -30,13 +30,13 @@ listing:
     filter-ui: false
     page-size: 3
     feed: false
-    max-description-length: 300
+    max-description-length: 150
        
 toc: false 
 comments: false
 ---
 
-
+<br>
 <center>Dernières mises à jour: **Janvier 2024**</center>
 
 

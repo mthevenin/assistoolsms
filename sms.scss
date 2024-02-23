@@ -41,7 +41,6 @@ $dark:          $gray-800 !default;
 
 
 
-
 // font face
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald');
@@ -67,8 +66,6 @@ $dark:          $gray-800 !default;
 
 .bg-dark{background-color: $dark}
 .bg-light{background-color: $light}
-
-
 
 
 .cell-output-display pre, .cell-output-stdout pre {

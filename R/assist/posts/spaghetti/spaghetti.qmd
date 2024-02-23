@@ -5,10 +5,10 @@ categories:
   - Graphique
 
 author: 
-  - name: "Arno Muller"
+  - name: "A.Muller"
     affiliations:
       - name: "Ined"
-  - name: "Marc Thévenin"
+  - name: "M.Thévenin"
     affiliations:
       - name: "Ined"        
 
@@ -19,9 +19,6 @@ image: "logo.png"
 format:
   html: default
 
-filters:
-   - lightbox
-   
 lightbox: auto
         
 abstract: | 
