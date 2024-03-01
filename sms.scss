@@ -1,10 +1,8 @@
+// font face
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+
 // Colors
-
-$link-color: #DE3831;
-
-$code-block-stdoutcolor: #37424a;
-$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);
-$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
 
 
 $white:    #fff    !default;
@@ -41,14 +39,14 @@ $dark:          $gray-800 !default;
 
 
 
-// font face
-
-@import url('https://fonts.googleapis.com/css2?family=Oswald');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
+$link-color: #cd193f;
+$toc-color:  #cd193f;
+$navbar-bg:  #cd193f;
 
 
-//$toc-font-size: 1em;
+$code-block-stdoutcolor: #37424a;
+$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);
+$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
 
 
 /*-- scss:rules --*/
@@ -61,6 +59,24 @@ $dark:          $gray-800 !default;
 .danger{   color: $danger}
 .light{    color:$light}
 .dark{     color: $dark}
+
+
+// Contour avec ombre pour les éléments graph/img
+
+.box_img {
+  color:#2c3e50;
+  border: solid 0px ;
+  border-color: #2c3e50;
+  border-radius: 3px ;
+  background-color:white;
+  filter:grayscale(2%);
+  overflow: hidden;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 0.5em rgba(44, 62, 80, 0.5);
+  padding-left: 6px;
+  padding-top:  3px;
+}
+
 
 // Ajout classe bg-dark pour le background du text
 
@@ -85,18 +101,5 @@ $dark:          $gray-800 !default;
 }
 
 
-// largeur des 3 éléments du grid (déjà dans _quarto.yaml) mais cela a tendance à sauter (????)
-
-// The left hand sidebar
-$grid-sidebar-width: 50px !default;
-
-// The main body
-$grid-body-width: 1200px !default;
-
-// The right hand margin bar
-$grid-margin-width: 500px !default;
-
-// The gutter that appears between the above columns
-$grid-column-gutter-width: 2.5rem !default;
 
 

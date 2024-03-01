@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Déployer un contenu html sur gitlab [maj]</title>
+<title>Support d’assistance Sms : - Déployer un contenu html sur gitlab [maj]</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -100,8 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Support d’assistance Sms :</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -122,6 +124,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html"> 
+<span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mthevenin/assistoolsms"> 
+<span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
@@ -132,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Déployer un contenu html sur gitlab [maj]</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Déployer un contenu html sur gitlab [maj]</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Gitlab</div>
                 <div class="quarto-category">Quarto</div>
@@ -160,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Date de publication</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">18 décembre 2023</p>
+        <p class="date">1 mars 2024</p>
       </div>
     </div>
     
@@ -201,23 +213,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Remarque décembre 2023
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>En pleine rédaction d’un support se formation, un tutoriel plus complet a été rédigé. Un lien sera mis prochainement.</li>
-<li>Par rapport aux captures faites il y a quelques mois, le yaml de configuration généré par gitlab avec le template html du projet a été modifié (visiblement ce sont des changements réguliers sur gitlab). Mais visiblement pas d’impact sur la suite des manipulations.</li>
-<li>Il est possible lors du déploiement de la page qu’une erreur 404 s’affiche avec une adresse de site un peu bizarre. Si c’est le cas, pensez à nettoyer l’historique du navigateur, cela devrait remettre les choses dans l’ordre.</li>
-<li>J’ai testé le déploiement d’un contenu assez enrichi, et tout est ok avec Quarto <a href="https://mthevenin.gitlab.io/analyse_duree/">[lien]</a></li>
-<li>Visiblement Posit (ex Rstudio) n’incite pas à l’utilisation de Gitlab pour le déploiement de la documentation, il semble impossible d’insérer un icône gitlab avec le lien du dépôt sur la navbar ou la sidebar. J’ai ajouté comme j’ai pu le lien du dépôt gitlab sur le support figurant en lien dans le point précédent.</li>
-</ul>
+<p>Une version je l’espère plus aboutie se trouve dans ce support de formation <a href="https://mthevenin.gitlab.io/support_quarto/023-git3.html#gitlab">[Lien]</a></p>
 </div>
 </div>
 <p>Prérequis:</p>
 <ul>
-<li>Créer un compte sur <a href="https://gitlab.com/">Gitlab</a></li>
-<li>Avoir une version d’une IDE compatible avec <a href="https://quarto.org/docs/get-started/">Quarto</a> (Rsudio, Vscode après installation de l’extension).</li>
+<li>Créer un compte sur <a href="https://gitlab.com/">[Gitlab]</a></li>
+<li>Avoir une version d’une IDE compatible avec <a href="https://quarto.org/docs/get-started/">[Quarto]</a> (Rstudio, Vscode après installation de l’extension).</li>
 </ul>
 <section id="générer-sur-gitlab-un-projet-pour-déployer-du-contenu-html" class="level2">
 <h2 class="anchored" data-anchor-id="générer-sur-gitlab-un-projet-pour-déployer-du-contenu-html">Générer sur Gitlab un projet pour déployer du contenu html</h2>
@@ -225,38 +231,36 @@ Remarque décembre 2023
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-layout-panel" data-layout="[25,25,25,25]">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="1. Créer un nouveau projet"><img src="img/img1.png" class="img-fluid figure-img" alt="1. Créer un nouveau projet"></a></p>
+<p><a href="img/img1.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-1" title="1. Créer un nouveau projet"><img src="img/img1.png" class="img-fluid figure-img" alt="1. Créer un nouveau projet"></a></p>
 <figcaption>1. Créer un nouveau projet</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="2. Créer un projet à partir d’un template"><img src="img/img2.png" class="img-fluid figure-img" alt="2. Créer un projet à partir d’un template"></a></p>
-<figcaption>2. Créer un projet à partir d’un template</figcaption>
+<p><a href="img/img2.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-2" title="2. Projet à partir d’un template"><img src="img/img2.png" class="img-fluid figure-img" alt="2. Projet à partir d’un template"></a></p>
+<figcaption>2. Projet à partir d’un template</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img2b.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="3. Sélectionner le template html"><img src="img/img2b.png" class="img-fluid figure-img" alt="3. Sélectionner le template html"></a></p>
+<p><a href="img/img2b.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-3" title="3. Sélectionner le template html"><img src="img/img2b.png" class="img-fluid figure-img" alt="3. Sélectionner le template html"></a></p>
 <figcaption>3. Sélectionner le template html</figcaption>
 </figure>
 </div>
 </div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img3.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="4. Paramétrer et créer le projet"><img src="img/img3.png" class="img-fluid figure-img" alt="4. Paramétrer et créer le projet"></a></p>
+<p><a href="img/img3.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-4" title="4. Paramétrer et créer le projet"><img src="img/img3.png" class="img-fluid figure-img" alt="4. Paramétrer et créer le projet"></a></p>
 <figcaption>4. Paramétrer et créer le projet</figcaption>
 </figure>
 </div>
@@ -264,9 +268,9 @@ Remarque décembre 2023
 </div>
 </div>
 <ol type="1">
-<li><p>En haut à droite cliquer sur <strong>New project</strong></p></li>
-<li><p>Cliquer sur <strong>Create from template</strong></p></li>
-<li><p>Sélectionner le template <strong>Pages/Plain HTML</strong> en cliquant sur <strong>Use template</strong></p></li>
+<li><p>En haut à droite cliquer sur <strong>New project</strong> <i class="fa-solid fa-turn-down" aria-label="turn-down"></i></p></li>
+<li><p>Cliquer sur <strong>Create from template</strong> <i class="fa-solid fa-turn-down" aria-label="turn-down"></i></p></li>
+<li><p>Sélectionner le template <strong>Pages/Plain HTML</strong> en cliquant sur <strong>Use template</strong> <i class="fa-solid fa-turn-down" aria-label="turn-down"></i></p></li>
 <li><p>Paramétrer et créer le projet:</p>
 <ul>
 <li>Donner un nom au projet qui s’ajoutera au nom de domaine</li>
@@ -281,54 +285,59 @@ Remarque décembre 2023
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-layout-panel" data-layout="[33,33,33]">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img4.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="1. Ouvrir la page pipelines et lancer le job"><img src="img/img4.png" class="img-fluid figure-img" alt="1. Ouvrir la page pipelines et lancer le job"></a></p>
+<p><a href="img/img4.png" class="lightbox" data-gallery="g2" data-glightbox="description: .lightbox-desc-5" title="1. Ouvrir la page pipelines et lancer le job"><img src="img/img4.png" class="img-fluid figure-img" alt="1. Ouvrir la page pipelines et lancer le job"></a></p>
 <figcaption>1. Ouvrir la page <strong>pipelines</strong> et lancer le job</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img5.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="2. Exécuter le job associé à Pages/Plain HTML"><img src="img/img5.png" class="img-fluid figure-img" alt="2. Exécuter le job associé à Pages/Plain HTML"></a></p>
+<p><a href="img/img5.png" class="lightbox" data-gallery="g2" data-glightbox="description: .lightbox-desc-6" title="2. Exécuter le job associé à Pages/Plain HTML"><img src="img/img5.png" class="img-fluid figure-img" alt="2. Exécuter le job associé à Pages/Plain HTML"></a></p>
 <figcaption>2. Exécuter le job associé à <em>Pages/Plain HTML</em></figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img6.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="3. Déployer la page associer au template"><img src="img/img6.png" class="img-fluid figure-img" alt="3. Déployer la page associer au template"></a></p>
+<p><a href="img/img6.png" class="lightbox" data-gallery="g2" data-glightbox="description: .lightbox-desc-7" title="3. Déployer la page associer au template"><img src="img/img6.png" class="img-fluid figure-img" alt="3. Déployer la page associer au template"></a></p>
 <figcaption>3. Déployer la page associer au template</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[33,33,33]">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img7.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8" title="4. Résumé du job"><img src="img/img7.png" class="img-fluid figure-img" alt="4. Résumé du job"></a></p>
+<p><a href="img/img7.png" class="lightbox" data-gallery="g2" data-glightbox="description: .lightbox-desc-8" title="4. Résumé du job"><img src="img/img7.png" class="img-fluid figure-img" alt="4. Résumé du job"></a></p>
 <figcaption>4. Résumé du job</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img8.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9" title="5. Visualiser la page test (1)"><img src="img/img8.png" class="img-fluid figure-img" alt="5. Visualiser la page test (1)"></a></p>
+<p><a href="img/img8.png" class="lightbox" data-gallery="g2" data-glightbox="description: .lightbox-desc-9" title="5. Visualiser la page test (1)"><img src="img/img8.png" class="img-fluid figure-img" alt="5. Visualiser la page test (1)"></a></p>
 <figcaption>5. Visualiser la page test (1)</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img9.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10" title="6. Visualiser la page test (2)"><img src="img/img9.png" class="img-fluid figure-img" alt="6. Visualiser la page test (2)"></a></p>
+<p><a href="img/img9.png" class="lightbox" data-gallery="g2" data-glightbox="description: .lightbox-desc-10" title="6. Visualiser la page test (2)"><img src="img/img9.png" class="img-fluid figure-img" alt="6. Visualiser la page test (2)"></a></p>
 <figcaption>6. Visualiser la page test (2)</figcaption>
 </figure>
 </div>
@@ -336,10 +345,10 @@ Remarque décembre 2023
 </div>
 </div>
 <ol type="1">
-<li><p>Dans la liste de navigation à gauche sélectionner <strong>Build</strong> et cliquer sur <strong>Pipeline</strong>. Cliquer en haut à gauche sur le bouton <strong>Run pipeline</strong>.</p></li>
-<li><p>Cliquer de nouveau sur le bouton <strong>Run pipeline</strong>.</p></li>
+<li><p>Dans la liste de navigation à gauche sélectionner <strong>Build</strong> et cliquer sur <strong>Pipeline</strong>. Cliquer en haut à gauche sur le bouton <strong>Run pipeline</strong> <i class="fa-solid fa-turn-down" aria-label="turn-down"></i></p></li>
+<li><p>Cliquer de nouveau sur le bouton <strong>Run pipeline</strong> <i class="fa-solid fa-turn-down" aria-label="turn-down"></i></p></li>
 <li><p>Cliquer sur <strong>pages</strong>.</p></li>
-<li><p>Une page résumant les opérations et indiquant que tout s’est bien déroulé s’affiche.</p></li>
+<li><p>Une page résumant les opérations et indiquant que tout s’est bien déroulé s’affiche <i class="fa-solid fa-turn-down" aria-label="turn-down"></i></p></li>
 <li><p>Dans la liste de navigation à gauche, aller sur <strong>Deploy</strong> et cliquer sur <strong>pages</strong>.</p>
 <ul>
 <li>Vous pouvez décocher <strong>use unique domain</strong> pour réduire la longueur du nom de domaine.</li>
@@ -363,8 +372,14 @@ Important
 </ul>
 </div>
 </div>
-<p><a href="img/img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/img10.png" class="img-fluid"></a></p>
-<p>Vous pouver maintenant récupérer l’adresse du projet en cliquant sur le bouton <strong>clone</strong> pour créer votre projet de notebook ou site avec Quarto.</p>
+<div class="center">
+<div class="column" style="width:60%;">
+<div class="box_img">
+<p><a href="img/img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/img10.png" class="img-fluid" style="width:70.0%"></a></p>
+</div>
+</div>
+</div>
+<p><br> Vous pouver maintenant récupérer l’adresse du projet en cliquant sur le bouton <strong>clone</strong> pour créer votre projet de notebook ou site avec Quarto.</p>
 </section>
 <section id="avec-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="avec-quarto">Avec Quarto</h2>
@@ -381,9 +396,9 @@ Important
 </ul></li>
 </ul>
 <p>A minima pour un notebook, votre fichier <code>_quarto.yml</code> devra comporter les élèments suivants:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="an">project:</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  type: website</span>
-<span id="cb1-3"><a href="#cb1-3"></a>  output-dir: public</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> public</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Vous pouvez supprimer les fichiers se trouvant dans le répertoire <strong>public</strong> (page html test).</li>
 <li>Le nom du fichier <code>.qmd</code> du notebook ou de la page d’accueil du site doivent être nommés <strong><code>index.qmd</code></strong>.</li>
@@ -399,22 +414,20 @@ gitignore
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Rappel: il est fortement déconseillé de synchroniser les dépôts sans mettre une exception sur les bases de données utilisées. On fait cela simplement dans le fichier .gitignore, en ajoutant par exemple une exception automatique par type de fichier. Si on veut exclure les fichiers de type <strong>csv</strong>, on ajout au fichier .gitignore:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a>*.csv</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Rappel: il est fortement déconseillé de synchroniser les dépôts sans ajouter une exception sur les bases de données. On fait cela simplement dans le fichier <code>.gitignore</code>, en ajoutant par exemple une exception automatique par type de fichier. Si on veut exclure les fichiers de type <strong>csv</strong>, on ajout au fichier .gitignore:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">*</span>.csv</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Une fois synchronisé:</p>
 <ul>
-<li><a href="https://gitlab.com/marc6945542/tuto_assistools">Le projet <strong>tuto_assistools</strong> sur gitlab</a></li>
-<li><a href="https://marc6945542.gitlab.io/tuto_assistools/index.html">La page html déployée</a></li>
+<li><a href="https://gitlab.com/marc6945542/tuto_assistools">[Le projet <strong>tuto_assistools</strong> sur gitlab | Ancienne version]</a></li>
+<li><a href="https://marc6945542.gitlab.io/tuto_assistools/index.html">[La page html déployée | Ancienne version]</a></li>
 </ul>
 
 
-<!-- -->
-
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">1. Créer un nouveau projet</span>
-<span class="glightbox-desc lightbox-desc-2">2. Créer un projet à partir d’un template</span>
+<span class="glightbox-desc lightbox-desc-2">2. Projet à partir d’un template</span>
 <span class="glightbox-desc lightbox-desc-3">3. Sélectionner le template html</span>
 <span class="glightbox-desc lightbox-desc-4">4. Paramétrer et créer le projet</span>
 <span class="glightbox-desc lightbox-desc-5">1. Ouvrir la page <strong>pipelines</strong> et lancer le job</span>
@@ -506,57 +519,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -868,186 +830,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Déployer un contenu html sur gitlab [maj]"</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="an">categories:</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">  - Gitlab</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">  - Quarto</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">  </span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">    affiliations:</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="an">date:</span><span class="co"> 12/18/2023</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="an">image:</span><span class="co"> img/gitlab_logo.png</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">  html: default</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="an">filters:</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">   - lightbox</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co"> Par rapport à Github le déploiement de contenus html sur Gitlab  demande quelques manipulations supplémentaires. Les éléments qui suivent donnent la marche à suivre, sous forme de pas à pas. Ces opérations se font sans aucune ligne de codes.</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="co">---</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a></span>
-<span id="cb3-28"><a href="#cb3-28"></a></span>
-<span id="cb3-29"><a href="#cb3-29"></a></span>
-<span id="cb3-30"><a href="#cb3-30"></a>::: callout-note</span>
-<span id="cb3-31"><a href="#cb3-31"></a></span>
-<span id="cb3-32"><a href="#cb3-32"></a><span class="fu">## Remarque décembre 2023</span></span>
-<span id="cb3-33"><a href="#cb3-33"></a></span>
-<span id="cb3-34"><a href="#cb3-34"></a></span>
-<span id="cb3-35"><a href="#cb3-35"></a><span class="ss">* </span>En pleine rédaction d'un support se formation, un tutoriel plus complet a été rédigé. Un lien sera mis prochainement.</span>
-<span id="cb3-36"><a href="#cb3-36"></a><span class="ss">* </span>Par rapport aux captures faites il y a quelques mois, le yaml de configuration généré par gitlab avec le template html du projet a été modifié  (visiblement ce sont des changements réguliers sur gitlab). Mais visiblement pas d'impact sur la suite des manipulations.</span>
-<span id="cb3-37"><a href="#cb3-37"></a><span class="ss">* </span>Il est possible lors du déploiement de la page qu'une erreur 404 s'affiche avec une adresse de site un peu bizarre. Si c'est le cas, pensez à nettoyer l'historique du navigateur, cela devrait remettre les choses dans l'ordre.</span>
-<span id="cb3-38"><a href="#cb3-38"></a><span class="ss">* </span>J'ai testé le déploiement d'un contenu assez enrichi, et tout est ok avec Quarto [<span class="co">[</span><span class="ot">lien</span><span class="co">]</span>](https://mthevenin.gitlab.io/analyse_duree/)</span>
-<span id="cb3-39"><a href="#cb3-39"></a><span class="ss">* </span>Visiblement Posit (ex Rstudio) n'incite pas à l'utilisation de Gitlab pour le déploiement de la documentation, il semble impossible d'insérer un icône gitlab avec le lien du dépôt sur la navbar ou la sidebar. J'ai ajouté comme j'ai pu le lien du dépôt gitlab sur le support figurant en lien dans le point précédent.</span>
-<span id="cb3-40"><a href="#cb3-40"></a>:::</span>
-<span id="cb3-41"><a href="#cb3-41"></a></span>
-<span id="cb3-42"><a href="#cb3-42"></a></span>
-<span id="cb3-43"><a href="#cb3-43"></a>Prérequis: </span>
-<span id="cb3-44"><a href="#cb3-44"></a></span>
-<span id="cb3-45"><a href="#cb3-45"></a><span class="ss">- </span>Créer un compte sur <span class="co">[</span><span class="ot">Gitlab</span><span class="co">](https://gitlab.com/)</span> </span>
-<span id="cb3-46"><a href="#cb3-46"></a><span class="ss">- </span>Avoir une version d'une IDE compatible avec <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/docs/get-started/)</span> (Rsudio, Vscode après installation de l'extension). </span>
-<span id="cb3-47"><a href="#cb3-47"></a></span>
-<span id="cb3-48"><a href="#cb3-48"></a></span>
-<span id="cb3-49"><a href="#cb3-49"></a><span class="fu">## Générer sur Gitlab un projet pour déployer du contenu html</span></span>
-<span id="cb3-50"><a href="#cb3-50"></a></span>
-<span id="cb3-51"><a href="#cb3-51"></a>&lt;br&gt;</span>
-<span id="cb3-52"><a href="#cb3-52"></a></span>
-<span id="cb3-53"><a href="#cb3-53"></a>::: {layout-ncol=3}</span>
-<span id="cb3-54"><a href="#cb3-54"></a></span>
-<span id="cb3-55"><a href="#cb3-55"></a><span class="al">![1. Créer un nouveau projet](img/img1.png)</span></span>
-<span id="cb3-56"><a href="#cb3-56"></a></span>
-<span id="cb3-57"><a href="#cb3-57"></a><span class="al">![2. Créer un projet à partir d'un template](img/img2.png)</span></span>
-<span id="cb3-58"><a href="#cb3-58"></a></span>
-<span id="cb3-59"><a href="#cb3-59"></a><span class="al">![3. Sélectionner le template html](img/img2b.png)</span></span>
-<span id="cb3-60"><a href="#cb3-60"></a></span>
-<span id="cb3-61"><a href="#cb3-61"></a><span class="al">![4. Paramétrer et créer le projet](img/img3.png)</span></span>
-<span id="cb3-62"><a href="#cb3-62"></a></span>
-<span id="cb3-63"><a href="#cb3-63"></a>:::</span>
-<span id="cb3-64"><a href="#cb3-64"></a></span>
-<span id="cb3-65"><a href="#cb3-65"></a></span>
-<span id="cb3-66"><a href="#cb3-66"></a><span class="ss">1. </span>En haut à droite cliquer sur **New project** </span>
-<span id="cb3-67"><a href="#cb3-67"></a></span>
-<span id="cb3-68"><a href="#cb3-68"></a><span class="ss">2. </span>Cliquer sur **Create from template**</span>
-<span id="cb3-69"><a href="#cb3-69"></a></span>
-<span id="cb3-70"><a href="#cb3-70"></a><span class="ss">3. </span>Sélectionner le template **Pages/Plain HTML** en cliquant sur **Use template**</span>
-<span id="cb3-71"><a href="#cb3-71"></a></span>
-<span id="cb3-72"><a href="#cb3-72"></a><span class="ss">4. </span>Paramétrer et créer le projet:</span>
-<span id="cb3-73"><a href="#cb3-73"></a><span class="ss">   * </span>Donner un nom au projet qui s'ajoutera au nom de domaine </span>
-<span id="cb3-74"><a href="#cb3-74"></a><span class="ss">   * </span>Vous pour modifier le nom de domaine (voir la fenêtre ouverte dans l'image)</span>
-<span id="cb3-75"><a href="#cb3-75"></a><span class="ss">   * </span>Vérifier que le projet est de type **public** (visibility levels) si vous le souhaitez</span>
-<span id="cb3-76"><a href="#cb3-76"></a></span>
-<span id="cb3-77"><a href="#cb3-77"></a></span>
-<span id="cb3-78"><a href="#cb3-78"></a><span class="fu">## Générer le template de déploiement d'une page html</span></span>
-<span id="cb3-79"><a href="#cb3-79"></a></span>
-<span id="cb3-80"><a href="#cb3-80"></a>&lt;br&gt;</span>
-<span id="cb3-81"><a href="#cb3-81"></a></span>
-<span id="cb3-82"><a href="#cb3-82"></a>::: {layout-ncol=3}</span>
-<span id="cb3-83"><a href="#cb3-83"></a></span>
-<span id="cb3-84"><a href="#cb3-84"></a><span class="al">![1. Ouvrir la page **pipelines** et lancer le job](img/img4.png)</span> </span>
-<span id="cb3-85"><a href="#cb3-85"></a></span>
-<span id="cb3-86"><a href="#cb3-86"></a><span class="al">![2. Exécuter le job associé à *Pages/Plain HTML* ](img/img5.png)</span> </span>
-<span id="cb3-87"><a href="#cb3-87"></a></span>
-<span id="cb3-88"><a href="#cb3-88"></a><span class="al">![3. Déployer la page associer au template ](img/img6.png)</span> </span>
-<span id="cb3-89"><a href="#cb3-89"></a></span>
-<span id="cb3-90"><a href="#cb3-90"></a><span class="al">![4. Résumé du job](img/img7.png)</span></span>
-<span id="cb3-91"><a href="#cb3-91"></a></span>
-<span id="cb3-92"><a href="#cb3-92"></a><span class="al">![5. Visualiser la page test (1)](img/img8.png)</span></span>
-<span id="cb3-93"><a href="#cb3-93"></a></span>
-<span id="cb3-94"><a href="#cb3-94"></a><span class="al">![6. Visualiser la page test (2)](img/img9.png)</span></span>
-<span id="cb3-95"><a href="#cb3-95"></a></span>
-<span id="cb3-96"><a href="#cb3-96"></a>:::</span>
-<span id="cb3-97"><a href="#cb3-97"></a></span>
-<span id="cb3-98"><a href="#cb3-98"></a><span class="ss">1. </span>Dans la liste de navigation à gauche sélectionner **Build** et cliquer sur **Pipeline**. Cliquer en haut à gauche sur le bouton **Run pipeline**.</span>
-<span id="cb3-99"><a href="#cb3-99"></a></span>
-<span id="cb3-100"><a href="#cb3-100"></a><span class="ss">2. </span>Cliquer de nouveau sur le bouton **Run pipeline**. </span>
-<span id="cb3-101"><a href="#cb3-101"></a></span>
-<span id="cb3-102"><a href="#cb3-102"></a><span class="ss">3. </span>Cliquer sur **pages**.</span>
-<span id="cb3-103"><a href="#cb3-103"></a></span>
-<span id="cb3-104"><a href="#cb3-104"></a><span class="ss">4. </span>Une page résumant les opérations et indiquant que tout s'est bien déroulé s'affiche.</span>
-<span id="cb3-105"><a href="#cb3-105"></a></span>
-<span id="cb3-106"><a href="#cb3-106"></a><span class="ss">5. </span>Dans la liste de navigation à gauche, aller sur **Deploy** et cliquer sur **pages**.</span>
-<span id="cb3-107"><a href="#cb3-107"></a><span class="ss">   * </span>Vous pouvez décocher **use unique domain** pour réduire la longueur du nom de domaine.</span>
-<span id="cb3-108"><a href="#cb3-108"></a><span class="ss">   * </span>Cliquer sur le lien qui a été généré.</span>
-<span id="cb3-109"><a href="#cb3-109"></a></span>
-<span id="cb3-110"><a href="#cb3-110"></a></span>
-<span id="cb3-111"><a href="#cb3-111"></a>En retournant sur le projet (ici **tuto_assistools**) Vous avez tous les fichiers qui vous permettrons de créer un projet avec Quarto et déployer le notebook ou le site sur gitlab.  </span>
-<span id="cb3-112"><a href="#cb3-112"></a></span>
-<span id="cb3-113"><a href="#cb3-113"></a></span>
-<span id="cb3-114"><a href="#cb3-114"></a>::: callout-important</span>
-<span id="cb3-115"><a href="#cb3-115"></a></span>
-<span id="cb3-116"><a href="#cb3-116"></a><span class="ss">* </span>Ne pas supprimer ou modifier le fichier **`gitlab-ci.yml** lorsque, comme moi, vous n'y comprenez strictement rien.</span>
-<span id="cb3-117"><a href="#cb3-117"></a></span>
-<span id="cb3-118"><a href="#cb3-118"></a><span class="ss">* </span>Vous pouvez surpprimer le répertoire **public** ou les fichiers qu'il contient, mais je conseille de faire ceci sur le projet en local.</span>
-<span id="cb3-119"><a href="#cb3-119"></a></span>
-<span id="cb3-120"><a href="#cb3-120"></a>:::</span>
-<span id="cb3-121"><a href="#cb3-121"></a></span>
-<span id="cb3-122"><a href="#cb3-122"></a><span class="al">![](img/img10.png)</span></span>
-<span id="cb3-123"><a href="#cb3-123"></a></span>
-<span id="cb3-124"><a href="#cb3-124"></a></span>
-<span id="cb3-125"><a href="#cb3-125"></a>Vous pouver maintenant récupérer l'adresse du projet en cliquant sur le bouton **clone** pour créer votre projet de notebook ou site avec Quarto.</span>
-<span id="cb3-126"><a href="#cb3-126"></a></span>
-<span id="cb3-127"><a href="#cb3-127"></a></span>
-<span id="cb3-128"><a href="#cb3-128"></a><span class="fu">## Avec Quarto </span></span>
-<span id="cb3-129"><a href="#cb3-129"></a></span>
-<span id="cb3-130"><a href="#cb3-130"></a><span class="ss">* </span>Créer un projet en mode **VERSION CONTROL** et utiliser le lien récupéré sur gitlab (bouton clone). </span>
-<span id="cb3-131"><a href="#cb3-131"></a></span>
-<span id="cb3-132"><a href="#cb3-132"></a><span class="ss">* </span>Même pour un simple notebook (une page html) il vous faudra un fichier de configuration  **`_quarto.yml`**:</span>
-<span id="cb3-133"><a href="#cb3-133"></a><span class="ss">  - </span>Soit on le génère à partir d'un fichier texte.</span>
-<span id="cb3-134"><a href="#cb3-134"></a><span class="ss">  - </span>Soit on  récupère un <span class="in">`_quarto.yml`</span> existant.</span>
-<span id="cb3-135"><a href="#cb3-135"></a><span class="ss">* </span>Dans le fichier <span class="in">`_quarto.yml`</span>, il vous faudra changer le répertoire de destination des fichiers d'affichage du notebook ou du site, qui doit s'appeler **`public`**.  </span>
-<span id="cb3-136"><a href="#cb3-136"></a><span class="ss">  * </span>Par défaut Quarto génère un répertoire de destination appelé <span class="in">`_site`</span>.</span>
-<span id="cb3-137"><a href="#cb3-137"></a>    Pour changer le répertoire: **`output_dir: public`**.  </span>
-<span id="cb3-138"><a href="#cb3-138"></a>    </span>
-<span id="cb3-139"><a href="#cb3-139"></a>A minima pour un notebook, votre fichier <span class="in">`_quarto.yml`</span> devra comporter les élèments suivants: </span>
-<span id="cb3-140"><a href="#cb3-140"></a></span>
-<span id="cb3-141"><a href="#cb3-141"></a><span class="in">```md</span></span>
-<span id="cb3-142"><a href="#cb3-142"></a>project:</span>
-<span id="cb3-143"><a href="#cb3-143"></a>  type: website</span>
-<span id="cb3-144"><a href="#cb3-144"></a>  output-dir: public</span>
-<span id="cb3-145"><a href="#cb3-145"></a><span class="in">```</span></span>
-<span id="cb3-146"><a href="#cb3-146"></a></span>
-<span id="cb3-147"><a href="#cb3-147"></a><span class="ss">* </span>Vous pouvez supprimer les fichiers se trouvant dans le répertoire **public** (page html test).</span>
-<span id="cb3-148"><a href="#cb3-148"></a><span class="ss">* </span>Le nom du fichier <span class="in">`.qmd`</span> du notebook ou de la page d'accueil du site doivent être nommés **`index.qmd`**.</span>
-<span id="cb3-149"><a href="#cb3-149"></a><span class="ss">* </span>Une fois la compilation de la page ou du site effectuée, on peut mettre à jour la page par defaut générée sur gitlab: <span class="in">`git add .`</span> + renseigner le <span class="in">`commit`</span> + <span class="in">`push`</span>. </span>
-<span id="cb3-150"><a href="#cb3-150"></a></span>
-<span id="cb3-151"><a href="#cb3-151"></a>::: callout-warning</span>
-<span id="cb3-152"><a href="#cb3-152"></a></span>
-<span id="cb3-153"><a href="#cb3-153"></a><span class="fu">## gitignore</span></span>
-<span id="cb3-154"><a href="#cb3-154"></a></span>
-<span id="cb3-155"><a href="#cb3-155"></a>Rappel: il est fortement déconseillé de synchroniser les dépôts sans mettre une exception sur les bases de données utilisées. </span>
-<span id="cb3-156"><a href="#cb3-156"></a>On fait cela simplement dans le fichier .gitignore, en ajoutant par exemple une exception automatique par type de fichier. Si on veut exclure les fichiers de type **csv**, on ajout au fichier .gitignore: </span>
-<span id="cb3-157"><a href="#cb3-157"></a></span>
-<span id="cb3-158"><a href="#cb3-158"></a><span class="in">```md</span></span>
-<span id="cb3-159"><a href="#cb3-159"></a>*.csv</span>
-<span id="cb3-160"><a href="#cb3-160"></a><span class="in">```</span></span>
-<span id="cb3-161"><a href="#cb3-161"></a></span>
-<span id="cb3-162"><a href="#cb3-162"></a>:::</span>
-<span id="cb3-163"><a href="#cb3-163"></a></span>
-<span id="cb3-164"><a href="#cb3-164"></a></span>
-<span id="cb3-165"><a href="#cb3-165"></a>Une fois synchronisé: </span>
-<span id="cb3-166"><a href="#cb3-166"></a></span>
-<span id="cb3-167"><a href="#cb3-167"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Le projet **tuto_assistools** sur gitlab</span><span class="co">](https://gitlab.com/marc6945542/tuto_assistools)</span></span>
-<span id="cb3-168"><a href="#cb3-168"></a><span class="ss">- </span><span class="co">[</span><span class="ot">La page html déployée</span><span class="co">](https://marc6945542.gitlab.io/tuto_assistools/index.html)</span></span>
-<span id="cb3-169"><a href="#cb3-169"></a></span>
-<span id="cb3-170"><a href="#cb3-170"></a></span>
-<span id="cb3-171"><a href="#cb3-171"></a>  </span>
-<span id="cb3-172"><a href="#cb3-172"></a></span>
-<span id="cb3-173"><a href="#cb3-173"></a></span>
-<span id="cb3-174"><a href="#cb3-174"></a></span>
-<span id="cb3-175"><a href="#cb3-175"></a></span>
-<span id="cb3-176"><a href="#cb3-176"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -10,64 +10,58 @@ author:
     affiliations:
       - name: "Ined"
 
-date: 12/18/2023
+date: 03/01/2024
 
 image: img/gitlab_logo.png
 
 format: 
   html: default
 
-filters:
-   - lightbox
-lightbox: auto
-
 abstract: | 
  Par rapport à Github le déploiement de contenus html sur Gitlab  demande quelques manipulations supplémentaires. Les éléments qui suivent donnent la marche à suivre, sous forme de pas à pas. Ces opérations se font sans aucune ligne de codes.
 ---
 
-
-
 ::: callout-note
+Une version je l'espère plus aboutie se trouve dans ce support de formation [[Lien]](https://mthevenin.gitlab.io/support_quarto/023-git3.html#gitlab)
 
-## Remarque décembre 2023
-
-
-* En pleine rédaction d'un support se formation, un tutoriel plus complet a été rédigé. Un lien sera mis prochainement.
-* Par rapport aux captures faites il y a quelques mois, le yaml de configuration généré par gitlab avec le template html du projet a été modifié  (visiblement ce sont des changements réguliers sur gitlab). Mais visiblement pas d'impact sur la suite des manipulations.
-* Il est possible lors du déploiement de la page qu'une erreur 404 s'affiche avec une adresse de site un peu bizarre. Si c'est le cas, pensez à nettoyer l'historique du navigateur, cela devrait remettre les choses dans l'ordre.
-* J'ai testé le déploiement d'un contenu assez enrichi, et tout est ok avec Quarto [[lien]](https://mthevenin.gitlab.io/analyse_duree/)
-* Visiblement Posit (ex Rstudio) n'incite pas à l'utilisation de Gitlab pour le déploiement de la documentation, il semble impossible d'insérer un icône gitlab avec le lien du dépôt sur la navbar ou la sidebar. J'ai ajouté comme j'ai pu le lien du dépôt gitlab sur le support figurant en lien dans le point précédent.
 :::
 
 
-Prérequis: 
 
-- Créer un compte sur [Gitlab](https://gitlab.com/) 
-- Avoir une version d'une IDE compatible avec [Quarto](https://quarto.org/docs/get-started/) (Rsudio, Vscode après installation de l'extension). 
+Prérequis:
+
+- Créer un compte sur [[Gitlab]](https://gitlab.com/) 
+- Avoir une version d'une IDE compatible avec [[Quarto]](https://quarto.org/docs/get-started/) (Rstudio, Vscode après installation de l'extension). 
 
 
 ## Générer sur Gitlab un projet pour déployer du contenu html
 
 <br>
 
-::: {layout-ncol=3}
+::: {layout="[25,25,25,25]" layout-valign="bottom"}  
+::: {.box_img}
+![1. Créer un nouveau projet](img/img1.png){group="g1"}
+:::
 
-![1. Créer un nouveau projet](img/img1.png)
+::: {.box_img} 
+![2. Projet à partir d'un template](img/img2.png){group="g1"}
+:::
 
-![2. Créer un projet à partir d'un template](img/img2.png)
+::: {.box_img}  
+![3. Sélectionner le template html](img/img2b.png){group="g1"}
+:::
 
-![3. Sélectionner le template html](img/img2b.png)
-
-![4. Paramétrer et créer le projet](img/img3.png)
-
+::: {.box_img}  
+![4. Paramétrer et créer le projet](img/img3.png){group="g1"}
+:::
 :::
 
 
-1. En haut à droite cliquer sur **New project** 
+1. En haut à droite cliquer sur **New project** {{< fa solid turn-down >}}  
 
-2. Cliquer sur **Create from template**
+2. Cliquer sur **Create from template** {{< fa solid turn-down >}}
 
-3. Sélectionner le template **Pages/Plain HTML** en cliquant sur **Use template**
+3. Sélectionner le template **Pages/Plain HTML** en cliquant sur **Use template** {{< fa solid turn-down >}}
 
 4. Paramétrer et créer le projet:
    * Donner un nom au projet qui s'ajoutera au nom de domaine 
@@ -79,29 +73,37 @@ Prérequis:
 
 <br>
 
-::: {layout-ncol=3}
-
-![1. Ouvrir la page **pipelines** et lancer le job](img/img4.png) 
-
-![2. Exécuter le job associé à *Pages/Plain HTML* ](img/img5.png) 
-
-![3. Déployer la page associer au template ](img/img6.png) 
-
-![4. Résumé du job](img/img7.png)
-
-![5. Visualiser la page test (1)](img/img8.png)
-
-![6. Visualiser la page test (2)](img/img9.png)
-
+::: {layout="[33,33,33]" layout-valign="bottom"}    
+::: {.box_img}  
+![1. Ouvrir la page **pipelines** et lancer le job](img/img4.png){group="g2"}
+:::
+::: {.box_img}
+![2. Exécuter le job associé à *Pages/Plain HTML* ](img/img5.png){group="g2"}
+:::
+::: {.box_img}
+![3. Déployer la page associer au template ](img/img6.png){group="g2"}
+:::
 :::
 
-1. Dans la liste de navigation à gauche sélectionner **Build** et cliquer sur **Pipeline**. Cliquer en haut à gauche sur le bouton **Run pipeline**.
+::: {layout="[33,33,33]" layout-valign="bottom"}      
+::: {.box_img}    
+![4. Résumé du job](img/img7.png){group="g2"}
+:::
+::: {.box_img}   
+![5. Visualiser la page test (1)](img/img8.png){group="g2"}
+:::
+::: {.box_img}   
+![6. Visualiser la page test (2)](img/img9.png){group="g2"}
+:::
+:::
 
-2. Cliquer de nouveau sur le bouton **Run pipeline**. 
+1. Dans la liste de navigation à gauche sélectionner **Build** et cliquer sur **Pipeline**. Cliquer en haut à gauche sur le bouton **Run pipeline**  {{< fa solid turn-down >}}
+
+2. Cliquer de nouveau sur le bouton **Run pipeline** {{< fa solid turn-down >}}
 
 3. Cliquer sur **pages**.
 
-4. Une page résumant les opérations et indiquant que tout s'est bien déroulé s'affiche.
+4. Une page résumant les opérations et indiquant que tout s'est bien déroulé s'affiche {{< fa solid turn-down >}}
 
 5. Dans la liste de navigation à gauche, aller sur **Deploy** et cliquer sur **pages**.
    * Vous pouvez décocher **use unique domain** pour réduire la longueur du nom de domaine.
@@ -119,9 +121,15 @@ En retournant sur le projet (ici **tuto_assistools**) Vous avez tous les fichier
 
 :::
 
-![](img/img10.png)
+::: {.center}  
+::: {.column width="60%"}
+::: {.box_img} 
+![](img/img10.png){width=70%}
+:::
+:::
+:::
 
-
+<br>
 Vous pouver maintenant récupérer l'adresse du projet en cliquant sur le bouton **clone** pour créer votre projet de notebook ou site avec Quarto.
 
 
@@ -138,7 +146,7 @@ Vous pouver maintenant récupérer l'adresse du projet en cliquant sur le bouton
     
 A minima pour un notebook, votre fichier `_quarto.yml` devra comporter les élèments suivants: 
 
-```md
+```{.yaml}
 project:
   type: website
   output-dir: public
@@ -152,10 +160,10 @@ project:
 
 ## gitignore
 
-Rappel: il est fortement déconseillé de synchroniser les dépôts sans mettre une exception sur les bases de données utilisées. 
-On fait cela simplement dans le fichier .gitignore, en ajoutant par exemple une exception automatique par type de fichier. Si on veut exclure les fichiers de type **csv**, on ajout au fichier .gitignore: 
+Rappel: il est fortement déconseillé de synchroniser les dépôts sans ajouter une exception sur les bases de données. 
+On fait cela simplement dans le fichier `.gitignore`, en ajoutant par exemple une exception automatique par type de fichier. Si on veut exclure les fichiers de type **csv**, on ajout au fichier .gitignore: 
 
-```md
+```{.mf}
 *.csv
 ```
 
@@ -164,8 +172,8 @@ On fait cela simplement dans le fichier .gitignore, en ajoutant par exemple une 
 
 Une fois synchronisé: 
 
-- [Le projet **tuto_assistools** sur gitlab](https://gitlab.com/marc6945542/tuto_assistools)
-- [La page html déployée](https://marc6945542.gitlab.io/tuto_assistools/index.html)
+- [[Le projet **tuto_assistools** sur gitlab | Ancienne version]](https://gitlab.com/marc6945542/tuto_assistools)
+- [[La page html déployée | Ancienne version]](https://marc6945542.gitlab.io/tuto_assistools/index.html)
 
 
   

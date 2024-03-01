@@ -1,0 +1,8 @@
+Shortcone icones
+
+{{< fa brands gitlab >}}
+{{< fa brands github >}}
+
+{{< fa solid turn-down >}}
+{{< fa solid arrow-right >}}
+{{< fa solid arrow-left >}}

@@ -1,9 +1,14 @@
 ---
 title: "Supports en ligne"
-
-#description: | 
-#Liens vers des supports de formation en libre accès service Méthodes Statistiques de l'Ined 
 ---
+
+# Supports en ligne proposés par le service SMS de l'Ined
+
+* [Quarto](https://mthevenin.gitlab.io/quarto/)
+* [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
+* [Introduction à l'analyse des durées en présence de données censurées à droite ](https://mthevenin.github.io/analyse_duree/)
+* [Stata](https://mthevenin.github.io/stata_fr/index.html)
+
 
 # Supports R généralistes
 
@@ -28,15 +33,10 @@ Présentations et/ou vidéos disponibles:
 * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
 * [Geocomputation with R](https://r.geocompx.org/)
 
-# Revue
+# Revues
 
 * [R Journal](https://journal.r-project.org/issues.html)
-* [Journal of Statistical Software](https://www.jstatsoft.org/index)^[Non dédié à R, mais les articles dédiés sont devenus largement majoritaires]
+* [Journal of Statistical Software](https://www.jstatsoft.org/index)
 
 
-# Supports en ligne proposés par le service SMS de l'Ined
-
-* [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
-* [Introduction à l'analyse des durées en présence de données censurées à droite ](https://mthevenin.github.io/analyse_duree/)
-* [Stata](https://mthevenin.github.io/stata_fr/index.html)
 

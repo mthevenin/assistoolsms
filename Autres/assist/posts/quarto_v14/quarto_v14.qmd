@@ -19,12 +19,12 @@ format:
 lightbox: auto
 
 abstract: | 
- Juste des infos. La nouvelle version de Quarto est sortie le 07 janvier 2024: intégration de l'extension lightbox au logiciel, deux nouveaux formats (dashboard et manuscript), possibilité de mettre des cross reference aux encadrée callout.... 
+ Juste quelques infos. La nouvelle version de Quarto est sortie le 07 janvier 2024: intégration de l'extension lightbox au logiciel, deux nouveaux formats (dashboard et manuscript), possibilité de mettre des cross reference aux encadrée callout.... 
 ---
 
 * [[Téléchargement et notes de version]](https://quarto.org/docs/download/) 
 
-Les quelques ajouts que j'ai repéré après un premier rapide coup d'oeil.   
+Les quelques ajouts après un premier coup d'oeil.   
 
 ## Lightbox
 

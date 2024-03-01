@@ -5,11 +5,11 @@ lang: fr
  
 website:
   search: false
-  title: "SMS_site"
+  title: "Support d'assistance Sms :"
   navbar:
     background: "white"
-    logo: img/coding2.png
-    title: false
+#    logo: img/coding2.png
+    title: ""
     collapse-below: lg
     left:
       - text: "R"
@@ -18,16 +18,16 @@ website:
         href: Autres/index.qmd
       - text: "Autres Supports"
         href: supports.qmd
+    right: 
+      - text: "{{< fa  info-circle>}}"
+        href: about.qmd
+      - text: "{{< fa brands github>}}"
+        href: https://github.com/mthevenin/assistoolsms 
+
 
 page-navigation: true
 back-to-top-navigation: false
 
-page-footer:
-    background: "#000000"
-    center:  
-      - href: https://github.com/mthevenin/assistoolsms
-        icon: github
-        aria-label: GitHub
 
 format:
   html:
@@ -42,9 +42,11 @@ format:
     mainfont: "roboto"    
     code-line-numbers: true
     code-copy: true
-    code-tools:
-      source: true
-highlight-style: dracula
+#    code-tools:
+#      source: true
+highlight-style: ayu-mirage 
+
+lightbox: true
 
 execute: 
   freeze: auto

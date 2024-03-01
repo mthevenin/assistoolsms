@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Modifier la couleur d’un texte ou d’un paragraphe</title>
+<title>Support d’assistance Sms : - Modifier la couleur d’un texte ou d’un paragraphe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -101,8 +103,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Support d’assistance Sms :</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -121,6 +123,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html"> 
+<span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mthevenin/assistoolsms"> 
+<span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -1185,7 +1197,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-317"><a href="#cb19-317"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

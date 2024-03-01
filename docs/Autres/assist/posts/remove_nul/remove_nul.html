@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>SMS_site - Supprimer un fichier nul avec git</title>
+<title>Support d’assistance Sms : - Supprimer un fichier nul avec git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -100,8 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../img/coding2.png" alt="" class="navbar-logo">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Support d’assistance Sms :</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -120,6 +122,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html"> 
+<span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mthevenin/assistoolsms"> 
+<span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -184,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers <strong>nul</strong>, qui sont créés assez régulièrement chez moi avec <em>Quarto</em>.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="img/img1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Impossible de modifier le fichier"><img src="img/img1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="Impossible de modifier le fichier"></a></p>
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Impossible de modifier le fichier"><img src="img/img1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="Impossible de modifier le fichier"></a></p>
 <figcaption>Impossible de modifier le fichier</figcaption>
 </figure>
 </div>
@@ -210,13 +222,13 @@ A l’Ined
 </ul>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="img/img2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="clic droit + ouvrir la console (git bash here) + rm nul"><img src="img/img2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="clic droit + ouvrir la console (git bash here) + rm nul"></a></p>
+<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="clic droit + ouvrir la console (git bash here) + rm nul"><img src="img/img2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="clic droit + ouvrir la console (git bash here) + rm nul"></a></p>
 <figcaption>clic droit + ouvrir la console (<strong>git bash here</strong>) + <code>rm nul</code></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="img/img3.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Le fichier est supprimé"><img src="img/img3.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="Le fichier est supprimé"></a></p>
+<p><a href="img/img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="Le fichier est supprimé"><img src="img/img3.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="Le fichier est supprimé"></a></p>
 <figcaption>Le fichier est supprimé</figcaption>
 </figure>
 </div>
@@ -735,7 +747,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-60"><a href="#cb1-60"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

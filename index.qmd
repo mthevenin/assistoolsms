@@ -1,10 +1,7 @@
 ---
 pagetitle: "Sms Ined "
 page-layout: custom
-#section-divs: false
-#editor: source
 sidebar: false
-#search: false
 
 listing:
   - id: latest-content-R
@@ -35,10 +32,6 @@ listing:
 toc: false 
 comments: false
 ---
-
-<br>
-<center>Dernières mises à jour: **Janvier 2024**</center>
-
 
 <!-- Derniers ajouts R-->
 
@@ -76,26 +69,5 @@ Fiches sur des problématiques liées à l'utilisation de **Quarto**, **git**...
 :::
 :::
 
-
-::: {.footer-text}
-::: {.footer-container .dark-background}
-::: {.footer-block}
-::: grid
-
-::: {.g-col-12 .g-col-md-6}
-### **A propos**
-[Présentation du support](about.qmd)\
-[Ined](https://www.ined.fr/)\
-[Contact](mailto:marc.thevenin@ined.fr)
-:::
-
-::: {.g-col-12 .g-col-md-6}
-### 
-
-:::
-
-:::
-:::
-:::
-:::
+<br>
 
