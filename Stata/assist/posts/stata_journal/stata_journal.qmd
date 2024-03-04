@@ -1,0 +1,63 @@
+---
+title: "**Sommaires du Stata Journal [2023-n°4]**"
+
+title-block-banner: false
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 03/04/2024
+
+image: "http://www.stata-journal.com/i/sj-undated-cover.png"
+
+categories:
+  - Stata Journal
+
+format: 
+  html: default
+
+abstract: | 
+ Archive des sommaires des numéros du Stata Journal depuis 2021, et quelques informations sur la revue. Dernier volume: Décembre 2023 
+---
+
+
+**Accès au dernier numéro** \[[connexion *Campus Condorcet*](https://refid-auth.campus-condorcet.fr/cas/login?service=https%3A%2F%2Fwww.campus-condorcet.fr%2Fservlet%2Fcom.jsbsoft.jtf.core.SG%3FPROC%3DIDENTIFICATION_FRONT)\] :    
+<https://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current>
+
+
+* On trouvera ici le sommaire des 4 derniers numéros. 
+* Les sommaires antérieurs depuis septembre 2021 sont disponibles à cette adresse [[Lien](https://github.com/mthevenin/assistoolsms/tree/master/Stata/assist/posts/stata_journal/sj)]
+* La liste de tous les numéros depuis 2001 est accessible à cette adresse: [[Lien](https://www.stata-journal.com/archives/)]
+* Une mention spéciale peut être faite aux articles, très nombreux, de NJ.Cox en particulier les fameux ***Stata tips***. On trouvera l'ensemble de ses contributions à la revue sur sa page personnelle: [[Lien](https://www.durham.ac.uk/staff/n-j-cox/)]
+
+::: panel-tabset
+
+## **2023-4**
+
+<iframe src="sj/stja_23_4.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+## **2023-3**
+
+<iframe src="sj/stja_23_3.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+
+## **2023-2**
+
+<iframe src="sj/stja_23_2.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+
+## **2023-1**
+
+<iframe src="sj/stja_23_1.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+
+:::
+
+
+

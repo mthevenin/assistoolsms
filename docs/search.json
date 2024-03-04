@@ -929,5 +929,61 @@
     "title": "Nouvelle palette de couleurs et nouveau thème usine avec Stata 18",
     "section": "",
     "text": "Nouvelle palette stcolor\n\n\n\n\n\n\ngrstyle et la nouvelle option colorvar\n\n\n\nLa palette chargée avec grstyle set color (commande de Ben Jann) n’est pas appliqué à la variable de la nouvelle option colorvar. C’est un peu facheux. On peut résoudre le problème en récupérant la macro r(p) après avoir chargé la palette avec colorpalette et en l’appliquant dans la nouvelle option colorlist.\n\n\n\n\n\nNouvelle palette stcolor\n\n\n\n\n\nAncienne palette s2\n\n\n\n\nNouveau thème par défaut\n\n\n\n\n\n\nNouvelle position de la légende\n\n\n\nLe nouveau thème modifie le positionnement de la legende par défaut (à 3 heures), ce qui n’est pas forcément une bonne idée lorsque les labels sont assez long (écrasement important de la largeur du graphique). Pour retrouver la position à 6 heures et sur une ligne (défaut jusqu’à la v17: legend(pos(6) row(1)))\n\n\nAvec le programme donné en exemple de l’aide de line [help line]:\n\n\n\nNouveau thème\n\n\n\n\n\nAncien thème\n\n\n\n\n\nNouvelle palette stcolor\nAncienne palette s2\nNouveau thème\nAncien thème"
+  },
+  {
+    "objectID": "Stata/assist/posts/stata_journal/stata_journal.html",
+    "href": "Stata/assist/posts/stata_journal/stata_journal.html",
+    "title": "Sommaires du Stata Journal [2023-n°4]",
+    "section": "",
+    "text": "Accès au dernier numéro [connexion Campus Condorcet] :\nhttps://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current\n\nOn trouvera ici le sommaire des 4 derniers numéros.\nLes sommaires antérieurs depuis septembre 2021 sont disponibles à cette adresse [Lien]\nLa liste de tous les numéros depuis 2001 est accessible à cette adresse: [Lien]\nUne mention spéciale peut être faite aux articles, très nombreux, de NJ.Cox en particulier les fameux Stata tips. On trouvera l’ensemble de ses contributions à la revue sur sa page personnelle: [Lien]\n\n\n2023-42023-32023-22023-1"
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html",
+    "href": "Stata/assist/posts/conferences/conferences.html",
+    "title": "Présentation des Conferences Stata",
+    "section": "",
+    "text": "Liste non exhaustive des conférences depuis 2019. J’ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais."
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html#section",
+    "href": "Stata/assist/posts/conferences/conferences.html#section",
+    "title": "Présentation des Conferences Stata",
+    "section": "2023",
+    "text": "2023\n\n\n\n\n\n\n\n\nESP: https://www.stata.com/meeting/spain23/\nVirtual symposium (économétrie): https://www.stata.com/symposiums/economics23/\nUK: https://www.stata.com/meeting/uk23/\nNE: https://www.stata.com/meeting/northern-european23/\nUS: https://www.stata.com/meeting/us23/\nALL: https://www.stata.com/meeting/germany23/\nCAN: https://www.stata.com/meeting/canada23/\nFR: https://www.stata.com/meeting/france23/\nVirtual symposium (biostatistique et épidémiologie): https://www.stata.com/symposiums/biostatistics-and-epidemiology23/\nAUS: https://www.stata.com/meeting/oceania23/"
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html#section-1",
+    "href": "Stata/assist/posts/conferences/conferences.html#section-1",
+    "title": "Présentation des Conferences Stata",
+    "section": "2022",
+    "text": "2022\n\n\n\n\n\n\n\n\nVirtual symposium: https://www.stata.com/symposiums/economics22/\nCH: https://www.stata.com/meeting/switzerland22/\nUK: https://www.stata.com/meeting/uk22/\nUS: https://www.stata.com/meeting/us22/\nFR: https://www.stata.com/meeting/france22/\nIT: https://www.stata.com/meeting/italy22/"
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html#section-2",
+    "href": "Stata/assist/posts/conferences/conferences.html#section-2",
+    "title": "Présentation des Conferences Stata",
+    "section": "2021",
+    "text": "2021\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/us21/\nUK: https://www.stata.com/meeting/uk21/\nCAN: https://www.stata.com/meeting/canada21/"
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html#section-4",
+    "href": "Stata/assist/posts/conferences/conferences.html#section-4",
+    "title": "Présentation des Conferences Stata",
+    "section": "2019",
+    "text": "2019\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/chicago19/\nUK: https://www.stata.com/meeting/uk19/\nAUS: https://www.stata.com/meeting/oceania19/"
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html#section-3",
+    "href": "Stata/assist/posts/conferences/conferences.html#section-3",
+    "title": "Présentation des Conferences Stata",
+    "section": "2020",
+    "text": "2020\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/us20/\n\nVoir: The causal effects of parents’ marital status on children’s earnings\n\nUK: https://www.stata.com/meeting/uk20/\nCH: https://www.stata.com/meeting/switzerland20/\nPOR: https://www.stata.com/meeting/portugal20/"
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html#section-5",
+    "href": "Stata/assist/posts/conferences/conferences.html#section-5",
+    "title": "Présentation des Conferences Stata",
+    "section": "2019",
+    "text": "2019\n\nUSA: https://www.stata.com/meeting/chicago19/\nUK: https://www.stata.com/meeting/uk19/\nAUS: https://www.stata.com/meeting/oceania19/"
   }
 ]

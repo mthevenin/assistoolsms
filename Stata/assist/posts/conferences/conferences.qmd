@@ -1,0 +1,113 @@
+---
+title: "**Présentation des Conferences Stata**"
+
+title-block-banner: false
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 03/04/2024
+
+image: "img.jpg"
+
+categories:
+  - Conference Stata
+
+format: 
+  html: default
+
+abstract: | 
+ Liste et liens des conférences Stata depuis 2019 dont les présentations, principalement en anglais, sont disponibles. 
+---
+
+
+Liste non exhaustive des conférences depuis 2019. J'ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.
+
+## **2023**
+
+::: {.callout-note appearance="simple" icon="false"}
+::: {.box_img}
+-   **ESP**: <https://www.stata.com/meeting/spain23/>
+
+-   **Virtual symposium (économétrie)**: <https://www.stata.com/symposiums/economics23/>
+
+-   **UK**: <https://www.stata.com/meeting/uk23/>
+
+-   **NE**: <https://www.stata.com/meeting/northern-european23/>
+
+-   **US**: <https://www.stata.com/meeting/us23/>
+
+-   **ALL**: <https://www.stata.com/meeting/germany23/>
+
+-   **CAN**: <https://www.stata.com/meeting/canada23/>
+
+-   **FR**: <https://www.stata.com/meeting/france23/>
+
+-   **Virtual symposium (biostatistique et épidémiologie)**: <https://www.stata.com/symposiums/biostatistics-and-epidemiology23/>
+
+-   **AUS**: <https://www.stata.com/meeting/oceania23/>
+
+:::
+:::
+
+## **2022**
+::: {.callout-tip appearance="simple" icon="false"}
+::: {.box_img}
+
+-   **Virtual symposium**: <https://www.stata.com/symposiums/economics22/>
+
+-   **CH**: <https://www.stata.com/meeting/switzerland22/>
+
+-   **UK**: <https://www.stata.com/meeting/uk22/>
+
+-   **US**: <https://www.stata.com/meeting/us22/>
+
+-   **FR**: <https://www.stata.com/meeting/france22/>
+
+-   **IT**: <https://www.stata.com/meeting/italy22/>
+:::
+:::
+
+## **2021**
+
+::: {.callout-warning appearance="simple" icon="false"}
+::: {.box_img}
+
+-   **USA**: <https://www.stata.com/meeting/us21/>
+
+-   **UK**: <https://www.stata.com/meeting/uk21/>
+
+-   **CAN**: <https://www.stata.com/meeting/canada21/>
+:::
+:::
+
+## **2020**
+
+::: {.callout-important appearance="simple" icon="false"}
+::: {.box_img}
+-   **USA**: <https://www.stata.com/meeting/us20/>
+
+    -   Voir: ***The causal effects of parents' marital status on children's earnings***
+
+-   **UK**: <https://www.stata.com/meeting/uk20/>
+
+-   **CH**: <https://www.stata.com/meeting/switzerland20/>
+
+-   **POR**: <https://www.stata.com/meeting/portugal20/>
+:::
+:::
+
+## **2019**
+::: {.callout-caution appearance="simple" icon="false"}
+::: {.box_img}
+
+-   **USA**: <https://www.stata.com/meeting/chicago19/>
+
+-   **UK**: <https://www.stata.com/meeting/uk19/>
+
+-   **AUS**: <https://www.stata.com/meeting/oceania19/>
+:::
+:::
+
