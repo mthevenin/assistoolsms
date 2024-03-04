@@ -17,12 +17,7 @@ image: "https://jtools.jacob-long.com/logo.png"
 
 format: 
   html: default
-  docx: default
-#  pdf:  default
 
-#filters:
-#   - lightbox
-#lightbox: auto
 
 code-annotations: below
 
@@ -107,7 +102,6 @@ summ(fit, digits=4, confint=TRUE, exp=TRUE)                                     
 ```
 
 1. On ajoute des intervalles de confiance (`confint=TRUE`) et le report des estimateurs sous forme d'Odds Ratio (`exp=TRUE`)
-
 
 
 ## Avec la fonction `svyglm()` [lien logit]

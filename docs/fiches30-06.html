@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -112,10 +78,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="./Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -157,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">XXXXXXXXXXXXXXXXXXXXX</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title">XXXXXXXXXXXXXXXXXXXXX</h1>
   <div class="quarto-categories">
     <div class="quarto-category">thème (cartographie, recodages)</div>
     <div class="quarto-category">package1</div>
@@ -239,8 +216,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="lien-documentation">Lien documentation</h2>
 <p>De préférence, je préfèrerais qu’elle soit en début de document, sous le tableau des fonctions.</p>
 
-
-<!-- -->
 
 </section>
 
@@ -324,57 +299,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -686,68 +610,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "XXXXXXXXXXXXXXXXXXXXX"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="an">categories:</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">  - thème (cartographie, recodages)</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">  - package1</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">  - package2</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  </span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">  - name: "XXXXXXXX"</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">    affiliations:</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">      - name: "Ined [et/ou autre]"</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="an">date:</span><span class="co"> mois/jour/2023</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># Si pas d'idée, par exemple pour R</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="an">image:</span><span class="co"> "https://www.r-project.org/Rlogo.png"</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="co">  html: default</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="co">  docx: default</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="co">#  pdf: default</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co">#  odt: default</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="co">#filters:</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="co">#  - lightbox</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="co">#lightbox: auto</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a></span>
-<span id="cb1-29"><a href="#cb1-29"></a></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="co"> Penser à laisser un espace sur cette ligne. Le résumé doit apparaître en vert</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a><span class="co">---</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a></span>
-<span id="cb1-34"><a href="#cb1-34"></a><span class="fu">## Tableau des fonctions utilisées dans la fiche</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a></span>
-<span id="cb1-36"><a href="#cb1-36"></a>Exemple de tableau des fonctions pour la fiche d'Elodie (on peut aller en mode visual sur un qmd vierge si on préfère). </span>
-<span id="cb1-37"><a href="#cb1-37"></a>Le titre est en dessous du tableau=&gt; <span class="in">`: **Fonctions utilisées dans la fiche**`</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a></span>
-<span id="cb1-39"><a href="#cb1-39"></a>| Packages      | Fonctions                                       |</span>
-<span id="cb1-40"><a href="#cb1-40"></a>|---------------|-------------------------------------------------|</span>
-<span id="cb1-41"><a href="#cb1-41"></a>| **questionr** | <span class="in">`wtd.table`</span> - <span class="in">`cprop`</span> - <span class="in">`lprop`</span>                 |</span>
-<span id="cb1-42"><a href="#cb1-42"></a>| **survey**    | <span class="in">`svydesign`</span> - <span class="in">`svytable`</span> - <span class="in">`svymean`</span> - <span class="in">`svyglm`</span> |</span>
-<span id="cb1-43"><a href="#cb1-43"></a>| **Base R**    | <span class="in">`mean`</span>                                          |</span>
-<span id="cb1-44"><a href="#cb1-44"></a></span>
-<span id="cb1-45"><a href="#cb1-45"></a>: **Fonctions utilisées dans la fiche**</span>
-<span id="cb1-46"><a href="#cb1-46"></a></span>
-<span id="cb1-47"><a href="#cb1-47"></a></span>
-<span id="cb1-48"><a href="#cb1-48"></a><span class="fu">## Extensions</span></span>
-<span id="cb1-49"><a href="#cb1-49"></a></span>
-<span id="cb1-50"><a href="#cb1-50"></a>L'extension lightbox est très bien pour l'insersion d'image/graphique. </span>
-<span id="cb1-51"><a href="#cb1-51"></a>En local pour l'activer, elle doit être installée (si une fiche dans un répertoire, l'installer à chaque fois): </span>
-<span id="cb1-52"><a href="#cb1-52"></a>dans le terminal =&gt; <span class="in">`quarto add quarto-ext/lightbox`</span>. Si vous utilisez une autre extension, me l'indiquer que je l'installe dans le répertoire du support.</span>
-<span id="cb1-53"><a href="#cb1-53"></a></span>
-<span id="cb1-54"><a href="#cb1-54"></a></span>
-<span id="cb1-55"><a href="#cb1-55"></a><span class="fu">## Lien documentation</span></span>
-<span id="cb1-56"><a href="#cb1-56"></a></span>
-<span id="cb1-57"><a href="#cb1-57"></a>De préférence, je préfèrerais qu'elle soit en début de document, sous le tableau des fonctions.</span>
-<span id="cb1-58"><a href="#cb1-58"></a></span>
-<span id="cb1-59"><a href="#cb1-59"></a></span>
-<span id="cb1-60"><a href="#cb1-60"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 
 

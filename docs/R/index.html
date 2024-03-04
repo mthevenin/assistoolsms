@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -171,10 +137,21 @@ window.Quarto = {
     <a class="nav-link active" href="../R/index.html" aria-current="page"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -200,7 +177,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Assistances R</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Assistances R</h1>
                       </div>
   </div>
     
@@ -228,8 +205,6 @@ window.Quarto = {
 
 
 
-
-<!-- -->
 
 
 <div class="quarto-listing quarto-listing-container-table" id="listing-listing">
@@ -273,7 +248,7 @@ window.Quarto = {
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1698148699878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1037" data-listing-title-sort="Consolider sa reproductibilité avec le package prefixer" data-listing-filename-sort="pkg_prefix.qmd">
+<tr data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1709546104528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1067" data-listing-title-sort="Consolider sa reproductibilité avec le package prefixer" data-listing-filename-sort="pkg_prefix.qmd">
 <td>
 <span class="listing-date">24 oct. 2023</span>
 </td>
@@ -306,7 +281,7 @@ window.Quarto = {
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1690358642160" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="589" data-listing-title-sort="Générer des graphes de mot avec R.temis" data-listing-filename-sort="nuage_de_mot.qmd">
+<tr data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1709541885153" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="685" data-listing-title-sort="Générer des graphes de mot avec R.temis" data-listing-filename-sort="nuage_de_mot.qmd">
 <td>
 <span class="listing-date">25 juil. 2023</span>
 </td>
@@ -339,12 +314,12 @@ window.Quarto = {
 <span class="listing-author">A.Muller , M.Thévenin </span>
 </td>
 </tr>
-<tr data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1689073742754" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="666" data-listing-title-sort="Produire des graphiques et recoder des variables sans écrire de code R" data-listing-filename-sort="addins.qmd">
+<tr data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1709543355498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="780" data-listing-title-sort="Graphiques et recodage sans code R" data-listing-filename-sort="addins.qmd">
 <td>
 <span class="listing-date">10 juil. 2023</span>
 </td>
 <td>
-<a href="../R/assist/posts/addins/addins.html" class="title listing-title">Produire des graphiques et recoder des variables sans écrire de code R</a>
+<a href="../R/assist/posts/addins/addins.html" class="title listing-title">Graphiques et recodage sans code R</a>
 </td>
 <td>
 <span class="listing-author">Bénédicte Garnier</span>
@@ -372,7 +347,7 @@ window.Quarto = {
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688382043334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563" data-listing-title-sort="Pondérations normalisées avec R" data-listing-filename-sort="weight_norm.qmd">
+<tr data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1709536266463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563" data-listing-title-sort="Pondérations normalisées avec R" data-listing-filename-sort="weight_norm.qmd">
 <td>
 <span class="listing-date">29 juin 2023</span>
 </td>
@@ -383,7 +358,7 @@ window.Quarto = {
 <span class="listing-author">Elodie Baril</span>
 </td>
 </tr>
-<tr data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688380419481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479" data-listing-title-sort="Format JSON : de la liste au dataframe" data-listing-filename-sort="JSON.qmd">
+<tr data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1709536939562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479" data-listing-title-sort="Format JSON : de la liste au dataframe" data-listing-filename-sort="JSON.qmd">
 <td>
 <span class="listing-date">28 juin 2023</span>
 </td>
@@ -405,7 +380,7 @@ window.Quarto = {
 <span class="listing-author">Arno Muller</span>
 </td>
 </tr>
-<tr data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1688381009144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2562" data-listing-title-sort="Recoder des variables avec ifelse() - if_else - case_when()" data-listing-filename-sort="ifelse_casewhen.qmd">
+<tr data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1709536477998" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2566" data-listing-title-sort="Recoder des variables avec ifelse() - if_else - case_when()" data-listing-filename-sort="ifelse_casewhen.qmd">
 <td>
 <span class="listing-date">27 juin 2023</span>
 </td>
@@ -427,7 +402,7 @@ window.Quarto = {
 <span class="listing-author">Arnaud Bringé</span>
 </td>
 </tr>
-<tr data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1688384475884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511" data-listing-title-sort="Afficher des outputs de régression avec Jtools" data-listing-filename-sort="jtools_output.qmd">
+<tr data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1709536916714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511" data-listing-title-sort="Afficher des outputs de régression avec Jtools" data-listing-filename-sort="jtools_output.qmd">
 <td>
 <span class="listing-date">21 juin 2023</span>
 </td>
@@ -438,7 +413,7 @@ window.Quarto = {
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1688384219017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="329" data-listing-title-sort="Récupérer et exécuter le test OLS de Grambsch-Therneau" data-listing-filename-sort="coxzph.qmd">
+<tr data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1709536139862" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="333" data-listing-title-sort="Récupérer et exécuter le test OLS de Grambsch-Therneau" data-listing-filename-sort="coxzph.qmd">
 <td>
 <span class="listing-date">13 juin 2023</span>
 </td>
@@ -449,7 +424,7 @@ window.Quarto = {
 <span class="listing-author">Marc Thévenin</span>
 </td>
 </tr>
-<tr data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1688726459347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239" data-listing-title-sort="R avec VScode" data-listing-filename-sort="R_vscode_doc.qmd">
+<tr data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1709536223117" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239" data-listing-title-sort="R avec VScode" data-listing-filename-sort="R_vscode_doc.qmd">
 <td>
 <span class="listing-date">7 juin 2023</span>
 </td>
@@ -545,57 +520,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -907,27 +831,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Assistances R"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="an">search:</span><span class="co"> false</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="an">listing:</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">  contents: </span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">  - assist</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">  - "!index.qmd"</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">  sort: "date desc"</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">  type: table</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">  categories: true</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">  sort-ui: true</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">  filter-ui: true</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">  page-size: 20</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">  max-items: 20</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="co">  max-description-length: 300</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co">---</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a></span>
-<span id="cb1-19"><a href="#cb1-19"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 
 

@@ -1,0 +1,17 @@
+---
+search: false
+listing:
+  - id: posts
+    contents: posts
+    sort: "date desc"
+    type: table
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    page-size: 12
+comments: false
+---
+
+
+::: {#posts} 
+:::

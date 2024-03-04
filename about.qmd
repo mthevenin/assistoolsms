@@ -1,5 +1,5 @@
 ---
-title: "Présentation"
+title: "Contributions"
 sidebar: false
 page-layout: article
 toc: false
@@ -7,17 +7,14 @@ title-block-banner: true
 
 ---
 
-
-
-
-Contributions par ordre alphabétique:  
+Par ordre alphabétique:  
 
 - Elodie Baril  [{{< fa brands github >}}](https://github.com/ElodieBaril)  [{{< fa  envelope >}}](mailto:elodie.baril@ined.fr)
 - Arnaud Bringé [{{< fa  envelope >}}](mailto:bringe@ined.fr)
 - Coralie Cottet [{{< fa brands github >}}](https://github.com/cosaph)
 - Bénédicte Garnier  [{{< fa brands github >}}](http://github.com/benegarbi)  [{{< fa  envelope >}}](mailto:garnier@ined.fr)
 - Arno Mulller   [{{< fa brands github >}}](http://github.com/arnomuller)  [{{< fa  envelope >}}](mailto:arno.muller@ined.fr)
-- Marc Thévenin [{{< fa brands github >}}](http://github.com/mthevenin)  [{{< fa  envelope >}}](mailto:marc.thevenin@ined.fr)
+- Marc Thévenin [{{< fa brands github >}}](http://github.com/mthevenin) [{{< fa brands gitlab >}}](http://gitlab.com/mthevenin)    [{{< fa  envelope >}}](mailto:marc.thevenin@ined.fr)
 
 
 

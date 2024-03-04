@@ -115,10 +115,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -144,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Utiliser R avec le notebook Jupyter</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Utiliser R avec le notebook Jupyter</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Notebook</div>
               </div>
@@ -272,8 +283,6 @@ Astuce
 <p><a href="img/jupyter4.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/jupyter4.gif" class="img-fluid"></a></p>
 
 
-<!-- -->
-
 </section>
 
 </main> <!-- /main -->
@@ -356,57 +365,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -718,117 +676,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Utiliser R avec le notebook Jupyter"</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="an">categories:</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">  - Notebook</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="an">date:</span><span class="co"> 07/07/2023</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1200px-Jupyter_logo.svg.png"</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co">  html: default</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="an">filters:</span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="co">   - lightbox</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="co"> On peut utiliser R avec le très populaire notebook Jupyter. Utilisé dans un navigateur, il permet de récupérer l'ensemble des cellules et les enregistrer dans un programme unique .R. Cette fiche décrit les différentes étapes pour utiliser ce notebook avec R, dans un navigateur ou avec l'Ide Vscode.</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="co">---</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a></span>
-<span id="cb2-27"><a href="#cb2-27"></a></span>
-<span id="cb2-28"><a href="#cb2-28"></a>::: callout-tip</span>
-<span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a>Cliquer sur l'animation pour l'agrandir et la faire redémarrer au début</span>
-<span id="cb2-31"><a href="#cb2-31"></a></span>
-<span id="cb2-32"><a href="#cb2-32"></a>:::</span>
-<span id="cb2-33"><a href="#cb2-33"></a></span>
-<span id="cb2-34"><a href="#cb2-34"></a></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="fu"># Installation</span></span>
-<span id="cb2-36"><a href="#cb2-36"></a></span>
-<span id="cb2-37"><a href="#cb2-37"></a><span class="fu">## Ined</span></span>
-<span id="cb2-38"><a href="#cb2-38"></a></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="ss">- </span>A l'Ined, l'installation de Python et Jupyter est directement accessible via le bureau vial'outil **Applined** mis à disposition par le Service Informatique. Dans la fenêtre de recherche: </span>
-<span id="cb2-40"><a href="#cb2-40"></a><span class="ss"> - </span>Python puis l'installer.</span>
-<span id="cb2-41"><a href="#cb2-41"></a><span class="ss"> - </span>Jupyter puis l'installer.</span>
-<span id="cb2-42"><a href="#cb2-42"></a></span>
-<span id="cb2-43"><a href="#cb2-43"></a><span class="ss">- </span>Ouverture de Jupyter dans le navigateur: taper <span class="in">`cmd`</span> dans la barre de recherche windows, puis <span class="in">`jupyter notebook`</span>.  </span>
-<span id="cb2-44"><a href="#cb2-44"></a></span>
-<span id="cb2-45"><a href="#cb2-45"></a>**Résumé des étapes**</span>
-<span id="cb2-46"><a href="#cb2-46"></a></span>
-<span id="cb2-47"><a href="#cb2-47"></a><span class="al">![](img/jupyter1.gif)</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a></span>
-<span id="cb2-49"><a href="#cb2-49"></a><span class="fu">## Hors Ined</span></span>
-<span id="cb2-50"><a href="#cb2-50"></a></span>
-<span id="cb2-51"><a href="#cb2-51"></a><span class="ss">- </span>La solution la plus simple est d'installer <span class="co">[</span><span class="ot">Anaconda</span><span class="co">](https://www.anaconda.com/download)</span>, mais un nombre important d'applications seront installées. Je ne suis pas sur que, hors usage intensif de python, cela soit un quelconque intérêt.</span>
-<span id="cb2-52"><a href="#cb2-52"></a><span class="ss">- </span>Installer la version ***soft*** d'Anaconda, [miniconda](https://docs.conda.io/en/latest/miniconda.html), puis installer Jupyter via l'invit de commandes conda: `conda install jupyter` ou via l'invite de commandes window avec l'application de gestion des librairie Python ***pip***: <span class="in">`pip install jupyter`</span>.  </span>
-<span id="cb2-53"><a href="#cb2-53"></a><span class="ss">- </span>L'ouverture de Jupyter se fera directement via un raccourci (conda) ou via l'invite de commande windows en tapant <span class="in">`jupyter noteboook`</span>.</span>
-<span id="cb2-54"><a href="#cb2-54"></a></span>
-<span id="cb2-55"><a href="#cb2-55"></a></span>
-<span id="cb2-56"><a href="#cb2-56"></a><span class="fu"># Installation du noyau R dans jupyter</span></span>
-<span id="cb2-57"><a href="#cb2-57"></a></span>
-<span id="cb2-58"><a href="#cb2-58"></a>Vous pouvez suivre ce pas à pas: <span class="co">[</span><span class="ot">lien</span><span class="co">](https://towardsdatascience.com/how-to-run-r-scripts-in-jupyter-15527148d2a)</span>. </span>
-<span id="cb2-59"><a href="#cb2-59"></a></span>
-<span id="cb2-60"><a href="#cb2-60"></a>Dans R:</span>
-<span id="cb2-61"><a href="#cb2-61"></a></span>
-<span id="cb2-62"><a href="#cb2-62"></a><span class="in">```markdown</span></span>
-<span id="cb2-63"><a href="#cb2-63"></a><span class="fu"># install.packages("devtools")</span></span>
-<span id="cb2-64"><a href="#cb2-64"></a>devtools::install_github("IRkernel/IRkernel")</span>
-<span id="cb2-65"><a href="#cb2-65"></a>IRkernel::installspec()</span>
-<span id="cb2-66"><a href="#cb2-66"></a><span class="in">```</span></span>
-<span id="cb2-67"><a href="#cb2-67"></a></span>
-<span id="cb2-68"><a href="#cb2-68"></a><span class="fu"># Utilisation du notebook</span></span>
-<span id="cb2-69"><a href="#cb2-69"></a></span>
-<span id="cb2-70"><a href="#cb2-70"></a><span class="ss">- </span>Aller dans *New*</span>
-<span id="cb2-71"><a href="#cb2-71"></a><span class="ss">- </span>Sélectionner le noyau R</span>
-<span id="cb2-72"><a href="#cb2-72"></a></span>
-<span id="cb2-73"><a href="#cb2-73"></a>Par défaut, chaque nouvelle cellule est en mode *code*. Vous pouvez changer de mode dans une fenêtre (markdown, text, titre)</span>
-<span id="cb2-74"><a href="#cb2-74"></a></span>
-<span id="cb2-75"><a href="#cb2-75"></a><span class="al">![](img/jupyter2.gif)</span></span>
-<span id="cb2-76"><a href="#cb2-76"></a></span>
-<span id="cb2-77"><a href="#cb2-77"></a>On peut exporter le notebook dans plusieurs formats. Cependant, la fonctionalité</span>
-<span id="cb2-78"><a href="#cb2-78"></a>la plus intéressante est l'engistrement sous format .R de l'ensemble des cellules</span>
-<span id="cb2-79"><a href="#cb2-79"></a>de type code. On obtient donc un programme complet.</span>
-<span id="cb2-80"><a href="#cb2-80"></a></span>
-<span id="cb2-81"><a href="#cb2-81"></a><span class="al">![](img/jupyter3.gif)</span></span>
-<span id="cb2-82"><a href="#cb2-82"></a></span>
-<span id="cb2-83"><a href="#cb2-83"></a>Si on préfère on peut utiliser le notebook dans l'interface <span class="co">[</span><span class="ot">Vscode</span><span class="co">](https://code.visualstudio.com/Download)</span>, il suffit d'y installer l'extension Jupyter.  </span>
-<span id="cb2-84"><a href="#cb2-84"></a></span>
-<span id="cb2-85"><a href="#cb2-85"></a><span class="ss">- </span>Permet d'avoir plusieurs notebook charger sur une interface, et de travailler parallèlement sur la console R <span class="co">[</span><span class="ot">tutoriel d'installation</span><span class="co">](https://mthevenin.github.io/assistoolsms/R/assist/posts/R_vscode/R_vscode_doc.html)</span>.</span>
-<span id="cb2-86"><a href="#cb2-86"></a><span class="ss">- </span>Ne permet pas d'enregistrer l'ensemble des cellules en programme R.</span>
-<span id="cb2-87"><a href="#cb2-87"></a></span>
-<span id="cb2-88"><a href="#cb2-88"></a><span class="al">![](img/jupyter4.gif)</span></span>
-<span id="cb2-89"><a href="#cb2-89"></a></span>
-<span id="cb2-90"><a href="#cb2-90"></a></span>
-<span id="cb2-91"><a href="#cb2-91"></a></span>
-<span id="cb2-92"><a href="#cb2-92"></a></span>
-<span id="cb2-93"><a href="#cb2-93"></a></span>
-<span id="cb2-94"><a href="#cb2-94"></a></span>
-<span id="cb2-95"><a href="#cb2-95"></a></span>
-<span id="cb2-96"><a href="#cb2-96"></a></span>
-<span id="cb2-97"><a href="#cb2-97"></a></span>
-<span id="cb2-98"><a href="#cb2-98"></a></span>
-<span id="cb2-99"><a href="#cb2-99"></a></span>
-<span id="cb2-100"><a href="#cb2-100"></a></span>
-<span id="cb2-101"><a href="#cb2-101"></a></span>
-<span id="cb2-102"><a href="#cb2-102"></a></span>
-<span id="cb2-103"><a href="#cb2-103"></a></span>
-<span id="cb2-104"><a href="#cb2-104"></a></span>
-<span id="cb2-105"><a href="#cb2-105"></a></span>
-<span id="cb2-106"><a href="#cb2-106"></a></span>
-<span id="cb2-107"><a href="#cb2-107"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

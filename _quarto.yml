@@ -8,16 +8,19 @@ website:
   title: "Support d'assistance Sms :"
   navbar:
     background: "white"
-#    logo: img/coding2.png
     title: ""
     collapse-below: lg
     left:
       - text: "R"
         href: R/index.qmd
       - text: "Othe-R"
-        href: Autres/index.qmd
+        menu: 
+          - text: "Quarto-Git-Python..."
+            href: Autres/index.qmd
+          - text: "Stata"
+            href: Stata/index.qmd
       - text: "Autres Supports"
-        href: supports.qmd
+        href:  supports.qmd
     right: 
       - text: "{{< fa  info-circle>}}"
         href: about.qmd
@@ -44,7 +47,7 @@ format:
     code-copy: true
 #    code-tools:
 #      source: true
-highlight-style: ayu-mirage 
+highlight-style: kate
 
 lightbox: true
 

@@ -18,12 +18,6 @@ image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_lo
 
 format: 
   html: default
-  docx: default
-#  pdf:  default
-
-filters:
-  - lightbox
-lightbox: auto
 
 code-annotations: below
 

@@ -7,7 +7,8 @@ title: "Supports en ligne"
 * [Quarto](https://mthevenin.gitlab.io/quarto/)
 * [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
 * [Introduction à l'analyse des durées en présence de données censurées à droite ](https://mthevenin.github.io/analyse_duree/)
-* [Stata](https://mthevenin.github.io/stata_fr/index.html)
+* [Introduction à la programmation avec Stata](https://mthevenin.github.io/stata_programmation/)
+* [Programmation de graphiques avec Stata](https://mthevenin.github.io/stata_graphiques/)
 
 
 # Supports R généralistes

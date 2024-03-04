@@ -124,10 +124,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -153,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Contrôler les effets spaghetti avec ggplot</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Contrôler les effets spaghetti avec ggplot</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Graphique</div>
               </div>
@@ -501,8 +512,6 @@ Important
 </div>
 
 
-<!-- -->
-
 </section>
 </section>
 
@@ -586,57 +595,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -948,424 +906,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="an">title:</span><span class="co"> "Contrôler les effets spaghetti avec ggplot"</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="an">categories:</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co">  - Graphique</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co">  - name: "A.Muller"</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="co">    affiliations:</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="co">  - name: "M.Thévenin"</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a><span class="co">    affiliations:</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="co">      - name: "Ined"        </span></span>
-<span id="cb14-14"><a href="#cb14-14"></a></span>
-<span id="cb14-15"><a href="#cb14-15"></a><span class="an">date:</span><span class="co"> 07/12/2023</span></span>
-<span id="cb14-16"><a href="#cb14-16"></a></span>
-<span id="cb14-17"><a href="#cb14-17"></a><span class="an">image:</span><span class="co"> "logo.png"</span></span>
-<span id="cb14-18"><a href="#cb14-18"></a></span>
-<span id="cb14-19"><a href="#cb14-19"></a><span class="an">format:</span></span>
-<span id="cb14-20"><a href="#cb14-20"></a><span class="co">  html: default</span></span>
-<span id="cb14-21"><a href="#cb14-21"></a><span class="co">        </span></span>
-<span id="cb14-22"><a href="#cb14-22"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb14-23"><a href="#cb14-23"></a><span class="co"> Un graphique devient très facilement illisible lorsque trop d'objets graphiques y sont introduits, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** (**effet paella** pour un nuage de points). Pour contrôler cette difficulté il est préconiser de réaliser un graphique de type **small-multiples** (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en termes de couleur et d'épaisseur de la courbe  tout en gardant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple du gris).</span></span>
-<span id="cb14-24"><a href="#cb14-24"></a></span>
-<span id="cb14-25"><a href="#cb14-25"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb14-26"><a href="#cb14-26"></a><span class="co">  cache: true</span></span>
-<span id="cb14-27"><a href="#cb14-27"></a><span class="co">---</span></span>
-<span id="cb14-28"><a href="#cb14-28"></a></span>
-<span id="cb14-29"><a href="#cb14-29"></a><span class="in">```{r,  message=FALSE, warning=FALSE}</span></span>
-<span id="cb14-30"><a href="#cb14-30"></a><span class="in"># pour récupérer la palette de couleur qualitatitive Tableau: </span></span>
-<span id="cb14-31"><a href="#cb14-31"></a><span class="in"># install.packages(ggthemes</span></span>
-<span id="cb14-32"><a href="#cb14-32"></a></span>
-<span id="cb14-33"><a href="#cb14-33"></a><span class="in">library(dplyr)</span></span>
-<span id="cb14-34"><a href="#cb14-34"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb14-35"><a href="#cb14-35"></a><span class="in">library(ggthemes) </span></span>
-<span id="cb14-36"><a href="#cb14-36"></a><span class="in">```</span></span>
-<span id="cb14-37"><a href="#cb14-37"></a></span>
-<span id="cb14-38"><a href="#cb14-38"></a></span>
-<span id="cb14-39"><a href="#cb14-39"></a></span>
-<span id="cb14-40"><a href="#cb14-40"></a></span>
-<span id="cb14-41"><a href="#cb14-41"></a><span class="fu"># L'effet spaghetti en images</span></span>
-<span id="cb14-42"><a href="#cb14-42"></a></span>
-<span id="cb14-43"><a href="#cb14-43"></a><span class="ss">* </span>Les données utilisées ici sont extraites des bases contextextuelles GGP <span class="co">[</span><span class="ot">Datalab de l'Ined</span><span class="co">](http://datalab.site.ined.fr/fr/donnees-demographiques-contextuelles/)</span>. </span>
-<span id="cb14-44"><a href="#cb14-44"></a></span>
-<span id="cb14-45"><a href="#cb14-45"></a></span>
-<span id="cb14-46"><a href="#cb14-46"></a>::: callout-important</span>
-<span id="cb14-47"><a href="#cb14-47"></a></span>
-<span id="cb14-48"><a href="#cb14-48"></a>Pour les graphiques seront présentés dans cette fiches, les données doivent être en format long, ici une observation du taux de fécondité par pays-année</span>
-<span id="cb14-49"><a href="#cb14-49"></a></span>
-<span id="cb14-50"><a href="#cb14-50"></a>:::</span>
-<span id="cb14-51"><a href="#cb14-51"></a></span>
-<span id="cb14-52"><a href="#cb14-52"></a><span class="ss">* </span>On va regarder l'évolution du taux de fécondité de 12 pays de 1950 à 2022. </span>
-<span id="cb14-53"><a href="#cb14-53"></a></span>
-<span id="cb14-56"><a href="#cb14-56"></a><span class="in">```{r}</span></span>
-<span id="cb14-57"><a href="#cb14-57"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv"</span>)</span>
-<span id="cb14-58"><a href="#cb14-58"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character,as.factor)</span>
-<span id="cb14-59"><a href="#cb14-59"></a><span class="fu">head</span>(df)</span>
-<span id="cb14-60"><a href="#cb14-60"></a><span class="in">```</span></span>
-<span id="cb14-61"><a href="#cb14-61"></a></span>
-<span id="cb14-62"><a href="#cb14-62"></a></span>
-<span id="cb14-63"><a href="#cb14-63"></a><span class="ss">* </span>Les taux de fécondité sont renseignés par la variable *y*, les années par la variable *year* et les pays par la variable *pays*. </span>
-<span id="cb14-64"><a href="#cb14-64"></a></span>
-<span id="cb14-65"><a href="#cb14-65"></a>En empilant avec **`ggplot`** les 12 courbes d'évolution de la fécondité....</span>
-<span id="cb14-66"><a href="#cb14-66"></a></span>
-<span id="cb14-67"><a href="#cb14-67"></a></span>
-<span id="cb14-70"><a href="#cb14-70"></a><span class="in">```{r}</span></span>
-<span id="cb14-71"><a href="#cb14-71"></a><span class="co">#| eval: false</span></span>
-<span id="cb14-72"><a href="#cb14-72"></a></span>
-<span id="cb14-73"><a href="#cb14-73"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb14-74"><a href="#cb14-74"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
-<span id="cb14-75"><a href="#cb14-75"></a> <span class="fu">geom_line</span>(<span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb14-76"><a href="#cb14-76"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
-<span id="cb14-77"><a href="#cb14-77"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"ICF"</span>, <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-78"><a href="#cb14-78"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
-<span id="cb14-79"><a href="#cb14-79"></a> <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>))  <span class="sc">+</span></span>
-<span id="cb14-80"><a href="#cb14-80"></a> <span class="fu">theme_light</span>() </span>
-<span id="cb14-81"><a href="#cb14-81"></a><span class="in">```</span></span>
-<span id="cb14-82"><a href="#cb14-82"></a></span>
-<span id="cb14-83"><a href="#cb14-83"></a></span>
-<span id="cb14-84"><a href="#cb14-84"></a>::: {.box_img}</span>
-<span id="cb14-87"><a href="#cb14-87"></a><span class="in">```{r}</span></span>
-<span id="cb14-88"><a href="#cb14-88"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-89"><a href="#cb14-89"></a></span>
-<span id="cb14-90"><a href="#cb14-90"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb14-91"><a href="#cb14-91"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
-<span id="cb14-92"><a href="#cb14-92"></a> <span class="fu">geom_line</span>(<span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb14-93"><a href="#cb14-93"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
-<span id="cb14-94"><a href="#cb14-94"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"ICF"</span>, <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-95"><a href="#cb14-95"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
-<span id="cb14-96"><a href="#cb14-96"></a> <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>))  <span class="sc">+</span></span>
-<span id="cb14-97"><a href="#cb14-97"></a> <span class="fu">theme_light</span>() </span>
-<span id="cb14-98"><a href="#cb14-98"></a><span class="in">```</span></span>
-<span id="cb14-99"><a href="#cb14-99"></a>:::</span>
-<span id="cb14-100"><a href="#cb14-100"></a></span>
-<span id="cb14-101"><a href="#cb14-101"></a>&lt;br&gt;</span>
-<span id="cb14-102"><a href="#cb14-102"></a></span>
-<span id="cb14-103"><a href="#cb14-103"></a>... C'est  illisible.  </span>
-<span id="cb14-104"><a href="#cb14-104"></a></span>
-<span id="cb14-105"><a href="#cb14-105"></a><span class="ss">* </span>On peut améliorer la lecture et naviguer dans le graphique avec un outil de visualisation dynamique, par exemple avec **plotly**. Mais c'est outils sont strictement réservé à une diffusion de type html. </span>
-<span id="cb14-106"><a href="#cb14-106"></a></span>
-<span id="cb14-107"><a href="#cb14-107"></a></span>
-<span id="cb14-110"><a href="#cb14-110"></a><span class="in">```{r}</span></span>
-<span id="cb14-111"><a href="#cb14-111"></a><span class="co">#| eval: false</span></span>
-<span id="cb14-112"><a href="#cb14-112"></a><span class="co">#| message: false</span></span>
-<span id="cb14-113"><a href="#cb14-113"></a><span class="co">#| warning: false</span></span>
-<span id="cb14-114"><a href="#cb14-114"></a></span>
-<span id="cb14-115"><a href="#cb14-115"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb14-116"><a href="#cb14-116"></a></span>
-<span id="cb14-117"><a href="#cb14-117"></a>p <span class="ot">=</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb14-118"><a href="#cb14-118"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
-<span id="cb14-119"><a href="#cb14-119"></a> <span class="fu">geom_line</span>( <span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb14-120"><a href="#cb14-120"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
-<span id="cb14-121"><a href="#cb14-121"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"ICF"</span>, <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-122"><a href="#cb14-122"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
-<span id="cb14-123"><a href="#cb14-123"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-124"><a href="#cb14-124"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-125"><a href="#cb14-125"></a> <span class="fu">theme_light</span>() </span>
-<span id="cb14-126"><a href="#cb14-126"></a></span>
-<span id="cb14-127"><a href="#cb14-127"></a><span class="fu">ggplotly</span>(p)</span>
-<span id="cb14-128"><a href="#cb14-128"></a><span class="in">```</span></span>
-<span id="cb14-129"><a href="#cb14-129"></a></span>
-<span id="cb14-130"><a href="#cb14-130"></a></span>
-<span id="cb14-131"><a href="#cb14-131"></a>::: {.box_img}</span>
-<span id="cb14-134"><a href="#cb14-134"></a><span class="in">```{r}</span></span>
-<span id="cb14-135"><a href="#cb14-135"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-136"><a href="#cb14-136"></a><span class="co">#| message: false</span></span>
-<span id="cb14-137"><a href="#cb14-137"></a><span class="co">#| warning: false</span></span>
-<span id="cb14-138"><a href="#cb14-138"></a></span>
-<span id="cb14-139"><a href="#cb14-139"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb14-140"><a href="#cb14-140"></a></span>
-<span id="cb14-141"><a href="#cb14-141"></a>p <span class="ot">=</span> <span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb14-142"><a href="#cb14-142"></a> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y, <span class="at">colour =</span> pays) <span class="sc">+</span></span>
-<span id="cb14-143"><a href="#cb14-143"></a> <span class="fu">geom_line</span>( <span class="at">lwd=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb14-144"><a href="#cb14-144"></a> <span class="fu">scale_color_tableau</span>( <span class="at">palette =</span> <span class="st">"Tableau 20"</span>) <span class="sc">+</span></span>
-<span id="cb14-145"><a href="#cb14-145"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, <span class="at">y =</span> <span class="st">"ICF"</span>, <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-146"><a href="#cb14-146"></a> <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>, <span class="at">color =</span> <span class="st">"Pays"</span>) <span class="sc">+</span></span>
-<span id="cb14-147"><a href="#cb14-147"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-148"><a href="#cb14-148"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-149"><a href="#cb14-149"></a> <span class="fu">theme_light</span>() </span>
-<span id="cb14-150"><a href="#cb14-150"></a></span>
-<span id="cb14-151"><a href="#cb14-151"></a><span class="fu">ggplotly</span>(p)</span>
-<span id="cb14-152"><a href="#cb14-152"></a><span class="in">```</span></span>
-<span id="cb14-153"><a href="#cb14-153"></a>:::</span>
-<span id="cb14-154"><a href="#cb14-154"></a></span>
-<span id="cb14-155"><a href="#cb14-155"></a></span>
-<span id="cb14-156"><a href="#cb14-156"></a>&lt;br&gt;</span>
-<span id="cb14-157"><a href="#cb14-157"></a></span>
-<span id="cb14-158"><a href="#cb14-158"></a><span class="ss">* </span>Pour une **visualisation statique**, il est fortement recommandé de visualiser ce type d'informations à l'aide d'un graphique combiné, appelé **small multiples** (ou facettes).  </span>
-<span id="cb14-159"><a href="#cb14-159"></a></span>
-<span id="cb14-160"><a href="#cb14-160"></a></span>
-<span id="cb14-161"><a href="#cb14-161"></a><span class="fu"># Contrôle de l'effet spaghetti avec un graphique combiné</span></span>
-<span id="cb14-162"><a href="#cb14-162"></a></span>
-<span id="cb14-163"><a href="#cb14-163"></a><span class="fu">## Graphique combiné simple</span></span>
-<span id="cb14-164"><a href="#cb14-164"></a></span>
-<span id="cb14-165"><a href="#cb14-165"></a>Par rapport au graphique précédent on va simplement générer des sous graphiques par pays, qui seront combinés avec l'option **`facet_wrap`**. </span>
-<span id="cb14-166"><a href="#cb14-166"></a></span>
-<span id="cb14-169"><a href="#cb14-169"></a><span class="in">```{r}</span></span>
-<span id="cb14-170"><a href="#cb14-170"></a><span class="co">#| eval: false</span></span>
-<span id="cb14-171"><a href="#cb14-171"></a></span>
-<span id="cb14-172"><a href="#cb14-172"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb14-173"><a href="#cb14-173"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
-<span id="cb14-174"><a href="#cb14-174"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb14-175"><a href="#cb14-175"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
-<span id="cb14-176"><a href="#cb14-176"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-177"><a href="#cb14-177"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
-<span id="cb14-178"><a href="#cb14-178"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
-<span id="cb14-179"><a href="#cb14-179"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-180"><a href="#cb14-180"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
-<span id="cb14-181"><a href="#cb14-181"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-182"><a href="#cb14-182"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-183"><a href="#cb14-183"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb14-184"><a href="#cb14-184"></a><span class="in">```</span></span>
-<span id="cb14-185"><a href="#cb14-185"></a></span>
-<span id="cb14-186"><a href="#cb14-186"></a></span>
-<span id="cb14-187"><a href="#cb14-187"></a>::: {.box_img}</span>
-<span id="cb14-190"><a href="#cb14-190"></a><span class="in">```{r}</span></span>
-<span id="cb14-191"><a href="#cb14-191"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-192"><a href="#cb14-192"></a></span>
-<span id="cb14-193"><a href="#cb14-193"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb14-194"><a href="#cb14-194"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
-<span id="cb14-195"><a href="#cb14-195"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb14-196"><a href="#cb14-196"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
-<span id="cb14-197"><a href="#cb14-197"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-198"><a href="#cb14-198"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
-<span id="cb14-199"><a href="#cb14-199"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
-<span id="cb14-200"><a href="#cb14-200"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-201"><a href="#cb14-201"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
-<span id="cb14-202"><a href="#cb14-202"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-203"><a href="#cb14-203"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-204"><a href="#cb14-204"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb14-205"><a href="#cb14-205"></a><span class="in">```</span></span>
-<span id="cb14-206"><a href="#cb14-206"></a>:::</span>
-<span id="cb14-207"><a href="#cb14-207"></a></span>
-<span id="cb14-208"><a href="#cb14-208"></a></span>
-<span id="cb14-209"><a href="#cb14-209"></a><span class="fu">## Graphique combiné avec highlighting</span></span>
-<span id="cb14-210"><a href="#cb14-210"></a></span>
-<span id="cb14-211"><a href="#cb14-211"></a>On peut combiné les deux approches, en gardant en arrière plan de chaque sous graphique les informations des autres graphiques. On peut donc ici, pour chaque pays, positionné l'information de chaque pays par rapport aux autres.</span>
-<span id="cb14-212"><a href="#cb14-212"></a></span>
-<span id="cb14-213"><a href="#cb14-213"></a>Le principe du code a été récupéré dans le support de Yann Holtz consacré à ce problème <span class="co">[</span><span class="ot">**Data to viz**</span><span class="co">](http://www.data-to-viz.com/caveat/spaghetti.html)</span>. On vous recommande très fortement</span>
-<span id="cb14-214"><a href="#cb14-214"></a>d'utiliser ce support très riche, non seulement en éléments de programmation, mais également en conseils. En particulier la section **mise en garde** (*caveats*).</span>
-<span id="cb14-215"><a href="#cb14-215"></a></span>
-<span id="cb14-216"><a href="#cb14-216"></a>Les courbes en arrière plan ont une épaisseur plus faible (<span class="in">`lwd=0.1`</span>) et on une couleur unique ( <span class="in">`color="grey`</span> ). Pour facilité la lecture, le quadrillage a été allégé dans l'option <span class="in">`theme()`</span>. </span>
-<span id="cb14-217"><a href="#cb14-217"></a></span>
-<span id="cb14-220"><a href="#cb14-220"></a><span class="in">```{r}</span></span>
-<span id="cb14-221"><a href="#cb14-221"></a><span class="co">#| eval: false</span></span>
-<span id="cb14-222"><a href="#cb14-222"></a></span>
-<span id="cb14-223"><a href="#cb14-223"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb14-224"><a href="#cb14-224"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)   </span>
-<span id="cb14-225"><a href="#cb14-225"></a></span>
-<span id="cb14-226"><a href="#cb14-226"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
-<span id="cb14-227"><a href="#cb14-227"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
-<span id="cb14-228"><a href="#cb14-228"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
-<span id="cb14-229"><a href="#cb14-229"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
-<span id="cb14-230"><a href="#cb14-230"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
-<span id="cb14-231"><a href="#cb14-231"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-232"><a href="#cb14-232"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-233"><a href="#cb14-233"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
-<span id="cb14-234"><a href="#cb14-234"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
-<span id="cb14-235"><a href="#cb14-235"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
-<span id="cb14-236"><a href="#cb14-236"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
-<span id="cb14-237"><a href="#cb14-237"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-238"><a href="#cb14-238"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
-<span id="cb14-239"><a href="#cb14-239"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-240"><a href="#cb14-240"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-241"><a href="#cb14-241"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb14-242"><a href="#cb14-242"></a><span class="in">```</span></span>
-<span id="cb14-243"><a href="#cb14-243"></a></span>
-<span id="cb14-244"><a href="#cb14-244"></a>::: {.box_img}</span>
-<span id="cb14-247"><a href="#cb14-247"></a><span class="in">```{r}</span></span>
-<span id="cb14-248"><a href="#cb14-248"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-249"><a href="#cb14-249"></a></span>
-<span id="cb14-250"><a href="#cb14-250"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb14-251"><a href="#cb14-251"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)   </span>
-<span id="cb14-252"><a href="#cb14-252"></a></span>
-<span id="cb14-253"><a href="#cb14-253"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
-<span id="cb14-254"><a href="#cb14-254"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
-<span id="cb14-255"><a href="#cb14-255"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
-<span id="cb14-256"><a href="#cb14-256"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
-<span id="cb14-257"><a href="#cb14-257"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
-<span id="cb14-258"><a href="#cb14-258"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-259"><a href="#cb14-259"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-260"><a href="#cb14-260"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
-<span id="cb14-261"><a href="#cb14-261"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
-<span id="cb14-262"><a href="#cb14-262"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
-<span id="cb14-263"><a href="#cb14-263"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
-<span id="cb14-264"><a href="#cb14-264"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-265"><a href="#cb14-265"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
-<span id="cb14-266"><a href="#cb14-266"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-267"><a href="#cb14-267"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-268"><a href="#cb14-268"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb14-269"><a href="#cb14-269"></a><span class="in">```</span></span>
-<span id="cb14-270"><a href="#cb14-270"></a>:::</span>
-<span id="cb14-271"><a href="#cb14-271"></a></span>
-<span id="cb14-272"><a href="#cb14-272"></a>&lt;br&gt;</span>
-<span id="cb14-273"><a href="#cb14-273"></a></span>
-<span id="cb14-274"><a href="#cb14-274"></a>On peut vouloir trier les sous graphiques selon un ordre particulier, ici ils sont simplement affichés par ordre alphabétique. </span>
-<span id="cb14-275"><a href="#cb14-275"></a></span>
-<span id="cb14-276"><a href="#cb14-276"></a>Si on souhaite par exemple, affiché les sous graphiques par ordre décroissant du taux de fécondité en 2022, donc d'Israel en haut à gauche à la Corée du Sud en bas à droite, on doit réarranger l'ordre de la variable **pays** avec le code suivant:</span>
-<span id="cb14-277"><a href="#cb14-277"></a></span>
-<span id="cb14-280"><a href="#cb14-280"></a><span class="in">```{r}</span></span>
-<span id="cb14-281"><a href="#cb14-281"></a><span class="co">#| eval: false</span></span>
-<span id="cb14-282"><a href="#cb14-282"></a></span>
-<span id="cb14-283"><a href="#cb14-283"></a>pays_order <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb14-284"><a href="#cb14-284"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-285"><a href="#cb14-285"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(y))</span>
-<span id="cb14-286"><a href="#cb14-286"></a>pays_order <span class="ot">&lt;-</span> <span class="fu">as.character</span>(pays_order[,<span class="st">"pays"</span>])</span>
-<span id="cb14-287"><a href="#cb14-287"></a>pays_order</span>
-<span id="cb14-288"><a href="#cb14-288"></a></span>
-<span id="cb14-289"><a href="#cb14-289"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb14-290"><a href="#cb14-290"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)</span>
-<span id="cb14-291"><a href="#cb14-291"></a>tmp<span class="sc">$</span>pays <span class="ot">&lt;-</span> <span class="fu">factor</span>(tmp<span class="sc">$</span>pays, <span class="at">levels =</span> pays_order)</span>
-<span id="cb14-292"><a href="#cb14-292"></a>tmp<span class="sc">$</span>pays2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(tmp<span class="sc">$</span>pays2, <span class="at">levels =</span> pays_order)</span>
-<span id="cb14-293"><a href="#cb14-293"></a><span class="fu">unique</span>(tmp<span class="sc">$</span>pays2)</span>
-<span id="cb14-294"><a href="#cb14-294"></a><span class="in">```</span></span>
-<span id="cb14-295"><a href="#cb14-295"></a></span>
-<span id="cb14-296"><a href="#cb14-296"></a>::: {.box_img}</span>
-<span id="cb14-299"><a href="#cb14-299"></a><span class="in">```{r}</span></span>
-<span id="cb14-300"><a href="#cb14-300"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-301"><a href="#cb14-301"></a></span>
-<span id="cb14-302"><a href="#cb14-302"></a>pays_order <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb14-303"><a href="#cb14-303"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-304"><a href="#cb14-304"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(y))</span>
-<span id="cb14-305"><a href="#cb14-305"></a>pays_order <span class="ot">&lt;-</span> <span class="fu">as.character</span>(pays_order[,<span class="st">"pays"</span>])</span>
-<span id="cb14-306"><a href="#cb14-306"></a>pays_order</span>
-<span id="cb14-307"><a href="#cb14-307"></a></span>
-<span id="cb14-308"><a href="#cb14-308"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb14-309"><a href="#cb14-309"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)</span>
-<span id="cb14-310"><a href="#cb14-310"></a>tmp<span class="sc">$</span>pays <span class="ot">&lt;-</span> <span class="fu">factor</span>(tmp<span class="sc">$</span>pays, <span class="at">levels =</span> pays_order)</span>
-<span id="cb14-311"><a href="#cb14-311"></a>tmp<span class="sc">$</span>pays2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(tmp<span class="sc">$</span>pays2, <span class="at">levels =</span> pays_order)</span>
-<span id="cb14-312"><a href="#cb14-312"></a><span class="fu">unique</span>(tmp<span class="sc">$</span>pays2)</span>
-<span id="cb14-313"><a href="#cb14-313"></a><span class="in">```</span></span>
-<span id="cb14-314"><a href="#cb14-314"></a>:::</span>
-<span id="cb14-315"><a href="#cb14-315"></a></span>
-<span id="cb14-316"><a href="#cb14-316"></a>&lt;br&gt;</span>
-<span id="cb14-317"><a href="#cb14-317"></a></span>
-<span id="cb14-318"><a href="#cb14-318"></a>Et on réexécute le graphique précédent</span>
-<span id="cb14-319"><a href="#cb14-319"></a></span>
-<span id="cb14-322"><a href="#cb14-322"></a><span class="in">```{r}</span></span>
-<span id="cb14-323"><a href="#cb14-323"></a><span class="co">#| eval: false</span></span>
-<span id="cb14-324"><a href="#cb14-324"></a></span>
-<span id="cb14-325"><a href="#cb14-325"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
-<span id="cb14-326"><a href="#cb14-326"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
-<span id="cb14-327"><a href="#cb14-327"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
-<span id="cb14-328"><a href="#cb14-328"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
-<span id="cb14-329"><a href="#cb14-329"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
-<span id="cb14-330"><a href="#cb14-330"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-331"><a href="#cb14-331"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-332"><a href="#cb14-332"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
-<span id="cb14-333"><a href="#cb14-333"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
-<span id="cb14-334"><a href="#cb14-334"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
-<span id="cb14-335"><a href="#cb14-335"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
-<span id="cb14-336"><a href="#cb14-336"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-337"><a href="#cb14-337"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
-<span id="cb14-338"><a href="#cb14-338"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-339"><a href="#cb14-339"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-340"><a href="#cb14-340"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb14-341"><a href="#cb14-341"></a><span class="in">```</span></span>
-<span id="cb14-342"><a href="#cb14-342"></a></span>
-<span id="cb14-343"><a href="#cb14-343"></a></span>
-<span id="cb14-344"><a href="#cb14-344"></a>::: {.box_img}</span>
-<span id="cb14-347"><a href="#cb14-347"></a><span class="in">```{r}</span></span>
-<span id="cb14-348"><a href="#cb14-348"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-349"><a href="#cb14-349"></a></span>
-<span id="cb14-350"><a href="#cb14-350"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
-<span id="cb14-351"><a href="#cb14-351"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
-<span id="cb14-352"><a href="#cb14-352"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
-<span id="cb14-353"><a href="#cb14-353"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
-<span id="cb14-354"><a href="#cb14-354"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
-<span id="cb14-355"><a href="#cb14-355"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-356"><a href="#cb14-356"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-357"><a href="#cb14-357"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
-<span id="cb14-358"><a href="#cb14-358"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
-<span id="cb14-359"><a href="#cb14-359"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
-<span id="cb14-360"><a href="#cb14-360"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
-<span id="cb14-361"><a href="#cb14-361"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb14-362"><a href="#cb14-362"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
-<span id="cb14-363"><a href="#cb14-363"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb14-364"><a href="#cb14-364"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb14-365"><a href="#cb14-365"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb14-366"><a href="#cb14-366"></a><span class="in">```</span></span>
-<span id="cb14-367"><a href="#cb14-367"></a>:::</span>
-<span id="cb14-368"><a href="#cb14-368"></a></span>
-<span id="cb14-369"><a href="#cb14-369"></a>&lt;br&gt;</span>
-<span id="cb14-370"><a href="#cb14-370"></a></span>
-<span id="cb14-371"><a href="#cb14-371"></a></span>
-<span id="cb14-372"><a href="#cb14-372"></a><span class="fu">## Une fonction pour simplifier et automatiser le code</span></span>
-<span id="cb14-373"><a href="#cb14-373"></a></span>
-<span id="cb14-374"><a href="#cb14-374"></a><span class="ss">* </span>Version 0.1 - Juillet 2023 <span class="co">[</span><span class="ot">Arno Muller</span><span class="co">]</span></span>
-<span id="cb14-375"><a href="#cb14-375"></a><span class="ss">* </span>Des options seront ajoutées ultérieurement (couleurs, épaisseurs, options <span class="in">`thème()`</span>, ....).</span>
-<span id="cb14-376"><a href="#cb14-376"></a></span>
-<span id="cb14-377"><a href="#cb14-377"></a>Chargement de la fonction:</span>
-<span id="cb14-378"><a href="#cb14-378"></a></span>
-<span id="cb14-381"><a href="#cb14-381"></a><span class="in">```{r}</span></span>
-<span id="cb14-382"><a href="#cb14-382"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/arnomuller/Fonction_R/main/spag_plot/spag_plot.R"</span>)</span>
-<span id="cb14-383"><a href="#cb14-383"></a><span class="in">```</span></span>
-<span id="cb14-384"><a href="#cb14-384"></a></span>
-<span id="cb14-385"><a href="#cb14-385"></a></span>
-<span id="cb14-386"><a href="#cb14-386"></a></span>
-<span id="cb14-389"><a href="#cb14-389"></a><span class="in">```{r}</span></span>
-<span id="cb14-390"><a href="#cb14-390"></a><span class="co">#| eval: false</span></span>
-<span id="cb14-391"><a href="#cb14-391"></a></span>
-<span id="cb14-392"><a href="#cb14-392"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv"</span>)</span>
-<span id="cb14-393"><a href="#cb14-393"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character,as.factor)</span>
-<span id="cb14-394"><a href="#cb14-394"></a></span>
-<span id="cb14-395"><a href="#cb14-395"></a><span class="fu">spag_plot</span>(df,                  <span class="co"># Base de données au format long</span></span>
-<span id="cb14-396"><a href="#cb14-396"></a>          <span class="at">var_x =</span> <span class="st">"year"</span>,      <span class="co"># Variable en X (numérique)</span></span>
-<span id="cb14-397"><a href="#cb14-397"></a>          <span class="at">var_y =</span> <span class="st">"y"</span>,         <span class="co"># Variable en Y (numérique)</span></span>
-<span id="cb14-398"><a href="#cb14-398"></a>          <span class="at">var_group=</span> <span class="st">"pays"</span>,   <span class="co"># Variable de groupe (factor)</span></span>
-<span id="cb14-399"><a href="#cb14-399"></a>          <span class="at">ordre =</span>  <span class="dv">1950</span>,      <span class="co"># Ordre des plots ("alpha", valeur num de var_x, un vecteur)</span></span>
-<span id="cb14-400"><a href="#cb14-400"></a>          <span class="at">decroiss =</span> <span class="st">"oui"</span>,    <span class="co"># Ordre décroissant de l'ordre choisi au dessus</span></span>
-<span id="cb14-401"><a href="#cb14-401"></a>          <span class="at">titre   =</span> <span class="st">"TITRE"</span>,   <span class="co"># Choix du titre</span></span>
-<span id="cb14-402"><a href="#cb14-402"></a>          <span class="at">titre_x =</span> <span class="st">"Années"</span>,  <span class="co"># Choix du titre de l'axe X</span></span>
-<span id="cb14-403"><a href="#cb14-403"></a>          <span class="at">titre_y   =</span><span class="st">"Taux"</span>,   <span class="co"># Choix du titre de l'axe Y</span></span>
-<span id="cb14-404"><a href="#cb14-404"></a>          <span class="at">source    =</span> <span class="st">""</span>,      <span class="co"># Source des données</span></span>
-<span id="cb14-405"><a href="#cb14-405"></a>          <span class="at">interval =</span> <span class="dv">20</span>,       <span class="co"># Echelle de X</span></span>
-<span id="cb14-406"><a href="#cb14-406"></a>          <span class="at">n_col =</span> <span class="dv">6</span>)           <span class="co"># Nombre de colonnes pour les graphiques</span></span>
-<span id="cb14-407"><a href="#cb14-407"></a><span class="in">```</span></span>
-<span id="cb14-408"><a href="#cb14-408"></a></span>
-<span id="cb14-409"><a href="#cb14-409"></a></span>
-<span id="cb14-410"><a href="#cb14-410"></a>::: {.box_img}</span>
-<span id="cb14-413"><a href="#cb14-413"></a><span class="in">```{r}</span></span>
-<span id="cb14-414"><a href="#cb14-414"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-415"><a href="#cb14-415"></a></span>
-<span id="cb14-416"><a href="#cb14-416"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv"</span>)</span>
-<span id="cb14-417"><a href="#cb14-417"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character,as.factor)</span>
-<span id="cb14-418"><a href="#cb14-418"></a></span>
-<span id="cb14-419"><a href="#cb14-419"></a><span class="fu">spag_plot</span>(df,                  <span class="co"># Base de données au format long</span></span>
-<span id="cb14-420"><a href="#cb14-420"></a>          <span class="at">var_x =</span> <span class="st">"year"</span>,      <span class="co"># Variable en X (numérique)</span></span>
-<span id="cb14-421"><a href="#cb14-421"></a>          <span class="at">var_y =</span> <span class="st">"y"</span>,         <span class="co"># Variable en Y (numérique)</span></span>
-<span id="cb14-422"><a href="#cb14-422"></a>          <span class="at">var_group=</span> <span class="st">"pays"</span>,   <span class="co"># Variable de groupe (factor)</span></span>
-<span id="cb14-423"><a href="#cb14-423"></a>          <span class="at">ordre =</span>  <span class="dv">1950</span>,      <span class="co"># Ordre des plots ("alpha", valeur num de var_x, un vecteur)</span></span>
-<span id="cb14-424"><a href="#cb14-424"></a>          <span class="at">decroiss =</span> <span class="st">"oui"</span>,    <span class="co"># Ordre décroissant de l'ordre choisi au dessus</span></span>
-<span id="cb14-425"><a href="#cb14-425"></a>          <span class="at">titre   =</span> <span class="st">"TITRE"</span>,   <span class="co"># Choix du titre</span></span>
-<span id="cb14-426"><a href="#cb14-426"></a>          <span class="at">titre_x =</span> <span class="st">"Années"</span>,  <span class="co"># Choix du titre de l'axe X</span></span>
-<span id="cb14-427"><a href="#cb14-427"></a>          <span class="at">titre_y   =</span><span class="st">"Taux"</span>,   <span class="co"># Choix du titre de l'axe Y</span></span>
-<span id="cb14-428"><a href="#cb14-428"></a>          <span class="at">source    =</span> <span class="st">""</span>,      <span class="co"># Source des données</span></span>
-<span id="cb14-429"><a href="#cb14-429"></a>          <span class="at">interval =</span> <span class="dv">20</span>,       <span class="co"># Echelle de X</span></span>
-<span id="cb14-430"><a href="#cb14-430"></a>          <span class="at">n_col =</span> <span class="dv">6</span>)           <span class="co"># Nombre de colonnes pour les graphiques</span></span>
-<span id="cb14-431"><a href="#cb14-431"></a><span class="in">```</span></span>
-<span id="cb14-432"><a href="#cb14-432"></a>:::</span>
-<span id="cb14-433"><a href="#cb14-433"></a></span>
-<span id="cb14-434"><a href="#cb14-434"></a></span>
-<span id="cb14-435"><a href="#cb14-435"></a></span>
-<span id="cb14-436"><a href="#cb14-436"></a></span>
-<span id="cb14-437"><a href="#cb14-437"></a></span>
-<span id="cb14-438"><a href="#cb14-438"></a></span>
-<span id="cb14-439"><a href="#cb14-439"></a></span>
-<span id="cb14-440"><a href="#cb14-440"></a></span>
-<span id="cb14-441"><a href="#cb14-441"></a></span>
-<span id="cb14-442"><a href="#cb14-442"></a></span>
-<span id="cb14-443"><a href="#cb14-443"></a></span>
-<span id="cb14-444"><a href="#cb14-444"></a></span>
-<span id="cb14-445"><a href="#cb14-445"></a></span>
-</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

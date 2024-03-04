@@ -112,6 +112,35 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-latest-content-Stata .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 3,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-latest-content-Stata'] = new List('listing-latest-content-Stata', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -167,10 +196,21 @@ window.Quarto = {
     <a class="nav-link" href="./R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="./Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -205,11 +245,11 @@ window.Quarto = {
 <div class="content-container">
 <div class="listing-block">
 <section id="derniers-ajouts-r" class="level1 zoom-image">
-<h1><strong>Derniers ajouts <a href="https://mthevenin.github.io/assistoolsms/R/">R</a></strong></h1>
-<p>Fiches sur des problématiques exclusives à <strong>R</strong>.</p>
+<h1><strong>Derniers ajouts <a href="./R/index.html">R</a></strong></h1>
+<p>Fiches sur des problématiques liées à l’utilisation de <strong>R</strong>.</p>
 <div id="listing-latest-content-R" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1698148699878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1037">
+<div class="g-col-1" data-index="0" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1709546104528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1067">
 <a href="./R/assist/posts/pkg_prefix/pkg_prefix.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -228,7 +268,7 @@ Reproductibilité
 </div>
 </div>
 <div class="card-text listing-description">
-Il est très simple d’ajouter, dans un script R, les noms des packages aux appels des fonctions. Sous forme de préfixes, ces indications permettent…
+Il est très simple d’ajouter, dans un script R, les noms des packages aux appels des fonctions.…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -258,7 +298,7 @@ Cartographie
 </div>
 </div>
 <div class="card-text listing-description">
-Nous allons montrer comment réaliser des cartes avec R à l’aide du package <strong><code>mapsf</code></strong> (T.Giraud) et du packages <strong><code>sf</code></strong>. mapsf est un outil très…
+Nous allons montrer comment réaliser des cartes avec R à l’aide du package <strong><code>mapsf</code></strong> (T.Giraud)…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -291,7 +331,7 @@ Analyse textuelle
 </div>
 </div>
 <div class="card-text listing-description">
-Si <em>Iramuteq</em> est un logiciel pratique, qui permet à un public peu familier des logiciels statistiques de faire des analyses textuelles, l’étape de…
+Si <em>Iramuteq</em> est un logiciel pratique, qui permet à un public peu familier des logiciels…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -305,7 +345,7 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1690358642160" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="589">
+<div class="g-col-1" data-index="3" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1709541885153" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="685">
 <a href="./R/assist/posts/nuage_de_mot/nuage_de_mot.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -321,7 +361,7 @@ Analyse textuelle
 </div>
 </div>
 <div class="card-text listing-description">
-Pour réaliser un nuage ou un graphe de mots avec R, l’utilisation des packages <strong><code>R.temis</code></strong>, <strong><code>dplyr</code></strong> et <strong><code>tibble</code></strong> s’avèrent particulièrement…
+Pour réaliser un nuage ou un graphe de mots avec R, l’utilisation des packages <strong><code>R.temis</code></strong>…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -354,7 +394,7 @@ Statistiques descriptives
 </div>
 </div>
 <div class="card-text listing-description">
-Nous allons montrer comment s’approprier des données issues des <strong>Enquêtes Démographiques et de Santé</strong> (DHS) pour produire des statistiques…
+Nous allons montrer comment s’approprier des données issues des **Enquêtes Démographiques et de…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -384,7 +424,7 @@ Graphique
 </div>
 </div>
 <div class="card-text listing-description">
-Un graphique devient très facilement illisible lorsque trop d’objets graphiques y sont introduits, par exemple pour des courbes, au-delà de 5-6. Ce…
+Un graphique devient très facilement illisible lorsque trop d’objets graphiques y sont introduits…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -398,7 +438,7 @@ A.Muller , M.Thévenin
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1689073742754" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="666">
+<div class="g-col-1" data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1709543355498" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="780">
 <a href="./R/assist/posts/addins/addins.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -406,7 +446,7 @@ A.Muller , M.Thévenin
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Produire des graphiques et recoder des variables sans écrire de code R
+Graphiques et recodage sans code R
 </h5>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Addins'); return false;">
@@ -420,7 +460,7 @@ Recodage
 </div>
 </div>
 <div class="card-text listing-description">
-Rstudio possède des <strong>Addins</strong> qui permettent d’exécuter des fonctions R de façon interactive. Le code généré peut être sauvegardé pour l’insérer…
+Rstudio possède des <strong>Addins</strong> qui permettent d’exécuter des fonctions R de façon interactive. Le…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -450,7 +490,7 @@ Notebook
 </div>
 </div>
 <div class="card-text listing-description">
-On peut utiliser R avec le très populaire notebook Jupyter. Utilisé dans un navigateur, il permet de récupérer l’ensemble des cellules et les…
+On peut utiliser R avec le très populaire notebook Jupyter. Utilisé dans un navigateur, il permet…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -483,7 +523,7 @@ Tableau
 </div>
 </div>
 <div class="card-text listing-description">
-Après avoir explorer des données, on peut vouloir compiler nos tables dans un même objet et l’exporter dans Excel pour les mettre en forme selon ses…
+Après avoir explorer des données, on peut vouloir compiler nos tables dans un même objet et…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -497,7 +537,7 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688382043334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563">
+<div class="g-col-1" data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1709536266463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563">
 <a href="./R/assist/posts/weight_norm/weight_norm.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -513,7 +553,7 @@ Pondération
 </div>
 </div>
 <div class="card-text listing-description">
-L’utilisation des poids normalisés sur la taille de l’échantillon s’avère obligatoire pour certaines analyses, en particulier pour obtenir des…
+L’utilisation des poids normalisés sur la taille de l’échantillon s’avère obligatoire pour…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -527,7 +567,7 @@ Elodie Baril
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1688380419481" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479">
+<div class="g-col-1" data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1709536939562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479">
 <a href="./R/assist/posts/import_json/JSON.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -546,7 +586,7 @@ Importation
 </div>
 </div>
 <div class="card-text listing-description">
-Le format JSON est un format de plus en plus utilisé pour stocker des données, notamment pour les données issues du web. Cependant, sa structure…
+Le format JSON est un format de plus en plus utilisé pour stocker des données, notamment pour les…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -579,7 +619,7 @@ Recodage
 </div>
 </div>
 <div class="card-text listing-description">
-Lors du nettoyage des données, on peut être amené à appliquer le même recodage à plusieurs variables aux modalités similaire (valeurs manquantes, Ne…
+Lors du nettoyage des données, on peut être amené à appliquer le même recodage à plusieurs…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -593,7 +633,7 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1688381009144" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2562">
+<div class="g-col-1" data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1709536477998" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2566">
 <a href="./R/assist/posts/ifelse_casewhen/ifelse_casewhen.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -609,7 +649,7 @@ Recodage
 </div>
 </div>
 <div class="card-text listing-description">
-Lors d’un recodage d’une variable, on peut être emmené à créer des catégories dépendantes d’une ou plusieurs conditions. Pour cela, la plus part des…
+Lors d’un recodage d’une variable, on peut être emmené à créer des catégories dépendantes d’une ou…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -639,7 +679,7 @@ Appariement
 </div>
 </div>
 <div class="card-text listing-description">
-En démographie historique, on est souvent amenés à confronter des chaines de caractères pour relier des enregistrements nominatifs, par exemple…
+En démographie historique, on est souvent amenés à confronter des chaines de caractères pour…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -653,7 +693,7 @@ Arnaud Bringé
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1688384475884" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511">
+<div class="g-col-1" data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1709536916714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511">
 <a href="./R/assist/posts/jtools_output/jtools_output.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -669,7 +709,7 @@ Output
 </div>
 </div>
 <div class="card-text listing-description">
-La fonction <code>summ</code> du package jtools (Jacob Long) permet d’obtenir des outputs de regression en format console de très bonne qualité. Il s’agit…
+La fonction <code>summ</code> du package jtools (Jacob Long) permet d’obtenir des outputs de regression en…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -683,7 +723,7 @@ Marc Thévenin
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1688384219017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="329">
+<div class="g-col-1" data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1709536139862" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="333">
 <a href="./R/assist/posts/coxzph/coxzph.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -699,7 +739,7 @@ Test
 </div>
 </div>
 <div class="card-text listing-description">
-Comment récupérer la variante du test de Grambsch-Therneau implémentée au package <code>survival</code> avant son passage à la v3. Permet de s’assurer une…
+Comment récupérer la variante du test de Grambsch-Therneau implémentée au package <code>survival</code> avant…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -713,7 +753,7 @@ Marc Thévenin
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1688726459347" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239">
+<div class="g-col-1" data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1709536223117" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239">
 <a href="./R/assist/posts/R_vscode/R_vscode_doc.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -729,7 +769,7 @@ Editeur
 </div>
 </div>
 <div class="card-text listing-description">
-VSCode est un IDE (<strong>Environnement de Dévelopement Integré</strong>) qui offre une intégration avec de nombreux outils et langages de programmation.…
+VSCode est un IDE (<strong>Environnement de Dévelopement Integré</strong>) qui offre une intégration avec de…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -757,8 +797,8 @@ Aucun article correspondant
 <!-- Derniers ajouts Autres-->
 <div class="content-container">
 <div class="listing-block">
-<section id="derniers-ajouts-othe-r" class="level1 zoom-image">
-<h1><strong>Derniers ajouts <a href="https://mthevenin.github.io/assistoolsms/Autres/">Othe-R</a></strong></h1>
+<section id="derniers-ajouts-quarto---git---python" class="level1 zoom-image">
+<h1><strong>Derniers ajouts <a href="./Autres/index.html">Quarto - Git - Python …</a></strong></h1>
 <p>Fiches sur des problématiques liées à l’utilisation de <strong>Quarto</strong>, <strong>git</strong>…</p>
 <div id="listing-latest-content-Autres" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
@@ -769,7 +809,7 @@ Aucun article correspondant
 <img src="./Autres/assist/posts/gitlabpage/img/gitlab_logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title" data-anchor-id="derniers-ajouts-othe-r">
+<h5 class="no-anchor card-title listing-title" data-anchor-id="derniers-ajouts-quarto---git---python">
 Déployer un contenu html sur gitlab [maj]
 </h5>
 <div class="listing-categories">
@@ -781,7 +821,7 @@ Quarto
 </div>
 </div>
 <div class="card-text listing-description">
-Par rapport à Github le déploiement de contenus html sur Gitlab demande quelques manipulations supplémentaires. Les éléments qui suivent donnent la…
+Par rapport à Github le déploiement de contenus html sur Gitlab demande quelques manipulations…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -811,7 +851,7 @@ Quarto
 </div>
 </div>
 <div class="card-text listing-description">
-Juste quelques infos. La nouvelle version de Quarto est sortie le 07 janvier 2024: intégration de l’extension lightbox au logiciel, deux nouveaux…
+Juste quelques infos. La nouvelle version de Quarto est sortie le 07 janvier 2024: intégration de…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -847,7 +887,7 @@ Css
 </div>
 </div>
 <div class="card-text listing-description">
-Le formatage d’un document utilisant du markdown ne permet pas de modifier à la volée la couleur d’un mot ou d’un texte. Classiquement on utilise…
+Le formatage d’un document utilisant du markdown ne permet pas de modifier à la volée la couleur…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -883,7 +923,7 @@ Erreur
 </div>
 </div>
 <div class="card-text listing-description">
-Le paquet de retranscription d’un fichier audio Whisper demande l’installation de l’encodeur vidéo <strong>ffmpeg</strong>. Même installé, le chemin d’accès de…
+Le paquet de retranscription d’un fichier audio Whisper demande l’installation de l’encodeur vidéo…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -916,7 +956,7 @@ Yaml
 </div>
 </div>
 <div class="card-text listing-description">
-Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite…
+Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -949,7 +989,7 @@ Rstudio
 </div>
 </div>
 <div class="card-text listing-description">
-Sous forme de gifs animés: création d’un dépôt git, création d’un projet Rstudio avec clonage du dépôt, envoyer des fichiers du projet dans le…
+Sous forme de gifs animés: création d’un dépôt git, création d’un projet Rstudio avec clonage du…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -985,7 +1025,7 @@ Css
 </div>
 </div>
 <div class="card-text listing-description">
-A la suite d’un code, le report de l’output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son…
+A la suite d’un code, le report de l’output console de Quarto (idem Rmarkdown) épouse le thème de…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -1018,7 +1058,7 @@ Code
 </div>
 </div>
 <div class="card-text listing-description">
-<p>Depuis la version 1.3 de Quarto il est possible d’annoter une ou plusieurs lignes d’un bloc de codes.</p>
+Depuis la version 1.3 de Quarto il est possible d’annoter une ou plusieurs lignes d’un bloc de…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -1051,7 +1091,7 @@ Extension
 </div>
 </div>
 <div class="card-text listing-description">
-L’extension <strong>social-embeds</strong> permet d’insérer proprement du contenu provenant de médias sociaux à l’aide d’un code très simple qui est directement…
+L’extension <strong>social-embeds</strong> permet d’insérer proprement du contenu provenant de médias sociaux à…
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -1084,7 +1124,7 @@ Problème fichier
 </div>
 </div>
 <div class="card-text listing-description">
-Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un…<strong></strong><em></em>
+Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable.…<strong></strong><em></em>
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -1103,6 +1143,458 @@ Marc Thévenin
 Aucun article correspondant
 </div>
 <nav id="latest-content-Autres-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div>
+</section>
+</div>
+</div>
+<!-- Derniers ajouts Stata-->
+<div class="content-container">
+<div class="listing-block">
+<section id="derniers-ajouts-stata" class="level1 zoom-image">
+<h1><strong>Derniers ajouts <a href="./Stata/index.html">Stata</a></strong></h1>
+<p>Fiches sur des problématiques liées à l’utilisation de <strong>Stata</strong>…</p>
+<div id="listing-latest-content-Stata" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Notebook,Quarto,Jupyter" data-listing-date-sort="1693346400000" data-listing-file-modified-sort="1709548144164" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="462">
+<a href="./Stata/assist/posts/nbstata/nbstata.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title" data-anchor-id="derniers-ajouts-stata">
+<strong>Stata, Jupyter et Quarto: la solution nbstata</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Notebook'); return false;">
+Notebook
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
+Quarto
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Jupyter'); return false;">
+Jupyter
+</div>
+</div>
+<div class="card-text listing-description">
+putdoc, puthtml… Oublier! Depuis plusieurs années il est possible d’exécuter un programme Stata…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+30 août 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Frame" data-listing-date-sort="1688335200000" data-listing-file-modified-sort="1709548382483" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="123">
+<a href="./Stata/assist/posts/dtas/dtas.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&amp;name=4096x4096" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Le format dtas</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Frame'); return false;">
+Frame
+</div>
+</div>
+<div class="card-text listing-description">
+La version 18 de Stata a implémenté un nouveau format, associé aux frames, le format <strong>.dtas</strong>. Il…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+3 juil. 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Stata 18,graphique" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688114185950" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="136">
+<a href="./Stata/assist/posts/palette_style/palette_style.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="Stata\assist\posts\palette_style\img1.png" alt="Nouvelle palette stcolor" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Nouvelle palette de couleurs et nouveau thème usine avec Stata 18</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Stata 18'); return false;">
+Stata 18
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+</div>
+<div class="card-text listing-description">
+La palette s2 et le thème s2color, dépassés depuis bien longtemps ont été enfin remplacés. Cette…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+29 juin 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Stata 18,autosave" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1709548512252" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="64">
+<a href="./Stata/assist/posts/autosave/autosave.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&amp;name=4096x4096" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Autosave des .do à partir de Stata 18</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Stata 18'); return false;">
+Stata 18
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('autosave'); return false;">
+autosave
+</div>
+</div>
+<div class="card-text listing-description">
+Sans aucun doute une des fonctionalités les plus intéressantes de la version: enfin la présence…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+27 juin 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="graphique,ado" data-listing-date-sort="1678834800000" data-listing-file-modified-sort="1687769391523" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
+<a href="./Stata/assist/posts/addnlab/addnlab.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\addnlab\g1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Ajouter les effectifs sur un axe discret avec addnlab</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
+</div>
+</div>
+<div class="card-text listing-description">
+Une petite commande sans grande prétention, mais peut-être utile, car elle permet d’ajouter sur…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+15 mars 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="frame" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1709548891820" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1310">
+<a href="./Stata/assist/posts/frame/frame.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="https://www.insightplatforms.com/wp-content/uploads/2019/09/stata_logo.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Introduction aux frames [Stata 16]</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('frame'); return false;">
+frame
+</div>
+</div>
+<div class="card-text listing-description">
+Les frames, introduites avec la version 16 de Stata, permettent de travailler parallèlement sur…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+23 févr. 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="gtools,runtime" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1687929919215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2404">
+<a href="./Stata/assist/posts/gtools/gtools.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\gtools\succssrocket.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Améliorer la durée d’exécution avec Gtools</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('gtools'); return false;">
+gtools
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('runtime'); return false;">
+runtime
+</div>
+</div>
+<div class="card-text listing-description">
+Le package <strong><code>gtools</code></strong> de Mauricio Caceres Bravo permet d’améliorer significativement la durée…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+23 févr. 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="graphique,python" data-listing-date-sort="1664748000000" data-listing-file-modified-sort="1687769429090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="818">
+<a href="./Stata/assist/posts/graph_python/python.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\graph_python\img\graph0a.png" alt="Variable environnement" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Faire des graphiques sous Stata avec Python</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
+python
+</div>
+</div>
+<div class="card-text listing-description">
+Il s’agit d’une courte présentation de l’utilisation de Python sous Stata pour générer des…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+3 oct. 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="Tableaux,Output" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1688447560411" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="26" data-listing-word-count-sort="5199">
+<a href="./Stata/assist/posts/collect/collect.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\collect\word1.PNG" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Editer des outputs avec collect</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Tableaux'); return false;">
+Tableaux
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Output'); return false;">
+Output
+</div>
+</div>
+<div class="card-text listing-description">
+La suite <strong><code>collect</code></strong> introduite avec le version 17 va t-elle remplacer <code>outreg2</code> et autres…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+26 sept. 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="9" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769374156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="326">
+<a href="./Stata/assist/posts/fabplot/fabplot.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\fabplot\g1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Contrôler l’effet spaghetti avec fabplot (NJ.Cox)</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
+</div>
+</div>
+<div class="card-text listing-description">
+La commande <strong><code>fabplot</code></strong> programmée en 2021 par Nj.Cox permet de contrôler efficacement les…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+26 sept. 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="10" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769402707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="38">
+<a href="./Stata/assist/posts/gjoint/gjoint.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\gjoint\g1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Distributions croisées avec gjoint</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
+</div>
+</div>
+<div class="card-text listing-description">
+Petite commande graphique en version alpha: <strong><code>gjoint</code></strong>. Permet de visualiser la distribution…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+26 sept. 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="11" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769293837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1035">
+<a href="./Stata/assist/posts/gridge/gridge.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\gridge\g1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Visualisation des densités avec gridge</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
+</div>
+</div>
+<div class="card-text listing-description">
+Depuis 2020, des programmes permettent de générer de type lignes de crête: <code>joyplot</code> (A.Naqvi) et…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+26 sept. 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="12" data-categories="graphique" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769447539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="228">
+<a href="./Stata/assist/posts/lollipop/lollipop.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\lollipop\g1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Programmer un graphique Lollipop</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+</div>
+<div class="card-text listing-description">
+J’étais complétement passé à côte de la fonction <strong><code>axis</code></strong> du package <strong><code>egenmore</code></strong> de Nj.Cox.…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+26 sept. 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="13" data-categories="profile" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687775236701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1288">
+<a href="./Stata/assist/posts/profile/profile.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="Stata\assist\posts\profile\g1.PNG" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Configurer les sessions avec un profile.do</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('profile'); return false;">
+profile
+</div>
+</div>
+<div class="card-text listing-description">
+Un fichier <strong>profile.do</strong> est un programme qui s’éxécute à l’ouverture d’une session Stata. Ce…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+26 sept. 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+Aucun article correspondant
+</div>
+<nav id="latest-content-Stata-pagination" class="listing-pagination" aria-label="Page Navigation">
   <ul class="pagination"></ul>
 </nav>
 </div>

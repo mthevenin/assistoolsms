@@ -115,10 +115,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -144,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Modification de l’apparence des outputs avec un fichier .scss</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Modification de l’apparence des outputs avec un fichier .scss</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Quarto</div>
                 <div class="quarto-category">Scss</div>
@@ -283,8 +294,6 @@ Exportation pdf
 </div>
 
 
-<!-- -->
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -366,57 +375,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -728,113 +686,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Modification de l'apparence des outputs avec un fichier .scss"</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="an">categories:</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">  - Quarto</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">  - Scss</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">  - Css</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">  </span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">    affiliations:</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="an">date:</span><span class="co"> 06/20/2023</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a></span>
-<span id="cb5-18"><a href="#cb5-18"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="co">  html: default</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="co">  docx: default</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a></span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="an">filters:</span></span>
-<span id="cb5-23"><a href="#cb5-23"></a><span class="co">   - lightbox</span></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a></span>
-<span id="cb5-26"><a href="#cb5-26"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb5-27"><a href="#cb5-27"></a><span class="co"> A la suite d'un code, le report  de l'output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d'un contour, à l'aide des variables sass et d'un code .css ajoutés à un fichier .scss </span></span>
-<span id="cb5-28"><a href="#cb5-28"></a><span class="co">---</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a></span>
-<span id="cb5-30"><a href="#cb5-30"></a>Par défaut le rendu des outputs console bruts (<span class="in">`theme: default`</span>) est le suivant:  </span>
-<span id="cb5-31"><a href="#cb5-31"></a></span>
-<span id="cb5-32"><a href="#cb5-32"></a><span class="al">![](img/img1.png)</span>{with=80%}</span>
-<span id="cb5-33"><a href="#cb5-33"></a></span>
-<span id="cb5-34"><a href="#cb5-34"></a><span class="ss">- </span>Avec un fichier .scss on peut modifier le rendu de cet output. </span>
-<span id="cb5-35"><a href="#cb5-35"></a><span class="ss">  -  </span>Un fichier styles.scss est généré automatiquement à la création d'un projet</span>
-<span id="cb5-36"><a href="#cb5-36"></a><span class="ss">  - </span>Pour une page simple, on peut le créer facilement  facilement à partir d'un fichier de type texte, en le renommant avec l'extension <span class="in">`.scss`</span>, par exemple <span class="in">`styles.scss`</span>.</span>
-<span id="cb5-37"><a href="#cb5-37"></a><span class="ss">- </span>On ajoute des éléments de modification de l'apparence au fichier .scss</span>
-<span id="cb5-38"><a href="#cb5-38"></a><span class="ss">- </span>On indique dans le yaml de la page ou le _quarto.yml du projet qu'on applique ces modifications.  </span>
-<span id="cb5-39"><a href="#cb5-39"></a></span>
-<span id="cb5-40"><a href="#cb5-40"></a>**Modifications de l'output console dans un fichier .scss** </span>
-<span id="cb5-41"><a href="#cb5-41"></a></span>
-<span id="cb5-42"><a href="#cb5-42"></a><span class="in">```markdown</span></span>
-<span id="cb5-43"><a href="#cb5-43"></a>$code-block-stdoutcolor: #37424a;</span>
-<span id="cb5-44"><a href="#cb5-44"></a>$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);</span>
-<span id="cb5-45"><a href="#cb5-45"></a>$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);</span>
-<span id="cb5-46"><a href="#cb5-46"></a></span>
-<span id="cb5-47"><a href="#cb5-47"></a>/*-- scss:rules --*/</span>
-<span id="cb5-48"><a href="#cb5-48"></a></span>
-<span id="cb5-49"><a href="#cb5-49"></a>.cell-output-display pre, .cell-output-stdout pre {</span>
-<span id="cb5-50"><a href="#cb5-50"></a>    background-color: $code-block-stdoutcolor-lighter !important;</span>
-<span id="cb5-51"><a href="#cb5-51"></a>    border: 1.5px solid $code-block-stdoutcolor-light;</span>
-<span id="cb5-52"><a href="#cb5-52"></a>    border-radius: .25rem;</span>
-<span id="cb5-53"><a href="#cb5-53"></a>    border-left: 4px;</span>
-<span id="cb5-54"><a href="#cb5-54"></a>    border-left-style: solid;</span>
-<span id="cb5-55"><a href="#cb5-55"></a>    border-left-color: $code-block-stdoutcolor;</span>
-<span id="cb5-56"><a href="#cb5-56"></a>    padding: .4em;</span>
-<span id="cb5-57"><a href="#cb5-57"></a>    color: #37424a</span>
-<span id="cb5-58"><a href="#cb5-58"></a>}</span>
-<span id="cb5-59"><a href="#cb5-59"></a></span>
-<span id="cb5-60"><a href="#cb5-60"></a></span>
-<span id="cb5-61"><a href="#cb5-61"></a>.cell-output pre code {</span>
-<span id="cb5-62"><a href="#cb5-62"></a>    background-color: transparent;</span>
-<span id="cb5-63"><a href="#cb5-63"></a>}</span>
-<span id="cb5-64"><a href="#cb5-64"></a></span>
-<span id="cb5-65"><a href="#cb5-65"></a><span class="in">```</span></span>
-<span id="cb5-66"><a href="#cb5-66"></a>Ici on a modifier la couleur du fond (ici un gris:<span class="in">`#37424a`</span>), l'épaisseur du contour (plus importante à gauche), le radius des angles du contour etc...</span>
-<span id="cb5-67"><a href="#cb5-67"></a></span>
-<span id="cb5-68"><a href="#cb5-68"></a></span>
-<span id="cb5-69"><a href="#cb5-69"></a>**yaml de la page ou du template quarto.yml du projet**  </span>
-<span id="cb5-70"><a href="#cb5-70"></a></span>
-<span id="cb5-71"><a href="#cb5-71"></a></span>
-<span id="cb5-72"><a href="#cb5-72"></a>Pour le yaml d'une page simple avec le fichier styles.scss</span>
-<span id="cb5-73"><a href="#cb5-73"></a></span>
-<span id="cb5-74"><a href="#cb5-74"></a><span class="in">```markdown</span></span>
-<span id="cb5-75"><a href="#cb5-75"></a>---</span>
-<span id="cb5-76"><a href="#cb5-76"></a></span>
-<span id="cb5-77"><a href="#cb5-77"></a>title="Changement couleur output"</span>
-<span id="cb5-78"><a href="#cb5-78"></a></span>
-<span id="cb5-79"><a href="#cb5-79"></a>format:</span>
-<span id="cb5-80"><a href="#cb5-80"></a>  html:</span>
-<span id="cb5-81"><a href="#cb5-81"></a>    theme: <span class="co">[</span><span class="ot">default, style.scss</span><span class="co">]</span></span>
-<span id="cb5-82"><a href="#cb5-82"></a>---</span>
-<span id="cb5-83"><a href="#cb5-83"></a><span class="in">```</span></span>
-<span id="cb5-84"><a href="#cb5-84"></a></span>
-<span id="cb5-85"><a href="#cb5-85"></a>Après exécution du programme, le rendu de l'output est le suivant:</span>
-<span id="cb5-86"><a href="#cb5-86"></a></span>
-<span id="cb5-89"><a href="#cb5-89"></a><span class="in">```{r}</span></span>
-<span id="cb5-90"><a href="#cb5-90"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
-<span id="cb5-91"><a href="#cb5-91"></a></span>
-<span id="cb5-92"><a href="#cb5-92"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Sepal.Length<span class="sc">~</span>Petal.Length, <span class="at">data=</span>iris))</span>
-<span id="cb5-93"><a href="#cb5-93"></a><span class="in">```</span></span>
-<span id="cb5-94"><a href="#cb5-94"></a></span>
-<span id="cb5-95"><a href="#cb5-95"></a></span>
-<span id="cb5-96"><a href="#cb5-96"></a>::: callout-warning</span>
-<span id="cb5-97"><a href="#cb5-97"></a></span>
-<span id="cb5-98"><a href="#cb5-98"></a><span class="fu">## Exportation pdf</span></span>
-<span id="cb5-99"><a href="#cb5-99"></a></span>
-<span id="cb5-100"><a href="#cb5-100"></a>Si le document est exporté en PDF avec l'option <span class="in">`formats`</span> dans le yaml, les modifications ne sont pas prises en compte. </span>
-<span id="cb5-101"><a href="#cb5-101"></a></span>
-<span id="cb5-102"><a href="#cb5-102"></a>:::</span>
-<span id="cb5-103"><a href="#cb5-103"></a></span>
-<span id="cb5-104"><a href="#cb5-104"></a></span>
-</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

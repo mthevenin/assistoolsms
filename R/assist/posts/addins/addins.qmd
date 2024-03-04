@@ -1,5 +1,5 @@
 ---
-title: "Produire des graphiques et recoder des variables sans écrire de code R"
+title: "Graphiques et recodage sans code R"
 
 date: 07/10/2023
 
@@ -15,10 +15,6 @@ author:
 
 image: "http://dreamrs.github.io/esquisse/logo.png"
 
-filters:
-   - lightbox
-   
-lightbox: auto
 
 abstract: |
  Rstudio possède des **Addins** qui permettent  d'exécuter des fonctions R de façon interactive. Le code généré peut être sauvegardé pour l'insérer dans ses scripts R. Nous illustrons notre propos ici avec les packages **esquisse** pour visualiser des données ou produire des graphiques simples  et **questionr** pour recoder des variables.
@@ -49,14 +45,14 @@ Le fichier utilisé ici contient 10% des individus de la table *Ménages* extrai
 
 -   [**Débuter avec Esquisse**](http://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)
 
--   Séminaire R à l'Usage des Sciences Sociales, [*Esquisse, moins tu sais coder plus tu vas rigoler*](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)
+-   Séminaire R à l'Usage des Sciences Sociales, [**Esquisse, moins tu sais coder plus tu vas rigoler**](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)
 
 -   [**package questionr**](http://juba.github.io/questionr/articles/recoding_addins.html)
 
 
 **Installation des packages**
 
-```markdown
+```{.r}
 install.packages("esquisse")
 install.packages("questionr")
 ```
@@ -74,77 +70,129 @@ load("datas/P3_Menages.RData")
 
 On peut accéder à **esquisse** via le menu **Addins** de RStudio et en sélectionnant **ggplot2 builder**.
 
-![](img/img1.png){width=45%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img1.png)
+:::
+:::
+<br>
 
 Ou directement par la console:
 
-```markdown
+```{.r}
 esquisser()
 ```
+
+
 
 ## Chargement des données
 
 Lorsque l'application est ouverte, on accède directement à la fenêtre de chargement des données. Ici, comme les données ont été chargée dans R, elles sont directement accessibles **`<\>environnement`**.
 
-![](img/img2.png){width=50%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img2.png)
+:::
+:::
+<br>
 
 Sélection et visualisation de la table à l'aide de l'onglet **View**.
 
-![](img/img3.png){width=50%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img3.png)
+:::
+:::
+<br>
 
 Sous le nom de chaque variable, on peut voir son *type R* : *integer, factor, character*.
 
 On peut visualiser les *modalités* associées aux variables avec le bouton **Data** (en bas de la fenêtre).
 
-![](img/img4.png){width=50%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img4.png)
+:::
+:::
+<br>
+
 
 ## Production d'un graphique
 
-La fenêtre d'esquisse permet de *choisir* les données à représenter et *propose un graphique* adapté au type de la variable dans R. Ici une ***box-plot***
+La fenêtre d'esquisse permet de *choisir* les données à représenter et *propose un graphique* adapté au type de la variable dans R. Ici une ***box-plot***.  
 
-![](img/img5.png){width=50%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img5.png)
+:::
+:::
+<br>
+
 
 On Sélectionne les variables par un **glisser/déposer** dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, ... du package ggplot2). 
 
 Le rôle de ces options sont données en cliquant sur le bouton *display settings* qui se trouve en haut à droite de la fenêtre principale.
 
-![](img/img5b.png){width=50%}
-
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img5b.png)
+:::
+:::
+<br>
 
 Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz [From data to Viz](http://www.data-to-viz.com/).  
 
 
 Pour l'exemple, on va représenter le nombre de ménages par pays d'enquête *hv000* avec un graphique en barres.
 
-![](img/img6.png){width=50%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img6.png)
+:::
+:::
+<br>
 
 Si on souhaite modifier orienter les barres à l'horizontal (recommandé) on va dans l'onglet **Plot options** puis on coche ***Flip coordinate***.
 
 On utilise le bouton **Plot options** pour changer la disposition (ici barres horizontales).
 
-![](img/img7.png){width=50%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img7.png)
+:::
+:::
+<br>
 
 On peut égalemet changer les titres du graphique dans l'onglet **Ad Labels & Titles**, et son apparence (couleurs, thème) dans l'onglet **Appearance**.
 
+
 ::: {layout-ncol=2}
+::: {.box_img}
+![](img/img8.png){group="g1"}
+::: 
 
-![](img/img8.png)
-
-![](img/img9.png)
-
+::: {.box_img}
+![](img/img9.png){group="g1"}
 :::
-
+:::
+<br>
 
 ## Exporter le code
 
 L'onglet **Code** affiche le code généré par l'application. On peut le récupérer par simple copier/coller
 
-![](img/img10.png){width=70%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img10.png)
 
-Comme l'interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction **`geom_bar()`** l'option `color="black"`
+:::
+:::
+<br>
+
+Comme l'interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction **`geom_bar()`** l'option `color="black"`.
 
 
-```{r}
+```{.r}
 library(ggplot2)
 
 ggplot(P3_Menages) +
@@ -161,10 +209,39 @@ ggplot(P3_Menages) +
 ```
 
 
+::: {.column width="65%"}
+::: {.box_img}
+```{r}
+#| echo:    false
+#| warning: false
+#| message: false
+
+library(ggplot2)
+
+ggplot(P3_Menages) +
+  aes(x = hv000) +
+  geom_bar(fill = "#FF6992", color="black") +
+  labs(
+    x = "Enquête",
+    y = "Nombre de ménages",
+    title = "Ménages par pays et vagues d'enquête",
+    caption = "Source: DHS 2017"
+  ) +
+  coord_flip() +
+  theme_light()
+```
+:::
+:::
+<br>
+
 L'animation qui suit résume les différentes étapes (cliquer sur l'image pour la faire redémarrer au début et l'agrandir)
 
-
-![](img/addins.gif){width=70%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/addins.gif)
+:::
+:::
+<br>
 
 
 # Addins de questionr
@@ -180,19 +257,40 @@ library(questionr)
 #load("datas/P3_Menages.RData")
 ```
 
+
+::: {.column width="35%"}
+::: {.box_img}
 ![](img/img11.png)
+:::
+:::
+<br>
 
 On accède à la fenêtre de recodage en cliquant sur **Levels recoding**. Par exemple pour la variable *Pays et vague de l'enquête (hv000)*. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).
 
-![](img/img11b.png){width=70%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img11b.png)
+:::
+:::
+<br>
 
 On change l'intitulé des modalités (bouton **Recodage**).
 
-![](img/img12.png){width=70%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img12.png)
+:::
+:::
+<br>
 
 On génère le code et on visualise le résultat (bouton **Code et Résultat**).
 
-![](img/img13.png){width=70%}
+::: {.column width="65%"}
+::: {.box_img}
+![](img/img13.png)
+:::
+:::
+<br>
 
 De la même façon, on peut changer l'ordre des modalités d'une variable en sélectionnant l'Addin **Levels Ordering**.
 

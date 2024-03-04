@@ -1,0 +1,403 @@
+---
+title: "**Introduction aux frames [Stata 16]**"
+
+title-block-banner: false
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 02/23/2023
+
+image: "https://www.insightplatforms.com/wp-content/uploads/2019/09/stata_logo.png"
+
+categories: 
+  - frame
+
+format: 
+  html: default
+  docx:
+    toc: true
+    number-sections: true
+    
+filters:
+   - lightbox
+lightbox: auto
+
+jupyter: nbstata  
+
+abstract: | 
+ Les frames, introduites avec la version 16 de Stata, permettent de travailler parallèlement sur plusieurs bases de données, sans avoir à enregistrer/ouvrir. Un système de liaison entre frames revisite l'appariement des bases. Il s'avère particulièrement utile lorsqu'on alimente une base individuelle avec des données contextuelles.
+
+---
+
+<br><br>
+
+Les **frames** on été implémentées à Stata à partir de la version 16 (2019). Elles n'améliorent pas directement les durées d'éxécution, mais en donnant la possibilité de travailler simultanément sur plusieurs bases simultanément  sans multiplier les opérations d'ouverture ou de sauvegarde, elles permettent de "gagner du temps". Mieux encore, elles ont été pensées pour faciliter les fusions et les manipulations d'informations entre bases de données en implémentant une alternative aux *`merge`* via une logique de liaison.     
+***Les frames ont été pensées pour faciliter le travail de programmation entre bases individuelles et bases contextuelles***.
+
+
+::: callout-note
+
+La version 18 de Stata implémente le format **.dtas** qui permet de sauvergadrer une collection de frames et leurs liaisons.
+
+:::
+
+La présentation des **frames** se fera par l'exemple, avec la base *nhanes2*: 
+
+
+- créer plusieurs frames à partir d'une base source (*nhanes2*). 
+- *collapser* des informations dans une frame
+- lier deux frames et importer des variables d'une frame à une autre .  
+- générer des variables dans une frame en utilisant des informations issues d'une ou plusieurs autres *frame*.
+
+
+Depuis Stata 16, à chaque base active est associée une *frame* nommée *default*. On peut récupérer l'information sur les frames créées lors d'une session avec les instruction **`frame dir`** ou **`frame list`**. Le nombre de lignes (observations) et colonnes (variables) sont indiquées.  
+
+On ouvre une session avec Stata, la frame * default* avec 0 ligne et 0 colonnes est indiquée  avec `frame dir`.
+
+```{stata}
+frame dir 
+```
+
+On ouvre une base, et de nouveau avec `frame dir`: 
+
+```{stata}
+clear
+webuse nhanes2
+
+frame dir 
+
+des, s
+```
+
+On souhaite renommer cette frame *default*, par exemple *nhanes*:  *`frame rename`*
+
+```{stata}
+frame rename default nhanes
+
+frame dir
+```
+
+# **Création d'une frame**
+
+On souhaite, par exemple, créer des bases d'indicateurs en collapsant des informations issues de la base/frame *nhanes*,  sur la tension artérielle (*bpsystol*) et sur l'IMC (*bmi*), tout en gardant les informations sur le sexe (*sex*). On va générer deux frames avec **`frame put`**.  
+
+On indique simplement la sélection de variables et avec l'option **`into()`** le nom de la nouvelle frame.   
+
+```{stata}
+frame put sex bpsystol, into(tension)
+frame put sex bmi,      into(imc)
+
+frame dir
+
+```
+
+*Remarques* 
+
+- pas de préserve/restore et aucune opération de sauvegarde n'ont été nécessaire.
+- `frame dir` indique les frames qui ne sont pas enregistrées en dur (.dta).
+- On peut utiliser les arguments `if` `in` pour sélectionner des observations.
+
+# **Opérations en parallèle**
+
+On a maintenant 3 frames dans la session: la frame active *nhanes* (chargée dans l'interface), et en arrière plan *tension* et *imc*.   
+On peut continuer à travailler sur la base *nhanes*, mais aussi simultanément sur les deux nouvelles frames.   
+
+Une seule ligne de commande: 
+
+
+```{}
+frame nom_frame: command
+```
+
+Plusieurs lignes de commandes:  
+
+```{}
+frame nom_frame {
+command1
+command2
+.
+.
+.
+} 
+```
+
+
+```{stata}
+* frame active (nhanes2)
+tab agegrp
+
+frame tension: rename bpsystol tension
+frame tension: mean   tension, over(sex)
+
+frame imc: rename bmi imc
+frame imc: mean   imc, over(sex)
+```
+
+
+Sur le même principe, on va collapser les frames et *tension* et *imcs* (moyennes de *tension* et *imc*  par sexe)
+
+
+```{stata}
+frame tension {
+collapse tension, by(sex)
+list
+}
+
+frame imc {
+collapse imc, by(sex)
+list
+}
+```
+
+```{stata}
+frame dir
+```
+
+
+Remarque: la frame/base *nhanes* et toujours celle qui est chargée dans l'interface. On peut changer à tout instant de frame chargée dans l'interface avec **`frame change nom_frame`**
+
+# **Liaison entre frames**
+
+L'autre nouveauté est le système de liaison: 
+- Il permet d'apparier des informations entre bases 
+- Il permet de faire des opérations entre frames sans avoir à apparier des bases
+
+Pour lier deux frames on utilise la commande **`frlink`**:  
+- Nécessite une clé d'appariement, comme pour `merge` une ou plusieurs variables
+- On doit indiquer le type de liaison: **1:1** ou **m:1**
+- Stata génère une variable de liaison, on peut lui donner un nom 
+- Petit regret: on ne peut lier que deux frames à la fois. Dans notre exemple, on aurait par exemple aimer lier la frame *nhanes* aux frames *tension* et *imc* en une ligne. On devra le faire deux fois, avec deux variables de liaison identiques.
+
+```{}
+frlink varlist, frame(nom_frame) gen(link_name)
+```
+
+Ici la clé d'appariement est la variable *sex*, la liaison est de type **m:1**
+
+```{stata}
+frlink m:1 sex, frame(tension) gen(l1)
+frlink m:1 sex, frame(imc)     gen(l2)
+```
+
+on souhaite apparier les variables *tension* et *inc* à la base/frame *nhanes*: **`frget`**.  La variable de liaison joue le rôle de la clé d'identification.  
+
+Avantage:  
+
+- on merge des variables et non des bases. On sélectionne donc les variables que l'on juge utile
+- on peut renommer les variables avec **`frget`**, ici *mtension* pour *tension* et *mimc* pour *imc*. Attention aux habitudes, ici pour renommer c'est nouveau_nom=ancien_nom. 
+
+
+```{stata}
+frget mtension=tension, from(l1)
+frget mimc=imc,     from(l2)
+```
+
+Les variables *mtension* et *minc* sont maintenant dans la base/frame *nhanes*
+
+```{stata}
+mean mtension mimc, over(sex)
+```
+
+Imaginons que nous ne souhaitions pas importer les variables *mtension* *minc* qui joueraient ici le rôle de variables contextuelles, mais mesurer simplement un écart entre les observations individuelles et les moyennes, en tenant compte du sexe de la personnes. On peut générer des variables sans appariement préalable avec une nouvelle fonction, ajoutée à **`gen`** et **`replace`**, **`frval`**.  
+
+**syntaxe** : **`frval(variable_liaison, nom_variable)`**
+
+
+En amont je supprime les variables mtension et mimc de la frame *nhanes* (inutiles) et renomme les variables tension et imc dans leur frame respective (pour facilité la lecture de `frval`)
+
+```{stata}
+drop mtension mimc
+
+frame tension: rename tension mean_tension
+frame imc:     rename imc     mean_imc
+```
+
+Création des variables *diff_tens* et *diff_imc*
+
+```{stata}
+gen diff_tens = bpsystol - frval(l1, mean_tension)
+gen diff_imc =  bmi      - frval(l2, mean_imc)
+
+list  diff_tens diff_imc in 1/10
+
+```
+
+Dans une même création de variable, on peut utiliser **`frval`** pour plusieurs liaisons, et dans des expression conditionnelles. Si on souhaite ici créer une indicatrice qui repère les personnes dont la tension et l'imc sont supérieurs à la moyenne. Les variables *diff_tens* et *diff_imc* étant inutiles.  
+
+```{stata}
+drop diff_tens diff_imc
+
+gen sup_tens_imc = bpsystol> frval(l1, mean_tens) & bmi > frval(l2, mean_imc)
+
+list sup_tens_imc in 1/10
+```
+
+
+# **Autres opérations**
+
+**Vérifier la frame chargée dans l'interface**
+
+**`frame pwf`** ou plus rapidement **`pwf`**
+
+```{stata}
+pwf
+```
+
+**Changer de frame chargée dans l'interface**
+
+Depuis le début, seule la frame *nhanes* était chargée dans l'interface. On peut à tout moment changer la frame chargée avec *`frame change nom_frame`*. 
+ 
+```{stata}
+frame change tension
+des
+
+frame nhanes:  des, s
+
+frame change nhanes
+
+```
+ 
+**Supprimer des frames**  
+
+* On peut supprimer à tout moment une frame qui n'est pas chargée dans l'interface avec **`frame drop nom_frame`**. Si on applique cette commande à la frame chargée, Stata renvoie un message d'erreur.
+* On peut supprimer toutes les frames avec **`frame reset`**. Dans ce cas plus aucune base ne sera chargée dans l'interface. 
+
+```{stata}
+frame drop tension
+frame dir
+
+frame reset
+frame dir
+```
+
+Il reste la frame "vide" *default* générée automatiquement par Stata.
+
+**Création d'une frame**
+
+On peut créer une frame *vide* à tout moment avec **`frame create nom_frame`**. On peut également ajouter une liste de nom de variables: **`frame create nom_frame varlist`**
+
+```{stata}
+frame create new
+frame dir
+```
+
+```{stata}
+frame create new2 x
+frame dir
+```
+
+La frame *new2* à une colonne, mais aucune observation
+
+```{stata}
+frame new2 {
+set obs 1000
+replace x = rnormal()
+label variable x "x = random normal (0,1)"
+des
+}
+
+frame dir
+```
+
+ 
+**Ensemble du programme**
+ 
+```{stata, eval=F}
+frame dir 
+
+webuse nhanes2
+
+frame dir 
+des, s
+
+frame rename default nhanes
+frame dir 
+
+frame put sex bpsystol, into(tension)
+frame put sex bmi,      into(imc)
+
+frame dir
+
+* frame active (nhanes2)
+tab agegrp
+
+
+* frame tension
+frame tension: rename bpsystol tension
+frame tension: mean tension, over(sex)
+
+* frame imc
+frame imc: rename bmi imc
+frame imc: mean imc, over(sex)
+
+
+frame tension {
+collapse tension, by(sex)
+list
+}
+
+frame imc {
+collapse imc, by(sex)
+list
+}
+
+frame dir
+
+frlink m:1 sex, frame(tension) gen(l1)
+frlink m:1 sex, frame(imc) gen(l2)
+
+
+frget mtension=tension, from(l1)
+frget mimc=imc,     from(l2)
+
+
+
+drop mtension mimc
+frame tension: rename tension mean_tension
+frame imc:     rename imc     mean_imc
+
+
+gen diff_tens = bpsystol - frval(l1, mean_tension)
+gen diff_imc =  bmi      - frval(l2, mean_imc)
+
+mean diff_tens diff_imc, over(sex)
+
+drop diff_tens diff_imc
+gen sup_tens_imc = bpsystol> frval(l1, mean_tension) & bmi > frval(l2, mean_imc)
+
+
+frame change tension
+des
+frame nhanes:  des, s
+frame change nhanes
+
+frame drop tension
+frame dir
+
+frame reset
+frame dir
+
+frame create new
+frame dir
+
+frame create new2 x
+frame dir
+
+frame new2 {
+set obs 1000
+replace x = rnormal()
+label variable x "x = random normal (0,1)"
+des
+}
+
+frame dir
+
+```
+ 
+ 
+
+
+

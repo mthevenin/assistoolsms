@@ -15,7 +15,7 @@ listing:
     filter-ui: false
     page-size: 3
     feed: false
-    max-description-length: 150
+    max-description-length: 100
   - id: latest-content-Autres
     contents: 
     - /Autres
@@ -27,8 +27,20 @@ listing:
     filter-ui: false
     page-size: 3
     feed: false
-    max-description-length: 150
-       
+    max-description-length: 100
+  - id: latest-content-Stata
+    contents: 
+    - /Stata
+    - "!index.qmd"
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: false
+    filter-ui: false
+    page-size: 3
+    feed: false
+    max-description-length: 100
+              
 toc: false 
 comments: false
 ---
@@ -40,9 +52,9 @@ comments: false
 ::: {.zoom-image}
 
 
-# **Derniers ajouts [R](https://mthevenin.github.io/assistoolsms/R/)**
+# **Derniers ajouts [R](R/index.qmd)**
 
-Fiches sur des problématiques exclusives à **R**.
+Fiches sur des problématiques liées à l'utilisation de **R**.
 
 ::: {#latest-content-R}
 :::
@@ -58,7 +70,7 @@ Fiches sur des problématiques exclusives à **R**.
 ::: {.listing-block}
 ::: {.zoom-image}
 
-# **Derniers ajouts [Othe-R](https://mthevenin.github.io/assistoolsms/Autres/)**
+# **Derniers ajouts [Quarto - Git - Python ...](Autres/index.qmd)**
 
 Fiches sur des problématiques liées à l'utilisation de **Quarto**, **git**...
 
@@ -68,6 +80,25 @@ Fiches sur des problématiques liées à l'utilisation de **Quarto**, **git**...
 :::
 :::
 :::
+
+<!-- Derniers ajouts Stata-->
+
+::: {.content-container}
+::: {.listing-block}
+::: {.zoom-image}
+
+# **Derniers ajouts [Stata](Stata/index.qmd)**
+
+Fiches sur des problématiques liées à l'utilisation de **Stata**...
+
+::: {#latest-content-Stata}
+:::
+
+:::
+:::
+:::
+
+
 
 <br>
 

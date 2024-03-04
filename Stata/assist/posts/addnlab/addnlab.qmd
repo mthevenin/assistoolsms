@@ -1,0 +1,98 @@
+---
+title: "**Ajouter les effectifs sur un axe discret avec addnlab**"
+
+title-block-banner: false
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 03/15/2023
+
+categories:
+  - graphique
+  - ado
+
+format: 
+  html: default
+  docx:
+    toc: true
+    number-sections: true
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: |
+ Une petite commande sans grande prétention, mais peut-être utile, car elle permet d'ajouter sur l'axe discret d'un graphique, le nombre d'observations de chaque modalité. On peut également l'utiliser, avec une manipulation supplémentaire, pour les outputs de modèles. 
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(Encoding="UTF-8")
+library(Statamarkdown)
+stataexe <- "C:/Program Files/Stata17/StataSE-64.exe"
+knitr::opts_chunk$set(engine.path=list(stata=stataexe))
+```
+
+
+**Installation**
+
+```{stata, eval=F}
+net install addnlab, from("https://raw.githubusercontent.com/mthevenin/stata_graphiques/master/ressources/addnlab/") replace
+```
+
+**Syntaxe**
+
+```{stata, eval=F}
+addnlab varlist  [if/in] , [back]
+```
+
+* On ne peut pas exécuter deux fois de suite si au moins une variable dans la liste a déjà les effectifs affecter au label.
+* On revient au label d'origine en ajoutant l'option back
+
+**Exemples Graphiques**
+
+```{stata, eval=F}
+sysuse nlsw88, clear
+recode occupation (9 10 11 12 = 13 )
+
+addnlab  occupation 
+gridge wage, over(occupation) sortrev(mean) range(0 50) palette(flare) bw(.5)
+addnlab  occupation, back
+```
+
+![](g1.png){width=70%}
+
+```{stata, eval=F}
+tw histogram wage, by(occupation, note(" "))    fc("225 50 67%80") lc(black) lw(*.2) percent
+
+* penser à reaffecter le label d'origine
+addnlab  occupation, back
+```
+
+![](g2.png){width=70%}
+
+
+Si on oublie de revenir sur le label d'origine avec l'option `back` et qu'on réexécute de nouveau `addnlab occupation`:
+
+
+```{stata, eval=F}
+addnlab occupation
+```
+
+```{}
+One or more variables have already observations added to label
+First, execute: addnlab varlist, back
+varlist: previous variable(s) added to addnlab
+```
+
+
+**Exemple régression (ne pas utiliser avec des intéractions)**
+
+Voir exemple [ici](https://github.com/mthevenin/stata_graphiques/blob/main/ressources/addnlab/README.md)
+
+
+

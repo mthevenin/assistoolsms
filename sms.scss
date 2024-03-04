@@ -39,10 +39,13 @@ $dark:          $gray-800 !default;
 
 
 
-$link-color: #cd193f;
+$link-color: $pink;
 $toc-color:  #cd193f;
 $navbar-bg:  #cd193f;
 
+$code-block-border-left: $pink;
+$code-block-border-left-size: 2px;
+$code-block-padding-left: 1em;
 
 $code-block-stdoutcolor: #37424a;
 $code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);

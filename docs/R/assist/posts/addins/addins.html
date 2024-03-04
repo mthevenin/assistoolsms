@@ -8,7 +8,7 @@
 
 <meta name="author" content="Bénédicte Garnier">
 
-<title>Support d’assistance Sms : - Produire des graphiques et recoder des variables sans écrire de code R</title>
+<title>Support d’assistance Sms : - Graphiques et recodage sans code R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,10 +115,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -144,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Produire des graphiques et recoder des variables sans écrire de code R</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Graphiques et recodage sans code R</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Addins</div>
                 <div class="quarto-category">Graphique</div>
@@ -245,12 +256,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p><a href="http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html"><strong>RStudio Addins</strong></a> sont des extensions pour l’environnement de développement intégré (IDE) RStudio</p></li>
 <li><p><a href="http://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html"><strong>Débuter avec Esquisse</strong></a></p></li>
-<li><p>Séminaire R à l’Usage des Sciences Sociales, <a href="http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/"><em>Esquisse, moins tu sais coder plus tu vas rigoler</em></a></p></li>
+<li><p>Séminaire R à l’Usage des Sciences Sociales, <a href="http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/"><strong>Esquisse, moins tu sais coder plus tu vas rigoler</strong></a></p></li>
 <li><p><a href="http://juba.github.io/questionr/articles/recoding_addins.html"><strong>package questionr</strong></a></p></li>
 </ul>
 <p><strong>Installation des packages</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>install.packages("esquisse")</span>
-<span id="cb1-2"><a href="#cb1-2"></a>install.packages("questionr")</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"esquisse"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">install.packages</span>(<span class="st">"questionr"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="addins-esquisse" class="level1">
 <h1>Addins esquisse</h1>
 <div class="cell">
@@ -263,68 +274,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>On peut accéder à <strong>esquisse</strong> via le menu <strong>Addins</strong> de RStudio et en sélectionnant <strong>ggplot2 builder</strong>.</p>
-<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid" style="width:45.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>Ou directement par la console:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>esquisser()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">esquisser</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="chargement-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="chargement-des-données">Chargement des données</h2>
 <p>Lorsque l’application est ouverte, on accède directement à la fenêtre de chargement des données. Ici, comme les données ont été chargée dans R, elles sont directement accessibles <strong><code>&lt;\&gt;environnement</code></strong>.</p>
-<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/img2.png" class="img-fluid" style="width:50.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/img2.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>Sélection et visualisation de la table à l’aide de l’onglet <strong>View</strong>.</p>
-<p><a href="img/img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/img3.png" class="img-fluid" style="width:50.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/img3.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>Sous le nom de chaque variable, on peut voir son <em>type R</em> : <em>integer, factor, character</em>.</p>
 <p>On peut visualiser les <em>modalités</em> associées aux variables avec le bouton <strong>Data</strong> (en bas de la fenêtre).</p>
-<p><a href="img/img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/img4.png" class="img-fluid" style="width:50.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/img4.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="production-dun-graphique" class="level2">
 <h2 class="anchored" data-anchor-id="production-dun-graphique">Production d’un graphique</h2>
-<p>La fenêtre d’esquisse permet de <em>choisir</em> les données à représenter et <em>propose un graphique</em> adapté au type de la variable dans R. Ici une <strong><em>box-plot</em></strong></p>
-<p><a href="img/img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/img5.png" class="img-fluid" style="width:50.0%"></a></p>
+<p>La fenêtre d’esquisse permet de <em>choisir</em> les données à représenter et <em>propose un graphique</em> adapté au type de la variable dans R. Ici une <strong><em>box-plot</em></strong>.</p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/img5.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>On Sélectionne les variables par un <strong>glisser/déposer</strong> dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, … du package ggplot2).</p>
 <p>Le rôle de ces options sont données en cliquant sur le bouton <em>display settings</em> qui se trouve en haut à droite de la fenêtre principale.</p>
-<p><a href="img/img5b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/img5b.png" class="img-fluid" style="width:50.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img5b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/img5b.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz <a href="http://www.data-to-viz.com/">From data to Viz</a>.</p>
 <p>Pour l’exemple, on va représenter le nombre de ménages par pays d’enquête <em>hv000</em> avec un graphique en barres.</p>
-<p><a href="img/img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/img6.png" class="img-fluid" style="width:50.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/img6.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>Si on souhaite modifier orienter les barres à l’horizontal (recommandé) on va dans l’onglet <strong>Plot options</strong> puis on coche <strong><em>Flip coordinate</em></strong>.</p>
 <p>On utilise le bouton <strong>Plot options</strong> pour changer la disposition (ici barres horizontales).</p>
-<p><a href="img/img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/img7.png" class="img-fluid" style="width:50.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/img7.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>On peut égalemet changer les titres du graphique dans l’onglet <strong>Ad Labels &amp; Titles</strong>, et son apparence (couleurs, thème) dans l’onglet <strong>Appearance</strong>.</p>
 <div>
 
 </div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="img/img8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/img8.png" class="img-fluid"></a></p>
+<div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="img/img8.png" class="lightbox" data-gallery="g1"><img src="img/img8.png" class="img-fluid"></a></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="img/img9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img/img9.png" class="img-fluid"></a></p>
+<div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="img/img9.png" class="lightbox" data-gallery="g1"><img src="img/img9.png" class="img-fluid"></a></p>
 </div>
 </div>
 </div>
+<p><br></p>
 </section>
 <section id="exporter-le-code" class="level2">
 <h2 class="anchored" data-anchor-id="exporter-le-code">Exporter le code</h2>
 <p>L’onglet <strong>Code</strong> affiche le code généré par l’application. On peut le récupérer par simple copier/coller</p>
-<p><a href="img/img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/img10.png" class="img-fluid" style="width:70.0%"></a></p>
-<p>Comme l’interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction <strong><code>geom_bar()</code></strong> l’option <code>color="black"</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: le package 'ggplot2' a été compilé avec la version R 4.3.2</code></pre>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/img10.png" class="img-fluid"></a></p>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(P3_Menages) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv000) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#FF6992"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="at">x =</span> <span class="st">"Enquête"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6"></a>    <span class="at">y =</span> <span class="st">"Nombre de ménages"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    <span class="at">title =</span> <span class="st">"Ménages par pays et vagues d'enquête"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8"></a>    <span class="at">caption =</span> <span class="st">"Source: DHS 2017"</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a>  ) <span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Comme l’interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction <strong><code>geom_bar()</code></strong> l’option <code>color="black"</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">ggplot</span>(P3_Menages) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv000) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#FF6992"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="at">x =</span> <span class="st">"Enquête"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="at">y =</span> <span class="st">"Nombre de ménages"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="at">title =</span> <span class="st">"Ménages par pays et vagues d'enquête"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="at">caption =</span> <span class="st">"Source: DHS 2017"</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -333,8 +390,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
+</div>
+<p><br></p>
 <p>L’animation qui suit résume les différentes étapes (cliquer sur l’image pour la faire redémarrer au début et l’agrandir)</p>
-<p><a href="img/addins.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="img/addins.gif" class="img-fluid" style="width:70.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/addins.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="img/addins.gif" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 </section>
 </section>
 <section id="addins-de-questionr" class="level1">
@@ -343,22 +408,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="préparation-de-lenvironnement" class="level3">
 <h3 class="anchored" data-anchor-id="préparation-de-lenvironnement">Préparation de l’environnement</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Appel du package questionr</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">library</span>(questionr)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># Si besoin, on charge la table à visualiser (ici P3_Menages)</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#load("datas/P3_Menages.RData")</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Appel du package questionr</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># Si besoin, on charge la table à visualiser (ici P3_Menages)</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#load("datas/P3_Menages.RData")</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="column" style="width:35%;">
+<div class="box_img">
 <p><a href="img/img11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="img/img11.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>On accède à la fenêtre de recodage en cliquant sur <strong>Levels recoding</strong>. Par exemple pour la variable <em>Pays et vague de l’enquête (hv000)</em>. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).</p>
-<p><a href="img/img11b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="img/img11b.png" class="img-fluid" style="width:70.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img11b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="img/img11b.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>On change l’intitulé des modalités (bouton <strong>Recodage</strong>).</p>
-<p><a href="img/img12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="img/img12.png" class="img-fluid" style="width:70.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="img/img12.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>On génère le code et on visualise le résultat (bouton <strong>Code et Résultat</strong>).</p>
-<p><a href="img/img13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="img/img13.png" class="img-fluid" style="width:70.0%"></a></p>
+<div class="column" style="width:65%;">
+<div class="box_img">
+<p><a href="img/img13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="img/img13.png" class="img-fluid"></a></p>
+</div>
+</div>
+<p><br></p>
 <p>De la même façon, on peut changer l’ordre des modalités d’une variable en sélectionnant l’Addin <strong>Levels Ordering</strong>.</p>
 
-
-<!-- -->
 
 </section>
 </section>
@@ -443,57 +526,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -805,208 +837,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Produire des graphiques et recoder des variables sans écrire de code R"</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="an">date:</span><span class="co"> 07/10/2023</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="an">categories:</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">  - Addins</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">  - Graphique</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">  - Recodage</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">  - name: "Bénédicte Garnier"</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">    affiliations:</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a></span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="an">image:</span><span class="co"> "http://dreamrs.github.io/esquisse/logo.png"</span></span>
-<span id="cb8-17"><a href="#cb8-17"></a></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="an">filters:</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a><span class="co">   - lightbox</span></span>
-<span id="cb8-20"><a href="#cb8-20"></a><span class="co">   </span></span>
-<span id="cb8-21"><a href="#cb8-21"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb8-22"><a href="#cb8-22"></a></span>
-<span id="cb8-23"><a href="#cb8-23"></a><span class="an">abstract:</span><span class="co"> |</span></span>
-<span id="cb8-24"><a href="#cb8-24"></a><span class="co"> Rstudio possède des **Addins** qui permettent  d'exécuter des fonctions R de façon interactive. Le code généré peut être sauvegardé pour l'insérer dans ses scripts R. Nous illustrons notre propos ici avec les packages **esquisse** pour visualiser des données ou produire des graphiques simples  et **questionr** pour recoder des variables.</span></span>
-<span id="cb8-25"><a href="#cb8-25"></a></span>
-<span id="cb8-26"><a href="#cb8-26"></a><span class="co">---</span></span>
-<span id="cb8-27"><a href="#cb8-27"></a></span>
-<span id="cb8-28"><a href="#cb8-28"></a></span>
-<span id="cb8-29"><a href="#cb8-29"></a>| Packages      | Fonctions |</span>
-<span id="cb8-30"><a href="#cb8-30"></a>|---------------|-----------|</span>
-<span id="cb8-31"><a href="#cb8-31"></a>| **esquisse**  | <span class="in">`ggplot2`</span> |</span>
-<span id="cb8-32"><a href="#cb8-32"></a>| **questionr** | <span class="in">`irec`</span>    |</span>
-<span id="cb8-33"><a href="#cb8-33"></a></span>
-<span id="cb8-34"><a href="#cb8-34"></a>: **Fonctions utilisées dans la fiche**</span>
-<span id="cb8-35"><a href="#cb8-35"></a></span>
-<span id="cb8-36"><a href="#cb8-36"></a>Dans cette fiche vous verrez comment utiliser des *Addins* associés à certains packages de R qui permettent de produire le code R de façon interactive pour :  </span>
-<span id="cb8-37"><a href="#cb8-37"></a></span>
-<span id="cb8-38"><a href="#cb8-38"></a><span class="ss">- </span>Générer des graphiques exploratoires <span class="co">[</span><span class="ot">addins **esquisse**</span><span class="co">]</span> </span>
-<span id="cb8-39"><a href="#cb8-39"></a><span class="ss">- </span>Recoder des variables <span class="co">[</span><span class="ot">addins **questionr**</span><span class="co">]</span></span>
-<span id="cb8-40"><a href="#cb8-40"></a></span>
-<span id="cb8-41"><a href="#cb8-41"></a>Ces exemples s'inspire des fiches pédagogiques produites dans le cadre de <span class="co">[</span><span class="ot">l'école d'été du Collège International des Sciences Territoriales</span><span class="co">](http://ee2023.netlify.app/)</span>.</span>
-<span id="cb8-42"><a href="#cb8-42"></a></span>
-<span id="cb8-43"><a href="#cb8-43"></a>Le fichier utilisé ici contient 10% des individus de la table *Ménages* extraite de l'<span class="co">[</span><span class="ot">enquête DHS</span><span class="co">](http://dhsprogram.com/)</span> passée au Bénin en 2017 (vague 7).    </span>
-<span id="cb8-44"><a href="#cb8-44"></a></span>
-<span id="cb8-45"><a href="#cb8-45"></a></span>
-<span id="cb8-46"><a href="#cb8-46"></a>**Documentation**:  </span>
-<span id="cb8-47"><a href="#cb8-47"></a></span>
-<span id="cb8-48"><a href="#cb8-48"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**RStudio Addins**</span><span class="co">](http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html)</span> sont des extensions pour l'environnement de développement intégré (IDE) RStudio</span>
-<span id="cb8-49"><a href="#cb8-49"></a></span>
-<span id="cb8-50"><a href="#cb8-50"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Débuter avec Esquisse**</span><span class="co">](http://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)</span></span>
-<span id="cb8-51"><a href="#cb8-51"></a></span>
-<span id="cb8-52"><a href="#cb8-52"></a><span class="ss">-   </span>Séminaire R à l'Usage des Sciences Sociales, <span class="co">[</span><span class="ot">*Esquisse, moins tu sais coder plus tu vas rigoler*</span><span class="co">](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)</span></span>
-<span id="cb8-53"><a href="#cb8-53"></a></span>
-<span id="cb8-54"><a href="#cb8-54"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**package questionr**</span><span class="co">](http://juba.github.io/questionr/articles/recoding_addins.html)</span></span>
-<span id="cb8-55"><a href="#cb8-55"></a></span>
-<span id="cb8-56"><a href="#cb8-56"></a></span>
-<span id="cb8-57"><a href="#cb8-57"></a>**Installation des packages**</span>
-<span id="cb8-58"><a href="#cb8-58"></a></span>
-<span id="cb8-59"><a href="#cb8-59"></a><span class="in">```markdown</span></span>
-<span id="cb8-60"><a href="#cb8-60"></a>install.packages("esquisse")</span>
-<span id="cb8-61"><a href="#cb8-61"></a>install.packages("questionr")</span>
-<span id="cb8-62"><a href="#cb8-62"></a><span class="in">```</span></span>
-<span id="cb8-63"><a href="#cb8-63"></a></span>
-<span id="cb8-64"><a href="#cb8-64"></a></span>
-<span id="cb8-65"><a href="#cb8-65"></a><span class="fu"># Addins esquisse</span></span>
-<span id="cb8-66"><a href="#cb8-66"></a></span>
-<span id="cb8-67"><a href="#cb8-67"></a></span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="in">```{r filename="Chargement du package et des données P3_Menages"}</span></span>
-<span id="cb8-69"><a href="#cb8-69"></a></span>
-<span id="cb8-70"><a href="#cb8-70"></a><span class="in">library(esquisse)</span></span>
-<span id="cb8-71"><a href="#cb8-71"></a><span class="in">load("datas/P3_Menages.RData")</span></span>
-<span id="cb8-72"><a href="#cb8-72"></a><span class="in">```</span></span>
-<span id="cb8-73"><a href="#cb8-73"></a></span>
-<span id="cb8-74"><a href="#cb8-74"></a></span>
-<span id="cb8-75"><a href="#cb8-75"></a>On peut accéder à **esquisse** via le menu **Addins** de RStudio et en sélectionnant **ggplot2 builder**.</span>
-<span id="cb8-76"><a href="#cb8-76"></a></span>
-<span id="cb8-77"><a href="#cb8-77"></a><span class="al">![](img/img1.png)</span>{width=45%}</span>
-<span id="cb8-78"><a href="#cb8-78"></a></span>
-<span id="cb8-79"><a href="#cb8-79"></a>Ou directement par la console:</span>
-<span id="cb8-80"><a href="#cb8-80"></a></span>
-<span id="cb8-81"><a href="#cb8-81"></a><span class="in">```markdown</span></span>
-<span id="cb8-82"><a href="#cb8-82"></a>esquisser()</span>
-<span id="cb8-83"><a href="#cb8-83"></a><span class="in">```</span></span>
-<span id="cb8-84"><a href="#cb8-84"></a></span>
-<span id="cb8-85"><a href="#cb8-85"></a><span class="fu">## Chargement des données</span></span>
-<span id="cb8-86"><a href="#cb8-86"></a></span>
-<span id="cb8-87"><a href="#cb8-87"></a>Lorsque l'application est ouverte, on accède directement à la fenêtre de chargement des données. Ici, comme les données ont été chargée dans R, elles sont directement accessibles **`&lt;\&gt;environnement`**.</span>
-<span id="cb8-88"><a href="#cb8-88"></a></span>
-<span id="cb8-89"><a href="#cb8-89"></a><span class="al">![](img/img2.png)</span>{width=50%}</span>
-<span id="cb8-90"><a href="#cb8-90"></a></span>
-<span id="cb8-91"><a href="#cb8-91"></a>Sélection et visualisation de la table à l'aide de l'onglet **View**.</span>
-<span id="cb8-92"><a href="#cb8-92"></a></span>
-<span id="cb8-93"><a href="#cb8-93"></a><span class="al">![](img/img3.png)</span>{width=50%}</span>
-<span id="cb8-94"><a href="#cb8-94"></a></span>
-<span id="cb8-95"><a href="#cb8-95"></a>Sous le nom de chaque variable, on peut voir son *type R* : *integer, factor, character*.</span>
-<span id="cb8-96"><a href="#cb8-96"></a></span>
-<span id="cb8-97"><a href="#cb8-97"></a>On peut visualiser les *modalités* associées aux variables avec le bouton **Data** (en bas de la fenêtre).</span>
-<span id="cb8-98"><a href="#cb8-98"></a></span>
-<span id="cb8-99"><a href="#cb8-99"></a><span class="al">![](img/img4.png)</span>{width=50%}</span>
-<span id="cb8-100"><a href="#cb8-100"></a></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="fu">## Production d'un graphique</span></span>
-<span id="cb8-102"><a href="#cb8-102"></a></span>
-<span id="cb8-103"><a href="#cb8-103"></a>La fenêtre d'esquisse permet de *choisir* les données à représenter et *propose un graphique* adapté au type de la variable dans R. Ici une ***box-plot***</span>
-<span id="cb8-104"><a href="#cb8-104"></a></span>
-<span id="cb8-105"><a href="#cb8-105"></a><span class="al">![](img/img5.png)</span>{width=50%}</span>
-<span id="cb8-106"><a href="#cb8-106"></a></span>
-<span id="cb8-107"><a href="#cb8-107"></a>On Sélectionne les variables par un **glisser/déposer** dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, ... du package ggplot2). </span>
-<span id="cb8-108"><a href="#cb8-108"></a></span>
-<span id="cb8-109"><a href="#cb8-109"></a>Le rôle de ces options sont données en cliquant sur le bouton *display settings* qui se trouve en haut à droite de la fenêtre principale.</span>
-<span id="cb8-110"><a href="#cb8-110"></a></span>
-<span id="cb8-111"><a href="#cb8-111"></a><span class="al">![](img/img5b.png)</span>{width=50%}</span>
-<span id="cb8-112"><a href="#cb8-112"></a></span>
-<span id="cb8-113"><a href="#cb8-113"></a></span>
-<span id="cb8-114"><a href="#cb8-114"></a>Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz <span class="co">[</span><span class="ot">From data to Viz</span><span class="co">](http://www.data-to-viz.com/)</span>.  </span>
-<span id="cb8-115"><a href="#cb8-115"></a></span>
-<span id="cb8-116"><a href="#cb8-116"></a></span>
-<span id="cb8-117"><a href="#cb8-117"></a>Pour l'exemple, on va représenter le nombre de ménages par pays d'enquête *hv000* avec un graphique en barres.</span>
-<span id="cb8-118"><a href="#cb8-118"></a></span>
-<span id="cb8-119"><a href="#cb8-119"></a><span class="al">![](img/img6.png)</span>{width=50%}</span>
-<span id="cb8-120"><a href="#cb8-120"></a></span>
-<span id="cb8-121"><a href="#cb8-121"></a>Si on souhaite modifier orienter les barres à l'horizontal (recommandé) on va dans l'onglet **Plot options** puis on coche ***Flip coordinate***.</span>
-<span id="cb8-122"><a href="#cb8-122"></a></span>
-<span id="cb8-123"><a href="#cb8-123"></a>On utilise le bouton **Plot options** pour changer la disposition (ici barres horizontales).</span>
-<span id="cb8-124"><a href="#cb8-124"></a></span>
-<span id="cb8-125"><a href="#cb8-125"></a><span class="al">![](img/img7.png)</span>{width=50%}</span>
-<span id="cb8-126"><a href="#cb8-126"></a></span>
-<span id="cb8-127"><a href="#cb8-127"></a>On peut égalemet changer les titres du graphique dans l'onglet **Ad Labels &amp; Titles**, et son apparence (couleurs, thème) dans l'onglet **Appearance**.</span>
-<span id="cb8-128"><a href="#cb8-128"></a></span>
-<span id="cb8-129"><a href="#cb8-129"></a>::: {layout-ncol=2}</span>
-<span id="cb8-130"><a href="#cb8-130"></a></span>
-<span id="cb8-131"><a href="#cb8-131"></a><span class="al">![](img/img8.png)</span></span>
-<span id="cb8-132"><a href="#cb8-132"></a></span>
-<span id="cb8-133"><a href="#cb8-133"></a><span class="al">![](img/img9.png)</span></span>
-<span id="cb8-134"><a href="#cb8-134"></a></span>
-<span id="cb8-135"><a href="#cb8-135"></a>:::</span>
-<span id="cb8-136"><a href="#cb8-136"></a></span>
-<span id="cb8-137"><a href="#cb8-137"></a></span>
-<span id="cb8-138"><a href="#cb8-138"></a><span class="fu">## Exporter le code</span></span>
-<span id="cb8-139"><a href="#cb8-139"></a></span>
-<span id="cb8-140"><a href="#cb8-140"></a>L'onglet **Code** affiche le code généré par l'application. On peut le récupérer par simple copier/coller</span>
-<span id="cb8-141"><a href="#cb8-141"></a></span>
-<span id="cb8-142"><a href="#cb8-142"></a><span class="al">![](img/img10.png)</span>{width=70%}</span>
-<span id="cb8-143"><a href="#cb8-143"></a></span>
-<span id="cb8-144"><a href="#cb8-144"></a>Comme l'interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction **`geom_bar()`** l'option <span class="in">`color="black"`</span></span>
-<span id="cb8-145"><a href="#cb8-145"></a></span>
-<span id="cb8-146"><a href="#cb8-146"></a></span>
-<span id="cb8-149"><a href="#cb8-149"></a><span class="in">```{r}</span></span>
-<span id="cb8-150"><a href="#cb8-150"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-151"><a href="#cb8-151"></a></span>
-<span id="cb8-152"><a href="#cb8-152"></a><span class="fu">ggplot</span>(P3_Menages) <span class="sc">+</span></span>
-<span id="cb8-153"><a href="#cb8-153"></a>  <span class="fu">aes</span>(<span class="at">x =</span> hv000) <span class="sc">+</span></span>
-<span id="cb8-154"><a href="#cb8-154"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#FF6992"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb8-155"><a href="#cb8-155"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-156"><a href="#cb8-156"></a>    <span class="at">x =</span> <span class="st">"Enquête"</span>,</span>
-<span id="cb8-157"><a href="#cb8-157"></a>    <span class="at">y =</span> <span class="st">"Nombre de ménages"</span>,</span>
-<span id="cb8-158"><a href="#cb8-158"></a>    <span class="at">title =</span> <span class="st">"Ménages par pays et vagues d'enquête"</span>,</span>
-<span id="cb8-159"><a href="#cb8-159"></a>    <span class="at">caption =</span> <span class="st">"Source: DHS 2017"</span></span>
-<span id="cb8-160"><a href="#cb8-160"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-161"><a href="#cb8-161"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb8-162"><a href="#cb8-162"></a>  <span class="fu">theme_light</span>()</span>
-<span id="cb8-163"><a href="#cb8-163"></a><span class="in">```</span></span>
-<span id="cb8-164"><a href="#cb8-164"></a></span>
-<span id="cb8-165"><a href="#cb8-165"></a></span>
-<span id="cb8-166"><a href="#cb8-166"></a>L'animation qui suit résume les différentes étapes (cliquer sur l'image pour la faire redémarrer au début et l'agrandir)</span>
-<span id="cb8-167"><a href="#cb8-167"></a></span>
-<span id="cb8-168"><a href="#cb8-168"></a></span>
-<span id="cb8-169"><a href="#cb8-169"></a><span class="al">![](img/addins.gif)</span>{width=70%}</span>
-<span id="cb8-170"><a href="#cb8-170"></a></span>
-<span id="cb8-171"><a href="#cb8-171"></a></span>
-<span id="cb8-172"><a href="#cb8-172"></a><span class="fu"># Addins de questionr</span></span>
-<span id="cb8-173"><a href="#cb8-173"></a></span>
-<span id="cb8-174"><a href="#cb8-174"></a>De la même façon, *questionr* permet de générer du code à partir du menu **Tools/Addins** de RStudio).</span>
-<span id="cb8-175"><a href="#cb8-175"></a></span>
-<span id="cb8-176"><a href="#cb8-176"></a><span class="fu">### Préparation de l'environnement</span></span>
-<span id="cb8-177"><a href="#cb8-177"></a></span>
-<span id="cb8-180"><a href="#cb8-180"></a><span class="in">```{r}</span></span>
-<span id="cb8-181"><a href="#cb8-181"></a><span class="co"># Appel du package questionr</span></span>
-<span id="cb8-182"><a href="#cb8-182"></a><span class="fu">library</span>(questionr)</span>
-<span id="cb8-183"><a href="#cb8-183"></a><span class="co"># Si besoin, on charge la table à visualiser (ici P3_Menages)</span></span>
-<span id="cb8-184"><a href="#cb8-184"></a><span class="co">#load("datas/P3_Menages.RData")</span></span>
-<span id="cb8-185"><a href="#cb8-185"></a><span class="in">```</span></span>
-<span id="cb8-186"><a href="#cb8-186"></a></span>
-<span id="cb8-187"><a href="#cb8-187"></a><span class="al">![](img/img11.png)</span></span>
-<span id="cb8-188"><a href="#cb8-188"></a></span>
-<span id="cb8-189"><a href="#cb8-189"></a>On accède à la fenêtre de recodage en cliquant sur **Levels recoding**. Par exemple pour la variable *Pays et vague de l'enquête (hv000)*. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).</span>
-<span id="cb8-190"><a href="#cb8-190"></a></span>
-<span id="cb8-191"><a href="#cb8-191"></a><span class="al">![](img/img11b.png)</span>{width=70%}</span>
-<span id="cb8-192"><a href="#cb8-192"></a></span>
-<span id="cb8-193"><a href="#cb8-193"></a>On change l'intitulé des modalités (bouton **Recodage**).</span>
-<span id="cb8-194"><a href="#cb8-194"></a></span>
-<span id="cb8-195"><a href="#cb8-195"></a><span class="al">![](img/img12.png)</span>{width=70%}</span>
-<span id="cb8-196"><a href="#cb8-196"></a></span>
-<span id="cb8-197"><a href="#cb8-197"></a>On génère le code et on visualise le résultat (bouton **Code et Résultat**).</span>
-<span id="cb8-198"><a href="#cb8-198"></a></span>
-<span id="cb8-199"><a href="#cb8-199"></a><span class="al">![](img/img13.png)</span>{width=70%}</span>
-<span id="cb8-200"><a href="#cb8-200"></a></span>
-<span id="cb8-201"><a href="#cb8-201"></a>De la même façon, on peut changer l'ordre des modalités d'une variable en sélectionnant l'Addin **Levels Ordering**.</span>
-</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -117,10 +117,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -146,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Fonction pour des tables automatiques</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Fonction pour des tables automatiques</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Statistiques descriptives</div>
                 <div class="quarto-category">Tableau</div>
@@ -574,8 +585,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-<!-- -->
-
 </section>
 </section>
 
@@ -659,57 +668,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1021,195 +979,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> "Fonction pour des tables automatiques"</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="an">categories:</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">  - Statistiques descriptives</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">  - Tableau</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">  </span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">  - name: "Arno Muller"</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">    affiliations:</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="an">date:</span><span class="co"> 06/30/2023</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="an">image:</span><span class="co"> "https://www.r-project.org/Rlogo.png"</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co">  html: default</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co">#  docx: default</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="an">filters:</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="co">  - lightbox</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="co"> Après avoir explorer des données, on peut vouloir compiler nos tables dans un même objet et l'exporter dans Excel pour les mettre en forme selon ses goûts. Il est possible d'automatiser le processus sur R.</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="co">---</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="fu"># Introduction</span></span>
-<span id="cb6-31"><a href="#cb6-31"></a></span>
-<span id="cb6-32"><a href="#cb6-32"></a>Il existe un large éventail de package R consacré à la gestion et la mise en forme de table et de tris croisés (<span class="in">`GT`</span>, <span class="in">`flextable`</span>, ...). S'ils sont souvent de grandes qualités, leur coût d'entrée peut être un peu élevé pour les utilisateurs.rices occasionnelles de R.</span>
-<span id="cb6-33"><a href="#cb6-33"></a></span>
-<span id="cb6-34"><a href="#cb6-34"></a>Pour répondre aux besoins de ces derniers, vous trouverez ici une fonction qui permet de facilement compiler des tris à plats ou bivariées, pour explorer automatiquement un grand nombre de variables, utiliser une pondération et les exporter dans un document Excel.</span>
-<span id="cb6-35"><a href="#cb6-35"></a></span>
-<span id="cb6-36"><a href="#cb6-36"></a>Pour une introduction aux tables et à la pondération, voir la <span class="co">[</span><span class="ot">fiche</span><span class="co">](https://mthevenin.github.io/assistoolsms/R/assist/posts/weight_norm/weight_norm.html)</span></span>
-<span id="cb6-37"><a href="#cb6-37"></a></span>
-<span id="cb6-38"><a href="#cb6-38"></a><span class="fu">## Données d'exemples</span></span>
-<span id="cb6-39"><a href="#cb6-39"></a></span>
-<span id="cb6-40"><a href="#cb6-40"></a>Pour illustrer la mise en oeuvre de la fonction, on utilise les données d'exemples *hdv2003* du packages `questionr`. Ces données possèdent à la fois des variables sur des carastéristiques socio-démographiques, des pratiques et des goûts, et propose une variable de pondération : *poids*.</span>
-<span id="cb6-41"><a href="#cb6-41"></a></span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="in">```{r filename="Importation des données d'exemples", warning=FALSE, message=FALSE}</span></span>
-<span id="cb6-43"><a href="#cb6-43"></a></span>
-<span id="cb6-44"><a href="#cb6-44"></a><span class="in">library(questionr)</span></span>
-<span id="cb6-45"><a href="#cb6-45"></a><span class="in">data("hdv2003")</span></span>
-<span id="cb6-46"><a href="#cb6-46"></a></span>
-<span id="cb6-47"><a href="#cb6-47"></a><span class="in">```</span></span>
-<span id="cb6-48"><a href="#cb6-48"></a></span>
-<span id="cb6-49"><a href="#cb6-49"></a></span>
-<span id="cb6-50"><a href="#cb6-50"></a></span>
-<span id="cb6-51"><a href="#cb6-51"></a><span class="in">```{r, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
-<span id="cb6-52"><a href="#cb6-52"></a><span class="in">library(kableExtra)</span></span>
-<span id="cb6-53"><a href="#cb6-53"></a></span>
-<span id="cb6-54"><a href="#cb6-54"></a><span class="in">kable(head(hdv2003[,1:6],6)) %&gt;%</span></span>
-<span id="cb6-55"><a href="#cb6-55"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
-<span id="cb6-56"><a href="#cb6-56"></a><span class="in">   scroll_box(height = "300px")</span></span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="in">```</span></span>
-<span id="cb6-58"><a href="#cb6-58"></a></span>
-<span id="cb6-59"><a href="#cb6-59"></a></span>
-<span id="cb6-60"><a href="#cb6-60"></a></span>
-<span id="cb6-61"><a href="#cb6-61"></a><span class="fu">## Objectifs :</span></span>
-<span id="cb6-62"><a href="#cb6-62"></a></span>
-<span id="cb6-63"><a href="#cb6-63"></a><span class="ss">-   </span>Obtenir une table automatique avec les tris à plat d'un grand nombre de variables</span>
-<span id="cb6-64"><a href="#cb6-64"></a><span class="ss">-   </span>Croiser ces variables avec une variable choisie, par exemple le sexe ou la qualification et obtenir :</span>
-<span id="cb6-65"><a href="#cb6-65"></a><span class="ss">    -   </span>Les effectifs</span>
-<span id="cb6-66"><a href="#cb6-66"></a><span class="ss">    -   </span>Les pourcentages lignes</span>
-<span id="cb6-67"><a href="#cb6-67"></a><span class="ss">    -   </span>Les poucentages colonnes</span>
-<span id="cb6-68"><a href="#cb6-68"></a><span class="ss">    -   </span>Ajout d'un test du chi²</span>
-<span id="cb6-69"><a href="#cb6-69"></a><span class="ss">-   </span>Utiliser des pondérations</span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="ss">-   </span>Garder ou non les valeurs manquantes</span>
-<span id="cb6-71"><a href="#cb6-71"></a><span class="ss">-   </span>Exporter le tableau obtenu (Par exemple : image ci-dessous)</span>
-<span id="cb6-72"><a href="#cb6-72"></a></span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="al">![](img/ex_table.png)</span>{width="50%"}</span>
-<span id="cb6-74"><a href="#cb6-74"></a></span>
-<span id="cb6-75"><a href="#cb6-75"></a><span class="fu"># Mise en oeuvre</span></span>
-<span id="cb6-76"><a href="#cb6-76"></a> </span>
-<span id="cb6-77"><a href="#cb6-77"></a><span class="fu">## Fonctionnement</span></span>
-<span id="cb6-78"><a href="#cb6-78"></a></span>
-<span id="cb6-79"><a href="#cb6-79"></a>On utilise la fonction <span class="in">`table_auto()`</span> qui ne fait partie d'aucun package, il faut donc la charger dans un premier temps dans R. Une fois la fonction chargée, il suffira de la lancer en renseignant les variables, et les options voulues (présence de valeurs manquantes, pondérations, exportation)</span>
-<span id="cb6-80"><a href="#cb6-80"></a></span>
-<span id="cb6-81"><a href="#cb6-81"></a><span class="fu">## Paramètre de la fonction</span></span>
-<span id="cb6-82"><a href="#cb6-82"></a></span>
-<span id="cb6-83"><a href="#cb6-83"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-84"><a href="#cb6-84"></a>| Paramètre       | Argument                                                     |</span>
-<span id="cb6-85"><a href="#cb6-85"></a>+=================+==============================================================+</span>
-<span id="cb6-86"><a href="#cb6-86"></a>| **donnees**     | Une base de données                                          |</span>
-<span id="cb6-87"><a href="#cb6-87"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-88"><a href="#cb6-88"></a>| **vars**        | Un vecteur avec les différentes variables en lignes          |</span>
-<span id="cb6-89"><a href="#cb6-89"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-90"><a href="#cb6-90"></a>| **var_crois**   | -   Si vide : Tris à plat                                    |</span>
-<span id="cb6-91"><a href="#cb6-91"></a>|                 |                                                              |</span>
-<span id="cb6-92"><a href="#cb6-92"></a>|                 | -   Si une variable : Tris croisés                           |</span>
-<span id="cb6-93"><a href="#cb6-93"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-94"><a href="#cb6-94"></a>| **table_type**  | -   Effectifs : "eff"                                        |</span>
-<span id="cb6-95"><a href="#cb6-95"></a>|                 |                                                              |</span>
-<span id="cb6-96"><a href="#cb6-96"></a>|                 | -   Pourcentage ligne : "pct_ligne"                          |</span>
-<span id="cb6-97"><a href="#cb6-97"></a>|                 |                                                              |</span>
-<span id="cb6-98"><a href="#cb6-98"></a>|                 | -   Pourcentage colonne : "pct_col"                          |</span>
-<span id="cb6-99"><a href="#cb6-99"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-100"><a href="#cb6-100"></a>| **ponder**      | Une variable de pondération dans donnee                      |</span>
-<span id="cb6-101"><a href="#cb6-101"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-102"><a href="#cb6-102"></a>| **val.manq**    | "oui" ou "non", garder ou non les valeurs manquantes         |</span>
-<span id="cb6-103"><a href="#cb6-103"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-104"><a href="#cb6-104"></a>| **arrondi**     | Nombre de chiffre après la virgule                           |</span>
-<span id="cb6-105"><a href="#cb6-105"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-106"><a href="#cb6-106"></a>| **sautdeligne** | "oui" ou "non", insérer une ligne vide entre chaque variable |</span>
-<span id="cb6-107"><a href="#cb6-107"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-108"><a href="#cb6-108"></a>| **export_XLS**  | "oui" ou "non", si oui : création d'un fichier excel.        |</span>
-<span id="cb6-109"><a href="#cb6-109"></a>+-----------------+--------------------------------------------------------------+</span>
-<span id="cb6-110"><a href="#cb6-110"></a></span>
-<span id="cb6-111"><a href="#cb6-111"></a><span class="fu">## Import de la fonction `table_auto()`</span></span>
-<span id="cb6-112"><a href="#cb6-112"></a></span>
-<span id="cb6-113"><a href="#cb6-113"></a>Pour l'instant la fonction ne se trouve pas dans un package, il faut donc la charger dans l'environnement global de R depuis GitHub en utilisant le code suivant.  </span>
-<span id="cb6-114"><a href="#cb6-114"></a></span>
-<span id="cb6-115"><a href="#cb6-115"></a></span>
-<span id="cb6-116"><a href="#cb6-116"></a><span class="in">```{r filename="Chargement de la fonction depuis Github", warning=FALSE, message=FALSE}</span></span>
-<span id="cb6-117"><a href="#cb6-117"></a></span>
-<span id="cb6-118"><a href="#cb6-118"></a><span class="in">source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/table_auto/fonction_table_auto.R")</span></span>
-<span id="cb6-119"><a href="#cb6-119"></a></span>
-<span id="cb6-120"><a href="#cb6-120"></a><span class="in">```</span></span>
-<span id="cb6-121"><a href="#cb6-121"></a></span>
-<span id="cb6-122"><a href="#cb6-122"></a></span>
-<span id="cb6-123"><a href="#cb6-123"></a><span class="al">![](img/import_fct.png)</span>{width="75%"}</span>
-<span id="cb6-124"><a href="#cb6-124"></a></span>
-<span id="cb6-125"><a href="#cb6-125"></a>Le code de la fonction est disponible <span class="co">[</span><span class="ot">ici</span><span class="co">](https://github.com/arnomuller/table_auto)</span>, si vous souhaitez lui apparter des modifications pour l'adapter à vos besoins.</span>
-<span id="cb6-126"><a href="#cb6-126"></a></span>
-<span id="cb6-127"><a href="#cb6-127"></a><span class="fu">## Choix des variables</span></span>
-<span id="cb6-128"><a href="#cb6-128"></a></span>
-<span id="cb6-129"><a href="#cb6-129"></a>On définit les variables à croiser :</span>
-<span id="cb6-130"><a href="#cb6-130"></a></span>
-<span id="cb6-131"><a href="#cb6-131"></a><span class="in">```{r filename="Choix des variables"}</span></span>
-<span id="cb6-132"><a href="#cb6-132"></a></span>
-<span id="cb6-133"><a href="#cb6-133"></a><span class="in">vars      &lt;- c("relig","trav.imp","trav.satisf","hard.rock",</span></span>
-<span id="cb6-134"><a href="#cb6-134"></a><span class="in">               "lecture.bd","peche.chasse","cuisine",</span></span>
-<span id="cb6-135"><a href="#cb6-135"></a><span class="in">               "bricol","cinema","sport")</span></span>
-<span id="cb6-136"><a href="#cb6-136"></a></span>
-<span id="cb6-137"><a href="#cb6-137"></a><span class="in">```</span></span>
-<span id="cb6-138"><a href="#cb6-138"></a></span>
-<span id="cb6-139"><a href="#cb6-139"></a>On peut également définir ici la variable de poids et celle à croiser, ou le faire directement dans la fonction.</span>
-<span id="cb6-140"><a href="#cb6-140"></a></span>
-<span id="cb6-143"><a href="#cb6-143"></a><span class="in">```{r}</span></span>
-<span id="cb6-144"><a href="#cb6-144"></a><span class="co"># On croise avec la variable sexe</span></span>
-<span id="cb6-145"><a href="#cb6-145"></a>var_crois <span class="ot">&lt;-</span> <span class="st">"sexe"</span></span>
-<span id="cb6-146"><a href="#cb6-146"></a><span class="co"># Si pas de croisement écrire NULL</span></span>
-<span id="cb6-147"><a href="#cb6-147"></a>var_crois <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb6-148"><a href="#cb6-148"></a></span>
-<span id="cb6-149"><a href="#cb6-149"></a><span class="co"># Variable de pondération</span></span>
-<span id="cb6-150"><a href="#cb6-150"></a>ponder    <span class="ot">&lt;-</span> <span class="st">"poids"</span></span>
-<span id="cb6-151"><a href="#cb6-151"></a><span class="co"># Si pas de pondération :</span></span>
-<span id="cb6-152"><a href="#cb6-152"></a>ponder    <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb6-153"><a href="#cb6-153"></a></span>
-<span id="cb6-154"><a href="#cb6-154"></a><span class="in">```</span></span>
-<span id="cb6-155"><a href="#cb6-155"></a></span>
-<span id="cb6-156"><a href="#cb6-156"></a></span>
-<span id="cb6-157"><a href="#cb6-157"></a><span class="fu">## Création du tableau empilé</span></span>
-<span id="cb6-158"><a href="#cb6-158"></a></span>
-<span id="cb6-159"><a href="#cb6-159"></a>En lançant le code suivant, on crée le data.frame **tabdesc**.</span>
-<span id="cb6-160"><a href="#cb6-160"></a></span>
-<span id="cb6-161"><a href="#cb6-161"></a><span class="in">```{r filename="Activation de la fonction", warning=FALSE, message=FALSE}</span></span>
-<span id="cb6-162"><a href="#cb6-162"></a></span>
-<span id="cb6-163"><a href="#cb6-163"></a><span class="in">table_auto(hdv2003,              # Base de données</span></span>
-<span id="cb6-164"><a href="#cb6-164"></a><span class="in">           vars,                 # Un vecteur avec les noms des variables</span></span>
-<span id="cb6-165"><a href="#cb6-165"></a><span class="in">           var_crois   = "sexe", # Variable à croiser, si NULL : tri à plat</span></span>
-<span id="cb6-166"><a href="#cb6-166"></a><span class="in">           table_type  = "eff",  # Type de table : "eff", "pct_lign", "pct_col"</span></span>
-<span id="cb6-167"><a href="#cb6-167"></a><span class="in">           ponder      = NULL,   # Variable de ponder. , si NULL: pas de poids</span></span>
-<span id="cb6-168"><a href="#cb6-168"></a><span class="in">           val.manq    = "non",  # Si "oui" avec valeurs manquantes</span></span>
-<span id="cb6-169"><a href="#cb6-169"></a><span class="in">           arrondi     = 4,      # Nb de chiffres après la virgule</span></span>
-<span id="cb6-170"><a href="#cb6-170"></a><span class="in">           sautdeligne = "oui",  # Sauter des lignes entre les variables</span></span>
-<span id="cb6-171"><a href="#cb6-171"></a><span class="in">           export_XLS  = "non")  # Si "oui" créer un excel : tableau_empilee</span></span>
-<span id="cb6-172"><a href="#cb6-172"></a></span>
-<span id="cb6-173"><a href="#cb6-173"></a></span>
-<span id="cb6-174"><a href="#cb6-174"></a><span class="in">```</span></span>
-<span id="cb6-175"><a href="#cb6-175"></a></span>
-<span id="cb6-176"><a href="#cb6-176"></a></span>
-<span id="cb6-177"><a href="#cb6-177"></a></span>
-<span id="cb6-178"><a href="#cb6-178"></a><span class="in">```{r, echo=FALSE, warning=FALSE, message=FALSE}</span></span>
-<span id="cb6-179"><a href="#cb6-179"></a><span class="in">kable(head(tabdesc,10)) %&gt;%</span></span>
-<span id="cb6-180"><a href="#cb6-180"></a><span class="in">   kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 11) %&gt;%</span></span>
-<span id="cb6-181"><a href="#cb6-181"></a><span class="in">   scroll_box(height = "300px")</span></span>
-<span id="cb6-182"><a href="#cb6-182"></a><span class="in">```</span></span>
-<span id="cb6-183"><a href="#cb6-183"></a></span>
-<span id="cb6-184"><a href="#cb6-184"></a></span>
-<span id="cb6-185"><a href="#cb6-185"></a></span>
-<span id="cb6-186"><a href="#cb6-186"></a></span>
-</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

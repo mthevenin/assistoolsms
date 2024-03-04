@@ -1,0 +1,55 @@
+---
+title: "**Autosave des .do à partir de Stata 18**"
+
+title-block-banner: false
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 06/27/2023
+
+image: "https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&name=4096x4096"
+
+categories:
+  - Stata 18
+  - autosave
+
+format: 
+  html: default
+  docx:
+    toc: true
+    number-sections: true
+
+filters:
+   - lightbox
+lightbox: auto
+
+abstract: |
+ Sans aucun doute une des fonctionalités les plus intéressantes de la version: enfin la présence d'une autosave des .do et .ado. On peut paramétrer la fréquence d'enregistrement automatique (par défaut 4 secondes). 
+
+---
+
+<br><br>
+Pour faire très court: 
+
+- Penser à ce que le fichier soit sauvegardé
+- On peut paramétrer la fréquence de sauvegarde dans les préférences de l'éditeur [edit=>preference=>onglet Advanced]. Par défaut la fréquence est de 4 secondes, ce qui semble suffisant.
+- Après un crash, ou autre mésaventure, il sera proposer d'ouvrir le fichier sauvegardé automatiquement.
+- Penser à enregistrer le programme de récupération avec le nom original.
+
+![](img/img1.png){width=70%}
+
+![](img/img2.png){width=70%}
+
+
+
+
+
+
+
+
+
+
+

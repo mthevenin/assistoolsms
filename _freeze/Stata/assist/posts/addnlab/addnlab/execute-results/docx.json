@@ -1,0 +1,17 @@
+{
+  "hash": "34a0e79428d2992168c6362dfbedb11c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"**Ajouter les effectifs sur un axe discret avec addnlab**\"\n\ntitle-block-banner: false\n\nauthor: \n  - name: \"Marc Thévenin\"\n    affiliations:\n      - name: \"Ined\"\n\ndate: 03/15/2023\n\ncategories:\n  - graphique\n  - ado\n\nformat: \n  html: default\n  docx:\n    toc: true\n    number-sections: true\n\nfilters:\n   - lightbox\nlightbox: auto\n\nabstract: |\n Une petite commande sans grande prétention, mais peut-être utile, car elle permet d'ajouter sur l'axe discret d'un graphique, le nombre d'observations de chaque modalité. On peut également l'utiliser, avec une manipulation supplémentaire, pour les outputs de modèles. \n\n---\n\n\n\n\n\n\n**Installation**\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\nnet install addnlab, from(\"https://raw.githubusercontent.com/mthevenin/stata_graphiques/master/ressources/addnlab/\") replace\n```\n:::\n\n\n\n**Syntaxe**\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\naddnlab varlist  [if/in] , [back]\n```\n:::\n\n\n\n* On ne peut pas exécuter deux fois de suite si au moins une variable dans la liste a déjà les effectifs affecter au label.\n* On revient au label d'origine en ajoutant l'option back\n\n**Exemples Graphiques**\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\nsysuse nlsw88, clear\nrecode occupation (9 10 11 12 = 13 )\n\naddnlab  occupation \ngridge wage, over(occupation) sortrev(mean) range(0 50) palette(flare) bw(.5)\naddnlab  occupation, back\n```\n:::\n\n\n\n![](g1.png){width=70%}\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\ntw histogram wage, by(occupation, note(\" \"))    fc(\"225 50 67%80\") lc(black) lw(*.2) percent\n\n* penser à reaffecter le label d'origine\naddnlab  occupation, back\n```\n:::\n\n\n\n![](g2.png){width=70%}\n\n\nSi on oublie de revenir sur le label d'origine avec l'option `back` et qu'on réexécute de nouveau `addnlab occupation`:\n\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\naddnlab occupation\n```\n:::\n\n\n\n```{}\nOne or more variables have already observations added to label\nFirst, execute: addnlab varlist, back\nvarlist: previous variable(s) added to addnlab\n```\n\n\n**Exemple régression (ne pas utiliser avec des intéractions)**\n\nVoir exemple [ici](https://github.com/mthevenin/stata_graphiques/blob/main/ressources/addnlab/README.md)\n\n\n\n",
+    "supporting": [
+      "addnlab_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

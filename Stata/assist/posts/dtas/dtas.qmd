@@ -1,0 +1,86 @@
+---
+title: "**Le format dtas**"
+
+title-block-banner: false
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 07/03/2023
+
+image: "https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&name=4096x4096"
+
+categories:
+  - Frame
+
+format: 
+  html: default
+  docx:
+    toc: true
+    number-sections: true
+    
+jupyter: nbstata  
+
+abstract: | 
+ La version 18 de Stata a implémenté un nouveau format, associé aux frames, le format **.dtas**. Il permet d'enregistrer toutes les frames actives, qu'elles soit liées ou non. 
+---
+
+Par l'exemple.   
+
+- On charge la base *auto* (nom de la frame = *default*).
+- On renomme la frame en *auto*.
+- On génère la frame *prix* qui comprend la variable *price* de la frame *auto*.
+
+```{stata}
+sysuse auto 
+frame rename default auto
+frame put price foreign, into(prix)
+
+frame dir
+```
+
+* La frame *prix* est transformé en une frame indicateurs avec la commande `collapse`.
+
+```{stata}
+frame prix {
+collapse price, by(foreign)
+list
+}
+```
+
+* On enregistre les deux frames avec la commande `frames save` au format **dtas**.
+* Cette collection de frames est appelée *auto_prix*.
+
+```{stata}
+frames save "auto_prix.dtas", frames(_all) replace
+```
+
+* On ferme les frames
+* On ouvre la collection *auto_prix.dtas* 
+
+```{stata}
+frame reset
+
+frames use "auto_prix.dtas", frames(_all)
+frame dir
+frame change prix
+list
+```
+
+* On ferme la collection.
+* On ouvre seulement la frame *prix* de la collection *auto_prix.dtas*.
+
+```{stata}
+frame reset
+
+frames use "auto_prix.dtas", frames(prix)
+frame dir
+```
+
+
+
+
+
+

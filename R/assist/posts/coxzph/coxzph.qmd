@@ -18,12 +18,7 @@ image: "https://m.media-amazon.com/images/P/1441931619.01._SCLZZZZZZZ_SX500_.jpg
 
 format: 
   html: default
-  docx: default
-  pdf:  default 
 
-filters:
-   - lightbox
-lightbox: auto
 
 abstract:  |
  Comment récupérer la variante du test de Grambsch-Therneau implémentée au package `survival` avant son passage à la v3. Permet de s'assurer une reproductibilité avec les autres applications statistiques (Stata, Sas, Python) avec des durées discrètes.
@@ -47,7 +42,7 @@ abstract:  |
 - En présence d'évènements simultanés (durée discrète), les résultats affichés par les deux versions peuvent fortement variés. 
 - Lorsqu'on utilise le modèle de Cox avec des durées discrètes, situation très courante dans les sciences sociales, je préconise l'utilisation de la version dite *simplifiée* (OLS). 
   - Le modèle de Cox est une méthode à durée continue, les conditions de validité du test GLS ne sont établies avec des évènements mesurés simultanément.
-  - Contrainte de reproductibilité: **Stata**, **Sas**, **Python** (**`lifelines`**, **`statsmodels`**)  
+  - Contrainte de reproductibilité: **Stata**, **Sas**, **Python** (**`lifelines`**, **`statsmodels`**) exécutent seulement le tests OLS. 
 
 
 **Récupération et exécution du test OLS**

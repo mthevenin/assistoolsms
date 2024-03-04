@@ -115,10 +115,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -144,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Format JSON : de la liste au dataframe</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Format JSON : de la liste au dataframe</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Json</div>
                 <div class="quarto-category">Importation</div>
@@ -199,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#importer-des-données-avec-jsonlite" id="toc-importer-des-données-avec-jsonlite" class="nav-link" data-scroll-target="#importer-des-données-avec-jsonlite">Importer des données avec <code>jsonlite</code></a></li>
   <li><a href="#importer-des-données-avec-rjson" id="toc-importer-des-données-avec-rjson" class="nav-link" data-scroll-target="#importer-des-données-avec-rjson">Importer des données avec <code>rjson</code></a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="JSON.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -642,8 +653,6 @@ Attachement du package : 'rjson'</code></pre>
 </div>
 
 
-<!-- -->
-
 </section>
 
 
@@ -733,57 +742,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1095,154 +1053,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> "Format JSON : de la liste au dataframe"</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># subtitle: ""</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="an">categories:</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">  - Json</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">  - Importation</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">  </span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">  - name: "Arno Muller"</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">    affiliations:</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="an">date:</span><span class="co"> 06/28/2023</span></span>
-<span id="cb9-16"><a href="#cb9-16"></a></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_logo.svg/langfr-1024px-JSON_vector_logo.svg.png"</span></span>
-<span id="cb9-18"><a href="#cb9-18"></a></span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb9-20"><a href="#cb9-20"></a><span class="co">  html: default</span></span>
-<span id="cb9-21"><a href="#cb9-21"></a><span class="co">  docx: default</span></span>
-<span id="cb9-22"><a href="#cb9-22"></a><span class="co">#  pdf:  default</span></span>
-<span id="cb9-23"><a href="#cb9-23"></a></span>
-<span id="cb9-24"><a href="#cb9-24"></a><span class="an">filters:</span></span>
-<span id="cb9-25"><a href="#cb9-25"></a><span class="co">  - lightbox</span></span>
-<span id="cb9-26"><a href="#cb9-26"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb9-27"><a href="#cb9-27"></a></span>
-<span id="cb9-28"><a href="#cb9-28"></a><span class="an">code-annotations:</span><span class="co"> below</span></span>
-<span id="cb9-29"><a href="#cb9-29"></a></span>
-<span id="cb9-30"><a href="#cb9-30"></a><span class="an">abstract:</span><span class="co"> | </span></span>
-<span id="cb9-31"><a href="#cb9-31"></a><span class="co"> Le format JSON est un format de plus en plus utilisé pour stocker des données, notamment pour les données issues du web. Cependant, sa structure particulière peut poser des problèmes pour obtenir un dataframe dans R.</span></span>
-<span id="cb9-32"><a href="#cb9-32"></a><span class="co">---</span></span>
-<span id="cb9-33"><a href="#cb9-33"></a></span>
-<span id="cb9-34"><a href="#cb9-34"></a>| Packages      | Fonctions                                       |</span>
-<span id="cb9-35"><a href="#cb9-35"></a>|---------------|-------------------------------------------------|</span>
-<span id="cb9-36"><a href="#cb9-36"></a>| **jsonlite**  | <span class="in">`fromJSON`</span>                                      |</span>
-<span id="cb9-37"><a href="#cb9-37"></a>| **rjson**     | <span class="in">`fromJSON`</span>                                      |</span>
-<span id="cb9-38"><a href="#cb9-38"></a>| **data.table**| <span class="in">`rbindlist`</span>                                     |</span>
-<span id="cb9-39"><a href="#cb9-39"></a>| **Base R**    | <span class="in">`as.data.frame`</span> - <span class="in">`knitr`</span> - <span class="in">`class`</span>             |</span>
-<span id="cb9-40"><a href="#cb9-40"></a></span>
-<span id="cb9-41"><a href="#cb9-41"></a>: **Fonctions utilisées dans la fiche**</span>
-<span id="cb9-42"><a href="#cb9-42"></a></span>
-<span id="cb9-43"><a href="#cb9-43"></a></span>
-<span id="cb9-44"><a href="#cb9-44"></a><span class="fu"># Introduction</span></span>
-<span id="cb9-45"><a href="#cb9-45"></a></span>
-<span id="cb9-46"><a href="#cb9-46"></a></span>
-<span id="cb9-47"><a href="#cb9-47"></a>Pour importer des données au format JSON, nous proposons deux packages <span class="in">`rjson`</span> et <span class="in">`jsonlite`</span>.</span>
-<span id="cb9-48"><a href="#cb9-48"></a>Le dernier est beaucoup plus facile d'utilisation et renvoie automatiquement une base de donnée faites de colonnes.</span>
-<span id="cb9-49"><a href="#cb9-49"></a>Je propose <span class="in">`rjson`</span> comme une alternative à <span class="in">`jsonlite`</span> en cas de pépin.</span>
-<span id="cb9-50"><a href="#cb9-50"></a></span>
-<span id="cb9-51"><a href="#cb9-51"></a></span>
-<span id="cb9-52"><a href="#cb9-52"></a><span class="fu"># Données d'exemples</span></span>
-<span id="cb9-53"><a href="#cb9-53"></a></span>
-<span id="cb9-54"><a href="#cb9-54"></a>Le format JSON est surtout utilisé pour les données issues d'API web ou de source OpenData.</span>
-<span id="cb9-55"><a href="#cb9-55"></a>Pour les exemples ci-dessous nous utiliserons donc des données issues du site de la SNCF qui mettent à disposition un grand nombre de jeux de données en libre accès, et notamment dans notre cas, une **base de données des menus des wagons-bars de TGV**<span class="ot">[^1]</span>.</span>
-<span id="cb9-56"><a href="#cb9-56"></a></span>
-<span id="cb9-57"><a href="#cb9-57"></a><span class="ot">[^1]: &lt;https://ressources.data.sncf.com/explore/dataset/menus-des-bars-tgv/table/&gt;</span></span>
-<span id="cb9-58"><a href="#cb9-58"></a></span>
-<span id="cb9-59"><a href="#cb9-59"></a><span class="fu"># Importer des données avec `jsonlite`</span></span>
-<span id="cb9-60"><a href="#cb9-60"></a></span>
-<span id="cb9-61"><a href="#cb9-61"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb9-62"><a href="#cb9-62"></a></span>
-<span id="cb9-63"><a href="#cb9-63"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
-<span id="cb9-64"><a href="#cb9-64"></a></span>
-<span id="cb9-65"><a href="#cb9-65"></a><span class="in">library(jsonlite)</span></span>
-<span id="cb9-66"><a href="#cb9-66"></a><span class="in">menu_TGV &lt;- jsonlite::fromJSON("DATA/menus-des-bars-tgv.json")</span></span>
-<span id="cb9-67"><a href="#cb9-67"></a></span>
-<span id="cb9-68"><a href="#cb9-68"></a><span class="in"># Pour voir les 3 premières lignes</span></span>
-<span id="cb9-69"><a href="#cb9-69"></a><span class="in">library(knitr)</span></span>
-<span id="cb9-70"><a href="#cb9-70"></a><span class="in">kable(head(menu_TGV,3))</span></span>
-<span id="cb9-71"><a href="#cb9-71"></a><span class="in">```</span></span>
-<span id="cb9-72"><a href="#cb9-72"></a></span>
-<span id="cb9-73"><a href="#cb9-73"></a>::: </span>
-<span id="cb9-74"><a href="#cb9-74"></a></span>
-<span id="cb9-75"><a href="#cb9-75"></a>::: {.content-visible when-format="docx"}</span>
-<span id="cb9-76"><a href="#cb9-76"></a><span class="in">```{r message=FALSE, warning=FALSE}</span></span>
-<span id="cb9-77"><a href="#cb9-77"></a><span class="in">head(menu_TGV,3)</span></span>
-<span id="cb9-78"><a href="#cb9-78"></a><span class="in">```</span></span>
-<span id="cb9-79"><a href="#cb9-79"></a>:::</span>
-<span id="cb9-80"><a href="#cb9-80"></a></span>
-<span id="cb9-81"><a href="#cb9-81"></a><span class="fu"># Importer des données avec `rjson`</span></span>
-<span id="cb9-82"><a href="#cb9-82"></a></span>
-<span id="cb9-83"><a href="#cb9-83"></a></span>
-<span id="cb9-86"><a href="#cb9-86"></a><span class="in">```{r}</span></span>
-<span id="cb9-87"><a href="#cb9-87"></a><span class="fu">library</span>(rjson)</span>
-<span id="cb9-88"><a href="#cb9-88"></a></span>
-<span id="cb9-89"><a href="#cb9-89"></a>menu_TGV <span class="ot">&lt;-</span> rjson<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="at">file =</span> <span class="st">"DATA/menus-des-bars-tgv.json"</span>)</span>
-<span id="cb9-90"><a href="#cb9-90"></a><span class="fu">class</span>(menu_TGV)</span>
-<span id="cb9-91"><a href="#cb9-91"></a><span class="in">```</span></span>
-<span id="cb9-92"><a href="#cb9-92"></a></span>
-<span id="cb9-93"><a href="#cb9-93"></a>On obtient un objet de type <span class="in">`list`</span> <span class="ot">[^2]</span>, que l'on peut transformer en base de donnée avec l'exemple suivant.  </span>
-<span id="cb9-94"><a href="#cb9-94"></a></span>
-<span id="cb9-95"><a href="#cb9-95"></a><span class="ot">[^2]: </span>Pour découvrir comment utiliser des listes : <span class="ot">&lt;https://juba.github.io/tidyverse/16-structures-donnees.html#sec-listes&gt;</span></span>
-<span id="cb9-96"><a href="#cb9-96"></a></span>
-<span id="cb9-97"><a href="#cb9-97"></a></span>
-<span id="cb9-98"><a href="#cb9-98"></a>Une liste peut-être un objet assez complexe mais en fouillant dedans, il est possible de retrouver (ou de mettre en forme) une base de donnée.</span>
-<span id="cb9-99"><a href="#cb9-99"></a>Dans notre cas plutôt simple, on remarque que la liste a autant d'élément que d'individus, et lorsqu'on regarde à l'intérieur de chaque élément, on trouve la réponse pour chaque individu à chacune des variables.</span>
-<span id="cb9-100"><a href="#cb9-100"></a></span>
-<span id="cb9-101"><a href="#cb9-101"></a></span>
-<span id="cb9-102"><a href="#cb9-102"></a><span class="al">![](img/liste_explic.png)</span>{width="75%"}</span>
-<span id="cb9-103"><a href="#cb9-103"></a></span>
-<span id="cb9-104"><a href="#cb9-104"></a></span>
-<span id="cb9-105"><a href="#cb9-105"></a>On va donc extraire ces informations et les compiler dans une base de donnée ordonnées.</span>
-<span id="cb9-106"><a href="#cb9-106"></a></span>
-<span id="cb9-107"><a href="#cb9-107"></a></span>
-<span id="cb9-108"><a href="#cb9-108"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb9-109"><a href="#cb9-109"></a></span>
-<span id="cb9-110"><a href="#cb9-110"></a><span class="in">```{r warning=FALSE}</span></span>
-<span id="cb9-111"><a href="#cb9-111"></a></span>
-<span id="cb9-112"><a href="#cb9-112"></a><span class="in"># Convertir la liste en data frame par lignes</span></span>
-<span id="cb9-113"><a href="#cb9-113"></a><span class="in">menu_df &lt;- as.data.frame(do.call(rbind, menu_TGV))</span></span>
-<span id="cb9-114"><a href="#cb9-114"></a><span class="in">kable(head(menu_df,3))</span></span>
-<span id="cb9-115"><a href="#cb9-115"></a></span>
-<span id="cb9-116"><a href="#cb9-116"></a></span>
-<span id="cb9-117"><a href="#cb9-117"></a></span>
-<span id="cb9-118"><a href="#cb9-118"></a><span class="in"># Même chose avec le package data.table</span></span>
-<span id="cb9-119"><a href="#cb9-119"></a><span class="in">library(data.table)</span></span>
-<span id="cb9-120"><a href="#cb9-120"></a><span class="in">menu_df2 &lt;- rbindlist(menu_TGV)</span></span>
-<span id="cb9-121"><a href="#cb9-121"></a><span class="in">kable(head(menu_df2,3))</span></span>
-<span id="cb9-122"><a href="#cb9-122"></a></span>
-<span id="cb9-123"><a href="#cb9-123"></a><span class="in">```</span></span>
-<span id="cb9-124"><a href="#cb9-124"></a></span>
-<span id="cb9-125"><a href="#cb9-125"></a>:::</span>
-<span id="cb9-126"><a href="#cb9-126"></a></span>
-<span id="cb9-127"><a href="#cb9-127"></a>::: {.content-visible when-format="docx"}</span>
-<span id="cb9-128"><a href="#cb9-128"></a></span>
-<span id="cb9-129"><a href="#cb9-129"></a><span class="in">```{r warning=FALSE}</span></span>
-<span id="cb9-130"><a href="#cb9-130"></a></span>
-<span id="cb9-131"><a href="#cb9-131"></a><span class="in"># Convertir la liste en data frame par lignes</span></span>
-<span id="cb9-132"><a href="#cb9-132"></a><span class="in">menu_df &lt;- as.data.frame(do.call(rbind, menu_TGV))</span></span>
-<span id="cb9-133"><a href="#cb9-133"></a><span class="in">head(menu_df,3)</span></span>
-<span id="cb9-134"><a href="#cb9-134"></a><span class="in">```</span></span>
-<span id="cb9-135"><a href="#cb9-135"></a></span>
-<span id="cb9-136"><a href="#cb9-136"></a></span>
-<span id="cb9-137"><a href="#cb9-137"></a><span class="in">```{r warning=FALSE}</span></span>
-<span id="cb9-138"><a href="#cb9-138"></a><span class="in"># Même chose avec le package data.table</span></span>
-<span id="cb9-139"><a href="#cb9-139"></a><span class="in">library(data.table)</span></span>
-<span id="cb9-140"><a href="#cb9-140"></a><span class="in">menu_df2 &lt;- rbindlist(menu_TGV)</span></span>
-<span id="cb9-141"><a href="#cb9-141"></a><span class="in">head(menu_df2,3)</span></span>
-<span id="cb9-142"><a href="#cb9-142"></a></span>
-<span id="cb9-143"><a href="#cb9-143"></a><span class="in">```</span></span>
-<span id="cb9-144"><a href="#cb9-144"></a></span>
-<span id="cb9-145"><a href="#cb9-145"></a>:::</span>
-</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

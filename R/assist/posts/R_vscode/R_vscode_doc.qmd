@@ -15,11 +15,7 @@ image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0
 
 format: 
   html: default
-  docx: default
 
-filters:
-   - lightbox
-lightbox: auto
 
 abstract: | 
  VSCode est un IDE (**Environnement de Dévelopement Integré**) qui offre une intégration avec de nombreux outils et langages de programmation. L'extension R pour VS Code vous permet de travailler avec R dans un environnement de développement intégré, ce qui peut vous faire gagner du temps. VS Code vous permet de personnaliser l'éditeur de code et les paramètres de l'IDE selon vos besoins.

@@ -15,11 +15,6 @@ image: "https://www.r-project.org/Rlogo.png"
 
 format: 
   html: default
-  docx: default
-
-filters:
-  - lightbox
-lightbox: auto
 
 code-annotations: below
 
@@ -36,7 +31,11 @@ abstract: |
 : **Fonctions utilisées dans la fiche**
 
 
+::: {.box_img}
 ![](img/Schema_ifelse_base.png){width="50%"}
+:::
+
+<br>
 
 # R base : `ifelse()`
 
@@ -60,7 +59,11 @@ abstract: |
 
 Création d'une variable catégorielle *taille_rec*, avec deux modalités : "Grand.e", "Petit.e".
 
+::: {.box_img}
 ![](img/Schema_ifelse_ex1.png){width="33%"}
+:::
+<br>
+
 
 ```{r}
 
@@ -96,7 +99,11 @@ table(individus$taille_rec)
 
 Il est possible d'empiler les fonctions `ifelse()` pour créer des variables avec plus de deux modalités. Pour cela on suit le schéma suivant :
 
+
+::: {.box_img}
 ![](img/Schema_ifelse_ex2.png){width="50%"}
+:::
+<br>
 
 Dans cet exemple, on divise la taille en 3 catégories :
 
@@ -128,6 +135,7 @@ Dans cet exemple, nous allons créer une variable dont les catégories seront di
 
 <br>
 
+:::: {.box_img}
 ::: columns
 ::: {.column width="40%"}
 *Pour les hommes :*
@@ -141,10 +149,14 @@ Dans cet exemple, nous allons créer une variable dont les catégories seront di
 -   Grand.e : >= 170  
 :::
 
+
 ::: {.column width="60%"}
 ![](img/Schema_ifelse_ex3.png){width="75%"}
 :::
 :::
+::::
+
+<br>
 
 ```{r}
 

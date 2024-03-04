@@ -112,10 +112,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../Autres/index.html"> 
-<span class="menu-text">Othe-R</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
@@ -141,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Récupérer et exécuter le test OLS de Grambsch-Therneau</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Récupérer et exécuter le test OLS de Grambsch-Therneau</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Test</div>
               </div>
@@ -187,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="coxzph.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="coxzph.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -222,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Lorsqu’on utilise le modèle de Cox avec des durées discrètes, situation très courante dans les sciences sociales, je préconise l’utilisation de la version dite <em>simplifiée</em> (OLS).
 <ul>
 <li>Le modèle de Cox est une méthode à durée continue, les conditions de validité du test GLS ne sont établies avec des évènements mesurés simultanément.</li>
-<li>Contrainte de reproductibilité: <strong>Stata</strong>, <strong>Sas</strong>, <strong>Python</strong> (<strong><code>lifelines</code></strong>, <strong><code>statsmodels</code></strong>)</li>
+<li>Contrainte de reproductibilité: <strong>Stata</strong>, <strong>Sas</strong>, <strong>Python</strong> (<strong><code>lifelines</code></strong>, <strong><code>statsmodels</code></strong>) exécutent seulement le tests OLS.</li>
 </ul></li>
 </ul>
 <p><strong>Récupération et exécution du test OLS</strong></p>
@@ -276,8 +287,6 @@ GLOBAL     NA  7.99 0.0462</code></pre>
 </div>
 </div>
 
-
-<!-- -->
 
 
 </main> <!-- /main -->
@@ -360,57 +369,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -722,90 +680,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> "Récupérer et exécuter le test OLS de Grambsch-Therneau"</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># toc-title: ""</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co"># subtitle: ""</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="an">categories:</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">  - Test</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="co">  </span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="an">author:</span><span class="co"> </span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">  - name: "Marc Thévenin"</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">    affiliations:</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">      - name: "Ined"</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="an">date:</span><span class="co"> 06/13/2023</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="an">image:</span><span class="co"> "https://m.media-amazon.com/images/P/1441931619.01._SCLZZZZZZZ_SX500_.jpg"</span></span>
-<span id="cb5-18"><a href="#cb5-18"></a></span>
-<span id="cb5-19"><a href="#cb5-19"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="co">  html: default</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a><span class="co">  docx: default</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a><span class="co">  pdf:  default </span></span>
-<span id="cb5-23"><a href="#cb5-23"></a></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="an">filters:</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a><span class="co">   - lightbox</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
-<span id="cb5-27"><a href="#cb5-27"></a></span>
-<span id="cb5-28"><a href="#cb5-28"></a><span class="an">abstract:</span><span class="co">  |</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a><span class="co"> Comment récupérer la variante du test de Grambsch-Therneau implémentée au package `survival` avant son passage à la v3. Permet de s'assurer une reproductibilité avec les autres applications statistiques (Stata, Sas, Python) avec des durées discrètes.</span></span>
-<span id="cb5-30"><a href="#cb5-30"></a></span>
-<span id="cb5-31"><a href="#cb5-31"></a><span class="co">---</span></span>
-<span id="cb5-32"><a href="#cb5-32"></a></span>
-<span id="cb5-33"><a href="#cb5-33"></a>| Package       | Fonctions                                       |</span>
-<span id="cb5-34"><a href="#cb5-34"></a>|---------------|-------------------------------------------------|</span>
-<span id="cb5-35"><a href="#cb5-35"></a>| **survival**  | <span class="in">`coxph`</span> - <span class="in">`coxzph.old`</span>                          |</span>
-<span id="cb5-36"><a href="#cb5-36"></a></span>
-<span id="cb5-37"><a href="#cb5-37"></a></span>
-<span id="cb5-38"><a href="#cb5-38"></a>**Champ d'application** </span>
-<span id="cb5-39"><a href="#cb5-39"></a></span>
-<span id="cb5-40"><a href="#cb5-40"></a><span class="ss">* </span>Modèle de Cox (analyse des durées)  </span>
-<span id="cb5-41"><a href="#cb5-41"></a><span class="ss">* </span>Diagnostic sur l'hypothèse de proportionalité des risques  </span>
-<span id="cb5-42"><a href="#cb5-42"></a></span>
-<span id="cb5-43"><a href="#cb5-43"></a></span>
-<span id="cb5-44"><a href="#cb5-44"></a>**Problématique**  </span>
-<span id="cb5-45"><a href="#cb5-45"></a></span>
-<span id="cb5-46"><a href="#cb5-46"></a><span class="ss">- </span>Depuis le passage à la version 3 du package **`survival`** en 2020, le test OLS sur les résidus de Schoenfeld a été supprimé et remplacé par le test GLS. Le second est la version originelle du test proposé en 1994 par P.Grambsch et T.Therneau.</span>
-<span id="cb5-47"><a href="#cb5-47"></a><span class="ss">- </span>En présence d'évènements simultanés (durée discrète), les résultats affichés par les deux versions peuvent fortement variés. </span>
-<span id="cb5-48"><a href="#cb5-48"></a><span class="ss">- </span>Lorsqu'on utilise le modèle de Cox avec des durées discrètes, situation très courante dans les sciences sociales, je préconise l'utilisation de la version dite *simplifiée* (OLS). </span>
-<span id="cb5-49"><a href="#cb5-49"></a><span class="ss">  - </span>Le modèle de Cox est une méthode à durée continue, les conditions de validité du test GLS ne sont établies avec des évènements mesurés simultanément.</span>
-<span id="cb5-50"><a href="#cb5-50"></a><span class="ss">  - </span>Contrainte de reproductibilité: **Stata**, **Sas**, **Python** (**`lifelines`**, **`statsmodels`**)  </span>
-<span id="cb5-51"><a href="#cb5-51"></a></span>
-<span id="cb5-52"><a href="#cb5-52"></a></span>
-<span id="cb5-53"><a href="#cb5-53"></a>**Récupération et exécution du test OLS**</span>
-<span id="cb5-54"><a href="#cb5-54"></a></span>
-<span id="cb5-55"><a href="#cb5-55"></a></span>
-<span id="cb5-56"><a href="#cb5-56"></a><span class="ss">- </span>J'ai récupéré le script de la fonction dans les archives du CRAN. Elle a simplement été renommée  **`cox.zphold()`**.</span>
-<span id="cb5-57"><a href="#cb5-57"></a><span class="ss">- </span>Pour charger la fonction, il suffit d'appliquer  **`source()`** qui joue le même rôle que **`library()`**.</span>
-<span id="cb5-58"><a href="#cb5-58"></a><span class="ss">  - </span>Directement sur le dépôt github: </span>
-<span id="cb5-59"><a href="#cb5-59"></a><span class="ss">    - </span>**`source("https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R")`**</span>
-<span id="cb5-60"><a href="#cb5-60"></a><span class="ss">  - </span>Si le script a été enregistré en local: </span>
-<span id="cb5-61"><a href="#cb5-61"></a><span class="ss">    - </span>**`source("local_path/cox.zphold.R")`**</span>
-<span id="cb5-62"><a href="#cb5-62"></a></span>
-<span id="cb5-63"><a href="#cb5-63"></a></span>
-<span id="cb5-64"><a href="#cb5-64"></a>**Exemple** </span>
-<span id="cb5-65"><a href="#cb5-65"></a></span>
-<span id="cb5-66"><a href="#cb5-66"></a><span class="in">```{r filename="Récupération des données"}</span></span>
-<span id="cb5-67"><a href="#cb5-67"></a><span class="in">library(readr)</span></span>
-<span id="cb5-68"><a href="#cb5-68"></a><span class="in">trans &lt;- read.csv("https://raw.githubusercontent.com/mthevenin/analyse_duree/master/bases/transplantation.csv")</span></span>
-<span id="cb5-69"><a href="#cb5-69"></a><span class="in">```</span></span>
-<span id="cb5-70"><a href="#cb5-70"></a></span>
-<span id="cb5-71"><a href="#cb5-71"></a><span class="in">```{r filename="Estimation d'un modèle de Cox"}</span></span>
-<span id="cb5-72"><a href="#cb5-72"></a><span class="in">library(survival)</span></span>
-<span id="cb5-73"><a href="#cb5-73"></a><span class="in">coxfit = coxph(formula = Surv(stime, died) ~ year + age + surgery, data = trans)</span></span>
-<span id="cb5-74"><a href="#cb5-74"></a><span class="in">```</span></span>
-<span id="cb5-75"><a href="#cb5-75"></a></span>
-<span id="cb5-76"><a href="#cb5-76"></a><span class="in">```{r filename="Réupération et exécution du test OLS"}</span></span>
-<span id="cb5-77"><a href="#cb5-77"></a><span class="in">source("https://raw.githubusercontent.com/mthevenin/analyse_duree/main/cox.zphold/cox.zphold.R")</span></span>
-<span id="cb5-78"><a href="#cb5-78"></a><span class="in">cox.zphold(coxfit)</span></span>
-<span id="cb5-79"><a href="#cb5-79"></a><span class="in">```</span></span>
-<span id="cb5-80"><a href="#cb5-80"></a></span>
-<span id="cb5-81"><a href="#cb5-81"></a></span>
-<span id="cb5-82"><a href="#cb5-82"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+<input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
 
 

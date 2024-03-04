@@ -74,7 +74,9 @@ Chaque discours correspond à un fichier texte et ces 5 discours sont placés da
 
 # Le script d'origine
 
-```{r, eval=FALSE}
+```{r}
+#| code-fold: true
+#| eval: false
 #| class: scroll_output 
 
 ## Appel des packages
@@ -154,7 +156,12 @@ install_github("dreamRs/prefixer")
 
 Celui-ci permet d'ouvrir une interface qui propose pour chaque fonction du script de lui ajouter un préfixe composé du nom de la fonction suivi de `::`
 
+::: {.column width="65%"}
+::: {.box_img}
 ![](img/img1.png)
+:::
+:::
+<br>
 
 ## Prefixer le script
 
@@ -167,13 +174,25 @@ library(prefixer)
 prefixer()
 ```
 
-Dans le cas de notre script
+Dans le cas de notre script: 
 
-![](img/img2.png)
+```{.r}
+#cloud<-word_cloud(dtm2, color= 'black', min.freq=1,n =50) 
+#title(main = "Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017")
+
+library(prefixer)
+prefixer()
+```
+
 
 ## Utiliser la fenêtre shiny permettant de choisir le préfixe
 
+::: {.column width="65%"}
+::: {.box_img}
 ![](img/mov1.gif)
+:::
+:::
+<br>
 
 # Résultat: le script est enrichi
 

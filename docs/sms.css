@@ -19,14 +19,6 @@
 
 
 
-
-
-
-
-
-
-
-
 .navbar-dark .navbar-nav .nav-link:hover {
 //  color: #cd193f;
   font-weight: 500;
@@ -35,12 +27,6 @@
 .navbar-dark .navbar-nav .show>.nav-link, .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active {
   color: #cd193f;
 }
-
-
-
-
-
-
 
 
 
@@ -118,7 +104,7 @@
 
 #title-block-header.quarto-title-block.default .quarto-title-meta-heading {
   font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   margin-top: 1em;
   font-size: 0.9em;
   opacity: 1;
@@ -128,7 +114,7 @@
 
 #title-block-header.quarto-title-block.default .quarto-title-meta-contents {
   font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
   font-weight: 400;
   opacity: 0.8;
   font-size: 0.9em;
@@ -216,7 +202,7 @@ div.csl-entry {
   font-family: 'Roboto', sans-serif;
   font-size: 1.3em;
   letter-spacing: 1px;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
   margin-bottom: 0px;
 }
 
@@ -359,7 +345,7 @@ h1, .h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: #1a1a1a;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: normal;
 }
 
@@ -399,28 +385,6 @@ a {
   text-decoration: none;
 }
 
-p > a {
-  color: #cd193f;
-  font-weight: 700;
-  /* text-decoration: none;  */
-}
-
-b, strong a {
-  /* text-decoration: none; */
-  color: #cd193f;
-}
-
-ul a {
-  color: #cd193f;
-  font-weight: 700;
-  /* text-decoration: none;  */
-}
-
-dd a {
-  color: #cd193f;
-  font-weight: 700;
-  /* text-decoration: none;  */
-}
 
 /* a.listing-title {
   text-decoration: none;
@@ -486,15 +450,13 @@ div.quarto-post a {
 .nav-page .nav-page-text {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  text-transform: uppercase;
-  
+/* text-transform: uppercase;*/
   color: black;
 }
 
 .nav-page .bi {
   color: black;
 }
-
 
 /*-- grid de la liste des posts --*/
 
@@ -520,6 +482,7 @@ div.quarto-post a {
 
 .quarto-grid-item div.listing-author {
   text-align: left;
+  padding-top: 10px;
 }
 
 .quarto-grid-item div.listing-date {
@@ -536,7 +499,6 @@ div.quarto-post a {
 .quarto-grid-item .card-title {
   margin-top: 0.1em;
   margin-bottom: 0.5em;
-
   font-weight: 600; 
   text-align: left;
 }
@@ -570,20 +532,13 @@ div.quarto-post a {
 
 .quarto-grid-item img.thumbnail-image {
   object-fit: cover;
-  height: 170px !important;
+  height: 100%;
   width: 100%;
   padding: 10px;
 }
 
 
 .zoom-image img:hover{width:100%; height:100%; filter:grayscale(100%); moz-transform:scale(.9); -webkit-transform:scale(.9); transform:scale(.9)  rotate(-360deg);-webkit-transition:.7s ease-in-out;transition:.7s ease-in-out  rotate(-360deg)}
-
-
-
-/*-- callout styles --*/
-.callout {
-  background-color: white;
-}
 
 
 
@@ -660,7 +615,7 @@ div.quarto-post a {
 .listing-block h2 {
   /* margin-top: 1.5em; */
   color: black;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
 }
 
 .listing-block h2:hover {
@@ -723,7 +678,7 @@ div.quarto-post a {
   color: #37424A;
   font-family: 'Roboto', sans-serif;
   font-size: 1.3em;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
   margin-bottom: 0px;
   text-decoration: none;
 }
@@ -732,63 +687,4 @@ div.quarto-post a {
   color: #37424A;
   font-weight: 500;
 }
-
-
-/*-- footer style --*/
-
-.footer-container {
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  padding-top: 1em;
-  margin-top: 2.5em;
-}
-
-.footer-text h3, .h3 {
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  font-size: .875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  margin-top: 0.3rem;
-  border-bottom: 0;
-  padding-bottom: 0;
-  padding-top: 0px;
-}
-
-.footer-text p, .p {
-  color: white;
-  font-size: .875rem;
-  font-weight: 400;
-}
-
-.footer-text p > a {
-  color: white;
-  font-size: .875rem;
-  font-weight: 400;
-}
-
-.footer-text p > a:hover {
-  color: #939bc9;
-  font-size: .875rem;
-  font-weight: 400;
-}
-
-.footer-block {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-top: 1em;
-  padding-bottom: 1.8em; 
-  box-sizing: border-box;
-}
-
-
-.quarto-title-banner .code-tools-button {
- color:#55595c
-}
-.quarto-title-banner .code-tools-button:hover {
- color:#55595c
-}
-
-
 

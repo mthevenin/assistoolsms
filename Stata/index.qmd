@@ -1,0 +1,20 @@
+---
+title: "Fiches Stata"
+search: false
+listing:
+  contents: 
+  - assist
+  - "!index.qmd"
+  sort: "date desc"
+  type: table
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  page-size: 20
+  max-items: 20
+  max-description-length: 300
+---
+
+
+
+

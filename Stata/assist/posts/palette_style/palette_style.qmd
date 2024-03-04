@@ -1,0 +1,76 @@
+---
+title: "**Nouvelle palette de couleurs et nouveau thème usine avec Stata 18**"
+
+title-block-banner: false
+
+author: 
+  - name: "Marc Thévenin"
+    affiliations:
+      - name: "Ined"
+
+date: 06/29/2023
+
+categories: 
+  - Stata 18
+  - graphique
+
+format: 
+  html: default
+#  docx:
+#    toc: true
+#   number-sections: true
+    
+filters:
+   - lightbox
+lightbox: auto
+
+#jupyter: nbstata  
+
+abstract: | 
+ La palette s2 et le thème s2color, dépassés depuis bien longtemps ont été enfin remplacés. Cette courte fiche présente à l'aide de quelques visuels ces éléments de visualisation.
+
+---
+
+
+
+# Nouvelle palette **stcolor**
+
+::: callout-note
+
+## grstyle et la nouvelle option `colorvar`
+
+La palette chargée avec `grstyle set color` (commande de Ben Jann) n'est pas appliqué à la variable de la nouvelle option `colorvar`. C'est un peu facheux. On peut résoudre le problème en récupérant la macro `r(p)` après avoir chargé la palette avec `colorpalette` et en l'appliquant dans la nouvelle option `colorlist`. 
+
+:::
+
+![Nouvelle palette stcolor](img1.png){width=70%}
+
+![Ancienne palette s2](img2.png){width=70%}
+
+
+# Nouveau thème par défaut
+
+::: callout-note
+
+## Nouvelle position de la légende
+
+Le nouveau thème modifie le positionnement de la legende par défaut (à 3 heures),
+ce qui n'est pas forcément une bonne idée lorsque les labels sont assez long (écrasement important de la largeur du graphique). Pour retrouver la position à 
+6 heures et sur une ligne (défaut jusqu'à la v17: `legend(pos(6) row(1))`)
+
+:::
+
+
+
+Avec le programme donné en exemple de l'aide de `line` [`help line`]:
+
+
+
+![Nouveau thème](img3.png)
+
+![Ancien thème](img4.png)
+
+
+
+
+

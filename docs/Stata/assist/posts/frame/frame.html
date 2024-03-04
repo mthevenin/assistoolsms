@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.547">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Marc Thévenin">
+
+<title>Support d’assistance Sms : - Introduction aux frames [Stata 16]</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../../sms.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Support d’assistance Sms :</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../R/index.html"> 
+<span class="menu-text">R</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Othe-R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
+        <li>
+    <a class="dropdown-item" href="../../../../Autres/index.html">
+ <span class="dropdown-text">Quarto-Git-Python…</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../Stata/index.html">
+ <span class="dropdown-text">Stata</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../supports.html"> 
+<span class="menu-text">Autres Supports</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html"> 
+<span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mthevenin/assistoolsms"> 
+<span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#création-dune-frame" id="toc-création-dune-frame" class="nav-link active" data-scroll-target="#création-dune-frame"><strong>Création d’une frame</strong></a></li>
+  <li><a href="#opérations-en-parallèle" id="toc-opérations-en-parallèle" class="nav-link" data-scroll-target="#opérations-en-parallèle"><strong>Opérations en parallèle</strong></a></li>
+  <li><a href="#liaison-entre-frames" id="toc-liaison-entre-frames" class="nav-link" data-scroll-target="#liaison-entre-frames"><strong>Liaison entre frames</strong></a></li>
+  <li><a href="#autres-opérations" id="toc-autres-opérations" class="nav-link" data-scroll-target="#autres-opérations"><strong>Autres opérations</strong></a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="frame.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Introduction aux frames [Stata 16]</strong></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">frame</div>
+  </div>
+  </div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Auteur·rice</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Marc Thévenin </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Ined
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 février 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Résumé</div>
+    <p>Les frames, introduites avec la version 16 de Stata, permettent de travailler parallèlement sur plusieurs bases de données, sans avoir à enregistrer/ouvrir. Un système de liaison entre frames revisite l’appariement des bases. Il s’avère particulièrement utile lorsqu’on alimente une base individuelle avec des données contextuelles.</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<p><br><br></p>
+<p>Les <strong>frames</strong> on été implémentées à Stata à partir de la version 16 (2019). Elles n’améliorent pas directement les durées d’éxécution, mais en donnant la possibilité de travailler simultanément sur plusieurs bases simultanément sans multiplier les opérations d’ouverture ou de sauvegarde, elles permettent de “gagner du temps”. Mieux encore, elles ont été pensées pour faciliter les fusions et les manipulations d’informations entre bases de données en implémentant une alternative aux <em><code>merge</code></em> via une logique de liaison.<br>
+<strong><em>Les frames ont été pensées pour faciliter le travail de programmation entre bases individuelles et bases contextuelles</em></strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La version 18 de Stata implémente le format <strong>.dtas</strong> qui permet de sauvergadrer une collection de frames et leurs liaisons.</p>
+</div>
+</div>
+<p>La présentation des <strong>frames</strong> se fera par l’exemple, avec la base <em>nhanes2</em>:</p>
+<ul>
+<li>créer plusieurs frames à partir d’une base source (<em>nhanes2</em>).</li>
+<li><em>collapser</em> des informations dans une frame</li>
+<li>lier deux frames et importer des variables d’une frame à une autre .<br>
+</li>
+<li>générer des variables dans une frame en utilisant des informations issues d’une ou plusieurs autres <em>frame</em>.</li>
+</ul>
+<p>Depuis Stata 16, à chaque base active est associée une <em>frame</em> nommée <em>default</em>. On peut récupérer l’information sur les frames créées lors d’une session avec les instruction <strong><code>frame dir</code></strong> ou <strong><code>frame list</code></strong>. Le nombre de lignes (observations) et colonnes (variables) sont indiquées.</p>
+<p>On ouvre une session avec Stata, la frame * default* avec 0 ligne et 0 colonnes est indiquée avec <code>frame dir</code>.</p>
+<div id="1dd76376" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1"></a>frame <span class="ot">dir</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>div.jp-Notebook .datagrid-container {min-height: 448px; }</style>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  default  0 x 0</code></pre>
+</div>
+</div>
+<p>On ouvre une base, et de nouveau avec <code>frame dir</code>:</p>
+<div id="2729c938" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">clear</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">webuse</span> nhanes2</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>frame <span class="ot">dir</span> </span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">des</span>, <span class="fu">s</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  default  10351 x 58; nhanes2.dta
+
+Contains data from https://www.stata-press.com/data/r18/nhanes2.dta
+ Observations:        10,351                  
+    Variables:            58                  20 Dec 2022 10:07
+Sorted by: </code></pre>
+</div>
+</div>
+<p>On souhaite renommer cette frame <em>default</em>, par exemple <em>nhanes</em>: <em><code>frame rename</code></em></p>
+<div id="69cdde5a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1"></a>frame <span class="kw">rename</span> <span class="kw">default</span> nhanes</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  nhanes  10351 x 58; nhanes2.dta</code></pre>
+</div>
+</div>
+<section id="création-dune-frame" class="level1">
+<h1><strong>Création d’une frame</strong></h1>
+<p>On souhaite, par exemple, créer des bases d’indicateurs en collapsant des informations issues de la base/frame <em>nhanes</em>, sur la tension artérielle (<em>bpsystol</em>) et sur l’IMC (<em>bmi</em>), tout en gardant les informations sur le sexe (<em>sex</em>). On va générer deux frames avec <strong><code>frame put</code></strong>.</p>
+<p>On indique simplement la sélection de variables et avec l’option <strong><code>into()</code></strong> le nom de la nouvelle frame.</p>
+<div id="2ff7a49d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1"></a>frame put sex bpsystol, into(tension)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>frame put sex bmi,      into(imc)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>* imc      10351 x 2
+  nhanes   10351 x 58; nhanes2.dta
+* tension  10351 x 2
+
+Note: Frames marked with * contain unsaved data.</code></pre>
+</div>
+</div>
+<p><em>Remarques</em></p>
+<ul>
+<li>pas de préserve/restore et aucune opération de sauvegarde n’ont été nécessaire.</li>
+<li><code>frame dir</code> indique les frames qui ne sont pas enregistrées en dur (.dta).</li>
+<li>On peut utiliser les arguments <code>if</code> <code>in</code> pour sélectionner des observations.</li>
+</ul>
+</section>
+<section id="opérations-en-parallèle" class="level1">
+<h1><strong>Opérations en parallèle</strong></h1>
+<p>On a maintenant 3 frames dans la session: la frame active <em>nhanes</em> (chargée dans l’interface), et en arrière plan <em>tension</em> et <em>imc</em>.<br>
+On peut continuer à travailler sur la base <em>nhanes</em>, mais aussi simultanément sur les deux nouvelles frames.</p>
+<p>Une seule ligne de commande:</p>
+<pre><code>frame nom_frame: command</code></pre>
+<p>Plusieurs lignes de commandes:</p>
+<pre><code>frame nom_frame {
+command1
+command2
+.
+.
+.
+} </code></pre>
+<div id="ba136185" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1"></a>* frame active (nhanes2)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">tab</span> agegrp</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a>frame tension: <span class="kw">rename</span> bpsystol tension</span>
+<span id="cb11-5"><a href="#cb11-5"></a>frame tension: <span class="kw">mean</span>   tension, <span class="bn">over</span>(sex)</span>
+<span id="cb11-6"><a href="#cb11-6"></a></span>
+<span id="cb11-7"><a href="#cb11-7"></a>frame imc: <span class="kw">rename</span> bmi imc</span>
+<span id="cb11-8"><a href="#cb11-8"></a>frame imc: <span class="kw">mean</span>   imc, <span class="bn">over</span>(sex)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Age group |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      20–29 |      2,320       22.41       22.41
+      30–39 |      1,622       15.67       38.08
+      40–49 |      1,272       12.29       50.37
+      50–59 |      1,291       12.47       62.84
+      60–69 |      2,860       27.63       90.47
+        70+ |        986        9.53      100.00
+------------+-----------------------------------
+      Total |     10,351      100.00
+
+Mean estimation                          Number of obs = 10,351
+
+---------------------------------------------------------------
+              |       Mean   Std. err.     [95% conf. interval]
+--------------+------------------------------------------------
+c.tension@sex |
+        Male  |    132.888      0.299       132.301     133.475
+      Female  |    129.068      0.341       128.400     129.736
+---------------------------------------------------------------
+
+Mean estimation                         Number of obs = 10,351
+
+--------------------------------------------------------------
+             |       Mean   Std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+   c.imc@sex |
+       Male  |     25.510      0.057        25.397      25.622
+     Female  |     25.563      0.076        25.414      25.711
+--------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p>Sur le même principe, on va collapser les frames et <em>tension</em> et <em>imcs</em> (moyennes de <em>tension</em> et <em>imc</em> par sexe)</p>
+<div id="044131c4" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1"></a>frame tension {</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">collapse</span> tension, <span class="kw">by</span>(sex)</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="ot">list</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>}</span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a>frame imc {</span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="kw">collapse</span> imc, <span class="kw">by</span>(sex)</span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="ot">list</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     +-------------------+
+     |    sex    tension |
+     |-------------------|
+  1. |   Male   132.8877 |
+  2. | Female   129.0679 |
+     +-------------------+
+
+     +-------------------+
+     |    sex        imc |
+     |-------------------|
+  1. |   Male   25.50999 |
+  2. | Female   25.56256 |
+     +-------------------+</code></pre>
+</div>
+</div>
+<div id="2bd58f58" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>* imc      2 x 2
+  nhanes   10351 x 58; nhanes2.dta
+* tension  2 x 2
+
+Note: Frames marked with * contain unsaved data.</code></pre>
+</div>
+</div>
+<p>Remarque: la frame/base <em>nhanes</em> et toujours celle qui est chargée dans l’interface. On peut changer à tout instant de frame chargée dans l’interface avec <strong><code>frame change nom_frame</code></strong></p>
+</section>
+<section id="liaison-entre-frames" class="level1">
+<h1><strong>Liaison entre frames</strong></h1>
+<p>L’autre nouveauté est le système de liaison: - Il permet d’apparier des informations entre bases - Il permet de faire des opérations entre frames sans avoir à apparier des bases</p>
+<p>Pour lier deux frames on utilise la commande <strong><code>frlink</code></strong>:<br>
+- Nécessite une clé d’appariement, comme pour <code>merge</code> une ou plusieurs variables - On doit indiquer le type de liaison: <strong>1:1</strong> ou <strong>m:1</strong> - Stata génère une variable de liaison, on peut lui donner un nom - Petit regret: on ne peut lier que deux frames à la fois. Dans notre exemple, on aurait par exemple aimer lier la frame <em>nhanes</em> aux frames <em>tension</em> et <em>imc</em> en une ligne. On devra le faire deux fois, avec deux variables de liaison identiques.</p>
+<pre><code>frlink varlist, frame(nom_frame) gen(link_name)</code></pre>
+<p>Ici la clé d’appariement est la variable <em>sex</em>, la liaison est de type <strong>m:1</strong></p>
+<div id="be9016e9" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1"></a>frlink <span class="fu">m</span>:1 sex, frame(tension) <span class="kw">gen</span>(l1)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>frlink <span class="fu">m</span>:1 sex, frame(imc)     <span class="kw">gen</span>(l2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(all observations in frame nhanes matched)
+(all observations in frame nhanes matched)</code></pre>
+</div>
+</div>
+<p>on souhaite apparier les variables <em>tension</em> et <em>inc</em> à la base/frame <em>nhanes</em>: <strong><code>frget</code></strong>. La variable de liaison joue le rôle de la clé d’identification.</p>
+<p>Avantage:</p>
+<ul>
+<li>on merge des variables et non des bases. On sélectionne donc les variables que l’on juge utile</li>
+<li>on peut renommer les variables avec <strong><code>frget</code></strong>, ici <em>mtension</em> pour <em>tension</em> et <em>mimc</em> pour <em>imc</em>. Attention aux habitudes, ici pour renommer c’est nouveau_nom=ancien_nom.</li>
+</ul>
+<div id="4621afc7" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1"></a>frget mtension=tension, from(l1)</span>
+<span id="cb20-2"><a href="#cb20-2"></a>frget mimc=imc,     from(l2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1 variable copied from linked frame)
+(1 variable copied from linked frame)</code></pre>
+</div>
+</div>
+<p>Les variables <em>mtension</em> et <em>minc</em> sont maintenant dans la base/frame <em>nhanes</em></p>
+<div id="e7e250d5" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">mean</span> mtension mimc, <span class="bn">over</span>(sex)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Mean estimation                           Number of obs = 10,351
+
+----------------------------------------------------------------
+               |       Mean   Std. err.     [95% conf. interval]
+---------------+------------------------------------------------
+c.mtension@sex |
+         Male  |    132.888      0.000             .           .
+       Female  |    129.068      0.000             .           .
+               |
+    c.mimc@sex |
+         Male  |     25.510      0.000             .           .
+       Female  |     25.563      0.000             .           .
+----------------------------------------------------------------</code></pre>
+</div>
+</div>
+<p>Imaginons que nous ne souhaitions pas importer les variables <em>mtension</em> <em>minc</em> qui joueraient ici le rôle de variables contextuelles, mais mesurer simplement un écart entre les observations individuelles et les moyennes, en tenant compte du sexe de la personnes. On peut générer des variables sans appariement préalable avec une nouvelle fonction, ajoutée à <strong><code>gen</code></strong> et <strong><code>replace</code></strong>, <strong><code>frval</code></strong>.</p>
+<p><strong>syntaxe</strong> : <strong><code>frval(variable_liaison, nom_variable)</code></strong></p>
+<p>En amont je supprime les variables mtension et mimc de la frame <em>nhanes</em> (inutiles) et renomme les variables tension et imc dans leur frame respective (pour facilité la lecture de <code>frval</code>)</p>
+<div id="28600bbf" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">drop</span> mtension mimc</span>
+<span id="cb24-2"><a href="#cb24-2"></a></span>
+<span id="cb24-3"><a href="#cb24-3"></a>frame tension: <span class="kw">rename</span> tension mean_tension</span>
+<span id="cb24-4"><a href="#cb24-4"></a>frame imc:     <span class="kw">rename</span> imc     mean_imc</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Création des variables <em>diff_tens</em> et <em>diff_imc</em></p>
+<div id="2bf83bac" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">gen</span> diff_tens = bpsystol - frval(l1, mean_tension)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">gen</span> diff_imc =  bmi      - frval(l2, mean_imc)</span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="ot">list</span>  diff_tens diff_imc <span class="kw">in</span> 1/10</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     +-----------------------+
+     | diff_tens    diff_imc |
+     |-----------------------|
+  1. |  -26.8877   -5.014309 |
+  2. | -21.06789    -4.54022 |
+  3. | -31.06789   -.5886974 |
+  4. |  50.93211    10.16616 |
+  5. | -9.067886    2.361246 |
+     |-----------------------|
+  6. |  50.93211    4.939587 |
+  7. | -29.06789   -2.530706 |
+  8. |  24.93211   -2.527401 |
+  9. | -9.067886    .0732231 |
+ 10. |  -28.8877   -4.530003 |
+     +-----------------------+</code></pre>
+</div>
+</div>
+<p>Dans une même création de variable, on peut utiliser <strong><code>frval</code></strong> pour plusieurs liaisons, et dans des expression conditionnelles. Si on souhaite ici créer une indicatrice qui repère les personnes dont la tension et l’imc sont supérieurs à la moyenne. Les variables <em>diff_tens</em> et <em>diff_imc</em> étant inutiles.</p>
+<div id="f1256893" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">drop</span> diff_tens diff_imc</span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="kw">gen</span> sup_tens_imc = bpsystol&gt; frval(l1, mean_tens) &amp; bmi &gt; frval(l2, mean_imc)</span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="ot">list</span> sup_tens_imc <span class="kw">in</span> 1/10</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     +----------+
+     | sup_te~c |
+     |----------|
+  1. |        0 |
+  2. |        0 |
+  3. |        0 |
+  4. |        1 |
+  5. |        0 |
+     |----------|
+  6. |        1 |
+  7. |        0 |
+  8. |        0 |
+  9. |        0 |
+ 10. |        0 |
+     +----------+</code></pre>
+</div>
+</div>
+</section>
+<section id="autres-opérations" class="level1">
+<h1><strong>Autres opérations</strong></h1>
+<p><strong>Vérifier la frame chargée dans l’interface</strong></p>
+<p><strong><code>frame pwf</code></strong> ou plus rapidement <strong><code>pwf</code></strong></p>
+<div id="24fe9f5f" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1"></a>pwf</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  (current frame is nhanes)</code></pre>
+</div>
+</div>
+<p><strong>Changer de frame chargée dans l’interface</strong></p>
+<p>Depuis le début, seule la frame <em>nhanes</em> était chargée dans l’interface. On peut à tout moment changer la frame chargée avec <em><code>frame change nom_frame</code></em>.</p>
+<div id="43e9ec69" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1"></a>frame change tension</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="kw">des</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a></span>
+<span id="cb31-4"><a href="#cb31-4"></a>frame nhanes:  <span class="kw">des</span>, <span class="fu">s</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a>frame change nhanes</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Contains data
+ Observations:             2                  
+    Variables:             2                  
+-------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------
+sex             byte    %9.0g      sex        Sex
+mean_tension    float   %9.0g                 (mean) tension
+-------------------------------------------------------------------------------
+Sorted by: sex
+     Note: Dataset has changed since last saved.
+
+Contains data from https://www.stata-press.com/data/r18/nhanes2.dta
+ Observations:        10,351                  
+    Variables:            61                  20 Dec 2022 10:07
+Sorted by: 
+     Note: Dataset has changed since last saved.</code></pre>
+</div>
+</div>
+<p><strong>Supprimer des frames</strong></p>
+<ul>
+<li>On peut supprimer à tout moment une frame qui n’est pas chargée dans l’interface avec <strong><code>frame drop nom_frame</code></strong>. Si on applique cette commande à la frame chargée, Stata renvoie un message d’erreur.</li>
+<li>On peut supprimer toutes les frames avec <strong><code>frame reset</code></strong>. Dans ce cas plus aucune base ne sera chargée dans l’interface.</li>
+</ul>
+<div id="a9b0c96a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1"></a>frame <span class="kw">drop</span> tension</span>
+<span id="cb33-2"><a href="#cb33-2"></a>frame <span class="ot">dir</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a></span>
+<span id="cb33-4"><a href="#cb33-4"></a>frame <span class="kw">reset</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>* imc     2 x 2
+* nhanes  10351 x 61; nhanes2.dta
+
+Note: Frames marked with * contain unsaved data.
+  default  0 x 0</code></pre>
+</div>
+</div>
+<p>Il reste la frame “vide” <em>default</em> générée automatiquement par Stata.</p>
+<p><strong>Création d’une frame</strong></p>
+<p>On peut créer une frame <em>vide</em> à tout moment avec <strong><code>frame create nom_frame</code></strong>. On peut également ajouter une liste de nom de variables: <strong><code>frame create nom_frame varlist</code></strong></p>
+<div id="fe7941f5" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb35-1"><a href="#cb35-1"></a>frame create <span class="kw">new</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  default  0 x 0
+  new      0 x 0</code></pre>
+</div>
+</div>
+<div id="2375a0ef" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb37-1"><a href="#cb37-1"></a>frame create new2 x</span>
+<span id="cb37-2"><a href="#cb37-2"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  default  0 x 0
+  new      0 x 0
+* new2     0 x 1
+
+Note: Frames marked with * contain unsaved data.</code></pre>
+</div>
+</div>
+<p>La frame <em>new2</em> à une colonne, mais aucune observation</p>
+<div id="f228c8cd" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb39-1"><a href="#cb39-1"></a>frame new2 {</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="kw">set</span> <span class="kw">obs</span> 1000</span>
+<span id="cb39-3"><a href="#cb39-3"></a><span class="kw">replace</span> x = rnormal()</span>
+<span id="cb39-4"><a href="#cb39-4"></a><span class="kw">label</span> <span class="kw">variable</span> x <span class="st">"x = random normal (0,1)"</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a><span class="kw">des</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>}</span>
+<span id="cb39-7"><a href="#cb39-7"></a></span>
+<span id="cb39-8"><a href="#cb39-8"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of observations (_N) was 0, now 1,000.
+(1,000 real changes made)
+
+Contains data
+ Observations:         1,000                  
+    Variables:             1                  
+-------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------
+x               float   %9.0g                 x = random normal (0,1)
+-------------------------------------------------------------------------------
+Sorted by: 
+     Note: Dataset has changed since last saved.
+  default  0 x 0
+  new      0 x 0
+* new2     1000 x 1
+
+Note: Frames marked with * contain unsaved data.</code></pre>
+</div>
+</div>
+<p><strong>Ensemble du programme</strong></p>
+<div id="f124504c" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb41-1"><a href="#cb41-1"></a>frame <span class="ot">dir</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a></span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="kw">webuse</span> nhanes2</span>
+<span id="cb41-4"><a href="#cb41-4"></a></span>
+<span id="cb41-5"><a href="#cb41-5"></a>frame <span class="ot">dir</span> </span>
+<span id="cb41-6"><a href="#cb41-6"></a><span class="kw">des</span>, <span class="fu">s</span></span>
+<span id="cb41-7"><a href="#cb41-7"></a></span>
+<span id="cb41-8"><a href="#cb41-8"></a>frame <span class="kw">rename</span> <span class="kw">default</span> nhanes</span>
+<span id="cb41-9"><a href="#cb41-9"></a>frame <span class="ot">dir</span> </span>
+<span id="cb41-10"><a href="#cb41-10"></a></span>
+<span id="cb41-11"><a href="#cb41-11"></a>frame put sex bpsystol, into(tension)</span>
+<span id="cb41-12"><a href="#cb41-12"></a>frame put sex bmi,      into(imc)</span>
+<span id="cb41-13"><a href="#cb41-13"></a></span>
+<span id="cb41-14"><a href="#cb41-14"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-15"><a href="#cb41-15"></a></span>
+<span id="cb41-16"><a href="#cb41-16"></a>* frame active (nhanes2)</span>
+<span id="cb41-17"><a href="#cb41-17"></a><span class="kw">tab</span> agegrp</span>
+<span id="cb41-18"><a href="#cb41-18"></a></span>
+<span id="cb41-19"><a href="#cb41-19"></a></span>
+<span id="cb41-20"><a href="#cb41-20"></a>* frame tension</span>
+<span id="cb41-21"><a href="#cb41-21"></a>frame tension: <span class="kw">rename</span> bpsystol tension</span>
+<span id="cb41-22"><a href="#cb41-22"></a>frame tension: <span class="kw">mean</span> tension, <span class="bn">over</span>(sex)</span>
+<span id="cb41-23"><a href="#cb41-23"></a></span>
+<span id="cb41-24"><a href="#cb41-24"></a>* frame imc</span>
+<span id="cb41-25"><a href="#cb41-25"></a>frame imc: <span class="kw">rename</span> bmi imc</span>
+<span id="cb41-26"><a href="#cb41-26"></a>frame imc: <span class="kw">mean</span> imc, <span class="bn">over</span>(sex)</span>
+<span id="cb41-27"><a href="#cb41-27"></a></span>
+<span id="cb41-28"><a href="#cb41-28"></a></span>
+<span id="cb41-29"><a href="#cb41-29"></a>frame tension {</span>
+<span id="cb41-30"><a href="#cb41-30"></a><span class="kw">collapse</span> tension, <span class="kw">by</span>(sex)</span>
+<span id="cb41-31"><a href="#cb41-31"></a><span class="ot">list</span></span>
+<span id="cb41-32"><a href="#cb41-32"></a>}</span>
+<span id="cb41-33"><a href="#cb41-33"></a></span>
+<span id="cb41-34"><a href="#cb41-34"></a>frame imc {</span>
+<span id="cb41-35"><a href="#cb41-35"></a><span class="kw">collapse</span> imc, <span class="kw">by</span>(sex)</span>
+<span id="cb41-36"><a href="#cb41-36"></a><span class="ot">list</span></span>
+<span id="cb41-37"><a href="#cb41-37"></a>}</span>
+<span id="cb41-38"><a href="#cb41-38"></a></span>
+<span id="cb41-39"><a href="#cb41-39"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-40"><a href="#cb41-40"></a></span>
+<span id="cb41-41"><a href="#cb41-41"></a>frlink <span class="fu">m</span>:1 sex, frame(tension) <span class="kw">gen</span>(l1)</span>
+<span id="cb41-42"><a href="#cb41-42"></a>frlink <span class="fu">m</span>:1 sex, frame(imc) <span class="kw">gen</span>(l2)</span>
+<span id="cb41-43"><a href="#cb41-43"></a></span>
+<span id="cb41-44"><a href="#cb41-44"></a></span>
+<span id="cb41-45"><a href="#cb41-45"></a>frget mtension=tension, from(l1)</span>
+<span id="cb41-46"><a href="#cb41-46"></a>frget mimc=imc,     from(l2)</span>
+<span id="cb41-47"><a href="#cb41-47"></a></span>
+<span id="cb41-48"><a href="#cb41-48"></a></span>
+<span id="cb41-49"><a href="#cb41-49"></a></span>
+<span id="cb41-50"><a href="#cb41-50"></a><span class="kw">drop</span> mtension mimc</span>
+<span id="cb41-51"><a href="#cb41-51"></a>frame tension: <span class="kw">rename</span> tension mean_tension</span>
+<span id="cb41-52"><a href="#cb41-52"></a>frame imc:     <span class="kw">rename</span> imc     mean_imc</span>
+<span id="cb41-53"><a href="#cb41-53"></a></span>
+<span id="cb41-54"><a href="#cb41-54"></a></span>
+<span id="cb41-55"><a href="#cb41-55"></a><span class="kw">gen</span> diff_tens = bpsystol - frval(l1, mean_tension)</span>
+<span id="cb41-56"><a href="#cb41-56"></a><span class="kw">gen</span> diff_imc =  bmi      - frval(l2, mean_imc)</span>
+<span id="cb41-57"><a href="#cb41-57"></a></span>
+<span id="cb41-58"><a href="#cb41-58"></a><span class="kw">mean</span> diff_tens diff_imc, <span class="bn">over</span>(sex)</span>
+<span id="cb41-59"><a href="#cb41-59"></a></span>
+<span id="cb41-60"><a href="#cb41-60"></a><span class="kw">drop</span> diff_tens diff_imc</span>
+<span id="cb41-61"><a href="#cb41-61"></a><span class="kw">gen</span> sup_tens_imc = bpsystol&gt; frval(l1, mean_tension) &amp; bmi &gt; frval(l2, mean_imc)</span>
+<span id="cb41-62"><a href="#cb41-62"></a></span>
+<span id="cb41-63"><a href="#cb41-63"></a></span>
+<span id="cb41-64"><a href="#cb41-64"></a>frame change tension</span>
+<span id="cb41-65"><a href="#cb41-65"></a><span class="kw">des</span></span>
+<span id="cb41-66"><a href="#cb41-66"></a>frame nhanes:  <span class="kw">des</span>, <span class="fu">s</span></span>
+<span id="cb41-67"><a href="#cb41-67"></a>frame change nhanes</span>
+<span id="cb41-68"><a href="#cb41-68"></a></span>
+<span id="cb41-69"><a href="#cb41-69"></a>frame <span class="kw">drop</span> tension</span>
+<span id="cb41-70"><a href="#cb41-70"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-71"><a href="#cb41-71"></a></span>
+<span id="cb41-72"><a href="#cb41-72"></a>frame <span class="kw">reset</span></span>
+<span id="cb41-73"><a href="#cb41-73"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-74"><a href="#cb41-74"></a></span>
+<span id="cb41-75"><a href="#cb41-75"></a>frame create <span class="kw">new</span></span>
+<span id="cb41-76"><a href="#cb41-76"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-77"><a href="#cb41-77"></a></span>
+<span id="cb41-78"><a href="#cb41-78"></a>frame create new2 x</span>
+<span id="cb41-79"><a href="#cb41-79"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-80"><a href="#cb41-80"></a></span>
+<span id="cb41-81"><a href="#cb41-81"></a>frame new2 {</span>
+<span id="cb41-82"><a href="#cb41-82"></a><span class="kw">set</span> <span class="kw">obs</span> 1000</span>
+<span id="cb41-83"><a href="#cb41-83"></a><span class="kw">replace</span> x = rnormal()</span>
+<span id="cb41-84"><a href="#cb41-84"></a><span class="kw">label</span> <span class="kw">variable</span> x <span class="st">"x = random normal (0,1)"</span></span>
+<span id="cb41-85"><a href="#cb41-85"></a><span class="kw">des</span></span>
+<span id="cb41-86"><a href="#cb41-86"></a>}</span>
+<span id="cb41-87"><a href="#cb41-87"></a></span>
+<span id="cb41-88"><a href="#cb41-88"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  default  0 x 0
+  new      0 x 0
+* new2     1000 x 1
+
+Note: Frames marked with * contain unsaved data.
+  default  10351 x 58; nhanes2.dta
+  new      0 x 0
+* new2     1000 x 1
+
+Note: Frames marked with * contain unsaved data.
+
+Contains data from https://www.stata-press.com/data/r18/nhanes2.dta
+ Observations:        10,351                  
+    Variables:            58                  20 Dec 2022 10:07
+Sorted by: 
+  new     0 x 0
+* new2    1000 x 1
+  nhanes  10351 x 58; nhanes2.dta
+
+Note: Frames marked with * contain unsaved data.
+* imc      10351 x 2
+  new      0 x 0
+* new2     1000 x 1
+  nhanes   10351 x 58; nhanes2.dta
+* tension  10351 x 2
+
+Note: Frames marked with * contain unsaved data.
+
+  Age group |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      20–29 |      2,320       22.41       22.41
+      30–39 |      1,622       15.67       38.08
+      40–49 |      1,272       12.29       50.37
+      50–59 |      1,291       12.47       62.84
+      60–69 |      2,860       27.63       90.47
+        70+ |        986        9.53      100.00
+------------+-----------------------------------
+      Total |     10,351      100.00
+
+Mean estimation                          Number of obs = 10,351
+
+---------------------------------------------------------------
+              |       Mean   Std. err.     [95% conf. interval]
+--------------+------------------------------------------------
+c.tension@sex |
+        Male  |    132.888      0.299       132.301     133.475
+      Female  |    129.068      0.341       128.400     129.736
+---------------------------------------------------------------
+
+Mean estimation                         Number of obs = 10,351
+
+--------------------------------------------------------------
+             |       Mean   Std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+   c.imc@sex |
+       Male  |     25.510      0.057        25.397      25.622
+     Female  |     25.563      0.076        25.414      25.711
+--------------------------------------------------------------
+
+     +-------------------+
+     |    sex    tension |
+     |-------------------|
+  1. |   Male   132.8877 |
+  2. | Female   129.0679 |
+     +-------------------+
+
+     +-------------------+
+     |    sex        imc |
+     |-------------------|
+  1. |   Male   25.50999 |
+  2. | Female   25.56256 |
+     +-------------------+
+* imc      2 x 2
+  new      0 x 0
+* new2     1000 x 1
+  nhanes   10351 x 58; nhanes2.dta
+* tension  2 x 2
+
+Note: Frames marked with * contain unsaved data.
+(all observations in frame nhanes matched)
+(all observations in frame nhanes matched)
+(1 variable copied from linked frame)
+(1 variable copied from linked frame)
+
+Mean estimation                            Number of obs = 10,351
+
+-----------------------------------------------------------------
+                |       Mean   Std. err.     [95% conf. interval]
+----------------+------------------------------------------------
+c.diff_tens@sex |
+          Male  |     -0.000      0.299        -0.587       0.587
+        Female  |     -0.000      0.341        -0.668       0.668
+                |
+ c.diff_imc@sex |
+          Male  |      0.000      0.057        -0.113       0.113
+        Female  |      0.000      0.076        -0.149       0.149
+-----------------------------------------------------------------
+
+Contains data
+ Observations:             2                  
+    Variables:             2                  
+-------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------
+sex             byte    %9.0g      sex        Sex
+mean_tension    float   %9.0g                 (mean) tension
+-------------------------------------------------------------------------------
+Sorted by: sex
+     Note: Dataset has changed since last saved.
+
+Contains data from https://www.stata-press.com/data/r18/nhanes2.dta
+ Observations:        10,351                  
+    Variables:            61                  20 Dec 2022 10:07
+Sorted by: 
+     Note: Dataset has changed since last saved.
+* imc     2 x 2
+  new     0 x 0
+* new2    1000 x 1
+* nhanes  10351 x 61; nhanes2.dta
+
+Note: Frames marked with * contain unsaved data.
+  default  0 x 0
+  default  0 x 0
+  new      0 x 0
+  default  0 x 0
+  new      0 x 0
+* new2     0 x 1
+
+Note: Frames marked with * contain unsaved data.
+Number of observations (_N) was 0, now 1,000.
+(1,000 real changes made)
+
+Contains data
+ Observations:         1,000                  
+    Variables:             1                  
+-------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------
+x               float   %9.0g                 x = random normal (0,1)
+-------------------------------------------------------------------------------
+Sorted by: 
+     Note: Dataset has changed since last saved.
+  default  0 x 0
+  new      0 x 0
+* new2     1000 x 1
+
+Note: Frames marked with * contain unsaved data.</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,17 @@
+{
+  "hash": "b9ef563ded45de253833c376c6a90738",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"**Programmer un graphique Lollipop**\"\n\ntitle-block-banner: false\n\nauthor: \n  - name: \"Marc Thévenin\"\n    affiliations:\n      - name: \"Ined\"\n\ndate: 09/26/2022\n\ncategories:\n  - graphique\n\nformat: \n  html: default\n  docx:\n    toc: true\n    number-sections: true\n\nfilters:\n   - lightbox\nlightbox: auto\n\nabstract: |\n J'étais complétement passé à côte de la fonction **`axis`** du package **`egenmore`** de Nj.Cox. Elle permet de construire un axe discret ordonné en récupérant automatiquement les labels d'une variable. Les programmes de la version 2000 pour générer des graphiques de types **lollipop** ou **haltères**, qui étaient particulièrement complexes et long se retouvent, et pas qu'un peu, extrêmement simplifiés. \n\n---\n\n\n\n![](g1.png){width=70%}\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n* ssc install egenmore\n\nsysuse nlsw88, clear\ndrop if inlist(occupation,9,10,12) \n\negen mwage = mean(wage), by(occupation)\negen occ   = axis(mwage occupation) , label(occupation)\n\ntwoway scatter occ mwage ///\n|| dropline mwage occ, horizontal ///\n|| , ylab(1/10, valuelabel angle(0)) legend(off) \n\ndrop mwage occ // utiliser des variables temporaires si possible\n```\n:::\n\n\n\n**Commande `axis` (NJ.Cox)**\n\n- Comme la fonction `group` (egen), elle va créer une variable ordinale *occ* à partir des valeurs prises par une variable, ici *mwage*.\n- Elle va affecter les labels de la variable *occupation* à la variable ordinale. \n\n\n\nJ'en ai profité pour découvrir l'option **`labelvalue`** de `x/ylabel()` qui permet d'affecter directement les labels d'une variable catégorielle sur un axe [A documenter dans la formation].    \n\nSi on souhaite mettre comme valeur de base la moyenne des salaires moyens selon le groupe professionnel, on utilise simple l'option `base()` à laquelle on affecte la valeur moyenne des salaires récupérée en amont dans une macro:\n\n![](g2.png){width=70%}\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nqui sum mwage, d\nlocal b = `r(mean)'\ntw dropline mwage occ, horizontal mlc(black) mlw(*.2) base(`b')  ///\n|| , ylab(1/10, valuelabel angle(0)) legend(off)                 ///\nxline(`b', noext lc(black)) title(\"Lollipop\", pos(11))           ///\nxtitle(\"Salaire moyen\") ytitle(\"Emploi\")\n```\n:::\n\n\n\n\n***[A faire]***: les graphiques de type haltère. Il faudra passer  par un `collapse`, mais le gain en terme de programmation est également non négligeable.\n",
+    "supporting": [
+      "lollipop_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

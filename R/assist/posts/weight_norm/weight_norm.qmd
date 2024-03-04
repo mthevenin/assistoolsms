@@ -17,14 +17,7 @@ image: "https://www.r-project.org/Rlogo.png"
 
 format: 
   html: default
-  docx: default
-#  pdf:  default
 
-#filters:
-#  - lightbox
-#lightbox: auto
-
-#code-annotations: below
 
 abstract: | 
  L'utilisation des poids normalisés sur la taille de l'échantillon s'avère obligatoire pour certaines analyses, en particulier pour obtenir des estimations robustes de la variance. La présente fiche présente avec les packages `questionr` et `survey`, deux manières d'introduire ces poids dans des analyses.
