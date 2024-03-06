@@ -43,6 +43,7 @@ listing:
               
 toc: false 
 comments: false
+
 ---
 
 <!-- Derniers ajouts R-->
@@ -98,7 +99,6 @@ Fiches sur des problématiques liées à l'utilisation de **Stata**...
 :::
 :::
 
-
-
 <br>
+
 

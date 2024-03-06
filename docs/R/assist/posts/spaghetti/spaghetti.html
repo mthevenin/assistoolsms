@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="block-title">Résumé</div>
-      <p>Un graphique devient très facilement illisible lorsque trop d’objets graphiques y sont introduits, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé <strong>effet spaghetti</strong> (<strong>effet paella</strong> pour un nuage de points). Pour contrôler cette difficulté il est préconiser de réaliser un graphique de type <strong>small-multiples</strong> (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en termes de couleur et d’épaisseur de la courbe tout en gardant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple du gris).</p>
+      <p>Un graphique devient très facilement illisible lorsque trop d’éléments sont présents, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé <strong>effet spaghetti</strong> . Pour contrôler cette difficulté on préconise un graphique de type <strong>small-multiples</strong> (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en terme de couleur et d’épaisseur tout en conservant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple en gris).</p>
     </div>
   </div>
   
@@ -261,7 +261,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pour les graphiques seront présentés dans cette fiches, les données doivent être en format long, ici une observation du taux de fécondité par pays-année</p>
+<p>Pour les graphiques seront présentés dans cette fiches, les données doivent être en format long, ici une observation du taux de fécondité par pays-année.</p>
 </div>
 </div>
 <ul>
@@ -908,7 +908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

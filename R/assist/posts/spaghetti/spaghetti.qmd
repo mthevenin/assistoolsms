@@ -20,7 +20,7 @@ format:
   html: default
         
 abstract: | 
- Un graphique devient très facilement illisible lorsque trop d'objets graphiques y sont introduits, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** (**effet paella** pour un nuage de points). Pour contrôler cette difficulté il est préconiser de réaliser un graphique de type **small-multiples** (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en termes de couleur et d'épaisseur de la courbe  tout en gardant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple du gris).
+ Un graphique devient très facilement illisible lorsque trop d'éléments sont présents, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** . Pour contrôler cette difficulté on préconise un graphique de type **small-multiples** (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en terme de couleur et d'épaisseur  tout en conservant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple en gris).
 
 execute: 
   cache: true
@@ -36,8 +36,6 @@ library(ggthemes)
 ```
 
 
-
-
 # L'effet spaghetti en images
 
 * Les données utilisées ici sont extraites des bases contextextuelles GGP [Datalab de l'Ined](http://datalab.site.ined.fr/fr/donnees-demographiques-contextuelles/). 
@@ -45,7 +43,7 @@ library(ggthemes)
 
 ::: callout-important
 
-Pour les graphiques seront présentés dans cette fiches, les données doivent être en format long, ici une observation du taux de fécondité par pays-année
+Pour les graphiques seront présentés dans cette fiches, les données doivent être en format long, ici une observation du taux de fécondité par pays-année.
 
 :::
 
