@@ -7,16 +7,45 @@ title-block-banner: true
 
 ---
 
+<style>
+.size {font-size: 1.2em;}
+</style>
+
+
+:::: {.size}
+
 Par ordre alphabétique:  
 
-- Elodie Baril  [{{< fa brands github >}}](https://github.com/ElodieBaril)  [{{< fa  envelope >}}](mailto:elodie.baril@ined.fr)
-- Arnaud Bringé [{{< fa  envelope >}}](mailto:bringe@ined.fr)
-- Coralie Cottet [{{< fa brands github >}}](https://github.com/cosaph)
-- Bénédicte Garnier  [{{< fa brands github >}}](http://github.com/benegarbi)  [{{< fa  envelope >}}](mailto:garnier@ined.fr)
-- Arno Mulller   [{{< fa brands github >}}](http://github.com/arnomuller)  [{{< fa  envelope >}}](mailto:arno.muller@ined.fr)
-- Marc Thévenin [{{< fa brands github >}}](http://github.com/mthevenin) [{{< fa brands gitlab >}}](http://gitlab.com/mthevenin)    [{{< fa  envelope >}}](mailto:marc.thevenin@ined.fr)
+:::: {.column width="70%"}
+:::: {.box_img}
+:::: {.columns}
+:::  {.column width="30%"}  
+* Elodie Baril 
+* Arnaud Bringé
+* Coralie Cottet 
+* Giulia Ferrari
+* Bénédicte Garnier 
+* Arno Mulller   
+* Marc Thévenin 
+::: 
 
+:::  {.column width="2%"}  
+:::
 
+:::  {.column width="25%"} 
+[{{< fa brands github >}}](https://github.com/ElodieBaril) |  [{{< fa  envelope >}}](mailto:elodie.baril@ined.fr)     
+[{{< fa  envelope >}}](mailto:bringe@ined.fr)  
+[{{< fa brands github >}}](https://github.com/cosaph)  
+[{{< fa  envelope >}}](mailto:giulia.ferrari@ined.fr)  
+[{{< fa brands github >}}](http://github.com/benegarbi) |  [{{< fa  envelope >}}](mailto:garnier@ined.fr)   
+[{{< fa brands github >}}](http://github.com/arnomuller) | [{{< fa  envelope >}}](mailto:arno.muller@ined.fr)  
+[{{< fa brands github >}}](http://github.com/mthevenin) | [{{< fa brands gitlab >}}](http://gitlab.com/mthevenin) |  [{{< fa  envelope >}}](mailto:marc.thevenin@ined.fr)  
 
+:::
+::::
+::::
+::::
+::::
 
 Maintenance du support: **Marc Thévenin**   [{{< fa brands github >}}](http://github.com/mthevenin/assistoolsms)
+
