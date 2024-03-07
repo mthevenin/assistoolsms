@@ -473,14 +473,14 @@
     "href": "Autres/assist/posts/couleur_texte_scss/couleur_texte_scss.html",
     "title": "Modifier la couleur d’un texte ou d’un paragraphe",
     "section": "",
-    "text": "Ce document n’est pas une présentation générale des possibilité offertes par l’utilisation des variables SASS avec un fichier de type .scss. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d’un texte."
+    "text": "Pour en savoir plus sur les css et les variables Sass avec Quarto: https://mthevenin.github.io/support_quarto/041-theming.html#sec-scss"
   },
   {
     "objectID": "Autres/assist/posts/couleur_texte_scss/couleur_texte_scss.html#balise-html-brute",
     "href": "Autres/assist/posts/couleur_texte_scss/couleur_texte_scss.html#balise-html-brute",
     "title": "Modifier la couleur d’un texte ou d’un paragraphe",
     "section": "Balise html brute",
-    "text": "Balise html brute\nAvec de l’html brut, on modifie la couleur d’un texte à l’aide d’une balise span. On utilisera les attributs color pour la couleur du texte, et background-color pour la modification de la couleur du fond.\nJe veux que TEXTE soit en rouge\nJe veux que &lt;span style=\"color:red\"&gt; TEXTE&lt;/span&gt; soit en rouge.\nRésultat: Je veux que TEXTE soit en rouge.\nJe veux que &lt;span style=\"color:red; background-color:yellow\"&gt; TEXTE&lt;/span&gt; soit en rouge sur fond jaune\nRésultat: Je veux que TEXTE soit en rouge sur fond jaune."
+    "text": "Balise html brute\nAvec de l’html brut, on modifie la couleur d’un texte à l’aide d’une balise &lt;span&gt; ou &lt;p&gt; dans lesquels on ajoute un style de type css. On utilisera par exemple les attributs color: pour la couleur du texte, ou background-color: pour la modification de la couleur du fond.\nJe veux que TEXTE soit en rouge\nJe veux que &lt;span style=\"color:red\"&gt; TEXTE&lt;/span&gt; soit en rouge.\nRésultat: Je veux que TEXTE soit en rouge.\nJe veux que &lt;span style=\"color:red; background-color:yellow\"&gt; TEXTE&lt;/span&gt; soit en rouge sur fond jaune\nRésultat: Je veux que TEXTE soit en rouge sur fond jaune."
   },
   {
     "objectID": "Autres/assist/posts/couleur_texte_scss/couleur_texte_scss.html#ajouter-directement-un-style-css-dans-le-fichier-quarto",

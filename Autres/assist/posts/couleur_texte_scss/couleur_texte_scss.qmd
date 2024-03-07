@@ -10,9 +10,6 @@ format:
   html:
     css:  style.css
 
-theme:
-  - sms.scss
-        
 author: 
   - name: "Marc Thévenin"
     affiliations:
@@ -22,20 +19,19 @@ date: 10/27/2023
 
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"
 
-filters:
-   - lightbox
-lightbox: auto
-
 abstract: | 
-  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. Classiquement on utilise soit un balisage html, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.
+  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. Classiquement on utilise soit un balisage html, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables appelées SASS.
 ---
 
-Ce document n'est pas une présentation générale des possibilité offertes par l'utilisation des **variables SASS** avec un fichier de type **`.scss`**. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d'un texte.
+::: callout-info
+Pour en savoir plus sur les css et les variables Sass avec Quarto: <https://mthevenin.github.io/support_quarto/041-theming.html#sec-scss>
+:::
+
 
 
 ## Balise html brute
 
-Avec de l'html brut, on modifie la couleur d'un texte à l'aide d'une balise **`span`**. On utilisera les attributs **`color`** pour la couleur du texte, et **`background-color`** pour la modification de la couleur du fond.
+Avec de l'html brut, on modifie la couleur d'un texte à l'aide d'une balise **`<span>`** ou `<p>` dans lesquels on ajoute un style de type css. On utilisera par exemple les attributs **`color:`** pour la couleur du texte, ou **`background-color:`** pour la modification de la couleur du fond.
 
 *Je veux que TEXTE soit en rouge*
 

@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="block-title">Résumé</div>
-      <p>Le formatage d’un document utilisant du markdown ne permet pas de modifier à la volée la couleur d’un mot ou d’un texte. Classiquement on utilise soit un balisage html, soit une définition d’un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l’utilisation des styles dans un fichier .scss à l’aide de variables dites SASS.</p>
+      <p>Le formatage d’un document utilisant du markdown ne permet pas de modifier à la volée la couleur d’un mot ou d’un texte. Classiquement on utilise soit un balisage html, soit une définition d’un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l’utilisation des styles dans un fichier .scss à l’aide de variables appelées SASS.</p>
     </div>
   </div>
   
@@ -221,10 +221,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Ce document n’est pas une présentation générale des possibilité offertes par l’utilisation des <strong>variables SASS</strong> avec un fichier de type <strong><code>.scss</code></strong>. Cela viendra, Quarto ayant intégré à son système la possibilité de modifier de manière ssez poussée le thème sélectionnée. On ne regardera ici que les éléments relatifs à la modification des couleurs d’un texte.</p>
+<div class="callout-info">
+<p>Pour en savoir plus sur les css et les variables Sass avec Quarto: <a href="https://mthevenin.github.io/support_quarto/041-theming.html#sec-scss" class="uri">https://mthevenin.github.io/support_quarto/041-theming.html#sec-scss</a></p>
+</div>
 <section id="balise-html-brute" class="level2">
 <h2 class="anchored" data-anchor-id="balise-html-brute">Balise html brute</h2>
-<p>Avec de l’html brut, on modifie la couleur d’un texte à l’aide d’une balise <strong><code>span</code></strong>. On utilisera les attributs <strong><code>color</code></strong> pour la couleur du texte, et <strong><code>background-color</code></strong> pour la modification de la couleur du fond.</p>
+<p>Avec de l’html brut, on modifie la couleur d’un texte à l’aide d’une balise <strong><code>&lt;span&gt;</code></strong> ou <code>&lt;p&gt;</code> dans lesquels on ajoute un style de type css. On utilisera par exemple les attributs <strong><code>color:</code></strong> pour la couleur du texte, ou <strong><code>background-color:</code></strong> pour la modification de la couleur du fond.</p>
 <p><em>Je veux que TEXTE soit en rouge</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>Je veux que &lt;span style="color:red"&gt; TEXTE&lt;/span&gt; soit en rouge.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Résultat</strong>: Je veux que <span style="color:red">TEXTE</span> soit en rouge.</p>
@@ -837,7 +839,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
