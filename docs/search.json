@@ -989,7 +989,7 @@
   {
     "objectID": "Autres/assist/posts/adm_data/adm_data.html",
     "href": "Autres/assist/posts/adm_data/adm_data.html",
-    "title": "Données administratives et de santé",
+    "title": "Les données administratives",
     "section": "",
     "text": "Les données administratives sont des données dérivées des opérations des systèmes administratifs, typiquement du secteur public, qui sont collectées avec l’objectif spécifique d’identifier l’individu concerné. Elles sont souvent issues du processus de gestion interne de l’administration concernée mais elles peuvent aussi découler des déclarations administratives (i.e., obligations de fournir des informations).\n\n\n\nComme elles sont déjà collectées, il n’y a théoriquement aucun coût de collecte. Toutefois, un coût non-négligeable pour leur extraction, nettoyage et appariement éventuel doit être prévu.\nLes données sont à priori exhaustives, mais l’exhaustivité ne s’applique qu’au champ d’application.\nElles ne souffrent pas d’attrition ni de refus de réponse.\nLes données peuvent être de très haute qualité mais elles peuvent avoir des limites dérivant du fait qu’elles n’étaient pas collectées pour répondre à une question de recherche spécifique.\nElles sont à jour et peuvent potentiellement fournir des informations très précises.\nCes données sont souvent plus proches de la réalité sociale : elles donnent des informations sur qui sont les individus et sur ce qu’ils font et non sur ce qu’ils disent être et faire.\n\n\n\n\n\nComme alternative aux données d’enquête, pour répondre à des questions de recherche.\nPour préparer un plan de sondage.\nPour remplacer des données de mauvaise qualité (ex. revenu).\nPour éditer ou imputer des données manquantes.\nComme informations auxiliaires pour des calages sur marges.\nPour évaluer les enquêtes et valider les résultats.\n\n\n\n\nPlusieurs systèmes administratifs français mettent à disposition leurs données, ci-dessous quelques exemples (liste non-exhaustive):\n\nCNAF : échantillon des allocataires\nÉducation : panel DEPP\nEntreprises : DADS\nEtat civil : naissances, mariages, décès\nImpôts : déclarations fiscales\nJustice : PACS, divorces\nMinistère de l’intérieur : AGDREF\nRegistres électoraux\n\n\n\n\nL’accès aux données dépend du niveau de confidentialité des informations contenues ainsi que de leur niveau d’anonymisation. Données administratives sont désormais accessibles à travers le Centre d’Accès Sécurisé aux Données [CASD], après avis du Comité du Secret Statique, accord de l’autorité qui émane les documents (Insee pu les autres services statistiques ministériels) et décision de l’administration des archives.\n\n\n\n\n\nINSEE\nBig_Stat\nutilEDP\nutilCNAF\nPanel DEPP\nDADS\nEtat civil\nFidéli\nAGDREF\nRegistres électoraux"
   },
@@ -1017,35 +1017,35 @@
   {
     "objectID": "Autres/assist/posts/adm_data/adm_data.html#comment-accéder-aux-données-confidentielles-de-la-statistique-publique",
     "href": "Autres/assist/posts/adm_data/adm_data.html#comment-accéder-aux-données-confidentielles-de-la-statistique-publique",
-    "title": "Données administratives et de santé",
+    "title": "Les données administratives",
     "section": "",
     "text": "L’accès aux données dépend du niveau de confidentialité des informations contenues ainsi que de leur niveau d’anonymisation. Données administratives sont désormais accessibles à travers le Centre d’Accès Sécurisé aux Données [CASD], après avis du Comité du Secret Statique, accord de l’autorité qui émane les documents (Insee pu les autres services statistiques ministériels) et décision de l’administration des archives."
   },
   {
     "objectID": "Autres/assist/posts/adm_data/adm_data.html#liens",
     "href": "Autres/assist/posts/adm_data/adm_data.html#liens",
-    "title": "Données administratives et de santé",
+    "title": "Les données administratives",
     "section": "",
     "text": "INSEE\nBig_Stat\nutilEDP\nutilCNAF\nPanel DEPP\nDADS\nEtat civil\nFidéli\nAGDREF\nRegistres électoraux"
   },
   {
     "objectID": "Autres/assist/posts/adm_data/adm_data.html#avantageslimites-par-rapport-aux-données-denquête",
     "href": "Autres/assist/posts/adm_data/adm_data.html#avantageslimites-par-rapport-aux-données-denquête",
-    "title": "Données administratives et de santé",
+    "title": "Les données administratives",
     "section": "",
     "text": "Comme elles sont déjà collectées, il n’y a théoriquement aucun coût de collecte. Toutefois, un coût non-négligeable pour leur extraction, nettoyage et appariement éventuel doit être prévu.\nLes données sont à priori exhaustives, mais l’exhaustivité ne s’applique qu’au champ d’application.\nElles ne souffrent pas d’attrition ni de refus de réponse.\nLes données peuvent être de très haute qualité mais elles peuvent avoir des limites dérivant du fait qu’elles n’étaient pas collectées pour répondre à une question de recherche spécifique.\nElles sont à jour et peuvent potentiellement fournir des informations très précises.\nCes données sont souvent plus proches de la réalité sociale : elles donnent des informations sur qui sont les individus et sur ce qu’ils font et non sur ce qu’ils disent être et faire."
   },
   {
     "objectID": "Autres/assist/posts/adm_data/adm_data.html#utilisations-pratiques",
     "href": "Autres/assist/posts/adm_data/adm_data.html#utilisations-pratiques",
-    "title": "Données administratives et de santé",
+    "title": "Les données administratives",
     "section": "",
     "text": "Comme alternative aux données d’enquête, pour répondre à des questions de recherche.\nPour préparer un plan de sondage.\nPour remplacer des données de mauvaise qualité (ex. revenu).\nPour éditer ou imputer des données manquantes.\nComme informations auxiliaires pour des calages sur marges.\nPour évaluer les enquêtes et valider les résultats."
   },
   {
     "objectID": "Autres/assist/posts/adm_data/adm_data.html#les-principales-données-administratives-disponibles-en-france",
     "href": "Autres/assist/posts/adm_data/adm_data.html#les-principales-données-administratives-disponibles-en-france",
-    "title": "Données administratives et de santé",
+    "title": "Les données administratives",
     "section": "",
     "text": "Plusieurs systèmes administratifs français mettent à disposition leurs données, ci-dessous quelques exemples (liste non-exhaustive):\n\nCNAF : échantillon des allocataires\nÉducation : panel DEPP\nEntreprises : DADS\nEtat civil : naissances, mariages, décès\nImpôts : déclarations fiscales\nJustice : PACS, divorces\nMinistère de l’intérieur : AGDREF\nRegistres électoraux"
   }

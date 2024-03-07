@@ -1,9 +1,8 @@
 ---
-title: "Données administratives et de santé"
+title: "Les données administratives"
 
 categories:
   - Données administratives
-  - Données de santé
 
 author: 
   - name: "Giulia Ferrari"
@@ -99,34 +98,4 @@ L’accès aux données dépend du niveau de confidentialité des informations c
 * [Registres électoraux](https://www.insee.fr/fr/information/3539086)
 
 :::
-
-
-# Les données de santé
-
-En vertu du décret n° *2021-848* du 29 juin 2021 relatif au traitement de données à caractère personnel dénommé « Système National des Données de Santé », l’Ined bénéficie d’un accès permanent aux bases suivantes :
-
-* DCIR/DCIRS (recensement exhaustif des dépenses de santé) : 19 ans + année en cours.
-
-* L’Echantillon des Données du SNDS (ESND) (2% de DCIR).
-
-* Causes médicales de décès : 2006-2017.
-
-Ces accès recouvrent un périmètre national pour l’ensemble des bases, avec la possibilité de croisement des identifiants potentiels. L’Ined ne bénéficie pas du numéro de professionnel de santé (PS) en clair.  
-
-Le SNDS fait l’objet d’une documentation collaborative [lien](https://documentation-snds.health-data-hub.fr/snds/).
-
-Depuis le 1er décembre 2019, le [Heath Data Hub (HDH)](https://www.health-data-hub.fr/) crée reprend les missions de l’Institut National des Données de Santé (INDS), avec en particulier d’être le guichet d’accès unique aux données de santé.  
-
-Le HDH met à disposition des fiches pratiques sur les données longitudinales sur 20 ans :
-
-* Bonnes pratiques [Sas](https://documentation-snds.health-data-hub.fr/snds/fiches/execution_sas.html#introduction).
-* Les Accidents du Travail [(AT)](https://documentation-snds.health-data-hub.fr/snds/fiches/accident_travail.html#definition).   
-Une séance du séminaire les rencontres de statistique appliquée a été consacrée à ces données en 2020 [Lien](https://statapp.site.ined.fr/fr/les-rencontres-passees/24-09-20).
-
-
-
-
-
-
-
 
