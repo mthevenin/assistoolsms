@@ -373,13 +373,13 @@ spag_plot(df,                     # Base de données au format long
           n_col = 6,              # Nombre de colonnes pour les graphiques
           alignement_x = 2,       # Nombre d'étiquettes à superposer avant de revenir sur l'axe.
           col_line = "#C24168",   # Couleur de la ligne principale
-          lwd_line = 1.4,         # Epaisseur de la ligne principale
+          lwd_line = 1,         # Epaisseur de la ligne principale
           transp_line = 1,        # Transparence de la ligne principale
           type_line = "solid",    # Type de ligne : solid, dashed, dotdash, longdash, twodash
-          col_line_bg = "#919aa1",   # Couleur lignes secondaires
+          col_line_bg = "#e0a0b3",   # Couleur lignes secondaires
           lwd_line_bg = 0.1,      # Epaisseur lignes secondaires
           transp_line_bg = 0.8,   # Transparence lignes secondaires
-          type_line_bg = "solid")# Type lignes secondaires  
+          type_line_bg = "solid")# Type lignes secondaires 
 
 ```
 
@@ -406,10 +406,10 @@ spag_plot(df,                     # Base de données au format long
           n_col = 6,              # Nombre de colonnes pour les graphiques
           alignement_x = 2,       # Nombre d'étiquettes à superposer avant de revenir sur l'axe.
           col_line = "#C24168",   # Couleur de la ligne principale
-          lwd_line = 1.4,         # Epaisseur de la ligne principale
+          lwd_line = 1,         # Epaisseur de la ligne principale
           transp_line = 1,        # Transparence de la ligne principale
           type_line = "solid",    # Type de ligne : solid, dashed, dotdash, longdash, twodash
-          col_line_bg = "#919aa1",   # Couleur lignes secondaires
+          col_line_bg = "#e0a0b3",   # Couleur lignes secondaires
           lwd_line_bg = 0.1,      # Epaisseur lignes secondaires
           transp_line_bg = 0.8,   # Transparence lignes secondaires
           type_line_bg = "solid")# Type lignes secondaires
