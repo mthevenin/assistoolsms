@@ -88,8 +88,6 @@ ggplot(df) +
 ```
 :::
 
-<br>
-
 ... C'est  illisible.  
 
 * On peut améliorer la lecture et naviguer dans le graphique avec un outil de visualisation dynamique, par exemple avec **plotly**. Mais c'est outils sont strictement réservé à une diffusion de type html. 
@@ -138,8 +136,6 @@ ggplotly(p)
 ```
 :::
 
-
-<br>
 
 * Pour une **visualisation statique**, il est fortement recommandé de visualiser ce type d'informations à l'aide d'un graphique combiné, appelé **small multiples** (ou facettes).  
 
@@ -287,7 +283,6 @@ unique(tmp$pays2)
 ```
 :::
 
-<br>
 
 Et on réexécute le graphique précédent
 
@@ -335,8 +330,6 @@ ggplot(tmp) +
   facet_wrap(vars(pays), ncol = 4L)
 ```
 :::
-
-<br>
 
 
 ## Une fonction pour simplifier et automatiser le code
@@ -417,6 +410,45 @@ spag_plot(df,                     # Base de données au format long
 ```
 :::
 
+
+* En changeant le nombre de colonnes:  `n_col=4`.
+* En changeant la couleur des courbes en arrière plan: `col_line_bg = "#adb5bd"`.
+
+
+::: {.box_img}
+
+```{r}
+#| echo: false
+
+df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
+df = df %>% mutate_if(is.character,as.factor)
+
+spag_plot(df,                     # Base de données au format long
+          var_x = "year",         # Variable en X (numérique)
+          var_y = "y",            # Variable en Y (numérique)
+          var_group= "pays",      # Variable de groupe (factor)
+          ordre =  1950,          # Ordre des plots ("alpha", valeur num de var_x, un vecteur)
+          decroiss = "oui",       # Ordre décroissant de l'ordre choisi au dessus
+          titre   = "TITRE",      # Choix du titre
+          titre_x = "Années",     # Choix du titre de l'axe X
+          titre_y   ="Taux",      # Choix du titre de l'axe Y
+          source    = "",         # Source des données
+          interval_x = 20,        # Echelle de X
+          graduation_y = FALSE,   # Graduation sur l'axe Y : TRUE/FALSE 
+          n_col = 4,              # Nombre de colonnes pour les graphiques
+          alignement_x = 2,       # Nombre d'étiquettes à superposer avant de revenir sur l'axe.
+          col_line = "#C24168",   # Couleur de la ligne principale
+          lwd_line = 1,         # Epaisseur de la ligne principale
+          transp_line = 1,        # Transparence de la ligne principale
+          type_line = "solid",    # Type de ligne : solid, dashed, dotdash, longdash, twodash
+          col_line_bg = "#adb5bd",   # Couleur lignes secondaires
+          lwd_line_bg = 0.1,      # Epaisseur lignes secondaires
+          transp_line_bg = 0.8,   # Transparence lignes secondaires
+          type_line_bg = "solid")# Type lignes secondaires
+
+```
+
+:::
 
 
 

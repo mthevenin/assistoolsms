@@ -279,7 +279,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>Ou directement par la console:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">esquisser</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="chargement-des-données" class="level2">
@@ -290,14 +289,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/img2.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>Sélection et visualisation de la table à l’aide de l’onglet <strong>View</strong>.</p>
 <div class="column" style="width:65%;">
 <div class="box_img">
 <p><a href="img/img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/img3.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>Sous le nom de chaque variable, on peut voir son <em>type R</em> : <em>integer, factor, character</em>.</p>
 <p>On peut visualiser les <em>modalités</em> associées aux variables avec le bouton <strong>Data</strong> (en bas de la fenêtre).</p>
 <div class="column" style="width:65%;">
@@ -305,7 +302,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/img4.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 </section>
 <section id="production-dun-graphique" class="level2">
 <h2 class="anchored" data-anchor-id="production-dun-graphique">Production d’un graphique</h2>
@@ -315,7 +311,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/img5.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>On Sélectionne les variables par un <strong>glisser/déposer</strong> dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, … du package ggplot2).</p>
 <p>Le rôle de ces options sont données en cliquant sur le bouton <em>display settings</em> qui se trouve en haut à droite de la fenêtre principale.</p>
 <div class="column" style="width:65%;">
@@ -323,7 +318,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img5b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/img5b.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz <a href="http://www.data-to-viz.com/">From data to Viz</a>.</p>
 <p>Pour l’exemple, on va représenter le nombre de ménages par pays d’enquête <em>hv000</em> avec un graphique en barres.</p>
 <div class="column" style="width:65%;">
@@ -331,7 +325,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/img6.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>Si on souhaite modifier orienter les barres à l’horizontal (recommandé) on va dans l’onglet <strong>Plot options</strong> puis on coche <strong><em>Flip coordinate</em></strong>.</p>
 <p>On utilise le bouton <strong>Plot options</strong> pour changer la disposition (ici barres horizontales).</p>
 <div class="column" style="width:65%;">
@@ -339,7 +332,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/img7.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>On peut égalemet changer les titres du graphique dans l’onglet <strong>Ad Labels &amp; Titles</strong>, et son apparence (couleurs, thème) dans l’onglet <strong>Appearance</strong>.</p>
 <div>
 
@@ -354,7 +346,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><br></p>
 </section>
 <section id="exporter-le-code" class="level2">
 <h2 class="anchored" data-anchor-id="exporter-le-code">Exporter le code</h2>
@@ -364,7 +355,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/img10.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>Comme l’interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction <strong><code>geom_bar()</code></strong> l’option <code>color="black"</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
@@ -392,14 +382,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><br></p>
 <p>L’animation qui suit résume les différentes étapes (cliquer sur l’image pour la faire redémarrer au début et l’agrandir)</p>
 <div class="column" style="width:65%;">
 <div class="box_img">
 <p><a href="img/addins.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="img/addins.gif" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 </section>
 </section>
 <section id="addins-de-questionr" class="level1">
@@ -418,28 +406,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/img11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="img/img11.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>On accède à la fenêtre de recodage en cliquant sur <strong>Levels recoding</strong>. Par exemple pour la variable <em>Pays et vague de l’enquête (hv000)</em>. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).</p>
 <div class="column" style="width:65%;">
 <div class="box_img">
 <p><a href="img/img11b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="img/img11b.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>On change l’intitulé des modalités (bouton <strong>Recodage</strong>).</p>
 <div class="column" style="width:65%;">
 <div class="box_img">
 <p><a href="img/img12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="img/img12.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>On génère le code et on visualise le résultat (bouton <strong>Code et Résultat</strong>).</p>
 <div class="column" style="width:65%;">
 <div class="box_img">
 <p><a href="img/img13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="img/img13.png" class="img-fluid"></a></p>
 </div>
 </div>
-<p><br></p>
 <p>De la même façon, on peut changer l’ordre des modalités d’une variable en sélectionnant l’Addin <strong>Levels Ordering</strong>.</p>
 
 
@@ -839,7 +823,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

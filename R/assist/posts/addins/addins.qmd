@@ -75,7 +75,7 @@ On peut accéder à **esquisse** via le menu **Addins** de RStudio et en sélect
 ![](img/img1.png)
 :::
 :::
-<br>
+
 
 Ou directement par la console:
 
@@ -94,7 +94,7 @@ Lorsque l'application est ouverte, on accède directement à la fenêtre de char
 ![](img/img2.png)
 :::
 :::
-<br>
+
 
 Sélection et visualisation de la table à l'aide de l'onglet **View**.
 
@@ -103,7 +103,7 @@ Sélection et visualisation de la table à l'aide de l'onglet **View**.
 ![](img/img3.png)
 :::
 :::
-<br>
+
 
 Sous le nom de chaque variable, on peut voir son *type R* : *integer, factor, character*.
 
@@ -114,7 +114,7 @@ On peut visualiser les *modalités* associées aux variables avec le bouton **Da
 ![](img/img4.png)
 :::
 :::
-<br>
+
 
 
 ## Production d'un graphique
@@ -126,7 +126,7 @@ La fenêtre d'esquisse permet de *choisir* les données à représenter et *prop
 ![](img/img5.png)
 :::
 :::
-<br>
+
 
 
 On Sélectionne les variables par un **glisser/déposer** dans les zones correspondantes au paramétrage du graphique (x, y, fill, colors, size, ... du package ggplot2). 
@@ -138,7 +138,7 @@ Le rôle de ces options sont données en cliquant sur le bouton *display setting
 ![](img/img5b.png)
 :::
 :::
-<br>
+
 
 Pour en savoir plus sur les graphiques à produire en fonction des données à représenter, on peut se reporter au site de Y. Holtz [From data to Viz](http://www.data-to-viz.com/).  
 
@@ -150,7 +150,7 @@ Pour l'exemple, on va représenter le nombre de ménages par pays d'enquête *hv
 ![](img/img6.png)
 :::
 :::
-<br>
+
 
 Si on souhaite modifier orienter les barres à l'horizontal (recommandé) on va dans l'onglet **Plot options** puis on coche ***Flip coordinate***.
 
@@ -161,7 +161,7 @@ On utilise le bouton **Plot options** pour changer la disposition (ici barres ho
 ![](img/img7.png)
 :::
 :::
-<br>
+
 
 On peut égalemet changer les titres du graphique dans l'onglet **Ad Labels & Titles**, et son apparence (couleurs, thème) dans l'onglet **Appearance**.
 
@@ -175,7 +175,7 @@ On peut égalemet changer les titres du graphique dans l'onglet **Ad Labels & Ti
 ![](img/img9.png){group="g1"}
 :::
 :::
-<br>
+
 
 ## Exporter le code
 
@@ -187,7 +187,6 @@ L'onglet **Code** affiche le code généré par l'application. On peut le récup
 
 :::
 :::
-<br>
 
 Comme l'interface ne permet pas de modifier la couleur du contour des barres, on peut le faire en modifiant légèrement le script. Après avoir collé le code du graphique dans un script, on ajoute par exemple à la fonction **`geom_bar()`** l'option `color="black"`.
 
@@ -232,7 +231,7 @@ ggplot(P3_Menages) +
 ```
 :::
 :::
-<br>
+
 
 L'animation qui suit résume les différentes étapes (cliquer sur l'image pour la faire redémarrer au début et l'agrandir)
 
@@ -241,7 +240,7 @@ L'animation qui suit résume les différentes étapes (cliquer sur l'image pour 
 ![](img/addins.gif)
 :::
 :::
-<br>
+
 
 
 # Addins de questionr
@@ -263,7 +262,7 @@ library(questionr)
 ![](img/img11.png)
 :::
 :::
-<br>
+
 
 On accède à la fenêtre de recodage en cliquant sur **Levels recoding**. Par exemple pour la variable *Pays et vague de l'enquête (hv000)*. On peut modifier le nom et type de variable à générer (ici hv000_rec de type caractère).
 
@@ -272,7 +271,7 @@ On accède à la fenêtre de recodage en cliquant sur **Levels recoding**. Par e
 ![](img/img11b.png)
 :::
 :::
-<br>
+
 
 On change l'intitulé des modalités (bouton **Recodage**).
 
@@ -281,7 +280,7 @@ On change l'intitulé des modalités (bouton **Recodage**).
 ![](img/img12.png)
 :::
 :::
-<br>
+
 
 On génère le code et on visualise le résultat (bouton **Code et Résultat**).
 
@@ -290,7 +289,7 @@ On génère le code et on visualise le résultat (bouton **Code et Résultat**).
 ![](img/img13.png)
 :::
 :::
-<br>
+
 
 De la même façon, on peut changer l'ordre des modalités d'une variable en sélectionnant l'Addin **Levels Ordering**.
 
