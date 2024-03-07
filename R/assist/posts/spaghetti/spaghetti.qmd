@@ -1,5 +1,5 @@
 ---
-title: "Contrôler les effets spaghetti avec ggplot"
+title: "Contrôler les effets spaghetti avec ggplot [maj]"
 
 categories:
   - Graphique
@@ -12,7 +12,7 @@ author:
     affiliations:
       - name: "Ined"        
 
-date: 07/12/2023
+date: 03/07/2024
 
 image: "logo.png"
 
@@ -22,8 +22,6 @@ format:
 abstract: | 
  Un graphique devient très facilement illisible lorsque trop d'éléments sont présents, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** . Pour contrôler cette difficulté on préconise un graphique de type **small-multiples** (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en terme de couleur et d'épaisseur  tout en conservant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple en gris).
 
-execute: 
-  cache: true
 ---
 
 ```{r,  message=FALSE, warning=FALSE}
@@ -343,8 +341,8 @@ ggplot(tmp) +
 
 ## Une fonction pour simplifier et automatiser le code
 
-* Version 0.1 - Juillet 2023 [Arno Muller]
-* Des options seront ajoutées ultérieurement (couleurs, épaisseurs, options `thème()`, ....).
+* Version 0.2 - Mars 2024 [Arno Muller]
+* Des options seront ajoutées ultérieurement (options `thème()`, choix des groupes ....).
 
 Chargement de la fonction:
 
@@ -360,18 +358,29 @@ source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/spag_plot/s
 df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
 df = df %>% mutate_if(is.character,as.factor)
 
-spag_plot(df,                  # Base de données au format long
-          var_x = "year",      # Variable en X (numérique)
-          var_y = "y",         # Variable en Y (numérique)
-          var_group= "pays",   # Variable de groupe (factor)
-          ordre =  1950,      # Ordre des plots ("alpha", valeur num de var_x, un vecteur)
-          decroiss = "oui",    # Ordre décroissant de l'ordre choisi au dessus
-          titre   = "TITRE",   # Choix du titre
-          titre_x = "Années",  # Choix du titre de l'axe X
-          titre_y   ="Taux",   # Choix du titre de l'axe Y
-          source    = "",      # Source des données
-          interval = 20,       # Echelle de X
-          n_col = 6)           # Nombre de colonnes pour les graphiques
+spag_plot(df,                     # Base de données au format long
+          var_x = "year",         # Variable en X (numérique)
+          var_y = "y",            # Variable en Y (numérique)
+          var_group= "pays",      # Variable de groupe (factor)
+          ordre =  1950,          # Ordre des plots ("alpha", valeur num de var_x, un vecteur)
+          decroiss = "oui",       # Ordre décroissant de l'ordre choisi au dessus
+          titre   = "TITRE",      # Choix du titre
+          titre_x = "Années",     # Choix du titre de l'axe X
+          titre_y   ="Taux",      # Choix du titre de l'axe Y
+          source    = "",         # Source des données
+          interval_x = 20,        # Echelle de X
+          graduation_y = FALSE,   # Graduation sur l'axe Y : TRUE/FALSE 
+          n_col = 6,              # Nombre de colonnes pour les graphiques
+          alignement_x = 2,       # Nombre d'étiquettes à superposer avant de revenir sur l'axe.
+          col_line = "#C24168",   # Couleur de la ligne principale
+          lwd_line = 1.4,         # Epaisseur de la ligne principale
+          transp_line = 1,        # Transparence de la ligne principale
+          type_line = "solid",    # Type de ligne : solid, dashed, dotdash, longdash, twodash
+          col_line_bg = "#919aa1",   # Couleur lignes secondaires
+          lwd_line_bg = 0.1,      # Epaisseur lignes secondaires
+          transp_line_bg = 0.8,   # Transparence lignes secondaires
+          type_line_bg = "solid")# Type lignes secondaires  
+
 ```
 
 
@@ -382,23 +391,31 @@ spag_plot(df,                  # Base de données au format long
 df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
 df = df %>% mutate_if(is.character,as.factor)
 
-spag_plot(df,                  # Base de données au format long
-          var_x = "year",      # Variable en X (numérique)
-          var_y = "y",         # Variable en Y (numérique)
-          var_group= "pays",   # Variable de groupe (factor)
-          ordre =  1950,      # Ordre des plots ("alpha", valeur num de var_x, un vecteur)
-          decroiss = "oui",    # Ordre décroissant de l'ordre choisi au dessus
-          titre   = "TITRE",   # Choix du titre
-          titre_x = "Années",  # Choix du titre de l'axe X
-          titre_y   ="Taux",   # Choix du titre de l'axe Y
-          source    = "",      # Source des données
-          interval = 20,       # Echelle de X
-          n_col = 6)           # Nombre de colonnes pour les graphiques
+spag_plot(df,                     # Base de données au format long
+          var_x = "year",         # Variable en X (numérique)
+          var_y = "y",            # Variable en Y (numérique)
+          var_group= "pays",      # Variable de groupe (factor)
+          ordre =  1950,          # Ordre des plots ("alpha", valeur num de var_x, un vecteur)
+          decroiss = "oui",       # Ordre décroissant de l'ordre choisi au dessus
+          titre   = "TITRE",      # Choix du titre
+          titre_x = "Années",     # Choix du titre de l'axe X
+          titre_y   ="Taux",      # Choix du titre de l'axe Y
+          source    = "",         # Source des données
+          interval_x = 20,        # Echelle de X
+          graduation_y = FALSE,   # Graduation sur l'axe Y : TRUE/FALSE 
+          n_col = 6,              # Nombre de colonnes pour les graphiques
+          alignement_x = 2,       # Nombre d'étiquettes à superposer avant de revenir sur l'axe.
+          col_line = "#C24168",   # Couleur de la ligne principale
+          lwd_line = 1.4,         # Epaisseur de la ligne principale
+          transp_line = 1,        # Transparence de la ligne principale
+          type_line = "solid",    # Type de ligne : solid, dashed, dotdash, longdash, twodash
+          col_line_bg = "#919aa1",   # Couleur lignes secondaires
+          lwd_line_bg = 0.1,      # Epaisseur lignes secondaires
+          transp_line_bg = 0.8,   # Transparence lignes secondaires
+          type_line_bg = "solid")# Type lignes secondaires
+
 ```
 :::
-
-
-
 
 
 
