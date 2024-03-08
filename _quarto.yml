@@ -5,7 +5,7 @@ lang: fr
  
 website:
   search: false
-  title: "Support d'assistance Sms :"
+  title: "Support Sms"
   navbar:
     background: "white"
     title: ""

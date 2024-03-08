@@ -4,13 +4,19 @@
 
 /*-- navbar --*/
 
-
 .navbar {
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 5px;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.25em;
+  color:#eceeef
 }
+
+.nav-item {
+  margin-right: 0;
+}
+
+
+.navbar-title {color:#eceeef; padding:0}
 
 
 #quarto-header {
@@ -45,27 +51,21 @@
 .quarto-title-banner {
   margin-bottom: 0.75em;
   background-color: white;
-  
+  border: 5px;  
 }
 
-@media (max-width: 991.98px) {
-.quarto-title-banner {
-    padding-top: 2.5em;
-    padding-bottom: 0;
-}
-}
-
-@media (min-width: 992px) {
-.quarto-title-banner {
-    padding-top: 2.5em;
-    padding-bottom: 0;
-}
-}
 
 .quarto-title-banner .quarto-title .title {
-  font-weight: 1000;
+  font-weight: 1200;
   color:  #37424a;
+  border: 1px solid #37424a;
+  border-radius: 5px;
+  padding:20px;
+  text-align: center;
+
 }
+
+
 
 #title-block-header.quarto-title-block.default .description {
   margin-top: 1.5em;
@@ -74,7 +74,6 @@
   color: black;
   
 }
-
 
 
 /* catégories*/
@@ -87,9 +86,8 @@
 }
 
 .quarto-title .quarto-categories .quarto-category {
-  padding: 0.25em 0.75em;
   font-family: 'Roboto', sans-serif;
-  font-size: .9em;
+  font-size: 1em;
   font-weight: 400;
   color: #cd193f;
   text-transform: uppercase;
@@ -98,9 +96,7 @@
   opacity: 1;
 }
 
-.quarto-title-meta {
-  margin-bottom: 0.5em;
-}
+
 
 #title-block-header.quarto-title-block.default .quarto-title-meta-heading {
   font-family: 'Roboto', sans-serif;
@@ -160,16 +156,6 @@ blockquote {
   margin-bottom: 1rem;
 }
 
-
-.citation a:hover {
-  /* text-decoration: none; */
-  color: black
-}
-
-div.csl-entry {
-  color: black;
-  font-weight: 400;
-}
 
 #quarto-appendix.default {
   border-top: none;
@@ -658,33 +644,5 @@ div.quarto-post a {
   text-decoration-color: #cd193f;
   text-decoration-thickness: 3px;
   margin-bottom: 1.5rem;
-}
-
-.button {
-  border: none;
-  border-radius: 0px;
-  color: #37424A;
-  background-color: white;
-  padding: 15px 32px;
-  text-align: center;
-  /* text-decoration: none; */
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button p {
-  color: #37424A;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.3em;
-/*  text-transform: uppercase;*/
-  margin-bottom: 0px;
-  text-decoration: none;
-}
-
-.button a {
-  color: #37424A;
-  font-weight: 500;
 }
 

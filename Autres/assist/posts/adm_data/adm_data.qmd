@@ -67,7 +67,6 @@ Plusieurs systèmes administratifs français mettent à disposition leurs donné
 * **Registres électoraux**
 
 
-
 ## Comment accéder aux données confidentielles de la statistique publique?
 
 L’accès aux données dépend du niveau de confidentialité des informations contenues ainsi que de leur niveau d’anonymisation. Données administratives sont désormais accessibles à travers le Centre d’Accès Sécurisé aux Données [[CASD]](https://www.casd.eu/), après avis du Comité du Secret Statique, accord de l’autorité qui émane les documents (Insee pu les autres services statistiques ministériels) et décision de l’administration des archives.
