@@ -6,10 +6,10 @@ categories:
 
 author: 
   - name: "A.Muller"
-    affiliations:
+    affiliation:
       - name: "Ined"
   - name: "M.Thévenin"
-    affiliations:
+    affiliation:
       - name: "Ined"        
 
 date: 03/07/2024
@@ -20,13 +20,14 @@ format:
   html: default
         
 abstract: | 
- Un graphique devient très facilement illisible lorsque trop d'éléments sont présents, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** . Pour contrôler cette difficulté on préconise un graphique de type **small-multiples** (graphique combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en terme de couleur et d'épaisseur  tout en conservant en arrière plan la visualisation des autres courbes avec une épaisseur plus petite et une couleur unique (par exemple en gris).
+ Un graphique devient très facilement illisible lorsque trop d'éléments sont présents, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** . Pour contrôler cette difficulté on préconise un graphique de type **small-multiples** (combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en terme de couleur et d'épaisseurtout en conservant en arrière plan les autres courbes avec une épaisseur plus petite et une couleur unique.
 
 ---
 
 ```{r,  message=FALSE, warning=FALSE}
-# pour récupérer la palette de couleur qualitatitive Tableau: 
-# install.packages(ggthemes
+# install.packages(dplyr)
+# install.packages(ggplot2)
+# install.packages(ggthemes)
 
 library(dplyr)
 library(ggplot2)
@@ -39,16 +40,10 @@ library(ggthemes)
 * Les données utilisées ici sont extraites des bases contextextuelles GGP [Datalab de l'Ined](http://datalab.site.ined.fr/fr/donnees-demographiques-contextuelles/). 
 
 
-::: callout-important
-
-Pour les graphiques seront présentés dans cette fiches, les données doivent être en format long, ici une observation du taux de fécondité par pays-année.
-
-:::
-
 * On va regarder l'évolution du taux de fécondité de 12 pays de 1950 à 2022. 
 
 ```{r}
-df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
+df <- read.csv("fecondite_ggp.csv")
 df = df %>% mutate_if(is.character,as.factor)
 head(df)
 ```
@@ -56,8 +51,7 @@ head(df)
 
 * Les taux de fécondité sont renseignés par la variable *y*, les années par la variable *year* et les pays par la variable *pays*. 
 
-En empilant avec **`ggplot`** les 12 courbes d'évolution de la fécondité....
-
+En empilant avec **`ggplot`** les 12 courbes d'évolution:
 
 ```{r}
 #| eval: false
@@ -88,9 +82,9 @@ ggplot(df) +
 ```
 :::
 
-... C'est  illisible.  
+... C'est donc  illisible.  
 
-* On peut améliorer la lecture et naviguer dans le graphique avec un outil de visualisation dynamique, par exemple avec **plotly**. Mais c'est outils sont strictement réservé à une diffusion de type html. 
+* On peut améliorer la lecture et naviguer dans le graphique avec une visualisation dynamique, en utilisant par exemple le package **plotly**. A réserver à un format de type html. 
 
 
 ```{r}
@@ -137,7 +131,7 @@ ggplotly(p)
 :::
 
 
-* Pour une **visualisation statique**, il est fortement recommandé de visualiser ce type d'informations à l'aide d'un graphique combiné, appelé **small multiples** (ou facettes).  
+* Pour une **visualisation statique**, il est recommandé de visualiser ce type d'informations à l'aide d'un graphique combiné, appelé **small multiples**.  
 
 
 # Contrôle de l'effet spaghetti avec un graphique combiné
@@ -186,12 +180,15 @@ ggplot(df) +
 
 ## Graphique combiné avec highlighting
 
-On peut combiné les deux approches, en gardant en arrière plan de chaque sous graphique les informations des autres graphiques. On peut donc ici, pour chaque pays, positionné l'information de chaque pays par rapport aux autres.
+On peut combiner les deux approches, en gardant en arrière plan de chaque sous graphique les informations des autres graphiques. On peut donc ici, pour chaque pays, positionner l'information de chaque pays par rapport aux autres (sans distinction).
 
-Le principe du code a été récupéré dans le support de Yann Holtz consacré à ce problème [**Data to viz**](http://www.data-to-viz.com/caveat/spaghetti.html). On vous recommande très fortement
-d'utiliser ce support très riche, non seulement en éléments de programmation, mais également en conseils. En particulier la section **mise en garde** (*caveats*).
+Le principe du code a été récupéré dans l'excellent support de *Yann Holtz* **Data to viz**: 
 
-Les courbes en arrière plan ont une épaisseur plus faible (`lwd=0.1`) et on une couleur unique ( `color="grey` ). Pour facilité la lecture, le quadrillage a été allégé dans l'option `theme()`. 
+* [**Site Data to viz**](http://www.data-to-viz.com)
+* [**Partie consacrée à l'effet Spaghetti**](http://www.data-to-viz.com/caveat/spaghetti.html)
+
+
+Les courbes en arrière plan ont une épaisseur plus faible (`lwd=0.1`) et  une couleur unique ( `color="grey` ). Pour faciliter la lecture, le quadrillage a été allégé dans l'option `theme()`. 
 
 ```{r}
 #| eval: false
@@ -247,7 +244,7 @@ ggplot(tmp) +
 
 On peut vouloir trier les sous graphiques selon un ordre particulier, ici ils sont simplement affichés par ordre alphabétique. 
 
-Si on souhaite par exemple, affiché les sous graphiques par ordre décroissant du taux de fécondité en 2022, donc d'Israel en haut à gauche à la Corée du Sud en bas à droite, on doit réarranger l'ordre de la variable **pays** avec le code suivant:
+Si on souhaite par exemple afficher les sous graphiques par ordre décroissant du taux de fécondité en 2022, donc d'Israel en haut à gauche à la Corée du Sud en bas à droite, on réarrange l'ordre de la variable **pays** avec le code suivant:
 
 ```{r}
 #| eval: false
@@ -284,7 +281,7 @@ unique(tmp$pays2)
 :::
 
 
-Et on réexécute le graphique précédent
+Et on réexécute le graphique précédent:
 
 ```{r}
 #| eval: false
@@ -334,8 +331,12 @@ ggplot(tmp) +
 
 ## Une fonction pour simplifier et automatiser le code
 
+::: callout-note
+
 * Version 0.2 - Mars 2024 [Arno Muller]
-* Des options seront ajoutées ultérieurement (options `thème()`, choix des groupes ....).
+* Des options seront ajoutées ultérieurement.
+
+:::
 
 Chargement de la fonction:
 
@@ -348,7 +349,7 @@ source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/spag_plot/s
 ```{r}
 #| eval: false
 
-df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
+df <- read.csv("fecondite_ggp.csv")
 df = df %>% mutate_if(is.character,as.factor)
 
 spag_plot(df,                     # Base de données au format long
@@ -381,7 +382,7 @@ spag_plot(df,                     # Base de données au format long
 ```{r}
 #| echo: false
 
-df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
+df <- read.csv("fecondite_ggp.csv")
 df = df %>% mutate_if(is.character,as.factor)
 
 spag_plot(df,                     # Base de données au format long

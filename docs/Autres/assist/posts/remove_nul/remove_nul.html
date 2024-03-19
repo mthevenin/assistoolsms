@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.547">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Support d’assistance Sms : - Supprimer un fichier nul avec git</title>
+<title>Support Sms - Supprimer un fichier nul avec git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support d’assistance Sms :</span>
+    <span class="navbar-title">Support Sms</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -173,7 +173,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Certains fichiers, en apparence vide de contenu, semblent non modifiable, et donc non supprimable. Cela empêche, entre autres, d’effacer un répertoire. C’est le cas des fichiers <strong>nul</strong>, qui sont créés assez régulièrement chez moi avec <em>Quarto</em>.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
 <p><a href="img/img1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Impossible de modifier le fichier"><img src="img/img1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="Impossible de modifier le fichier"></a></p>
+</figure>
+</div>
 <figcaption>Impossible de modifier le fichier</figcaption>
 </figure>
 </div>
@@ -199,13 +203,21 @@ A l’Ined
 </ul>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
 <p><a href="img/img2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="clic droit + ouvrir la console (git bash here) + rm nul"><img src="img/img2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="clic droit + ouvrir la console (git bash here) + rm nul"></a></p>
+</figure>
+</div>
 <figcaption>clic droit + ouvrir la console (<strong>git bash here</strong>) + <code>rm nul</code></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
 <p><a href="img/img3.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="Le fichier est supprimé"><img src="img/img3.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%" alt="Le fichier est supprimé"></a></p>
+</figure>
+</div>
 <figcaption>Le fichier est supprimé</figcaption>
 </figure>
 </div>
@@ -297,6 +309,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -331,7 +361,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -610,7 +644,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
