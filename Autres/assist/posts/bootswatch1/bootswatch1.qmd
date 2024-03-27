@@ -1,5 +1,5 @@
 ---
-title: "Badges, boutons...ajouter des éléments d'un thème bootstrap dans u document Quarto"
+title: "Badges, boutons...ajouter des éléments d'un thème bootstrap dans un document Quarto"
 
 author: 
   name: "Marc Thévenin"

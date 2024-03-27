@@ -1024,28 +1024,28 @@
   {
     "objectID": "Autres/assist/posts/bootswatch1/bootswatch1.html",
     "href": "Autres/assist/posts/bootswatch1/bootswatch1.html",
-    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans u document Quarto",
+    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans un document Quarto",
     "section": "",
     "text": "Important\n\n\n\nLes noms de certaines couleurs diffèrent de celles que l’on retrouve par exemple dans les callout de quarto:\n\nprimary\nsecondary\nsuccess\ndanger\n\nwarning\ninfo\nlight\ndark"
   },
   {
     "objectID": "Autres/assist/posts/bootswatch1/bootswatch1.html#les-badges",
     "href": "Autres/assist/posts/bootswatch1/bootswatch1.html#les-badges",
-    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans u document Quarto",
+    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans un document Quarto",
     "section": "Les badges",
     "text": "Les badges\nBadge de type 1\n\nDeux classes css à utiliser: .badge et .bg-type_couleur  .bg-primary, .bg-success …\n\nUn badge de type success: [success]{.badge .bg-success}\nUn badge de type success: success\n\nBadge de type 2\n\nTrois classes css à utiliser: .badge, .rounded-pill et .bg-type_couleur\n\nUn badge de type warning: [warning]{.badge .rounded-pill .bg-success}\nUn badge de type warning: warning"
   },
   {
     "objectID": "Autres/assist/posts/bootswatch1/bootswatch1.html#les-boutons-pour-liens",
     "href": "Autres/assist/posts/bootswatch1/bootswatch1.html#les-boutons-pour-liens",
-    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans u document Quarto",
+    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans un document Quarto",
     "section": "Les boutons [pour liens]",
     "text": "Les boutons [pour liens]\nBouton de type 1\n\nDeux classes css à utiliser: .btn et .btn-type_couleur  .btn-primary, .btn-success …\nOn les associe généralement à un lien.\n\nUn bouton de type success dans un lien: [[SO MATE]{.btn .btn-success}](https://mate-shs.cnrs.fr/les-groupes/so-mate-mate-shs-sud-ouest-2/)\nUn bouton de type success dans un lien:\nSO MATE\n\nBouton de type 2\n\nDeux classes css à utiliser: .btn et .btn-outline-type_couleur  .btn-outline-primary, .btn-outline-success …\nOn les associe généralement à un lien.\n\nUn bouton de type warning dans un lien: [[Conflit Git]{.btn .btn-outline-warning}](https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html)\nUn bouton de type warning dans un lien:\nConflit Git"
   },
   {
     "objectID": "Autres/assist/posts/bootswatch1/bootswatch1.html#encadré-dalerte",
     "href": "Autres/assist/posts/bootswatch1/bootswatch1.html#encadré-dalerte",
-    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans u document Quarto",
+    "title": "Badges, boutons…ajouter des éléments d’un thème bootstrap dans un document Quarto",
     "section": "Encadré d’alerte",
     "text": "Encadré d’alerte\n\nPeuvent se substituer aux callout, peuvent se fermer avec la croix en haut à gauche\n\nSans pouvoir fermer l’encadré: avec deux classes css .alert .alert-typ_couleur\n::: {.alert .alert-warning}\n### Attention\nLes noms de certaines couleurs diffèrent de celles que l'on retrouve par exemple dans les callout de quarto\n:::\n\nAttention\nLes noms de certaines couleurs diffèrent de celles que l’on retrouve par exemple dans les callout de quarto\n\nPouvoir fermer l’encadré:\n\nAjouter la balise html suivante avant le texte &lt;button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"&gt;&lt;/button&gt;\nA la section div (première ligne) ajouter la classe .alert-dismissible\n\n::: {.alert .alert-success .alert-dismissible}\n&lt;button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"&gt;&lt;/button&gt;\n### Attention\nCliquer sur la croix si vous avez résolu votre premier conflit de fusion avec Git\n:::\n\n\n\n\nAttention\nCliquer sur la croix si vous avez résolu votre premier conflit de fusion avec Git"
   },
