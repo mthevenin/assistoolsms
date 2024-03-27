@@ -40,6 +40,8 @@
       "/R/assist/posts/jtools_output/jtools_output.html",
       "/R/assist/posts/coxzph/coxzph.html",
       "/R/assist/posts/R_vscode/R_vscode_doc.html",
+      "/Autres/assist/posts/bootswatch1/bootswatch1.html",
+      "/Autres/assist/posts/code_highlight/code_highlight.html",
       "/Autres/assist/posts/adm_data/adm_data.html",
       "/Autres/assist/posts/gitlabpage/gitlabpage.html",
       "/Autres/assist/posts/quarto_v14/quarto_v14.html",
@@ -72,6 +74,8 @@
   {
     "listing": "/Autres/index.html",
     "items": [
+      "/Autres/assist/posts/bootswatch1/bootswatch1.html",
+      "/Autres/assist/posts/code_highlight/code_highlight.html",
       "/Autres/assist/posts/adm_data/adm_data.html",
       "/Autres/assist/posts/gitlabpage/gitlabpage.html",
       "/Autres/assist/posts/quarto_v14/quarto_v14.html",
@@ -88,6 +92,8 @@
   {
     "listing": "/Autres/assist/index.html",
     "items": [
+      "/Autres/assist/posts/bootswatch1/bootswatch1.html",
+      "/Autres/assist/posts/code_highlight/code_highlight.html",
       "/Autres/assist/posts/adm_data/adm_data.html",
       "/Autres/assist/posts/gitlabpage/gitlabpage.html",
       "/Autres/assist/posts/quarto_v14/quarto_v14.html",

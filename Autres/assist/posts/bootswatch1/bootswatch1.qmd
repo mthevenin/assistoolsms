@@ -1,0 +1,140 @@
+---
+title: "Badges, boutons...ajouter des éléments d'un thème bootstrap dans u document Quarto"
+
+author: 
+  name: "Marc Thévenin"
+  affiliation: "Ined"
+
+date: 03/26/2024
+
+categories:
+  - "Quarto"
+  - "Css"
+  - "Thème"
+
+abstract: | 
+  La prévisualisation des thèmes bootstrap permet de récupérer et appliquer des classes css qui peuvent être appliquées au document Quarto pour des éléments de type badge, bouton, card, encadrés informatifs différents de ceux donnés par Quarto. 
+  
+abstract-title: "Résumé"
+
+image: logo_bootswatch.png
+
+---
+
+::: callout-important
+Les noms de certaines couleurs diffèrent de celles que l'on retrouve par exemple dans les callout de quarto:  
+
+* primary
+* secondary
+* success 
+* danger  
+* warning 
+* info 
+* light
+* dark
+
+:::
+
+
+
+## Les badges 
+
+[Badge de type 1]{.badge .bg-primary}
+
+* Deux classes css à utiliser: `.badge` et `.bg-type_couleur` {{< fa solid arrow-right >}} `.bg-primary`, `.bg-success` ...
+
+```{.mf}
+Un badge de type success: [success]{.badge .bg-success}
+```
+
+Un badge de type success: [success]{.badge .bg-success}
+
+<br>
+
+[Badge de type 2]{.badge .rounded-pill .bg-primary}
+
+* Trois classes css à utiliser: `.badge`, `.rounded-pill` et `.bg-type_couleur`
+
+```{.mf}
+Un badge de type warning: [warning]{.badge .rounded-pill .bg-success}
+```
+
+Un badge de type warning: [warning]{.badge .rounded-pill .bg-warning}
+
+
+## Les boutons [pour liens]
+
+[Bouton de type 1]{.btn .btn-dark}
+
+* Deux classes css à utiliser: `.btn` et `.btn-type_couleur` {{< fa solid arrow-right >}} `.btn-primary`, `.btn-success` ...
+* On les associe généralement à un lien. 
+
+```{.mf}
+Un bouton de type success dans un lien: [[SO MATE]{.btn .btn-success}](https://mate-shs.cnrs.fr/les-groupes/so-mate-mate-shs-sud-ouest-2/)
+```
+
+Un bouton de type success dans un lien:  
+[[SO MATE]{.btn .btn-success}](https://mate-shs.cnrs.fr/les-groupes/so-mate-mate-shs-sud-ouest-2/)
+
+<br>
+
+[Bouton de type 2]{.btn .btn-outline-primary}
+
+* Deux classes css à utiliser: `.btn` et `.btn-outline-type_couleur` {{< fa solid arrow-right >}} `.btn-outline-primary`, `.btn-outline-success` ...
+* On les associe généralement à un lien. 
+
+```{.mf}
+Un bouton de type warning dans un lien: [[Conflit Git]{.btn .btn-outline-warning}](https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html)
+```
+
+Un bouton de type warning dans un lien:  
+[[Conflit Git]{.btn .btn-outline-warning}](https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html)
+
+
+## Encadré d'alerte
+
+* Peuvent se substituer aux callout, peuvent se fermer avec la croix en haut à gauche
+
+
+**Sans pouvoir fermer l'encadré**: avec deux classes css `.alert` `.alert-typ_couleur`
+
+```{.mf}
+::: {.alert .alert-warning}
+### Attention
+Les noms de certaines couleurs diffèrent de celles que l'on retrouve par exemple dans les callout de quarto
+:::
+```
+
+::: {.alert .alert-warning}
+### Attention
+Les noms de certaines couleurs diffèrent de celles que l'on retrouve par exemple dans les callout de quarto
+:::
+
+**Pouvoir fermer l'encadré**: 
+
+* Ajouter la balise html suivante avant le texte   `<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`
+* A la section div (première ligne) ajouter la classe `.alert-dismissible`
+
+```{.mf}
+::: {.alert .alert-success .alert-dismissible}
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+### Attention
+Cliquer sur la croix si vous avez résolu votre premier conflit de fusion avec Git
+:::
+```
+
+::: {.alert .alert-success .alert-dismissible}
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+### Attention
+Cliquer sur la croix si vous avez résolu votre premier conflit de fusion avec Git
+:::
+
+
+
+
+
+
+
+
+
+

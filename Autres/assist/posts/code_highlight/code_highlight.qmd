@@ -1,0 +1,150 @@
+---
+title: "Thèmes pour les blocs de code"
+
+author: 
+  name: "Marc Thévenin"
+  affiliation: "Ined"
+
+date: 03/22/2024
+
+categories:
+  - "Quarto"
+  - "Code"
+  - "Thème"
+
+abstract: |
+ On trouvera ici une prévisualisation des thèmes pour les blocs de code: couleur syntaxique et couleur de fond. Certaines s'adaptent à une version dark ou light du thème de la documentation (adaptative). Si c'est le cas, la version light est donnée en premier, suivie de la version dark.
+
+abstract-title: "Résumé"
+
+image: img.png
+
+---
+
+Dans le yaml:
+
+```{.yaml}
+---
+highlight-style: nom_theme
+---
+```
+
+### ally
+
+![](img/ally.png){width=75%}
+
+![](img/allyd.png){width=75%}
+
+
+### arrow
+
+![](img/arrow.png){width=75%}
+
+![](img/arrowd.png){width=75%}
+
+### atom-one
+
+![](img/atom-one.png){width=75%}
+
+![](img/atom-oned.png){width=75%}
+
+### ayu
+
+![](img/ayu.png){width=75%}
+
+![](img/ayud.png){width=75%}
+
+### ayu-mirage (non adaptatif)
+
+![](img/ayu-mirage.png){width=75%}
+
+### breeze
+
+![](img/breeze.png){width=75%}
+![](img/breezed.png){width=75%}
+
+
+### github
+
+![](img/github.png){width=75%}
+
+![](img/githubd.png){width=75%}
+
+### gruvbox 
+
+![](img/gruvbox.png){width=75%}
+
+![](img/gruvboxd.png){width=75%}
+   
+### pygments
+
+![](img/pygments.png){width=75%}
+
+![](img/pygmentsd.png){width=75%}
+
+### tango (non adaptatif))
+
+![](img/tango.png){width=75%}
+
+### espresso (non adaptatif)
+
+![](img/espresso.png){width=75%}
+
+### zenburn (non adaptatif)
+
+![](img/zenburn.png){width=75%}
+
+### kate (non adaptatif)
+
+![](img/kate.png){width=75%}
+  
+### monochrome
+
+![](img/monochrome.png){width=75%}
+
+![](img/monochromed.png){width=75%}
+
+### breezedark (non adaptatif)
+
+![](img/breezedark.png){width=75%}
+
+### haddock
+
+![](img/haddock.png){width=75%}
+
+![](img/haddockd.png){width=75%}
+
+
+### dracula (non adaptatif)
+
+![](img/dracula.png){width=75%}
+
+### monokai (non adaptatif)
+
+![](img/monokai.png){width=75%}
+
+### nord (non adaptatif)
+
+![](img/nord.png){width=75%}
+
+### oblivion (non adaptatif)
+
+![](img/oblivion.png){width=75%}
+
+### printing (non adaptatif)
+
+![](img/printing.png){width=75%}
+
+### radical (non adaptative)
+
+![](img/radical.png){width=75%}
+
+### solarized (non adaptatif)
+
+![](img/solarized.png){width=75%}
+
+### vim-dark
+
+![](img/vim-dark.png){width=75%}
+
+

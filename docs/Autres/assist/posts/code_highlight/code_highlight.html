@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Marc Thévenin">
 
-<title>Support Sms - Assistances et astuces autres que R</title>
+<title>Support Sms - Thèmes pour les blocs de code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
@@ -54,67 +90,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../sms.css">
+<link rel="stylesheet" href="../../../../sms.css">
 </head>
 
 <body class="nav-fixed">
@@ -124,7 +102,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Support Sms</span>
     </a>
   </div>
@@ -134,7 +112,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../R/index.html"> 
+    <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -143,23 +121,23 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
         <li>
-    <a class="dropdown-item" href="../Autres/index.html">
+    <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Stata/index.html">
+    <a class="dropdown-item" href="../../../../Stata/index.html">
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../supports.html"> 
+    <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
   <li class="nav-item">
@@ -177,25 +155,84 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Assistances et astuces autres que R</h1>
-                      </div>
+      <h1 class="title">Thèmes pour les blocs de code</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Quarto</div>
+                <div class="quarto-category">Code</div>
+                <div class="quarto-category">Thème</div>
+              </div>
+                  </div>
   </div>
     
-  
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Marc Thévenin </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Ined
+            </p>
+        </div>
+    </div>
+
   <div class="quarto-title-meta">
 
-      
+        
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">22 mars 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
+  <div>
+    <div class="abstract">
+      <div class="block-title">Résumé</div>
+      <p>On trouvera ici une prévisualisation des thèmes pour les blocs de code: couleur syntaxique et couleur de fond. Certaines s’adaptent à une version dark ou light du thème de la documentation (adaptative). Si c’est le cas, la version light est donnée en premier, suivie de la version dark.</p>
+    </div>
+  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(13)</span></div><div class="category" data-category="Code">Code <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Css">Css <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Données administratives">Données administratives <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Erreur">Erreur <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Extension">Extension <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Gitlab">Gitlab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Problème fichier">Problème fichier <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(9)</span></div><div class="category" data-category="Rstudio">Rstudio <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Scss">Scss <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Thème">Thème <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Whisper">Whisper <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Yaml">Yaml <span class="quarto-category-count">(1)</span></div><div class="category" data-category="git">git <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#ally" id="toc-ally" class="nav-link active" data-scroll-target="#ally">ally</a></li>
+  <li><a href="#arrow" id="toc-arrow" class="nav-link" data-scroll-target="#arrow">arrow</a></li>
+  <li><a href="#atom-one" id="toc-atom-one" class="nav-link" data-scroll-target="#atom-one">atom-one</a></li>
+  <li><a href="#ayu" id="toc-ayu" class="nav-link" data-scroll-target="#ayu">ayu</a></li>
+  <li><a href="#ayu-mirage-non-adaptatif" id="toc-ayu-mirage-non-adaptatif" class="nav-link" data-scroll-target="#ayu-mirage-non-adaptatif">ayu-mirage (non adaptatif)</a></li>
+  <li><a href="#breeze" id="toc-breeze" class="nav-link" data-scroll-target="#breeze">breeze</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">github</a></li>
+  <li><a href="#gruvbox" id="toc-gruvbox" class="nav-link" data-scroll-target="#gruvbox">gruvbox</a></li>
+  <li><a href="#pygments" id="toc-pygments" class="nav-link" data-scroll-target="#pygments">pygments</a></li>
+  <li><a href="#tango-non-adaptatif" id="toc-tango-non-adaptatif" class="nav-link" data-scroll-target="#tango-non-adaptatif">tango (non adaptatif))</a></li>
+  <li><a href="#espresso-non-adaptatif" id="toc-espresso-non-adaptatif" class="nav-link" data-scroll-target="#espresso-non-adaptatif">espresso (non adaptatif)</a></li>
+  <li><a href="#zenburn-non-adaptatif" id="toc-zenburn-non-adaptatif" class="nav-link" data-scroll-target="#zenburn-non-adaptatif">zenburn (non adaptatif)</a></li>
+  <li><a href="#kate-non-adaptatif" id="toc-kate-non-adaptatif" class="nav-link" data-scroll-target="#kate-non-adaptatif">kate (non adaptatif)</a></li>
+  <li><a href="#monochrome" id="toc-monochrome" class="nav-link" data-scroll-target="#monochrome">monochrome</a></li>
+  <li><a href="#breezedark-non-adaptatif" id="toc-breezedark-non-adaptatif" class="nav-link" data-scroll-target="#breezedark-non-adaptatif">breezedark (non adaptatif)</a></li>
+  <li><a href="#haddock" id="toc-haddock" class="nav-link" data-scroll-target="#haddock">haddock</a></li>
+  <li><a href="#dracula-non-adaptatif" id="toc-dracula-non-adaptatif" class="nav-link" data-scroll-target="#dracula-non-adaptatif">dracula (non adaptatif)</a></li>
+  <li><a href="#monokai-non-adaptatif" id="toc-monokai-non-adaptatif" class="nav-link" data-scroll-target="#monokai-non-adaptatif">monokai (non adaptatif)</a></li>
+  <li><a href="#nord-non-adaptatif" id="toc-nord-non-adaptatif" class="nav-link" data-scroll-target="#nord-non-adaptatif">nord (non adaptatif)</a></li>
+  <li><a href="#oblivion-non-adaptatif" id="toc-oblivion-non-adaptatif" class="nav-link" data-scroll-target="#oblivion-non-adaptatif">oblivion (non adaptatif)</a></li>
+  <li><a href="#printing-non-adaptatif" id="toc-printing-non-adaptatif" class="nav-link" data-scroll-target="#printing-non-adaptatif">printing (non adaptatif)</a></li>
+  <li><a href="#radical-non-adaptative" id="toc-radical-non-adaptative" class="nav-link" data-scroll-target="#radical-non-adaptative">radical (non adaptative)</a></li>
+  <li><a href="#solarized-non-adaptatif" id="toc-solarized-non-adaptatif" class="nav-link" data-scroll-target="#solarized-non-adaptatif">solarized (non adaptatif)</a></li>
+  <li><a href="#vim-dark" id="toc-vim-dark" class="nav-link" data-scroll-target="#vim-dark">vim-dark</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -203,200 +240,119 @@ window.Quarto = {
 
 
 
+<p>Dans le yaml:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">highlight-style</span><span class="kw">:</span><span class="at"> nom_theme</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ally" class="level3">
+<h3 class="anchored" data-anchor-id="ally">ally</h3>
+<p><a href="img/ally.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/ally.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/allyd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/allyd.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="arrow" class="level3">
+<h3 class="anchored" data-anchor-id="arrow">arrow</h3>
+<p><a href="img/arrow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/arrow.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/arrowd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/arrowd.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="atom-one" class="level3">
+<h3 class="anchored" data-anchor-id="atom-one">atom-one</h3>
+<p><a href="img/atom-one.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/atom-one.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/atom-oned.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/atom-oned.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="ayu" class="level3">
+<h3 class="anchored" data-anchor-id="ayu">ayu</h3>
+<p><a href="img/ayu.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/ayu.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/ayud.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="img/ayud.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="ayu-mirage-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="ayu-mirage-non-adaptatif">ayu-mirage (non adaptatif)</h3>
+<p><a href="img/ayu-mirage.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="img/ayu-mirage.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="breeze" class="level3">
+<h3 class="anchored" data-anchor-id="breeze">breeze</h3>
+<p><img src="img/breeze.png" class="img-fluid" style="width:75.0%"> <img src="img/breezed.png" class="img-fluid" style="width:75.0%"></p>
+</section>
+<section id="github" class="level3">
+<h3 class="anchored" data-anchor-id="github">github</h3>
+<p><a href="img/github.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="img/github.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/githubd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/githubd.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="gruvbox" class="level3">
+<h3 class="anchored" data-anchor-id="gruvbox">gruvbox</h3>
+<p><a href="img/gruvbox.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img/gruvbox.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/gruvboxd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="img/gruvboxd.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="pygments" class="level3">
+<h3 class="anchored" data-anchor-id="pygments">pygments</h3>
+<p><a href="img/pygments.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="img/pygments.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/pygmentsd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="img/pygmentsd.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="tango-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="tango-non-adaptatif">tango (non adaptatif))</h3>
+<p><a href="img/tango.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="img/tango.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="espresso-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="espresso-non-adaptatif">espresso (non adaptatif)</h3>
+<p><a href="img/espresso.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="img/espresso.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="zenburn-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="zenburn-non-adaptatif">zenburn (non adaptatif)</h3>
+<p><a href="img/zenburn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="img/zenburn.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="kate-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="kate-non-adaptatif">kate (non adaptatif)</h3>
+<p><a href="img/kate.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="img/kate.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="monochrome" class="level3">
+<h3 class="anchored" data-anchor-id="monochrome">monochrome</h3>
+<p><a href="img/monochrome.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="img/monochrome.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/monochromed.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="img/monochromed.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="breezedark-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="breezedark-non-adaptatif">breezedark (non adaptatif)</h3>
+<p><a href="img/breezedark.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="img/breezedark.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="haddock" class="level3">
+<h3 class="anchored" data-anchor-id="haddock">haddock</h3>
+<p><a href="img/haddock.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="img/haddock.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img/haddockd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="img/haddockd.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="dracula-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="dracula-non-adaptatif">dracula (non adaptatif)</h3>
+<p><a href="img/dracula.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="img/dracula.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="monokai-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="monokai-non-adaptatif">monokai (non adaptatif)</h3>
+<p><a href="img/monokai.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="img/monokai.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="nord-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="nord-non-adaptatif">nord (non adaptatif)</h3>
+<p><a href="img/nord.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="img/nord.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="oblivion-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="oblivion-non-adaptatif">oblivion (non adaptatif)</h3>
+<p><a href="img/oblivion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="img/oblivion.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="printing-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="printing-non-adaptatif">printing (non adaptatif)</h3>
+<p><a href="img/printing.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="img/printing.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="radical-non-adaptative" class="level3">
+<h3 class="anchored" data-anchor-id="radical-non-adaptative">radical (non adaptative)</h3>
+<p><a href="img/radical.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="img/radical.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="solarized-non-adaptatif" class="level3">
+<h3 class="anchored" data-anchor-id="solarized-non-adaptatif">solarized (non adaptatif)</h3>
+<p><a href="img/solarized.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="img/solarized.png" class="img-fluid" style="width:75.0%"></a></p>
+</section>
+<section id="vim-dark" class="level3">
+<h3 class="anchored" data-anchor-id="vim-dark">vim-dark</h3>
+<p><a href="img/vim-dark.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="img/vim-dark.png" class="img-fluid" style="width:75.0%"></a></p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Trier par" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Trier par</option>
-       <option value="index" data-direction="asc">Ordre par défaut</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Le plus ancien
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Le plus récent
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Titre
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Auteur·rice
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Titre</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Auteur·rice</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Quarto,Css,Thème" data-listing-date-sort="1711407600000" data-listing-file-modified-sort="1711550120619" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="331" data-listing-title-sort="Badges, boutons...ajouter des éléments d'un thème bootstrap dans u document Quarto" data-listing-filename-sort="bootswatch1.qmd">
-<td>
-<span class="listing-date">26 mars 2024</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/bootswatch1/bootswatch1.html" class="title listing-title">Badges, boutons…ajouter des éléments d’un thème bootstrap dans u document Quarto</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="Quarto,Code,Thème" data-listing-date-sort="1711062000000" data-listing-file-modified-sort="1711550290593" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="60" data-listing-title-sort="Thèmes pour les blocs de code" data-listing-filename-sort="code_highlight.qmd">
-<td>
-<span class="listing-date">22 mars 2024</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/code_highlight/code_highlight.html" class="title listing-title">Thèmes pour les blocs de code</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="Données administratives" data-listing-date-sort="1709766000000" data-listing-file-modified-sort="1709817109329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="373" data-listing-title-sort="Les données administratives" data-listing-filename-sort="adm_data.qmd">
-<td>
-<span class="listing-date">7 mars 2024</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/adm_data/adm_data.html" class="title listing-title">Les données administratives</a>
-</td>
-<td>
-<span class="listing-author">Giulia Ferrari</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="Gitlab,Quarto" data-listing-date-sort="1709247600000" data-listing-file-modified-sort="1709290218519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="707" data-listing-title-sort="Déployer un contenu html sur gitlab [maj]" data-listing-filename-sort="gitlabpage.qmd">
-<td>
-<span class="listing-date">1 mars 2024</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/gitlabpage/gitlabpage.html" class="title listing-title">Déployer un contenu html sur gitlab [maj]</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="Quarto" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1709284816465" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130" data-listing-title-sort="Version 1.4 de Quarto" data-listing-filename-sort="quarto_v14.qmd">
-<td>
-<span class="listing-date">8 janv. 2024</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/quarto_v14/quarto_v14.html" class="title listing-title">Version 1.4 de Quarto</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="Quarto,Scss,Css" data-listing-date-sort="1698357600000" data-listing-file-modified-sort="1709810794688" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1762" data-listing-title-sort="Modifier la couleur d'un texte ou d'un paragraphe" data-listing-filename-sort="couleur_texte_scss.qmd">
-<td>
-<span class="listing-date">27 oct. 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/couleur_texte_scss/couleur_texte_scss.html" class="title listing-title">Modifier la couleur d’un texte ou d’un paragraphe</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="Python,Whisper,Erreur" data-listing-date-sort="1697752800000" data-listing-file-modified-sort="1697786928931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="391" data-listing-title-sort="Vérifier l'installation de ffmpeg pour utiliser Whisper [Maj]" data-listing-filename-sort="whisper.qmd">
-<td>
-<span class="listing-date">20 oct. 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/whispers/whisper.html" class="title listing-title">Vérifier l’installation de ffmpeg pour utiliser Whisper [Maj]</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="Quarto,Yaml" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1698136780416" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174" data-listing-title-sort="Transmettre un fichier html sans le répertoire *_html_libs" data-listing-filename-sort="self_contained.qmd">
-<td>
-<span class="listing-date">10 juil. 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/self_contained/self_contained.html" class="title listing-title">Transmettre un fichier html sans le répertoire *_html_libs</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="git,Rstudio" data-listing-date-sort="1687384800000" data-listing-file-modified-sort="1688022701660" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="406" data-listing-title-sort="Rstudio et Git[hub/lab]: l'essentiel" data-listing-filename-sort="git_rstudio.qmd">
-<td>
-<span class="listing-date">22 juin 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/git_rstudio/git_rstudio.html" class="title listing-title">Rstudio et Git[hub/lab]: l’essentiel</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="Quarto,Scss,Css" data-listing-date-sort="1687212000000" data-listing-file-modified-sort="1690192050582" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260" data-listing-title-sort="Modification de l'apparence des outputs avec un fichier .scss" data-listing-filename-sort="output_scss.qmd">
-<td>
-<span class="listing-date">20 juin 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/output_scss/output_scss.html" class="title listing-title">Modification de l’apparence des outputs avec un fichier .scss</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="Quarto,Code" data-listing-date-sort="1686866400000" data-listing-file-modified-sort="1690192020669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1100" data-listing-title-sort="Commenter des lignes de codes" data-listing-filename-sort="annotation.qmd">
-<td>
-<span class="listing-date">16 juin 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/annotation/annotation.html" class="title listing-title">Commenter des lignes de codes</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="Quarto,Extension" data-listing-date-sort="1686866400000" data-listing-file-modified-sort="1690191831261" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117" data-listing-title-sort="Insertion d'une vidéo Youtube ou Viméo" data-listing-filename-sort="social_embeds.qmd">
-<td>
-<span class="listing-date">16 juin 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/social_embeds/social_embeds.html" class="title listing-title">Insertion d’une vidéo Youtube ou Viméo</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="12" data-categories="git,Problème fichier" data-listing-date-sort="1686520800000" data-listing-file-modified-sort="1688022701837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="118" data-listing-title-sort="Supprimer un fichier nul avec git" data-listing-filename-sort="remove_nul.qmd">
-<td>
-<span class="listing-date">12 juin 2023</span>
-</td>
-<td>
-<a href="../Autres/assist/posts/remove_nul/remove_nul.html" class="title listing-title">Supprimer un fichier nul avec git</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-Aucun article correspondant
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -811,6 +767,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
