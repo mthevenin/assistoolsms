@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installation-de-jupyter" id="toc-installation-de-jupyter" class="nav-link active" data-scroll-target="#installation-de-jupyter">Installation de Jupyter</a></li>
   <li><a href="#installation-de-nbstata" id="toc-installation-de-nbstata" class="nav-link" data-scroll-target="#installation-de-nbstata">Installation de nbstata</a></li>
   <li><a href="#utilisation-de-nbstata-dans-un-notebook-jupyter" id="toc-utilisation-de-nbstata-dans-un-notebook-jupyter" class="nav-link" data-scroll-target="#utilisation-de-nbstata-dans-un-notebook-jupyter">Utilisation de nbstata dans un notebook Jupyter</a></li>
-  <li><a href="#utilisation-de-nbstata-dans-un-document-quarto" id="toc-utilisation-de-nbstata-dans-un-document-quarto" class="nav-link" data-scroll-target="#utilisation-de-nbstata-dans-un-document-quarto">Utilisation de nbstata dans un document Quarto</a></li>
+  <li><a href="#utilisation-de-nbstata-dans-un-document-quarto" id="toc-utilisation-de-nbstata-dans-un-document-quarto" class="nav-link" data-scroll-target="#utilisation-de-nbstata-dans-un-document-quarto">Utilisation de <strong>nbstata</strong> dans un document Quarto</a></li>
   </ul>
 </nav>
     </div>
@@ -211,7 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="abstract">
     <div class="block-title">Résumé</div>
-    <p>putdoc, puthtml… Oublier! Depuis plusieurs années il est possible d’exécuter un programme Stata avec le notebook Jupyter avec le <code>Stata_kernel</code> de K.Barron ou plus récemment avec la librairie officielle <code>pystata</code> (version 17). Du côté de RStudio on pouvait également exécuter un programme Stata dans un document Rmarkdown, avec la librairie <code>statamarkdown</code>. En 2022 avec l’arrivée de <strong>Quarto</strong>, évolution de rmarkdown, et le nouveau noyau Jupyter <strong><code>nbstata</code></strong> de <strong>Tim Huegerich</strong>, on dispose d’une solution particulièrement efficace pour produire toute sorte de documentation (site, article, ouvrage).</p>
+    <p>putdoc, puthtml… Oubliez! Depuis plusieurs années il est possible d’exécuter un programme Stata avec le notebook Jupyter grâce au noyau <code>Stata_kernel</code> de K.Barron ou plus récemment avec la librairie usine <code>pystata</code> (version 17). Du côté de RStudio on pouvait également exécuter un programme Stata dans un document Rmarkdown, avec le package <code>statamarkdown</code>. Mais l’exécution de Stata se faisant en mode batch. En 2022 avec l’arrivée du <strong>Quarto</strong>, et le nouveau noyau Jupyter <strong><code>nbstata</code></strong> de <strong>Tim Huegerich</strong>, on dispose d’une solution particulièrement efficace d’édition pour ce logiciel.</p>
   </div>
 </div>
 
@@ -221,22 +221,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <ul>
 <li><p>Documentation nbstata: <a href="https://github.com/hugetim/nbstata" class="uri">https://github.com/hugetim/nbstata</a></p></li>
-<li><p>Prérequis: Stata 17 minimum</p></li>
+<li><p>Prérequis:</p>
+<ul>
+<li>Stata 17 minimum</li>
+<li>Version récente de Python</li>
+<li>Notebook Jupyter</li>
+<li>Installation du kernel <strong>nbstata</strong></li>
+</ul></li>
 </ul>
 <p>Avant de débuter ce tutoriel, concernant les avantages et les inconvénients d’utiliser le notebook Jupyter:</p>
 <ul>
-<li><p>Les graphiques sont afficher sous le programme et non dans une fenêtre externe.</p></li>
-<li><p>Le programme est exécuter dans des cellules de code et non dans un éditeur de programme. Avec Jupyter, les macros temporaires (<code>local</code>) restent enregistrer d’une cellule de code à une autre.</p></li>
-<li><p>le noyau <code>nbstata</code> permet d’enregistrer l’ensemble des cellules dans un fichier .do.</p></li>
+<li><p>Les graphiques sont affichés sous le programme et non dans une fenêtre externe.</p></li>
+<li><p>Le programme est exécuté dans des cellules de codes et non dans un éditeur de programme. Avec Jupyter, les macros temporaires restent enregistrées d’une cellule de codes à une autre. C’est plutôt pratique pour construire un programme pas à pas sans avoir à exécuter systématique les parties qui déclarent les macros temporaires en amont.</p></li>
+<li><p>Le noyau <code>nbstata</code> permet d’enregistrer l’ensemble des cellules dans un fichier .do.</p></li>
 <li><p>Niveau inconvénient ou limite d’utilisation. Les notebooks ne permettent pas d’afficher à la volée la base de données ou la frame active. Son utilisation n’est donc pas forcément adaptée au traitement et à la manipulation d’une base de données.</p></li>
 </ul>
 <section id="installation-de-jupyter" class="level1">
 <h1>Installation de Jupyter</h1>
-<p>Une fiche dans la base d’assistance <a href="https://mthevenin.github.io/assistoolsms/"><strong>assistoolsms</strong></a> est déjà disponible [<a href="https://mthevenin.github.io/assistoolsms/R/assist/posts/R_jupyter/R_jupyter.html#installation">Lien</a>]. A l’Ined l’installation est largement facilité avec l’outil <strong>applined</strong> mise à disposition par le service informatique.</p>
-<p>Pour vérifier que tout est bien installer:</p>
+<p>Une fiche est déjà disponible [<a href="https://mthevenin.github.io/assistoolsms/R/assist/posts/R_jupyter/R_jupyter.html#installation">Lien</a>]. A l’Ined l’installation est largement facilité avec l’outil <strong>applined</strong> développé par le service informatique.</p>
+<p>Pour vérifier que tout est bien installé:</p>
 <ul>
-<li>Vérification pour python: dans Stata, exécuter <strong><code>python query</code></strong>, et éventuellement tester une opération simple: <strong><code>python: 1+1</code></strong></li>
-<li>Vérification pour Jupyther: pour lancer le notebook, dans l’invit de commande windows (cmd dans la barre de recherche), exécuter <strong><code>jupyter notebook</code></strong></li>
+<li>Vérification pour Python: dans Stata, exécuter <strong><code>python query</code></strong>, et éventuellement tester une opération simple: <strong><code>python: 1+1</code></strong></li>
+<li>Vérification pour Jupyter: pour lancer le notebook, dans l’invite de commande windows (cmd dans la barre de recherche), exécuter <strong><code>jupyter notebook</code></strong></li>
 </ul>
 <div class="center">
 <div class="column" style="width:65%;">
@@ -249,11 +255,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="installation-de-nbstata" class="level1">
 <h1>Installation de nbstata</h1>
 <p>Les étapes sont bien décrites dans le document de Tim Huegerich.</p>
-<p>Dans l’invite de commande windows exécuter successivement (la troisième est optionnelle)</p>
+<p>Dans l’invite de commande windows exécuter successivement</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1"></a>pip install nbstata</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A minima:</p>
+<p>Puis à minima:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1"></a>python <span class="op">-</span>m nbstata.install</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Si on souhaite récupérer la couleur syntaxique</p>
+<p>Optionnellement, si on souhaite récupérer la couleur syntaxique</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb3-1"><a href="#cb3-1"></a>pip install jupyterlab_stata_highlight2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="utilisation-de-nbstata-dans-un-notebook-jupyter" class="level1">
@@ -275,10 +281,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><br></p>
-<p>Remarque: on peut installer le notebook Jupyter dans VsCode. On peut donc l’utiliser comme interface pour documenter un programme au lieu d’un navigateur Web. En revanche, il ne sera pas possible de récupérer un .do à partir des commandes exécuter dans les cellules.</p>
+<p>Remarque: on peut installer le notebook Jupyter dans VScode. On peut donc l’utiliser comme interface pour documenter un programme au lieu d’un navigateur Web. En revanche, il ne sera pas possible de récupérer un .do à partir des commandes exécuter dans les cellules.</p>
 </section>
 <section id="utilisation-de-nbstata-dans-un-document-quarto" class="level1">
-<h1>Utilisation de nbstata dans un document Quarto</h1>
+<h1>Utilisation de <strong>nbstata</strong> dans un document Quarto</h1>
 <ul>
 <li>On indique de le header de la page (yaml) l’utilisation de jupyter et du noyau nbstata</li>
 </ul>
@@ -288,9 +294,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4"></a><span class="st">jupyter: nbstata</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="st">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Pour le bloc de codes sans option: on indique qu’on utilise stata: ```{stata}</li>
-<li>Pour le bloc de code avec option(s), on remplace #| par *|, par exemple <code>*| echo:false</code> si on ne souhaite pas que le programme soit affiché.</li>
+<li>Pour le bloc de codes sans option: on indique qu’on utilise stata: <code>```{stata}</code></li>
+<li>Pour le bloc de codes avec option(s), on remplace <code>#|</code> (R,Python) par <code>*|</code>:</li>
 </ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">*</span>| echo: <span class="bu">false</span><span class="op">/</span><span class="bu">true</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="op">*</span>| eval: <span class="bu">false</span><span class="op">/</span><span class="bu">true</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="op">*</span> Programme Stata</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>sysuse auto</span>
+<span id="cb5-7"><a href="#cb5-7"></a>tx scat price mpg</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="center">
 <div class="column" style="width:65%;">
 <div class="box_img">
@@ -717,7 +730,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

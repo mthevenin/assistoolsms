@@ -14,14 +14,17 @@ author:
     affiliations:
       - name: "Ined"
 
-filters:
-   - lightbox
-
-lightbox: auto
+lightbox: true
 
 abstract: | 
   Il est très simple d'ajouter, dans un script R, les noms des packages aux appels des fonctions. Sous forme de préfixes, ces indications permettent de repérer les packages utilisés et donc faciliter la reproductibilité de l'analyse. Nous prenons ici l'exemple d'un script générant un nuage de mots à partir du package de statistique textuelle R.temis. 
-  
+ 
+format: 
+  html: default
+  pdf: default
+  docx: default
+
+toc: true  
 ---
 
 ```{css, echo = FALSE}
@@ -161,7 +164,6 @@ Celui-ci permet d'ouvrir une interface qui propose pour chaque fonction du scrip
 ![](img/img1.png)
 :::
 :::
-<br>
 
 ## Prefixer le script
 
@@ -185,14 +187,20 @@ prefixer()
 ```
 
 
-## Utiliser la fenêtre shiny permettant de choisir le préfixe
+## Utiliser la fenêtre shiny permettant de choisir le préfixe 
 
+::: callout-note
+Seulement pour le format html
+:::
+
+::: {.content-visible when-format="html"}
 ::: {.column width="65%"}
 ::: {.box_img}
 ![](img/mov1.gif)
 :::
 :::
-<br>
+:::
+
 
 # Résultat: le script est enrichi
 
