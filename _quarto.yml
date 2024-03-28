@@ -37,17 +37,18 @@ format:
     theme: [lux, sms.scss]
     css: sms.css
     toc: true
+    code-link: true
     grid:
       sidebar-width: 350px
       body-width: 950px
       margin-width: 300px
       gutter-width: 1.5rem
     mainfont: "roboto"    
-    code-line-numbers: true
+    code-line-numbers: false
     code-copy: true
 #    code-tools:
 #      source: true
-highlight-style: kate
+highlight-style: atom-one
 
 lightbox: true
 

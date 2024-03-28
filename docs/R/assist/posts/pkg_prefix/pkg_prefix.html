@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Bénédicte Garnier">
-
 <title>Support Sms - Consolider sa reproductibilité avec le package prefixer</title>
 <style>
 code{white-space: pre-wrap;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,18 +84,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../../../sms.css">
+}</script><link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../../index.html">
     <span class="navbar-title">Support Sms</span>
@@ -111,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -119,8 +108,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -129,14 +118,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -145,17 +134,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Consolider sa reproductibilité avec le package prefixer</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Consolider sa reproductibilité avec le package prefixer</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Montrer tout le code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Cacher tout le code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Voir les sources</a></li></ul></div></div>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Addins</div>
                 <div class="quarto-category">Reproductibilité</div>
@@ -201,29 +186,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#le-script-dorigine" id="toc-le-script-dorigine" class="nav-link active" data-scroll-target="#le-script-dorigine">Le script d’origine</a></li>
-  <li><a href="#ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" id="toc-ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" class="nav-link" data-scroll-target="#ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer">Ajouter le nom des packages aux fonctions avec <code>prefixer</code></a>
+<li><a href="#le-script-dorigine" id="toc-le-script-dorigine" class="nav-link active" data-scroll-target="#le-script-dorigine">Le script d’origine</a></li>
+  <li>
+<a href="#ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" id="toc-ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" class="nav-link" data-scroll-target="#ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer">Ajouter le nom des packages aux fonctions avec <code>prefixer</code></a>
   <ul class="collapse">
-  <li><a href="#installer-le-package-prefixer-à-partir-de-github" id="toc-installer-le-package-prefixer-à-partir-de-github" class="nav-link" data-scroll-target="#installer-le-package-prefixer-à-partir-de-github">Installer le package <em>prefixer</em> à partir de GitHub</a></li>
+<li><a href="#installer-le-package-prefixer-%C3%A0-partir-de-github" id="toc-installer-le-package-prefixer-à-partir-de-github" class="nav-link" data-scroll-target="#installer-le-package-prefixer-%C3%A0-partir-de-github">Installer le package <em>prefixer</em> à partir de GitHub</a></li>
   <li><a href="#prefixer-le-script" id="toc-prefixer-le-script" class="nav-link" data-scroll-target="#prefixer-le-script">Prefixer le script</a></li>
-  <li><a href="#utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" id="toc-utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" class="nav-link" data-scroll-target="#utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe">Utiliser la fenêtre shiny permettant de choisir le préfixe</a></li>
-  </ul></li>
-  <li><a href="#résultat-le-script-est-enrichi" id="toc-résultat-le-script-est-enrichi" class="nav-link" data-scroll-target="#résultat-le-script-est-enrichi">Résultat: le script est enrichi</a></li>
+  <li><a href="#utiliser-la-fen%C3%AAtre-shiny-permettant-de-choisir-le-pr%C3%A9fixe" id="toc-utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" class="nav-link" data-scroll-target="#utiliser-la-fen%C3%AAtre-shiny-permettant-de-choisir-le-pr%C3%A9fixe">Utiliser la fenêtre shiny permettant de choisir le préfixe</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="pkg_prefix.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="pkg_prefix.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</li>
+  <li><a href="#r%C3%A9sultat-le-script-est-enrichi" id="toc-résultat-le-script-est-enrichi" class="nav-link" data-scroll-target="#r%C3%A9sultat-le-script-est-enrichi">Résultat: le script est enrichi</a></li>
+  </ul><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="pkg_prefix.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="pkg_prefix.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<div class="cell">
+<main class="content quarto-banner-title-block" id="quarto-document-content"><div class="cell">
 <style type="text/css">
 .scroll_output {
 max-height: 400px;
@@ -233,12 +212,10 @@ overflow-y: scroll;
 </div>
 <table class="table">
 <caption><strong>Fonctions utilisées dans la fiche</strong></caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Packages</th>
 <th>Fonctions</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>prefixer</strong></td>
@@ -274,87 +251,82 @@ overflow-y: scroll;
 <li><p>Séminaire R à l’Usage des Sciences Sociales, <a href="http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/"><em>Esquisse, moins tu sais coder plus tu vas rigoler</em></a></p></li>
 </ul>
 <p><strong>Installation des packages</strong> :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>install.packages("remotes")</span>
-<span id="cb1-2"><a href="#cb1-2"></a>install.packages("R.temis")</span>
-<span id="cb1-3"><a href="#cb1-3"></a>install.packages("dyplyr")</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>install.packages("remotes")</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>install.packages("R.temis")</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>install.packages("dyplyr")</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Fichiers à utilisés</strong> :</p>
 <p>Les <a href="http://www.vie-publique.fr/discours-dans-lactualite/269998-les-voeux-des-presidents-de-la-republique-depuis-1974">voeux du président Hollande pour les années 2013 à 2017</a>.</p>
 <p>Chaque discours correspond à un fichier texte et ces 5 discours sont placés dans un dossier unique appelé <em>dossier_de_textes</em></p>
-<section id="le-script-dorigine" class="level1">
-<h1>Le script d’origine</h1>
+<section id="le-script-dorigine" class="level1"><h1>Le script d’origine</h1>
 <div class="cell scroll_output">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="do">## Appel des packages</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(R.temis)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="do">## Statistiques textuelles</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="do">## Création du tableau lexical associé au corpus des discours</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>corpusv <span class="ot">&lt;-</span> <span class="fu">import_corpus</span>(<span class="st">"datas/dossier_de_textes"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># Création du tableau lexical associé </span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a>dtm <span class="ot">&lt;-</span><span class="fu">build_dtm</span>(corpusv, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
-<span id="cb2-15"><a href="#cb2-15"></a>dtm</span>
-<span id="cb2-16"><a href="#cb2-16"></a></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
-<span id="cb2-18"><a href="#cb2-18"></a></span>
-<span id="cb2-19"><a href="#cb2-19"></a></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="do">## Afficher les occurrences des mots du corpus</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="co"># Calcul des occurrences des mots </span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="fu">frequent_terms</span>(dtm) </span>
-<span id="cb2-23"><a href="#cb2-23"></a></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="do">#### Personalisation du lexique</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a></span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
-<span id="cb2-29"><a href="#cb2-29"></a>dic <span class="ot">&lt;-</span><span class="fu">dictionary</span>(dtm) </span>
-<span id="cb2-30"><a href="#cb2-30"></a></span>
-<span id="cb2-31"><a href="#cb2-31"></a><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
-<span id="cb2-32"><a href="#cb2-32"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
-<span id="cb2-33"><a href="#cb2-33"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-34"><a href="#cb2-34"></a>  <span class="fu">mutate</span>(<span class="at">Term =</span> word)</span>
-<span id="cb2-35"><a href="#cb2-35"></a></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
-<span id="cb2-37"><a href="#cb2-37"></a></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="cb2-40"><a href="#cb2-40"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="cb2-41"><a href="#cb2-41"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="cb2-42"><a href="#cb2-42"></a></span>
-<span id="cb2-43"><a href="#cb2-43"></a><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
-<span id="cb2-44"><a href="#cb2-44"></a>dtmlem <span class="ot">&lt;-</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
-<span id="cb2-45"><a href="#cb2-45"></a></span>
-<span id="cb2-46"><a href="#cb2-46"></a><span class="co"># Ensemble de mots à retirer</span></span>
-<span id="cb2-47"><a href="#cb2-47"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
-<span id="cb2-48"><a href="#cb2-48"></a></span>
-<span id="cb2-49"><a href="#cb2-49"></a><span class="co"># Suppression de mots dans le tableau lexical</span></span>
-<span id="cb2-50"><a href="#cb2-50"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
-<span id="cb2-51"><a href="#cb2-51"></a></span>
-<span id="cb2-52"><a href="#cb2-52"></a><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
-<span id="cb2-53"><a href="#cb2-53"></a><span class="fu">frequent_terms</span>(dtm2)</span>
-<span id="cb2-54"><a href="#cb2-54"></a></span>
-<span id="cb2-55"><a href="#cb2-55"></a></span>
-<span id="cb2-56"><a href="#cb2-56"></a><span class="do">### Affichage du nuage de mots</span></span>
-<span id="cb2-57"><a href="#cb2-57"></a></span>
-<span id="cb2-58"><a href="#cb2-58"></a>cloud<span class="ot">&lt;-</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
-<span id="cb2-59"><a href="#cb2-59"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Appel des packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nalimilan/R.TeMiS">R.temis</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Statistiques textuelles</span></span>
+<span><span class="co">## Création du tableau lexical associé au corpus des discours</span></span>
+<span></span>
+<span><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span><span class="va">corpusv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/import_corpus.html">import_corpus</a></span><span class="op">(</span><span class="st">"datas/dossier_de_textes"</span>, format<span class="op">=</span><span class="st">"txt"</span>, language <span class="op">=</span><span class="st">"fr"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Création du tableau lexical associé </span></span>
+<span><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span></span>
+<span><span class="va">dtm</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/build_dtm.html">build_dtm</a></span><span class="op">(</span><span class="va">corpusv</span>, remove_stopwords <span class="op">=</span> <span class="cn">T</span>, min_length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">dtm</span></span>
+<span></span>
+<span><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span></span>
+<span></span>
+<span><span class="co">## Afficher les occurrences des mots du corpus</span></span>
+<span><span class="co"># Calcul des occurrences des mots </span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/frequent_terms.html">frequent_terms</a></span><span class="op">(</span><span class="va">dtm</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span></span>
+<span><span class="co">#### Personalisation du lexique</span></span>
+<span></span>
+<span><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span><span class="va">dic</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/dictionary.html">dictionary</a></span><span class="op">(</span><span class="va">dtm</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span><span class="va">dic2</span> <span class="op">=</span> <span class="va">dic</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span><span class="op">(</span>var<span class="op">=</span><span class="st">"word"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Term <span class="op">=</span> <span class="va">word</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">dic2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">dic2</span><span class="op">$</span><span class="va">word</span></span>
+<span></span>
+<span><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"toutes"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"tout"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"tous"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span></span>
+<span><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span><span class="va">dtmlem</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/combine_terms.html">combine_terms</a></span><span class="op">(</span><span class="va">dtm</span>, <span class="va">dic2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Ensemble de mots à retirer</span></span>
+<span><span class="va">mots_a_retirer</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"plus"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Suppression de mots dans le tableau lexical</span></span>
+<span><span class="va">dtm2</span><span class="op">&lt;-</span><span class="va">dtmlem</span><span class="op">[</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">dtmlem</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">mots_a_retirer</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/frequent_terms.html">frequent_terms</a></span><span class="op">(</span><span class="va">dtm2</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">### Affichage du nuage de mots</span></span>
+<span></span>
+<span><span class="va">cloud</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/word_cloud.html">word_cloud</a></span><span class="op">(</span><span class="va">dtm2</span>, color<span class="op">=</span> <span class="st">'black'</span>, min.freq<span class="op">=</span><span class="fl">1</span>,n <span class="op">=</span><span class="fl">50</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section>
-<section id="ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" class="level1">
-<h1>Ajouter le nom des packages aux fonctions avec <code>prefixer</code></h1>
-<section id="installer-le-package-prefixer-à-partir-de-github" class="level2">
-<h2 class="anchored" data-anchor-id="installer-le-package-prefixer-à-partir-de-github">Installer le package <em>prefixer</em> à partir de GitHub</h2>
+</section><section id="ajouter-le-nom-des-packages-aux-fonctions-avec-prefixer" class="level1"><h1>Ajouter le nom des packages aux fonctions avec <code>prefixer</code>
+</h1>
+<section id="installer-le-package-prefixer-à-partir-de-github" class="level2"><h2 class="anchored" data-anchor-id="installer-le-package-prefixer-à-partir-de-github">Installer le package <em>prefixer</em> à partir de GitHub</h2>
 <p>L’addin prefix est disponible sur la forge logicielle de <em>dreamRs</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">install_github</span>(<span class="st">"dreamRs/prefixer"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dreamRs/prefixer"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Celui-ci permet d’ouvrir une interface qui propose pour chaque fonction du script de lui ajouter un préfixe composé du nom de la fonction suivi de <code>::</code></p>
 <div class="column" style="width:65%;">
@@ -362,25 +334,21 @@ overflow-y: scroll;
 <p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid"></a></p>
 </div>
 </div>
-</section>
-<section id="prefixer-le-script" class="level2">
-<h2 class="anchored" data-anchor-id="prefixer-le-script">Prefixer le script</h2>
+</section><section id="prefixer-le-script" class="level2"><h2 class="anchored" data-anchor-id="prefixer-le-script">Prefixer le script</h2>
 <p>A la fin du script R, on charge le package <code>prefixer</code> puis on ouvre l’interface avec la commande <code>prefixer()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="do">## Appel du package</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(prefixer)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="do">## Ouverture de l'interface RShiny</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">prefixer</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Appel du package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">prefixer</span><span class="op">)</span></span>
+<span><span class="co">## Ouverture de l'interface RShiny</span></span>
+<span><span class="fu">prefixer</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dans le cas de notre script:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#cloud&lt;-word_cloud(dtm2, color= 'black', min.freq=1,n =50) </span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#title(main = "Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017")</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">library</span>(prefixer)</span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">prefixer</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" class="level2">
-<h2 class="anchored" data-anchor-id="utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe">Utiliser la fenêtre shiny permettant de choisir le préfixe</h2>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#cloud&lt;-word_cloud(dtm2, color= 'black', min.freq=1,n =50) </span></span>
+<span><span class="co">#title(main = "Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017")</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">prefixer</span><span class="op">)</span></span>
+<span><span class="fu">prefixer</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe" class="level2"><h2 class="anchored" data-anchor-id="utiliser-la-fenêtre-shiny-permettant-de-choisir-le-préfixe">Utiliser la fenêtre shiny permettant de choisir le préfixe</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -393,80 +361,75 @@ Note
 <div class="callout-body-container callout-body">
 <p>Seulement pour le format html</p>
 </div>
-</div>
-<div class="column" style="width:65%;">
+</div><div class="column" style="width:65%;">
 <div class="box_img">
 <p><a href="img/mov1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/mov1.gif" class="img-fluid"></a></p>
 </div>
 </div>
-</section>
-</section>
-<section id="résultat-le-script-est-enrichi" class="level1">
-<h1>Résultat: le script est enrichi</h1>
+</section></section><section id="résultat-le-script-est-enrichi" class="level1"><h1>Résultat: le script est enrichi</h1>
 <div class="cell scroll_output">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="do">## Statistiques textuelles</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="do">## Création du tableau lexical associé au corpus des discours</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>corpusv <span class="ot">&lt;-</span> R.temis<span class="sc">::</span><span class="fu">import_corpus</span>(<span class="st">"datas/dossier_de_textes"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># Création du tableau lexical associé </span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a>dtm <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">build_dtm</span>(corpusv, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
-<span id="cb6-11"><a href="#cb6-11"></a>dtm</span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
-<span id="cb6-14"><a href="#cb6-14"></a></span>
-<span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="do">## Afficher les occurrences des mots du corpus</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="co"># Calcul des occurrences des mots </span></span>
-<span id="cb6-18"><a href="#cb6-18"></a>R.temis<span class="sc">::</span><span class="fu">frequent_terms</span>(dtm) </span>
-<span id="cb6-19"><a href="#cb6-19"></a></span>
-<span id="cb6-20"><a href="#cb6-20"></a></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="do">#### Personalisation du lexique</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
-<span id="cb6-26"><a href="#cb6-26"></a>dic <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">dictionary</span>(dtm) </span>
-<span id="cb6-27"><a href="#cb6-27"></a></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
-<span id="cb6-30"><a href="#cb6-30"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-31"><a href="#cb6-31"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Term =</span> stringr<span class="sc">::</span>word)</span>
-<span id="cb6-32"><a href="#cb6-32"></a></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
-<span id="cb6-34"><a href="#cb6-34"></a></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
-<span id="cb6-36"><a href="#cb6-36"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="cb6-37"><a href="#cb6-37"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="cb6-38"><a href="#cb6-38"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="cb6-39"><a href="#cb6-39"></a></span>
-<span id="cb6-40"><a href="#cb6-40"></a><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
-<span id="cb6-41"><a href="#cb6-41"></a>dtmlem <span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
-<span id="cb6-42"><a href="#cb6-42"></a></span>
-<span id="cb6-43"><a href="#cb6-43"></a><span class="co"># Ensemble de mots à retirer</span></span>
-<span id="cb6-44"><a href="#cb6-44"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
-<span id="cb6-45"><a href="#cb6-45"></a></span>
-<span id="cb6-46"><a href="#cb6-46"></a><span class="co"># Suppression de mots dans le tableau lexical</span></span>
-<span id="cb6-47"><a href="#cb6-47"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
-<span id="cb6-48"><a href="#cb6-48"></a></span>
-<span id="cb6-49"><a href="#cb6-49"></a><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
-<span id="cb6-50"><a href="#cb6-50"></a>R.temis<span class="sc">::</span><span class="fu">frequent_terms</span>(dtm2)</span>
-<span id="cb6-51"><a href="#cb6-51"></a></span>
-<span id="cb6-52"><a href="#cb6-52"></a></span>
-<span id="cb6-53"><a href="#cb6-53"></a><span class="do">### Affichage du nuage de mots</span></span>
-<span id="cb6-54"><a href="#cb6-54"></a></span>
-<span id="cb6-55"><a href="#cb6-55"></a>cloud<span class="ot">&lt;-</span>R.temis<span class="sc">::</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
-<span id="cb6-56"><a href="#cb6-56"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Statistiques textuelles</span></span>
+<span><span class="co">## Création du tableau lexical associé au corpus des discours</span></span>
+<span></span>
+<span><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span><span class="va">corpusv</span> <span class="op">&lt;-</span> <span class="fu">R.temis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/import_corpus.html">import_corpus</a></span><span class="op">(</span><span class="st">"datas/dossier_de_textes"</span>, format<span class="op">=</span><span class="st">"txt"</span>, language <span class="op">=</span><span class="st">"fr"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Création du tableau lexical associé </span></span>
+<span><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span></span>
+<span><span class="va">dtm</span> <span class="op">&lt;-</span><span class="fu">R.temis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/build_dtm.html">build_dtm</a></span><span class="op">(</span><span class="va">corpusv</span>, remove_stopwords <span class="op">=</span> <span class="cn">T</span>, min_length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">dtm</span></span>
+<span></span>
+<span><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span></span>
+<span></span>
+<span><span class="co">## Afficher les occurrences des mots du corpus</span></span>
+<span><span class="co"># Calcul des occurrences des mots </span></span>
+<span><span class="fu">R.temis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/frequent_terms.html">frequent_terms</a></span><span class="op">(</span><span class="va">dtm</span><span class="op">)</span> </span>
+<span></span>
+<span></span>
+<span><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span></span>
+<span><span class="co">#### Personalisation du lexique</span></span>
+<span></span>
+<span><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span><span class="va">dic</span> <span class="op">&lt;-</span><span class="fu">R.temis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/dictionary.html">dictionary</a></span><span class="op">(</span><span class="va">dtm</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span><span class="va">dic2</span> <span class="op">=</span> <span class="va">dic</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span><span class="op">(</span>var<span class="op">=</span><span class="st">"word"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Term <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/word.html">word</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">dic2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">dic2</span><span class="op">$</span><span class="va">word</span></span>
+<span></span>
+<span><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"toutes"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"tout"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"tous"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span></span>
+<span><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span><span class="va">dtmlem</span> <span class="op">&lt;-</span><span class="fu">R.temis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/combine_terms.html">combine_terms</a></span><span class="op">(</span><span class="va">dtm</span>, <span class="va">dic2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Ensemble de mots à retirer</span></span>
+<span><span class="va">mots_a_retirer</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"plus"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Suppression de mots dans le tableau lexical</span></span>
+<span><span class="va">dtm2</span><span class="op">&lt;-</span><span class="va">dtmlem</span><span class="op">[</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">dtmlem</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">mots_a_retirer</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span><span class="fu">R.temis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/frequent_terms.html">frequent_terms</a></span><span class="op">(</span><span class="va">dtm2</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">### Affichage du nuage de mots</span></span>
+<span></span>
+<span><span class="va">cloud</span><span class="op">&lt;-</span><span class="fu">R.temis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/word_cloud.html">word_cloud</a></span><span class="op">(</span><span class="va">dtm2</span>, color<span class="op">=</span> <span class="st">'black'</span>, min.freq<span class="op">=</span><span class="fl">1</span>,n <span class="op">=</span><span class="fl">50</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
+<!-- -->
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -545,6 +508,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -874,13 +888,283 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Consolider sa reproductibilité avec le package prefixer"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 10/24/2023</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - Addins</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">  - Reproductibilité</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "http://github.com/dreamRs/prefixer/raw/master/man/figures/logo_prefixer.png"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: "Bénédicte Garnier"</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> true</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">  Il est très simple d'ajouter, dans un script R, les noms des packages aux appels des fonctions. Sous forme de préfixes, ces indications permettent de repérer les packages utilisés et donc faciliter la reproductibilité de l'analyse. Nous prenons ici l'exemple d'un script générant un nuage de mots à partir du package de statistique textuelle R.temis. </span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"> </span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">  html: </span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">    code-link: true</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co">  docx: default</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true  </span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="an">code-link:</span><span class="co"> true</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{css, echo = FALSE}</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="in">.scroll_output {</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="in">max-height: 400px;</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="in">overflow-y: scroll;</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>| Packages        | Fonctions                                 |</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>|-----------------|-------------------------------------------|</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>| **prefixer**    | <span class="in">`prefixer`</span>                                |</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>| **R.temis**     | <span class="in">`import_corpus`</span>                           |</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>| **R.temis**     | <span class="in">`build_dtm`</span>                               |</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>| **R.temis**     | <span class="in">`frequent_terms`</span>                          |</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>| **R.temis**     | <span class="in">`combine_terms`</span>                           |</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>| **R.temis**     | <span class="in">`word_cloud`</span>                              |</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>: **Fonctions utilisées dans la fiche**</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>Pour illustrer ce propos, nous reprennons le script de la fiche de Coralie Cottet <span class="co">[</span><span class="ot">*Générer des graphes de mot avec R.temis*</span><span class="co">](http://mthevenin.github.io/assistoolsms/R/assist/posts/nuage_de_mot/nuage_de_mot.html)</span>. Nous allons ajouter un prefixe à chaque fonction utilisée pour générer un nuage de mots. </span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>**Documentation** :</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**RStudio Addins**</span><span class="co">](http://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html)</span> sont des extensions pour l'environnement de développement intégré (IDE) RStudio</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**prefixer: Shiny Gadget to interactively prefix function in a script **</span><span class="co">](http://rdrr.io/github/dreamRs/prefixer/man/prefixer.html)</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Séminaire R à l'Usage des Sciences Sociales, <span class="co">[</span><span class="ot">*Esquisse, moins tu sais coder plus tu vas rigoler*</span><span class="co">](http://russ.site.ined.fr/fr/annee-2022-2023/esquisse/)</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>**Installation des packages** : </span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>install.packages("remotes")</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>install.packages("R.temis")</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>install.packages("dyplyr")</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>**Fichiers à utilisés** :</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>Les <span class="co">[</span><span class="ot">voeux du président Hollande pour les années 2013 à 2017</span><span class="co">](http://www.vie-publique.fr/discours-dans-lactualite/269998-les-voeux-des-presidents-de-la-republique-depuis-1974)</span>. </span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>Chaque discours correspond à un fichier texte et ces 5 discours sont placés dans un dossier unique appelé *dossier_de_textes*  </span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="fu"># Le script d'origine</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="co">#| class: scroll_output </span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="do">## Appel des packages</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(R.temis)</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="do">## Statistiques textuelles</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="do">## Création du tableau lexical associé au corpus des discours</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>corpusv <span class="ot">&lt;-</span> <span class="fu">import_corpus</span>(<span class="st">"datas/dossier_de_textes"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du tableau lexical associé </span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="co"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>dtm <span class="ot">&lt;-</span><span class="fu">build_dtm</span>(corpusv, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>dtm</span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="co"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="do">## Afficher les occurrences des mots du corpus</span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul des occurrences des mots </span></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="fu">frequent_terms</span>(dtm) </span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="co"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="do">#### Personalisation du lexique</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>dic <span class="ot">&lt;-</span><span class="fu">dictionary</span>(dtm) </span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="co"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Term =</span> word)</span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a><span class="co"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a>dtmlem <span class="ot">&lt;-</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensemble de mots à retirer</span></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Suppression de mots dans le tableau lexical</span></span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a><span class="co"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a><span class="fu">frequent_terms</span>(dtm2)</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a><span class="do">### Affichage du nuage de mots</span></span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a>cloud<span class="ot">&lt;-</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017"</span>)</span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a><span class="fu"># Ajouter le nom des packages aux fonctions avec `prefixer`</span></span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installer le package *prefixer* à partir de GitHub</span></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a>L'addin prefix est disponible sur la forge logicielle de *dreamRs*</span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r instal_pref, eval=FALSE }</span></span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages("remotes")</span></span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a><span class="in">install_github("dreamRs/prefixer")</span></span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a>Celui-ci permet d'ouvrir une interface qui propose pour chaque fonction du script de lui ajouter un préfixe composé du nom de la fonction suivi de <span class="in">`::`</span></span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a>::: {.column width="65%"}</span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/img1.png)</span></span>
+<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prefixer le script</span></span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a>A la fin du script R, on charge le package <span class="in">`prefixer`</span> puis on ouvre l'interface avec la commande <span class="in">`prefixer()`</span> </span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a><span class="in">## Appel du package</span></span>
+<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="in">library(prefixer)</span></span>
+<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a><span class="in">## Ouverture de l'interface RShiny</span></span>
+<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a><span class="in">prefixer()</span></span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a>Dans le cas de notre script: </span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r}</span></span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a><span class="in">#cloud&lt;-word_cloud(dtm2, color= 'black', min.freq=1,n =50) </span></span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a><span class="in">#title(main = "Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017")</span></span>
+<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a><span class="in">library(prefixer)</span></span>
+<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a><span class="in">prefixer()</span></span>
+<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a><span class="fu">## Utiliser la fenêtre shiny permettant de choisir le préfixe </span></span>
+<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a>Seulement pour le format html</span>
+<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
+<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a>::: {.column width="65%"}</span>
+<span id="cb7-204"><a href="#cb7-204" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb7-205"><a href="#cb7-205" aria-hidden="true" tabindex="-1"></a><span class="al">![](img/mov1.gif)</span></span>
+<span id="cb7-206"><a href="#cb7-206" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-207"><a href="#cb7-207" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-208"><a href="#cb7-208" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-209"><a href="#cb7-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-210"><a href="#cb7-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-211"><a href="#cb7-211" aria-hidden="true" tabindex="-1"></a><span class="fu"># Résultat: le script est enrichi</span></span>
+<span id="cb7-212"><a href="#cb7-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-213"><a href="#cb7-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb7-214"><a href="#cb7-214" aria-hidden="true" tabindex="-1"></a><span class="in">#| class: scroll_output </span></span>
+<span id="cb7-215"><a href="#cb7-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-216"><a href="#cb7-216" aria-hidden="true" tabindex="-1"></a><span class="in">## Statistiques textuelles</span></span>
+<span id="cb7-217"><a href="#cb7-217" aria-hidden="true" tabindex="-1"></a><span class="in">## Création du tableau lexical associé au corpus des discours</span></span>
+<span id="cb7-218"><a href="#cb7-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-219"><a href="#cb7-219" aria-hidden="true" tabindex="-1"></a><span class="in"># Importation des textes avec la fonction `import_corpus`</span></span>
+<span id="cb7-220"><a href="#cb7-220" aria-hidden="true" tabindex="-1"></a><span class="in">corpusv &lt;- R.temis::import_corpus("datas/dossier_de_textes", format="txt", language ="fr")</span></span>
+<span id="cb7-221"><a href="#cb7-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-222"><a href="#cb7-222" aria-hidden="true" tabindex="-1"></a><span class="in"># Création du tableau lexical associé </span></span>
+<span id="cb7-223"><a href="#cb7-223" aria-hidden="true" tabindex="-1"></a><span class="in"># On ne garde pas les mots-outils et on garde aussi les mots de 1 seule lettre</span></span>
+<span id="cb7-224"><a href="#cb7-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-225"><a href="#cb7-225" aria-hidden="true" tabindex="-1"></a><span class="in">dtm &lt;-R.temis::build_dtm(corpusv, remove_stopwords = T, min_length = 1)</span></span>
+<span id="cb7-226"><a href="#cb7-226" aria-hidden="true" tabindex="-1"></a><span class="in">dtm</span></span>
+<span id="cb7-227"><a href="#cb7-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-228"><a href="#cb7-228" aria-hidden="true" tabindex="-1"></a><span class="in"># On obtient un *tableau lexical* de 5 unités de texte (les voeux) et 1575 mots différents ...  </span></span>
+<span id="cb7-229"><a href="#cb7-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-230"><a href="#cb7-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-231"><a href="#cb7-231" aria-hidden="true" tabindex="-1"></a><span class="in">## Afficher les occurrences des mots du corpus</span></span>
+<span id="cb7-232"><a href="#cb7-232" aria-hidden="true" tabindex="-1"></a><span class="in"># Calcul des occurrences des mots </span></span>
+<span id="cb7-233"><a href="#cb7-233" aria-hidden="true" tabindex="-1"></a><span class="in">R.temis::frequent_terms(dtm) </span></span>
+<span id="cb7-234"><a href="#cb7-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-235"><a href="#cb7-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-236"><a href="#cb7-236" aria-hidden="true" tabindex="-1"></a><span class="in"># On remarque que les mots `tous`, `tout` et `toutes` sont très fréquents et qu ils sont employés dans des contextes similaires. On souhaite alors les associer à un terme unique : `tous.tes` (opération de `lemmatisation`)</span></span>
+<span id="cb7-237"><a href="#cb7-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-238"><a href="#cb7-238" aria-hidden="true" tabindex="-1"></a><span class="in">#### Personalisation du lexique</span></span>
+<span id="cb7-239"><a href="#cb7-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-240"><a href="#cb7-240" aria-hidden="true" tabindex="-1"></a><span class="in"># Création du dictionnaire/lexique associé au tableau lexical </span></span>
+<span id="cb7-241"><a href="#cb7-241" aria-hidden="true" tabindex="-1"></a><span class="in">dic &lt;-R.temis::dictionary(dtm) </span></span>
+<span id="cb7-242"><a href="#cb7-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-243"><a href="#cb7-243" aria-hidden="true" tabindex="-1"></a><span class="in"># On crée une nouvelle table `dic2` en créant une première colonne appelée `word`  avec l'intitulé des lignes du tableau et en remplaçant le contenu de la colonne cette première colonne ... C'est un lemmatiseur !</span></span>
+<span id="cb7-244"><a href="#cb7-244" aria-hidden="true" tabindex="-1"></a><span class="in">dic2 = dic %&gt;%</span></span>
+<span id="cb7-245"><a href="#cb7-245" aria-hidden="true" tabindex="-1"></a><span class="in">  tibble::rownames_to_column(var="word") %&gt;% </span></span>
+<span id="cb7-246"><a href="#cb7-246" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(Term = stringr::word)</span></span>
+<span id="cb7-247"><a href="#cb7-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-248"><a href="#cb7-248" aria-hidden="true" tabindex="-1"></a><span class="in">row.names(dic2) &lt;- dic2$word</span></span>
+<span id="cb7-249"><a href="#cb7-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-250"><a href="#cb7-250" aria-hidden="true" tabindex="-1"></a><span class="in"># On peut alors remplacer les mots de la colonne Term par l'intitulé souhaité. Ici tout.tes</span></span>
+<span id="cb7-251"><a href="#cb7-251" aria-hidden="true" tabindex="-1"></a><span class="in">dic2$Term[dic2$word == "toutes"] &lt;- "tous.tes"</span></span>
+<span id="cb7-252"><a href="#cb7-252" aria-hidden="true" tabindex="-1"></a><span class="in">dic2$Term[dic2$word == "tout"] &lt;- "tous.tes"</span></span>
+<span id="cb7-253"><a href="#cb7-253" aria-hidden="true" tabindex="-1"></a><span class="in">dic2$Term[dic2$word == "tous"] &lt;- "tous.tes"</span></span>
+<span id="cb7-254"><a href="#cb7-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-255"><a href="#cb7-255" aria-hidden="true" tabindex="-1"></a><span class="in"># Lemmatisation à l'aide du lemmatiseur personnalisé</span></span>
+<span id="cb7-256"><a href="#cb7-256" aria-hidden="true" tabindex="-1"></a><span class="in">dtmlem &lt;-R.temis::combine_terms(dtm, dic2)</span></span>
+<span id="cb7-257"><a href="#cb7-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-258"><a href="#cb7-258" aria-hidden="true" tabindex="-1"></a><span class="in"># Ensemble de mots à retirer</span></span>
+<span id="cb7-259"><a href="#cb7-259" aria-hidden="true" tabindex="-1"></a><span class="in">mots_a_retirer &lt;- c("a", "plus")</span></span>
+<span id="cb7-260"><a href="#cb7-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-261"><a href="#cb7-261" aria-hidden="true" tabindex="-1"></a><span class="in"># Suppression de mots dans le tableau lexical</span></span>
+<span id="cb7-262"><a href="#cb7-262" aria-hidden="true" tabindex="-1"></a><span class="in">dtm2&lt;-dtmlem[, !colnames(dtmlem) %in% mots_a_retirer]</span></span>
+<span id="cb7-263"><a href="#cb7-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-264"><a href="#cb7-264" aria-hidden="true" tabindex="-1"></a><span class="in"># Nouvelles fréquences des mots associés au corpus</span></span>
+<span id="cb7-265"><a href="#cb7-265" aria-hidden="true" tabindex="-1"></a><span class="in">R.temis::frequent_terms(dtm2)</span></span>
+<span id="cb7-266"><a href="#cb7-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-267"><a href="#cb7-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-268"><a href="#cb7-268" aria-hidden="true" tabindex="-1"></a><span class="in">### Affichage du nuage de mots</span></span>
+<span id="cb7-269"><a href="#cb7-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-270"><a href="#cb7-270" aria-hidden="true" tabindex="-1"></a><span class="in">cloud&lt;-R.temis::word_cloud(dtm2, color= 'black', min.freq=1,n =50) </span></span>
+<span id="cb7-271"><a href="#cb7-271" aria-hidden="true" tabindex="-1"></a><span class="in">title(main = "Mots les plus fréquents dans les discours de F. Hollande entre 2013 et 2017")</span></span>
+<span id="cb7-272"><a href="#cb7-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-273"><a href="#cb7-273" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -905,8 +1189,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>

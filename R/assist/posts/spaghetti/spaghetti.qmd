@@ -17,7 +17,8 @@ date: 03/07/2024
 image: "logo.png"
 
 format:
-  html: default
+  html: 
+    code-link: true
         
 abstract: | 
  Un graphique devient très facilement illisible lorsque trop d'éléments sont présents, par exemple pour des courbes, au-delà de 5-6. Ce problème est appelé **effet spaghetti** . Pour contrôler cette difficulté on préconise un graphique de type **small-multiples** (combiné). On peut améliorer cette visualisation avec une technique de highlighting: chaque sous graphique est mis en avant en terme de couleur et d'épaisseurtout en conservant en arrière plan les autres courbes avec une épaisseur plus petite et une couleur unique.
