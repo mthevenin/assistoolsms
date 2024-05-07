@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Coralie Cottet">
-
-<title>Support Sms - Réaliser des cartes thématiques avec Mapsf</title>
+<title>Réaliser des cartes thématiques avec Mapsf</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,29 +84,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../../../sms.css">
+}</script><link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
-    </a>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -119,8 +107,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -129,14 +117,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -145,15 +133,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Réaliser des cartes thématiques avec Mapsf</h1>
                                 <div class="quarto-categories">
@@ -200,29 +184,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#importation-des-données" id="toc-importation-des-données" class="nav-link active" data-scroll-target="#importation-des-données">Importation des données</a></li>
-  <li><a href="#différents-types-de-cartes" id="toc-différents-types-de-cartes" class="nav-link" data-scroll-target="#différents-types-de-cartes">Différents types de cartes</a>
+<li><a href="#importation-des-donn%C3%A9es" id="toc-importation-des-données" class="nav-link active" data-scroll-target="#importation-des-donn%C3%A9es">Importation des données</a></li>
+  <li>
+<a href="#diff%C3%A9rents-types-de-cartes" id="toc-différents-types-de-cartes" class="nav-link" data-scroll-target="#diff%C3%A9rents-types-de-cartes">Différents types de cartes</a>
   <ul class="collapse">
-  <li><a href="#les-cartes-à-symboles-proportionnels" id="toc-les-cartes-à-symboles-proportionnels" class="nav-link" data-scroll-target="#les-cartes-à-symboles-proportionnels">Les cartes à symboles proportionnels</a></li>
-  <li><a href="#les-cartes-choroplèthes" id="toc-les-cartes-choroplèthes" class="nav-link" data-scroll-target="#les-cartes-choroplèthes">Les cartes choroplèthes</a></li>
+<li><a href="#les-cartes-%C3%A0-symboles-proportionnels" id="toc-les-cartes-à-symboles-proportionnels" class="nav-link" data-scroll-target="#les-cartes-%C3%A0-symboles-proportionnels">Les cartes à symboles proportionnels</a></li>
+  <li><a href="#les-cartes-choropl%C3%A8thes" id="toc-les-cartes-choroplèthes" class="nav-link" data-scroll-target="#les-cartes-choropl%C3%A8thes">Les cartes choroplèthes</a></li>
   <li><a href="#les-cartes-pour-une-variable-qualitative-nominale" id="toc-les-cartes-pour-une-variable-qualitative-nominale" class="nav-link" data-scroll-target="#les-cartes-pour-une-variable-qualitative-nominale">Les cartes pour une variable qualitative nominale</a></li>
-  </ul></li>
-  <li><a href="#pour-aller-plus-loin-regroupement-de-polygones" id="toc-pour-aller-plus-loin-regroupement-de-polygones" class="nav-link" data-scroll-target="#pour-aller-plus-loin-regroupement-de-polygones">Pour aller plus loin: regroupement de polygones</a></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#pour-aller-plus-loin-regroupement-de-polygones" id="toc-pour-aller-plus-loin-regroupement-de-polygones" class="nav-link" data-scroll-target="#pour-aller-plus-loin-regroupement-de-polygones">Pour aller plus loin: regroupement de polygones</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<p><a href="logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="logo.png" class="img-fluid" style="width:10.0%"></a></p>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><a href="logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="logo.png" class="img-fluid" style="width:10.0%"></a></p>
 <p><strong>Documentation</strong> (Timothé Giraud):</p>
 <ul>
 <li><p><a href="https://rcarto.github.io/ined2022/07_mise_en_page.html" class="uri">https://rcarto.github.io/ined2022/07_mise_en_page.html</a></p></li>
@@ -230,17 +208,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><a href="http://rgeomatic.hypotheses.org/2077" class="uri">http://rgeomatic.hypotheses.org/2077</a></p></li>
 </ul>
 <p><strong>Installation des packages</strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>install.packages(mapsf)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>install.packages(sf)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>install.packages(dplyr)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>install.packages(mapsf)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>install.packages(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>install.packages(dplyr)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(mapsf)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(sf)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://riatelab.github.io/mapsf/">mapsf</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous allons réaliser une carte de Paris avec les données du site de Paris Data [<a href="http://opendata.paris.fr/pages/catalogue/?disjunctive.theme&amp;disjunctive.publisher">Lien</a>]</p>
-<section id="importation-des-données" class="level1">
-<h1>Importation des données</h1>
+<section id="importation-des-données" class="level1"><h1>Importation des données</h1>
 <p>Il existe plusieurs formats de fond de carte:</p>
 <ul>
 <li><p><strong>GeoJSON</strong> est un format de données géospatiales basé sur JSON (JavaScript Object Notation) qui permet de stocker des données géographiques sous forme de caractères.</p></li>
@@ -252,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>Importation des données</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>arrondissements <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">arrondissements</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span>dsn <span class="op">=</span> <span class="st">"https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `OGRGeoJSON' from data source 
@@ -264,7 +241,7 @@ Dimension:     XY
 Bounding box:  xmin: 2.224078 ymin: 48.81558 xmax: 2.469761 ymax: 48.90216
 Geodetic CRS:  WGS 84</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>cours_deau<span class="ot">&lt;-</span><span class="fu">st_read</span>(<span class="at">dsn=</span><span class="st">"https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/plan-de-voirie-voies-deau/exports/geojson?lang=fr&amp;timezone=Europe%2FBerlin"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cours_deau</span><span class="op">&lt;-</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span>dsn<span class="op">=</span><span class="st">"https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/plan-de-voirie-voies-deau/exports/geojson?lang=fr&amp;timezone=Europe%2FBerlin"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `OGRGeoJSON' from data source 
   `https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/plan-de-voirie-voies-deau/exports/geojson?lang=fr&amp;timezone=Europe%2FBerlin' 
@@ -281,16 +258,15 @@ Geodetic CRS:  WGS 84</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Affichage du fond de carte des arrondissements avec cours d'eau</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Arrondissements</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements, <span class="at">border =</span> <span class="st">"black"</span>) </span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># Ajout des cours d'eau</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">mf_map</span>(<span class="at">x=</span>cours_deau,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">border=</span><span class="st">"lightblue"</span>,<span class="at">col=</span><span class="st">"lightblue"</span>,<span class="at">add=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Arrondissements</span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">arrondissements</span>, border <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># Ajout des cours d'eau</span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">cours_deau</span>,lwd<span class="op">=</span><span class="fl">2</span>,border<span class="op">=</span><span class="st">"lightblue"</span>,col<span class="op">=</span><span class="st">"lightblue"</span>,add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="map_sf_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="map_sf_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -300,20 +276,17 @@ Geodetic CRS:  WGS 84</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Fond noir</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">mf_theme</span>(<span class="st">"darkula"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_theme.html">mf_theme</a></span><span class="op">(</span><span class="st">"darkula"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="différents-types-de-cartes" class="level1">
-<h1>Différents types de cartes</h1>
+</section><section id="différents-types-de-cartes" class="level1"><h1>Différents types de cartes</h1>
 <p><a href="arbre_type_data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="arbre_type_data.png" class="img-fluid"></a></p>
-<section id="les-cartes-à-symboles-proportionnels" class="level2">
-<h2 class="anchored" data-anchor-id="les-cartes-à-symboles-proportionnels">Les cartes à symboles proportionnels</h2>
+<section id="les-cartes-à-symboles-proportionnels" class="level2"><h2 class="anchored" data-anchor-id="les-cartes-à-symboles-proportionnels">Les cartes à symboles proportionnels</h2>
 <p>La carte en symboles proportionnels est la méthode de représentation graphique à utiliser pour visualiser des variables de stocks (variables quantitatives absolues pour lesquelles la somme et la moyenne ont une signification).</p>
 <p>Sur la carte, on affiche l’effectif de la population de chaque arrondissement et on ajoute la légende et un titre.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#Ajout manuel des valeurs des populations de chaque arrondissements dans le tableau sous le nom "pop"</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>arrondissements<span class="sc">$</span>pop <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1012687</span>, <span class="dv">903036</span>, <span class="dv">1369857</span>, <span class="dv">1491027</span>, <span class="dv">1672009</span>, <span class="dv">1506475</span>, <span class="dv">1637163</span>, <span class="dv">1603380</span>, <span class="dv">1637542</span>, <span class="dv">1059282</span>, <span class="dv">1494945</span>, <span class="dv">1436205</span>, <span class="dv">1705774</span>, <span class="dv">1425805</span>, <span class="dv">236769</span>, <span class="dv">1668605</span>, <span class="dv">1674568</span>, <span class="dv">1539668</span>, <span class="dv">1421827</span>, <span class="dv">1829526</span>) <span class="co">#INSEE,2021. La valeur 1012687 correspond à la population dans le 1er arrondissement.</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ajout manuel des valeurs des populations de chaque arrondissements dans le tableau sous le nom "pop"</span></span>
+<span><span class="va">arrondissements</span><span class="op">$</span><span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1012687</span>, <span class="fl">903036</span>, <span class="fl">1369857</span>, <span class="fl">1491027</span>, <span class="fl">1672009</span>, <span class="fl">1506475</span>, <span class="fl">1637163</span>, <span class="fl">1603380</span>, <span class="fl">1637542</span>, <span class="fl">1059282</span>, <span class="fl">1494945</span>, <span class="fl">1436205</span>, <span class="fl">1705774</span>, <span class="fl">1425805</span>, <span class="fl">236769</span>, <span class="fl">1668605</span>, <span class="fl">1674568</span>, <span class="fl">1539668</span>, <span class="fl">1421827</span>, <span class="fl">1829526</span><span class="op">)</span> <span class="co">#INSEE,2021. La valeur 1012687 correspond à la population dans le 1er arrondissement.</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Pour représenter la carte, on utilise la fonction <code>map_sf()</code>. On doit indiquer à minima la variable liée à la statistique (<code>var=pop</code>), et le type de carte (<code>type=prop</code>).</li>
@@ -324,29 +297,26 @@ Geodetic CRS:  WGS 84</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Carte avec la fonction mf_map()</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements)</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">mf_map</span>(</span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="at">x =</span> arrondissements,</span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="at">var =</span> <span class="st">"pop"</span> ,</span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="at">type =</span> <span class="st">"prop"</span>,  </span>
-<span id="cb10-6"><a href="#cb10-6"></a>  <span class="at">leg_title =</span> <span class="st">"Population totale\12 271 794"</span>,</span>
-<span id="cb10-7"><a href="#cb10-7"></a>  <span class="at">col=</span><span class="st">"#C24168"</span>,</span>
-<span id="cb10-8"><a href="#cb10-8"></a>  <span class="at">add=</span> <span class="cn">TRUE</span>,</span>
-<span id="cb10-9"><a href="#cb10-9"></a>  <span class="at">inches=</span><span class="fl">0.2</span>)</span>
-<span id="cb10-10"><a href="#cb10-10"></a></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="fu">mf_title</span>(<span class="st">"Distribution de la population dans les arrondissements de Paris"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">arrondissements</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">arrondissements</span>,</span>
+<span>  var <span class="op">=</span> <span class="st">"pop"</span> ,</span>
+<span>  type <span class="op">=</span> <span class="st">"prop"</span>,  </span>
+<span>  leg_title <span class="op">=</span> <span class="st">"Population totale\12 271 794"</span>,</span>
+<span>  col<span class="op">=</span><span class="st">"#C24168"</span>,</span>
+<span>  add<span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  inches<span class="op">=</span><span class="fl">0.2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_title.html">mf_title</a></span><span class="op">(</span><span class="st">"Distribution de la population dans les arrondissements de Paris"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="map_sf_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="map_sf_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="les-cartes-choroplèthes" class="level2">
-<h2 class="anchored" data-anchor-id="les-cartes-choroplèthes">Les cartes choroplèthes</h2>
+</section><section id="les-cartes-choroplèthes" class="level2"><h2 class="anchored" data-anchor-id="les-cartes-choroplèthes">Les cartes choroplèthes</h2>
 <p>La <em>carte choroplèthe</em> est la représentation à utiliser pour visualiser des ratios (variables quantitatives relatives pour lesquelles la moyenne a un sens, mais dont la somme n’en a pas), et qui sont des variables ordinales.</p>
 <p>Sur la carte, on affiche la densité de population de chaque arrondissement. On utilise ici la méthode des quantiles pour discrétiser cette variable, et on applique une palette de couleurs séquentielles avec dégradé pour représenter l’ordre entre les valeurs.</p>
 <div class="cell">
@@ -354,8 +324,8 @@ Geodetic CRS:  WGS 84</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Variable densité de la population</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#création de la variable densite </span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>arrondissements<span class="sc">$</span>DENS <span class="ot">&lt;-</span> <span class="fl">1e6</span> <span class="sc">*</span> arrondissements<span class="sc">$</span>pop <span class="sc">/</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(arrondissements))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#création de la variable densite </span></span>
+<span><span class="va">arrondissements</span><span class="op">$</span><span class="va">DENS</span> <span class="op">&lt;-</span> <span class="fl">1e6</span> <span class="op">*</span> <span class="va">arrondissements</span><span class="op">$</span><span class="va">pop</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_measures.html">st_area</a></span><span class="op">(</span><span class="va">arrondissements</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -363,25 +333,24 @@ Geodetic CRS:  WGS 84</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Carte avec la fonction mf_map()</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="at">x =</span> arrondissements,</span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="co"># variable à représenter: densité de population  </span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="at">var =</span> <span class="st">"DENS"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># type de carte  </span></span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="at">type =</span> <span class="st">"choro"</span>,</span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># méthode de dsicrétisation</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a>  <span class="at">breaks =</span> <span class="st">"quantile"</span>,</span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="co"># palette de rouges  </span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="at">pal =</span> <span class="st">"Reds"</span>,</span>
-<span id="cb12-11"><a href="#cb12-11"></a>  <span class="at">lwd =</span> <span class="dv">1</span>,</span>
-<span id="cb12-12"><a href="#cb12-12"></a>  <span class="at">leg_title =</span> <span class="st">"Densité de population</span><span class="sc">\n</span><span class="st">(habitants par km2)"</span>, </span>
-<span id="cb12-13"><a href="#cb12-13"></a>  <span class="at">leg_val_rnd =</span> <span class="dv">0</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">arrondissements</span>,</span>
+<span><span class="co"># variable à représenter: densité de population  </span></span>
+<span>var <span class="op">=</span> <span class="st">"DENS"</span>,</span>
+<span><span class="co"># type de carte  </span></span>
+<span>type <span class="op">=</span> <span class="st">"choro"</span>,</span>
+<span><span class="co"># méthode de dsicrétisation</span></span>
+<span>  breaks <span class="op">=</span> <span class="st">"quantile"</span>,</span>
+<span><span class="co"># palette de rouges  </span></span>
+<span>pal <span class="op">=</span> <span class="st">"Reds"</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  leg_title <span class="op">=</span> <span class="st">"Densité de population\n(habitants par km2)"</span>, </span>
+<span>  leg_val_rnd <span class="op">=</span> <span class="fl">0</span></span>
+<span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="map_sf_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="map_sf_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -399,106 +368,96 @@ Note
 <p>la faible densité de population des 12e et 16e arrondissement résulte notamment des zônes <em>bois de Vincennes</em> et de <em>Bois de Boulogne</em> qui les composent.</p>
 </div>
 </div>
-</section>
-<section id="les-cartes-pour-une-variable-qualitative-nominale" class="level2">
-<h2 class="anchored" data-anchor-id="les-cartes-pour-une-variable-qualitative-nominale">Les cartes pour une variable qualitative nominale</h2>
+</section><section id="les-cartes-pour-une-variable-qualitative-nominale" class="level2"><h2 class="anchored" data-anchor-id="les-cartes-pour-une-variable-qualitative-nominale">Les cartes pour une variable qualitative nominale</h2>
 <p>On peut aussi représenter un autre type de variable: qualitative nominale. Pour illuster cette fiche on va représenter les bords politiques des mairies de chaque arrondissement. Pour cela, on produit une carte choroplèthes mais avec des couleurs <em>sans dégradé</em> (palettee qualitative).</p>
 <ul>
-<li>Penser à trier la base par numéro d’arrondissement avant de fusionner les informations sur les bords politiques (<code>arrange()</code>)</li>
+<li>Penser à trier la base par numéro d’arrondissement avant de fusionner les informations sur les bords politiques (<code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>)</li>
 <li>Bien vérifier que les couleurs, ici fortement informatives, correspondent bien aux bords politiques. Sans raison apparente, il a été ici nécessaire de les renseigner dans l’ordre EELV, LR et PS.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>arrondissements2 <span class="ot">=</span> <span class="fu">select</span>(arrondissements, c_ar, l_aroff, geom_x_y, geometry)</span>
-<span id="cb13-2"><a href="#cb13-2"></a>arrondissements2 <span class="ot">=</span> <span class="fu">arrange</span>(arrondissements2, c_ar)</span>
-<span id="cb13-3"><a href="#cb13-3"></a></span>
-<span id="cb13-4"><a href="#cb13-4"></a>bords_politiques <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"LR"</span>, <span class="st">"EELV"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co"># Le maire du 2e arrondissement de Paris était EELV entre 2014 et 2015.</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a></span>
-<span id="cb13-7"><a href="#cb13-7"></a></span>
-<span id="cb13-8"><a href="#cb13-8"></a>arrondissements2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(arrondissements2, bords_politiques)</span>
-<span id="cb13-9"><a href="#cb13-9"></a></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co"># Choix des couleurs</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a></span>
-<span id="cb13-12"><a href="#cb13-12"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"EELV"</span> <span class="ot">=</span> <span class="st">"#31a354"</span>, <span class="st">"LR"</span> <span class="ot">=</span> <span class="st">"#3182bd"</span>, <span class="st">"PS"</span> <span class="ot">=</span> <span class="st">"#C24168"</span>)</span>
-<span id="cb13-13"><a href="#cb13-13"></a></span>
-<span id="cb13-14"><a href="#cb13-14"></a><span class="co"># Placer les carrés sur les centroïdes des polygones des arrondissements.</span></span>
-<span id="cb13-15"><a href="#cb13-15"></a>arr_c<span class="ot">&lt;-</span><span class="fu">st_centroid</span>(arrondissements2)</span>
-<span id="cb13-16"><a href="#cb13-16"></a></span>
-<span id="cb13-17"><a href="#cb13-17"></a></span>
-<span id="cb13-18"><a href="#cb13-18"></a></span>
-<span id="cb13-19"><a href="#cb13-19"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements2, <span class="at">border =</span> <span class="st">"black"</span>)</span>
-<span id="cb13-20"><a href="#cb13-20"></a></span>
-<span id="cb13-21"><a href="#cb13-21"></a><span class="co"># Choix  du symbol rectangle (pch=15)</span></span>
-<span id="cb13-22"><a href="#cb13-22"></a><span class="fu">mf_map</span>(</span>
-<span id="cb13-23"><a href="#cb13-23"></a>  <span class="at">x =</span> arr_c,</span>
-<span id="cb13-24"><a href="#cb13-24"></a>  <span class="at">var =</span> <span class="st">"bords_politiques"</span>,</span>
-<span id="cb13-25"><a href="#cb13-25"></a>  <span class="at">pal=</span>colors,</span>
-<span id="cb13-26"><a href="#cb13-26"></a>  <span class="at">type=</span><span class="st">"symb"</span>,</span>
-<span id="cb13-27"><a href="#cb13-27"></a>  <span class="at">pch=</span><span class="dv">15</span>,</span>
-<span id="cb13-28"><a href="#cb13-28"></a>  <span class="at">cex =</span> <span class="dv">2</span>,</span>
-<span id="cb13-29"><a href="#cb13-29"></a>  <span class="at">lwd =</span> .<span class="dv">5</span>,</span>
-<span id="cb13-30"><a href="#cb13-30"></a>  <span class="at">leg_title =</span> <span class="st">""</span>,</span>
-<span id="cb13-31"><a href="#cb13-31"></a>  <span class="at">border=</span><span class="st">"black"</span></span>
-<span id="cb13-32"><a href="#cb13-32"></a>)</span>
-<span id="cb13-33"><a href="#cb13-33"></a></span>
-<span id="cb13-34"><a href="#cb13-34"></a></span>
-<span id="cb13-35"><a href="#cb13-35"></a><span class="co"># habillage additionnel</span></span>
-<span id="cb13-36"><a href="#cb13-36"></a><span class="fu">mf_layout</span>(</span>
-<span id="cb13-37"><a href="#cb13-37"></a>  <span class="at">title =</span> <span class="st">"Bord politique des maires de Paris entre 2014 et 2020"</span>,</span>
-<span id="cb13-38"><a href="#cb13-38"></a>  <span class="at">credits =</span> <span class="fu">paste0</span>(</span>
-<span id="cb13-39"><a href="#cb13-39"></a>    <span class="st">"mapsf "</span>,</span>
-<span id="cb13-40"><a href="#cb13-40"></a>    <span class="fu">packageVersion</span>(<span class="st">"mapsf"</span>)</span>
-<span id="cb13-41"><a href="#cb13-41"></a>  )</span>
-<span id="cb13-42"><a href="#cb13-42"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">arrondissements2</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">arrondissements</span>, <span class="va">c_ar</span>, <span class="va">l_aroff</span>, <span class="va">geom_x_y</span>, <span class="va">geometry</span><span class="op">)</span></span>
+<span><span class="va">arrondissements2</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">arrondissements2</span>, <span class="va">c_ar</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">bords_politiques</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LR"</span>, <span class="st">"EELV"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"LR"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span>, <span class="st">"PS"</span><span class="op">)</span></span>
+<span><span class="co"># Le maire du 2e arrondissement de Paris était EELV entre 2014 et 2015.</span></span>
+<span></span>
+<span></span>
+<span><span class="va">arrondissements2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">arrondissements2</span>, <span class="va">bords_politiques</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Choix des couleurs</span></span>
+<span></span>
+<span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EELV"</span> <span class="op">=</span> <span class="st">"#31a354"</span>, <span class="st">"LR"</span> <span class="op">=</span> <span class="st">"#3182bd"</span>, <span class="st">"PS"</span> <span class="op">=</span> <span class="st">"#C24168"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Placer les carrés sur les centroïdes des polygones des arrondissements.</span></span>
+<span><span class="va">arr_c</span><span class="op">&lt;-</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_centroid</a></span><span class="op">(</span><span class="va">arrondissements2</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">arrondissements2</span>, border <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Choix  du symbol rectangle (pch=15)</span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">arr_c</span>,</span>
+<span>  var <span class="op">=</span> <span class="st">"bords_politiques"</span>,</span>
+<span>  pal<span class="op">=</span><span class="va">colors</span>,</span>
+<span>  type<span class="op">=</span><span class="st">"symb"</span>,</span>
+<span>  pch<span class="op">=</span><span class="fl">15</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span>  leg_title <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  border<span class="op">=</span><span class="st">"black"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># habillage additionnel</span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_layout.html">mf_layout</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"Bord politique des maires de Paris entre 2014 et 2020"</span>,</span>
+<span>  credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>    <span class="st">"mapsf "</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="map_sf_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="map_sf_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Il est courant de représenter les cartes électorales en remplissant les aires géographiques par des couleurs. Par rapport au graphique précédent, il suffit d’utiliser <code>type="typo"</code> et de retirer l’argument <code>pch</code>. On ajoute également le numéro de l’arrondissement avec la fonction <code>mf_label</code>.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="at">x =</span> arrondissements2,</span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="co"># var à représenter  </span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="at">var =</span> <span class="st">"bords_politiques"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="at">pal=</span>colors,</span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="at">type=</span><span class="st">"typo"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>  <span class="at">cex =</span> <span class="dv">2</span>,</span>
-<span id="cb14-8"><a href="#cb14-8"></a>  <span class="at">lwd =</span> .<span class="dv">5</span>,</span>
-<span id="cb14-9"><a href="#cb14-9"></a>  <span class="at">leg_title =</span> <span class="st">""</span>,</span>
-<span id="cb14-10"><a href="#cb14-10"></a>  <span class="at">leg_pos=</span> <span class="fu">c</span>(<span class="fl">2.43</span>, <span class="fl">48.91396</span>),</span>
-<span id="cb14-11"><a href="#cb14-11"></a>  <span class="at">border=</span><span class="st">"black"</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a>)</span>
-<span id="cb14-13"><a href="#cb14-13"></a></span>
-<span id="cb14-14"><a href="#cb14-14"></a><span class="fu">mf_layout</span>(</span>
-<span id="cb14-15"><a href="#cb14-15"></a>  <span class="at">title =</span> <span class="st">"Bord politique des maires de Paris entre 2014 et 2020"</span>,</span>
-<span id="cb14-16"><a href="#cb14-16"></a>  <span class="at">credits =</span> <span class="fu">paste0</span>(</span>
-<span id="cb14-17"><a href="#cb14-17"></a>    <span class="st">"mapsf "</span>,</span>
-<span id="cb14-18"><a href="#cb14-18"></a>    <span class="fu">packageVersion</span>(<span class="st">"mapsf"</span>)</span>
-<span id="cb14-19"><a href="#cb14-19"></a>  )</span>
-<span id="cb14-20"><a href="#cb14-20"></a>)</span>
-<span id="cb14-21"><a href="#cb14-21"></a></span>
-<span id="cb14-22"><a href="#cb14-22"></a><span class="fu">mf_label</span>(</span>
-<span id="cb14-23"><a href="#cb14-23"></a>  <span class="at">x =</span> arrondissements2, <span class="at">var =</span> <span class="st">"c_ar"</span>, <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">halo =</span> <span class="cn">TRUE</span>, <span class="at">overlap =</span> <span class="cn">FALSE</span>, <span class="at">lines =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb14-24"><a href="#cb14-24"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">arrondissements2</span>,</span>
+<span>  <span class="co"># var à représenter  </span></span>
+<span>  var <span class="op">=</span> <span class="st">"bords_politiques"</span>,</span>
+<span>  pal<span class="op">=</span><span class="va">colors</span>,</span>
+<span>  type<span class="op">=</span><span class="st">"typo"</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span>  leg_title <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  leg_pos<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.43</span>, <span class="fl">48.91396</span><span class="op">)</span>,</span>
+<span>  border<span class="op">=</span><span class="st">"black"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_layout.html">mf_layout</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"Bord politique des maires de Paris entre 2014 et 2020"</span>,</span>
+<span>  credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>    <span class="st">"mapsf "</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_label.html">mf_label</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">arrondissements2</span>, var <span class="op">=</span> <span class="st">"c_ar"</span>, col <span class="op">=</span> <span class="st">"grey"</span>, halo <span class="op">=</span> <span class="cn">TRUE</span>, overlap <span class="op">=</span> <span class="cn">FALSE</span>, lines <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="map_sf_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="map_sf_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="pour-aller-plus-loin-regroupement-de-polygones" class="level1">
-<h1>Pour aller plus loin: regroupement de polygones</h1>
+</section></section><section id="pour-aller-plus-loin-regroupement-de-polygones" class="level1"><h1>Pour aller plus loin: regroupement de polygones</h1>
 <p><strong>Exemple 1: fusion des arrondissements 15 et 16 avec aggrégation de la population</strong></p>
 <p>L’objectif est de fusionner les données de deux arrondissements (le 15ème et le 16ème) en un seul arrondissement sur le fond de carte, et d’agréger leur population.</p>
 <p>Les étapes sont :</p>
@@ -516,8 +475,8 @@ Note
 <div class="code-with-filename-file">
 <pre><strong>Récupération des informations nécessaires</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>arrondissements2 <span class="ot">=</span> <span class="fu">select</span>(arrondissements, c_ar, l_aroff, geom_x_y, pop)</span>
-<span id="cb15-2"><a href="#cb15-2"></a>arrondissements2 <span class="ot">=</span> <span class="fu">arrange</span>(arrondissements2, c_ar)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">arrondissements2</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">arrondissements</span>, <span class="va">c_ar</span>, <span class="va">l_aroff</span>, <span class="va">geom_x_y</span>, <span class="va">pop</span><span class="op">)</span></span>
+<span><span class="va">arrondissements2</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">arrondissements2</span>, <span class="va">c_ar</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -525,8 +484,8 @@ Note
 <div class="code-with-filename-file">
 <pre><strong>Sélection des deux polygones à fusionner</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>poly1 <span class="ot">=</span> arrondissements2[arrondissements2<span class="sc">$</span>c_ar <span class="sc">==</span> <span class="dv">15</span>, ]</span>
-<span id="cb16-2"><a href="#cb16-2"></a>poly2 <span class="ot">=</span> arrondissements2[arrondissements2<span class="sc">$</span>c_ar <span class="sc">==</span> <span class="dv">16</span>, ] </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">poly1</span> <span class="op">=</span> <span class="va">arrondissements2</span><span class="op">[</span><span class="va">arrondissements2</span><span class="op">$</span><span class="va">c_ar</span> <span class="op">==</span> <span class="fl">15</span>, <span class="op">]</span></span>
+<span><span class="va">poly2</span> <span class="op">=</span> <span class="va">arrondissements2</span><span class="op">[</span><span class="va">arrondissements2</span><span class="op">$</span><span class="va">c_ar</span> <span class="op">==</span> <span class="fl">16</span>, <span class="op">]</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -534,7 +493,7 @@ Note
 <div class="code-with-filename-file">
 <pre><strong>Fusion des deux polygones</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>new_poly <span class="ot">=</span> <span class="fu">st_union</span>(poly1, poly2) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_poly</span> <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="va">poly1</span>, <span class="va">poly2</span><span class="op">)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: attribute variables are assumed to be spatially constant throughout
@@ -546,7 +505,7 @@ all geometries</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Agregation des deux populations</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>new_poly<span class="sc">$</span>pop <span class="ot">=</span> new_poly<span class="sc">$</span>pop<span class="sc">+</span> new_poly<span class="sc">$</span>pop<span class="fl">.1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_poly</span><span class="op">$</span><span class="va">pop</span> <span class="op">=</span> <span class="va">new_poly</span><span class="op">$</span><span class="va">pop</span><span class="op">+</span> <span class="va">new_poly</span><span class="op">$</span><span class="va">pop.1</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -554,7 +513,7 @@ all geometries</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Changement du nom de la zône</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>new_poly<span class="sc">$</span>l_aroff <span class="ot">=</span> <span class="st">"Fusion 15 et 16"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_poly</span><span class="op">$</span><span class="va">l_aroff</span> <span class="op">=</span> <span class="st">"Fusion 15 et 16"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -562,14 +521,14 @@ all geometries</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Insertion de la fusion dans la base arrondissements</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Il est très important de mettre les éléments dans le même ordre que celui du tableau</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>arrondissements_fus <span class="ot">&lt;-</span> <span class="fu">subset</span>(new_poly, <span class="at">select =</span> <span class="fu">c</span>(c_ar, l_aroff, geom_x_y, pop))</span>
-<span id="cb21-3"><a href="#cb21-3"></a></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># On supprime les lignes des deux arrondissements fusionner</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a>arrondissements2 <span class="ot">=</span> <span class="fu">filter</span>(arrondissements2, c_ar<span class="sc">&lt;</span><span class="dv">15</span> <span class="sc">|</span> c_ar<span class="sc">&gt;</span><span class="dv">16</span>)</span>
-<span id="cb21-6"><a href="#cb21-6"></a></span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="co"># On insère la ligne des arrondissements fusionnés dans la base arrondissement</span></span>
-<span id="cb21-8"><a href="#cb21-8"></a>arrondissements2 <span class="ot">=</span> <span class="fu">rbind</span>(arrondissements2, arrondissements_fus)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Il est très important de mettre les éléments dans le même ordre que celui du tableau</span></span>
+<span><span class="va">arrondissements_fus</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">new_poly</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">c_ar</span>, <span class="va">l_aroff</span>, <span class="va">geom_x_y</span>, <span class="va">pop</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># On supprime les lignes des deux arrondissements fusionner</span></span>
+<span><span class="va">arrondissements2</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">arrondissements2</span>, <span class="va">c_ar</span><span class="op">&lt;</span><span class="fl">15</span> <span class="op">|</span> <span class="va">c_ar</span><span class="op">&gt;</span><span class="fl">16</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># On insère la ligne des arrondissements fusionnés dans la base arrondissement</span></span>
+<span><span class="va">arrondissements2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">arrondissements2</span>, <span class="va">arrondissements_fus</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -577,21 +536,20 @@ all geometries</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Exécution de la carte</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements2,<span class="at">border=</span> <span class="st">"black"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements2,</span>
-<span id="cb22-3"><a href="#cb22-3"></a>       <span class="co"># variable à représenter: population des arrondissements</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>       <span class="at">var =</span> <span class="st">"pop"</span>,</span>
-<span id="cb22-5"><a href="#cb22-5"></a>       <span class="co"># type de carte : symboles proportionnels</span></span>
-<span id="cb22-6"><a href="#cb22-6"></a>       <span class="at">type =</span> <span class="st">"prop"</span>,</span>
-<span id="cb22-7"><a href="#cb22-7"></a>       <span class="at">leg_title =</span> <span class="st">"Population des arrondissements"</span>,</span>
-<span id="cb22-8"><a href="#cb22-8"></a>       <span class="at">col=</span><span class="st">"#C24168"</span>,</span>
-<span id="cb22-9"><a href="#cb22-9"></a>       <span class="at">add=</span> <span class="cn">TRUE</span>,</span>
-<span id="cb22-10"><a href="#cb22-10"></a>       <span class="at">inches=</span><span class="fl">0.2</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">arrondissements2</span>,border<span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">arrondissements2</span>,</span>
+<span>       <span class="co"># variable à représenter: population des arrondissements</span></span>
+<span>       var <span class="op">=</span> <span class="st">"pop"</span>,</span>
+<span>       <span class="co"># type de carte : symboles proportionnels</span></span>
+<span>       type <span class="op">=</span> <span class="st">"prop"</span>,</span>
+<span>       leg_title <span class="op">=</span> <span class="st">"Population des arrondissements"</span>,</span>
+<span>       col<span class="op">=</span><span class="st">"#C24168"</span>,</span>
+<span>       add<span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>       inches<span class="op">=</span><span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="map_sf_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="map_sf_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -600,97 +558,84 @@ all geometries</code></pre>
 <p>Pour les élections municipales de 2020, les 4 premiers arrondissements de la ville ont été fusionnés. Cette zône a été appelée <strong>Centre</strong>, et le choix de la localisation de mairie s’est porté sur le 3ème arrondissement.</p>
 <p>Le code ci-dessous procède à la fusion de ces 4 arrondissements</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>arrondissements <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2"></a>arrondissements <span class="ot">&lt;-</span> <span class="fu">subset</span>(arrondissements, <span class="at">select =</span> <span class="fu">c</span>(c_ar, l_aroff,geometry))</span>
-<span id="cb23-3"><a href="#cb23-3"></a></span>
-<span id="cb23-4"><a href="#cb23-4"></a></span>
-<span id="cb23-5"><a href="#cb23-5"></a>poly1 <span class="ot">=</span> arrondissements[arrondissements<span class="sc">$</span>c_ar <span class="sc">==</span> <span class="st">"1"</span>, ] </span>
-<span id="cb23-6"><a href="#cb23-6"></a>poly2 <span class="ot">=</span> arrondissements[arrondissements<span class="sc">$</span>c_ar <span class="sc">==</span> <span class="st">"2"</span>, ]</span>
-<span id="cb23-7"><a href="#cb23-7"></a>poly3 <span class="ot">=</span> arrondissements[arrondissements<span class="sc">$</span>c_ar <span class="sc">==</span> <span class="st">"3"</span>, ]</span>
-<span id="cb23-8"><a href="#cb23-8"></a>poly4 <span class="ot">=</span> arrondissements[arrondissements<span class="sc">$</span>c_ar <span class="sc">==</span> <span class="st">"4"</span>, ]</span>
-<span id="cb23-9"><a href="#cb23-9"></a></span>
-<span id="cb23-10"><a href="#cb23-10"></a>poly12   <span class="ot">=</span> <span class="fu">st_union</span>(poly1, poly2) </span>
-<span id="cb23-11"><a href="#cb23-11"></a>poly34   <span class="ot">=</span> <span class="fu">st_union</span>(poly3,poly4)</span>
-<span id="cb23-12"><a href="#cb23-12"></a>new_poly <span class="ot">=</span> <span class="fu">st_union</span>(poly12,poly34)</span>
-<span id="cb23-13"><a href="#cb23-13"></a></span>
-<span id="cb23-14"><a href="#cb23-14"></a>new_poly<span class="sc">$</span>l_aroff <span class="ot">=</span> <span class="st">"Centre"</span> <span class="co"># changer le nom de l'arrondissement</span></span>
-<span id="cb23-15"><a href="#cb23-15"></a>new_poly<span class="sc">$</span>c_ar    <span class="ot">=</span>  <span class="st">"3"</span>     <span class="co"># changer le code de l'arrondissement</span></span>
-<span id="cb23-16"><a href="#cb23-16"></a></span>
-<span id="cb23-17"><a href="#cb23-17"></a><span class="co"># Il est très important de mettre les éléments dans le même ordre que celui du tableau</span></span>
-<span id="cb23-18"><a href="#cb23-18"></a>arrondissements_fus <span class="ot">=</span> <span class="fu">subset</span>(new_poly, <span class="at">select =</span> <span class="fu">c</span>(c_ar, l_aroff,geometry))</span>
-<span id="cb23-19"><a href="#cb23-19"></a></span>
-<span id="cb23-20"><a href="#cb23-20"></a>arrondissements <span class="ot">=</span> <span class="fu">filter</span>(arrondissements, c_ar<span class="sc">&gt;</span><span class="dv">4</span>)</span>
-<span id="cb23-21"><a href="#cb23-21"></a>arrondissements <span class="ot">=</span> <span class="fu">rbind</span>(arrondissements, arrondissements_fus)</span>
-<span id="cb23-22"><a href="#cb23-22"></a></span>
-<span id="cb23-23"><a href="#cb23-23"></a><span class="fu">mf_map</span>(<span class="at">x =</span> arrondissements,<span class="at">border=</span> <span class="st">"black"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">arrondissements</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span>dsn <span class="op">=</span> <span class="st">"https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr"</span><span class="op">)</span></span>
+<span><span class="va">arrondissements</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">arrondissements</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">c_ar</span>, <span class="va">l_aroff</span>,<span class="va">geometry</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">poly1</span> <span class="op">=</span> <span class="va">arrondissements</span><span class="op">[</span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar</span> <span class="op">==</span> <span class="st">"1"</span>, <span class="op">]</span> </span>
+<span><span class="va">poly2</span> <span class="op">=</span> <span class="va">arrondissements</span><span class="op">[</span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar</span> <span class="op">==</span> <span class="st">"2"</span>, <span class="op">]</span></span>
+<span><span class="va">poly3</span> <span class="op">=</span> <span class="va">arrondissements</span><span class="op">[</span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar</span> <span class="op">==</span> <span class="st">"3"</span>, <span class="op">]</span></span>
+<span><span class="va">poly4</span> <span class="op">=</span> <span class="va">arrondissements</span><span class="op">[</span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar</span> <span class="op">==</span> <span class="st">"4"</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="va">poly12</span>   <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="va">poly1</span>, <span class="va">poly2</span><span class="op">)</span> </span>
+<span><span class="va">poly34</span>   <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="va">poly3</span>,<span class="va">poly4</span><span class="op">)</span></span>
+<span><span class="va">new_poly</span> <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html">st_union</a></span><span class="op">(</span><span class="va">poly12</span>,<span class="va">poly34</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">new_poly</span><span class="op">$</span><span class="va">l_aroff</span> <span class="op">=</span> <span class="st">"Centre"</span> <span class="co"># changer le nom de l'arrondissement</span></span>
+<span><span class="va">new_poly</span><span class="op">$</span><span class="va">c_ar</span>    <span class="op">=</span>  <span class="st">"3"</span>     <span class="co"># changer le code de l'arrondissement</span></span>
+<span></span>
+<span><span class="co"># Il est très important de mettre les éléments dans le même ordre que celui du tableau</span></span>
+<span><span class="va">arrondissements_fus</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">new_poly</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">c_ar</span>, <span class="va">l_aroff</span>,<span class="va">geometry</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">arrondissements</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">arrondissements</span>, <span class="va">c_ar</span><span class="op">&gt;</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">arrondissements</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">arrondissements</span>, <span class="va">arrondissements_fus</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">arrondissements</span>,border<span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="map_sf_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="map_sf_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>bords_politiques <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Gauche"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span>,<span class="st">"Ecolo"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="st">"Droite"</span> <span class="ot">=</span> <span class="st">"#3182bd"</span>, <span class="st">"Ecolo"</span> <span class="ot">=</span> <span class="st">"#31a354"</span>,  <span class="st">"Gauche"</span> <span class="ot">=</span> <span class="st">"#C24168"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3"></a></span>
-<span id="cb24-4"><a href="#cb24-4"></a></span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="co"># c_ar est passé en string =&gt; repasser en numérique pour arrange</span></span>
-<span id="cb24-6"><a href="#cb24-6"></a>arrondissements<span class="sc">$</span>c_ar <span class="ot">=</span> <span class="fu">as.numeric</span>(arrondissements<span class="sc">$</span>c_ar)</span>
-<span id="cb24-7"><a href="#cb24-7"></a>arrondissements <span class="ot">=</span> <span class="fu">arrange</span>(arrondissements, c_ar)</span>
-<span id="cb24-8"><a href="#cb24-8"></a>arrondissements <span class="ot">=</span> <span class="fu">cbind</span>(arrondissements, bords_politiques)</span>
-<span id="cb24-9"><a href="#cb24-9"></a></span>
-<span id="cb24-10"><a href="#cb24-10"></a><span class="co"># label: on change la valeur 3 par centre pour la zône fusionnée</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>arrondissements<span class="sc">$</span>c_ar2 <span class="ot">=</span> <span class="fu">as.character</span>(arrondissements<span class="sc">$</span>c_ar)</span>
-<span id="cb24-12"><a href="#cb24-12"></a>arrondissements<span class="sc">$</span>c_ar2[arrondissements<span class="sc">$</span>c_ar2 <span class="sc">==</span> <span class="st">"3"</span>]  <span class="ot">=</span> <span class="st">"Centre"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bords_politiques</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gauche"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span>,<span class="st">"Ecolo"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Droite"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span>,<span class="st">"Gauche"</span><span class="op">)</span></span>
+<span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="st">"Droite"</span> <span class="op">=</span> <span class="st">"#3182bd"</span>, <span class="st">"Ecolo"</span> <span class="op">=</span> <span class="st">"#31a354"</span>,  <span class="st">"Gauche"</span> <span class="op">=</span> <span class="st">"#C24168"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># c_ar est passé en string =&gt; repasser en numérique pour arrange</span></span>
+<span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar</span><span class="op">)</span></span>
+<span><span class="va">arrondissements</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">arrondissements</span>, <span class="va">c_ar</span><span class="op">)</span></span>
+<span><span class="va">arrondissements</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">arrondissements</span>, <span class="va">bords_politiques</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># label: on change la valeur 3 par centre pour la zône fusionnée</span></span>
+<span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar</span><span class="op">)</span></span>
+<span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar2</span><span class="op">[</span><span class="va">arrondissements</span><span class="op">$</span><span class="va">c_ar2</span> <span class="op">==</span> <span class="st">"3"</span><span class="op">]</span>  <span class="op">=</span> <span class="st">"Centre"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Carte électorale à l’issue des élections de 2020</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">mf_map</span>(</span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="at">x =</span> arrondissements,</span>
-<span id="cb25-3"><a href="#cb25-3"></a>  <span class="at">var =</span> <span class="st">"bords_politiques"</span>,</span>
-<span id="cb25-4"><a href="#cb25-4"></a>  <span class="at">pal=</span>colors,</span>
-<span id="cb25-5"><a href="#cb25-5"></a>  <span class="at">type=</span><span class="st">"typo"</span>,</span>
-<span id="cb25-6"><a href="#cb25-6"></a>  <span class="at">cex =</span> <span class="dv">2</span>,</span>
-<span id="cb25-7"><a href="#cb25-7"></a>  <span class="at">lwd =</span> .<span class="dv">5</span>,</span>
-<span id="cb25-8"><a href="#cb25-8"></a>  <span class="at">leg_title =</span> <span class="st">""</span>,</span>
-<span id="cb25-9"><a href="#cb25-9"></a>  <span class="at">leg_pos=</span> <span class="fu">c</span>(<span class="fl">2.43</span>, <span class="fl">48.91396</span>),</span>
-<span id="cb25-10"><a href="#cb25-10"></a>  <span class="at">border=</span><span class="st">"black"</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a>)</span>
-<span id="cb25-12"><a href="#cb25-12"></a></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="fu">mf_layout</span>(</span>
-<span id="cb25-14"><a href="#cb25-14"></a>  <span class="at">title =</span> <span class="st">"Bord politique des maires de Paris aux élections de 2020"</span>,</span>
-<span id="cb25-15"><a href="#cb25-15"></a>  <span class="at">credits =</span> <span class="fu">paste0</span>(</span>
-<span id="cb25-16"><a href="#cb25-16"></a>    <span class="st">"mapsf "</span>,</span>
-<span id="cb25-17"><a href="#cb25-17"></a>    <span class="fu">packageVersion</span>(<span class="st">"mapsf"</span>)</span>
-<span id="cb25-18"><a href="#cb25-18"></a>  )</span>
-<span id="cb25-19"><a href="#cb25-19"></a>)</span>
-<span id="cb25-20"><a href="#cb25-20"></a></span>
-<span id="cb25-21"><a href="#cb25-21"></a><span class="fu">mf_label</span>(</span>
-<span id="cb25-22"><a href="#cb25-22"></a>  <span class="at">x =</span> arrondissements, <span class="at">var =</span> <span class="st">"c_ar2"</span>, <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">halo =</span> <span class="cn">TRUE</span>, <span class="at">overlap =</span> <span class="cn">FALSE</span>, <span class="at">lines =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb25-23"><a href="#cb25-23"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
+<details class="code-fold"><summary>Show the code</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_map.html">mf_map</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">arrondissements</span>,</span>
+<span>  var <span class="op">=</span> <span class="st">"bords_politiques"</span>,</span>
+<span>  pal<span class="op">=</span><span class="va">colors</span>,</span>
+<span>  type<span class="op">=</span><span class="st">"typo"</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span>  leg_title <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  leg_pos<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.43</span>, <span class="fl">48.91396</span><span class="op">)</span>,</span>
+<span>  border<span class="op">=</span><span class="st">"black"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_layout.html">mf_layout</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"Bord politique des maires de Paris aux élections de 2020"</span>,</span>
+<span>  credits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
+<span>    <span class="st">"mapsf "</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"mapsf"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://riatelab.github.io/mapsf/reference/mf_label.html">mf_label</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="va">arrondissements</span>, var <span class="op">=</span> <span class="st">"c_ar2"</span>, col <span class="op">=</span> <span class="st">"grey"</span>, halo <span class="op">=</span> <span class="cn">TRUE</span>, overlap <span class="op">=</span> <span class="cn">FALSE</span>, lines <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="map_sf_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="map_sf_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="map_sf_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="map_sf_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1098,13 +1043,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -1129,8 +1071,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Support Sms - Stata, Jupyter et Quarto: la solution nbstata</title>
+<title>Stata, Jupyter et Quarto: la solution nbstata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,8 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -256,11 +256,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Installation de nbstata</h1>
 <p>Les étapes sont bien décrites dans le document de Tim Huegerich.</p>
 <p>Dans l’invite de commande windows exécuter successivement</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1"></a>pip install nbstata</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install nbstata</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Puis à minima:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1"></a>python <span class="op">-</span>m nbstata.install</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m nbstata.install</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Optionnellement, si on souhaite récupérer la couleur syntaxique</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb3-1"><a href="#cb3-1"></a>pip install jupyterlab_stata_highlight2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pip install jupyterlab_stata_highlight2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="utilisation-de-nbstata-dans-un-notebook-jupyter" class="level1">
 <h1>Utilisation de nbstata dans un notebook Jupyter</h1>
@@ -288,22 +288,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>On indique de le header de la page (yaml) l’utilisation de jupyter et du noyau nbstata</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Exécution de Stata sous Quarto avec nbstata</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="st">jupyter: nbstata</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="st">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Exécution de Stata sous Quarto avec nbstata</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">jupyter: nbstata</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Pour le bloc de codes sans option: on indique qu’on utilise stata: <code>```{stata}</code></li>
 <li>Pour le bloc de codes avec option(s), on remplace <code>#|</code> (R,Python) par <code>*|</code>:</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">*</span>| echo: <span class="bu">false</span><span class="op">/</span><span class="bu">true</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="op">*</span>| eval: <span class="bu">false</span><span class="op">/</span><span class="bu">true</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="op">*</span> Programme Stata</span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a>sysuse auto</span>
-<span id="cb5-7"><a href="#cb5-7"></a>tx scat price mpg</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>| echo: <span class="bu">false</span><span class="op">/</span><span class="bu">true</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>| eval: <span class="bu">false</span><span class="op">/</span><span class="bu">true</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">*</span> Programme Stata</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sysuse auto</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>tx scat price mpg</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="center">
 <div class="column" style="width:65%;">
 <div class="box_img">
@@ -730,7 +730,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

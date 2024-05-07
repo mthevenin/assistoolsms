@@ -5,10 +5,11 @@ lang: fr
  
 website:
   search: false
-  title: "Support Sms"
+  title: ""
   navbar:
     background: "white"
     title: ""
+    logo: "logo.png"
     collapse-below: lg
     left:
       - text: "R"
@@ -47,7 +48,7 @@ format:
     code-line-numbers: false
     code-copy: true
 #    code-tools:
-#      source: true
+#    source: true
 highlight-style: atom-one
 
 lightbox: true

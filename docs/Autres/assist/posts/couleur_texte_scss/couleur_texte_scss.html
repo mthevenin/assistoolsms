@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Support Sms - Modifier la couleur d’un texte ou d’un paragraphe</title>
+<title>Modifier la couleur d’un texte ou d’un paragraphe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,8 +103,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -228,26 +228,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="balise-html-brute">Balise html brute</h2>
 <p>Avec de l’html brut, on modifie la couleur d’un texte à l’aide d’une balise <strong><code>&lt;span&gt;</code></strong> ou <code>&lt;p&gt;</code> dans lesquels on ajoute un style de type css. On utilisera par exemple les attributs <strong><code>color:</code></strong> pour la couleur du texte, ou <strong><code>background-color:</code></strong> pour la modification de la couleur du fond.</p>
 <p><em>Je veux que TEXTE soit en rouge</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>Je veux que &lt;span style="color:red"&gt; TEXTE&lt;/span&gt; soit en rouge.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Je veux que &lt;span style="color:red"&gt; TEXTE&lt;/span&gt; soit en rouge.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Résultat</strong>: Je veux que <span style="color:red">TEXTE</span> soit en rouge.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a>Je veux que &lt;span style="color:red; background-color:yellow"&gt; TEXTE&lt;/span&gt; soit en rouge sur fond jaune</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Je veux que &lt;span style="color:red; background-color:yellow"&gt; TEXTE&lt;/span&gt; soit en rouge sur fond jaune</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Résultat</strong>: Je veux que <span style="color:red; background-color:yellow">TEXTE</span> soit en rouge sur fond jaune.</p>
 </section>
 <section id="ajouter-directement-un-style-css-dans-le-fichier-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="ajouter-directement-un-style-css-dans-le-fichier-quarto">Ajouter directement un style css dans le fichier Quarto</h2>
 <p>On définit le style, dans une <strong>classe</strong> appelée ici <code>.text-red</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>&lt;style&gt;                                                      </span>
-<span id="cb3-2"><a href="#cb3-2"></a> <span class="fu">.text-red</span> {</span>
-<span id="cb3-3"><a href="#cb3-3"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>      }     </span>
-<span id="cb3-5"><a href="#cb3-5"></a>&lt;/style&gt;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;style&gt;                                                      </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">.text-red</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      }     </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>&lt;/style&gt;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <style>                                                      
  .text-red {
         color: red;
       }     
 </style>
 <p>Et on va appliquer ce style au texte Soit avec la nouvelle syntaxe Quarto <strong><code>[TEXTE]{style}</code></strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a> Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><em>Résultat</em></strong>: Je veux que <span class="text-red">TEXTE</span> soit en rouge</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -260,11 +260,11 @@ Changement de la couleur d’un paragraphe ou d’un texte long
 </div>
 <div class="callout-body-container callout-body">
 <p>La méthode précédente, qui se substitue à une balise html <code>span</code>, est pratique pour un mot ou une phrase que l’on souhaite mettre en avant. Pour un paragraphe il est préférable d’utiliser l’équivalent Quarto d’une balise <code>div</code>, ouverte et fermée avec <code>:::</code> :</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a>::: {.text-red}</span>
-<span id="cb5-2"><a href="#cb5-2"></a>  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. </span>
-<span id="cb5-3"><a href="#cb5-3"></a>  Classiquement on  utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. </span>
-<span id="cb5-4"><a href="#cb5-4"></a>  On peut encore améliorer  la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
-<span id="cb5-5"><a href="#cb5-5"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>::: {.text-red}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  Classiquement on  utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  On peut encore améliorer  la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><em>Résultat</em></strong>:</p>
 <div class="text-red">
 <p>Le formatage d’un document utilisant du markdown ne permet pas de modifier à la voler la couleur d’un mot ou d’un texte.<br>
@@ -284,7 +284,7 @@ Définition d’une couleur à la <em>volée</em>
 </div>
 <div class="callout-body-container callout-body">
 <p>On est pas obligé ici de définir un style préalable avec un nom spécifique. Si le changement de couleur intervient rarement ou une seul fois, on peut également changer la couleur avec</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><em>Résultat</em></strong>: Je veux que <span style="color: red">TEXTE</span> soit en rouge</p>
 </div>
 </div>
@@ -295,21 +295,21 @@ Définition d’une couleur à la <em>volée</em>
 <ul>
 <li>Dans le yaml de la page (ou le <code>_quarto.yml</code> du projet)</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Utilisation d'un fichier css"</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">  html:</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">    css: style.css</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Utilisation d'un fichier css"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    css: style.css</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Pour définir les styles dans un fichier css, il n’y a pas besoin de la balise <code>style</code></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2"></a>.text-indigo {</span>
-<span id="cb8-3"><a href="#cb8-3"></a>        color: #6610f2;</span>
-<span id="cb8-4"><a href="#cb8-4"></a>      }  </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>.text-indigo {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        color: #6610f2;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      }  </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans le document Quarto:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><em>Résultat</em></strong>: Je veux que <span class="text-indigo">TEXTE</span> soit en indigo</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -323,15 +323,15 @@ Ajouter des classes et des attributs
 <div class="callout-body-container callout-body">
 <p><strong>Ajout d’un attribut</strong></p>
 <p>Sans définir une nouvelle classe, on peut ajouter un attribut à ce type de formatage. Par exemple, on souhaite mettre une couleur de fond avec l’attribut <code>background-color: pink</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><em>Résultat</em></strong>: Je veux que <span class="text-indigo" style="background-color:pink">TEXTE</span> soit en indigo avec un fond rose</p>
 <p><strong>Ajout de classes</strong></p>
 <p>Dans le fichier css on génère une nouvelle classe indiquant un fond de type jaune.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a>.bgtext-yellow {</span>
-<span id="cb11-2"><a href="#cb11-2"></a>        background-color: #f4bd61;</span>
-<span id="cb11-3"><a href="#cb11-3"></a>      }     </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>.bgtext-yellow {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        background-color: #f4bd61;</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      }     </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On peut alors simplement ajouter cette nouvelle classe <code>bgtext-yellow</code> à celle qui demande une couleur indigo</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong><em>Résultat</em></strong>: Je veux que <span class="text-indigo bgtext-yellow">TEXTE</span> soit en indigo avec un fond jaune</p>
 <p>On verra en fin de fiche, en habillant un paragraphe, que l’on peut ajouter une classe à la définition d’un autre attribut. Par exemple la classe <code>.text-indigo</code> pour définir la couleur d’un contour.</p>
 </div>
@@ -369,7 +369,7 @@ Ajouter des classes et des attributs
 </div>
 <p><strong><em>Affectation des couleurs sous forme de variable SASS à une classe</em></strong></p>
 <p>Toutes les définitions se font en tête de fichier et la partie réservées aux affectations à des classes doit être impérativement précédée par:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a>/*-- scss:rules --*/</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>/*-- scss:rules --*/</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On peut alors affecter les variables SASS aux 7 classes de couleurs du thème à l’aide d’un style css</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -383,22 +383,22 @@ Ajouter des classes et des attributs
 <ul>
 <li>Avec le thème par défaut et en utilisant le fichier <code>style_default.scss</code> dans mon dépôt github:</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  html:</span>
-<span id="cb14-3"><a href="#cb14-3"></a>    css: style.css</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    </span>
-<span id="cb14-5"><a href="#cb14-5"></a>theme:</span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="ss">  - </span>style_default.scss</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    css: style.css</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>theme:</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>style_default.scss</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>En utilisant un autre thème bootstrap, par exemple <strong>lux</strong></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>  html:</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    css: style.css</span>
-<span id="cb15-4"><a href="#cb15-4"></a>    </span>
-<span id="cb15-5"><a href="#cb15-5"></a>theme:</span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="ss">  - </span>lux</span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="ss">  - </span>style_lux.scss</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    css: style.css</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>theme:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>lux</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>style_lux.scss</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On a plus qu’à appliquer une des couleurs du thème au texte:</p>
 <p>Je veux utiliser la couleur <span class="danger">DANGER</span> à mon texte</p>
 Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j’ai donc ajouté un fond):
@@ -419,16 +419,16 @@ Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j’ai 
 <p>On remarque que la couleur <strong>light</strong> est vraiment très très light (pour ne pas dire invisible). On peut donc vouloir ajouter une couleur de fond, celle définie avec la variable <code>$dark</code>. En css l’attribut est <strong><code>background-color</code></strong>.</p>
 <p>Les classes de couleur définies dans le fichier scss ne s’applique pas au couleur de fond. Il font donc soit ajouter manuellement le code couleur correspondant à l’attribut dark, ou ajouter une ou plusieurs classes supplémentaires aux fichier scss (préférable).</p>
 <p>Si on ajoute la classe bg-dark au fichier scss</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a>// Ajout classe bg-dark pour le background du text dans style_default.scss</span>
-<span id="cb16-2"><a href="#cb16-2"></a></span>
-<span id="cb16-3"><a href="#cb16-3"></a>.bg-dark{background-color: $dark}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>// Ajout classe bg-dark pour le background du text dans style_default.scss</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>.bg-dark{background-color: $dark}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On va mettre le <span class="light bg-dark">fond dark à la couleur light</span></p>
 <p><strong><em>Pour aller un peu plus loin</em></strong></p>
 <p>Si on souhaite améliorer l’habillage du texte, avec par exemple une légère marge à gauche et à droite du texte ou adoucir l’angle du cadre, on peut utiliser les attributs <strong><code>padding-left</code></strong>, <strong><code>padding-right</code></strong>, <strong><code>border-radius</code></strong>. Ces attributs peuvent être ajouté à la volée ou paramétré dans le fichier scss, toujours à l’aide de variables SASS.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>….<span class="light bg-dark" style="padding-left:5px; padding-right:5px; border-radius:10px">Amélioration de l’habillage</span>…</p>
 <p>Si on souhaite ajouter un contour, on peut ajouter des attributs comme <strong><code>border</code></strong> (épaisseur du trait) et <strong><code>border-style:solid</code></strong>. On inversera ici la couleur du texte et du fond après avoir créer une classe <code>bg-light</code></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>….<span class="dark bg-light" style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid">Amélioration de l’habillage</span>…</p>
 
 
@@ -861,7 +861,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

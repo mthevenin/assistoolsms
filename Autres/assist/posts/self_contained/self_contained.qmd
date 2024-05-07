@@ -16,11 +16,8 @@ image: "https://st4.depositphotos.com/28636338/38413/i/450/depositphotos_3841380
 
 format: 
   html: default
-  docx: default
 
-filters:
-   - lightbox
-lightbox: auto
+lightbox: true
 
 abstract: | 
  Par défaut, tous les styles et les images associés à une page html générée avec Quarto sont enregistrés dans un répertoire distinct. Si on souhaite transmettre une simple page de résultats ou un descriptif de programme à ses collègues, on doit transmettre l'intégralité de ces fichiers. Avec l'option `self_contained`, la page html est générée proprement sans fichiers additionnels. **Les éléments qui suivent ne doivent pas être appliqués à un contenu html plus enrichi comme un site, un book ou un blog**.

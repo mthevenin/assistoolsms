@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Support Sms - Introduction aux frames [Stata 16]</title>
+<title>Introduction aux frames [Stata 16]</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,8 +105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -247,7 +247,7 @@ Note
 <p>Depuis Stata 16, à chaque base active est associée une <em>frame</em> nommée <em>default</em>. On peut récupérer l’information sur les frames créées lors d’une session avec les instruction <strong><code>frame dir</code></strong> ou <strong><code>frame list</code></strong>. Le nombre de lignes (observations) et colonnes (variables) sont indiquées.</p>
 <p>On ouvre une session avec Stata, la frame * default* avec 0 ligne et 0 colonnes est indiquée avec <code>frame dir</code>.</p>
 <div id="1dd76376" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1"></a>frame <span class="ot">dir</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>div.jp-Notebook .datagrid-container {min-height: 448px; }</style>
 </div>
@@ -257,12 +257,12 @@ Note
 </div>
 <p>On ouvre une base, et de nouveau avec <code>frame dir</code>:</p>
 <div id="2729c938" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">clear</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">webuse</span> nhanes2</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>frame <span class="ot">dir</span> </span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">des</span>, <span class="fu">s</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">webuse</span> nhanes2</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">des</span>, <span class="fu">s</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  default  10351 x 58; nhanes2.dta
 
@@ -274,9 +274,9 @@ Sorted by: </code></pre>
 </div>
 <p>On souhaite renommer cette frame <em>default</em>, par exemple <em>nhanes</em>: <em><code>frame rename</code></em></p>
 <div id="69cdde5a" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1"></a>frame <span class="kw">rename</span> <span class="kw">default</span> nhanes</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">rename</span> <span class="kw">default</span> nhanes</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  nhanes  10351 x 58; nhanes2.dta</code></pre>
 </div>
@@ -286,10 +286,10 @@ Sorted by: </code></pre>
 <p>On souhaite, par exemple, créer des bases d’indicateurs en collapsant des informations issues de la base/frame <em>nhanes</em>, sur la tension artérielle (<em>bpsystol</em>) et sur l’IMC (<em>bmi</em>), tout en gardant les informations sur le sexe (<em>sex</em>). On va générer deux frames avec <strong><code>frame put</code></strong>.</p>
 <p>On indique simplement la sélection de variables et avec l’option <strong><code>into()</code></strong> le nom de la nouvelle frame.</p>
 <div id="2ff7a49d" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1"></a>frame put sex bpsystol, into(tension)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>frame put sex bmi,      into(imc)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>frame put sex bpsystol, into(tension)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>frame put sex bmi,      into(imc)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>* imc      10351 x 2
   nhanes   10351 x 58; nhanes2.dta
@@ -320,14 +320,14 @@ command2
 .
 } </code></pre>
 <div id="ba136185" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1"></a>* frame active (nhanes2)</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">tab</span> agegrp</span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a>frame tension: <span class="kw">rename</span> bpsystol tension</span>
-<span id="cb11-5"><a href="#cb11-5"></a>frame tension: <span class="kw">mean</span>   tension, <span class="bn">over</span>(sex)</span>
-<span id="cb11-6"><a href="#cb11-6"></a></span>
-<span id="cb11-7"><a href="#cb11-7"></a>frame imc: <span class="kw">rename</span> bmi imc</span>
-<span id="cb11-8"><a href="#cb11-8"></a>frame imc: <span class="kw">mean</span>   imc, <span class="bn">over</span>(sex)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>* frame active (nhanes2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> agegrp</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>frame tension: <span class="kw">rename</span> bpsystol tension</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>frame tension: <span class="kw">mean</span>   tension, <span class="bn">over</span>(sex)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>frame imc: <span class="kw">rename</span> bmi imc</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>frame imc: <span class="kw">mean</span>   imc, <span class="bn">over</span>(sex)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   Age group |      Freq.     Percent        Cum.
@@ -364,15 +364,15 @@ Mean estimation                         Number of obs = 10,351
 </div>
 <p>Sur le même principe, on va collapser les frames et <em>tension</em> et <em>imcs</em> (moyennes de <em>tension</em> et <em>imc</em> par sexe)</p>
 <div id="044131c4" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1"></a>frame tension {</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">collapse</span> tension, <span class="kw">by</span>(sex)</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="ot">list</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>}</span>
-<span id="cb13-5"><a href="#cb13-5"></a></span>
-<span id="cb13-6"><a href="#cb13-6"></a>frame imc {</span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="kw">collapse</span> imc, <span class="kw">by</span>(sex)</span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="ot">list</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>frame tension {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">collapse</span> tension, <span class="kw">by</span>(sex)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>frame imc {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">collapse</span> imc, <span class="kw">by</span>(sex)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      +-------------------+
@@ -391,7 +391,7 @@ Mean estimation                         Number of obs = 10,351
 </div>
 </div>
 <div id="2bd58f58" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>* imc      2 x 2
   nhanes   10351 x 58; nhanes2.dta
@@ -410,8 +410,8 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 <pre><code>frlink varlist, frame(nom_frame) gen(link_name)</code></pre>
 <p>Ici la clé d’appariement est la variable <em>sex</em>, la liaison est de type <strong>m:1</strong></p>
 <div id="be9016e9" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1"></a>frlink <span class="fu">m</span>:1 sex, frame(tension) <span class="kw">gen</span>(l1)</span>
-<span id="cb18-2"><a href="#cb18-2"></a>frlink <span class="fu">m</span>:1 sex, frame(imc)     <span class="kw">gen</span>(l2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>frlink <span class="fu">m</span>:1 sex, frame(tension) <span class="kw">gen</span>(l1)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>frlink <span class="fu">m</span>:1 sex, frame(imc)     <span class="kw">gen</span>(l2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(all observations in frame nhanes matched)
 (all observations in frame nhanes matched)</code></pre>
@@ -424,8 +424,8 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 <li>on peut renommer les variables avec <strong><code>frget</code></strong>, ici <em>mtension</em> pour <em>tension</em> et <em>mimc</em> pour <em>imc</em>. Attention aux habitudes, ici pour renommer c’est nouveau_nom=ancien_nom.</li>
 </ul>
 <div id="4621afc7" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1"></a>frget mtension=tension, from(l1)</span>
-<span id="cb20-2"><a href="#cb20-2"></a>frget mimc=imc,     from(l2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>frget mtension=tension, from(l1)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>frget mimc=imc,     from(l2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(1 variable copied from linked frame)
 (1 variable copied from linked frame)</code></pre>
@@ -433,7 +433,7 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 </div>
 <p>Les variables <em>mtension</em> et <em>minc</em> sont maintenant dans la base/frame <em>nhanes</em></p>
 <div id="e7e250d5" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">mean</span> mtension mimc, <span class="bn">over</span>(sex)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">mean</span> mtension mimc, <span class="bn">over</span>(sex)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Mean estimation                           Number of obs = 10,351
@@ -455,17 +455,17 @@ c.mtension@sex |
 <p><strong>syntaxe</strong> : <strong><code>frval(variable_liaison, nom_variable)</code></strong></p>
 <p>En amont je supprime les variables mtension et mimc de la frame <em>nhanes</em> (inutiles) et renomme les variables tension et imc dans leur frame respective (pour facilité la lecture de <code>frval</code>)</p>
 <div id="28600bbf" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">drop</span> mtension mimc</span>
-<span id="cb24-2"><a href="#cb24-2"></a></span>
-<span id="cb24-3"><a href="#cb24-3"></a>frame tension: <span class="kw">rename</span> tension mean_tension</span>
-<span id="cb24-4"><a href="#cb24-4"></a>frame imc:     <span class="kw">rename</span> imc     mean_imc</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> mtension mimc</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>frame tension: <span class="kw">rename</span> tension mean_tension</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>frame imc:     <span class="kw">rename</span> imc     mean_imc</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Création des variables <em>diff_tens</em> et <em>diff_imc</em></p>
 <div id="2bf83bac" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">gen</span> diff_tens = bpsystol - frval(l1, mean_tension)</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">gen</span> diff_imc =  bmi      - frval(l2, mean_imc)</span>
-<span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="ot">list</span>  diff_tens diff_imc <span class="kw">in</span> 1/10</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> diff_tens = bpsystol - frval(l1, mean_tension)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> diff_imc =  bmi      - frval(l2, mean_imc)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span>  diff_tens diff_imc <span class="kw">in</span> 1/10</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      +-----------------------+
@@ -487,11 +487,11 @@ c.mtension@sex |
 </div>
 <p>Dans une même création de variable, on peut utiliser <strong><code>frval</code></strong> pour plusieurs liaisons, et dans des expression conditionnelles. Si on souhaite ici créer une indicatrice qui repère les personnes dont la tension et l’imc sont supérieurs à la moyenne. Les variables <em>diff_tens</em> et <em>diff_imc</em> étant inutiles.</p>
 <div id="f1256893" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">drop</span> diff_tens diff_imc</span>
-<span id="cb27-2"><a href="#cb27-2"></a></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="kw">gen</span> sup_tens_imc = bpsystol&gt; frval(l1, mean_tens) &amp; bmi &gt; frval(l2, mean_imc)</span>
-<span id="cb27-4"><a href="#cb27-4"></a></span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="ot">list</span> sup_tens_imc <span class="kw">in</span> 1/10</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> diff_tens diff_imc</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> sup_tens_imc = bpsystol&gt; frval(l1, mean_tens) &amp; bmi &gt; frval(l2, mean_imc)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span> sup_tens_imc <span class="kw">in</span> 1/10</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      +----------+
@@ -517,7 +517,7 @@ c.mtension@sex |
 <p><strong>Vérifier la frame chargée dans l’interface</strong></p>
 <p><strong><code>frame pwf</code></strong> ou plus rapidement <strong><code>pwf</code></strong></p>
 <div id="24fe9f5f" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1"></a>pwf</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>pwf</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  (current frame is nhanes)</code></pre>
 </div>
@@ -525,12 +525,12 @@ c.mtension@sex |
 <p><strong>Changer de frame chargée dans l’interface</strong></p>
 <p>Depuis le début, seule la frame <em>nhanes</em> était chargée dans l’interface. On peut à tout moment changer la frame chargée avec <em><code>frame change nom_frame</code></em>.</p>
 <div id="43e9ec69" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1"></a>frame change tension</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="kw">des</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a></span>
-<span id="cb31-4"><a href="#cb31-4"></a>frame nhanes:  <span class="kw">des</span>, <span class="fu">s</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a></span>
-<span id="cb31-6"><a href="#cb31-6"></a>frame change nhanes</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>frame change tension</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">des</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>frame nhanes:  <span class="kw">des</span>, <span class="fu">s</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>frame change nhanes</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Contains data
@@ -559,11 +559,11 @@ Sorted by:
 <li>On peut supprimer toutes les frames avec <strong><code>frame reset</code></strong>. Dans ce cas plus aucune base ne sera chargée dans l’interface.</li>
 </ul>
 <div id="a9b0c96a" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1"></a>frame <span class="kw">drop</span> tension</span>
-<span id="cb33-2"><a href="#cb33-2"></a>frame <span class="ot">dir</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a></span>
-<span id="cb33-4"><a href="#cb33-4"></a>frame <span class="kw">reset</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">drop</span> tension</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">reset</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>* imc     2 x 2
 * nhanes  10351 x 61; nhanes2.dta
@@ -576,16 +576,16 @@ Note: Frames marked with * contain unsaved data.
 <p><strong>Création d’une frame</strong></p>
 <p>On peut créer une frame <em>vide</em> à tout moment avec <strong><code>frame create nom_frame</code></strong>. On peut également ajouter une liste de nom de variables: <strong><code>frame create nom_frame varlist</code></strong></p>
 <div id="fe7941f5" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb35-1"><a href="#cb35-1"></a>frame create <span class="kw">new</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>frame create <span class="kw">new</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  default  0 x 0
   new      0 x 0</code></pre>
 </div>
 </div>
 <div id="2375a0ef" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb37-1"><a href="#cb37-1"></a>frame create new2 x</span>
-<span id="cb37-2"><a href="#cb37-2"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>frame create new2 x</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  default  0 x 0
   new      0 x 0
@@ -596,14 +596,14 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 </div>
 <p>La frame <em>new2</em> à une colonne, mais aucune observation</p>
 <div id="f228c8cd" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb39-1"><a href="#cb39-1"></a>frame new2 {</span>
-<span id="cb39-2"><a href="#cb39-2"></a><span class="kw">set</span> <span class="kw">obs</span> 1000</span>
-<span id="cb39-3"><a href="#cb39-3"></a><span class="kw">replace</span> x = rnormal()</span>
-<span id="cb39-4"><a href="#cb39-4"></a><span class="kw">label</span> <span class="kw">variable</span> x <span class="st">"x = random normal (0,1)"</span></span>
-<span id="cb39-5"><a href="#cb39-5"></a><span class="kw">des</span></span>
-<span id="cb39-6"><a href="#cb39-6"></a>}</span>
-<span id="cb39-7"><a href="#cb39-7"></a></span>
-<span id="cb39-8"><a href="#cb39-8"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>frame new2 {</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 1000</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> x = rnormal()</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">variable</span> x <span class="st">"x = random normal (0,1)"</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="kw">des</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of observations (_N) was 0, now 1,000.
 (1,000 real changes made)
@@ -628,94 +628,94 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 </div>
 <p><strong>Ensemble du programme</strong></p>
 <div id="f124504c" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb41-1"><a href="#cb41-1"></a>frame <span class="ot">dir</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a></span>
-<span id="cb41-3"><a href="#cb41-3"></a><span class="kw">webuse</span> nhanes2</span>
-<span id="cb41-4"><a href="#cb41-4"></a></span>
-<span id="cb41-5"><a href="#cb41-5"></a>frame <span class="ot">dir</span> </span>
-<span id="cb41-6"><a href="#cb41-6"></a><span class="kw">des</span>, <span class="fu">s</span></span>
-<span id="cb41-7"><a href="#cb41-7"></a></span>
-<span id="cb41-8"><a href="#cb41-8"></a>frame <span class="kw">rename</span> <span class="kw">default</span> nhanes</span>
-<span id="cb41-9"><a href="#cb41-9"></a>frame <span class="ot">dir</span> </span>
-<span id="cb41-10"><a href="#cb41-10"></a></span>
-<span id="cb41-11"><a href="#cb41-11"></a>frame put sex bpsystol, into(tension)</span>
-<span id="cb41-12"><a href="#cb41-12"></a>frame put sex bmi,      into(imc)</span>
-<span id="cb41-13"><a href="#cb41-13"></a></span>
-<span id="cb41-14"><a href="#cb41-14"></a>frame <span class="ot">dir</span></span>
-<span id="cb41-15"><a href="#cb41-15"></a></span>
-<span id="cb41-16"><a href="#cb41-16"></a>* frame active (nhanes2)</span>
-<span id="cb41-17"><a href="#cb41-17"></a><span class="kw">tab</span> agegrp</span>
-<span id="cb41-18"><a href="#cb41-18"></a></span>
-<span id="cb41-19"><a href="#cb41-19"></a></span>
-<span id="cb41-20"><a href="#cb41-20"></a>* frame tension</span>
-<span id="cb41-21"><a href="#cb41-21"></a>frame tension: <span class="kw">rename</span> bpsystol tension</span>
-<span id="cb41-22"><a href="#cb41-22"></a>frame tension: <span class="kw">mean</span> tension, <span class="bn">over</span>(sex)</span>
-<span id="cb41-23"><a href="#cb41-23"></a></span>
-<span id="cb41-24"><a href="#cb41-24"></a>* frame imc</span>
-<span id="cb41-25"><a href="#cb41-25"></a>frame imc: <span class="kw">rename</span> bmi imc</span>
-<span id="cb41-26"><a href="#cb41-26"></a>frame imc: <span class="kw">mean</span> imc, <span class="bn">over</span>(sex)</span>
-<span id="cb41-27"><a href="#cb41-27"></a></span>
-<span id="cb41-28"><a href="#cb41-28"></a></span>
-<span id="cb41-29"><a href="#cb41-29"></a>frame tension {</span>
-<span id="cb41-30"><a href="#cb41-30"></a><span class="kw">collapse</span> tension, <span class="kw">by</span>(sex)</span>
-<span id="cb41-31"><a href="#cb41-31"></a><span class="ot">list</span></span>
-<span id="cb41-32"><a href="#cb41-32"></a>}</span>
-<span id="cb41-33"><a href="#cb41-33"></a></span>
-<span id="cb41-34"><a href="#cb41-34"></a>frame imc {</span>
-<span id="cb41-35"><a href="#cb41-35"></a><span class="kw">collapse</span> imc, <span class="kw">by</span>(sex)</span>
-<span id="cb41-36"><a href="#cb41-36"></a><span class="ot">list</span></span>
-<span id="cb41-37"><a href="#cb41-37"></a>}</span>
-<span id="cb41-38"><a href="#cb41-38"></a></span>
-<span id="cb41-39"><a href="#cb41-39"></a>frame <span class="ot">dir</span></span>
-<span id="cb41-40"><a href="#cb41-40"></a></span>
-<span id="cb41-41"><a href="#cb41-41"></a>frlink <span class="fu">m</span>:1 sex, frame(tension) <span class="kw">gen</span>(l1)</span>
-<span id="cb41-42"><a href="#cb41-42"></a>frlink <span class="fu">m</span>:1 sex, frame(imc) <span class="kw">gen</span>(l2)</span>
-<span id="cb41-43"><a href="#cb41-43"></a></span>
-<span id="cb41-44"><a href="#cb41-44"></a></span>
-<span id="cb41-45"><a href="#cb41-45"></a>frget mtension=tension, from(l1)</span>
-<span id="cb41-46"><a href="#cb41-46"></a>frget mimc=imc,     from(l2)</span>
-<span id="cb41-47"><a href="#cb41-47"></a></span>
-<span id="cb41-48"><a href="#cb41-48"></a></span>
-<span id="cb41-49"><a href="#cb41-49"></a></span>
-<span id="cb41-50"><a href="#cb41-50"></a><span class="kw">drop</span> mtension mimc</span>
-<span id="cb41-51"><a href="#cb41-51"></a>frame tension: <span class="kw">rename</span> tension mean_tension</span>
-<span id="cb41-52"><a href="#cb41-52"></a>frame imc:     <span class="kw">rename</span> imc     mean_imc</span>
-<span id="cb41-53"><a href="#cb41-53"></a></span>
-<span id="cb41-54"><a href="#cb41-54"></a></span>
-<span id="cb41-55"><a href="#cb41-55"></a><span class="kw">gen</span> diff_tens = bpsystol - frval(l1, mean_tension)</span>
-<span id="cb41-56"><a href="#cb41-56"></a><span class="kw">gen</span> diff_imc =  bmi      - frval(l2, mean_imc)</span>
-<span id="cb41-57"><a href="#cb41-57"></a></span>
-<span id="cb41-58"><a href="#cb41-58"></a><span class="kw">mean</span> diff_tens diff_imc, <span class="bn">over</span>(sex)</span>
-<span id="cb41-59"><a href="#cb41-59"></a></span>
-<span id="cb41-60"><a href="#cb41-60"></a><span class="kw">drop</span> diff_tens diff_imc</span>
-<span id="cb41-61"><a href="#cb41-61"></a><span class="kw">gen</span> sup_tens_imc = bpsystol&gt; frval(l1, mean_tension) &amp; bmi &gt; frval(l2, mean_imc)</span>
-<span id="cb41-62"><a href="#cb41-62"></a></span>
-<span id="cb41-63"><a href="#cb41-63"></a></span>
-<span id="cb41-64"><a href="#cb41-64"></a>frame change tension</span>
-<span id="cb41-65"><a href="#cb41-65"></a><span class="kw">des</span></span>
-<span id="cb41-66"><a href="#cb41-66"></a>frame nhanes:  <span class="kw">des</span>, <span class="fu">s</span></span>
-<span id="cb41-67"><a href="#cb41-67"></a>frame change nhanes</span>
-<span id="cb41-68"><a href="#cb41-68"></a></span>
-<span id="cb41-69"><a href="#cb41-69"></a>frame <span class="kw">drop</span> tension</span>
-<span id="cb41-70"><a href="#cb41-70"></a>frame <span class="ot">dir</span></span>
-<span id="cb41-71"><a href="#cb41-71"></a></span>
-<span id="cb41-72"><a href="#cb41-72"></a>frame <span class="kw">reset</span></span>
-<span id="cb41-73"><a href="#cb41-73"></a>frame <span class="ot">dir</span></span>
-<span id="cb41-74"><a href="#cb41-74"></a></span>
-<span id="cb41-75"><a href="#cb41-75"></a>frame create <span class="kw">new</span></span>
-<span id="cb41-76"><a href="#cb41-76"></a>frame <span class="ot">dir</span></span>
-<span id="cb41-77"><a href="#cb41-77"></a></span>
-<span id="cb41-78"><a href="#cb41-78"></a>frame create new2 x</span>
-<span id="cb41-79"><a href="#cb41-79"></a>frame <span class="ot">dir</span></span>
-<span id="cb41-80"><a href="#cb41-80"></a></span>
-<span id="cb41-81"><a href="#cb41-81"></a>frame new2 {</span>
-<span id="cb41-82"><a href="#cb41-82"></a><span class="kw">set</span> <span class="kw">obs</span> 1000</span>
-<span id="cb41-83"><a href="#cb41-83"></a><span class="kw">replace</span> x = rnormal()</span>
-<span id="cb41-84"><a href="#cb41-84"></a><span class="kw">label</span> <span class="kw">variable</span> x <span class="st">"x = random normal (0,1)"</span></span>
-<span id="cb41-85"><a href="#cb41-85"></a><span class="kw">des</span></span>
-<span id="cb41-86"><a href="#cb41-86"></a>}</span>
-<span id="cb41-87"><a href="#cb41-87"></a></span>
-<span id="cb41-88"><a href="#cb41-88"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">webuse</span> nhanes2</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span> </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="kw">des</span>, <span class="fu">s</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">rename</span> <span class="kw">default</span> nhanes</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span> </span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>frame put sex bpsystol, into(tension)</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>frame put sex bmi,      into(imc)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>* frame active (nhanes2)</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> agegrp</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>* frame tension</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>frame tension: <span class="kw">rename</span> bpsystol tension</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>frame tension: <span class="kw">mean</span> tension, <span class="bn">over</span>(sex)</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>* frame imc</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>frame imc: <span class="kw">rename</span> bmi imc</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>frame imc: <span class="kw">mean</span> imc, <span class="bn">over</span>(sex)</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>frame tension {</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a><span class="kw">collapse</span> tension, <span class="kw">by</span>(sex)</span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>frame imc {</span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a><span class="kw">collapse</span> imc, <span class="kw">by</span>(sex)</span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a>frlink <span class="fu">m</span>:1 sex, frame(tension) <span class="kw">gen</span>(l1)</span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a>frlink <span class="fu">m</span>:1 sex, frame(imc) <span class="kw">gen</span>(l2)</span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-44"><a href="#cb41-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-45"><a href="#cb41-45" aria-hidden="true" tabindex="-1"></a>frget mtension=tension, from(l1)</span>
+<span id="cb41-46"><a href="#cb41-46" aria-hidden="true" tabindex="-1"></a>frget mimc=imc,     from(l2)</span>
+<span id="cb41-47"><a href="#cb41-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-48"><a href="#cb41-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-49"><a href="#cb41-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-50"><a href="#cb41-50" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> mtension mimc</span>
+<span id="cb41-51"><a href="#cb41-51" aria-hidden="true" tabindex="-1"></a>frame tension: <span class="kw">rename</span> tension mean_tension</span>
+<span id="cb41-52"><a href="#cb41-52" aria-hidden="true" tabindex="-1"></a>frame imc:     <span class="kw">rename</span> imc     mean_imc</span>
+<span id="cb41-53"><a href="#cb41-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-54"><a href="#cb41-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-55"><a href="#cb41-55" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> diff_tens = bpsystol - frval(l1, mean_tension)</span>
+<span id="cb41-56"><a href="#cb41-56" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> diff_imc =  bmi      - frval(l2, mean_imc)</span>
+<span id="cb41-57"><a href="#cb41-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-58"><a href="#cb41-58" aria-hidden="true" tabindex="-1"></a><span class="kw">mean</span> diff_tens diff_imc, <span class="bn">over</span>(sex)</span>
+<span id="cb41-59"><a href="#cb41-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-60"><a href="#cb41-60" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> diff_tens diff_imc</span>
+<span id="cb41-61"><a href="#cb41-61" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> sup_tens_imc = bpsystol&gt; frval(l1, mean_tension) &amp; bmi &gt; frval(l2, mean_imc)</span>
+<span id="cb41-62"><a href="#cb41-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-63"><a href="#cb41-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-64"><a href="#cb41-64" aria-hidden="true" tabindex="-1"></a>frame change tension</span>
+<span id="cb41-65"><a href="#cb41-65" aria-hidden="true" tabindex="-1"></a><span class="kw">des</span></span>
+<span id="cb41-66"><a href="#cb41-66" aria-hidden="true" tabindex="-1"></a>frame nhanes:  <span class="kw">des</span>, <span class="fu">s</span></span>
+<span id="cb41-67"><a href="#cb41-67" aria-hidden="true" tabindex="-1"></a>frame change nhanes</span>
+<span id="cb41-68"><a href="#cb41-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-69"><a href="#cb41-69" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">drop</span> tension</span>
+<span id="cb41-70"><a href="#cb41-70" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-71"><a href="#cb41-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-72"><a href="#cb41-72" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">reset</span></span>
+<span id="cb41-73"><a href="#cb41-73" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-74"><a href="#cb41-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-75"><a href="#cb41-75" aria-hidden="true" tabindex="-1"></a>frame create <span class="kw">new</span></span>
+<span id="cb41-76"><a href="#cb41-76" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-77"><a href="#cb41-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-78"><a href="#cb41-78" aria-hidden="true" tabindex="-1"></a>frame create new2 x</span>
+<span id="cb41-79"><a href="#cb41-79" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb41-80"><a href="#cb41-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-81"><a href="#cb41-81" aria-hidden="true" tabindex="-1"></a>frame new2 {</span>
+<span id="cb41-82"><a href="#cb41-82" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 1000</span>
+<span id="cb41-83"><a href="#cb41-83" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> x = rnormal()</span>
+<span id="cb41-84"><a href="#cb41-84" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">variable</span> x <span class="st">"x = random normal (0,1)"</span></span>
+<span id="cb41-85"><a href="#cb41-85" aria-hidden="true" tabindex="-1"></a><span class="kw">des</span></span>
+<span id="cb41-86"><a href="#cb41-86" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-87"><a href="#cb41-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-88"><a href="#cb41-88" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  default  0 x 0
   new      0 x 0

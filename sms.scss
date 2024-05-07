@@ -38,14 +38,15 @@ $light:         $white    !default;
 $dark:          $gray-800 !default;
 
 
-$link-color: $pink;
+//$body-bg: $gray-100; 
+$body-color: #2c3e50;
+$link-color: #cd193f;
 $toc-color:  #cd193f;
 $navbar-bg:  #cd193f;
 
-
 $code-block-border-left: $pink;
 $code-block-border-left-size: 2px;
-$code-block-padding-left: 1em;
+$code-block-padding-left:     1em;
 
 $code-block-stdoutcolor: #37424a;
 $code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);

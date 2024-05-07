@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Elodie Baril">
-
-<title>Support Sms - Pondérations normalisées avec R</title>
+<title>Pondérations normalisées avec R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -71,8 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -86,29 +81,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../../../sms.css">
+}</script><link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
-    </a>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -116,8 +104,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -126,14 +114,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -142,15 +130,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Pondérations normalisées avec R</h1>
                                 <div class="quarto-categories">
@@ -197,47 +181,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#package-questionr" id="toc-package-questionr" class="nav-link active" data-scroll-target="#package-questionr">Package questionr</a>
+<li>
+<a href="#package-questionr" id="toc-package-questionr" class="nav-link active" data-scroll-target="#package-questionr">Package questionr</a>
   <ul class="collapse">
-  <li><a href="#fréquences-pondérées" id="toc-fréquences-pondérées" class="nav-link" data-scroll-target="#fréquences-pondérées">Fréquences pondérées</a></li>
-  <li><a href="#pourcentages-pondérés" id="toc-pourcentages-pondérés" class="nav-link" data-scroll-target="#pourcentages-pondérés">Pourcentages pondérés</a></li>
-  </ul></li>
-  <li><a href="#le-package-survey" id="toc-le-package-survey" class="nav-link" data-scroll-target="#le-package-survey">Le package <code>survey</code></a>
-  <ul class="collapse">
-  <li><a href="#création-de-la-variable-de-pondération-normalisée" id="toc-création-de-la-variable-de-pondération-normalisée" class="nav-link" data-scroll-target="#création-de-la-variable-de-pondération-normalisée">Création de la variable de pondération normalisée</a></li>
-  <li><a href="#design-de-léchantillon" id="toc-design-de-léchantillon" class="nav-link" data-scroll-target="#design-de-léchantillon">Design de l’échantillon</a></li>
-  <li><a href="#application-du-design-à-des-fonctions-analytiques" id="toc-application-du-design-à-des-fonctions-analytiques" class="nav-link" data-scroll-target="#application-du-design-à-des-fonctions-analytiques">Application du design à des fonctions analytiques</a></li>
-  </ul></li>
+<li><a href="#fr%C3%A9quences-pond%C3%A9r%C3%A9es" id="toc-fréquences-pondérées" class="nav-link" data-scroll-target="#fr%C3%A9quences-pond%C3%A9r%C3%A9es">Fréquences pondérées</a></li>
+  <li><a href="#pourcentages-pond%C3%A9r%C3%A9s" id="toc-pourcentages-pondérés" class="nav-link" data-scroll-target="#pourcentages-pond%C3%A9r%C3%A9s">Pourcentages pondérés</a></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#le-package-survey" id="toc-le-package-survey" class="nav-link" data-scroll-target="#le-package-survey">Le package <code>survey</code></a>
+  <ul class="collapse">
+<li><a href="#cr%C3%A9ation-de-la-variable-de-pond%C3%A9ration-normalis%C3%A9e" id="toc-création-de-la-variable-de-pondération-normalisée" class="nav-link" data-scroll-target="#cr%C3%A9ation-de-la-variable-de-pond%C3%A9ration-normalis%C3%A9e">Création de la variable de pondération normalisée</a></li>
+  <li><a href="#design-de-l%C3%A9chantillon" id="toc-design-de-léchantillon" class="nav-link" data-scroll-target="#design-de-l%C3%A9chantillon">Design de l’échantillon</a></li>
+  <li><a href="#application-du-design-%C3%A0-des-fonctions-analytiques" id="toc-application-du-design-à-des-fonctions-analytiques" class="nav-link" data-scroll-target="#application-du-design-%C3%A0-des-fonctions-analytiques">Application du design à des fonctions analytiques</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<table class="table">
+<main class="content quarto-banner-title-block" id="quarto-document-content"><table class="table">
 <caption><strong>Fonctions utilisées dans la fiche</strong></caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Package</th>
 <th>Fonction</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>questionr</strong></td>
-<td><code>wtd.table</code> - <code>cprop</code> - <code>lprop</code></td>
+<td>
+<code>wtd.table</code> - <code>cprop</code> - <code>lprop</code>
+</td>
 </tr>
 <tr class="even">
 <td><strong>survey</strong></td>
-<td><code>svydesign</code> - <code>svytable</code> - <code>svymean</code> - <code>svyglm</code></td>
+<td>
+<code>svydesign</code> - <code>svytable</code> - <code>svymean</code> - <code>svyglm</code>
+</td>
 </tr>
 <tr class="odd">
 <td><strong>Base R</strong></td>
@@ -252,17 +234,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Activation des packages et ouverture de la table d’exemple HDV</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#install.packages(questionr)</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#install.packages(survey)</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(questionr)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(survey)</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#Utilisation de la table d'exemple Histoire de vie (hdv2003) </span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">data</span>(<span class="st">"hdv2003"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># Extrait du fichier</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>hdv2003[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#install.packages(questionr)</span></span>
+<span><span class="co">#install.packages(survey)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://juba.github.io/questionr/">questionr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://r-survey.r-forge.r-project.org/survey/">survey</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Utilisation de la table d'exemple Histoire de vie (hdv2003) </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"hdv2003"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extrait du fichier</span></span>
+<span><span class="va">hdv2003</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id age  sexe                                              nivetud    poids
 1  1  28 Femme Enseignement superieur y compris technique superieur 2634.398
@@ -273,20 +255,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>La variable pondérée du fichier s’appelle <strong>poids</strong></p>
-<section id="package-questionr" class="level1">
-<h1>Package questionr</h1>
+<section id="package-questionr" class="level1"><h1>Package questionr</h1>
 <p>Le package <code>questionr</code> permet d’obtenir rapidement des tableaux de fréquences ou de pourcentages avec des poids normalisés. L’opération de normalisation est passée directement dans une option.</p>
-<section id="fréquences-pondérées" class="level2">
-<h2 class="anchored" data-anchor-id="fréquences-pondérées">Fréquences pondérées</h2>
+<section id="fréquences-pondérées" class="level2"><h2 class="anchored" data-anchor-id="fréquences-pondérées">Fréquences pondérées</h2>
 <ul>
-<li>Fonction <strong><code>wtd.table()</code></strong></li>
+<li>Fonction <strong><code><a href="https://juba.github.io/questionr/reference/wtd.table.html">wtd.table()</a></code></strong>
+</li>
 </ul>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>fréquences sans pondération</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">table</span>(hdv2003<span class="sc">$</span>sexe)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">sexe</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -299,15 +280,15 @@ Homme Femme
 <div class="code-with-filename-file">
 <pre><strong>fréquences avec pondérations</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># tris à plat avec l'option weights</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>sexe, <span class="at">weights =</span> hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># tris à plat avec l'option weights</span></span>
+<span><span class="fu"><a href="https://juba.github.io/questionr/reference/wtd.table.html">wtd.table</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">sexe</span>, weights <span class="op">=</span> <span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Homme   Femme 
 5149382 5921844 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#  tris croisé</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#  tris croisé</span></span>
+<span><span class="fu"><a href="https://juba.github.io/questionr/reference/wtd.table.html">wtd.table</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">qualif</span>,<span class="va">hdv2003</span><span class="op">$</span><span class="va">sexe</span>,weights<span class="op">=</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                             Homme     Femme
 Ouvrier specialise        532365.8  479015.0
@@ -325,7 +306,7 @@ Autre                     129695.9  145912.6</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>fréquences avec pondérations normalisées</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://juba.github.io/questionr/reference/wtd.table.html">wtd.table</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">sexe</span>,weights<span class="op">=</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span>, normwt<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Homme    Femme 
@@ -337,7 +318,7 @@ Autre                     129695.9  145912.6</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>tri croisé avec pondérations normalisées</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe,<span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://juba.github.io/questionr/reference/wtd.table.html">wtd.table</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">qualif</span>,<span class="va">hdv2003</span><span class="op">$</span><span class="va">sexe</span>,weights<span class="op">=</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span>, normwt<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                             Homme     Femme
@@ -350,26 +331,25 @@ Employe                   94.85286 468.22473
 Autre                     23.42937  26.35888</code></pre>
 </div>
 </div>
-</section>
-<section id="pourcentages-pondérés" class="level2">
-<h2 class="anchored" data-anchor-id="pourcentages-pondérés">Pourcentages pondérés</h2>
+</section><section id="pourcentages-pondérés" class="level2"><h2 class="anchored" data-anchor-id="pourcentages-pondérés">Pourcentages pondérés</h2>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Stocker le resultat des fréquences pondérées dans un objet, ici res</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>res<span class="ot">=</span><span class="fu">wtd.table</span>(hdv2003<span class="sc">$</span>qualif,hdv2003<span class="sc">$</span>sexe, <span class="at">weights=</span>hdv2003<span class="sc">$</span>poids, <span class="at">normwt=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res</span><span class="op">=</span><span class="fu"><a href="https://juba.github.io/questionr/reference/wtd.table.html">wtd.table</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">qualif</span>,<span class="va">hdv2003</span><span class="op">$</span><span class="va">sexe</span>, weights<span class="op">=</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span>, normwt<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <ul>
-<li>On utilise les fonctions <code>cprop()</code> et <code>lprop</code>:
+<li>On utilise les fonctions <code><a href="https://juba.github.io/questionr/reference/cprop.html">cprop()</a></code> et <code>lprop</code>:
 <ul>
 <li>cprop(): pourcentages colonnes</li>
 <li>lprop(): pourcentages lignes</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">cprop</span>(res) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://juba.github.io/questionr/reference/cprop.html">cprop</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                         Homme Femme Ensemble
 Ouvrier specialise        13.5  10.4  11.8   
@@ -381,7 +361,7 @@ Employe                   13.3  56.0  36.3
 Autre                      3.3   3.2   3.2   
 Total                    100.0 100.0 100.0   </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">lprop</span>(res) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://juba.github.io/questionr/reference/rprop.html">lprop</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                         Homme Femme Total
 Ouvrier specialise        52.6  47.4 100.0
@@ -394,71 +374,66 @@ Autre                     47.1  52.9 100.0
 Ensemble                  46.0  54.0 100.0</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="le-package-survey" class="level1">
-<h1>Le package <code>survey</code></h1>
+</section></section><section id="le-package-survey" class="level1"><h1>Le package <code>survey</code>
+</h1>
 <ul>
 <li>Plus riche, le package <strong><code>survey</code></strong> permet d’appliquer la pondération, normalisée ou non, à un ensemble plus vaster de fonction.</li>
 <li>Pour les modèles, l’application de la pondération normalisée (<strong>obligatoire</strong>) permet d’obtenir une estimation robuste de la variance des paramètres.</li>
 <li>La normalisation de la pondération se fait par la création d’une nouvelle variable.</li>
 </ul>
-<section id="création-de-la-variable-de-pondération-normalisée" class="level2">
-<h2 class="anchored" data-anchor-id="création-de-la-variable-de-pondération-normalisée">Création de la variable de pondération normalisée</h2>
-<p>On divise tout simplement chaque poids individuel par la moyenne des poids (fonction <code>mean()</code>)</p>
+<section id="création-de-la-variable-de-pondération-normalisée" class="level2"><h2 class="anchored" data-anchor-id="création-de-la-variable-de-pondération-normalisée">Création de la variable de pondération normalisée</h2>
+<p>On divise tout simplement chaque poids individuel par la moyenne des poids (fonction <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>)</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>creation d'une variable de pondération normalisée</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>hdv2003<span class="sc">$</span>poids_norm<span class="ot">=</span>hdv2003<span class="sc">$</span>poids<span class="sc">/</span><span class="fu">mean</span>(hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids_norm</span><span class="op">=</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Comme la normalisation se fait sur la taille de l’échantillon, la somme des poids normalisés est bien égale à l’effectif de celui-ci</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">sum</span>(hdv2003<span class="sc">$</span>poids_norm)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">hdv2003</span><span class="op">$</span><span class="va">poids_norm</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2000</code></pre>
 </div>
 </div>
-</section>
-<section id="design-de-léchantillon" class="level2">
-<h2 class="anchored" data-anchor-id="design-de-léchantillon">Design de l’échantillon</h2>
+</section><section id="design-de-léchantillon" class="level2"><h2 class="anchored" data-anchor-id="design-de-léchantillon">Design de l’échantillon</h2>
 <ul>
 <li>On est ici dans la situation la plus simple simple, le design se réduisant à l’application d’un poids d’échantillonage.</li>
-<li>Avant d’utiliser la fonction d’analyse on générère un objet renseignant les divers éléments entrant dans le design de l’enquête (ici seulement la variable <em>hdv2003$poids_norm</em>) avec la fonction <strong><code>svydesign</code></strong></li>
+<li>Avant d’utiliser la fonction d’analyse on générère un objet renseignant les divers éléments entrant dans le design de l’enquête (ici seulement la variable <em>hdv2003$poids_norm</em>) avec la fonction <strong><code>svydesign</code></strong>
+</li>
 </ul>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Fonction svydesign</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>dfw <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> hdv2003, <span class="at">weights =</span> <span class="sc">~</span> hdv2003<span class="sc">$</span>poids)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svydesign.html">svydesign</a></span><span class="op">(</span>ids <span class="op">=</span> <span class="op">~</span><span class="fl">1</span>, data <span class="op">=</span> <span class="va">hdv2003</span>, weights <span class="op">=</span> <span class="op">~</span> <span class="va">hdv2003</span><span class="op">$</span><span class="va">poids</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="application-du-design-à-des-fonctions-analytiques" class="level2">
-<h2 class="anchored" data-anchor-id="application-du-design-à-des-fonctions-analytiques">Application du design à des fonctions analytiques</h2>
+</section><section id="application-du-design-à-des-fonctions-analytiques" class="level2"><h2 class="anchored" data-anchor-id="application-du-design-à-des-fonctions-analytiques">Application du design à des fonctions analytiques</h2>
 <ul>
 <li>On ajoute aux fonctions l’objet généré avec <code>svydesign</code> (ici <strong>dfw</strong>)</li>
 </ul>
 <p><strong>Tableaux de fréquence</strong></p>
 <ul>
-<li>Fonction <strong><code>svytable</code></strong></li>
+<li>Fonction <strong><code>svytable</code></strong>
+</li>
 </ul>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>fréquences pondérées</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">svytable</span>(<span class="sc">~</span>sexe, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svychisq.html">svytable</a></span><span class="op">(</span><span class="op">~</span><span class="va">sexe</span>, <span class="va">dfw</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sexe
   Homme   Femme 
 5149382 5921844 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svychisq.html">svytable</a></span><span class="op">(</span><span class="op">~</span> <span class="va">sexe</span> <span class="op">+</span> <span class="va">qualif</span>, <span class="va">dfw</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       qualif
 sexe    Ouvrier specialise Ouvrier qualifie Technicien Profession intermediaire
@@ -475,7 +450,7 @@ sexe        Cadre   Employe     Autre
 <div class="code-with-filename-file">
 <pre><strong>Pourcentages pondérés</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">svytable</span>(<span class="sc">~</span> sexe <span class="sc">+</span> qualif, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survey/man/svychisq.html">svytable</a></span><span class="op">(</span><span class="op">~</span> <span class="va">sexe</span> <span class="op">+</span> <span class="va">qualif</span>, <span class="va">dfw</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -483,7 +458,7 @@ sexe        Cadre   Employe     Autre
 <div class="code-with-filename-file">
 <pre><strong>Pourcentages pondérés</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">lprop</span>(tab)  <span class="co"># % ligne pondérée</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://juba.github.io/questionr/reference/rprop.html">lprop</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span>  <span class="co"># % ligne pondérée</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          qualif
@@ -497,7 +472,7 @@ sexe       Profession intermediaire Cadre Employe Autre Total
   Femme      8.1                     13.5  56.0     3.2 100.0
   Ensemble   9.5                     16.4  36.3     3.2 100.0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">cprop</span>(tab)  <span class="co"># % colonne pondérée</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://juba.github.io/questionr/reference/cprop.html">cprop</a></span><span class="op">(</span><span class="va">tab</span><span class="op">)</span>  <span class="co"># % colonne pondérée</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       qualif
 sexe    Ouvrier specialise Ouvrier qualifie Technicien Profession intermediaire
@@ -513,14 +488,15 @@ sexe    Cadre Employe Autre Ensemble
 </div>
 <p><strong>Moyenne pondérée</strong></p>
 <ul>
-<li>Fonction <code>svymean</code> et <code>svyby</code></li>
+<li>Fonction <code>svymean</code> et <code>svyby</code>
+</li>
 </ul>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Moyenne pondérée</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">svymean</span>(<span class="sc">~</span>age, dfw)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/surveysummary.html">svymean</a></span><span class="op">(</span><span class="op">~</span><span class="va">age</span>, <span class="va">dfw</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      mean     SE
@@ -535,7 +511,7 @@ age 46.347 0.5284</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>Moyennes pondérées par groupe</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">svyby</span>(<span class="sc">~</span>age, <span class="sc">~</span>sexe, dfw, svymean)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyby.html">svyby</a></span><span class="op">(</span><span class="op">~</span><span class="va">age</span>, <span class="op">~</span><span class="va">sexe</span>, <span class="va">dfw</span>, <span class="va">svymean</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       sexe      age        se
@@ -544,15 +520,16 @@ Femme Femme 47.34313 0.7420836</code></pre>
 </div>
 </div>
 <ul>
-<li>Modèle logistique avec <code>svyglm</code></li>
+<li>Modèle logistique avec <code>svyglm</code>
+</li>
 </ul>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Moyennes pondérées par groupe</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">options</span>(<span class="at">show.signif.stars=</span><span class="cn">FALSE</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">summary</span>(<span class="fu">svyglm</span>(cuisine <span class="sc">~</span> age <span class="sc">+</span> sexe <span class="sc">+</span> occup <span class="sc">+</span> qualif, dfw, <span class="at">family=</span>binomial))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>show.signif.stars<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survey/man/svyglm.html">svyglm</a></span><span class="op">(</span><span class="va">cuisine</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">sexe</span> <span class="op">+</span> <span class="va">occup</span> <span class="op">+</span> <span class="va">qualif</span>, <span class="va">dfw</span>, family<span class="op">=</span><span class="va">binomial</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in eval(family$initialize): nombre de succès non entier dans un glm
@@ -593,11 +570,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <p>Vous pouvez retrouver dans la documentation l’ensemble des fonctions prises en charge.</p>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1005,13 +978,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-
 
 
 

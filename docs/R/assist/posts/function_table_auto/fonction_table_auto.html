@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Arno Muller">
-
-<title>Support Sms - Fonction pour des tables automatiques</title>
+<title>Fonction pour des tables automatiques</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,33 +84,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-<script src="../../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-<link href="../../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
-
-
+}</script><script src="../../../../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
-    </a>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -123,8 +108,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -133,14 +118,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -149,15 +134,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Fonction pour des tables automatiques</h1>
                                 <div class="quarto-categories">
@@ -205,48 +186,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+<li>
+<a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#données-dexemples" id="toc-données-dexemples" class="nav-link" data-scroll-target="#données-dexemples">Données d’exemples</a></li>
+<li><a href="#donn%C3%A9es-dexemples" id="toc-données-dexemples" class="nav-link" data-scroll-target="#donn%C3%A9es-dexemples">Données d’exemples</a></li>
   <li><a href="#objectifs" id="toc-objectifs" class="nav-link" data-scroll-target="#objectifs">Objectifs :</a></li>
-  </ul></li>
-  <li><a href="#mise-en-oeuvre" id="toc-mise-en-oeuvre" class="nav-link" data-scroll-target="#mise-en-oeuvre">Mise en oeuvre</a>
+  </ul>
+</li>
+  <li>
+<a href="#mise-en-oeuvre" id="toc-mise-en-oeuvre" class="nav-link" data-scroll-target="#mise-en-oeuvre">Mise en oeuvre</a>
   <ul class="collapse">
-  <li><a href="#fonctionnement" id="toc-fonctionnement" class="nav-link" data-scroll-target="#fonctionnement">Fonctionnement</a></li>
-  <li><a href="#paramètre-de-la-fonction" id="toc-paramètre-de-la-fonction" class="nav-link" data-scroll-target="#paramètre-de-la-fonction">Paramètre de la fonction</a></li>
+<li><a href="#fonctionnement" id="toc-fonctionnement" class="nav-link" data-scroll-target="#fonctionnement">Fonctionnement</a></li>
+  <li><a href="#param%C3%A8tre-de-la-fonction" id="toc-paramètre-de-la-fonction" class="nav-link" data-scroll-target="#param%C3%A8tre-de-la-fonction">Paramètre de la fonction</a></li>
   <li><a href="#import-de-la-fonction-table_auto" id="toc-import-de-la-fonction-table_auto" class="nav-link" data-scroll-target="#import-de-la-fonction-table_auto">Import de la fonction <code>table_auto()</code></a></li>
   <li><a href="#choix-des-variables" id="toc-choix-des-variables" class="nav-link" data-scroll-target="#choix-des-variables">Choix des variables</a></li>
-  <li><a href="#création-du-tableau-empilé" id="toc-création-du-tableau-empilé" class="nav-link" data-scroll-target="#création-du-tableau-empilé">Création du tableau empilé</a></li>
-  </ul></li>
+  <li><a href="#cr%C3%A9ation-du-tableau-empil%C3%A9" id="toc-création-du-tableau-empilé" class="nav-link" data-scroll-target="#cr%C3%A9ation-du-tableau-empil%C3%A9">Création du tableau empilé</a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="introduction" class="level1"><h1>Introduction</h1>
 <p>Il existe un large éventail de package R consacré à la gestion et la mise en forme de table et de tris croisés (<code>GT</code>, <code>flextable</code>, …). S’ils sont souvent de grandes qualités, leur coût d’entrée peut être un peu élevé pour les utilisateurs.rices occasionnelles de R.</p>
 <p>Pour répondre aux besoins de ces derniers, vous trouverez ici une fonction qui permet de facilement compiler des tris à plats ou bivariées, pour explorer automatiquement un grand nombre de variables, utiliser une pondération et les exporter dans un document Excel.</p>
 <p>Pour une introduction aux tables et à la pondération, voir la <a href="https://mthevenin.github.io/assistoolsms/R/assist/posts/weight_norm/weight_norm.html">fiche</a></p>
-<section id="données-dexemples" class="level2">
-<h2 class="anchored" data-anchor-id="données-dexemples">Données d’exemples</h2>
+<section id="données-dexemples" class="level2"><h2 class="anchored" data-anchor-id="données-dexemples">Données d’exemples</h2>
 <p>Pour illustrer la mise en oeuvre de la fonction, on utilise les données d’exemples <em>hdv2003</em> du packages <code>questionr</code>. Ces données possèdent à la fois des variables sur des carastéristiques socio-démographiques, des pratiques et des goûts, et propose une variable de pondération : <em>poids</em>.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Importation des données d'exemples</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(questionr)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">data</span>(<span class="st">"hdv2003"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://juba.github.io/questionr/">questionr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"hdv2003"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -254,16 +229,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">id</th>
 <th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">age</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">sexe</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">nivetud</th>
 <th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">poids</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">occup</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
@@ -320,9 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="objectifs" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs">Objectifs :</h2>
+</section><section id="objectifs" class="level2"><h2 class="anchored" data-anchor-id="objectifs">Objectifs :</h2>
 <ul>
 <li>Obtenir une table automatique avec les tris à plat d’un grand nombre de variables</li>
 <li>Croiser ces variables avec une variable choisie, par exemple le sexe ou la qualification et obtenir :
@@ -331,33 +302,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Les pourcentages lignes</li>
 <li>Les poucentages colonnes</li>
 <li>Ajout d’un test du chi²</li>
-</ul></li>
+</ul>
+</li>
 <li>Utiliser des pondérations</li>
 <li>Garder ou non les valeurs manquantes</li>
 <li>Exporter le tableau obtenu (Par exemple : image ci-dessous)</li>
 </ul>
 <p><a href="img/ex_table.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/ex_table.png" class="img-fluid" style="width:50.0%"></a></p>
-</section>
-</section>
-<section id="mise-en-oeuvre" class="level1">
-<h1>Mise en oeuvre</h1>
-<section id="fonctionnement" class="level2">
-<h2 class="anchored" data-anchor-id="fonctionnement">Fonctionnement</h2>
+</section></section><section id="mise-en-oeuvre" class="level1"><h1>Mise en oeuvre</h1>
+<section id="fonctionnement" class="level2"><h2 class="anchored" data-anchor-id="fonctionnement">Fonctionnement</h2>
 <p>On utilise la fonction <code>table_auto()</code> qui ne fait partie d’aucun package, il faut donc la charger dans un premier temps dans R. Une fois la fonction chargée, il suffira de la lancer en renseignant les variables, et les options voulues (présence de valeurs manquantes, pondérations, exportation)</p>
-</section>
-<section id="paramètre-de-la-fonction" class="level2">
-<h2 class="anchored" data-anchor-id="paramètre-de-la-fonction">Paramètre de la fonction</h2>
+</section><section id="paramètre-de-la-fonction" class="level2"><h2 class="anchored" data-anchor-id="paramètre-de-la-fonction">Paramètre de la fonction</h2>
 <table class="table">
 <colgroup>
 <col style="width: 22%">
 <col style="width: 77%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Paramètre</th>
 <th>Argument</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>donnees</strong></td>
@@ -403,65 +367,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>“oui” ou “non”, si oui : création d’un fichier excel.</td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="import-de-la-fonction-table_auto" class="level2">
-<h2 class="anchored" data-anchor-id="import-de-la-fonction-table_auto">Import de la fonction <code>table_auto()</code></h2>
+</table></section><section id="import-de-la-fonction-table_auto" class="level2"><h2 class="anchored" data-anchor-id="import-de-la-fonction-table_auto">Import de la fonction <code>table_auto()</code>
+</h2>
 <p>Pour l’instant la fonction ne se trouve pas dans un package, il faut donc la charger dans l’environnement global de R depuis GitHub en utilisant le code suivant.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Chargement de la fonction depuis Github</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/arnomuller/Fonction_R/main/table_auto/fonction_table_auto.R"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/arnomuller/Fonction_R/main/table_auto/fonction_table_auto.R"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p><a href="img/import_fct.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/import_fct.png" class="img-fluid" style="width:75.0%"></a></p>
 <p>Le code de la fonction est disponible <a href="https://github.com/arnomuller/table_auto">ici</a>, si vous souhaitez lui apparter des modifications pour l’adapter à vos besoins.</p>
-</section>
-<section id="choix-des-variables" class="level2">
-<h2 class="anchored" data-anchor-id="choix-des-variables">Choix des variables</h2>
+</section><section id="choix-des-variables" class="level2"><h2 class="anchored" data-anchor-id="choix-des-variables">Choix des variables</h2>
 <p>On définit les variables à croiser :</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Choix des variables</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>vars      <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"relig"</span>,<span class="st">"trav.imp"</span>,<span class="st">"trav.satisf"</span>,<span class="st">"hard.rock"</span>,</span>
-<span id="cb3-2"><a href="#cb3-2"></a>               <span class="st">"lecture.bd"</span>,<span class="st">"peche.chasse"</span>,<span class="st">"cuisine"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>               <span class="st">"bricol"</span>,<span class="st">"cinema"</span>,<span class="st">"sport"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vars</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"relig"</span>,<span class="st">"trav.imp"</span>,<span class="st">"trav.satisf"</span>,<span class="st">"hard.rock"</span>,</span>
+<span>               <span class="st">"lecture.bd"</span>,<span class="st">"peche.chasse"</span>,<span class="st">"cuisine"</span>,</span>
+<span>               <span class="st">"bricol"</span>,<span class="st">"cinema"</span>,<span class="st">"sport"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>On peut également définir ici la variable de poids et celle à croiser, ou le faire directement dans la fonction.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># On croise avec la variable sexe</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>var_crois <span class="ot">&lt;-</span> <span class="st">"sexe"</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Si pas de croisement écrire NULL</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>var_crois <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># Variable de pondération</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>ponder    <span class="ot">&lt;-</span> <span class="st">"poids"</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># Si pas de pondération :</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>ponder    <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># On croise avec la variable sexe</span></span>
+<span><span class="va">var_crois</span> <span class="op">&lt;-</span> <span class="st">"sexe"</span></span>
+<span><span class="co"># Si pas de croisement écrire NULL</span></span>
+<span><span class="va">var_crois</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span></span>
+<span><span class="co"># Variable de pondération</span></span>
+<span><span class="va">ponder</span>    <span class="op">&lt;-</span> <span class="st">"poids"</span></span>
+<span><span class="co"># Si pas de pondération :</span></span>
+<span><span class="va">ponder</span>    <span class="op">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="création-du-tableau-empilé" class="level2">
-<h2 class="anchored" data-anchor-id="création-du-tableau-empilé">Création du tableau empilé</h2>
+</section><section id="création-du-tableau-empilé" class="level2"><h2 class="anchored" data-anchor-id="création-du-tableau-empilé">Création du tableau empilé</h2>
 <p>En lançant le code suivant, on crée le data.frame <strong>tabdesc</strong>.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Activation de la fonction</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">table_auto</span>(hdv2003,              <span class="co"># Base de données</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>           vars,                 <span class="co"># Un vecteur avec les noms des variables</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>           <span class="at">var_crois   =</span> <span class="st">"sexe"</span>, <span class="co"># Variable à croiser, si NULL : tri à plat</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>           <span class="at">table_type  =</span> <span class="st">"eff"</span>,  <span class="co"># Type de table : "eff", "pct_lign", "pct_col"</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>           <span class="at">ponder      =</span> <span class="cn">NULL</span>,   <span class="co"># Variable de ponder. , si NULL: pas de poids</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>           <span class="at">val.manq    =</span> <span class="st">"non"</span>,  <span class="co"># Si "oui" avec valeurs manquantes</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>           <span class="at">arrondi     =</span> <span class="dv">4</span>,      <span class="co"># Nb de chiffres après la virgule</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a>           <span class="at">sautdeligne =</span> <span class="st">"oui"</span>,  <span class="co"># Sauter des lignes entre les variables</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>           <span class="at">export_XLS  =</span> <span class="st">"non"</span>)  <span class="co"># Si "oui" créer un excel : tableau_empilee</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">table_auto</span><span class="op">(</span><span class="va">hdv2003</span>,              <span class="co"># Base de données</span></span>
+<span>           <span class="va">vars</span>,                 <span class="co"># Un vecteur avec les noms des variables</span></span>
+<span>           var_crois   <span class="op">=</span> <span class="st">"sexe"</span>, <span class="co"># Variable à croiser, si NULL : tri à plat</span></span>
+<span>           table_type  <span class="op">=</span> <span class="st">"eff"</span>,  <span class="co"># Type de table : "eff", "pct_lign", "pct_col"</span></span>
+<span>           ponder      <span class="op">=</span> <span class="cn">NULL</span>,   <span class="co"># Variable de ponder. , si NULL: pas de poids</span></span>
+<span>           val.manq    <span class="op">=</span> <span class="st">"non"</span>,  <span class="co"># Si "oui" avec valeurs manquantes</span></span>
+<span>           arrondi     <span class="op">=</span> <span class="fl">4</span>,      <span class="co"># Nb de chiffres après la virgule</span></span>
+<span>           sautdeligne <span class="op">=</span> <span class="st">"oui"</span>,  <span class="co"># Sauter des lignes entre les variables</span></span>
+<span>           export_XLS  <span class="op">=</span> <span class="st">"non"</span><span class="op">)</span>  <span class="co"># Si "oui" créer un excel : tableau_empilee</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -469,8 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Var</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Levels</th>
 <th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">ENSEMBLE</th>
@@ -479,8 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">pvalue</th>
 <th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">ddl</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">danger</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -591,11 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1003,13 +955,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -1034,8 +983,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>

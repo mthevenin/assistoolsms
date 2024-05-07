@@ -1,0 +1,74 @@
+---
+title: "La commande touch"
+
+image: "http://i0.wp.com/compositecode.blog/wp-content/uploads/2018/10/good-bash-logo.png?resize=863%2C364&ssl=1"
+
+categories:
+  - Commande
+
+author: 
+  name: "Marc Thevenin"
+  affiliation: "Ined"
+
+author-title: "Auteur"
+
+date: 05/07/2024
+
+
+abstract: | 
+  Originaire du système Linux, la commande `touch` permet de créer des fichiers vides très rapidement à partir d'un terminal ou d'une invite de commandes. Cette commande est embarquée dans RStudio, mais doit être installée  si on souhaite l'utiliser dans l'invite de commande windows (ou powershell) 
+
+---
+
+## Générer des fichiers vides avec la commande touch
+
+* Cette commande est installée dans RStudio.
+* On l'utilise dans le terminal.
+* Syntaxe: `touch nom_fichier.extension`.
+
+Exemple:  
+
+Dans le terminal de RStudio:   
+
+* On créer^[ici directement avec la commande `mkdir`] un répertoire (où l'on veut)  appelé *commande_touch* 
+
+```{.bash}
+cd C:users/thevenin_m/desktop
+mkdir commande_touch
+cd commande_touch
+```
+
+On génère une série de fichiers vide, par exemple ici pour un projet Quarto (index.qmd, _quarto.yml, style.css style.scss: 
+
+```{.bash}
+touch index.qmd
+touch _quarto.yml
+touch style.css 
+touch style.scss
+```
+
+
+::: {.center}
+::: {.box_img}
+![](img/video1.gif)
+:::
+:::
+
+
+
+## Installation de la commande pour d'autres terminaux windows
+
+* Nécessite la commande **`npm`**:
+  * Vérifier si elle est déjà installée en allant dans l'invite de commande windows et tapant `npm -v`. Si la commande n'est pas reconnu, il faut l'installer
+  * Installation de `npm` via un exécutable: <https://nodejs.org/en/download/>
+  * Vérifier de nouveau si `npm` est bien installé en checkant sa version: `npm -v`
+  
+
+* Installation de **`touch`** via npm:
+  * Toujours dans l'invite de commande: `npm install -g touch-for-windows`
+  * On vérifie l'installation (avec un V): `npm -V`
+  
+  
+  
+
+

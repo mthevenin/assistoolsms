@@ -1,39 +1,56 @@
 
 .center{text-align: center}
 
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  letter-spacing: normal;
+}
 
 /*-- navbar --*/
 
+.navbar-title {color:white; padding:0}
+
+
 .navbar {
-  padding: 5px;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.25em;
-  color:#eceeef
+  font-size: 1.50em;
+  color: white
 }
 
 .nav-item {
   margin-right: 0;
+  margin-left: 5px;  
 }
 
 
-.navbar-title {color:#eceeef; padding:0}
-
+.navbar-container {
+  width: 80%;
+}
 
 #quarto-header {
-  border-bottom: 0px solid #1a1a1a;
+  border-bottom:   0px solid white;
+  border-top:      5px solid white;
+  border-left:    20px solid white;
+  border-right:   20px solid white;
 }
-
 
 
 .navbar-dark .navbar-nav .nav-link:hover {
 //  color: #cd193f;
-  font-weight: 500;
+  font-weight: 900;
 }
 
 .navbar-dark .navbar-nav .show>.nav-link, .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active {
   color: #cd193f;
 }
 
+
+
+a {
+font-weight: 500;  
+}
 
 
 /*-- quarto titles --*/
@@ -56,10 +73,12 @@
 
 
 .quarto-title-banner .quarto-title .title {
-  font-weight: 1200;
-  color:  #37424a;
-  border: 1px solid #37424a;
-  border-radius: 5px;
+  font-weight: 900;
+  font-size: 40px;
+  background-color:  #37424a;
+  color: white;
+  border: 5px solid #37424a;
+  border-radius: 10px;
   padding:20px;
   text-align: center;
 
@@ -120,14 +139,18 @@
 
 /*-- main content --*/
 
+/*
 body.nav-fixed {
   padding-top: auto;
   background-color: white;
 }
 
+
 #quarto-content {
   background-color: white;
 }
+*/
+
 
 #quarto-content>* {
   padding-top: 0;
@@ -322,7 +345,7 @@ h4,
 h6,
 .h6 {
   font-family: 'Roboto', sans-serif;
-  color: #1a1a1a;
+  color: #2c3e50;
   text-transform: none;
   letter-spacing: normal;
 }
@@ -330,7 +353,7 @@ h6,
 h1, .h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #2c3e50;
   text-transform: none;
   letter-spacing: normal;
 }
@@ -338,7 +361,7 @@ h1, .h1 {
 h2, .h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #2c3e50;
   text-transform: none;
   border-bottom: none;
   letter-spacing: normal;
@@ -360,12 +383,7 @@ h5,
   letter-spacing: normal;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  color: #1a1a1a;
-  letter-spacing: normal;
-}
+
 
 a {
   text-decoration: none;

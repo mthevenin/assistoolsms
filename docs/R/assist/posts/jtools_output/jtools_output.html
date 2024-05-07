@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Support Sms - Afficher des outputs de régression avec Jtools</title>
+<title>Afficher des outputs de régression avec Jtools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,8 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -254,12 +254,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="installation" class="level1">
 <h1><strong>Installation</strong></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jtools"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ou</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jacob-long/jtools"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"jacob-long/jtools"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="syntaxe-de-la-fonction-summ" class="level1">
@@ -270,8 +270,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>syntaxe minimale</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x , <span class="at">data=</span>df)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">summ</span>(fit)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x , <span class="at">data=</span>df)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summ</span>(fit)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -281,14 +281,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="avec-la-fonction-lm">Avec la fonction <code>lm()</code></h2>
 <p><a href="https://jtools.jacob-long.com/reference/summ.lm.html">Liste des options</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1"></a><span class="fu">library</span>(jtools)</span>
-<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2"></a><span class="fu">library</span>(readr)</span>
-<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3"></a></span>
-<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4"></a>df <span class="ot">=</span>  <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/intro_logit/main/hypertension2.csv"</span>)</span>
-<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5"></a></span>
-<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(bpsystol <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">data=</span>df)</span>
-<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-8" class="code-annotation-target"><a href="#annotated-cell-4-8"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span>  <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/intro_logit/main/hypertension2.csv"</span>)</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(bpsystol <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">data=</span>df)</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-8" class="code-annotation-target"><a href="#annotated-cell-4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
@@ -416,9 +416,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="avec-la-fonction-glm-lien-logit">Avec la fonction <code>glm()</code> [lien logit]</h2>
 <p><a href="https://jtools.jacob-long.com/reference/summ.glm.html">Liste des options</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1"></a>fit <span class="ot">=</span> <span class="fu">glm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">data=</span>df)   </span>
-<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">glm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">data=</span>df)   </span>
+<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
@@ -571,12 +571,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="avec-la-fonction-svyglm-lien-logit">Avec la fonction <code>svyglm()</code> [lien logit]</h2>
 <p><a href="https://jtools.jacob-long.com/reference/summ.svyglm.html">Liste des options</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(survey)</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">j_summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>w <span class="ot">=</span> <span class="fu">svydesign</span>(<span class="at">id=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">weights=</span><span class="sc">~</span>w, <span class="at">data=</span>df)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">svyglm</span>(highbp <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(sex) <span class="sc">+</span> <span class="fu">I</span>(black) <span class="sc">+</span> <span class="fu">I</span>(region), <span class="at">family=</span>binomial, <span class="at">design=</span>w)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">j_summ</span>(fit, <span class="at">digits=</span><span class="dv">4</span>, <span class="at">confint=</span><span class="cn">TRUE</span>, <span class="at">exp=</span><span class="cn">TRUE</span>)    </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <div class="table-responsive">
@@ -1134,7 +1134,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

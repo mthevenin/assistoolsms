@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Arno Muller">
-
-<title>Support Sms - Format JSON : de la liste au dataframe</title>
+<title>Format JSON : de la liste au dataframe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,29 +84,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../../../sms.css">
+}</script><link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
-    </a>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -119,8 +107,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -129,14 +117,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -145,15 +133,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Format JSON : de la liste au dataframe</h1>
                                 <div class="quarto-categories">
@@ -201,32 +185,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#données-dexemples" id="toc-données-dexemples" class="nav-link" data-scroll-target="#données-dexemples">Données d’exemples</a></li>
-  <li><a href="#importer-des-données-avec-jsonlite" id="toc-importer-des-données-avec-jsonlite" class="nav-link" data-scroll-target="#importer-des-données-avec-jsonlite">Importer des données avec <code>jsonlite</code></a></li>
-  <li><a href="#importer-des-données-avec-rjson" id="toc-importer-des-données-avec-rjson" class="nav-link" data-scroll-target="#importer-des-données-avec-rjson">Importer des données avec <code>rjson</code></a></li>
-  </ul>
-</nav>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#donn%C3%A9es-dexemples" id="toc-données-dexemples" class="nav-link" data-scroll-target="#donn%C3%A9es-dexemples">Données d’exemples</a></li>
+  <li><a href="#importer-des-donn%C3%A9es-avec-jsonlite" id="toc-importer-des-données-avec-jsonlite" class="nav-link" data-scroll-target="#importer-des-donn%C3%A9es-avec-jsonlite">Importer des données avec <code>jsonlite</code></a></li>
+  <li><a href="#importer-des-donn%C3%A9es-avec-rjson" id="toc-importer-des-données-avec-rjson" class="nav-link" data-scroll-target="#importer-des-donn%C3%A9es-avec-rjson">Importer des données avec <code>rjson</code></a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<table class="table">
+<main class="content quarto-banner-title-block" id="quarto-document-content"><table class="table">
 <caption><strong>Fonctions utilisées dans la fiche</strong></caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Packages</th>
 <th>Fonctions</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>jsonlite</strong></td>
@@ -242,27 +216,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td><strong>Base R</strong></td>
-<td><code>as.data.frame</code> - <code>knitr</code> - <code>class</code></td>
+<td>
+<code>as.data.frame</code> - <code>knitr</code> - <code>class</code>
+</td>
 </tr>
 </tbody>
 </table>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level1"><h1>Introduction</h1>
 <p>Pour importer des données au format JSON, nous proposons deux packages <code>rjson</code> et <code>jsonlite</code>. Le dernier est beaucoup plus facile d’utilisation et renvoie automatiquement une base de donnée faites de colonnes. Je propose <code>rjson</code> comme une alternative à <code>jsonlite</code> en cas de pépin.</p>
-</section>
-<section id="données-dexemples" class="level1">
-<h1>Données d’exemples</h1>
+</section><section id="données-dexemples" class="level1"><h1>Données d’exemples</h1>
 <p>Le format JSON est surtout utilisé pour les données issues d’API web ou de source OpenData. Pour les exemples ci-dessous nous utiliserons donc des données issues du site de la SNCF qui mettent à disposition un grand nombre de jeux de données en libre accès, et notamment dans notre cas, une <strong>base de données des menus des wagons-bars de TGV</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-</section>
-<section id="importer-des-données-avec-jsonlite" class="level1">
-<h1>Importer des données avec <code>jsonlite</code></h1>
+</section><section id="importer-des-données-avec-jsonlite" class="level1"><h1>Importer des données avec <code>jsonlite</code>
+</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>menu_TGV <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">"DATA/menus-des-bars-tgv.json"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Pour voir les 3 premières lignes</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">kable</span>(<span class="fu">head</span>(menu_TGV,<span class="dv">3</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://arxiv.org/abs/1403.2805">jsonlite</a></span><span class="op">)</span></span>
+<span><span class="va">menu_TGV</span> <span class="op">&lt;-</span> <span class="fu">jsonlite</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span><span class="op">(</span><span class="st">"DATA/menus-des-bars-tgv.json"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Pour voir les 3 premières lignes</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">menu_TGV</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -287,8 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <col style="width: 3%">
 <col style="width: 2%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">date_debut</th>
 <th style="text-align: left;">date_fin</th>
 <th style="text-align: left;">produit</th>
@@ -309,8 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th style="text-align: right;">proteines_100g_100ml</th>
 <th style="text-align: right;">glucides_100g_100ml</th>
 <th style="text-align: right;">lipides_100g_100ml</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2023-06-22</td>
@@ -382,11 +352,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-</section>
-<section id="importer-des-données-avec-rjson" class="level1">
-<h1>Importer des données avec <code>rjson</code></h1>
+</section><section id="importer-des-données-avec-rjson" class="level1"><h1>Importer des données avec <code>rjson</code>
+</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(rjson)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/alexcb/rjson">rjson</a></span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attachement du package : 'rjson'</code></pre>
@@ -396,8 +365,8 @@ Attachement du package : 'rjson'</code></pre>
 
     fromJSON, toJSON</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>menu_TGV <span class="ot">&lt;-</span> rjson<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="at">file =</span> <span class="st">"DATA/menus-des-bars-tgv.json"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">class</span>(menu_TGV)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">menu_TGV</span> <span class="op">&lt;-</span> <span class="fu">rjson</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjson/man/fromJSON.html">fromJSON</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"DATA/menus-des-bars-tgv.json"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">menu_TGV</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "list"</code></pre>
 </div>
@@ -407,9 +376,9 @@ Attachement du package : 'rjson'</code></pre>
 <p><a href="img/liste_explic.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/liste_explic.png" class="img-fluid" style="width:75.0%"></a></p>
 <p>On va donc extraire ces informations et les compiler dans une base de donnée ordonnées.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Convertir la liste en data frame par lignes</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>menu_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(rbind, menu_TGV))</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">kable</span>(<span class="fu">head</span>(menu_df,<span class="dv">3</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Convertir la liste en data frame par lignes</span></span>
+<span><span class="va">menu_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">menu_TGV</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">menu_df</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -434,8 +403,7 @@ Attachement du package : 'rjson'</code></pre>
 <col style="width: 3%">
 <col style="width: 2%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">date_debut</th>
 <th style="text-align: left;">date_fin</th>
 <th style="text-align: left;">produit</th>
@@ -456,8 +424,7 @@ Attachement du package : 'rjson'</code></pre>
 <th style="text-align: left;">proteines_100g_100ml</th>
 <th style="text-align: left;">glucides_100g_100ml</th>
 <th style="text-align: left;">lipides_100g_100ml</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2023-06-22</td>
@@ -528,10 +495,10 @@ Attachement du package : 'rjson'</code></pre>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Même chose avec le package data.table</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb8-3"><a href="#cb8-3"></a>menu_df2 <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(menu_TGV)</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">kable</span>(<span class="fu">head</span>(menu_df2,<span class="dv">3</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Même chose avec le package data.table</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
+<span><span class="va">menu_df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbindlist</a></span><span class="op">(</span><span class="va">menu_TGV</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">menu_df2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -556,8 +523,7 @@ Attachement du package : 'rjson'</code></pre>
 <col style="width: 3%">
 <col style="width: 2%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">date_debut</th>
 <th style="text-align: left;">date_fin</th>
 <th style="text-align: left;">produit</th>
@@ -578,8 +544,7 @@ Attachement du package : 'rjson'</code></pre>
 <th style="text-align: right;">proteines_100g_100ml</th>
 <th style="text-align: right;">glucides_100g_100ml</th>
 <th style="text-align: right;">lipides_100g_100ml</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2023-06-22</td>
@@ -653,17 +618,11 @@ Attachement du package : 'rjson'</code></pre>
 </div>
 
 
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notes de bas de page</h2>
-
+</section><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notes de bas de page</h2>
 <ol>
 <li id="fn1"><p><a href="https://ressources.data.sncf.com/explore/dataset/menus-des-bars-tgv/table/" class="uri">https://ressources.data.sncf.com/explore/dataset/menus-des-bars-tgv/table/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Pour découvrir comment utiliser des listes : <a href="https://juba.github.io/tidyverse/16-structures-donnees.html#sec-listes" class="uri">https://juba.github.io/tidyverse/16-structures-donnees.html#sec-listes</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1071,13 +1030,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -1102,8 +1058,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>

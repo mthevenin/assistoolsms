@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Support Sms - Le format dtas</title>
+<title>Le format dtas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,8 +105,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -218,11 +218,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>On génère la frame <em>prix</em> qui comprend la variable <em>price</em> de la frame <em>auto</em>.</li>
 </ul>
 <div id="3dc6b530" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">sysuse</span> auto </span>
-<span id="cb1-2"><a href="#cb1-2"></a>frame <span class="kw">rename</span> <span class="kw">default</span> auto</span>
-<span id="cb1-3"><a href="#cb1-3"></a>frame put price foreign, into(prix)</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">rename</span> <span class="kw">default</span> auto</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>frame put price foreign, into(prix)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>div.jp-Notebook .datagrid-container {min-height: 448px; }</style>
 </div>
@@ -238,10 +238,10 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 <li>La frame <em>prix</em> est transformé en une frame indicateurs avec la commande <code>collapse</code>.</li>
 </ul>
 <div id="d1ce4917" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1"></a>frame prix {</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">collapse</span> price, <span class="kw">by</span>(foreign)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="ot">list</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>frame prix {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">collapse</span> price, <span class="kw">by</span>(foreign)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      +--------------------+
@@ -257,7 +257,7 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 <li>Cette collection de frames est appelée <em>auto_prix</em>.</li>
 </ul>
 <div id="e5e8118c" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1"></a>frames <span class="kw">save</span> <span class="st">"auto_prix.dtas"</span>, frames(<span class="dt">_all</span>) <span class="kw">replace</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>frames <span class="kw">save</span> <span class="st">"auto_prix.dtas"</span>, frames(<span class="dt">_all</span>) <span class="kw">replace</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>file auto_prix.dtas saved</code></pre>
 </div>
@@ -267,12 +267,12 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 <li>On ouvre la collection <em>auto_prix.dtas</em></li>
 </ul>
 <div id="2473133a" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1"></a>frame <span class="kw">reset</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>frames <span class="kw">use</span> <span class="st">"auto_prix.dtas"</span>, frames(<span class="dt">_all</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>frame <span class="ot">dir</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>frame change prix</span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="ot">list</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">reset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>frames <span class="kw">use</span> <span class="st">"auto_prix.dtas"</span>, frames(<span class="dt">_all</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>frame change prix</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  auto  74 x 12; 1978 automobile data
   prix  2 x 2; 1978 automobile data
@@ -293,10 +293,10 @@ Note: Frames marked with * contain unsaved data.</code></pre>
 <li>On ouvre seulement la frame <em>prix</em> de la collection <em>auto_prix.dtas</em>.</li>
 </ul>
 <div id="5cc481e6" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1"></a>frame <span class="kw">reset</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a>frames <span class="kw">use</span> <span class="st">"auto_prix.dtas"</span>, frames(prix)</span>
-<span id="cb9-4"><a href="#cb9-4"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">reset</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>frames <span class="kw">use</span> <span class="st">"auto_prix.dtas"</span>, frames(prix)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  prix  2 x 2; 1978 automobile data
   default  0 x 0

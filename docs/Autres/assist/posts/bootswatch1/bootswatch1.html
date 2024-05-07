@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Support Sms - Badges, boutons…ajouter des éléments d’un thème bootstrap dans un document Quarto</title>
+<title>Badges, boutons…ajouter des éléments d’un thème bootstrap dans un document Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,8 +99,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -249,14 +249,14 @@ Important
 <ul>
 <li>Deux classes css à utiliser: <code>.badge</code> et <code>.bg-type_couleur</code> <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <code>.bg-primary</code>, <code>.bg-success</code> …</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1"></a>Un badge de type success: [success]{.badge .bg<span class="op">-</span>success}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Un badge de type success: [success]{.badge .bg<span class="op">-</span>success}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Un badge de type success: <span class="badge bg-success">success</span></p>
 <p><br></p>
 <p><span class="badge rounded-pill bg-primary">Badge de type 2</span></p>
 <ul>
 <li>Trois classes css à utiliser: <code>.badge</code>, <code>.rounded-pill</code> et <code>.bg-type_couleur</code></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1"></a>Un badge de type warning: [warning]{.badge .<span class="kw">rounded</span><span class="op">-</span>pill .bg<span class="op">-</span>success}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Un badge de type warning: [warning]{.badge .<span class="kw">rounded</span><span class="op">-</span>pill .bg<span class="op">-</span>success}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Un badge de type warning: <span class="badge rounded-pill bg-warning">warning</span></p>
 </section>
 <section id="les-boutons-pour-liens" class="level2">
@@ -266,7 +266,7 @@ Important
 <li>Deux classes css à utiliser: <code>.btn</code> et <code>.btn-type_couleur</code> <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <code>.btn-primary</code>, <code>.btn-success</code> …</li>
 <li>On les associe généralement à un lien.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb3-1"><a href="#cb3-1"></a>Un bouton de type success dans un lien: [[SO MATE]{.btn .btn<span class="op">-</span>success}](https:<span class="op">//</span>mate<span class="op">-</span>shs.cnrs.fr<span class="op">/</span>les<span class="op">-</span>groupes<span class="op">/</span>so<span class="op">-</span>mate<span class="op">-</span>mate<span class="op">-</span>shs<span class="op">-</span>sud<span class="op">-</span>ouest<span class="op">-</span><span class="dv">2</span><span class="op">/</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Un bouton de type success dans un lien: [[SO MATE]{.btn .btn<span class="op">-</span>success}](https:<span class="op">//</span>mate<span class="op">-</span>shs.cnrs.fr<span class="op">/</span>les<span class="op">-</span>groupes<span class="op">/</span>so<span class="op">-</span>mate<span class="op">-</span>mate<span class="op">-</span>shs<span class="op">-</span>sud<span class="op">-</span>ouest<span class="op">-</span><span class="dv">2</span><span class="op">/</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Un bouton de type success dans un lien:<br>
 <a href="https://mate-shs.cnrs.fr/les-groupes/so-mate-mate-shs-sud-ouest-2/"><span class="btn btn-success">SO MATE</span></a></p>
 <p><br></p>
@@ -275,7 +275,7 @@ Important
 <li>Deux classes css à utiliser: <code>.btn</code> et <code>.btn-outline-type_couleur</code> <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <code>.btn-outline-primary</code>, <code>.btn-outline-success</code> …</li>
 <li>On les associe généralement à un lien.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb4-1"><a href="#cb4-1"></a>Un bouton de type warning dans un lien: [[Conflit Git]{.btn .btn<span class="op">-</span>outline<span class="op">-</span>warning}](https:<span class="op">//</span>docs.gitlab.com<span class="op">/</span>ee<span class="op">/</span>user<span class="op">/</span>project<span class="op">/</span>merge_requests<span class="op">/</span>conflicts.html)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Un bouton de type warning dans un lien: [[Conflit Git]{.btn .btn<span class="op">-</span>outline<span class="op">-</span>warning}](https:<span class="op">//</span>docs.gitlab.com<span class="op">/</span>ee<span class="op">/</span>user<span class="op">/</span>project<span class="op">/</span>merge_requests<span class="op">/</span>conflicts.html)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Un bouton de type warning dans un lien:<br>
 <a href="https://docs.gitlab.com/ee/user/project/merge_requests/conflicts.html"><span class="btn btn-outline-warning">Conflit Git</span></a></p>
 </section>
@@ -285,10 +285,10 @@ Important
 <li>Peuvent se substituer aux callout, peuvent se fermer avec la croix en haut à gauche</li>
 </ul>
 <p><strong>Sans pouvoir fermer l’encadré</strong>: avec deux classes css <code>.alert</code> <code>.alert-typ_couleur</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb5-1"><a href="#cb5-1"></a>::: {.alert .alert<span class="op">-</span>warning}</span>
-<span id="cb5-2"><a href="#cb5-2"></a>### Attention</span>
-<span id="cb5-3"><a href="#cb5-3"></a>Les noms de certaines couleurs diffèrent de celles que l'on retrouve par exemple dans les callout de quarto</span>
-<span id="cb5-4"><a href="#cb5-4"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert<span class="op">-</span>warning}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>### Attention</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Les noms de certaines couleurs diffèrent de celles que l'on retrouve par exemple dans les callout de quarto</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="attention" class="level3 alert alert-warning">
 <h3 class="anchored" data-anchor-id="attention">Attention</h3>
 <p>Les noms de certaines couleurs diffèrent de celles que l’on retrouve par exemple dans les callout de quarto</p>
@@ -298,11 +298,11 @@ Important
 <li>Ajouter la balise html suivante avant le texte <code>&lt;button type="button" class="btn-close" data-bs-dismiss="alert"&gt;&lt;/button&gt;</code></li>
 <li>A la section div (première ligne) ajouter la classe <code>.alert-dismissible</code></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource mf number-lines code-with-copy"><code class="sourceCode metafont"><span id="cb6-1"><a href="#cb6-1"></a>::: {.alert .alert<span class="op">-</span>success .alert<span class="op">-</span>dismissible}</span>
-<span id="cb6-2"><a href="#cb6-2"></a>&lt;button type<span class="op">=</span><span class="st">"button"</span> class<span class="op">=</span><span class="st">"btn-close"</span> data<span class="op">-</span>bs<span class="op">-</span>dismiss<span class="op">=</span><span class="st">"alert"</span>&gt;&lt;<span class="op">/</span>button&gt;</span>
-<span id="cb6-3"><a href="#cb6-3"></a>### Attention</span>
-<span id="cb6-4"><a href="#cb6-4"></a>Cliquer sur la croix si vous avez résolu votre premier conflit de fusion avec Git</span>
-<span id="cb6-5"><a href="#cb6-5"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert<span class="op">-</span>success .alert<span class="op">-</span>dismissible}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>&lt;button type<span class="op">=</span><span class="st">"button"</span> class<span class="op">=</span><span class="st">"btn-close"</span> data<span class="op">-</span>bs<span class="op">-</span>dismiss<span class="op">=</span><span class="st">"alert"</span>&gt;&lt;<span class="op">/</span>button&gt;</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>### Attention</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Cliquer sur la croix si vous avez résolu votre premier conflit de fusion avec Git</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="alert alert-success alert-dismissible">
 <button type="button" class="btn-close" data-bs-dismiss="alert">
 </button>

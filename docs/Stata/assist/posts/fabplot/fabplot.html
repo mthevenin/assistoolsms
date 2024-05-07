@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Marc Thévenin">
-
-<title>Support Sms - Contrôler l’effet spaghetti avec fabplot (NJ.Cox)</title>
+<title>Contrôler l’effet spaghetti avec fabplot (NJ.Cox)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,29 +84,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../../../sms.css">
+}</script><link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
-    </a>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -119,8 +107,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -129,14 +117,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -145,43 +133,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a>
+<li>
+<a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a>
   <ul class="collapse">
-  <li><a href="#fabplot" id="toc-fabplot" class="nav-link" data-scroll-target="#fabplot"><code>fabplot</code></a></li>
+<li><a href="#fabplot" id="toc-fabplot" class="nav-link" data-scroll-target="#fabplot"><code>fabplot</code></a></li>
   <li><a href="#fabplot2" id="toc-fabplot2" class="nav-link" data-scroll-target="#fabplot2"><code>fabplot2</code></a></li>
-  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple">Exemple</a>
+  <li>
+<a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple">Exemple</a>
   <ul class="collapse">
-  <li><a href="#empilement-des-9-courbes" id="toc-empilement-des-9-courbes" class="nav-link" data-scroll-target="#empilement-des-9-courbes">Empilement des 9 courbes</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#small-multiple-avec-fabplot" id="toc-small-multiple-avec-fabplot" class="nav-link" data-scroll-target="#small-multiple-avec-fabplot">Small-Multiple avec fabplot</a>
-  <ul class="collapse">
-  <li><a href="#syntaxe-allégée" id="toc-syntaxe-allégée" class="nav-link" data-scroll-target="#syntaxe-allégée">Syntaxe allégée</a></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
-  </ul></li>
+<li><a href="#empilement-des-9-courbes" id="toc-empilement-des-9-courbes" class="nav-link" data-scroll-target="#empilement-des-9-courbes">Empilement des 9 courbes</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="fabplot.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#small-multiple-avec-fabplot" id="toc-small-multiple-avec-fabplot" class="nav-link" data-scroll-target="#small-multiple-avec-fabplot">Small-Multiple avec fabplot</a>
+  <ul class="collapse">
+<li><a href="#syntaxe-all%C3%A9g%C3%A9e" id="toc-syntaxe-allégée" class="nav-link" data-scroll-target="#syntaxe-all%C3%A9g%C3%A9e">Syntaxe allégée</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
+  </ul>
+</li>
+  </ul><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="fabplot.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title"><strong>Contrôler l’effet spaghetti avec fabplot (NJ.Cox)</strong></h1>
   <div class="quarto-categories">
     <div class="quarto-category">graphique</div>
@@ -225,105 +211,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</header>
-
-
-<p><a href="https://journals.sagepub.com/doi/full/10.1177/1536867X211025838"><strong>Article Stata Journal</strong></a></p>
+</header><p><a href="https://journals.sagepub.com/doi/full/10.1177/1536867X211025838"><strong>Article Stata Journal</strong></a></p>
 <p>J’avais présenté le problème lors de la formation de 2020, mais avec un programme très compliqué. Cette commande très simple, permet de bien contrôler ce problème visualisation en utilisant sur deux objets graphiques l’option <code>by</code>…..pourquoi je n’y avais pas pensé.</p>
-<section id="installation" class="level1">
-<h1>Installation</h1>
-<section id="fabplot" class="level2">
-<h2 class="anchored" data-anchor-id="fabplot"><code>fabplot</code></h2>
+<section id="installation" class="level1"><h1>Installation</h1>
+<section id="fabplot" class="level2"><h2 class="anchored" data-anchor-id="fabplot"><code>fabplot</code></h2>
 <p>Commande d’origine. L’objet en arrière plan n’est pas modifiable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>ssc install fabplot</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="sc">*</span> help fabplot</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ssc install fabplot</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> help fabplot</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="fabplot2" class="level2">
-<h2 class="anchored" data-anchor-id="fabplot2"><code>fabplot2</code></h2>
+</section><section id="fabplot2" class="level2"><h2 class="anchored" data-anchor-id="fabplot2"><code>fabplot2</code></h2>
 <p>J’ai juste ajouté l’option <strong><code>backopts</code></strong>. Même principe que l’option <strong><code>frontopts</code></strong> qui modifie l’objet au premier plan.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>net install fabplot2, <span class="fu">from</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/stata_graphiques/master/ressources/fabplot2/"</span>) replace</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>net install fabplot2, <span class="fu">from</span>(<span class="st">"https://raw.githubusercontent.com/mthevenin/stata_graphiques/master/ressources/fabplot2/"</span>) replace</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="exemple" class="level2">
-<h2 class="anchored" data-anchor-id="exemple">Exemple</h2>
+</section><section id="exemple" class="level2"><h2 class="anchored" data-anchor-id="exemple">Exemple</h2>
 <blockquote class="blockquote">
 <p><strong>Note</strong> J’utilise systématiquement un thème que je génère avec le paquet <strong><code>grstyle</code></strong> de B.Jann.</p>
 </blockquote>
 <p>Je reprends le même exemple que pour la formation, avec la base babynames.<br>
 Ouverture de de la base:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>webuse set <span class="st">"https://raw.githubusercontent.com//mthevenin/stata_graphiques/master/ressources/fabplot2"</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>use babynames, clear</span>
-<span id="cb3-3"><a href="#cb3-3"></a>webuse set</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>webuse set <span class="st">"https://raw.githubusercontent.com//mthevenin/stata_graphiques/master/ressources/fabplot2"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>use babynames, clear</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>webuse set</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="empilement-des-9-courbes" class="level3">
-<h3 class="anchored" data-anchor-id="empilement-des-9-courbes">Empilement des 9 courbes</h3>
+<section id="empilement-des-9-courbes" class="level3"><h3 class="anchored" data-anchor-id="empilement-des-9-courbes">Empilement des 9 courbes</h3>
 <p>….. C’est illisible</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="sc">*</span> thème avec grstyle</span>
-<span id="cb4-2"><a href="#cb4-2"></a>grstyle init </span>
-<span id="cb4-3"><a href="#cb4-3"></a>grstyle set mesh</span>
-<span id="cb4-4"><a href="#cb4-4"></a>grstyle set color tableau, <span class="fu">n</span>(<span class="dv">9</span>)</span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="sc">*</span> Graphique</span>
-<span id="cb4-7"><a href="#cb4-7"></a>levelsof name, <span class="fu">local</span>(name)</span>
-<span id="cb4-8"><a href="#cb4-8"></a>local i <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>foreach nom of local name  {</span>
-<span id="cb4-10"><a href="#cb4-10"></a>local j <span class="ot">=</span> <span class="st">`</span><span class="at">i++' </span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="at">local line </span><span class="st">`</span>line<span class="st">' line n year if name=="`nom'" ||       </span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="st">local leg `leg'  `j' "`</span><span class="at">nom'"</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="at">}</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="at">tw </span><span class="st">`</span>line<span class="st">' , legend(order(`leg'</span><span class="er">)</span> <span class="fu">row</span>(<span class="dv">2</span>) <span class="fu">size</span>(<span class="sc">*</span>.<span class="dv">8</span>)  <span class="fu">region</span>(<span class="fu">color</span>(%<span class="dv">0</span>)) <span class="fu">pos</span>(<span class="dv">11</span>)<span class="er">)</span> <span class="fu">ytitle</span>(<span class="st">""</span>) <span class="fu">ylabel</span>(<span class="dv">0</span>(<span class="dv">20000</span>)<span class="dv">100000</span>, <span class="fu">angle</span>(<span class="dv">0</span>)) <span class="sc">/</span><span class="er">//</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="fu">title</span>(<span class="st">"Popularité des prénoms"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> thème avec grstyle</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>grstyle init </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>grstyle set mesh</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>grstyle set color tableau, <span class="fu">n</span>(<span class="dv">9</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> Graphique</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>levelsof name, <span class="fu">local</span>(name)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>local i <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>foreach nom of local name  {</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>local j <span class="ot">=</span> <span class="st">`</span><span class="at">i++' </span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">local line </span><span class="st">`</span>line<span class="st">' line n year if name=="`nom'" ||       </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">local leg `leg'  `j' "`</span><span class="at">nom'"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">}</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="at">tw </span><span class="st">`</span>line<span class="st">' , legend(order(`leg'</span><span class="er">)</span> <span class="fu">row</span>(<span class="dv">2</span>) <span class="fu">size</span>(<span class="sc">*</span>.<span class="dv">8</span>)  <span class="fu">region</span>(<span class="fu">color</span>(%<span class="dv">0</span>)) <span class="fu">pos</span>(<span class="dv">11</span>)<span class="er">)</span> <span class="fu">ytitle</span>(<span class="st">""</span>) <span class="fu">ylabel</span>(<span class="dv">0</span>(<span class="dv">20000</span>)<span class="dv">100000</span>, <span class="fu">angle</span>(<span class="dv">0</span>)) <span class="sc">/</span><span class="er">//</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Popularité des prénoms"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="g1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="g1.png" class="img-fluid" style="width:70.0%"></a></p>
-</section>
-</section>
-</section>
-<section id="small-multiple-avec-fabplot" class="level1">
-<h1>Small-Multiple avec fabplot</h1>
-<p>Avec un graphique de type statique, une solution à priviliégier serait un graphique de type <strong><em>small-multiple</em></strong> en conservant les autres courbes en arrière plan. Avec Stata, ce type de graphique est exécuté avec l’option <strong><code>by()</code></strong>.</p>
-<section id="syntaxe-allégée" class="level2">
-<h2 class="anchored" data-anchor-id="syntaxe-allégée">Syntaxe allégée</h2>
+</section></section></section><section id="small-multiple-avec-fabplot" class="level1"><h1>Small-Multiple avec fabplot</h1>
+<p>Avec un graphique de type statique, une solution à priviliégier serait un graphique de type <strong><em>small-multiple</em></strong> en conservant les autres courbes en arrière plan. Avec Stata, ce type de graphique est exécuté avec l’option <strong><code><a href="https://rdrr.io/r/base/by.html">by()</a></code></strong>.</p>
+<section id="syntaxe-allégée" class="level2"><h2 class="anchored" data-anchor-id="syntaxe-allégée">Syntaxe allégée</h2>
 <p><strong><code>fabplot[2] command yvar xvar [if] [in], by(byvar [,byopts]) [frontopts() backopts()] ....</code></strong></p>
 <ul>
-<li><code>fabplot[2]</code>: <code>fabplot</code> ou <code>fabplot2</code></li>
-<li><code>command</code>: <strong>line</strong> ou <strong>scatter</strong></li>
-<li><code>by(byvar [,opts)]</code>: indiquer à minima la variable catégorielle qui produira chaque sous graphique. Beaucoup d’options du graphique entre sans cette option, comme les titres ou la couleur du background</li>
-<li><code>frontopts</code>: les options de l’objet graphique en relief, comme la couleur et l’épaisseur de la courbe ou des marqueurs</li>
-<li><code>backopts</code>: avec <code>fabplot2</code> seulement, les options de l’objet graphique en arrière plan.</li>
-</ul>
-</section>
-<section id="application" class="level2">
-<h2 class="anchored" data-anchor-id="application">Application</h2>
+<li>
+<code>fabplot[2]</code>: <code>fabplot</code> ou <code>fabplot2</code>
+</li>
+<li>
+<code>command</code>: <strong>line</strong> ou <strong>scatter</strong>
+</li>
+<li>
+<code>by(byvar [,opts)]</code>: indiquer à minima la variable catégorielle qui produira chaque sous graphique. Beaucoup d’options du graphique entre sans cette option, comme les titres ou la couleur du background</li>
+<li>
+<code>frontopts</code>: les options de l’objet graphique en relief, comme la couleur et l’épaisseur de la courbe ou des marqueurs</li>
+<li>
+<code>backopts</code>: avec <code>fabplot2</code> seulement, les options de l’objet graphique en arrière plan.</li>
+</ul></section><section id="application" class="level2"><h2 class="anchored" data-anchor-id="application">Application</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#delimit ;</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a>fabplot2 line n year, </span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">by</span>(name, <span class="fu">title</span>(<span class="st">"Popularité des prénoms"</span>, <span class="fu">pos</span>(<span class="dv">11</span>))) </span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">frontopts</span>(<span class="fu">lw</span>(<span class="sc">*</span><span class="dv">2</span>) <span class="fu">lc</span>(<span class="st">"45 178 125"</span>)) </span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">backopts</span>(<span class="fu">lw</span>(<span class="sc">*</span>.<span class="dv">5</span>) <span class="fu">lc</span>(gs9)) </span>
-<span id="cb5-8"><a href="#cb5-8"></a></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="fu">ytitle</span>(<span class="st">""</span>)  <span class="fu">ylabel</span>(<span class="dv">0</span>(<span class="dv">20000</span>)<span class="dv">100000</span>, <span class="fu">labsize</span>(<span class="sc">*</span>.<span class="dv">8</span>) <span class="fu">glw</span>(<span class="sc">*</span>.<span class="dv">5</span>))</span>
-<span id="cb5-10"><a href="#cb5-10"></a>; </span>
-<span id="cb5-11"><a href="#cb5-11"></a></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co">#delimit cr</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#delimit ;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fabplot2 line n year, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(name, <span class="fu">title</span>(<span class="st">"Popularité des prénoms"</span>, <span class="fu">pos</span>(<span class="dv">11</span>))) </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">frontopts</span>(<span class="fu">lw</span>(<span class="sc">*</span><span class="dv">2</span>) <span class="fu">lc</span>(<span class="st">"45 178 125"</span>)) </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">backopts</span>(<span class="fu">lw</span>(<span class="sc">*</span>.<span class="dv">5</span>) <span class="fu">lc</span>(gs9)) </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ytitle</span>(<span class="st">""</span>)  <span class="fu">ylabel</span>(<span class="dv">0</span>(<span class="dv">20000</span>)<span class="dv">100000</span>, <span class="fu">labsize</span>(<span class="sc">*</span>.<span class="dv">8</span>) <span class="fu">glw</span>(<span class="sc">*</span>.<span class="dv">5</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>; </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#delimit cr</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="g2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="g2.png" class="img-fluid" style="width:70.0%"></a></p>
 <p><a href="https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/prog_fabplot.do"><strong>Programme .do</strong></a></p>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -731,13 +702,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -762,8 +730,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>

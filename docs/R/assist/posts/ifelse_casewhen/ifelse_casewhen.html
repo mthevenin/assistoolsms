@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Arno Muller">
-
-<title>Support Sms - Recoder des variables avec ifelse() - if_else - case_when()</title>
+<title>Recoder des variables avec ifelse() - if_else - case_when()</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,29 +84,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../../../sms.css">
+}</script><link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
-    </a>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -119,8 +107,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -129,14 +117,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -145,15 +133,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Recoder des variables avec ifelse() - if_else - case_when()</h1>
                                 <div class="quarto-categories">
@@ -192,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="block-title">Résumé</div>
-      <p>Lors d’un recodage d’une variable, on peut être emmené à créer des catégories dépendantes d’une ou plusieurs conditions. Pour cela, la plus part des logiciels permettent des fonctions qui suivent le schéma : SI condition ALORS catégorie1 SINON catégorie2. Sur R, plusieurs possibilités s’offrent à l’utilisateur.rice : notamment <code>ifelse()</code>, <code>if_else()</code>, <code>case_when()</code>.</p>
+      <p>Lors d’un recodage d’une variable, on peut être emmené à créer des catégories dépendantes d’une ou plusieurs conditions. Pour cela, la plus part des logiciels permettent des fonctions qui suivent le schéma : SI condition ALORS catégorie1 SINON catégorie2. Sur R, plusieurs possibilités s’offrent à l’utilisateur.rice : notamment <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code>.</p>
     </div>
   </div>
   
@@ -200,59 +184,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#r-base-ifelse" id="toc-r-base-ifelse" class="nav-link active" data-scroll-target="#r-base-ifelse">R base : <code>ifelse()</code></a>
+<li>
+<a href="#r-base-ifelse" id="toc-r-base-ifelse" class="nav-link active" data-scroll-target="#r-base-ifelse">R base : <code>ifelse()</code></a>
   <ul class="collapse">
-  <li><a href="#procons" id="toc-procons" class="nav-link" data-scroll-target="#procons">Pro/Cons :</a></li>
+<li><a href="#procons" id="toc-procons" class="nav-link" data-scroll-target="#procons">Pro/Cons :</a></li>
   <li><a href="#exemple-1-variables-dichotomiques" id="toc-exemple-1-variables-dichotomiques" class="nav-link" data-scroll-target="#exemple-1-variables-dichotomiques">Exemple 1 : Variables dichotomiques</a></li>
-  <li><a href="#exemple-2-variables-avec-plus-de-2-modalités" id="toc-exemple-2-variables-avec-plus-de-2-modalités" class="nav-link" data-scroll-target="#exemple-2-variables-avec-plus-de-2-modalités">Exemple 2 : Variables avec plus de 2 modalités</a></li>
+  <li><a href="#exemple-2-variables-avec-plus-de-2-modalit%C3%A9s" id="toc-exemple-2-variables-avec-plus-de-2-modalités" class="nav-link" data-scroll-target="#exemple-2-variables-avec-plus-de-2-modalit%C3%A9s">Exemple 2 : Variables avec plus de 2 modalités</a></li>
   <li><a href="#exemple-3-conditions-issues-de-deux-variables-initiales" id="toc-exemple-3-conditions-issues-de-deux-variables-initiales" class="nav-link" data-scroll-target="#exemple-3-conditions-issues-de-deux-variables-initiales">Exemple 3 : Conditions issues de deux variables initiales</a></li>
-  </ul></li>
-  <li><a href="#dplyr-if_else" id="toc-dplyr-if_else" class="nav-link" data-scroll-target="#dplyr-if_else">Dplyr : <code>if_else()</code></a>
-  <ul class="collapse">
-  <li><a href="#procons-1" id="toc-procons-1" class="nav-link" data-scroll-target="#procons-1">Pro/Cons :</a></li>
-  <li><a href="#exemple-4-if_else" id="toc-exemple-4-if_else" class="nav-link" data-scroll-target="#exemple-4-if_else">Exemple 4 : <code>if_else()</code></a></li>
-  </ul></li>
-  <li><a href="#dplyr-case_when" id="toc-dplyr-case_when" class="nav-link" data-scroll-target="#dplyr-case_when">Dplyr : <code>case_when()</code></a>
-  <ul class="collapse">
-  <li><a href="#procons-2" id="toc-procons-2" class="nav-link" data-scroll-target="#procons-2">Pro/Cons :</a></li>
-  </ul></li>
-  <li><a href="#exemple-5-variable-dichotomique" id="toc-exemple-5-variable-dichotomique" class="nav-link" data-scroll-target="#exemple-5-variable-dichotomique">Exemple 5 : Variable dichotomique</a></li>
-  <li><a href="#exemple-6-variable-avec-plusieurs-modalités" id="toc-exemple-6-variable-avec-plusieurs-modalités" class="nav-link" data-scroll-target="#exemple-6-variable-avec-plusieurs-modalités">Exemple 6 : Variable avec plusieurs modalités</a></li>
-  <li><a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention !</a>
-  <ul class="collapse">
-  <li><a href="#ordre-daffectation-des-valeurs" id="toc-ordre-daffectation-des-valeurs" class="nav-link" data-scroll-target="#ordre-daffectation-des-valeurs">Ordre d’affectation des valeurs</a></li>
-  <li><a href="#a-propos-des-valeurs-manquantes" id="toc-a-propos-des-valeurs-manquantes" class="nav-link" data-scroll-target="#a-propos-des-valeurs-manquantes">A propos des valeurs manquantes</a></li>
-  </ul></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#dplyr-if_else" id="toc-dplyr-if_else" class="nav-link" data-scroll-target="#dplyr-if_else">Dplyr : <code>if_else()</code></a>
+  <ul class="collapse">
+<li><a href="#procons-1" id="toc-procons-1" class="nav-link" data-scroll-target="#procons-1">Pro/Cons :</a></li>
+  <li><a href="#exemple-4-if_else" id="toc-exemple-4-if_else" class="nav-link" data-scroll-target="#exemple-4-if_else">Exemple 4 : <code>if_else()</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#dplyr-case_when" id="toc-dplyr-case_when" class="nav-link" data-scroll-target="#dplyr-case_when">Dplyr : <code>case_when()</code></a>
+  <ul class="collapse">
+<li><a href="#procons-2" id="toc-procons-2" class="nav-link" data-scroll-target="#procons-2">Pro/Cons :</a></li>
+  </ul>
+</li>
+  <li><a href="#exemple-5-variable-dichotomique" id="toc-exemple-5-variable-dichotomique" class="nav-link" data-scroll-target="#exemple-5-variable-dichotomique">Exemple 5 : Variable dichotomique</a></li>
+  <li><a href="#exemple-6-variable-avec-plusieurs-modalit%C3%A9s" id="toc-exemple-6-variable-avec-plusieurs-modalités" class="nav-link" data-scroll-target="#exemple-6-variable-avec-plusieurs-modalit%C3%A9s">Exemple 6 : Variable avec plusieurs modalités</a></li>
+  <li>
+<a href="#attention" id="toc-attention" class="nav-link" data-scroll-target="#attention">Attention !</a>
+  <ul class="collapse">
+<li><a href="#ordre-daffectation-des-valeurs" id="toc-ordre-daffectation-des-valeurs" class="nav-link" data-scroll-target="#ordre-daffectation-des-valeurs">Ordre d’affectation des valeurs</a></li>
+  <li><a href="#a-propos-des-valeurs-manquantes" id="toc-a-propos-des-valeurs-manquantes" class="nav-link" data-scroll-target="#a-propos-des-valeurs-manquantes">A propos des valeurs manquantes</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<table class="table">
+<main class="content quarto-banner-title-block" id="quarto-document-content"><table class="table">
 <caption><strong>Fonctions utilisées dans la fiche</strong></caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Packages</th>
 <th>Fonctions</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>dplyr</strong></td>
-<td><code>if_else</code> - <code>case_when</code> - <code>mutate</code></td>
+<td>
+<code>if_else</code> - <code>case_when</code> - <code>mutate</code>
+</td>
 </tr>
 <tr class="even">
 <td><strong>Base R</strong></td>
-<td><code>ifelse</code> <code>table</code></td>
+<td>
+<code>ifelse</code> <code>table</code>
+</td>
 </tr>
 </tbody>
 </table>
@@ -260,10 +246,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/Schema_ifelse_base.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/Schema_ifelse_base.png" class="img-fluid" style="width:50.0%"></a></p>
 </div>
 <p><br></p>
-<section id="r-base-ifelse" class="level1">
-<h1>R base : <code>ifelse()</code></h1>
-<section id="procons" class="level2">
-<h2 class="anchored" data-anchor-id="procons">Pro/Cons :</h2>
+<section id="r-base-ifelse" class="level1"><h1>R base : <code>ifelse()</code>
+</h1>
+<section id="procons" class="level2"><h2 class="anchored" data-anchor-id="procons">Pro/Cons :</h2>
 <p><em>Avantage :</em><br>
 - Pas besoin de packages supplémentaires</p>
 <p><em>Inconvénient :</em></p>
@@ -274,50 +259,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Code moins lisible</li>
 <li>Gestion des conditions multiples illisibles</li>
-</ul>
-</section>
-<section id="exemple-1-variables-dichotomiques" class="level2">
-<h2 class="anchored" data-anchor-id="exemple-1-variables-dichotomiques">Exemple 1 : Variables dichotomiques</h2>
+</ul></section><section id="exemple-1-variables-dichotomiques" class="level2"><h2 class="anchored" data-anchor-id="exemple-1-variables-dichotomiques">Exemple 1 : Variables dichotomiques</h2>
 <p>Création d’une variable catégorielle <em>taille_rec</em>, avec deux modalités : “Grand.e”, “Petit.e”.</p>
 <div class="box_img">
 <p><a href="img/Schema_ifelse_ex1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/Schema_ifelse_ex1.png" class="img-fluid" style="width:33.0%"></a></p>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Sélection d'une seed pour obtenir le même échantillon </span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># dans la création des données fictive aléatoires</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Création du jeu de données exemple</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>individus <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-7"><a href="#cb1-7"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,</span>
-<span id="cb1-8"><a href="#cb1-8"></a>  <span class="co"># Âges aléatoires entre 18 et 65 ans</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">65</span>, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb1-10"><a href="#cb1-10"></a>  <span class="co"># Tailles aléatoires entre 150 et 200 cm</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>  <span class="at">taille =</span> <span class="fu">sample</span>(<span class="dv">150</span><span class="sc">:</span><span class="dv">200</span>, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb1-12"><a href="#cb1-12"></a>  <span class="co"># Sexe aléatoire (Homme ou Femme)</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a>  <span class="at">sexe =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Homme"</span>, <span class="st">"Femme"</span>), <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb1-14"><a href="#cb1-14"></a>)</span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="co"># Ajout d'une variable taill_rec pour illustrer l'utilisation de ifelse()</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>individus<span class="sc">$</span>taille_rec <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(individus<span class="sc">$</span>taille <span class="sc">&gt;</span> <span class="dv">175</span>, <span class="co"># Condition </span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>                               <span class="st">"Grand.e"</span>,              <span class="co"># Catégorie si VRAI </span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>                               <span class="st">"Petit.e"</span>)              <span class="co"># Catégorie si FAUX</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a></span>
-<span id="cb1-22"><a href="#cb1-22"></a></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co"># Affichage de la nouvelle variable</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="fu">table</span>(individus<span class="sc">$</span>taille_rec)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Sélection d'une seed pour obtenir le même échantillon </span></span>
+<span><span class="co"># dans la création des données fictive aléatoires</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Création du jeu de données exemple</span></span>
+<span><span class="va">individus</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,</span>
+<span>  <span class="co"># Âges aléatoires entre 18 et 65 ans</span></span>
+<span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">18</span><span class="op">:</span><span class="fl">65</span>, <span class="fl">20</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, </span>
+<span>  <span class="co"># Tailles aléatoires entre 150 et 200 cm</span></span>
+<span>  taille <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">150</span><span class="op">:</span><span class="fl">200</span>, <span class="fl">20</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, </span>
+<span>  <span class="co"># Sexe aléatoire (Homme ou Femme)</span></span>
+<span>  sexe <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Homme"</span>, <span class="st">"Femme"</span><span class="op">)</span>, <span class="fl">20</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
+<span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Ajout d'une variable taill_rec pour illustrer l'utilisation de ifelse()</span></span>
+<span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">175</span>, <span class="co"># Condition </span></span>
+<span>                               <span class="st">"Grand.e"</span>,              <span class="co"># Catégorie si VRAI </span></span>
+<span>                               <span class="st">"Petit.e"</span><span class="op">)</span>              <span class="co"># Catégorie si FAUX</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Affichage de la nouvelle variable</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grand.e Petit.e 
      12       8 </code></pre>
 </div>
 </div>
-</section>
-<section id="exemple-2-variables-avec-plus-de-2-modalités" class="level2">
-<h2 class="anchored" data-anchor-id="exemple-2-variables-avec-plus-de-2-modalités">Exemple 2 : Variables avec plus de 2 modalités</h2>
-<p>Il est possible d’empiler les fonctions <code>ifelse()</code> pour créer des variables avec plus de deux modalités. Pour cela on suit le schéma suivant :</p>
+</section><section id="exemple-2-variables-avec-plus-de-2-modalités" class="level2"><h2 class="anchored" data-anchor-id="exemple-2-variables-avec-plus-de-2-modalités">Exemple 2 : Variables avec plus de 2 modalités</h2>
+<p>Il est possible d’empiler les fonctions <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> pour créer des variables avec plus de deux modalités. Pour cela on suit le schéma suivant :</p>
 <div class="box_img">
 <p><a href="img/Schema_ifelse_ex2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/Schema_ifelse_ex2.png" class="img-fluid" style="width:50.0%"></a></p>
 </div>
@@ -331,25 +311,23 @@ Grand.e Petit.e
 <li>Grand.e : &gt; 185</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>individus<span class="sc">$</span>taille_rec2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(individus<span class="sc">$</span>taille <span class="sc">&gt;</span> <span class="dv">185</span>,      <span class="co"># Condition 1</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>                               <span class="st">"Grand.e"</span>,                    <span class="co"># Condi 1 Vrai </span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>                               <span class="fu">ifelse</span>(individus<span class="sc">$</span>taille <span class="sc">&lt;</span> <span class="dv">165</span>,<span class="co"># Condition 2</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>                                      <span class="st">"Petit.e"</span>,             <span class="co"># Condi 2 Vrai</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>                                      <span class="st">"Moyen.ne"</span>))           <span class="co"># Condi 1&amp;2 Fausse</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>                               </span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># Affichage de la nouvelle variable</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="fu">table</span>(individus<span class="sc">$</span>taille_rec2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">185</span>,      <span class="co"># Condition 1</span></span>
+<span>                               <span class="st">"Grand.e"</span>,                    <span class="co"># Condi 1 Vrai </span></span>
+<span>                               <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;</span> <span class="fl">165</span>,<span class="co"># Condition 2</span></span>
+<span>                                      <span class="st">"Petit.e"</span>,             <span class="co"># Condi 2 Vrai</span></span>
+<span>                                      <span class="st">"Moyen.ne"</span><span class="op">)</span><span class="op">)</span>           <span class="co"># Condi 1&amp;2 Fausse</span></span>
+<span>                               </span>
+<span></span>
+<span></span>
+<span><span class="co"># Affichage de la nouvelle variable</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec2</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  Grand.e Moyen.ne  Petit.e 
        8        9        3 </code></pre>
 </div>
 </div>
-</section>
-<section id="exemple-3-conditions-issues-de-deux-variables-initiales" class="level2">
-<h2 class="anchored" data-anchor-id="exemple-3-conditions-issues-de-deux-variables-initiales">Exemple 3 : Conditions issues de deux variables initiales</h2>
+</section><section id="exemple-3-conditions-issues-de-deux-variables-initiales" class="level2"><h2 class="anchored" data-anchor-id="exemple-3-conditions-issues-de-deux-variables-initiales">Exemple 3 : Conditions issues de deux variables initiales</h2>
 <p>Il est également possible de créer des variables à partir de conditions provenant de plusieurs variables.</p>
 <p>Dans cet exemple, nous allons créer une variable dont les catégories seront différentes selon pour les hommes et les femmes :</p>
 <p><br></p>
@@ -376,65 +354,60 @@ Grand.e Petit.e
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>individus<span class="sc">$</span>taille_rec3 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(individus<span class="sc">$</span>sexe <span class="sc">==</span> <span class="st">"Homme"</span> <span class="sc">&amp;</span> </span>
-<span id="cb5-2"><a href="#cb5-2"></a>                                  individus<span class="sc">$</span>taille <span class="sc">&lt;</span> <span class="dv">180</span>,      <span class="co"># Condition 1</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>                                <span class="co"># Condition 1 Vraie :</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>                                <span class="st">"Petit.e"</span>,    </span>
-<span id="cb5-5"><a href="#cb5-5"></a>                                <span class="co"># Sinon :</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>                                <span class="fu">ifelse</span>(individus<span class="sc">$</span>sexe <span class="sc">==</span> <span class="st">"Femme"</span> <span class="sc">&amp;</span> </span>
-<span id="cb5-7"><a href="#cb5-7"></a>                                  individus<span class="sc">$</span>taille <span class="sc">&lt;</span> <span class="dv">170</span>,      <span class="co"># Condition 2</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a>                                  <span class="co"># Condition 2 Vraie :</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>                                  <span class="st">"Petit.e"</span>,  </span>
-<span id="cb5-10"><a href="#cb5-10"></a>                                  <span class="co"># Tous les autres :</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>                                  <span class="st">"Grand.e"</span>))          </span>
-<span id="cb5-12"><a href="#cb5-12"></a>                               </span>
-<span id="cb5-13"><a href="#cb5-13"></a></span>
-<span id="cb5-14"><a href="#cb5-14"></a></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="co"># Affichage de la nouvelle variable</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="fu">table</span>(individus<span class="sc">$</span>taille_rec3)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">sexe</span> <span class="op">==</span> <span class="st">"Homme"</span> <span class="op">&amp;</span> </span>
+<span>                                  <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;</span> <span class="fl">180</span>,      <span class="co"># Condition 1</span></span>
+<span>                                <span class="co"># Condition 1 Vraie :</span></span>
+<span>                                <span class="st">"Petit.e"</span>,    </span>
+<span>                                <span class="co"># Sinon :</span></span>
+<span>                                <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">sexe</span> <span class="op">==</span> <span class="st">"Femme"</span> <span class="op">&amp;</span> </span>
+<span>                                  <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;</span> <span class="fl">170</span>,      <span class="co"># Condition 2</span></span>
+<span>                                  <span class="co"># Condition 2 Vraie :</span></span>
+<span>                                  <span class="st">"Petit.e"</span>,  </span>
+<span>                                  <span class="co"># Tous les autres :</span></span>
+<span>                                  <span class="st">"Grand.e"</span><span class="op">)</span><span class="op">)</span>          </span>
+<span>                               </span>
+<span></span>
+<span></span>
+<span><span class="co"># Affichage de la nouvelle variable</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec3</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grand.e Petit.e 
      14       6 </code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="dplyr-if_else" class="level1">
-<h1>Dplyr : <code>if_else()</code></h1>
-<section id="procons-1" class="level2">
-<h2 class="anchored" data-anchor-id="procons-1">Pro/Cons :</h2>
+</section></section><section id="dplyr-if_else" class="level1"><h1>Dplyr : <code>if_else()</code>
+</h1>
+<section id="procons-1" class="level2"><h2 class="anchored" data-anchor-id="procons-1">Pro/Cons :</h2>
 <p><em>Avantage :</em></p>
-<p>Le package <em>dplyr</em>, présent dans le <em>tidyverse</em>, propose sa propre version de la fonction <code>ifelse()</code>, qui permet d’éviter certains problèmes rencontrer avec la version de base.</p>
-<p>Ainsi, <code>if_else()</code> s’utilise exactement de la même manière que <code>ifelse</code>, elle est plus rapide et permet de conserver le type de la variable initiale.</p>
+<p>Le package <em>dplyr</em>, présent dans le <em>tidyverse</em>, propose sa propre version de la fonction <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>, qui permet d’éviter certains problèmes rencontrer avec la version de base.</p>
+<p>Ainsi, <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code> s’utilise exactement de la même manière que <code>ifelse</code>, elle est plus rapide et permet de conserver le type de la variable initiale.</p>
 <p><em>Inconvénient :</em></p>
 <ul>
 <li>Besoin d’installer un package</li>
 <li>Gestion des conditions multiples toujours illisibles</li>
-</ul>
-</section>
-<section id="exemple-4-if_else" class="level2">
-<h2 class="anchored" data-anchor-id="exemple-4-if_else">Exemple 4 : <code>if_else()</code></h2>
+</ul></section><section id="exemple-4-if_else" class="level2"><h2 class="anchored" data-anchor-id="exemple-4-if_else">Exemple 4 : <code>if_else()</code>
+</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#install.packages("dplyr")</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>individus<span class="sc">$</span>taille_rec4 <span class="ot">&lt;-</span> <span class="fu">if_else</span>(individus<span class="sc">$</span>sexe <span class="sc">==</span> <span class="st">"Homme"</span> <span class="sc">&amp;</span> </span>
-<span id="cb7-5"><a href="#cb7-5"></a>                                  individus<span class="sc">$</span>taille <span class="sc">&lt;</span> <span class="dv">180</span>,      <span class="co"># Condition 1</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>                                <span class="co"># Condition 1 Vraie :</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a>                                <span class="st">"Petit.e"</span>,    </span>
-<span id="cb7-8"><a href="#cb7-8"></a>                                <span class="co"># Sinon :</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a>                                <span class="fu">if_else</span>(individus<span class="sc">$</span>sexe <span class="sc">==</span> <span class="st">"Femme"</span> <span class="sc">&amp;</span> </span>
-<span id="cb7-10"><a href="#cb7-10"></a>                                  individus<span class="sc">$</span>taille <span class="sc">&lt;</span> <span class="dv">170</span>,      <span class="co"># Condition 2</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a>                                  <span class="co"># Condition 2 Vraie :</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a>                                  <span class="st">"Petit.e"</span>,  </span>
-<span id="cb7-13"><a href="#cb7-13"></a>                                  <span class="co"># Tous les autres :</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a>                                  <span class="st">"Grand.e"</span>))          </span>
-<span id="cb7-15"><a href="#cb7-15"></a>                               </span>
-<span id="cb7-16"><a href="#cb7-16"></a></span>
-<span id="cb7-17"><a href="#cb7-17"></a></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co"># Affichage de la nouvelle variable</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="fu">table</span>(individus<span class="sc">$</span>taille_rec4)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#install.packages("dplyr")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">sexe</span> <span class="op">==</span> <span class="st">"Homme"</span> <span class="op">&amp;</span> </span>
+<span>                                  <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;</span> <span class="fl">180</span>,      <span class="co"># Condition 1</span></span>
+<span>                                <span class="co"># Condition 1 Vraie :</span></span>
+<span>                                <span class="st">"Petit.e"</span>,    </span>
+<span>                                <span class="co"># Sinon :</span></span>
+<span>                                <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">sexe</span> <span class="op">==</span> <span class="st">"Femme"</span> <span class="op">&amp;</span> </span>
+<span>                                  <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;</span> <span class="fl">170</span>,      <span class="co"># Condition 2</span></span>
+<span>                                  <span class="co"># Condition 2 Vraie :</span></span>
+<span>                                  <span class="st">"Petit.e"</span>,  </span>
+<span>                                  <span class="co"># Tous les autres :</span></span>
+<span>                                  <span class="st">"Grand.e"</span><span class="op">)</span><span class="op">)</span>          </span>
+<span>                               </span>
+<span></span>
+<span></span>
+<span><span class="co"># Affichage de la nouvelle variable</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec4</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grand.e Petit.e 
@@ -442,72 +415,61 @@ Grand.e Petit.e
 </div>
 </div>
 <p><strong>On obtient bien le même résultat</strong></p>
-</section>
-</section>
-<section id="dplyr-case_when" class="level1">
-<h1>Dplyr : <code>case_when()</code></h1>
-<section id="procons-2" class="level2">
-<h2 class="anchored" data-anchor-id="procons-2">Pro/Cons :</h2>
-<p>La gestion des conditions multiples pouvant être fastidieuse avec les fonctions <code>ifelse()</code>, le code devenant rapidemment illisible, <em>dplyr</em> propose la fonction <code>case_when()</code> qui permet de l’organiser mieux.</p>
+</section></section><section id="dplyr-case_when" class="level1"><h1>Dplyr : <code>case_when()</code>
+</h1>
+<section id="procons-2" class="level2"><h2 class="anchored" data-anchor-id="procons-2">Pro/Cons :</h2>
+<p>La gestion des conditions multiples pouvant être fastidieuse avec les fonctions <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>, le code devenant rapidemment illisible, <em>dplyr</em> propose la fonction <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> qui permet de l’organiser mieux.</p>
 <p>Son fonctionnement se base sur des formules, il peut alors sembler plus ou moins compréhensibles selon les sensibilités de programmations.</p>
-</section>
-</section>
-<section id="exemple-5-variable-dichotomique" class="level1">
-<h1>Exemple 5 : Variable dichotomique</h1>
+</section></section><section id="exemple-5-variable-dichotomique" class="level1"><h1>Exemple 5 : Variable dichotomique</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a>individus<span class="sc">$</span>taille_rec5 <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb9-4"><a href="#cb9-4"></a>  individus<span class="sc">$</span>taille <span class="sc">&gt;</span> <span class="dv">175</span> <span class="sc">~</span> <span class="st">"Grand"</span>, <span class="co"># Condition 1 ~ Resultat 1</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>  individus<span class="sc">$</span>taille <span class="sc">&lt;=</span> <span class="dv">175</span> <span class="sc">~</span> <span class="st">"Petit"</span> <span class="co"># Condition 2 ~ Resultat 2</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>)</span>
-<span id="cb9-7"><a href="#cb9-7"></a></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co"># Exemple avec catégorie "ELSE"</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a>individus<span class="sc">$</span>taille_rec5bis <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb9-10"><a href="#cb9-10"></a>  individus<span class="sc">$</span>taille <span class="sc">&gt;</span> <span class="dv">175</span> <span class="sc">~</span> <span class="st">"Grand"</span>, <span class="co"># Condition  ~ Resultat </span></span>
-<span id="cb9-11"><a href="#cb9-11"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Petit"</span>                    <span class="co"># Sinon ~ Resultat pour les autres cas</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a>)</span>
-<span id="cb9-13"><a href="#cb9-13"></a></span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="fu">table</span>(individus<span class="sc">$</span>taille_rec5)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>  <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">175</span> <span class="op">~</span> <span class="st">"Grand"</span>, <span class="co"># Condition 1 ~ Resultat 1</span></span>
+<span>  <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;=</span> <span class="fl">175</span> <span class="op">~</span> <span class="st">"Petit"</span> <span class="co"># Condition 2 ~ Resultat 2</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Exemple avec catégorie "ELSE"</span></span>
+<span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec5bis</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>  <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">175</span> <span class="op">~</span> <span class="st">"Grand"</span>, <span class="co"># Condition  ~ Resultat </span></span>
+<span>  <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Petit"</span>                    <span class="co"># Sinon ~ Resultat pour les autres cas</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec5</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grand Petit 
    12     8 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">table</span>(individus<span class="sc">$</span>taille_rec5bis)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec5bis</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grand Petit 
    12     8 </code></pre>
 </div>
 </div>
-</section>
-<section id="exemple-6-variable-avec-plusieurs-modalités" class="level1">
-<h1>Exemple 6 : Variable avec plusieurs modalités</h1>
-<p>On reprend l’exemple 3 avec <code>case_when()</code>.</p>
+</section><section id="exemple-6-variable-avec-plusieurs-modalités" class="level1"><h1>Exemple 6 : Variable avec plusieurs modalités</h1>
+<p>On reprend l’exemple 3 avec <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>individus<span class="sc">$</span>taille_rec6 <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb13-4"><a href="#cb13-4"></a>  individus<span class="sc">$</span>sexe <span class="sc">==</span> <span class="st">"Homme"</span> <span class="sc">&amp;</span> individus<span class="sc">$</span>taille <span class="sc">&lt;</span> <span class="dv">180</span> <span class="sc">~</span> <span class="st">"Petit.e"</span>,</span>
-<span id="cb13-5"><a href="#cb13-5"></a>  individus<span class="sc">$</span>sexe <span class="sc">==</span> <span class="st">"Femme"</span> <span class="sc">&amp;</span> individus<span class="sc">$</span>taille <span class="sc">&lt;</span> <span class="dv">170</span> <span class="sc">~</span> <span class="st">"Petit.e"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Grand.e"</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>)</span>
-<span id="cb13-8"><a href="#cb13-8"></a></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="fu">table</span>(individus<span class="sc">$</span>taille_rec6)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>  <span class="va">individus</span><span class="op">$</span><span class="va">sexe</span> <span class="op">==</span> <span class="st">"Homme"</span> <span class="op">&amp;</span> <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;</span> <span class="fl">180</span> <span class="op">~</span> <span class="st">"Petit.e"</span>,</span>
+<span>  <span class="va">individus</span><span class="op">$</span><span class="va">sexe</span> <span class="op">==</span> <span class="st">"Femme"</span> <span class="op">&amp;</span> <span class="va">individus</span><span class="op">$</span><span class="va">taille</span> <span class="op">&lt;</span> <span class="fl">170</span> <span class="op">~</span> <span class="st">"Petit.e"</span>,</span>
+<span>  <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Grand.e"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">taille_rec6</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grand.e Petit.e 
      14       6 </code></pre>
 </div>
 </div>
-</section>
-<section id="attention" class="level1">
-<h1>Attention !</h1>
-<section id="ordre-daffectation-des-valeurs" class="level2">
-<h2 class="anchored" data-anchor-id="ordre-daffectation-des-valeurs">Ordre d’affectation des valeurs</h2>
-<p>Avec <code>ifelse()</code> ou avec <code>case_when</code>, une fois la première condition remplie, la nouvelle valeur ne peux plus être modifiée, ainsi si une condition future se superpose, elle ne sera pas prise en compte dans le recodage. <strong>On va du plus spécifique au plus général</strong></p>
+</section><section id="attention" class="level1"><h1>Attention !</h1>
+<section id="ordre-daffectation-des-valeurs" class="level2"><h2 class="anchored" data-anchor-id="ordre-daffectation-des-valeurs">Ordre d’affectation des valeurs</h2>
+<p>Avec <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> ou avec <code>case_when</code>, une fois la première condition remplie, la nouvelle valeur ne peux plus être modifiée, ainsi si une condition future se superpose, elle ne sera pas prise en compte dans le recodage. <strong>On va du plus spécifique au plus général</strong></p>
 <p><em>Exemple :</em> On crée une variable taille avec comme modalité :</p>
 <ul>
 <li>Petit : &lt; 170<br>
@@ -517,37 +479,37 @@ Grand.e Petit.e
 <li>Grand : &gt; 185</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>individus <span class="ot">&lt;-</span> individus <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">select</span>(id, taille) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3"></a>  </span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb15-5"><a href="#cb15-5"></a>    <span class="co"># avec ifelse</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>    <span class="at">var1 =</span> <span class="fu">ifelse</span>(taille <span class="sc">&gt;</span> <span class="dv">170</span>, <span class="st">"Moyen"</span>, </span>
-<span id="cb15-7"><a href="#cb15-7"></a>                  <span class="fu">ifelse</span>(taille <span class="sc">&gt;</span> <span class="dv">185</span>, <span class="st">"Grand"</span>, <span class="st">"Petit"</span>)),</span>
-<span id="cb15-8"><a href="#cb15-8"></a>    </span>
-<span id="cb15-9"><a href="#cb15-9"></a>    <span class="co"># avec if_else</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a>    <span class="at">var2 =</span> <span class="fu">if_else</span>(taille <span class="sc">&gt;</span> <span class="dv">170</span>, <span class="st">"Moyen"</span>, </span>
-<span id="cb15-11"><a href="#cb15-11"></a>                   <span class="fu">if_else</span>(taille <span class="sc">&gt;</span> <span class="dv">185</span>, <span class="st">"Grand"</span>, <span class="st">"Petit"</span>)),</span>
-<span id="cb15-12"><a href="#cb15-12"></a>    </span>
-<span id="cb15-13"><a href="#cb15-13"></a>    <span class="co"># avec case_when</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a>    <span class="at">var3 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb15-15"><a href="#cb15-15"></a>      taille <span class="sc">&gt;</span> <span class="dv">170</span> <span class="sc">~</span> <span class="st">"Moyen"</span>,</span>
-<span id="cb15-16"><a href="#cb15-16"></a>      taille <span class="sc">&gt;</span> <span class="dv">185</span> <span class="sc">~</span> <span class="st">"Grand"</span>, </span>
-<span id="cb15-17"><a href="#cb15-17"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Petit"</span>)) </span>
-<span id="cb15-18"><a href="#cb15-18"></a></span>
-<span id="cb15-19"><a href="#cb15-19"></a><span class="fu">table</span>(individus<span class="sc">$</span>var1)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">individus</span> <span class="op">&lt;-</span> <span class="va">individus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">taille</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    <span class="co"># avec ifelse</span></span>
+<span>    var1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">170</span>, <span class="st">"Moyen"</span>, </span>
+<span>                  <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">185</span>, <span class="st">"Grand"</span>, <span class="st">"Petit"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    </span>
+<span>    <span class="co"># avec if_else</span></span>
+<span>    var2 <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">170</span>, <span class="st">"Moyen"</span>, </span>
+<span>                   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">185</span>, <span class="st">"Grand"</span>, <span class="st">"Petit"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    </span>
+<span>    <span class="co"># avec case_when</span></span>
+<span>    var3 <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>      <span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">170</span> <span class="op">~</span> <span class="st">"Moyen"</span>,</span>
+<span>      <span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">185</span> <span class="op">~</span> <span class="st">"Grand"</span>, </span>
+<span>      <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Petit"</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">var1</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Moyen Petit 
    14     6 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">table</span>(individus<span class="sc">$</span>var2)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">var2</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Moyen Petit 
    14     6 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">table</span>(individus<span class="sc">$</span>var3)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">var3</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Moyen Petit 
@@ -556,31 +518,29 @@ Moyen Petit
 </div>
 <p>On voit qu’il n’y a pas la catégorie “Grand”, comme la valeur a déjà été affectée à la catégorie “Moyen”. Il faudrait alors :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>individus <span class="ot">&lt;-</span> individus <span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">mutate</span>(<span class="at">var5 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb21-3"><a href="#cb21-3"></a>    taille <span class="sc">&gt;</span> <span class="dv">185</span> <span class="sc">~</span> <span class="st">"Grand"</span>, </span>
-<span id="cb21-4"><a href="#cb21-4"></a>    taille <span class="sc">&gt;</span> <span class="dv">170</span> <span class="sc">~</span> <span class="st">"Moyen"</span>,</span>
-<span id="cb21-5"><a href="#cb21-5"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Petit"</span>)) </span>
-<span id="cb21-6"><a href="#cb21-6"></a></span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="fu">table</span>(individus<span class="sc">$</span>var5)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">individus</span> <span class="op">&lt;-</span> <span class="va">individus</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>var5 <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">185</span> <span class="op">~</span> <span class="st">"Grand"</span>, </span>
+<span>    <span class="va">taille</span> <span class="op">&gt;</span> <span class="fl">170</span> <span class="op">~</span> <span class="st">"Moyen"</span>,</span>
+<span>    <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Petit"</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">individus</span><span class="op">$</span><span class="va">var5</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Grand Moyen Petit 
     8     6     6 </code></pre>
 </div>
 </div>
-</section>
-<section id="a-propos-des-valeurs-manquantes" class="level2">
-<h2 class="anchored" data-anchor-id="a-propos-des-valeurs-manquantes">A propos des valeurs manquantes</h2>
-<p>Les fonctions <code>ifelse()</code> n’ont pas le même comportement pour le traitement des valeurs manquantes que la fonction <code>case_when</code>.</p>
+</section><section id="a-propos-des-valeurs-manquantes" class="level2"><h2 class="anchored" data-anchor-id="a-propos-des-valeurs-manquantes">A propos des valeurs manquantes</h2>
+<p>Les fonctions <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> n’ont pas le même comportement pour le traitement des valeurs manquantes que la fonction <code>case_when</code>.</p>
 <p>Dans le cas des fonctions <code>ifelse</code>, si l’une des variables de conditions est un NA, le résultat sera également une valeur manquante dans la variable crée.</p>
 <p>Dans le cas de la fonction <code>case_when</code>, l’individu avec une valeur manquante aura comme nouvelle valeur la catégorie défini dans la partie “SINON”.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p><em>Exemple :</em></p>
 <p>On crée un data frame avec des NA :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb23-2"><a href="#cb23-2"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">4</span>,<span class="cn">NA</span>,<span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="cn">NA</span>, letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]))</span>
-<span id="cb23-3"><a href="#cb23-3"></a>df</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span>,<span class="cn">NA</span>,<span class="fl">6</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>, b <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   a    b
 1  1 &lt;NA&gt;
@@ -593,12 +553,12 @@ Grand Moyen Petit
 8  7    g</code></pre>
 </div>
 </div>
-<p>On fait un recodage avec <code>ifelse()</code></p>
+<p>On fait un recodage avec <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">mutate</span>(<span class="at">res =</span> <span class="fu">if_else</span>(a <span class="sc">&gt;</span> <span class="dv">3</span>, <span class="st">"Yes"</span>, </span>
-<span id="cb25-3"><a href="#cb25-3"></a>                   <span class="fu">if_else</span>(b <span class="sc">==</span> <span class="st">"c"</span>, <span class="st">"No"</span>, </span>
-<span id="cb25-4"><a href="#cb25-4"></a>                           <span class="fu">if_else</span>(a <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">"Maybe"</span>, <span class="st">"Done"</span>))))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>res <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="fl">3</span>, <span class="st">"Yes"</span>, </span>
+<span>                   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">b</span> <span class="op">==</span> <span class="st">"c"</span>, <span class="st">"No"</span>, </span>
+<span>                           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="fl">5</span>, <span class="st">"Maybe"</span>, <span class="st">"Done"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   a    b  res
 1  1 &lt;NA&gt; &lt;NA&gt;
@@ -613,11 +573,11 @@ Grand Moyen Petit
 </div>
 <p>Les NA restent des NAs, alors qu’avec <code>case_when</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>   <span class="fu">mutate</span>(<span class="at">res =</span> <span class="fu">case_when</span>(a <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Yes"</span>, </span>
-<span id="cb27-3"><a href="#cb27-3"></a>                          b <span class="sc">==</span> <span class="st">"c"</span><span class="sc">~</span><span class="st">"No"</span>, </span>
-<span id="cb27-4"><a href="#cb27-4"></a>                          a <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Maybe"</span>, </span>
-<span id="cb27-5"><a href="#cb27-5"></a>                          <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Done"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>res <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="fl">3</span> <span class="op">~</span> <span class="st">"Yes"</span>, </span>
+<span>                          <span class="va">b</span> <span class="op">==</span> <span class="st">"c"</span><span class="op">~</span><span class="st">"No"</span>, </span>
+<span>                          <span class="va">a</span> <span class="op">&gt;</span> <span class="fl">5</span> <span class="op">~</span> <span class="st">"Maybe"</span>, </span>
+<span>                          <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Done"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   a    b  res
 1  1 &lt;NA&gt; Done
@@ -633,12 +593,12 @@ Grand Moyen Petit
 <p>On a pas de NA, ils ont été recodé avec la catégorie SINON.</p>
 <p><strong>Il faut donc créer une condition avec <code>is.na(variable)</code></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>   <span class="fu">mutate</span>(<span class="at">res =</span> <span class="fu">case_when</span>(a <span class="sc">&gt;</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Yes"</span>, </span>
-<span id="cb29-3"><a href="#cb29-3"></a>                          b <span class="sc">==</span> <span class="st">"c"</span><span class="sc">~</span><span class="st">"No"</span>, </span>
-<span id="cb29-4"><a href="#cb29-4"></a>                          a <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Maybe"</span>, </span>
-<span id="cb29-5"><a href="#cb29-5"></a>                          <span class="fu">is.na</span>(a) <span class="sc">|</span> <span class="fu">is.na</span>(b) <span class="sc">~</span> <span class="cn">NA</span>,</span>
-<span id="cb29-6"><a href="#cb29-6"></a>                          <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Done"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>res <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">a</span> <span class="op">&gt;</span> <span class="fl">3</span> <span class="op">~</span> <span class="st">"Yes"</span>, </span>
+<span>                          <span class="va">b</span> <span class="op">==</span> <span class="st">"c"</span><span class="op">~</span><span class="st">"No"</span>, </span>
+<span>                          <span class="va">a</span> <span class="op">&gt;</span> <span class="fl">5</span> <span class="op">~</span> <span class="st">"Maybe"</span>, </span>
+<span>                          <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span> <span class="op">~</span> <span class="cn">NA</span>,</span>
+<span>                          <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Done"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   a    b  res
 1  1 &lt;NA&gt; &lt;NA&gt;
@@ -653,18 +613,11 @@ Grand Moyen Petit
 </div>
 
 
-</section>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notes de bas de page</h2>
-
+</section></section><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notes de bas de page</h2>
 <ol>
 <li id="fn1"><p><a href="https://community.rstudio.com/t/case-when-why-not/2685/3" class="uri">https://community.rstudio.com/t/case-when-why-not/2685/3</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><a href="https://stackoverflow.com/questions/57807976/how-to-use-case-when-rather-then-if-else-error-in-my-code" class="uri">https://stackoverflow.com/questions/57807976/how-to-use-case-when-rather-then-if-else-error-in-my-code</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1072,13 +1025,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -1103,8 +1053,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>

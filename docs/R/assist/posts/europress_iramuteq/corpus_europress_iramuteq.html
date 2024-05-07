@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Arno Muller">
-
-<title>Support Sms - Créer un corpus de texte issu d’Europresse au format d’Iramuteq</title>
+<title>Créer un corpus de texte issu d’Europresse au format d’Iramuteq</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,33 +84,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-<script src="../../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-<link href="../../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
-
-
+}</script><script src="../../../../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../../index.html">
-    <span class="navbar-title">Support Sms</span>
-    </a>
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -123,8 +108,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -133,14 +118,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -149,15 +134,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Créer un corpus de texte issu d’Europresse au format d’Iramuteq</h1>
                                 <div class="quarto-categories">
@@ -205,79 +186,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#chercher-des-textes-sur-europresse" id="toc-chercher-des-textes-sur-europresse" class="nav-link" data-scroll-target="#chercher-des-textes-sur-europresse">Chercher des textes sur <em>Europresse</em></a>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li>
+<a href="#chercher-des-textes-sur-europresse" id="toc-chercher-des-textes-sur-europresse" class="nav-link" data-scroll-target="#chercher-des-textes-sur-europresse">Chercher des textes sur <em>Europresse</em></a>
   <ul class="collapse">
-  <li><a href="#se-connecter-au-site-deuropresse" id="toc-se-connecter-au-site-deuropresse" class="nav-link" data-scroll-target="#se-connecter-au-site-deuropresse">Se connecter au site d’<em>Europresse</em></a></li>
-  <li><a href="#créer-un-corpus-darticles-de-presses" id="toc-créer-un-corpus-darticles-de-presses" class="nav-link" data-scroll-target="#créer-un-corpus-darticles-de-presses">Créer un corpus d’articles de presses</a></li>
-  </ul></li>
-  <li><a href="#mettre-en-forme-dans-r" id="toc-mettre-en-forme-dans-r" class="nav-link" data-scroll-target="#mettre-en-forme-dans-r">Mettre en forme dans R</a>
+<li><a href="#se-connecter-au-site-deuropresse" id="toc-se-connecter-au-site-deuropresse" class="nav-link" data-scroll-target="#se-connecter-au-site-deuropresse">Se connecter au site d’<em>Europresse</em></a></li>
+  <li><a href="#cr%C3%A9er-un-corpus-darticles-de-presses" id="toc-créer-un-corpus-darticles-de-presses" class="nav-link" data-scroll-target="#cr%C3%A9er-un-corpus-darticles-de-presses">Créer un corpus d’articles de presses</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#mettre-en-forme-dans-r" id="toc-mettre-en-forme-dans-r" class="nav-link" data-scroll-target="#mettre-en-forme-dans-r">Mettre en forme dans R</a>
   <ul class="collapse">
-  <li><a href="#initialisation-de-r" id="toc-initialisation-de-r" class="nav-link" data-scroll-target="#initialisation-de-r">Initialisation de R</a></li>
-  <li><a href="#création-de-variables" id="toc-création-de-variables" class="nav-link" data-scroll-target="#création-de-variables">Création de variables</a>
+<li><a href="#initialisation-de-r" id="toc-initialisation-de-r" class="nav-link" data-scroll-target="#initialisation-de-r">Initialisation de R</a></li>
+  <li>
+<a href="#cr%C3%A9ation-de-variables" id="toc-création-de-variables" class="nav-link" data-scroll-target="#cr%C3%A9ation-de-variables">Création de variables</a>
   <ul class="collapse">
-  <li><a href="#journal" id="toc-journal" class="nav-link" data-scroll-target="#journal">Journal</a></li>
+<li><a href="#journal" id="toc-journal" class="nav-link" data-scroll-target="#journal">Journal</a></li>
   <li><a href="#auteur.rice" id="toc-auteur.rice" class="nav-link" data-scroll-target="#auteur.rice">Auteur.rice</a></li>
   <li><a href="#titre-de-larticle" id="toc-titre-de-larticle" class="nav-link" data-scroll-target="#titre-de-larticle">Titre de l’article</a></li>
   <li><a href="#date" id="toc-date" class="nav-link" data-scroll-target="#date">Date</a></li>
-  </ul></li>
-  <li><a href="#texte" id="toc-texte" class="nav-link" data-scroll-target="#texte">Texte</a></li>
-  <li><a href="#création-de-la-base-de-données" id="toc-création-de-la-base-de-données" class="nav-link" data-scroll-target="#création-de-la-base-de-données">Création de la base de données</a>
-  <ul class="collapse">
-  <li><a href="#compilation-des-variables" id="toc-compilation-des-variables" class="nav-link" data-scroll-target="#compilation-des-variables">Compilation des variables</a></li>
-  <li><a href="#correction-des-valeurs-manquantes" id="toc-correction-des-valeurs-manquantes" class="nav-link" data-scroll-target="#correction-des-valeurs-manquantes">Correction des valeurs manquantes</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#suppression-des-doublons" id="toc-suppression-des-doublons" class="nav-link" data-scroll-target="#suppression-des-doublons">Suppression des doublons</a>
-  <ul class="collapse">
-  <li><a href="#comparaison-des-débuts-de-textes" id="toc-comparaison-des-débuts-de-textes" class="nav-link" data-scroll-target="#comparaison-des-débuts-de-textes">Comparaison des débuts de textes</a></li>
-  <li><a href="#comparaison-des-fins-de-textes" id="toc-comparaison-des-fins-de-textes" class="nav-link" data-scroll-target="#comparaison-des-fins-de-textes">Comparaison des fins de textes</a></li>
-  </ul></li>
-  <li><a href="#créer-de-nouvelles-variables" id="toc-créer-de-nouvelles-variables" class="nav-link" data-scroll-target="#créer-de-nouvelles-variables">Créer de nouvelles variables</a>
-  <ul class="collapse">
-  <li><a href="#recoder-les-journaux" id="toc-recoder-les-journaux" class="nav-link" data-scroll-target="#recoder-les-journaux">Recoder les journaux</a>
-  <ul class="collapse">
-  <li><a href="#création-variable-principes-du-nettoyage" id="toc-création-variable-principes-du-nettoyage" class="nav-link" data-scroll-target="#création-variable-principes-du-nettoyage">Création variable + principes du nettoyage</a></li>
-  <li><a href="#exploration-des-journaux-à-recoder" id="toc-exploration-des-journaux-à-recoder" class="nav-link" data-scroll-target="#exploration-des-journaux-à-recoder">Exploration des journaux à recoder</a></li>
-  <li><a href="#recodage-des-journaux" id="toc-recodage-des-journaux" class="nav-link" data-scroll-target="#recodage-des-journaux">Recodage des journaux</a></li>
-  <li><a href="#regrouper-plusieurs-journaux-dans-une-catégorie" id="toc-regrouper-plusieurs-journaux-dans-une-catégorie" class="nav-link" data-scroll-target="#regrouper-plusieurs-journaux-dans-une-catégorie">Regrouper plusieurs journaux dans une catégorie</a></li>
-  <li><a href="#résultat-du-recodage" id="toc-résultat-du-recodage" class="nav-link" data-scroll-target="#résultat-du-recodage">Résultat du recodage</a></li>
-  </ul></li>
-  <li><a href="#variable-année" id="toc-variable-année" class="nav-link" data-scroll-target="#variable-année">Variable année</a></li>
-  </ul></li>
-  <li><a href="#exporter-le-fichier-au-format-diramuteq" id="toc-exporter-le-fichier-au-format-diramuteq" class="nav-link" data-scroll-target="#exporter-le-fichier-au-format-diramuteq">Exporter le fichier au format d’<em>Iramuteq</em></a>
-  <ul class="collapse">
-  <li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif">Objectif :</a></li>
-  <li><a href="#la-fonction-format_iramuteq" id="toc-la-fonction-format_iramuteq" class="nav-link" data-scroll-target="#la-fonction-format_iramuteq">La fonction: <code>format_iramuteq()</code></a>
-  <ul class="collapse">
-  <li><a href="#paramètres-de-la-fonction" id="toc-paramètres-de-la-fonction" class="nav-link" data-scroll-target="#paramètres-de-la-fonction">Paramètres de la fonction</a></li>
-  <li><a href="#création-du-corpus" id="toc-création-du-corpus" class="nav-link" data-scroll-target="#création-du-corpus">Création du corpus</a></li>
-  </ul></li>
-  </ul></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#texte" id="toc-texte" class="nav-link" data-scroll-target="#texte">Texte</a></li>
+  <li>
+<a href="#cr%C3%A9ation-de-la-base-de-donn%C3%A9es" id="toc-création-de-la-base-de-données" class="nav-link" data-scroll-target="#cr%C3%A9ation-de-la-base-de-donn%C3%A9es">Création de la base de données</a>
+  <ul class="collapse">
+<li><a href="#compilation-des-variables" id="toc-compilation-des-variables" class="nav-link" data-scroll-target="#compilation-des-variables">Compilation des variables</a></li>
+  <li><a href="#correction-des-valeurs-manquantes" id="toc-correction-des-valeurs-manquantes" class="nav-link" data-scroll-target="#correction-des-valeurs-manquantes">Correction des valeurs manquantes</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#suppression-des-doublons" id="toc-suppression-des-doublons" class="nav-link" data-scroll-target="#suppression-des-doublons">Suppression des doublons</a>
+  <ul class="collapse">
+<li><a href="#comparaison-des-d%C3%A9buts-de-textes" id="toc-comparaison-des-débuts-de-textes" class="nav-link" data-scroll-target="#comparaison-des-d%C3%A9buts-de-textes">Comparaison des débuts de textes</a></li>
+  <li><a href="#comparaison-des-fins-de-textes" id="toc-comparaison-des-fins-de-textes" class="nav-link" data-scroll-target="#comparaison-des-fins-de-textes">Comparaison des fins de textes</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#cr%C3%A9er-de-nouvelles-variables" id="toc-créer-de-nouvelles-variables" class="nav-link" data-scroll-target="#cr%C3%A9er-de-nouvelles-variables">Créer de nouvelles variables</a>
+  <ul class="collapse">
+<li>
+<a href="#recoder-les-journaux" id="toc-recoder-les-journaux" class="nav-link" data-scroll-target="#recoder-les-journaux">Recoder les journaux</a>
+  <ul class="collapse">
+<li><a href="#cr%C3%A9ation-variable-principes-du-nettoyage" id="toc-création-variable-principes-du-nettoyage" class="nav-link" data-scroll-target="#cr%C3%A9ation-variable-principes-du-nettoyage">Création variable + principes du nettoyage</a></li>
+  <li><a href="#exploration-des-journaux-%C3%A0-recoder" id="toc-exploration-des-journaux-à-recoder" class="nav-link" data-scroll-target="#exploration-des-journaux-%C3%A0-recoder">Exploration des journaux à recoder</a></li>
+  <li><a href="#recodage-des-journaux" id="toc-recodage-des-journaux" class="nav-link" data-scroll-target="#recodage-des-journaux">Recodage des journaux</a></li>
+  <li><a href="#regrouper-plusieurs-journaux-dans-une-cat%C3%A9gorie" id="toc-regrouper-plusieurs-journaux-dans-une-catégorie" class="nav-link" data-scroll-target="#regrouper-plusieurs-journaux-dans-une-cat%C3%A9gorie">Regrouper plusieurs journaux dans une catégorie</a></li>
+  <li><a href="#r%C3%A9sultat-du-recodage" id="toc-résultat-du-recodage" class="nav-link" data-scroll-target="#r%C3%A9sultat-du-recodage">Résultat du recodage</a></li>
+  </ul>
+</li>
+  <li><a href="#variable-ann%C3%A9e" id="toc-variable-année" class="nav-link" data-scroll-target="#variable-ann%C3%A9e">Variable année</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#exporter-le-fichier-au-format-diramuteq" id="toc-exporter-le-fichier-au-format-diramuteq" class="nav-link" data-scroll-target="#exporter-le-fichier-au-format-diramuteq">Exporter le fichier au format d’<em>Iramuteq</em></a>
+  <ul class="collapse">
+<li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif">Objectif :</a></li>
+  <li>
+<a href="#la-fonction-format_iramuteq" id="toc-la-fonction-format_iramuteq" class="nav-link" data-scroll-target="#la-fonction-format_iramuteq">La fonction: <code>format_iramuteq()</code></a>
+  <ul class="collapse">
+<li><a href="#param%C3%A8tres-de-la-fonction" id="toc-paramètres-de-la-fonction" class="nav-link" data-scroll-target="#param%C3%A8tres-de-la-fonction">Paramètres de la fonction</a></li>
+  <li><a href="#cr%C3%A9ation-du-corpus" id="toc-création-du-corpus" class="nav-link" data-scroll-target="#cr%C3%A9ation-du-corpus">Création du corpus</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<p><a href="img/tri_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/tri_logo.png" class="img-fluid" style="width:50.0%"></a></p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><a href="img/tri_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/tri_logo.png" class="img-fluid" style="width:50.0%"></a></p>
+<section id="introduction" class="level1"><h1>Introduction</h1>
 <p>Cette fiche s’inscrit dans la continuité d’un tutoriel publié par <em>Corentin Roquebert</em> et que vous pouvez retrouver <a href="https://quanti.hypotheses.org/1416">ici</a>. Le tutoriel est très complet et permet de comprendre la création du premier corpus au format <em>.html</em> directement depuis le site d’<a href="https://nouveau.europresse.com/Login/">Europresse</a>, étape sur laquelle nous passerons donc très rapidement.</p>
 <p>Nous reprendrons ici chaque étape depuis la recherche des textes sur le site d’<em>Europresse</em>, en passant par l’apurement du fichier récupéré sur R, à sa mise en forme pour pouvoir l’importer sur <em>Iramuteq</em>. Ce qui me permettra d’apporter quelques mises à jour au tutoriel cité plus haut, mais sans entrer dans le même niveau de détail.</p>
-</section>
-<section id="chercher-des-textes-sur-europresse" class="level1">
-<h1>Chercher des textes sur <em>Europresse</em></h1>
-<section id="se-connecter-au-site-deuropresse" class="level2">
-<h2 class="anchored" data-anchor-id="se-connecter-au-site-deuropresse">Se connecter au site d’<em>Europresse</em></h2>
+</section><section id="chercher-des-textes-sur-europresse" class="level1"><h1>Chercher des textes sur <em>Europresse</em>
+</h1>
+<section id="se-connecter-au-site-deuropresse" class="level2"><h2 class="anchored" data-anchor-id="se-connecter-au-site-deuropresse">Se connecter au site d’<em>Europresse</em>
+</h2>
 <p>Europresse est un service payant, mais certains instituts et certaines universités permettent d’y accéder.<br>
 À l’Ined, <em>Europresse</em> est disponible en se connectant depuis le site de l’<a href="https://campus-condorcet.primo.exlibrisgroup.com/discovery/fulldisplay?context=L&amp;vid=33CCP_INST:CCP&amp;search_scope=ALL&amp;tab=ALL&amp;docid=alma991008362598005786">Humathèque</a>.</p>
 <p>Si le lien ne marche pas vous pouvez suivre le chemin suivant :</p>
@@ -297,12 +286,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="img/Humatheque3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/Humatheque3.png" class="img-fluid" style="width:50.0%"></a></p>
 <p><a href="img/Humatheque4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/Humatheque4.png" class="img-fluid" style="width:50.0%"></a></p>
 <ol start="5" type="1">
-<li>Cliquer sur le lien vers le site d’<em>Europresse</em></li>
+<li>Cliquer sur le lien vers le site d’<em>Europresse</em>
+</li>
 </ol>
 <p><a href="img/Humatheque5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/Humatheque5.png" class="img-fluid" style="width:50.0%"></a></p>
-</section>
-<section id="créer-un-corpus-darticles-de-presses" class="level2">
-<h2 class="anchored" data-anchor-id="créer-un-corpus-darticles-de-presses">Créer un corpus d’articles de presses</h2>
+</section><section id="créer-un-corpus-darticles-de-presses" class="level2"><h2 class="anchored" data-anchor-id="créer-un-corpus-darticles-de-presses">Créer un corpus d’articles de presses</h2>
 <p>La page d’accueil d’Europresse, dirige automatiquement vers la version <strong>étudiante</strong>, mais il est préférable de passer par la version <strong>classique</strong> du site.</p>
 <p><a href="img/Europress_rech_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/Europress_rech_1.png" class="img-fluid" style="width:50.0%"></a></p>
 <p>En vous connectant à la version classique, vous obtiendrez la page suivante, à partir de laquelle on retourne vers une recherche <strong>simple</strong>, puis dans une recherche <strong>avancée</strong>.</p>
@@ -315,40 +303,39 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <p><strong>ATTENTION :</strong></p>
 <p>Avant d’exporter le fichier, il faut prendre plusieurs précautions :</p>
 <ul>
-<li><strong>Trier</strong> les articles du plus récent au plus ancien (ou inversement, mais pas par pertinence).<br>
+<li>
+<strong>Trier</strong> les articles du plus récent au plus ancien (ou inversement, mais pas par pertinence).<br>
 </li>
-<li><strong>Scroller</strong> (défiler) les articles au maximum. Par défaut, <em>Europresse</em> ne charge que les 50 premiers articles, à chaque fois qu’on scrolle, on en charge 50 autres, etc.<br>
+<li>
+<strong>Scroller</strong> (défiler) les articles au maximum. Par défaut, <em>Europresse</em> ne charge que les 50 premiers articles, à chaque fois qu’on scrolle, on en charge 50 autres, etc.<br>
 </li>
 <li>Nombre <strong>maximum d’articles : 1000</strong>. On ne peut donc pas télécharger tous les 15 000 articles correspondant à ma recherche d’un coup. Il faudra s’y reprendre 1000 par 1000, en changeant la période de recherche en faisant débuter la recherche suivante à la date du dernier article chargé dans la recherche précédente.<br>
 </li>
-<li><strong>Sélectionner le maximum d’articles</strong> avec la case à cocher.<br>
+<li>
+<strong>Sélectionner le maximum d’articles</strong> avec la case à cocher.<br>
 </li>
 <li>Créer le fichier en cliquant sur la <strong>disquette</strong> et sélectionner le <strong>format HTML</strong>.</li>
 </ul>
 <p><a href="img/Europress_rech_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="img/Europress_rech_5.png" class="img-fluid" style="width:25.0%"></a></p>
 <p>On obtient dans les téléchargements un fichier HTML qui commence par <em>biblioeuropresse</em>, qui contient l’ensemble des articles. Vous pouvez l’ouvrir pour les lire dans votre navigateur Web.</p>
 <p>Dans les étapes suivantes, nous allons utiliser ce fichier pour créer un corpus de texte utilisable dans Iramuteq.</p>
-</section>
-</section>
-<section id="mettre-en-forme-dans-r" class="level1">
-<h1>Mettre en forme dans R</h1>
+</section></section><section id="mettre-en-forme-dans-r" class="level1"><h1>Mettre en forme dans R</h1>
 <p>À partir d’ici nous allons apporter quelques changements aux fonctions proposés par Corentin Roquebert, car il semblerait qu’elles ne fonctionnent plus. Ce qui nous permettra de détailler le contenu de ses fonctions.</p>
 <p><strong>Attention</strong> : Si le code peut sembler complexe aux premiers abords, vous aurez uniquement besoin de changer le chemin d’accès vers votre fichier, le reste est automatique.</p>
-<section id="initialisation-de-r" class="level2">
-<h2 class="anchored" data-anchor-id="initialisation-de-r">Initialisation de R</h2>
+<section id="initialisation-de-r" class="level2"><h2 class="anchored" data-anchor-id="initialisation-de-r">Initialisation de R</h2>
 <p>On commence par installer et charger les packages nécessaires.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Packages</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Packages nécessaires</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>load.lib <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"xml2"</span>, <span class="st">"stringr"</span>, <span class="st">"stringdist"</span>, <span class="st">"stringi"</span>,<span class="st">"lubridate"</span>, <span class="st">"dplyr"</span>, <span class="st">"tidyr"</span>,<span class="st">"purrr"</span>) </span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Installation des manquants</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>install.lib <span class="ot">&lt;-</span> load.lib[<span class="sc">!</span>load.lib <span class="sc">%in%</span> <span class="fu">installed.packages</span>()]</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="cf">for</span> (lib <span class="cf">in</span> install.lib) <span class="fu">install.packages</span>(lib,<span class="at">dependencies=</span><span class="cn">TRUE</span>) </span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># On charge les packages</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">sapply</span>(load.lib,require,<span class="at">character=</span><span class="cn">TRUE</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Packages nécessaires</span></span>
+<span><span class="va">load.lib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"xml2"</span>, <span class="st">"stringr"</span>, <span class="st">"stringdist"</span>, <span class="st">"stringi"</span>,<span class="st">"lubridate"</span>, <span class="st">"dplyr"</span>, <span class="st">"tidyr"</span>,<span class="st">"purrr"</span><span class="op">)</span> </span>
+<span><span class="co"># Installation des manquants</span></span>
+<span><span class="va">install.lib</span> <span class="op">&lt;-</span> <span class="va">load.lib</span><span class="op">[</span><span class="op">!</span><span class="va">load.lib</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">lib</span> <span class="kw">in</span> <span class="va">install.lib</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">lib</span>,dependencies<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span>
+<span><span class="co"># On charge les packages</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">load.lib</span>,<span class="va">require</span>,character<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      xml2    stringr stringdist    stringi  lubridate      dplyr      tidyr 
@@ -363,33 +350,30 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div class="code-with-filename-file">
 <pre><strong>Import texte HTML</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># On ouvre la base HTML obtenue</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>html <span class="ot">&lt;-</span> <span class="st">"DATA/biblioeuropresse20230710105912.HTML"</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># Lire le fichier HTML</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>doc <span class="ot">&lt;-</span> <span class="fu">read_html</span>(html)</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># Sélectionner les articles</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>articles <span class="ot">&lt;-</span> <span class="fu">xml_find_all</span>(doc, <span class="st">"//article"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># On ouvre la base HTML obtenue</span></span>
+<span><span class="va">html</span> <span class="op">&lt;-</span> <span class="st">"DATA/biblioeuropresse20230710105912.HTML"</span></span>
+<span><span class="co"># Lire le fichier HTML</span></span>
+<span><span class="va">doc</span> <span class="op">&lt;-</span> <span class="fu">read_html</span><span class="op">(</span><span class="va">html</span><span class="op">)</span></span>
+<span><span class="co"># Sélectionner les articles</span></span>
+<span><span class="va">articles</span> <span class="op">&lt;-</span> <span class="fu">xml_find_all</span><span class="op">(</span><span class="va">doc</span>, <span class="st">"//article"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="création-de-variables" class="level2">
-<h2 class="anchored" data-anchor-id="création-de-variables">Création de variables</h2>
+</section><section id="création-de-variables" class="level2"><h2 class="anchored" data-anchor-id="création-de-variables">Création de variables</h2>
 <p>Pour chaque article, nous allons récupérer un certain nombre d’information contenu dans les métadonnées, comme le nom du journal qui l’a publié ou la date de publication par exemple.</p>
-<section id="journal" class="level3">
-<h3 class="anchored" data-anchor-id="journal">Journal</h3>
+<section id="journal" class="level3"><h3 class="anchored" data-anchor-id="journal">Journal</h3>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Variable journal (1)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>journal <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">".//header/div[@class='rdp__DocPublicationName']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>  tmp</span>
-<span id="cb4-6"><a href="#cb4-6"></a>})</span>
-<span id="cb4-7"><a href="#cb4-7"></a></span>
-<span id="cb4-8"><a href="#cb4-8"></a>journal[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal</span> <span class="op">&lt;-</span> <span class="fu">map_chr</span><span class="op">(</span><span class="va">articles</span>, <span class="op">~</span> <span class="op">{</span></span>
+<span>  <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">xml_find_first</span><span class="op">(</span><span class="va">.x</span>, <span class="st">".//header/div[@class='rdp__DocPublicationName']"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">xml_text</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span> <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span>  <span class="va">tmp</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">journal</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA                     NA                     NA                    
@@ -402,14 +386,14 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div class="code-with-filename-file">
 <pre><strong>Variable journal (2)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>journal_manquant <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">"./header/div[@class='sm-margin-bottom']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>  tmp</span>
-<span id="cb6-6"><a href="#cb6-6"></a>})</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a>journal_manquant[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">journal_manquant</span> <span class="op">&lt;-</span> <span class="fu">map_chr</span><span class="op">(</span><span class="va">articles</span>, <span class="op">~</span> <span class="op">{</span></span>
+<span>  <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">xml_find_first</span><span class="op">(</span><span class="va">.x</span>, <span class="st">"./header/div[@class='sm-margin-bottom']"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">xml_text</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span> <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span>  <span class="va">tmp</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">journal_manquant</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Radio France Internationale (français)&nbsp;(site web réf.) - RFI - Radio France Internationale"
@@ -421,58 +405,52 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 </div>
 </div>
 <p>On a bien récupéré les sources des articles. On s’occupera de la mise en forme de la variable plus loin.</p>
-</section>
-<section id="auteur.rice" class="level3">
-<h3 class="anchored" data-anchor-id="auteur.rice">Auteur.rice</h3>
+</section><section id="auteur.rice" class="level3"><h3 class="anchored" data-anchor-id="auteur.rice">Auteur.rice</h3>
 <p>Dans certains cas, on peut également récupérer les noms des auteurs.rices des articles. Ce n’est pas le cas ici, il semblerait que l’information ne soit pas toujours disponible.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Variable auteur</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>auteur <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb8-2"><a href="#cb8-2"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">"./header/div[@class='docAuthors']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  tmp</span>
-<span id="cb8-6"><a href="#cb8-6"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">auteur</span> <span class="op">&lt;-</span> <span class="fu">map_chr</span><span class="op">(</span><span class="va">articles</span>, <span class="op">~</span> <span class="op">{</span></span>
+<span>  <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">xml_find_first</span><span class="op">(</span><span class="va">.x</span>, <span class="st">"./header/div[@class='docAuthors']"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">xml_text</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span> <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span>  <span class="va">tmp</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="titre-de-larticle" class="level3">
-<h3 class="anchored" data-anchor-id="titre-de-larticle">Titre de l’article</h3>
+</section><section id="titre-de-larticle" class="level3"><h3 class="anchored" data-anchor-id="titre-de-larticle">Titre de l’article</h3>
 <p>On récupère également le titre de l’article.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Variable titre</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>titre <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">"./header/div[@class='titreArticle']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>  tmp</span>
-<span id="cb9-6"><a href="#cb9-6"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">titre</span> <span class="op">&lt;-</span> <span class="fu">map_chr</span><span class="op">(</span><span class="va">articles</span>, <span class="op">~</span> <span class="op">{</span></span>
+<span>  <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">xml_find_first</span><span class="op">(</span><span class="va">.x</span>, <span class="st">"./header/div[@class='titreArticle']"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">xml_text</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span> <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span>  <span class="va">tmp</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="date" class="level3">
-<h3 class="anchored" data-anchor-id="date">Date</h3>
+</section><section id="date" class="level3"><h3 class="anchored" data-anchor-id="date">Date</h3>
 <p>Concernant la date, elle est disponible pour l’ensemble des articles.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Variable date (1)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>date <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb10-2"><a href="#cb10-2"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">".//div[@class='publiC-lblNodoc']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">substr</span>(tmp, <span class="dv">6</span>, <span class="dv">13</span>)</span>
-<span id="cb10-6"><a href="#cb10-6"></a>})</span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># On met la date au bon format</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(date, <span class="st">"%Y%m%d"</span>) </span>
-<span id="cb10-9"><a href="#cb10-9"></a>date[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">date</span> <span class="op">&lt;-</span> <span class="fu">map_chr</span><span class="op">(</span><span class="va">articles</span>, <span class="op">~</span> <span class="op">{</span></span>
+<span>  <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">xml_find_first</span><span class="op">(</span><span class="va">.x</span>, <span class="st">".//div[@class='publiC-lblNodoc']"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">xml_text</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span> <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span>  <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="fl">6</span>, <span class="fl">13</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span><span class="co"># On met la date au bon format</span></span>
+<span><span class="va">date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">date</span>, <span class="st">"%Y%m%d"</span><span class="op">)</span> </span>
+<span><span class="va">date</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA           NA           NA           NA           "2023-07-05"
@@ -485,19 +463,19 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div class="code-with-filename-file">
 <pre><strong>Variable date (2)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Fonction pour extraire le deuxième élément correspondant au critère donné</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>get_second_element <span class="ot">&lt;-</span> <span class="cf">function</span>(node, xpath) {</span>
-<span id="cb12-3"><a href="#cb12-3"></a>  found_elements <span class="ot">&lt;-</span> <span class="fu">xml_find_all</span>(node, xpath)</span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="cf">if</span> (<span class="fu">length</span>(found_elements) <span class="sc">&gt;=</span> <span class="dv">2</span>) {</span>
-<span id="cb12-5"><a href="#cb12-5"></a>    <span class="fu">return</span>(found_elements[[<span class="dv">2</span>]] <span class="sc">%&gt;%</span> <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb12-6"><a href="#cb12-6"></a>  } <span class="cf">else</span> {</span>
-<span id="cb12-7"><a href="#cb12-7"></a>    <span class="fu">return</span>(<span class="cn">NA_character_</span>)</span>
-<span id="cb12-8"><a href="#cb12-8"></a>  }</span>
-<span id="cb12-9"><a href="#cb12-9"></a>}</span>
-<span id="cb12-10"><a href="#cb12-10"></a></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co"># Récupérer le deuxième élément pour chaque article</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a>date_manquant <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, get_second_element, <span class="at">xpath =</span> <span class="st">"./header/div[@class='sm-margin-bottom']"</span>)</span>
-<span id="cb12-13"><a href="#cb12-13"></a>date_manquant[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fonction pour extraire le deuxième élément correspondant au critère donné</span></span>
+<span><span class="va">get_second_element</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">node</span>, <span class="va">xpath</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">found_elements</span> <span class="op">&lt;-</span> <span class="fu">xml_find_all</span><span class="op">(</span><span class="va">node</span>, <span class="va">xpath</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">found_elements</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">found_elements</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span> <span class="op">%&gt;%</span> <span class="fu">xml_text</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="cn">NA_character_</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Récupérer le deuxième élément pour chaque article</span></span>
+<span><span class="va">date_manquant</span> <span class="op">&lt;-</span> <span class="fu">map_chr</span><span class="op">(</span><span class="va">articles</span>, <span class="va">get_second_element</span>, xpath <span class="op">=</span> <span class="st">"./header/div[@class='sm-margin-bottom']"</span><span class="op">)</span></span>
+<span><span class="va">date_manquant</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "8 juillet 2023 902 mots"  "6 juillet 2023 2187 mots"
@@ -506,41 +484,35 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 </div>
 </div>
 <p><strong>Attention</strong>, on voit que le nombre de mots de l’article est stocké au même emplacement que la date manquante. Nous allons nous occuper de mettre en forme les dates dans les parties suivantes.</p>
-</section>
-</section>
-<section id="texte" class="level2">
-<h2 class="anchored" data-anchor-id="texte">Texte</h2>
+</section></section><section id="texte" class="level2"><h2 class="anchored" data-anchor-id="texte">Texte</h2>
 <p>On récupère finalement les textes des articles.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Variable texte</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>texte <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(articles, <span class="sc">~</span> {</span>
-<span id="cb14-2"><a href="#cb14-2"></a>  tmp <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(.x, <span class="st">".//div[@class='DocText clearfix']"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>    <span class="fu">xml_text</span>(<span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(tmp)) tmp <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>  tmp</span>
-<span id="cb14-6"><a href="#cb14-6"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">texte</span> <span class="op">&lt;-</span> <span class="fu">map_chr</span><span class="op">(</span><span class="va">articles</span>, <span class="op">~</span> <span class="op">{</span></span>
+<span>  <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">xml_find_first</span><span class="op">(</span><span class="va">.x</span>, <span class="st">".//div[@class='DocText clearfix']"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">xml_text</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">tmp</span><span class="op">)</span><span class="op">)</span> <span class="va">tmp</span> <span class="op">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span>  <span class="va">tmp</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="création-de-la-base-de-données" class="level2">
-<h2 class="anchored" data-anchor-id="création-de-la-base-de-données">Création de la base de données</h2>
+</section><section id="création-de-la-base-de-données" class="level2"><h2 class="anchored" data-anchor-id="création-de-la-base-de-données">Création de la base de données</h2>
 <p>On compile toutes les variables au sein d’une unique base de données manipulable, que l’on pourra apurer plus facilement.</p>
-<section id="compilation-des-variables" class="level3">
-<h3 class="anchored" data-anchor-id="compilation-des-variables">Compilation des variables</h3>
+<section id="compilation-des-variables" class="level3"><h3 class="anchored" data-anchor-id="compilation-des-variables">Compilation des variables</h3>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Création base</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Journal =</span> journal,</span>
-<span id="cb15-2"><a href="#cb15-2"></a>                  <span class="at">Titre =</span> titre,</span>
-<span id="cb15-3"><a href="#cb15-3"></a>                  <span class="at">Date =</span> date,</span>
-<span id="cb15-4"><a href="#cb15-4"></a>                  <span class="at">Date_manq =</span> date_manquant,</span>
-<span id="cb15-5"><a href="#cb15-5"></a>                  <span class="at">Auteur =</span> auteur,</span>
-<span id="cb15-6"><a href="#cb15-6"></a>                  <span class="at">Texte =</span> texte) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">txt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Journal <span class="op">=</span> <span class="va">journal</span>,</span>
+<span>                  Titre <span class="op">=</span> <span class="va">titre</span>,</span>
+<span>                  Date <span class="op">=</span> <span class="va">date</span>,</span>
+<span>                  Date_manq <span class="op">=</span> <span class="va">date_manquant</span>,</span>
+<span>                  Auteur <span class="op">=</span> <span class="va">auteur</span>,</span>
+<span>                  Texte <span class="op">=</span> <span class="va">texte</span><span class="op">)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>On obtient une base de données avec autant de lignes que d’articles et 5 variables.</p>
@@ -549,16 +521,14 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Journal</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Titre</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Date</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Date_manq</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Auteur</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Texte</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">NA</td>
@@ -615,26 +585,21 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 </div>
 </div>
 </div>
-</section>
-<section id="correction-des-valeurs-manquantes" class="level3">
-<h3 class="anchored" data-anchor-id="correction-des-valeurs-manquantes">Correction des valeurs manquantes</h3>
-<section id="journaux-manquants" class="level4">
-<h4 class="anchored" data-anchor-id="journaux-manquants">Journaux manquants</h4>
+</section><section id="correction-des-valeurs-manquantes" class="level3"><h3 class="anchored" data-anchor-id="correction-des-valeurs-manquantes">Correction des valeurs manquantes</h3>
+<section id="journaux-manquants" class="level4"><h4 class="anchored" data-anchor-id="journaux-manquants">Journaux manquants</h4>
 <p>On remplace Journal par journal_manquant quand ils n’existent pas. Et on supprime les espaces et les sauts de lignes dans les noms de journaux pour faciliter les recodages plus tard.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Ajout journaux manquants</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>txt <span class="ot">&lt;-</span> txt <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">mutate</span>(<span class="at">Journal =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Journal), journal_manquant, Journal)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">mutate</span>(<span class="at">Journal =</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">""</span>, Journal)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">mutate</span>(<span class="at">Journal =</span> <span class="fu">gsub</span>(<span class="st">" "</span>, <span class="st">""</span>, Journal))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">txt</span> <span class="op">&lt;-</span> <span class="va">txt</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Journal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Journal</span><span class="op">)</span>, <span class="va">journal_manquant</span>, <span class="va">Journal</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Journal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"\n"</span>, <span class="st">""</span>, <span class="va">Journal</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Journal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">" "</span>, <span class="st">""</span>, <span class="va">Journal</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="dates-manquantes" class="level4">
-<h4 class="anchored" data-anchor-id="dates-manquantes">Dates manquantes</h4>
+</section><section id="dates-manquantes" class="level4"><h4 class="anchored" data-anchor-id="dates-manquantes">Dates manquantes</h4>
 <p>Pour les dates, il faut faire attention à plusieurs éléments :<br>
 - Le format Jour/Mois/Année, doit être identique.<br>
 - Les dates manquantes contiennent également le nombre de mots de l’article. Il faut donc isoler la date.</p>
@@ -643,37 +608,37 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div class="code-with-filename-file">
 <pre><strong>Ajout dates manquants</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>txt <span class="ot">&lt;-</span> txt <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="co"># J'enlève les caractères spéciaux pour pouvoir utiliser</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="co"># la fonction separate()</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">mutate</span>(<span class="at">Date_manq =</span> <span class="fu">str_replace</span>(Date_manq, <span class="st">"é"</span>, <span class="st">"e"</span>),</span>
-<span id="cb17-5"><a href="#cb17-5"></a>         <span class="at">Date_manq =</span> <span class="fu">str_replace</span>(Date_manq, <span class="st">"û"</span>, <span class="st">"u"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-6"><a href="#cb17-6"></a>  <span class="co"># separate() permet d'isoler le jour, le mois, l'année, et le nombre de mots</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a>  <span class="co"># pour les dates manquantes, dans 5 variables</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a>  <span class="fu">separate</span>(Date_manq, <span class="fu">c</span>(<span class="st">"jour"</span>, <span class="st">"mois"</span>, <span class="st">"annee"</span>, <span class="st">"lettre"</span>, <span class="st">"mots"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-9"><a href="#cb17-9"></a>  <span class="co"># Attention : pour les sources anglaise, le mois et le jour sont inversés</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a>  <span class="co"># Je les inverse dans jour2 et mois2</span></span>
-<span id="cb17-11"><a href="#cb17-11"></a>  <span class="fu">mutate</span>(<span class="at">jour2 =</span> <span class="fu">if_else</span>(<span class="fu">substr</span>(mois,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>), mois, jour),</span>
-<span id="cb17-12"><a href="#cb17-12"></a>         <span class="at">mois2 =</span> <span class="fu">if_else</span>(<span class="fu">substr</span>(jour,<span class="dv">1</span>,<span class="dv">1</span>) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">9</span>), mois, jour)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-13"><a href="#cb17-13"></a>  <span class="co"># Je supprime les variables inutiles</span></span>
-<span id="cb17-14"><a href="#cb17-14"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(lettre,mots, jour, mois)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-15"><a href="#cb17-15"></a>  <span class="co"># Je crée une nouvelle variable de date en collant l'année, le mois, le jour</span></span>
-<span id="cb17-16"><a href="#cb17-16"></a>  <span class="fu">mutate</span>(<span class="at">date2 =</span> <span class="fu">paste</span>(annee, mois2, jour2),</span>
-<span id="cb17-17"><a href="#cb17-17"></a>         <span class="co"># Je dois réecrire février et aôut correctement</span></span>
-<span id="cb17-18"><a href="#cb17-18"></a>         <span class="at">date2 =</span> <span class="fu">str_replace</span>(date2, <span class="st">"fevrier"</span>, <span class="st">"février"</span>),</span>
-<span id="cb17-19"><a href="#cb17-19"></a>         <span class="at">date2 =</span> <span class="fu">str_replace</span>(date2, <span class="st">"aout"</span>, <span class="st">"août"</span>),</span>
-<span id="cb17-20"><a href="#cb17-20"></a>         <span class="co"># Je transforme en format date.</span></span>
-<span id="cb17-21"><a href="#cb17-21"></a>         <span class="at">date2 =</span> <span class="fu">as_date</span>(<span class="fu">ymd</span>(<span class="fu">paste</span>(date2)))) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-22"><a href="#cb17-22"></a>  <span class="co"># Je remplace la date quand elle est manquante </span></span>
-<span id="cb17-23"><a href="#cb17-23"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(Date), date2, Date))  <span class="sc">%&gt;%</span> </span>
-<span id="cb17-24"><a href="#cb17-24"></a>  <span class="co"># Si la date est avant 2000, c'est une erreur de frappe, on prend l'autre date</span></span>
-<span id="cb17-25"><a href="#cb17-25"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as_date</span>(Date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-26"><a href="#cb17-26"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">ifelse</span>(Date <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="st">"2000-01-01"</span>), date2, Date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-27"><a href="#cb17-27"></a>  <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as_date</span>(Date))  <span class="sc">%&gt;%</span> </span>
-<span id="cb17-28"><a href="#cb17-28"></a>  <span class="co"># Je garde les variables d'intérêts</span></span>
-<span id="cb17-29"><a href="#cb17-29"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(jour2, mois2, annee, date2)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-30"><a href="#cb17-30"></a>  <span class="co"># Je trie dans l'ordre croissant de parution</span></span>
-<span id="cb17-31"><a href="#cb17-31"></a>  <span class="fu">arrange</span>(Date)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">txt</span> <span class="op">&lt;-</span> <span class="va">txt</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># J'enlève les caractères spéciaux pour pouvoir utiliser</span></span>
+<span>  <span class="co"># la fonction separate()</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Date_manq <span class="op">=</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">Date_manq</span>, <span class="st">"é"</span>, <span class="st">"e"</span><span class="op">)</span>,</span>
+<span>         Date_manq <span class="op">=</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">Date_manq</span>, <span class="st">"û"</span>, <span class="st">"u"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># separate() permet d'isoler le jour, le mois, l'année, et le nombre de mots</span></span>
+<span>  <span class="co"># pour les dates manquantes, dans 5 variables</span></span>
+<span>  <span class="fu">separate</span><span class="op">(</span><span class="va">Date_manq</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"jour"</span>, <span class="st">"mois"</span>, <span class="st">"annee"</span>, <span class="st">"lettre"</span>, <span class="st">"mots"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Attention : pour les sources anglaise, le mois et le jour sont inversés</span></span>
+<span>  <span class="co"># Je les inverse dans jour2 et mois2</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>jour2 <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">mois</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span>, <span class="va">mois</span>, <span class="va">jour</span><span class="op">)</span>,</span>
+<span>         mois2 <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">jour</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span>, <span class="va">mois</span>, <span class="va">jour</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Je supprime les variables inutiles</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lettre</span>,<span class="va">mots</span>, <span class="va">jour</span>, <span class="va">mois</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Je crée une nouvelle variable de date en collant l'année, le mois, le jour</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>date2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">annee</span>, <span class="va">mois2</span>, <span class="va">jour2</span><span class="op">)</span>,</span>
+<span>         <span class="co"># Je dois réecrire février et aôut correctement</span></span>
+<span>         date2 <span class="op">=</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">date2</span>, <span class="st">"fevrier"</span>, <span class="st">"février"</span><span class="op">)</span>,</span>
+<span>         date2 <span class="op">=</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">date2</span>, <span class="st">"aout"</span>, <span class="st">"août"</span><span class="op">)</span>,</span>
+<span>         <span class="co"># Je transforme en format date.</span></span>
+<span>         date2 <span class="op">=</span> <span class="fu">as_date</span><span class="op">(</span><span class="fu">ymd</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">date2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Je remplace la date quand elle est manquante </span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span>, <span class="va">date2</span>, <span class="va">Date</span><span class="op">)</span><span class="op">)</span>  <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Si la date est avant 2000, c'est une erreur de frappe, on prend l'autre date</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Date <span class="op">=</span> <span class="fu">as_date</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">&lt;</span> <span class="fu">ymd</span><span class="op">(</span><span class="st">"2000-01-01"</span><span class="op">)</span>, <span class="va">date2</span>, <span class="va">Date</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Date <span class="op">=</span> <span class="fu">as_date</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span>  <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Je garde les variables d'intérêts</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">jour2</span>, <span class="va">mois2</span>, <span class="va">annee</span>, <span class="va">date2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co"># Je trie dans l'ordre croissant de parution</span></span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Les warnings sont normaux et ne posent pas de problèmes.</p>
@@ -682,15 +647,13 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Journal</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Titre</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Date</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Auteur</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Texte</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">LeMonde(siteweb)</td>
@@ -742,12 +705,7 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 </div>
 </div>
 <p>On a bien récupéré les dates et les noms de journaux.</p>
-</section>
-</section>
-</section>
-</section>
-<section id="suppression-des-doublons" class="level1">
-<h1>Suppression des doublons</h1>
+</section></section></section></section><section id="suppression-des-doublons" class="level1"><h1>Suppression des doublons</h1>
 <p>Avec <em>Europresse</em>, on obtient souvent des articles publiés en doublons, ce sont particulièrement les cas pour les articles issus de sites internet. Pour la suite, le tutoriel de Corentin Roquebert fonctionne toujours, je réutilise donc son code pour gérer identifier et supprimer les doublons.</p>
 <p>On commence par supprimer les textes trop courts, puis on isole des extraits en début et fin de texte pour les comparer entre chaque article et voir s’ils sont suffisamment proches pour être considérés comme étant des doublons grâce à un algorithme.</p>
 <div class="cell">
@@ -755,70 +713,67 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div class="code-with-filename-file">
 <pre><strong>Suppression articles courts</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>articles <span class="ot">&lt;-</span> txt <span class="sc">%&gt;%</span>  </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">filter</span>(<span class="fu">nchar</span>(Texte) <span class="sc">&gt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">mutate</span>(<span class="at">extrait_debut =</span> <span class="fu">str_sub</span>(Texte, <span class="dv">50</span>, <span class="dv">150</span>), </span>
-<span id="cb18-4"><a href="#cb18-4"></a>         <span class="at">extrait_fin =</span> <span class="fu">str_sub</span>(Texte, <span class="sc">-</span><span class="dv">150</span>, <span class="sc">-</span><span class="dv">50</span>)) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">articles</span> <span class="op">&lt;-</span> <span class="va">txt</span> <span class="op">%&gt;%</span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">Texte</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">500</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>extrait_debut <span class="op">=</span> <span class="fu">str_sub</span><span class="op">(</span><span class="va">Texte</span>, <span class="fl">50</span>, <span class="fl">150</span><span class="op">)</span>, </span>
+<span>         extrait_fin <span class="op">=</span> <span class="fu">str_sub</span><span class="op">(</span><span class="va">Texte</span>, <span class="op">-</span><span class="fl">150</span>, <span class="op">-</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<section id="comparaison-des-débuts-de-textes" class="level2">
-<h2 class="anchored" data-anchor-id="comparaison-des-débuts-de-textes">Comparaison des débuts de textes</h2>
+<section id="comparaison-des-débuts-de-textes" class="level2"><h2 class="anchored" data-anchor-id="comparaison-des-débuts-de-textes">Comparaison des débuts de textes</h2>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Doublons en début</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Calcul des paires de distance</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="co"># C'est ici qu'a lieu le calcul de distance entre tous les textes.</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a>dist <span class="ot">&lt;-</span> <span class="fu">stringdistmatrix</span>(articles<span class="sc">$</span>extrait_debut) </span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="do">## Conversion en matrice </span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dist)</span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Dans la matrice, on met 1000 comme valeur pour toutes les valeurs en dessous </span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># de la diagonale, pour éviter d'avoir deux fois la même mesure</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a>m[<span class="fu">lower.tri</span>(m)] <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb19-9"><a href="#cb19-9"></a><span class="co"># Dans la matrice, on met 1000 comme valeur pour la diagonale </span></span>
-<span id="cb19-10"><a href="#cb19-10"></a><span class="co"># pour ne pas enlever un texte parce qu'il ressemble à lui-même...</span></span>
-<span id="cb19-11"><a href="#cb19-11"></a><span class="fu">diag</span>(m) <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb19-12"><a href="#cb19-12"></a></span>
-<span id="cb19-13"><a href="#cb19-13"></a><span class="co"># Sélection des paires proches</span></span>
-<span id="cb19-14"><a href="#cb19-14"></a><span class="co"># On regarde les positions pour lesquelles l'indice de dissimilarité est </span></span>
-<span id="cb19-15"><a href="#cb19-15"></a><span class="co"># inférieure à 50. C'est ici donc qu'on fixe le seuil et qu'on peut le changer !  </span></span>
-<span id="cb19-16"><a href="#cb19-16"></a>indices <span class="ot">&lt;-</span> <span class="fu">which</span>(m <span class="sc">&lt;</span> <span class="dv">50</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb19-17"><a href="#cb19-17"></a></span>
-<span id="cb19-18"><a href="#cb19-18"></a><span class="do">## Vérifications</span></span>
-<span id="cb19-19"><a href="#cb19-19"></a>verif_dbt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(articles<span class="sc">$</span>extrait_debut[indices[,<span class="dv">1</span>]], </span>
-<span id="cb19-20"><a href="#cb19-20"></a>                   articles<span class="sc">$</span>extrait_debut[indices[,<span class="dv">2</span>]])</span>
-<span id="cb19-21"><a href="#cb19-21"></a><span class="co"># On peut regarder ce qui a été considéré comme trop proche pour faire varier le seuil.</span></span>
-<span id="cb19-22"><a href="#cb19-22"></a></span>
-<span id="cb19-23"><a href="#cb19-23"></a><span class="do">## Suppression des articles proches</span></span>
-<span id="cb19-24"><a href="#cb19-24"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="sc">-</span>indices[,<span class="dv">2</span>])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calcul des paires de distance</span></span>
+<span><span class="co"># C'est ici qu'a lieu le calcul de distance entre tous les textes.</span></span>
+<span><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu">stringdistmatrix</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">extrait_debut</span><span class="op">)</span> </span>
+<span><span class="co">## Conversion en matrice </span></span>
+<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span>
+<span><span class="co"># Dans la matrice, on met 1000 comme valeur pour toutes les valeurs en dessous </span></span>
+<span><span class="co"># de la diagonale, pour éviter d'avoir deux fois la même mesure</span></span>
+<span><span class="va">m</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/lower.tri.html">lower.tri</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1000</span> </span>
+<span><span class="co"># Dans la matrice, on met 1000 comme valeur pour la diagonale </span></span>
+<span><span class="co"># pour ne pas enlever un texte parce qu'il ressemble à lui-même...</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">1000</span> </span>
+<span></span>
+<span><span class="co"># Sélection des paires proches</span></span>
+<span><span class="co"># On regarde les positions pour lesquelles l'indice de dissimilarité est </span></span>
+<span><span class="co"># inférieure à 50. C'est ici donc qu'on fixe le seuil et qu'on peut le changer !  </span></span>
+<span><span class="va">indices</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">m</span> <span class="op">&lt;</span> <span class="fl">50</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">## Vérifications</span></span>
+<span><span class="va">verif_dbt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">extrait_debut</span><span class="op">[</span><span class="va">indices</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">]</span>, </span>
+<span>                   <span class="va">articles</span><span class="op">$</span><span class="va">extrait_debut</span><span class="op">[</span><span class="va">indices</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co"># On peut regarder ce qui a été considéré comme trop proche pour faire varier le seuil.</span></span>
+<span></span>
+<span><span class="co">## Suppression des articles proches</span></span>
+<span><span class="va">articles</span> <span class="op">&lt;-</span> <span class="va">articles</span> <span class="op">%&gt;%</span> <span class="fu">slice</span><span class="op">(</span><span class="op">-</span><span class="va">indices</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="comparaison-des-fins-de-textes" class="level2">
-<h2 class="anchored" data-anchor-id="comparaison-des-fins-de-textes">Comparaison des fins de textes</h2>
+</section><section id="comparaison-des-fins-de-textes" class="level2"><h2 class="anchored" data-anchor-id="comparaison-des-fins-de-textes">Comparaison des fins de textes</h2>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Doublons en fin</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="do">## Calcul des paires de distance</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>dist <span class="ot">&lt;-</span> <span class="fu">stringdistmatrix</span>(articles<span class="sc">$</span>extrait_fin)</span>
-<span id="cb20-3"><a href="#cb20-3"></a></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="do">## Conversion en matrice </span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(dist)</span>
-<span id="cb20-6"><a href="#cb20-6"></a>m[<span class="fu">lower.tri</span>(m)] <span class="ot">&lt;-</span> <span class="dv">1000</span> </span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="fu">diag</span>(m) <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="do">## Sélection des paires proches</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>indices <span class="ot">&lt;-</span> <span class="fu">which</span>(m <span class="sc">&lt;</span> <span class="dv">50</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-11"><a href="#cb20-11"></a></span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="do">## Vérifications</span></span>
-<span id="cb20-13"><a href="#cb20-13"></a>test <span class="ot">&lt;-</span> <span class="fu">cbind</span>(articles<span class="sc">$</span>extrait_fin[indices[,<span class="dv">1</span>]], articles<span class="sc">$</span>extrait_fin[indices[,<span class="dv">2</span>]])</span>
-<span id="cb20-14"><a href="#cb20-14"></a></span>
-<span id="cb20-15"><a href="#cb20-15"></a><span class="do">## Suppression des articles proches</span></span>
-<span id="cb20-16"><a href="#cb20-16"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb20-17"><a href="#cb20-17"></a>  <span class="fu">slice</span>(<span class="sc">-</span>indices[,<span class="dv">2</span>])</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Calcul des paires de distance</span></span>
+<span><span class="va">dist</span> <span class="op">&lt;-</span> <span class="fu">stringdistmatrix</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">extrait_fin</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Conversion en matrice </span></span>
+<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">dist</span><span class="op">)</span></span>
+<span><span class="va">m</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/lower.tri.html">lower.tri</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1000</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span>
+<span></span>
+<span><span class="co">## Sélection des paires proches</span></span>
+<span><span class="va">indices</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">m</span> <span class="op">&lt;</span> <span class="fl">50</span>, arr.ind <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Vérifications</span></span>
+<span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">extrait_fin</span><span class="op">[</span><span class="va">indices</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="va">articles</span><span class="op">$</span><span class="va">extrait_fin</span><span class="op">[</span><span class="va">indices</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Suppression des articles proches</span></span>
+<span><span class="va">articles</span> <span class="op">&lt;-</span> <span class="va">articles</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">slice</span><span class="op">(</span><span class="op">-</span><span class="va">indices</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>On a donc supprimé tous les textes trop similaires. Nous pouvons donc supprimer les deux nouvelles variables d’extraits devenues inutiles.</p>
@@ -827,33 +782,28 @@ Dans notre cas, on cherche les occurrences du mot <strong>Ined</strong>, dans la
 <div class="code-with-filename-file">
 <pre><strong>Nettoyage</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(extrait_debut,extrait_fin)) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">articles</span> <span class="op">&lt;-</span> <span class="va">articles</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">extrait_debut</span>,<span class="va">extrait_fin</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-</section>
-<section id="créer-de-nouvelles-variables" class="level1">
-<h1>Créer de nouvelles variables</h1>
+</section></section><section id="créer-de-nouvelles-variables" class="level1"><h1>Créer de nouvelles variables</h1>
 <p>Une fois l’apurement effectué, vous pouvez ajouter des caractéristiques supplémentaires à chacun des articles. On peut penser à des variables construites comme :<br>
 - <em>Taille de l’article</em> : Long vs court<br>
 - <em>Type de presse</em> : Nationale, régionale, gratuite<br>
 - <em>Orientation politique de la source</em> - etc.</p>
 <p>Ici, nous nous contenterons de recoder la date pour ne garder que l’année, et le nom du journal pour avoir des catégories plus propres.</p>
-<section id="recoder-les-journaux" class="level2">
-<h2 class="anchored" data-anchor-id="recoder-les-journaux">Recoder les journaux</h2>
+<section id="recoder-les-journaux" class="level2"><h2 class="anchored" data-anchor-id="recoder-les-journaux">Recoder les journaux</h2>
 <p><strong>Je reprends la méthode et les explications utilisées par Corentin Roquebert dans son tutoriel.</strong><br>
 Elle consiste à ne garder que les principales sources (grands journaux), et à regrouper les sources plus petites (presses régionales, féminines, etc.)</p>
-<section id="création-variable-principes-du-nettoyage" class="level3">
-<h3 class="anchored" data-anchor-id="création-variable-principes-du-nettoyage">Création variable + principes du nettoyage</h3>
+<section id="création-variable-principes-du-nettoyage" class="level3"><h3 class="anchored" data-anchor-id="création-variable-principes-du-nettoyage">Création variable + principes du nettoyage</h3>
 <p>On commence par créer la variable <em>CJournal</em> et mettre tous les journaux dans une catégorie “Autre”, pour recoder ensuite les journaux sélectionnés.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Recoder les journaux (1)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Catégorie rebut</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>articles<span class="sc">$</span>CJournal<span class="ot">&lt;-</span> <span class="st">"Autre"</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Catégorie rebut</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">&lt;-</span> <span class="st">"Autre"</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Pour recoder les journaux, alors que la variable <em>Journal</em> n’est pas propre, on cherche des chaînes de caractères pour isoler les journaux un à un.</p>
@@ -862,8 +812,8 @@ Elle consiste à ne garder que les principales sources (grands journaux), et à 
 <div class="code-with-filename-file">
 <pre><strong>Recoder les journaux (2)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Exemple pour le Figaro :</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"figaro"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"Figaro"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Exemple pour le Figaro :</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"figaro"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Figaro"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Ici, le code met “Figaro” comme modalité de la nouvelle variable <em>CJournal</em> à partir du moment où la chaîne de caractères “figaro” est renseignée dans la variable initiale (Journal). On prend donc toutes les variations de ce journal (ici, on a tout aussi bien “Le Figaro”, “le Figaro”, “Figaro magazine”, “Figaro Economie, n°1256”, “Figaro web”, les variations sont innombrables) et on les assimile. L’argument case_insensitive permet de ne pas se soucier des majuscules.</p>
@@ -873,14 +823,12 @@ Elle consiste à ne garder que les principales sources (grands journaux), et à 
 <div class="code-with-filename-file">
 <pre><strong>Recoder les journaux (3)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Un autre cas : Le Monde</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"monde"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"Monde"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Un autre cas : Le Monde</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"monde"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Monde"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Ici, le cas est un peu plus épineux. En effet, il y a d’autres journaux qui ont la chaîne de caractères “monde” dans leur titre, comme “le Monde Diplomatique”. Il est donc important de faire ce recodage au début, avant de faire celui où l’on va chercher “monde diplo” par exemple, qui va ainsi “corriger” l’erreur qu’on avait faite dans un premier temps. Il faut donc faire attention à l’ordre dans lequel on effectue ces recodages.</p>
-</section>
-<section id="exploration-des-journaux-à-recoder" class="level3">
-<h3 class="anchored" data-anchor-id="exploration-des-journaux-à-recoder">Exploration des journaux à recoder</h3>
+</section><section id="exploration-des-journaux-à-recoder" class="level3"><h3 class="anchored" data-anchor-id="exploration-des-journaux-à-recoder">Exploration des journaux à recoder</h3>
 <p>On applique cette méthode à toutes les autres catégories :</p>
 <p>Pour ça, je trie les journaux pour savoir qu’elles sont les catégories que je vais garder.</p>
 <div class="cell">
@@ -888,10 +836,10 @@ Elle consiste à ne garder que les principales sources (grands journaux), et à 
 <div class="code-with-filename-file">
 <pre><strong>Recoder les journaux (4)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>N_art <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">group_by</span>(Journal) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">summarise</span>(<span class="at">N_art=</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(N_art),Journal)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N_art</span> <span class="op">&lt;-</span> <span class="va">articles</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Journal</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">summarise</span><span class="op">(</span>N_art<span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">N_art</span><span class="op">)</span>,<span class="va">Journal</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -899,12 +847,10 @@ Elle consiste à ne garder que les principales sources (grands journaux), et à 
 <div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:250px; ">
 <table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Journal</th>
 <th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">N_art</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">LeFigaro(siteweb)</td>
@@ -1885,67 +1831,61 @@ Elle consiste à ne garder que les principales sources (grands journaux), et à 
 </div>
 </div>
 </div>
-</section>
-<section id="recodage-des-journaux" class="level3">
-<h3 class="anchored" data-anchor-id="recodage-des-journaux">Recodage des journaux</h3>
+</section><section id="recodage-des-journaux" class="level3"><h3 class="anchored" data-anchor-id="recodage-des-journaux">Recodage des journaux</h3>
 <p>On procède aux recodages des journaux suivants.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Recoder les journaux (5)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"bulletinquoti"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"BulletinQuoti"</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"huienfr"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"AJF"</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"chos"</span>,<span class="at">case_insensitive=</span>T)]          <span class="ot">&lt;-</span> <span class="st">"Echos"</span>  </span>
-<span id="cb26-4"><a href="#cb26-4"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"libération"</span>,<span class="at">case_insensitive=</span>T)]    <span class="ot">&lt;-</span> <span class="st">"Liberation"</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"ouest-fr"</span>,<span class="at">case_insensitive=</span>T)]      <span class="ot">&lt;-</span> <span class="st">"OF"</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"afp"</span>,<span class="at">case_insensitive=</span>T)]           <span class="ot">&lt;-</span> <span class="st">"AFP"</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"croix"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"Croix"</span></span>
-<span id="cb26-8"><a href="#cb26-8"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"express"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"Express"</span></span>
-<span id="cb26-9"><a href="#cb26-9"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"sciencesetave"</span>,<span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"SciencesAvenir"</span></span>
-<span id="cb26-10"><a href="#cb26-10"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"obs"</span>,<span class="at">case_insensitive=</span>T)]           <span class="ot">&lt;-</span> <span class="st">"Obs"</span> </span>
-<span id="cb26-11"><a href="#cb26-11"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"sudouest"</span>,<span class="at">case_insensitive=</span>T)]      <span class="ot">&lt;-</span> <span class="st">"SudOuest"</span> </span>
-<span id="cb26-12"><a href="#cb26-12"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"20min"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"20min"</span> </span>
-<span id="cb26-13"><a href="#cb26-13"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"huma"</span>,<span class="at">case_insensitive=</span>T)]          <span class="ot">&lt;-</span> <span class="st">"Humanites"</span> </span>
-<span id="cb26-14"><a href="#cb26-14"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"valeursact"</span>,<span class="at">case_insensitive=</span>T)]    <span class="ot">&lt;-</span> <span class="st">"ValeursActu"</span> </span>
-<span id="cb26-15"><a href="#cb26-15"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"point"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"LePoint"</span> </span>
-<span id="cb26-16"><a href="#cb26-16"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"challen"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"Challenges"</span> </span>
-<span id="cb26-17"><a href="#cb26-17"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"lavie"</span>,<span class="at">case_insensitive=</span>T)]         <span class="ot">&lt;-</span> <span class="st">"LaVie"</span> </span>
-<span id="cb26-18"><a href="#cb26-18"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"l'hist"</span>,<span class="at">case_insensitive=</span>T)]        <span class="ot">&lt;-</span> <span class="st">"Histoire"</span> </span>
-<span id="cb26-19"><a href="#cb26-19"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"pèleri"</span>,<span class="at">case_insensitive=</span>T)]        <span class="ot">&lt;-</span> <span class="st">"Pelerin"</span> </span>
-<span id="cb26-20"><a href="#cb26-20"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"télégra"</span>,<span class="at">case_insensitive=</span>T)]       <span class="ot">&lt;-</span> <span class="st">"Telegramme"</span> </span>
-<span id="cb26-21"><a href="#cb26-21"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"tribun"</span>,<span class="at">case_insensitive=</span>T)]        <span class="ot">&lt;-</span> <span class="st">"LaTribune"</span> </span>
-<span id="cb26-22"><a href="#cb26-22"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_fixed</span>(articles<span class="sc">$</span>Journal, <span class="st">"biba"</span>,<span class="at">case_insensitive=</span>T)]          <span class="ot">&lt;-</span> <span class="st">"Biba"</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"bulletinquoti"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"BulletinQuoti"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"huienfr"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>       <span class="op">&lt;-</span> <span class="st">"AJF"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"chos"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>          <span class="op">&lt;-</span> <span class="st">"Echos"</span>  </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"libération"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>    <span class="op">&lt;-</span> <span class="st">"Liberation"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"ouest-fr"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>      <span class="op">&lt;-</span> <span class="st">"OF"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"afp"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>           <span class="op">&lt;-</span> <span class="st">"AFP"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"croix"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>         <span class="op">&lt;-</span> <span class="st">"Croix"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"express"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>       <span class="op">&lt;-</span> <span class="st">"Express"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"sciencesetave"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"SciencesAvenir"</span></span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"obs"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>           <span class="op">&lt;-</span> <span class="st">"Obs"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"sudouest"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>      <span class="op">&lt;-</span> <span class="st">"SudOuest"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"20min"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>         <span class="op">&lt;-</span> <span class="st">"20min"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"huma"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>          <span class="op">&lt;-</span> <span class="st">"Humanites"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"valeursact"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>    <span class="op">&lt;-</span> <span class="st">"ValeursActu"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"point"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>         <span class="op">&lt;-</span> <span class="st">"LePoint"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"challen"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>       <span class="op">&lt;-</span> <span class="st">"Challenges"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"lavie"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>         <span class="op">&lt;-</span> <span class="st">"LaVie"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"l'hist"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>        <span class="op">&lt;-</span> <span class="st">"Histoire"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"pèleri"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>        <span class="op">&lt;-</span> <span class="st">"Pelerin"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"télégra"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>       <span class="op">&lt;-</span> <span class="st">"Telegramme"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"tribun"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>        <span class="op">&lt;-</span> <span class="st">"LaTribune"</span> </span>
+<span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_fixed</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, <span class="st">"biba"</span>,case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span>          <span class="op">&lt;-</span> <span class="st">"Biba"</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="regrouper-plusieurs-journaux-dans-une-catégorie" class="level3">
-<h3 class="anchored" data-anchor-id="regrouper-plusieurs-journaux-dans-une-catégorie">Regrouper plusieurs journaux dans une catégorie</h3>
+</section><section id="regrouper-plusieurs-journaux-dans-une-catégorie" class="level3"><h3 class="anchored" data-anchor-id="regrouper-plusieurs-journaux-dans-une-catégorie">Regrouper plusieurs journaux dans une catégorie</h3>
 <p>On peut également unifier certains journaux par une catégorie. Ici, on change un peu le code : on met la même modalité si dans la variable initiale, on a une des chaînes de caractères qu’on demande :</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Recoder les journaux (6)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>articles<span class="sc">$</span>CJournal[<span class="fu">stri_detect_regex</span>(articles<span class="sc">$</span>Journal, </span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="st">"lejournalde|voixdun|provence|midilibre|vellerép|bienpublic|</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="st">populaireducentr|berry|indépendant|nordéclair|charente|yonne|estrépu|</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="st">havre|mainelib|dépêche|voixde|courrier|lejournaldu|Parisnormandie|</span></span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="st">larépubliquedu|ducentre|bliquedespy|lameuse|dernièreh|aisne|dordogne|</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a><span class="st">chorépub]|lalibre|corse|union|nordlittoral|centrepresse|paris-normandie|presseocéan]"</span>,</span>
-<span id="cb27-7"><a href="#cb27-7"></a>                                    <span class="at">case_insensitive=</span>T)] <span class="ot">&lt;-</span> <span class="st">"Rég"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span><span class="op">[</span><span class="fu">stri_detect_regex</span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">Journal</span>, </span>
+<span><span class="st">"lejournalde|voixdun|provence|midilibre|vellerép|bienpublic|</span></span>
+<span><span class="st">populaireducentr|berry|indépendant|nordéclair|charente|yonne|estrépu|</span></span>
+<span><span class="st">havre|mainelib|dépêche|voixde|courrier|lejournaldu|Parisnormandie|</span></span>
+<span><span class="st">larépubliquedu|ducentre|bliquedespy|lameuse|dernièreh|aisne|dordogne|</span></span>
+<span><span class="st">chorépub]|lalibre|corse|union|nordlittoral|centrepresse|paris-normandie|presseocéan]"</span>,</span>
+<span>                                    case_insensitive<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Rég"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Ici, le but est de ne pas surcharger le nombre de titres de presse en unifiant tous les journaux régionaux qui avaient relativement peu de résultats dans mes requêtes (en revanche, les grands titres de la presse quotidienne régionale sont conservés en propre)</p>
-</section>
-<section id="résultat-du-recodage" class="level3">
-<h3 class="anchored" data-anchor-id="résultat-du-recodage">Résultat du recodage</h3>
+</section><section id="résultat-du-recodage" class="level3"><h3 class="anchored" data-anchor-id="résultat-du-recodage">Résultat du recodage</h3>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Table des journaux propres</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">table</span>(articles<span class="sc">$</span>CJournal,<span class="at">useNA =</span> <span class="st">"always"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span>,useNA <span class="op">=</span> <span class="st">"always"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1970,7 +1910,7 @@ On explore les journaux qui n’ont pas été attribués à une catégorie :</p>
 <div class="code-with-filename-file">
 <pre><strong>Table des journaux restants</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">table</span>(articles[articles<span class="sc">$</span>CJournal <span class="sc">==</span> <span class="st">"Autre"</span>,]<span class="sc">$</span>Journal)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">articles</span><span class="op">[</span><span class="va">articles</span><span class="op">$</span><span class="va">CJournal</span> <span class="op">==</span> <span class="st">"Autre"</span>,<span class="op">]</span><span class="op">$</span><span class="va">Journal</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell">
@@ -1978,12 +1918,10 @@ On explore les journaux qui n’ont pas été attribués à une catégorie :</p>
 <div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:250px; ">
 <table class="table table-striped table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Journal</th>
 <th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">N_journ</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">ActeursPublics-Nominations</td>
@@ -2252,30 +2190,24 @@ On explore les journaux qui n’ont pas été attribués à une catégorie :</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="variable-année" class="level2">
-<h2 class="anchored" data-anchor-id="variable-année">Variable année</h2>
+</section></section><section id="variable-année" class="level2"><h2 class="anchored" data-anchor-id="variable-année">Variable année</h2>
 <p>Pour pouvoir utiliser la date dans Iramuteq, nous faisons le choix de ne garder que l’année.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Variable année</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>articles <span class="ot">&lt;-</span> articles <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">mutate</span>(<span class="at">Annee =</span> <span class="fu">as.numeric</span>(<span class="fu">format</span>(Date, <span class="st">"%Y"</span>)))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">articles</span> <span class="op">&lt;-</span> <span class="va">articles</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>Annee <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">Date</span>, <span class="st">"%Y"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-</section>
-<section id="exporter-le-fichier-au-format-diramuteq" class="level1">
-<h1>Exporter le fichier au format d’<em>Iramuteq</em></h1>
+</section></section><section id="exporter-le-fichier-au-format-diramuteq" class="level1"><h1>Exporter le fichier au format d’<em>Iramuteq</em>
+</h1>
 <p>On obtient une base de données dans laquelle chaque ligne correspond à un article, avec une colonne qui contient le texte à étudier dans <em>Iramuteq</em> et les autres qui permettent de le caractériser.</p>
 <p>Pour l’instant, le fichier (sans doublons) contiendra au maximum 1000 lignes à cause de la restriction dans <em>Europresse</em>.<br>
 Cependant, vous pouvez reproduire la manipulation plusieurs fois pour obtenir plusieurs bases que vous fusionnerez ici (avec un <code>rbind</code>, par exemple).</p>
 <p>Maintenant, il faut mettre la base dans un format “étoilé” lisible par <em>Iramuteq</em>.</p>
-<section id="objectif" class="level2">
-<h2 class="anchored" data-anchor-id="objectif">Objectif :</h2>
+<section id="objectif" class="level2"><h2 class="anchored" data-anchor-id="objectif">Objectif :</h2>
 <p>Pour pouvoir être lu par <em>Iramuteq</em>, notre fichier doit respecter un certain nombre de conventions présentées ci-après :</p>
 <ul>
 <li>être un fichier <strong>.txt</strong><br>
@@ -2288,9 +2220,8 @@ Cependant, vous pouvez reproduire la manipulation plusieurs fois pour obtenir pl
 </ul>
 <p><a href="img/format_etoile.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="img/format_etoile.png" class="img-fluid" style="width:75.0%"></a></p>
 <p>Pour faciliter le processus, nous proposons une fonction qui met en forme la table créée précédemment directement dans le format voulu par Iramuteq.</p>
-</section>
-<section id="la-fonction-format_iramuteq" class="level2">
-<h2 class="anchored" data-anchor-id="la-fonction-format_iramuteq">La fonction: <code>format_iramuteq()</code></h2>
+</section><section id="la-fonction-format_iramuteq" class="level2"><h2 class="anchored" data-anchor-id="la-fonction-format_iramuteq">La fonction: <code>format_iramuteq()</code>
+</h2>
 <p>Une fonction pour transformer un data.frame avec une variable de texte, en un document <strong>.txt</strong> adapté à l’analyse textuelle sur Iramuteq.</p>
 <p>Pour l’instant, la fonction ne se trouve pas dans un package, il faut donc la charger dans l’environnement global de R depuis GitHub en utilisant le code suivant.</p>
 <div class="cell">
@@ -2298,27 +2229,21 @@ Cependant, vous pouvez reproduire la manipulation plusieurs fois pour obtenir pl
 <div class="code-with-filename-file">
 <pre><strong>import fonction format</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">source</span>(<span class="st">"https://raw.githubusercontent.com/arnomuller/Fonction_R/main/format_iramuteq/format_iramuteq.R"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/arnomuller/Fonction_R/main/format_iramuteq/format_iramuteq.R"</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<section id="paramètres-de-la-fonction" class="level3">
-<h3 class="anchored" data-anchor-id="paramètres-de-la-fonction">Paramètres de la fonction</h3>
-<p><strong>articles</strong> : Une base de données avec une variable texte et des métadonnées (années, source, etc.)<br>
-<strong>nom_fichier</strong> : Le nom du fichier .txt en sortie<br>
-<strong>var_texte</strong> : Le nom de la variable de texte (entre ““)<br>
-<strong>vars_métadonnees</strong> : Un vecteur avec les variables de métadonnées</p>
-</section>
-<section id="création-du-corpus" class="level3">
-<h3 class="anchored" data-anchor-id="création-du-corpus">Création du corpus</h3>
+<section id="paramètres-de-la-fonction" class="level3"><h3 class="anchored" data-anchor-id="paramètres-de-la-fonction">Paramètres de la fonction</h3>
+<p><strong>articles</strong> : Une base de données avec une variable texte et des métadonnées (années, source, etc.)<br><strong>nom_fichier</strong> : Le nom du fichier .txt en sortie<br><strong>var_texte</strong> : Le nom de la variable de texte (entre ““)<br><strong>vars_métadonnees</strong> : Un vecteur avec les variables de métadonnées</p>
+</section><section id="création-du-corpus" class="level3"><h3 class="anchored" data-anchor-id="création-du-corpus">Création du corpus</h3>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Création du corpus</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">format_iramuteq</span>(<span class="at">dataframe =</span> articles, </span>
-<span id="cb33-2"><a href="#cb33-2"></a>                <span class="at">nom_fichier =</span> <span class="st">"corpus_iramuteq_ined.txt"</span>, </span>
-<span id="cb33-3"><a href="#cb33-3"></a>                <span class="at">var_texte =</span> <span class="st">"Texte"</span>, </span>
-<span id="cb33-4"><a href="#cb33-4"></a>                <span class="at">vars_metadonnees =</span> <span class="fu">c</span>(<span class="st">"CJournal"</span>, <span class="st">"Annee"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">format_iramuteq</span><span class="op">(</span>dataframe <span class="op">=</span> <span class="va">articles</span>, </span>
+<span>                nom_fichier <span class="op">=</span> <span class="st">"corpus_iramuteq_ined.txt"</span>, </span>
+<span>                var_texte <span class="op">=</span> <span class="st">"Texte"</span>, </span>
+<span>                vars_metadonnees <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CJournal"</span>, <span class="st">"Annee"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -2344,12 +2269,7 @@ Précautions à prendre
 </div>
 
 
-</section>
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -2757,13 +2677,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -2788,8 +2705,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>
