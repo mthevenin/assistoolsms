@@ -25,7 +25,7 @@ abstract: |
 
 ---
 
-```{r,  message=FALSE, warning=FALSE}
+```{r filename="Installation des packages",  message=FALSE, warning=FALSE}
 # install.packages(dplyr)
 # install.packages(ggplot2)
 # install.packages(ggthemes)
@@ -43,7 +43,7 @@ library(ggthemes)
 
 * On va regarder l'évolution du taux de fécondité de 12 pays de 1950 à 2022. 
 
-```{r}
+```{r filename="Chergement des données"}
 df <- read.csv("fecondite_ggp.csv")
 df = df %>% mutate_if(is.character,as.factor)
 head(df)
@@ -54,7 +54,7 @@ head(df)
 
 En empilant avec **`ggplot`** les 12 courbes d'évolution:
 
-```{r}
+```{r filename="graphique avec effet spaghetti"}
 #| eval: false
 
 ggplot(df) +
@@ -88,7 +88,7 @@ ggplot(df) +
 * On peut améliorer la lecture et naviguer dans le graphique avec une visualisation dynamique, en utilisant par exemple le package **plotly**. A réserver à un format de type html. 
 
 
-```{r}
+```{r filename="Graphique interactif avec ggplotly"}
 #| eval: false
 #| message: false
 #| warning: false
@@ -141,7 +141,7 @@ ggplotly(p)
 
 Par rapport au graphique précédent on va simplement générer des sous graphiques par pays, qui seront combinés avec l'option **`facet_wrap`**. 
 
-```{r}
+```{r filename="Graphique small multiples"}
 #| eval: false
 
 ggplot(df) +
@@ -191,7 +191,7 @@ Le principe du code a été récupéré dans l'excellent support de *Yann Holtz*
 
 Les courbes en arrière plan ont une épaisseur plus faible (`lwd=0.1`) et  une couleur unique ( `color="grey` ). Pour faciliter la lecture, le quadrillage a été allégé dans l'option `theme()`. 
 
-```{r}
+```{r filename="Graphique small multiples avec highlighting"}
 #| eval: false
 
 tmp <- df %>%
@@ -247,7 +247,7 @@ On peut vouloir trier les sous graphiques selon un ordre particulier, ici ils so
 
 Si on souhaite par exemple afficher les sous graphiques par ordre décroissant du taux de fécondité en 2022, donc d'Israel en haut à gauche à la Corée du Sud en bas à droite, on réarrange l'ordre de la variable **pays** avec le code suivant:
 
-```{r}
+```{r filename="Ordre d'affichage des pays"}
 #| eval: false
 
 pays_order <- df %>%
@@ -284,7 +284,7 @@ unique(tmp$pays2)
 
 Et on réexécute le graphique précédent:
 
-```{r}
+```{r filename="Graphique avec changement de l'ordre des pays"}
 #| eval: false
 
 ggplot(tmp) +
@@ -341,13 +341,13 @@ ggplot(tmp) +
 
 Chargement de la fonction:
 
-```{r}
+```{r filename="Chargement de la fonction"}
 source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/spag_plot/spag_plot.R")
 ```
 
 
 
-```{r}
+```{r filename="Graphique avec la fonction spag_plot"}
 #| eval: false
 
 df <- read.csv("fecondite_ggp.csv")
@@ -382,6 +382,8 @@ spag_plot(df,                     # Base de données au format long
 ::: {.box_img}
 ```{r}
 #| echo: false
+#| message: false
+#| warning: false
 
 df <- read.csv("fecondite_ggp.csv")
 df = df %>% mutate_if(is.character,as.factor)
@@ -419,7 +421,7 @@ spag_plot(df,                     # Base de données au format long
 
 ::: {.box_img}
 
-```{r}
+```{r filename="Changement se quelques options"}
 #| echo: false
 
 df <- read.csv("D:/D/Marc/SMS/assistoolsms_marc/R/assist/posts/spaghetti/fecondite_ggp.csv")
