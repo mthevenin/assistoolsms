@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div>
     <div class="abstract">
       <div class="block-title">Résumé</div>
-      <p>Originaire du système Linux, la commande <code>touch</code> permet de créer des fichiers vides très rapidement à partir d’un terminal ou d’une invite de commandes. Cette commande est embarquée dans RStudio, mais doit être installée si on souhaite l’utiliser dans l’invite de commande windows (ou powershell)</p>
+      <p>Originaire du système Linux, la commande <code>touch</code> permet de créer des fichiers vides très rapidement à partir d’un terminal ou d’une invite de commandes. Cette commande est embarquée dans le terminal RStudio (de type Bash), mais doit être installée si on souhaite l’utiliser dans l’invite de commande windows (ou powershell).</p>
     </div>
   </div>
   
@@ -226,16 +226,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Exemple:</p>
 <p>Dans le terminal de RStudio:</p>
 <ul>
-<li>On créer<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> un répertoire (où l’on veut) appelé <em>commande_touch</em></li>
+<li>On crée<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> un répertoire (où l’on veut) appelé <em>commande_touch</em></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:users/thevenin_m/desktop</span>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Création d'un répertoire</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="Création d'un répertoire"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:users/thevenin_m/desktop</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> commande_touch</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> commande_touch</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>On génère une série de fichiers vide, par exemple ici pour un projet Quarto (index.qmd, _quarto.yml, style.css style.scss:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> index.qmd</span>
+</div>
+<p>On génère une série de fichiers vide, par exemple ici pour un projet Quarto (index.qmd, _quarto.yml, style.css style.scss)</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Création de fichiers vide avec touch</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="Création de fichiers vide avec touch"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> index.qmd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> _quarto.yml</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> style.css </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> style.scss</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="center">
 <div class="box_img">
 <p><a href="img/video1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/video1.gif" class="img-fluid"></a></p>
@@ -682,7 +692,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <input type="hidden" id="giscus-base-theme" value="light">
 <input type="hidden" id="giscus-alt-theme" value="dark">
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

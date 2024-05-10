@@ -15,13 +15,6 @@ date: 06/20/2023
 
 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"
 
-format: 
-  html: default
-  docx: default
-
-filters:
-   - lightbox
-lightbox: auto
 
 abstract: | 
  A la suite d'un code, le report  de l'output console de Quarto (idem Rmarkdown) épouse le thème de la page. Il est possible de modifier son apparence, comme la couleur de fond et la présence d'un contour, à l'aide des variables sass et d'un code .css ajoutés à un fichier .scss 

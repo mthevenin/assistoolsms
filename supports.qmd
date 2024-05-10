@@ -1,8 +1,12 @@
 ---
-title: "Supports en ligne"
+#title: "Supports en ligne"
+page-layout: article
+toc: false
 ---
 
-# Supports en ligne proposés par le service SMS de l'Ined
+<br>
+
+## Supports en ligne proposés par le service SMS de l'Ined
 
 * [Quarto](https://mthevenin.gitlab.io/quarto/)
 * [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
@@ -11,14 +15,14 @@ title: "Supports en ligne"
 * [Programmation de graphiques avec Stata](https://mthevenin.github.io/stata_graphiques/)
 
 
-# Supports R généralistes
+## Supports R généralistes
 
 * [UtilitR](https://www.utilitr.org/)
 * [Introduction à R et au tidyverse](https://juba.github.io/tidyverse/)
 * [R-Bloggers](https://www.r-bloggers.com/)
 * [The R Graph Gallery](https://r-graph-gallery.com/index.html)
 
-# Séminaires, webinaires et conférences
+## Séminaires, webinaires et conférences
 
 Présentations et/ou vidéos disponibles: 
 
@@ -28,13 +32,13 @@ Présentations et/ou vidéos disponibles:
 * [Geocomputation with R](https://r.geocompx.org/)
 * [UseR!](https://www.r-project.org/conferences/)
 
-# Ouvrages -en
+## Ouvrages -en
 
 * [R for Data Science](https://r4ds.had.co.nz/)
 * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
 * [Geocomputation with R](https://r.geocompx.org/)
 
-# Revues
+## Revues
 
 * [R Journal](https://journal.r-project.org/issues.html)
 * [Journal of Statistical Software](https://www.jstatsoft.org/index)

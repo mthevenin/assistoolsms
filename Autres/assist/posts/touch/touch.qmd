@@ -16,7 +16,7 @@ date: 05/07/2024
 
 
 abstract: | 
-  Originaire du système Linux, la commande `touch` permet de créer des fichiers vides très rapidement à partir d'un terminal ou d'une invite de commandes. Cette commande est embarquée dans RStudio, mais doit être installée  si on souhaite l'utiliser dans l'invite de commande windows (ou powershell) 
+  Originaire du système Linux, la commande `touch` permet de créer des fichiers vides très rapidement à partir d'un terminal ou d'une invite de commandes. Cette commande est embarquée dans le terminal RStudio (de type Bash), mais doit être installée si on souhaite l'utiliser dans l'invite de commande windows (ou powershell).
 
 ---
 
@@ -30,17 +30,17 @@ Exemple:
 
 Dans le terminal de RStudio:   
 
-* On créer^[ici directement avec la commande `mkdir`] un répertoire (où l'on veut)  appelé *commande_touch* 
+* On crée^[ici directement avec la commande `mkdir`] un répertoire (où l'on veut)  appelé *commande_touch* 
 
-```{.bash}
+```{.bash filename="Création d'un répertoire"}
 cd C:users/thevenin_m/desktop
 mkdir commande_touch
 cd commande_touch
 ```
 
-On génère une série de fichiers vide, par exemple ici pour un projet Quarto (index.qmd, _quarto.yml, style.css style.scss: 
+On génère une série de fichiers vide, par exemple ici pour un projet Quarto (index.qmd, _quarto.yml, style.css style.scss)
 
-```{.bash}
+```{.bash filename="Création de fichiers vide avec touch"}
 touch index.qmd
 touch _quarto.yml
 touch style.css 
