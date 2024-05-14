@@ -16,10 +16,6 @@ image: "logo.png"
 format: 
   html: default
 
-filters:
-  - lightbox
-lightbox: auto
-
 abstract: |
  Nous allons montrer comment réaliser des cartes avec R à l'aide du package **`mapsf`** (T.Giraud) et du packages **`sf`**. mapsf est un outil très utile pour manipuler et visualiser des données spatiales en R, tandis que le package "sf" fournit une infrastructure pour stocker et manipuler ce type de données. Ces deux packages offrent une solution simple et pratique pour réaliser ce type d'analyse. 
 
@@ -308,6 +304,7 @@ arrondissements2 = rbind(arrondissements2, arrondissements_fus)
 
 
 ```{r filename="Exécution de la carte"}
+#| eval: false
 
 mf_map(x = arrondissements2,border= "black")
 mf_map(x = arrondissements2,
@@ -320,6 +317,8 @@ mf_map(x = arrondissements2,
        add= TRUE,
        inches=0.2)
 ```
+
+![](map.png)
 
 
 
@@ -404,11 +403,4 @@ mf_label(
   x = arrondissements, var = "c_ar2", col = "grey", halo = TRUE, overlap = FALSE, lines = FALSE,
 )
 ```
-
-
-
-
-
-
-
 

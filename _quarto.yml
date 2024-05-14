@@ -5,11 +5,11 @@ lang: fr
  
 website:
   search: false
-  title: ""
+  title: "logo.png"
   navbar:
     background: "white"
-    title: ""
-    logo: "logo.png"
+    title: "{{< fa sitemap size=Large >}}"
+#   logo: "logo.png"
     collapse-below: lg
     left:
       - text: "R"
@@ -32,7 +32,7 @@ website:
 page-navigation: true
 back-to-top-navigation: false
 
-
+  
 format:
   html:
     theme: [lux, sms.scss]
@@ -47,9 +47,14 @@ format:
     mainfont: "roboto"    
     code-line-numbers: false
     code-copy: true
-#    code-tools:
-#    source: true
+    code-tools:
+      source: true
+      caption: "</> Source"
+      toggle: false
+    code-overflow: wrap
+
 highlight-style: atom-one
+code-link: true
 
 lightbox: true
 

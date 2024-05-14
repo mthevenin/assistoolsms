@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Marc Thévenin">
-<title>Faire des graphiques sous Stata avec Python</title>
+<title>logo.png - Faire des graphiques sous Stata avec Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,8 +91,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><i class="fa-solid fa-sitemap fa-Large" aria-label="sitemap"></i></span>
+    </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -162,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><strong>Faire des graphiques sous Stata avec Python</strong></h1>
+<div class="quarto-title-block"><div><h1 class="title"><strong>Faire des graphiques sous Stata avec Python</strong></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> &lt;/&gt; Source</button></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">graphique</div>
     <div class="quarto-category">python</div>
@@ -273,7 +274,7 @@ Installation de Python
 </ul>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure"><figcaption><strong><em>Variable environnement</em></strong></figcaption><div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><a href="img/graph0a.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Variable environnement"><img src="img/graph0a.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="Variable environnement"></a></p>
+<figure class="figure"><p><a href="img/graph0a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Variable environnement"><img src="img/graph0a.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="Variable environnement"></a></p>
 </figure>
 </div>
 </figure>
@@ -283,7 +284,7 @@ Installation de Python
 </ul>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure"><figcaption><strong><em>Installation de pip</em></strong>*</figcaption><div class="quarto-figure quarto-figure-left">
-<figure class="figure"><p><a href="img/graph0b.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Installation de pip*"><img src="img/graph0b.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="Installation de pip*"></a></p>
+<figure class="figure"><p><a href="img/graph0b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Installation de pip*"><img src="img/graph0b.png" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="Installation de pip*"></a></p>
 </figure>
 </div>
 </figure>
@@ -416,7 +417,7 @@ Salut
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>* ! <span class="st">"D:/D/Marc/SMS/STATA INED/Graphiques/programmation/python/img/graph1.png"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><figcaption>seaborn: fonction <code>pairplot</code></figcaption><p><a href="img/graph1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="seaborn: fonction pairplot"><img src="img/graph1.png" class="img-fluid figure-img" style="width:80.0%" alt="seaborn: fonction pairplot"></a></p>
+<figure class="figure"><figcaption>seaborn: fonction <code>pairplot</code></figcaption><p><a href="img/graph1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="seaborn: fonction pairplot"><img src="img/graph1.png" class="img-fluid figure-img" style="width:80.0%" alt="seaborn: fonction pairplot"></a></p>
 </figure>
 </div>
 </section><section id="exemple-2-avec-plotly" class="level3"><h3 class="anchored" data-anchor-id="exemple-2-avec-plotly">Exemple 2 avec <code>plotly</code>
@@ -467,6 +468,8 @@ directory</code></pre>
 </div>
 </div>
 
+
+<!-- -->
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1"><strong><em>Variable environnement</em></strong></span>
@@ -555,6 +558,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -885,9 +939,259 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "**Faire des graphiques sous Stata avec Python**"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> false</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 10/03/2022</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">  - graphique</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">  - python</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="an">fig-cap-location:</span><span class="co"> top</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="co">   - lightbox</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> |</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="co"> Il s'agit d'une courte présentation de l'utilisation de Python sous Stata pour générer des graphiques. Après quelques éléments sur l'installation de Python et son utilisation avec Stata, trois exemples de graphiques sont données avec  les librairies **`seaborn`**, **`plotnine`** (wrapper de ggplot2) et **`plotly`** (graphiques intéractifs).   </span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE)</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a><span class="in">options(Encoding="UTF-8")</span></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="in">library(Statamarkdown)</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="in">stataexe &lt;- "C:/Program Files/Stata17/StataSE-64.exe"</span></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(engine.path=list(stata=stataexe))</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>**Quelques généralités sur l'utilisation de Python avec Stata**   </span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Depuis la version 16 de Stata (printemps 2019) il est possible d'utiliser Python de manière intéractive  avec l'application.</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une librairie Python  <span class="in">`SFI`</span> (https://www.stata.com/python/api16/Data.html) est mise à disposition pour favoriser cette interactivé. J'en ai pas eu besoin pour ce document, le code étant par ailleurs assez complexe.</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Niveau édition, une librairie Python officielle a été mise à disposition pour utiliser Stata sous **Jupyter** et **Spyder** si on utilise une version **Conda** de Python. Des noyaux Stata  sont disponibles depuis de nombreuses années pour le notebook **Jupyter**.   et fonctionne très bien. Je conseille vivement le dernier en date **`nbstata`**.</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans Stata, plusieurs commande on été implémentée pour gérer l'utilisation de python: **`help python`**</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Des éléments de correspondance Stata-Python pour la manipulation des données (librairie<span class="in">`pandas`</span>) sont disponibles  sur  <span class="ot">&lt;https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata&gt;</span>. Comme dans R, une fonction permet d'importer une base Stata en python.</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a>Les macros Stata sont reconnues dans un code Python et appelées dans le code de manière classique avec des quotes pour les macro temporaire ou $ pour les macro en dur. </span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a>Dans ce support, seul les graphiques seront exécutés avec Python, les manipulations en amont étant faite avec Stata. Seuls le chargement des bases seront effectués avec la fonction <span class="in">`read_Stata`</span> de la librairie **`pandas`**.  </span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a><span class="fu"># Installation de Python et des librairies [Windows]</span></span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation de python </span></span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation à l'Ined</span></span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>Vous pouvez maintenant installer directement Python avec l'application **applined** développée par le service informatique</span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a>Je ***déconseille vivement*** d'installer Python via une distribution *conda* pour générer seulement des graphiques. Un bug systématique se produira lorsque qu'un script *matplotlib* sera exécuté, faisant crasher la session de Stata. On</span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a>peut remédier à ce problème facilement via une ligne de programme à insérer dans un fichier .profile, mais autant éviter un problème que d'y remédier.</span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a>**WARNING**</span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a>Pour utiliser Python, vous devez avoir le même type de built pour les deux applications:  </span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Stata 64 bits &lt;=&gt; Python 64 bits</span>
+<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Stata 32 bits &lt;=&gt; Pyhon  32 bits</span>
+<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a>A l'Ined, la version Stata est en 64b</span>
+<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>*Python 64* Installation Standard: <span class="ot">&lt;https://www.python.org/downloads/windows/&gt;</span></span>
+<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>*Python 32* Installation Standard: <span class="ot">&lt;https://www.python.org/downloads/&gt;</span></span>
+<span id="cb15-87"><a href="#cb15-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-88"><a href="#cb15-88" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation de Python </span></span>
+<span id="cb15-90"><a href="#cb15-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-91"><a href="#cb15-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cocher *"Add Python 3.10 to PATH"* (si version 3.10)</span>
+<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a><span class="al">![***Variable environnement***](img/graph0a.png)</span>{width=50%, fig-align="left"}</span>
+<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Après avoir cliquer sur *Install Now* conserver l'installation de *pip* qui permet de gérer les librairies, en particulier de les installer et de les mettre à jour</span>
+<span id="cb15-96"><a href="#cb15-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-97"><a href="#cb15-97" aria-hidden="true" tabindex="-1"></a><span class="al">![***Installation de pip****](img/graph0b.png)</span>{width=50%, fig-align="left"}</span>
+<span id="cb15-98"><a href="#cb15-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-99"><a href="#cb15-99" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb15-100"><a href="#cb15-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-101"><a href="#cb15-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-102"><a href="#cb15-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-103"><a href="#cb15-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-104"><a href="#cb15-104" aria-hidden="true" tabindex="-1"></a>**Vérification de la reconnaissance de Python sous Stata**</span>
+<span id="cb15-105"><a href="#cb15-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-108"><a href="#cb15-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata}</span></span>
+<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a><span class="in">python query</span></span>
+<span id="cb15-110"><a href="#cb15-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-111"><a href="#cb15-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-112"><a href="#cb15-112" aria-hidden="true" tabindex="-1"></a>**Test exécution de python dans un .do**</span>
+<span id="cb15-113"><a href="#cb15-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata filename="Dans un .do"}</span></span>
+<span id="cb15-114"><a href="#cb15-114" aria-hidden="true" tabindex="-1"></a><span class="in">python: </span></span>
+<span id="cb15-115"><a href="#cb15-115" aria-hidden="true" tabindex="-1"></a><span class="in">print("Ined forever!!!!")</span></span>
+<span id="cb15-116"><a href="#cb15-116" aria-hidden="true" tabindex="-1"></a><span class="in">1+1</span></span>
+<span id="cb15-117"><a href="#cb15-117" aria-hidden="true" tabindex="-1"></a><span class="in">end  </span></span>
+<span id="cb15-118"><a href="#cb15-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-120"><a href="#cb15-120" aria-hidden="true" tabindex="-1"></a>**Test de reconnaisance des macros Stata avec Python**</span>
+<span id="cb15-121"><a href="#cb15-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata filename="Dans un .do"}</span></span>
+<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a><span class="in">local  x=5</span></span>
+<span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a><span class="in">global m "Salut"</span></span>
+<span id="cb15-125"><a href="#cb15-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a><span class="in">python: </span></span>
+<span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a><span class="in">print("$m")</span></span>
+<span id="cb15-128"><a href="#cb15-128" aria-hidden="true" tabindex="-1"></a><span class="in">`x'/2</span></span>
+<span id="cb15-129"><a href="#cb15-129" aria-hidden="true" tabindex="-1"></a><span class="in">end  </span></span>
+<span id="cb15-130"><a href="#cb15-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-131"><a href="#cb15-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-132"><a href="#cb15-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-133"><a href="#cb15-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation des libraries</span></span>
+<span id="cb15-134"><a href="#cb15-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-135"><a href="#cb15-135" aria-hidden="true" tabindex="-1"></a>**Vérification des librairies installées** </span>
+<span id="cb15-136"><a href="#cb15-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-137"><a href="#cb15-137" aria-hidden="true" tabindex="-1"></a>Dans le terminal windows pour garder le prompteur ouvert. ^<span class="co">[</span><span class="ot">touche windows + R et taper cmd dans la fenêtre qui s'ouvre / taper cmd dans la fenêtre de recherche de la barre de tache. On peut attacher le prompteur à la barre de tâche pour l'ouvrir directement par la suite</span><span class="co">]</span></span>
+<span id="cb15-138"><a href="#cb15-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-139"><a href="#cb15-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, filename="Dans le terminal de commande windows", eval=FALSE}</span></span>
+<span id="cb15-140"><a href="#cb15-140" aria-hidden="true" tabindex="-1"></a><span class="in">pip list</span></span>
+<span id="cb15-141"><a href="#cb15-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-142"><a href="#cb15-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-143"><a href="#cb15-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-144"><a href="#cb15-144" aria-hidden="true" tabindex="-1"></a>Installation d'une librairie. De préférence dans le terminal </span>
+<span id="cb15-145"><a href="#cb15-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, filename="Dans le terminal de commande windows", eval="FALSE"}</span></span>
+<span id="cb15-146"><a href="#cb15-146" aria-hidden="true" tabindex="-1"></a><span class="in">pip install plotnine</span></span>
+<span id="cb15-147"><a href="#cb15-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-148"><a href="#cb15-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-149"><a href="#cb15-149" aria-hidden="true" tabindex="-1"></a>Ou dans Stata:</span>
+<span id="cb15-150"><a href="#cb15-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb15-151"><a href="#cb15-151" aria-hidden="true" tabindex="-1"></a><span class="in">! pip install plotnine</span></span>
+<span id="cb15-152"><a href="#cb15-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-153"><a href="#cb15-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-154"><a href="#cb15-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-155"><a href="#cb15-155" aria-hidden="true" tabindex="-1"></a>Librairies nécessaire pour la suite de cette documentation: **`pandas`** (installe `numpy`), **`matplotlib`**, **`seaborn`**, **`plotnine`**, **`plotly`**</span>
+<span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a><span class="in">pip install pandas</span></span>
+<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a><span class="in">pip install matplotlib</span></span>
+<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a><span class="in">pip install seaborn</span></span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a><span class="in">pip install plotnine</span></span>
+<span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a><span class="in">pip install plotly</span></span>
+<span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a><span class="fu"># Deux exemples de graphiques</span></span>
+<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exemple 1 avec `seaborn`</span></span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Exécution d'un graphique avec la librairie <span class="in">`seaborn`</span>. La fonction <span class="in">`pairplot()`</span>, affiche une matrice de distribution croisée entre les variables de la base. L'option <span class="in">`hue="forein"`</span> (comprendre *couleur*), permet de stratifier les distributions par   </span>
+<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Le graphique est enregistré avec la fonction <span class="in">`savefig()`</span>.  </span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Le graphique est affiché avec la fonction <span class="in">`plt.show()`</span> de <span class="in">`matplotlib`</span>.</span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a><span class="in">* Stata</span></span>
+<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a><span class="in">qui sysuse auto, clear</span></span>
+<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a><span class="in">qui keep price mpg displacement gear_ratio turn foreign</span></span>
+<span id="cb15-181"><a href="#cb15-181" aria-hidden="true" tabindex="-1"></a><span class="in">qui save auto, replace</span></span>
+<span id="cb15-182"><a href="#cb15-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a><span class="in">* Python</span></span>
+<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a><span class="in">qui python:</span></span>
+<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a><span class="in">import pandas as pa </span></span>
+<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a><span class="in">import seaborn as sns</span></span>
+<span id="cb15-187"><a href="#cb15-187" aria-hidden="true" tabindex="-1"></a><span class="in">import matplotlib.pyplot as plt</span></span>
+<span id="cb15-188"><a href="#cb15-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-189"><a href="#cb15-189" aria-hidden="true" tabindex="-1"></a><span class="in">df = pa.read_stata('auto.dta')</span></span>
+<span id="cb15-190"><a href="#cb15-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-191"><a href="#cb15-191" aria-hidden="true" tabindex="-1"></a><span class="in">g = sns.pairplot(df, hue="foreign")</span></span>
+<span id="cb15-192"><a href="#cb15-192" aria-hidden="true" tabindex="-1"></a><span class="in">g.savefig("D:/D/Marc/SMS/STATA INED/Graphiques/programmation/python/img/graph1.png")</span></span>
+<span id="cb15-193"><a href="#cb15-193" aria-hidden="true" tabindex="-1"></a><span class="in">end</span></span>
+<span id="cb15-194"><a href="#cb15-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-195"><a href="#cb15-195" aria-hidden="true" tabindex="-1"></a><span class="in">* Affichage du graphique sous commande windows</span></span>
+<span id="cb15-196"><a href="#cb15-196" aria-hidden="true" tabindex="-1"></a><span class="in">* ! "D:/D/Marc/SMS/STATA INED/Graphiques/programmation/python/img/graph1.png"</span></span>
+<span id="cb15-197"><a href="#cb15-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-198"><a href="#cb15-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-199"><a href="#cb15-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-200"><a href="#cb15-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-201"><a href="#cb15-201" aria-hidden="true" tabindex="-1"></a><span class="al">![seaborn: fonction `pairplot`](img/graph1.png)</span>{width=80%}</span>
+<span id="cb15-202"><a href="#cb15-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-203"><a href="#cb15-203" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exemple 2 avec `plotly` </span></span>
+<span id="cb15-204"><a href="#cb15-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-205"><a href="#cb15-205" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Un graphique intéractif avec la fonction **`px.violin`** de la librairie <span class="in">`plotly`</span> </span>
+<span id="cb15-206"><a href="#cb15-206" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avec Stata, on a sélectionné la variable avec une macro temporaire, qui est reconnu tel quel dans le code python: `<span class="in">`y="`</span>x'"``. Le graphique se mettra donc à jour automatiquement en changeant le nom de la variable dans la définition de la macro. </span>
+<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-211"><a href="#cb15-211" aria-hidden="true" tabindex="-1"></a><span class="in">sysuse auto, clear</span></span>
+<span id="cb15-212"><a href="#cb15-212" aria-hidden="true" tabindex="-1"></a><span class="in">local x price</span></span>
+<span id="cb15-213"><a href="#cb15-213" aria-hidden="true" tabindex="-1"></a><span class="in">gen rep78b= rep78&gt;3</span></span>
+<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a><span class="in">save auto, replace</span></span>
+<span id="cb15-215"><a href="#cb15-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-216"><a href="#cb15-216" aria-hidden="true" tabindex="-1"></a><span class="in">python: </span></span>
+<span id="cb15-217"><a href="#cb15-217" aria-hidden="true" tabindex="-1"></a><span class="in">import pandas as pa </span></span>
+<span id="cb15-218"><a href="#cb15-218" aria-hidden="true" tabindex="-1"></a><span class="in">import plotly.express as px</span></span>
+<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-220"><a href="#cb15-220" aria-hidden="true" tabindex="-1"></a><span class="in">df =  pa.read_stata('auto.dta')</span></span>
+<span id="cb15-221"><a href="#cb15-221" aria-hidden="true" tabindex="-1"></a><span class="in">g = px.violin(df, y="`x'", </span></span>
+<span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a><span class="in">                  x="rep78b", </span></span>
+<span id="cb15-223"><a href="#cb15-223" aria-hidden="true" tabindex="-1"></a><span class="in">                  color="foreign", box=True, points="all")</span></span>
+<span id="cb15-224"><a href="#cb15-224" aria-hidden="true" tabindex="-1"></a><span class="in">g.update_layout(</span></span>
+<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a><span class="in">    title="Violin plot avec plotly",</span></span>
+<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a><span class="in">    xaxis_title="REP78b",</span></span>
+<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a><span class="in">    yaxis_title="`x'",</span></span>
+<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a><span class="in">    legend_title="Foreign",</span></span>
+<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a><span class="in">    font=dict(</span></span>
+<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a><span class="in">        family="Arial",</span></span>
+<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a><span class="in">        size=24,</span></span>
+<span id="cb15-232"><a href="#cb15-232" aria-hidden="true" tabindex="-1"></a><span class="in">        color="black"</span></span>
+<span id="cb15-233"><a href="#cb15-233" aria-hidden="true" tabindex="-1"></a><span class="in">    ))  </span></span>
+<span id="cb15-234"><a href="#cb15-234" aria-hidden="true" tabindex="-1"></a><span class="in">g.write_html("D:/D/Marc/SMS/STATA INED/Graphiques/programmation/python/img/graph2.html")    </span></span>
+<span id="cb15-235"><a href="#cb15-235" aria-hidden="true" tabindex="-1"></a><span class="in">fig.show()</span></span>
+<span id="cb15-236"><a href="#cb15-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-237"><a href="#cb15-237" aria-hidden="true" tabindex="-1"></a><span class="in">end</span></span>
+<span id="cb15-238"><a href="#cb15-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-239"><a href="#cb15-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r showChoro1, echo=FALSE}</span></span>
+<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a><span class="in">library(htmltools)</span></span>
+<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a><span class="in">htmltools::includeHTML("D:/D/Marc/SMS/STATA INED/Graphiques/programmation/python/img/graph2.html")</span></span>
+<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

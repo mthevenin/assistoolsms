@@ -20,10 +20,13 @@ abstract: |
 
 ---
 
+
+<hr class="hr">
+
+
 ## Générer des fichiers vides avec la commande touch
 
-* Cette commande est installée dans RStudio.
-* On l'utilise dans le terminal.
+* Cette commande est directement utilisable dans RStudio via le terminal.
 * Syntaxe: `touch nom_fichier.extension`.
 
 Exemple:  

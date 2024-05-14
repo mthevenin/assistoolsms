@@ -25,6 +25,9 @@ abstract: |
 
 ---
 
+<hr class="hr">
+
+
 ```{r filename="Installation des packages",  message=FALSE, warning=FALSE}
 # install.packages(dplyr)
 # install.packages(ggplot2)

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Marc Thévenin">
 
-<title>Modifier la couleur d’un texte ou d’un paragraphe</title>
+<title>logo.png - Modifier la couleur d’un texte ou d’un paragraphe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,8 +103,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../logo.png" alt="" class="navbar-logo">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><i class="fa-solid fa-sitemap fa-Large" aria-label="sitemap"></i></span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Modifier la couleur d’un texte ou d’un paragraphe</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Modifier la couleur d’un texte ou d’un paragraphe</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> &lt;/&gt; Source</button></div></div>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Quarto</div>
                 <div class="quarto-category">Scss</div>
@@ -363,7 +363,7 @@ Ajouter des classes et des attributs
 <p>On peut bien évidemment ajouter de nouvelles variables ou modifier l’affectarion, par exemple la couleur <code>$teal</code> au lieu de <code>$green</code> pour la variable <code>$success</code></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Couleur SASS du thème default"><img src="img/img1.png" class="img-fluid figure-img" style="width:70.0%" alt="Couleur SASS du thème default"></a></p>
+<p><a href="img/img1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Couleur SASS du thème default"><img src="img/img1.png" class="img-fluid figure-img" style="width:70.0%" alt="Couleur SASS du thème default"></a></p>
 <figcaption>Couleur SASS du thème <strong><em>default</em></strong></figcaption>
 </figure>
 </div>
@@ -373,7 +373,7 @@ Ajouter des classes et des attributs
 <p>On peut alors affecter les variables SASS aux 7 classes de couleurs du thème à l’aide d’un style css</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Affectation des couleurs à une classe"><img src="img/img2.png" class="img-fluid figure-img" style="width:70.0%" alt="Affectation des couleurs à une classe"></a></p>
+<p><a href="img/img2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Affectation des couleurs à une classe"><img src="img/img2.png" class="img-fluid figure-img" style="width:70.0%" alt="Affectation des couleurs à une classe"></a></p>
 <figcaption>Affectation des couleurs à une classe</figcaption>
 </figure>
 </div>
@@ -431,6 +431,8 @@ Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j’ai 
 <div class="sourceCode" id="cb18"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>….<span class="dark bg-light" style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid">Amélioration de l’habillage</span>…</p>
 
+
+<!-- -->
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">Couleur SASS du thème <strong><em>default</em></strong></span>
@@ -526,6 +528,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -859,9 +912,323 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+<input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Modifier la couleur d'un texte ou d'un paragraphe"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Quarto</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - Scss</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - Css</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">    css:  style.css</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 10/27/2023</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png"</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co">  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. Classiquement on utilise soit un balisage html, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables appelées SASS.</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>::: callout-info</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>Pour en savoir plus sur les css et les variables Sass avec Quarto: <span class="ot">&lt;https://mthevenin.github.io/support_quarto/041-theming.html#sec-scss&gt;</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Balise html brute</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>Avec de l'html brut, on modifie la couleur d'un texte à l'aide d'une balise **`&lt;span&gt;`** ou `&lt;p&gt;` dans lesquels on ajoute un style de type css. On utilisera par exemple les attributs **`color:`** pour la couleur du texte, ou **`background-color:`** pour la modification de la couleur du fond.</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>*Je veux que TEXTE soit en rouge*</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>Je veux que &lt;span style="color:red"&gt; TEXTE&lt;/span&gt; soit en rouge.</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>**Résultat**: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color:red"} soit en rouge.</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>Je veux que &lt;span style="color:red; background-color:yellow"&gt; TEXTE&lt;/span&gt; soit en rouge sur fond jaune</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>**Résultat**: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color:red; background-color:yellow"} soit en rouge sur fond jaune.</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ajouter directement un style css dans le fichier Quarto</span></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>On définit le style, dans une **classe** appelée ici <span class="in">`.text-red`</span></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>&lt;style&gt;                                                      </span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a> <span class="fu">.text-red</span> {</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>      }     </span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>&lt;/style&gt;</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;                                                      </span></span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a><span class="in"> .text-red {</span></span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a><span class="in">        color: red;</span></span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a><span class="in">      }     </span></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>Et on va appliquer ce style au texte Soit avec la nouvelle syntaxe Quarto  **`[TEXTE]{style}`**</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a><span class="in">```md</span></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a> Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-red} soit en rouge</span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Changement de la couleur d'un paragraphe ou d'un texte long</span></span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a>La méthode précédente, qui se substitue à une balise html <span class="in">`span`</span>, est pratique pour un mot ou une phrase que l'on souhaite mettre en avant. Pour un paragraphe il est préférable d'utiliser l'équivalent Quarto d'une balise <span class="in">`div`</span>, ouverte et fermée avec <span class="in">`:::`</span> :</span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>::: {.text-red}</span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a>  Le formatage d'un document utilisant du markdown ne permet pas de modifier à la volée la couleur d'un mot ou d'un texte. </span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a>  Classiquement on  utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css. </span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a>  On peut encore améliorer  la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a>***Résultat***:</span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a>::: text-red</span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a>Le formatage d'un document utilisant du markdown ne permet pas de modifier à la voler la couleur d'un mot ou d'un texte.  </span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a>Classiquement, on utilise soit un balisage html classique, soit une définition d'un style qui sera affectée à du texte, directement dans un document ou dans un fichier .css.  </span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a>On peut encore améliorer la définition et l'utilisation des styles dans un fichier .scss à l'aide de variables dites SASS.</span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb19-102"><a href="#cb19-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Définition d'une couleur à la *volée*</span></span>
+<span id="cb19-103"><a href="#cb19-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a>On est pas obligé ici de définir un style préalable avec un nom spécifique. Si le changement de couleur intervient rarement ou une seul fois, on peut également changer la couleur avec</span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge </span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{style="color: red"} soit en rouge</span>
+<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ajouter un style à un fichier css</span></span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>Pour ne pas alourdir le fichier .qmd, il est préférable de définir les styles dans un fichier <span class="in">`.css`</span>. Il s'agit d'un simple fichier texte que l'on peut directement générer avec **nouveau fichier**. Dans un projet (toujours conseillé), un fichier vide <span class="in">`style.css`</span> est directement généré<span class="ot">[^1]</span>.</span>
+<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>On peut le nommer à sa guise</span>
+<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Dans le yaml de la page (ou le <span class="in">`_quarto.yml`</span> du projet)</span>
+<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-121"><a href="#cb19-121" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-122"><a href="#cb19-122" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a>title: "Utilisation d'un fichier css"</span>
+<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a>format: </span>
+<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a>    css: style.css</span>
+<span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Pour définir les styles dans un fichier css, il n'y a pas besoin de la balise <span class="in">`style`</span></span>
+<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-134"><a href="#cb19-134" aria-hidden="true" tabindex="-1"></a>.text-indigo {</span>
+<span id="cb19-135"><a href="#cb19-135" aria-hidden="true" tabindex="-1"></a>        color: #6610f2;</span>
+<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a>      }  </span>
+<span id="cb19-137"><a href="#cb19-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-138"><a href="#cb19-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a>Dans le document Quarto:</span>
+<span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-142"><a href="#cb19-142" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo </span>
+<span id="cb19-143"><a href="#cb19-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-144"><a href="#cb19-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo} soit en indigo</span>
+<span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ajouter des classes et des attributs</span></span>
+<span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a>**Ajout d'un attribut**</span>
+<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a>Sans définir une nouvelle classe, on peut ajouter un attribut à ce type de formatage. Par exemple, on souhaite mettre une couleur de fond avec l'attribut <span class="in">`background-color: pink`</span>.</span>
+<span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-155"><a href="#cb19-155" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span>
+<span id="cb19-156"><a href="#cb19-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-157"><a href="#cb19-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-158"><a href="#cb19-158" aria-hidden="true" tabindex="-1"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo style="background-color:pink"} soit en indigo avec un fond rose</span>
+<span id="cb19-159"><a href="#cb19-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-160"><a href="#cb19-160" aria-hidden="true" tabindex="-1"></a>**Ajout de classes**</span>
+<span id="cb19-161"><a href="#cb19-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-162"><a href="#cb19-162" aria-hidden="true" tabindex="-1"></a>Dans le fichier css on génère une nouvelle classe indiquant un fond de type jaune.</span>
+<span id="cb19-163"><a href="#cb19-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-164"><a href="#cb19-164" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-165"><a href="#cb19-165" aria-hidden="true" tabindex="-1"></a>.bgtext-yellow {</span>
+<span id="cb19-166"><a href="#cb19-166" aria-hidden="true" tabindex="-1"></a>        background-color: #f4bd61;</span>
+<span id="cb19-167"><a href="#cb19-167" aria-hidden="true" tabindex="-1"></a>      }     </span>
+<span id="cb19-168"><a href="#cb19-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-169"><a href="#cb19-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-170"><a href="#cb19-170" aria-hidden="true" tabindex="-1"></a>On peut alors simplement ajouter cette nouvelle classe <span class="in">`bgtext-yellow`</span> à celle qui  demande une couleur indigo</span>
+<span id="cb19-171"><a href="#cb19-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-172"><a href="#cb19-172" aria-hidden="true" tabindex="-1"></a><span class="in">``` md</span></span>
+<span id="cb19-173"><a href="#cb19-173" aria-hidden="true" tabindex="-1"></a>Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune </span>
+<span id="cb19-174"><a href="#cb19-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-175"><a href="#cb19-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-176"><a href="#cb19-176" aria-hidden="true" tabindex="-1"></a>***Résultat***: Je veux que <span class="co">[</span><span class="ot">TEXTE</span><span class="co">]</span>{.text-indigo .bgtext-yellow} soit en indigo avec un fond jaune</span>
+<span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a>On verra en fin de fiche, en habillant un paragraphe, que l'on peut ajouter une classe à la définition d'un autre attribut. Par exemple la classe <span class="in">`.text-indigo`</span> pour définir la couleur d'un contour.</span>
+<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a><span class="fu">## Générer les attributs d'un thème dans un fichier scss</span></span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour un contenu html Quarto comme Rmarkdown affecte un habillage (thème), par défaut ou choisit dans la liste des 26 thèmes libres de type <span class="co">[</span><span class="ot">**bootstrap**</span><span class="co">](https://bootswatch.com/)</span>^<span class="co">[</span><span class="ot">le thème par défaut n'est pas dans la liste, mais il  a  récupéreé</span><span class="co">]</span>. Pour chaque thème, il est possible de récupérer l'ensemble des fichiers source permettant d'affecter le thème choisi au contenu html (cliquer sur download).  </span>
+<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Lorsqu'on génère un projet Quarto, un fichier vide **style.scss** est automatiquement créer. Si on génère un simple document de type notebook hors projet, il suffit de créer un simple fichier texte et l'enregistrer avec l'extension <span class="in">`.scss`</span>.  </span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Définir les styles à partir d'un fichier <span class="in">`.scss`</span> facilite l'affectation d'attributs à des classes en indiquant en amont les éléments tels que les couleurs, mais également des épaisseurs, des marges .....  </span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ces définitions préalables sont appelées **variables SASS**^<span class="co">[</span><span class="ot">Oui je sais si on a travaillé avec Sas cela peut porter à confusion, d'autant que la syntaxe de ces variables ressemblent à s'en méprendre aux macro variables de cette application</span><span class="co">]</span>, que l'on peut soit générer facilement: <span class="in">`$couleur1=red;`</span> ou utiliser les couleurs du thème choisi. </span>
+<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Il me semble préférable pour conserver l'homogénéité de l'habillage du document d'utiliser les couleurs prédéfinies du thème sélectionné</span>
+<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut peut récupérer facilement ces couleurs sur le site <span class="co">[</span><span class="ot">bootswatch</span><span class="co">](https://bootswatch.com/)</span> comme indiquer plus haut</span>
+<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut récupérer le squelette d'un fichier <span class="in">`.scss`</span> pour les 26 à cette adresse [<span class="co">[</span><span class="ot">fichiers scss des 26 thèmes  pour les couleurs</span><span class="co">](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)</span>  </span>
+<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-196"><a href="#cb19-196" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une fois dans Rstudio, dans le fichier scss comprend: </span>
+<span id="cb19-197"><a href="#cb19-197" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La définition des attribus de type couleur</span>
+<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Les affectations des couleurs dans des classes</span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a>***Définition des couleurs sous forme de variables SASS***  </span>
+<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les échelles de gris de blanc à noir (11 couleurs) et 10 couleurs de base. Les noms des variables sont identiques d'un thème à l'autres, seuls les codes couleurs changent</span>
+<span id="cb19-203"><a href="#cb19-203" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une première affectation de ces couleurs à 7 autres variables SASS: <span class="in">`$primary`</span>, <span class="in">`$secondary`</span>, <span class="in">`$success`</span>, <span class="in">`$info`</span>, <span class="in">`$warning`</span>, <span class="in">`$danger`</span>, <span class="in">`$light`</span>, <span class="in">`$dark`</span>.</span>
+<span id="cb19-204"><a href="#cb19-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-205"><a href="#cb19-205" aria-hidden="true" tabindex="-1"></a>On peut bien évidemment ajouter de nouvelles variables ou modifier l'affectarion, par exemple la couleur <span class="in">`$teal`</span> au lieu de <span class="in">`$green`</span> pour la variable <span class="in">`$success`</span></span>
+<span id="cb19-206"><a href="#cb19-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-207"><a href="#cb19-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-208"><a href="#cb19-208" aria-hidden="true" tabindex="-1"></a><span class="al">![Couleur SASS du thème ***default***](img/img1.png)</span>{width=70%}</span>
+<span id="cb19-209"><a href="#cb19-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-210"><a href="#cb19-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-211"><a href="#cb19-211" aria-hidden="true" tabindex="-1"></a>***Affectation des couleurs sous forme de variable SASS à une classe***</span>
+<span id="cb19-212"><a href="#cb19-212" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-213"><a href="#cb19-213" aria-hidden="true" tabindex="-1"></a>Toutes les définitions se font en tête de fichier et la partie réservées aux affectations à des classes doit être impérativement précédée par: </span>
+<span id="cb19-214"><a href="#cb19-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-215"><a href="#cb19-215" aria-hidden="true" tabindex="-1"></a><span class="in">```md</span></span>
+<span id="cb19-216"><a href="#cb19-216" aria-hidden="true" tabindex="-1"></a>/*-- scss:rules --*/</span>
+<span id="cb19-217"><a href="#cb19-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-218"><a href="#cb19-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-219"><a href="#cb19-219" aria-hidden="true" tabindex="-1"></a>On peut alors affecter les variables SASS aux 7 classes de couleurs du thème à l'aide d'un style css</span>
+<span id="cb19-220"><a href="#cb19-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-221"><a href="#cb19-221" aria-hidden="true" tabindex="-1"></a><span class="al">![Affectation des couleurs à une classe](img/img2.png)</span>{width=70%}</span>
+<span id="cb19-222"><a href="#cb19-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-223"><a href="#cb19-223" aria-hidden="true" tabindex="-1"></a>Si on se centente d'utiliser ce squelette de sccs, il n'y a rien eu à faire jusqu'à ce stade.</span>
+<span id="cb19-224"><a href="#cb19-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-225"><a href="#cb19-225" aria-hidden="true" tabindex="-1"></a>***Appel du fichier scss dans le document quarto***</span>
+<span id="cb19-226"><a href="#cb19-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-227"><a href="#cb19-227" aria-hidden="true" tabindex="-1"></a>Comme pour un fichier css, il faut indiquer dans le yaml de la page ou du projet Quarto l'utilisation de ce fichier. </span>
+<span id="cb19-228"><a href="#cb19-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-229"><a href="#cb19-229" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec le thème par défaut et en utilisant le fichier <span class="in">` style_default.scss`</span> dans mon dépôt github: </span>
+<span id="cb19-230"><a href="#cb19-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-231"><a href="#cb19-231" aria-hidden="true" tabindex="-1"></a><span class="in">```md</span></span>
+<span id="cb19-232"><a href="#cb19-232" aria-hidden="true" tabindex="-1"></a>format: </span>
+<span id="cb19-233"><a href="#cb19-233" aria-hidden="true" tabindex="-1"></a>  html:</span>
+<span id="cb19-234"><a href="#cb19-234" aria-hidden="true" tabindex="-1"></a>    css: style.css</span>
+<span id="cb19-235"><a href="#cb19-235" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-236"><a href="#cb19-236" aria-hidden="true" tabindex="-1"></a>theme:</span>
+<span id="cb19-237"><a href="#cb19-237" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>style_default.scss</span>
+<span id="cb19-238"><a href="#cb19-238" aria-hidden="true" tabindex="-1"></a><span class="in">```        </span></span>
+<span id="cb19-239"><a href="#cb19-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-240"><a href="#cb19-240" aria-hidden="true" tabindex="-1"></a><span class="in">* En utilisant un autre thème bootstrap, par exemple **lux** </span></span>
+<span id="cb19-241"><a href="#cb19-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-242"><a href="#cb19-242" aria-hidden="true" tabindex="-1"></a><span class="in">```md</span></span>
+<span id="cb19-243"><a href="#cb19-243" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb19-244"><a href="#cb19-244" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb19-245"><a href="#cb19-245" aria-hidden="true" tabindex="-1"></a><span class="in">    css: style.css</span></span>
+<span id="cb19-246"><a href="#cb19-246" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb19-247"><a href="#cb19-247" aria-hidden="true" tabindex="-1"></a><span class="in">theme:</span></span>
+<span id="cb19-248"><a href="#cb19-248" aria-hidden="true" tabindex="-1"></a><span class="in">  - lux</span></span>
+<span id="cb19-249"><a href="#cb19-249" aria-hidden="true" tabindex="-1"></a><span class="in">  - style_lux.scss</span></span>
+<span id="cb19-250"><a href="#cb19-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>    </span>
+<span id="cb19-251"><a href="#cb19-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-252"><a href="#cb19-252" aria-hidden="true" tabindex="-1"></a>On a plus qu'à appliquer une des couleurs du thème au texte:</span>
+<span id="cb19-253"><a href="#cb19-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-254"><a href="#cb19-254" aria-hidden="true" tabindex="-1"></a>Je veux utiliser la couleur <span class="co">[</span><span class="ot">DANGER</span><span class="co">]</span>{.danger} à mon texte</span>
+<span id="cb19-255"><a href="#cb19-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-256"><a href="#cb19-256" aria-hidden="true" tabindex="-1"></a>Pour les sept couleurs de base du thème lux (attention 2 sont blanches, j'ai donc ajouté un fond): </span>
+<span id="cb19-257"><a href="#cb19-257" aria-hidden="true" tabindex="-1"></a>&lt;div style="background-color:#919aa1; padding-left:5px; padding-right:5px; border-radius: 10px"&gt;</span>
+<span id="cb19-258"><a href="#cb19-258" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">PRIMARY</span><span class="co">]</span>{.primary}</span>
+<span id="cb19-259"><a href="#cb19-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-260"><a href="#cb19-260" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">SECONDARY</span><span class="co">]</span>{.secondary}</span>
+<span id="cb19-261"><a href="#cb19-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-262"><a href="#cb19-262" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">SUCCES</span><span class="co">]</span>{.success}</span>
+<span id="cb19-263"><a href="#cb19-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-264"><a href="#cb19-264" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">INFO</span><span class="co">]</span>{.info}</span>
+<span id="cb19-265"><a href="#cb19-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-266"><a href="#cb19-266" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">WARNING</span><span class="co">]</span>{.warning}</span>
+<span id="cb19-267"><a href="#cb19-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-268"><a href="#cb19-268" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">DANGER</span><span class="co">]</span>{.danger}</span>
+<span id="cb19-269"><a href="#cb19-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-270"><a href="#cb19-270" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">LIGHT</span><span class="co">]</span>{.light}</span>
+<span id="cb19-271"><a href="#cb19-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-272"><a href="#cb19-272" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Couleur <span class="co">[</span><span class="ot">DARK</span><span class="co">]</span>{.dark}</span>
+<span id="cb19-273"><a href="#cb19-273" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
+<span id="cb19-274"><a href="#cb19-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-275"><a href="#cb19-275" aria-hidden="true" tabindex="-1"></a>***Attribus supplémentaire à l'aide des variables SASS et limite sur les couleurs de fond***</span>
+<span id="cb19-276"><a href="#cb19-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-277"><a href="#cb19-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-278"><a href="#cb19-278" aria-hidden="true" tabindex="-1"></a>A la volée on peut vouloir également ajouter des attribus supplémentaires au texte.  </span>
+<span id="cb19-279"><a href="#cb19-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-280"><a href="#cb19-280" aria-hidden="true" tabindex="-1"></a>On remarque que la couleur **light** est vraiment très très light (pour ne pas dire invisible). On peut donc vouloir ajouter une couleur de fond, celle définie avec la variable <span class="in">`$dark`</span>.</span>
+<span id="cb19-281"><a href="#cb19-281" aria-hidden="true" tabindex="-1"></a>En css l'attribut est **`background-color`**.  </span>
+<span id="cb19-282"><a href="#cb19-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-283"><a href="#cb19-283" aria-hidden="true" tabindex="-1"></a>Les classes de couleur définies dans le fichier scss ne s'applique pas au couleur de fond. Il font donc soit ajouter manuellement le code couleur correspondant à l'attribut dark, ou ajouter une ou plusieurs classes supplémentaires aux fichier scss (préférable). </span>
+<span id="cb19-284"><a href="#cb19-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-285"><a href="#cb19-285" aria-hidden="true" tabindex="-1"></a>Si on ajoute la classe bg-dark au fichier scss</span>
+<span id="cb19-286"><a href="#cb19-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-287"><a href="#cb19-287" aria-hidden="true" tabindex="-1"></a><span class="in">```md</span></span>
+<span id="cb19-288"><a href="#cb19-288" aria-hidden="true" tabindex="-1"></a>// Ajout classe bg-dark pour le background du text dans style_default.scss</span>
+<span id="cb19-289"><a href="#cb19-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-290"><a href="#cb19-290" aria-hidden="true" tabindex="-1"></a>.bg-dark{background-color: $dark}</span>
+<span id="cb19-291"><a href="#cb19-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-292"><a href="#cb19-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-293"><a href="#cb19-293" aria-hidden="true" tabindex="-1"></a>On va mettre le <span class="co">[</span><span class="ot">fond dark à la couleur light</span><span class="co">]</span>{.light .bg-dark}</span>
+<span id="cb19-294"><a href="#cb19-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-295"><a href="#cb19-295" aria-hidden="true" tabindex="-1"></a>***Pour aller un peu plus loin***   </span>
+<span id="cb19-296"><a href="#cb19-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-297"><a href="#cb19-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-298"><a href="#cb19-298" aria-hidden="true" tabindex="-1"></a>Si on souhaite améliorer l'habillage du texte, avec par exemple une légère marge à gauche et à droite du texte ou adoucir l'angle du cadre, on peut utiliser les attributs **`padding-left`**, **`padding-right`**, **`border-radius`**. Ces attributs peuvent être ajouté à la volée ou paramétré dans le fichier scss, toujours à l'aide de variables SASS. </span>
+<span id="cb19-299"><a href="#cb19-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-300"><a href="#cb19-300" aria-hidden="true" tabindex="-1"></a><span class="in">```md</span></span>
+<span id="cb19-301"><a href="#cb19-301" aria-hidden="true" tabindex="-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span>
+<span id="cb19-302"><a href="#cb19-302" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-303"><a href="#cb19-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-304"><a href="#cb19-304" aria-hidden="true" tabindex="-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.light .bg-dark style="padding-left:5px; padding-right:5px; border-radius:10px"}...</span>
+<span id="cb19-305"><a href="#cb19-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-306"><a href="#cb19-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-307"><a href="#cb19-307" aria-hidden="true" tabindex="-1"></a>Si on souhaite ajouter un contour, on peut ajouter des attributs comme **`border`** (épaisseur du trait) et **`border-style:solid`**. On inversera ici la couleur du texte et du fond après avoir créer une classe <span class="in">`bg-light`</span></span>
+<span id="cb19-308"><a href="#cb19-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-309"><a href="#cb19-309" aria-hidden="true" tabindex="-1"></a><span class="in">```md</span></span>
+<span id="cb19-310"><a href="#cb19-310" aria-hidden="true" tabindex="-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span>
+<span id="cb19-311"><a href="#cb19-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-312"><a href="#cb19-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-313"><a href="#cb19-313" aria-hidden="true" tabindex="-1"></a>....<span class="co">[</span><span class="ot">Amélioration de l'habillage</span><span class="co">]</span>{.dark .bg-light style="border-radius:10px; padding-left:5px; padding-right:5px; border:1px; border-style:solid"}...</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Marc Thévenin">
-<title>Configurer les sessions avec un profile.do</title>
+<title>logo.png - Configurer les sessions avec un profile.do</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,8 +91,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../logo.png" alt="" class="navbar-logo"></a>
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><i class="fa-solid fa-sitemap fa-Large" aria-label="sitemap"></i></span>
+    </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -151,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><strong>Configurer les sessions avec un profile.do</strong></h1>
+<div class="quarto-title-block"><div><h1 class="title"><strong>Configurer les sessions avec un profile.do</strong></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> &lt;/&gt; Source</button></div></div>
   <div class="quarto-categories">
     <div class="quarto-category">profile</div>
   </div>
@@ -484,6 +485,8 @@ Note
 </div>
 
 
+<!-- -->
+
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -563,6 +566,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -893,9 +947,364 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "**Configurer les sessions avec un profile.do**"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> false</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: "Marc Thévenin"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: "Ined"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 09/26/2022</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">  - profile</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co">   - lightbox</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> auto</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> | </span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co">  Un fichier **profile.do** est un programme qui s'éxécute à l'ouverture d'une session Stata. Ce programme comporte uniquement des éléments de configuration des sessions.</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="co"> </span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, include=FALSE}</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="in">options(Encoding="UTF-8")</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="in">library(Statamarkdown)</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="in">stataexe &lt;- "C:/Program Files/Stata17/StataSE-64.exe"</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(engine.path=list(stata=stataexe))</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>Exemples de configurations qui peuvent être ajoutées :  </span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Création d'un log de session automatique [**surement caduc avec le système de backup (4 secondes) des programmes avec la version 18**).</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Affectation d'un répertoire temporaire autre que celui par défaut.</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Modification de la localisation du répertoire *ado plus* (il est conseillé mettre sur le lecteur D à l'Ined ou tout autre lecteur que le C:).</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Toutes les commandes de paramétrisation préfixées par **`set`**: contrôle du défilement de l'output, affichage du nombre de décimales dans les tableaux de régression etc...</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Paramètres des graphiques: thèmes, police d'affichage... Je conseille d'utiliser à minima <span class="in">`grstyle`</span> de Ben Jann.</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Toutes les commandes sont donc insérées dans un seule programme, il est possible de les activer, de les désactiver ou de les modifier très facilement selon l'usage du moment.</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="fu"># Création et modification d'un fichier profile.do </span></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>Le fichier <span class="in">`profile.do`</span> doit être impérativement enregistré dans le répertoire **user**: </span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; * Windows: </span><span class="in">`"C:/Users/nom_user/"`</span></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; * Linux (serveur Margaux): </span><span class="in">`"home/Users/nom_user/"`</span></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>Une fois le programme enregistré, son effet n'est pris en compte que pour les sessions  ouvertes ultérieurement et non sur celles en cours. Le programme est chargé uniquement à l'ouverture d'une session, un message apparait dans l'output: </span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a><span class="al">![](g1.PNG)</span>{width=70%}</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>Pour faciliter l'ouverture et l'enregistrement du fichier sous windows sans avoir à se promener dans l'explorateur de fichiers, on peut enregistrer la localisation du répertoire user avec une macro de type <span class="in">`global`</span>, ici appelée *user*, et l'ouvrir rapidement avec l'invite de commande windows sous Stata (<span class="in">`!`</span> ou <span class="in">`shell`</span>).</span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>Affectation du répertoire user dans une macro:</span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a><span class="in">global user "C:/Users/nom_user/"</span></span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>Ouverture du fichier profile.do avec l'invite de commande: </span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a><span class="in">! $user/profile.do</span></span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exemples</span></span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>Les quelques exemples de configurations qui suivent sont forcément orientés vers mon propre usage.  </span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## **adoplus**</span></span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>Changement de la localisation du répertoire où sont enregistrées les commandes externes. Il est préférable de les localiser dans un lecteur autre que le lecteur C:</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a><span class="in">sysdir set PLUS "D:/D/ado/plus"</span></span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a><span class="in">sysdir set PERSONAL "D:/D/ado/personal"</span></span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## **Répertoire temporaire** </span></span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>On peut créer un répertoire qui fera office de répertoire d'enregistrement par défaut des fichiers, et affecter les opérations d'ouvertures et de sauvegardes dans ce répertoire.</span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a><span class="in">* Après création du répertoire stata_temp</span></span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a><span class="in">cd "D:\D\stata_temp\"</span></span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>C'est très optionnel: on peut demander à Stata d'afficher à l'ouverture le contenu de ce répertoire</span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="in">noisily display as txt    "------------------------------------"</span></span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a><span class="in">noisily display as result "  Contenu du repertoire stata_temp  "</span></span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a><span class="in">noisily display as txt    "------------------------------------"</span></span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a><span class="in">noisily dir "D:/D/stata_temp/"</span></span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="2"}</span>
+<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a><span class="al">![](g2.PNG)</span></span>
+<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a><span class="al">![](g2b.PNG)</span></span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a>Si on change dans un programme le répertoire d'affectation par défaut avec <span class="in">`cd`</span>, ce répertoire  *stata_temp* ne sera plus reconnu comme répertoire par défaut.   </span>
+<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a>Pour palier ce problème on peut affecter une macro à la localisation de ce répertoire.</span>
+<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a><span class="in">global tmp "D:/D/stata_temp/"</span></span>
+<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a><span class="in">cd "path/mon_projet"  </span></span>
+<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a><span class="in">use base, clear</span></span>
+<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a><span class="in">keep if x==1</span></span>
+<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a><span class="in">save $tmp/base_x1, replace</span></span>
+<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a>Cette solution comporte néanmoins des limites lorsque le programme est utilisé par plusieurs personnes.</span>
+<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## **Log automatique**</span></span>
+<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a>La plus utile de toutes les configurations décrites ici.  </span>
+<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a>Au préalable, je conseille de créer un répertoire d'enregistrement pour ces fichiers logs. Je les enregistre dans un sous répertoire de *stat_temp* appelé tout simplement **log**.   </span>
+<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a><span class="in">capture log close statalog</span></span>
+<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a><span class="in">local cdt = "`c(current_date)'"</span></span>
+<span id="cb14-146"><a href="#cb14-146" aria-hidden="true" tabindex="-1"></a><span class="in">local cdt: subinstr local cdt " " "-", all</span></span>
+<span id="cb14-147"><a href="#cb14-147" aria-hidden="true" tabindex="-1"></a><span class="in">local cti = "`c(current_time)'"</span></span>
+<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a><span class="in">local cti: subinstr local cti ":" ".", all</span></span>
+<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a><span class="in">local statalogname "statalog_`cdt'_`cti'.log"</span></span>
+<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a><span class="in">log using "$user/stata_temp/log/`statalogname'" , text name(statalog)</span></span>
+<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>Pour le chemin d'accès, j'utilise le répertoire *user* enregistré sous forme d'une macro (voir plus haut).</span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>Dans ce répertoire sont enregistrés tous les log de session depuis le 1er février 2022.  </span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a><span class="al">![](g3.PNG)</span>{width=70%}</span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## **Commandes de type set**</span></span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; * Il n'est pas nécessaire d'ajouter l'option </span><span class="in">`permanently`</span><span class="at"> comme le fichier profile est chargé à chaque ouverture de session. </span></span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; * Ensemble des commandes préfixées par </span><span class="in">`set`</span><span class="at">: **`help set`**</span></span>
+<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a>**Exemple 1**: </span>
+<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a>nombre de décimales reportées dans l'output d'une régression avec **`set cformats`** (coef, se et bornes ci), **`set sformats`** (statistique du test) et **`set pformats`** (p-value).    </span>
+<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a>Si on souhaite fixer le nombre de décimale pour l'ensemble des statistiques à 2</span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a><span class="in">set cformats %9.2f   // max longueur =9</span></span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a><span class="in">set sformats %9.2f   // max longueur =8</span></span>
+<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a><span class="in">set pformats %9.2f   // max longueur =5</span></span>
+<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a>**Exemple 2**: déblocage du défilement de l'output</span>
+<span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a><span class="in">set more off</span></span>
+<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-184"><a href="#cb14-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-185"><a href="#cb14-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## **Graphiques**</span></span>
+<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a>De nouveau avec une commande de type <span class="in">`set`</span> on peut dans son fichier *profile.do* changer le thème par défaut avec **`set scheme nom_scheme`**.  </span>
+<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a>J'ai maintenant pour (bonne) habitude d'utiliser **`grstyle`** de Ben Jann (présentation dans la formation dédiée aux graphiques: <span class="ot">&lt;https://mthevenin.github.io/stata_graphiques/formation32.html#grstyle-de-b.jann&gt;</span>).   </span>
+<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a>Selon l'humeur du moment, on peut générer un thème graphique visuellement bien plus qualitatif que les thèmes usines de Stata, avec seulement quelques arguments.  </span>
+<span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a><span class="in">grstyle init</span></span>
+<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a><span class="in">grstyle set imesh</span></span>
+<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a><span class="in">grstyle set legend 11, nobox</span></span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a><span class="in">grstyle set color tableau</span></span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>**Penser à installer les packafes **`grstyle`** et **`colorpalette`** avant.</span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## **Python**</span></span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a>**Empêcher le bug graphique qui fait planter Stata avec Anaconda/miniconda**</span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a>L'utilisation de conda - Anaconda ou miniconda -  n'est pas recommandé pour exécuter du code python dans un programme Stata. Pour preuve, sans les quelques lignes de codes qui suiven, l'exécution d'un graphique utilisant **`matplotlib`** risque de faire crasher la session Stata. C'est très désagréable.  Plutôt que d'insérer ce code dans le programme, il est préférable de le mettre une bonne fois pour toute dans le *profile.do* si python est utilisé via *conda*. </span>
+<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a>Mieux vaut vérifier la localisation exacte du répertoire *plugins*, je ne sais pas si le chemin qui suit vaut pour toutes les installation de miniconda/anaconda.</span>
+<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a><span class="in">python:</span></span>
+<span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a><span class="in">import os</span></span>
+<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a><span class="in">os.environ['QT_QPA_PLATFORM_PLUGIN_PATH']="C:\\Users\\thevenin_m\\Miniconda3\\Library\\plugins\\plugins"</span></span>
+<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a><span class="in">end</span></span>
+<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-219"><a href="#cb14-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exemple de profile.do</span></span>
+<span id="cb14-221"><a href="#cb14-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-222"><a href="#cb14-222" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb14-223"><a href="#cb14-223" aria-hidden="true" tabindex="-1"></a> Dans l'exemple qui suit, tout est mis en ligne de commentaire. Il suffit de retirer la balise <span class="in">`*`</span> et de modifier les chemins si nécessaire. </span>
+<span id="cb14-224"><a href="#cb14-224" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb14-225"><a href="#cb14-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-226"><a href="#cb14-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-227"><a href="#cb14-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-228"><a href="#cb14-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{stata, eval=FALSE}</span></span>
+<span id="cb14-229"><a href="#cb14-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-230"><a href="#cb14-230" aria-hidden="true" tabindex="-1"></a><span class="in">**************************</span></span>
+<span id="cb14-231"><a href="#cb14-231" aria-hidden="true" tabindex="-1"></a><span class="in">* profile.do Ined        *</span></span>
+<span id="cb14-232"><a href="#cb14-232" aria-hidden="true" tabindex="-1"></a><span class="in">* M.Thevenin Ined-SMS    *</span></span>
+<span id="cb14-233"><a href="#cb14-233" aria-hidden="true" tabindex="-1"></a><span class="in">**************************</span></span>
+<span id="cb14-234"><a href="#cb14-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-235"><a href="#cb14-235" aria-hidden="true" tabindex="-1"></a><span class="in">/* </span></span>
+<span id="cb14-236"><a href="#cb14-236" aria-hidden="true" tabindex="-1"></a><span class="in">- Copier le programme ou une partie selon les besoins danx un .do</span></span>
+<span id="cb14-237"><a href="#cb14-237" aria-hidden="true" tabindex="-1"></a><span class="in">- Désactiver les zônes de commentaire *</span></span>
+<span id="cb14-238"><a href="#cb14-238" aria-hidden="true" tabindex="-1"></a><span class="in">- Enregistrer le fichier profile.do dans le répertoire unser</span></span>
+<span id="cb14-239"><a href="#cb14-239" aria-hidden="true" tabindex="-1"></a><span class="in">- Seulement ici les paramètres que j'utilise. On peut, bien évidemment, en ajouter d'autres</span></span>
+<span id="cb14-240"><a href="#cb14-240" aria-hidden="true" tabindex="-1"></a><span class="in">*/  </span></span>
+<span id="cb14-241"><a href="#cb14-241" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb14-242"><a href="#cb14-242" aria-hidden="true" tabindex="-1"></a><span class="in">*****************************</span></span>
+<span id="cb14-243"><a href="#cb14-243" aria-hidden="true" tabindex="-1"></a><span class="in">* ado + et personal dans D: *</span></span>
+<span id="cb14-244"><a href="#cb14-244" aria-hidden="true" tabindex="-1"></a><span class="in">***************************** </span></span>
+<span id="cb14-245"><a href="#cb14-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-246"><a href="#cb14-246" aria-hidden="true" tabindex="-1"></a><span class="in">/* modifier les chemin si nécessaire */  </span></span>
+<span id="cb14-247"><a href="#cb14-247" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb14-248"><a href="#cb14-248" aria-hidden="true" tabindex="-1"></a><span class="in">* sysdir set PLUS "D:/D/ado/plus"</span></span>
+<span id="cb14-249"><a href="#cb14-249" aria-hidden="true" tabindex="-1"></a><span class="in">* sysdir set PERSONAL "D:/D/ado/personal"</span></span>
+<span id="cb14-250"><a href="#cb14-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-251"><a href="#cb14-251" aria-hidden="true" tabindex="-1"></a><span class="in">****************</span></span>
+<span id="cb14-252"><a href="#cb14-252" aria-hidden="true" tabindex="-1"></a><span class="in">** STATA_TEMP **</span></span>
+<span id="cb14-253"><a href="#cb14-253" aria-hidden="true" tabindex="-1"></a><span class="in">****************</span></span>
+<span id="cb14-254"><a href="#cb14-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-255"><a href="#cb14-255" aria-hidden="true" tabindex="-1"></a><span class="in">/* Créer un répertoire, pas forcément du même nom que celui ci et modifier les chemin */  </span></span>
+<span id="cb14-256"><a href="#cb14-256" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb14-257"><a href="#cb14-257" aria-hidden="true" tabindex="-1"></a><span class="in">* cd "D:\D\stata_temp\"</span></span>
+<span id="cb14-258"><a href="#cb14-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-259"><a href="#cb14-259" aria-hidden="true" tabindex="-1"></a><span class="in">*************************************************</span></span>
+<span id="cb14-260"><a href="#cb14-260" aria-hidden="true" tabindex="-1"></a><span class="in">* affichage du contenu du repertoire stata_temp *</span></span>
+<span id="cb14-261"><a href="#cb14-261" aria-hidden="true" tabindex="-1"></a><span class="in">*************************************************</span></span>
+<span id="cb14-262"><a href="#cb14-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-263"><a href="#cb14-263" aria-hidden="true" tabindex="-1"></a><span class="in">* noisily display as txt    "------------------------------------"</span></span>
+<span id="cb14-264"><a href="#cb14-264" aria-hidden="true" tabindex="-1"></a><span class="in">* noisily display as result "  Contenu du repertoire stata_temp  "</span></span>
+<span id="cb14-265"><a href="#cb14-265" aria-hidden="true" tabindex="-1"></a><span class="in">* noisily display as txt    "------------------------------------"</span></span>
+<span id="cb14-266"><a href="#cb14-266" aria-hidden="true" tabindex="-1"></a><span class="in">* noisily dir "D:/D/stata_temp/"</span></span>
+<span id="cb14-267"><a href="#cb14-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-268"><a href="#cb14-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-269"><a href="#cb14-269" aria-hidden="true" tabindex="-1"></a><span class="in">**************************************************</span></span>
+<span id="cb14-270"><a href="#cb14-270" aria-hidden="true" tabindex="-1"></a><span class="in">* chargement du répertoire  $tmp dans stata_temp *</span></span>
+<span id="cb14-271"><a href="#cb14-271" aria-hidden="true" tabindex="-1"></a><span class="in">**************************************************</span></span>
+<span id="cb14-272"><a href="#cb14-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-273"><a href="#cb14-273" aria-hidden="true" tabindex="-1"></a><span class="in">/* attention si plusieurs utilisateurs d'un même programme, le chemin de $tmp risque de ne pas être reconnu */</span></span>
+<span id="cb14-274"><a href="#cb14-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-275"><a href="#cb14-275" aria-hidden="true" tabindex="-1"></a><span class="in">* global tmp "D:/D/stata_temp/"</span></span>
+<span id="cb14-276"><a href="#cb14-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-277"><a href="#cb14-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-278"><a href="#cb14-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-279"><a href="#cb14-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-280"><a href="#cb14-280" aria-hidden="true" tabindex="-1"></a><span class="in">******************************************</span></span>
+<span id="cb14-281"><a href="#cb14-281" aria-hidden="true" tabindex="-1"></a><span class="in">* Creation automatique d'un fichier .log *</span></span>
+<span id="cb14-282"><a href="#cb14-282" aria-hidden="true" tabindex="-1"></a><span class="in">******************************************</span></span>
+<span id="cb14-283"><a href="#cb14-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-284"><a href="#cb14-284" aria-hidden="true" tabindex="-1"></a><span class="in">/* changer le chemin à l'avant dernière ligne: log using.... */</span></span>
+<span id="cb14-285"><a href="#cb14-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-286"><a href="#cb14-286" aria-hidden="true" tabindex="-1"></a><span class="in">* capture log close statalog</span></span>
+<span id="cb14-287"><a href="#cb14-287" aria-hidden="true" tabindex="-1"></a><span class="in">* local cdt = "`c(current_date)'"</span></span>
+<span id="cb14-288"><a href="#cb14-288" aria-hidden="true" tabindex="-1"></a><span class="in">* local cdt: subinstr local cdt " " "-", all</span></span>
+<span id="cb14-289"><a href="#cb14-289" aria-hidden="true" tabindex="-1"></a><span class="in">* local cti = "`c(current_time)'"</span></span>
+<span id="cb14-290"><a href="#cb14-290" aria-hidden="true" tabindex="-1"></a><span class="in">* local cti: subinstr local cti ":" ".", all</span></span>
+<span id="cb14-291"><a href="#cb14-291" aria-hidden="true" tabindex="-1"></a><span class="in">* local statalogname "statalog_`cdt'_`cti'.log"</span></span>
+<span id="cb14-292"><a href="#cb14-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-293"><a href="#cb14-293" aria-hidden="true" tabindex="-1"></a><span class="in">* noisily display "Nom du log: `statalogname'"</span></span>
+<span id="cb14-294"><a href="#cb14-294" aria-hidden="true" tabindex="-1"></a><span class="in">*  log using "D:/D/stata_temp/log/`statalogname'" , text name(statalog)</span></span>
+<span id="cb14-295"><a href="#cb14-295" aria-hidden="true" tabindex="-1"></a><span class="in">*  noisily display ""</span></span>
+<span id="cb14-296"><a href="#cb14-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-297"><a href="#cb14-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-298"><a href="#cb14-298" aria-hidden="true" tabindex="-1"></a><span class="in">*****************</span></span>
+<span id="cb14-299"><a href="#cb14-299" aria-hidden="true" tabindex="-1"></a><span class="in">* R source path *</span></span>
+<span id="cb14-300"><a href="#cb14-300" aria-hidden="true" tabindex="-1"></a><span class="in">*****************</span></span>
+<span id="cb14-301"><a href="#cb14-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-302"><a href="#cb14-302" aria-hidden="true" tabindex="-1"></a><span class="in">* global Rterm_path `"C:\Program Files\R\R-4.1.2\bin\R.exe"'</span></span>
+<span id="cb14-303"><a href="#cb14-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-304"><a href="#cb14-304" aria-hidden="true" tabindex="-1"></a><span class="in">* global Rterm_options `"--slave --vanilla --args  "`tf1'" "`tf2'" "'</span></span>
+<span id="cb14-305"><a href="#cb14-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-306"><a href="#cb14-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-307"><a href="#cb14-307" aria-hidden="true" tabindex="-1"></a><span class="in">***************************************************</span></span>
+<span id="cb14-308"><a href="#cb14-308" aria-hidden="true" tabindex="-1"></a><span class="in">* supprimer le blocage du défilement  de l'output *</span></span>
+<span id="cb14-309"><a href="#cb14-309" aria-hidden="true" tabindex="-1"></a><span class="in">***************************************************</span></span>
+<span id="cb14-310"><a href="#cb14-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-311"><a href="#cb14-311" aria-hidden="true" tabindex="-1"></a><span class="in">* set more off</span></span>
+<span id="cb14-312"><a href="#cb14-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-313"><a href="#cb14-313" aria-hidden="true" tabindex="-1"></a><span class="in">*******************************</span></span>
+<span id="cb14-314"><a href="#cb14-314" aria-hidden="true" tabindex="-1"></a><span class="in">* output regression           *</span></span>
+<span id="cb14-315"><a href="#cb14-315" aria-hidden="true" tabindex="-1"></a><span class="in">*******************************</span></span>
+<span id="cb14-316"><a href="#cb14-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-317"><a href="#cb14-317" aria-hidden="true" tabindex="-1"></a><span class="in">/* nombre de decimales =3 */</span></span>
+<span id="cb14-318"><a href="#cb14-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-319"><a href="#cb14-319" aria-hidden="true" tabindex="-1"></a><span class="in">* set cformat %9.3f</span></span>
+<span id="cb14-320"><a href="#cb14-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-321"><a href="#cb14-321" aria-hidden="true" tabindex="-1"></a><span class="in">/* garder baselevel*/</span></span>
+<span id="cb14-322"><a href="#cb14-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-323"><a href="#cb14-323" aria-hidden="true" tabindex="-1"></a><span class="in">*set showbaselevels on</span></span>
+<span id="cb14-324"><a href="#cb14-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-325"><a href="#cb14-325" aria-hidden="true" tabindex="-1"></a><span class="in">*******************************</span></span>
+<span id="cb14-326"><a href="#cb14-326" aria-hidden="true" tabindex="-1"></a><span class="in">*      graphique              *</span></span>
+<span id="cb14-327"><a href="#cb14-327" aria-hidden="true" tabindex="-1"></a><span class="in">*******************************</span></span>
+<span id="cb14-328"><a href="#cb14-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-329"><a href="#cb14-329" aria-hidden="true" tabindex="-1"></a><span class="in">/* Installer au préalab grstyle et colorpalette */</span></span>
+<span id="cb14-330"><a href="#cb14-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-331"><a href="#cb14-331" aria-hidden="true" tabindex="-1"></a><span class="in">* grstyle init</span></span>
+<span id="cb14-332"><a href="#cb14-332" aria-hidden="true" tabindex="-1"></a><span class="in">* grstyle set imesh</span></span>
+<span id="cb14-333"><a href="#cb14-333" aria-hidden="true" tabindex="-1"></a><span class="in">* grstyle set legend 11, nobox</span></span>
+<span id="cb14-334"><a href="#cb14-334" aria-hidden="true" tabindex="-1"></a><span class="in">* grstyle set color tableau</span></span>
+<span id="cb14-335"><a href="#cb14-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-336"><a href="#cb14-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-337"><a href="#cb14-337" aria-hidden="true" tabindex="-1"></a><span class="in">*******************************</span></span>
+<span id="cb14-338"><a href="#cb14-338" aria-hidden="true" tabindex="-1"></a><span class="in">*      python                 *</span></span>
+<span id="cb14-339"><a href="#cb14-339" aria-hidden="true" tabindex="-1"></a><span class="in">*******************************</span></span>
+<span id="cb14-340"><a href="#cb14-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-341"><a href="#cb14-341" aria-hidden="true" tabindex="-1"></a><span class="in">/* chargement de l'exécutable */</span></span>
+<span id="cb14-342"><a href="#cb14-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-343"><a href="#cb14-343" aria-hidden="true" tabindex="-1"></a><span class="in">* capture  set python_exec  "C:/Users/thevenin_m/AppData/Local/Programs/Python/Python310/python.exe"</span></span>
+<span id="cb14-344"><a href="#cb14-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-345"><a href="#cb14-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-346"><a href="#cb14-346" aria-hidden="true" tabindex="-1"></a><span class="in">****** plugin miniconda</span></span>
+<span id="cb14-347"><a href="#cb14-347" aria-hidden="true" tabindex="-1"></a><span class="in">* python:</span></span>
+<span id="cb14-348"><a href="#cb14-348" aria-hidden="true" tabindex="-1"></a><span class="in">* import os</span></span>
+<span id="cb14-349"><a href="#cb14-349" aria-hidden="true" tabindex="-1"></a><span class="in">* os.environ['QT_QPA_PLATFORM_PLUGIN_PATH']="C:\\Users\\thevenin_m\\Miniconda3\\Library\\plugins\\plugins"</span></span>
+<span id="cb14-350"><a href="#cb14-350" aria-hidden="true" tabindex="-1"></a><span class="in">* end</span></span>
+<span id="cb14-351"><a href="#cb14-351" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-352"><a href="#cb14-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-353"><a href="#cb14-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-354"><a href="#cb14-354" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

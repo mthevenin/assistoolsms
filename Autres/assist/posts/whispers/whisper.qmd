@@ -4,7 +4,6 @@ title: "Vérifier l'installation de ffmpeg pour utiliser Whisper [Maj]"
 categories:
   - Python
   - Whisper
-  - Erreur
   
 author: 
   - name: "Marc Thévenin"
@@ -17,12 +16,6 @@ image: "https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Pictur
 
 format: 
   html: default
-#  docx: default
-#  pdf:  default
-
-filters:
-   - lightbox
-lightbox: auto
 
 abstract: | 
  Le paquet de retranscription d'un fichier audio Whisper demande l'installation de l'encodeur vidéo **ffmpeg**. Même installé, le chemin d'accès de ffmpeg doit être impérativement présent dans les variables d'environnement.
@@ -71,7 +64,7 @@ import whisper
 
 
 model = whisper.load_model("base")
-result = model.transcribe("C:/Users/thevenin_m/Desktop/mlk.mp3",  verbose = True)
+result = model.transcribe("mlk.mp3",  verbose = True)
 ```
 
 

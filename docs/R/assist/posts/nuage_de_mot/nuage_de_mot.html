@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Coralie Cottet">
-
-<title>Générer des graphes de mot avec R.temis</title>
+<title>logo.png - Générer des graphes de mot avec R.temis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "Pas de résultats",
     "search-matching-documents-text": "documents trouvés",
@@ -89,21 +84,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../../../sms.css">
+}</script><link rel="stylesheet" href="../../../../sms.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../../logo.png" alt="" class="navbar-logo">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title"><i class="fa-solid fa-sitemap fa-Large" aria-label="sitemap"></i></span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -111,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../../../R/index.html"> 
 <span class="menu-text">R</span></a>
   </li>  
@@ -119,8 +108,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
-        <li>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">
+<li>
     <a class="dropdown-item" href="../../../../Autres/index.html">
  <span class="dropdown-text">Quarto-Git-Python…</span></a>
   </li>  
@@ -129,14 +118,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Stata</span></a>
   </li>  
     </ul>
-  </li>
+</li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../supports.html"> 
 <span class="menu-text">Autres Supports</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../../../about.html"> 
 <span class="menu-text"><i class="fa-solid fa-info-circle" aria-label="info-circle"></i></span></a>
   </li>  
@@ -145,17 +134,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"><i class="fa-brands fa-github" aria-label="github"></i></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Générer des graphes de mot avec R.temis</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Générer des graphes de mot avec R.temis</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> &lt;/&gt; Source</button></div></div>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Analyse textuelle</div>
               </div>
@@ -203,37 +188,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<p><strong>Documentation</strong>:</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><strong>Documentation</strong>:</p>
 <ul>
 <li><a href="http://rtemis.hypotheses.org/">R.temis</a></li>
 <li>[<a href="http://dplyr.tidyverse.org/">dplyr - Officiel</a>] [<a href="http://juba.github.io/tidyverse/10-dplyr.html">dplyr - Julien Barnier</a>]</li>
 <li><a href="https://tibble.tidyverse.org/">tibble</a></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(R.temis)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(dplyr) <span class="co"># ou (tidyverse)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(tibble) <span class="co"># ou (tidyverse)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">R.temis</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">dplyr</span><span class="op">)</span> <span class="co"># ou (tidyverse)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">tibble</span><span class="op">)</span> <span class="co"># ou (tidyverse)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Chargement des packages (à installer si besoin)</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"R.temis"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>) </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tibble"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/nalimilan/R.TeMiS">"R.temis"</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span> </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tibble.tidyverse.org/">"tibble"</a></span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Concernant le choix du corpus, nous avons sélectionné les voeux prononcés par François Hollande de 2013 à 2017. Les textes retranscrits dans des fichiers de type texte (.txt) et placé dans un seul dossier nommé <em>dossier_de_texte</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>corpus1 <span class="ot">&lt;-</span> <span class="fu">import_corpus</span>(<span class="st">"dossier_de_texte"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>corpus<span class="ot">&lt;-</span><span class="fu">split_documents</span>(corpus1, <span class="dv">5</span>, <span class="at">preserveMetadata =</span> <span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="annotated-cell-3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">corpus1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/import_corpus.html">import_corpus</a></span><span class="op">(</span><span class="st">"dossier_de_texte"</span>, format<span class="op">=</span><span class="st">"txt"</span>, language <span class="op">=</span><span class="st">"fr"</span><span class="op">)</span></span>
+<span><span class="va">corpus</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/split_documents.html">split_documents</a></span><span class="op">(</span><span class="va">corpus1</span>, <span class="fl">5</span>, preserveMetadata <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
-<dl class="code-annotation-container-grid">
+<dl>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
 <span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">Importation des textes avec la fonction import_corpus</span>
@@ -249,8 +228,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>On choisit de supprimer les mots vides.</p>
 <p>On passe maintenant à la création du tableau lexical (dtm) sans mots outils et avec les mots d’au moins 1 lettre.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dtm <span class="ot">&lt;-</span><span class="fu">build_dtm</span>(corpus, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">frequent_terms</span>(dtm) </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dtm</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/build_dtm.html">build_dtm</a></span><span class="op">(</span><span class="va">corpus</span>, remove_stopwords <span class="op">=</span> <span class="cn">T</span>, min_length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/frequent_terms.html">frequent_terms</a></span><span class="op">(</span><span class="va">dtm</span><span class="op">)</span> </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Global occ.  Global %
 france                66 1.9446081
@@ -291,29 +270,29 @@ ceux                  11 0.3241014</code></pre>
 <p>On crée le dictionnaire qui affiche les mots initiaux et les racines des mots (Term). Il va servir à lemmatiser le corpus.</p>
 <p>La lemmatisation consiste à remplacer les mots initiaux par des termes: la racine des mots ou une forme personnalisée (comme c’est le cas ici)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>dic <span class="ot">&lt;-</span><span class="fu">dictionary</span>(dtm)</span>
-<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-5-3"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-5-4"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="annotated-cell-5-5"><a href="#annotated-cell-5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Term =</span> word)</span>
-<span id="annotated-cell-5-6"><a href="#annotated-cell-5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-5-7"><a href="#annotated-cell-5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
-<span id="annotated-cell-5-8"><a href="#annotated-cell-5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-5-9"><a href="#annotated-cell-5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacer les mots spécifiés par tous.tes</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-10" class="code-annotation-target"><a href="#annotated-cell-5-10" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="annotated-cell-5-11"><a href="#annotated-cell-5-11" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="annotated-cell-5-12"><a href="#annotated-cell-5-12" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
-<span id="annotated-cell-5-13"><a href="#annotated-cell-5-13" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-5-14" class="code-annotation-target"><a href="#annotated-cell-5-14" aria-hidden="true" tabindex="-1"></a>dtmlem <span class="ot">&lt;-</span><span class="fu">combine_terms</span>(dtm, dic2)</span>
-<span id="annotated-cell-5-15"><a href="#annotated-cell-5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-5-16"><a href="#annotated-cell-5-16" aria-hidden="true" tabindex="-1"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
-<span id="annotated-cell-5-17"><a href="#annotated-cell-5-17" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-5-18" class="code-annotation-target"><a href="#annotated-cell-5-18" aria-hidden="true" tabindex="-1"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]</span>
-<span id="annotated-cell-5-19"><a href="#annotated-cell-5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-5-20"><a href="#annotated-cell-5-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-5-21"><a href="#annotated-cell-5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">frequent_terms</span>(dtm2)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="annotated-cell-5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dic</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/dictionary.html">dictionary</a></span><span class="op">(</span><span class="va">dtm</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dic2</span> <span class="op">=</span> <span class="va">dic</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span><span class="op">(</span>var<span class="op">=</span><span class="st">"word"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Term <span class="op">=</span> <span class="va">word</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">dic2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">dic2</span><span class="op">$</span><span class="va">word</span></span>
+<span></span>
+<span><span class="co"># Remplacer les mots spécifiés par tous.tes</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"toutes"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"tout"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span><span class="va">dic2</span><span class="op">$</span><span class="va">Term</span><span class="op">[</span><span class="va">dic2</span><span class="op">$</span><span class="va">word</span> <span class="op">==</span> <span class="st">"tous"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span></span>
+<span><span class="va">dtmlem</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/combine_terms.html">combine_terms</a></span><span class="op">(</span><span class="va">dtm</span>, <span class="va">dic2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mots_a_retirer</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"plus"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dtm2</span><span class="op">&lt;-</span><span class="va">dtmlem</span><span class="op">[</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">dtmlem</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">mots_a_retirer</span><span class="op">]</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/frequent_terms.html">frequent_terms</a></span><span class="op">(</span><span class="va">dtm2</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
-<dl class="code-annotation-container-grid">
+<dl>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
 <span data-code-cell="annotated-cell-5" data-code-lines="1" data-code-annotation="1">Création d’un dictionnaire de mot.</span>
@@ -376,8 +355,7 @@ soir                  11 0.3341434</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="nuage_de_mot_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="nuage_de_mot_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="nuage_de_mot_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="nuage_de_mot_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -392,9 +370,9 @@ soir                  11 0.3341434</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>graphique d'analyse des co-occurrences</strong></pre>
 </div>
-<div class="sourceCode" id="cb7" data-filename="graphique d'analyse des co-occurrences"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Tree<span class="ot">&lt;-</span><span class="fu">terms_graph</span>(dtm2, <span class="at">min_occ =</span> <span class="dv">10</span>, <span class="at">interactive =</span> T,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">vertex.size =</span> <span class="fl">0.01</span>, <span class="at">vertex.color =</span> <span class="st">"lightblue"</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">label.cex =</span> <span class="fl">0.1</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7" data-filename="graphique d'analyse des co-occurrences"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Tree</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/R.temis/man/terms_graph.html">terms_graph</a></span><span class="op">(</span><span class="va">dtm2</span>, min_occ <span class="op">=</span> <span class="fl">10</span>, interactive <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>            vertex.size <span class="op">=</span> <span class="fl">0.01</span>, vertex.color <span class="op">=</span> <span class="st">"lightblue"</span>,</span>
+<span>            label.cex <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="center">
 <div class="column" style="width:65%;">
@@ -405,9 +383,10 @@ soir                  11 0.3341434</code></pre>
 </div>
 
 
+<!-- -->
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -486,6 +465,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -815,13 +845,207 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
-</script>
-<input type="hidden" id="giscus-base-theme" value="light">
-<input type="hidden" id="giscus-alt-theme" value="dark">
+</script><script src="https://giscus.app/client.js" data-repo="mthevenin/assistoolsms" data-repo-id="R_kgDOJrhMrg" data-category="General" data-category-id="DIC_kwDOJrhMrs4CW-9c" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script><input type="hidden" id="giscus-base-theme" value="light"><input type="hidden" id="giscus-alt-theme" value="dark"><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Générer des graphes de mot avec R.temis"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">- Analyse textuelle</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: "Coralie Cottet"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: "Ensai-Ined"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 07/25/2023</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "http://rtemis.hypotheses.org/files/2019/01/2019.01.21.BGarnier_Pas_%C3%A0_Pas_sous_R.temisStudio_V0_html_4395b9b1d02c56de.png"</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> |</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"> Pour réaliser un nuage ou un graphe de mots avec R, l'utilisation des packages **`R.temis`**, **`dplyr`** et **`tibble`** s'avèrent particulièrement utiles.  </span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"> Le package `R.temis` fournit des fonctions pour les traitements de statistiques textuelles comme la création d'un tableau lexical ou le calcul d'occurences des mots). De son côté, `dplyr` fournit des fonctions pour la manipulation de données, telles que la sélection de colonnes, le filtrage de données et l'agrégation de données, qui sont utilisées dans le code pour nettoyer et préparer les données textuelles. Enfin, `tibble` fournit une classe de données pour stocker des données tabulaires, qui est plus efficace que la classe de données par défaut de R. Cette classe de données est utilisée dans le code pour stocker les données textuelles nettoyées et préparées.</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>**Documentation**:  </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R.temis</span><span class="co">](http://rtemis.hypotheses.org/)</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[<span class="co">[</span><span class="ot">dplyr - Officiel</span><span class="co">](http://dplyr.tidyverse.org/)</span>] [<span class="co">[</span><span class="ot">dplyr - Julien Barnier</span><span class="co">](http://juba.github.io/tidyverse/10-dplyr.html)</span>] </span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">tibble</span><span class="co">](https://tibble.tidyverse.org/)</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r}</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages(R.temis)</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages(dplyr) # ou (tidyverse)</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages(tibble) # ou (tidyverse)</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filename="Chargement des packages (à installer si besoin)"}</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="in">library("R.temis")</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="in">library("dplyr") </span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="in">library("tibble")</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>Concernant le choix du corpus, nous avons sélectionné les voeux prononcés par François Hollande de 2013 à 2017. Les textes retranscrits dans des fichiers de type texte (.txt) et placé dans un seul dossier nommé *dossier_de_texte*. </span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>corpus1 <span class="ot">&lt;-</span> <span class="fu">import_corpus</span>(<span class="st">"dossier_de_texte"</span>, <span class="at">format=</span><span class="st">"txt"</span>, <span class="at">language =</span><span class="st">"fr"</span>)  <span class="co"># &lt;1&gt;</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>corpus<span class="ot">&lt;-</span><span class="fu">split_documents</span>(corpus1, <span class="dv">5</span>, <span class="at">preserveMetadata =</span> <span class="cn">TRUE</span>) <span class="co"># &lt;2&gt;</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Importation des textes avec la fonction import_corpus</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Découpage en unités textuelles de 5 paragraphes pour un meilleur rendu </span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>Les *stop words* (ou mots vides) sont des mots très courants d’une langue comme les prépositions, les articles, les pronoms, etc., qui sont souvent omis lors de l’analyse car en général ils ne portent pas de sens important pour la compréhension globale du texte.</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>La fonction **`build_dtm`** est utilisée pour construire une matrice de termes-document (ou **tableau lexical**) à partir d’un corpus de textes. La matrice de termes-document (ou Tableau Lexical) est une représentation quantitative d'un corpus de textes, où chaque colonne représente un terme et chaque ligne représente un document. Ici les documents sont les unités textuelles (composées de 5) paragraphes.</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>On choisit de supprimer les mots vides.</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>On passe maintenant à la création du tableau lexical (dtm) sans mots outils et avec les mots d’au moins 1 lettre.</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>dtm <span class="ot">&lt;-</span><span class="fu">build_dtm</span>(corpus, <span class="at">remove_stopwords =</span> T, <span class="at">min_length =</span> <span class="dv">1</span>)</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="fu">frequent_terms</span>(dtm) </span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>On crée le tableau lexical avec la fonction <span class="in">`build_dtm`</span>  </span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Calcul des occurrences des mots dans le corpus de textes</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>Le mot *france* est prononcé 66 fois dans l'ensemble des 5 discours et représente 1,95% des occurences totales.</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>On va maintenant affiner l'analyse.</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>On aimerait aussi retirer les mots *a* et *plus* et rassembler sous un même mot  les termes *tout*, *toutes* et *tous* en *tous.tes* à titre d’exemple.</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>On crée le dictionnaire qui affiche les mots initiaux et les racines des mots (Term). Il va servir à lemmatiser le corpus.</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>La lemmatisation consiste à remplacer les mots initiaux par des termes: la racine des mots ou une forme personnalisée (comme c'est le cas ici)</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>dic <span class="ot">&lt;-</span><span class="fu">dictionary</span>(dtm)                                  <span class="co"># &lt;1&gt;</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>dic2 <span class="ot">=</span> dic <span class="sc">%&gt;%</span></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">"word"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Term =</span> word)</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="fu">row.names</span>(dic2) <span class="ot">&lt;-</span> dic2<span class="sc">$</span>word</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacer les mots spécifiés par tous.tes</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"toutes"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span>          <span class="co"># &lt;2&gt;</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tout"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>dic2<span class="sc">$</span>Term[dic2<span class="sc">$</span>word <span class="sc">==</span> <span class="st">"tous"</span>] <span class="ot">&lt;-</span> <span class="st">"tous.tes"</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>dtmlem <span class="ot">&lt;-</span><span class="fu">combine_terms</span>(dtm, dic2)                       <span class="co"># &lt;3&gt;</span></span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>mots_a_retirer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"plus"</span>)</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>dtm2<span class="ot">&lt;-</span>dtmlem[, <span class="sc">!</span><span class="fu">colnames</span>(dtmlem) <span class="sc">%in%</span> mots_a_retirer]   <span class="co"># &lt;4&gt;</span></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="fu">frequent_terms</span>(dtm2)</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Création d'un dictionnaire de mot.</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Remplacer les mots spécifiés par tous.tes.</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Lemmatisation.</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Suppression de mots dans le tableau lexical.</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>On voit que les occurences du "tous.tes" (64) correspondent bien à la somme des occurences de tout (24), tous(24) et toutes(16).</span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>On passe à l'affichage du Nuage de mot</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>Ce graphique permet de visualiser les mots les plus **occurents** d’un corpus de textes. </span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="50 mots maximum - au moins un mot"}</span></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="in">cloud&lt;-word_cloud(dtm2, color= 'black', min.freq=1,n =50) </span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a><span class="in">title(main = ""2013-2017: mots les plus fréquents dans les discours de F.Hollande")</span></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>cloud<span class="ot">&lt;-</span><span class="fu">word_cloud</span>(dtm2, <span class="at">color=</span> <span class="st">'black'</span>, <span class="at">min.freq=</span><span class="dv">1</span>,<span class="at">n =</span><span class="dv">50</span>) </span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"2013-2017: mots les plus fréquents dans les discours de F.Hollande"</span>)</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>La taille de la police est proportionelle à l'occurence du *mot*: France (66), année (33) et entreprise (11).</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a>Et pour finir, l'affichage d’un graphe de mots</span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>La fonction **`terms_graph`** du package R.temis permet de générer un réseau de mots qui est affiché dans une fenêtre interactive igraph. Les termes ou mots sont représentés par des sommets (ou nœuds) du graphe, les liens représentent les **cooccurrences** entre les mots les plus fréquents. Leur placement dans l’espace graphique est déterminé par un algorithme d’énergie. </span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r filename="graphique d'analyse des co-occurrences"}</span></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a><span class="in">Tree&lt;-terms_graph(dtm2, min_occ = 10, interactive = T,</span></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a><span class="in">            vertex.size = 0.01, vertex.color = "lightblue",</span></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="in">            label.cex = 0.1)</span></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a>:::: {.center}</span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>::: {.column width="65%"}</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a><span class="al">![](tree.png)</span></span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -846,8 +1070,6 @@ window.onload = () => {
 
 };
           </script>
-
-
 
 
 </body></html>

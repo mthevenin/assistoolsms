@@ -39,6 +39,7 @@ $dark:          $gray-800 !default;
 
 
 //$body-bg: $gray-100; 
+$font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
 $body-color: #2c3e50;
 $link-color: #cd193f;
 $toc-color:  #cd193f;
@@ -47,10 +48,9 @@ $navbar-bg:  #cd193f;
 //$code-block-border-left: $pink;
 //$code-block-border-left-size: 2px;
 //$code-block-padding-left:     1em;
-
-$code-block-stdoutcolor: #37424a;
-$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);
-$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
+//$code-block-stdoutcolor: #37424a;
+//$code-block-stdoutcolor-light: rgba($code-block-stdoutcolor, 0.5);
+//$code-block-stdoutcolor-lighter: rgba($code-block-stdoutcolor, 0.1);
 
 
 /*-- scss:rules --*/
