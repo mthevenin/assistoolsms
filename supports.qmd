@@ -2,6 +2,9 @@
 #title: "Supports en ligne"
 page-layout: article
 toc: false
+
+code-tools: false
+
 ---
 
 <br>

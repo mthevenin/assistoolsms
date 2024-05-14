@@ -38,7 +38,6 @@ format:
     theme: [lux, sms.scss]
     css: sms.css
     toc: true
-    code-link: true
     grid:
       sidebar-width: 350px
       body-width: 950px
@@ -52,9 +51,10 @@ format:
       caption: "</> Source"
       toggle: false
     code-overflow: wrap
+    code-link: true
 
 highlight-style: atom-one
-code-link: true
+
 
 lightbox: true
 
