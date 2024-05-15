@@ -1,7 +1,6 @@
 ---
-title: "**Introduction aux frames [Stata 16]**"
+title: "Introduction aux frames [Stata 16]"
 
-title-block-banner: false
 
 author: 
   - name: "Marc Thévenin"
@@ -13,17 +12,8 @@ date: 02/23/2023
 image: "https://www.insightplatforms.com/wp-content/uploads/2019/09/stata_logo.png"
 
 categories: 
-  - frame
+  - Frames
 
-format: 
-  html: default
-  docx:
-    toc: true
-    number-sections: true
-    
-filters:
-   - lightbox
-lightbox: auto
 
 jupyter: nbstata  
 
@@ -32,7 +22,7 @@ abstract: |
 
 ---
 
-<br><br>
+<hr class="hr">
 
 Les **frames** on été implémentées à Stata à partir de la version 16 (2019). Elles n'améliorent pas directement les durées d'éxécution, mais en donnant la possibilité de travailler simultanément sur plusieurs bases simultanément  sans multiplier les opérations d'ouverture ou de sauvegarde, elles permettent de "gagner du temps". Mieux encore, elles ont été pensées pour faciliter les fusions et les manipulations d'informations entre bases de données en implémentant une alternative aux *`merge`* via une logique de liaison.     
 ***Les frames ont été pensées pour faciliter le travail de programmation entre bases individuelles et bases contextuelles***.

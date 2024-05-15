@@ -5,11 +5,9 @@ lang: fr
  
 website:
   search: false
-  title: "logo.png"
   navbar:
     background: "white"
     title: "{{< fa sitemap size=Large >}}"
-#   logo: "logo.png"
     collapse-below: lg
     left:
       - text: "R"

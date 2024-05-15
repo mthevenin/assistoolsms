@@ -1,7 +1,5 @@
 ---
-title: "**Editer des outputs avec collect**"
-
-title-block-banner: false
+title: "Editer des outputs avec collect"
 
 categories: 
   - Tableaux
@@ -14,22 +12,16 @@ author:
 
 date: 09/26/2022
 
-format: 
-  html: default
-  docx:
-    toc: true
-    number-sections: true
- 
-filters:
-   - lightbox
-lightbox: auto    
- 
+
 jupyter: nbstata         
                             
 abstract: | 
  La suite **`collect`** introduite avec le version 17 va t-elle remplacer `outreg2` et autres commandes de mise en forme et d'exportation de tableaux? Pas encore un tutoriel, dès éléments sont encore  obscurs, mais avec quelques copier-coller issus des fichiers d'aide, on présentera deux exemples avec des régressions.
         
 ---
+
+<hr class="hr">
+
 
 **Principe de la suite `collect`**:
 
@@ -110,7 +102,7 @@ J'ai vu large pour l'exemple
 Mettre l'option **`tableonly`** pour que la balise d'ouverture soit celle d'un tableau et non d'un document.
 :::
 
-```{stat}
+```{stata}
 collect export ex1, as(docx)     replace
 collect export ex1, as(xls)      replace
 collect export ex1, as(tex)      replace tableonly
@@ -153,7 +145,7 @@ collect preview
 
 Juste une petite remarque sur les **notes** de bas de tableau. `collect` gère également leur présence et leur mise en forme, mais le code généré semble systématiquement les aligner au centre. A creuser, sinon il faut modifier le code *Latex* pour les aligner à gauche. Par exemple:
 
-```markdown
+```{.latex}
 \multicolumn{3}{l}{\footnotesize Note 1: blablabla}\\
 \multicolumn{3}{l}{\footnotesize Note 2: blablabla}\\
 \end{tabular}
@@ -310,7 +302,7 @@ Pour info la ligne avec collect get est: **`collect get: regress bpsystol i.ageg
 
 # **Le builder**
 
-Stata a installé un builder intéractif pour mettre en forme. Je ne suis pas du tout à l'aise avec ce genre d'outil, pour ne pas dire complètement nul.
+Stata a installé un builder *intéractif* pour effectuer ces mises en formes. Je n'ai strictement rien compris à son fonctionnement.
 
 **`help Tables_Builder`**
 

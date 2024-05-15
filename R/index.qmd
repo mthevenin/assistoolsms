@@ -13,6 +13,7 @@ listing:
   page-size: 20
   max-items: 20
   max-description-length: 300
+code-tools: false
 ---
 
 

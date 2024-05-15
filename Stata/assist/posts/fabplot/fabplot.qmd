@@ -1,11 +1,10 @@
 ---
-title: "**Contrôler l'effet spaghetti avec fabplot (NJ.Cox)**"
+title: "Contrôler l'effet spaghetti avec fabplot (NJ.Cox)"
 
-title-block-banner: false
 
 categories:
-  - graphique
-  - ado
+  - Graphique
+  - Ado
 
 author: 
   - name: "Marc Thévenin"
@@ -14,20 +13,13 @@ author:
 
 date: 09/26/2022
 
-format: 
-  html: default
-  docx:
-    toc: true
-    number-sections: true
-
-filters:
-   - lightbox
-lightbox: auto
-
 abstract: |
  La commande **`fabplot`** programmée en 2021 par Nj.Cox permet de contrôler efficacement les effets dits *spaghetti* (courbes) ou *paella* (nuages de points). J'ai ajouté une option pour modifier les courbes au second plan, NJ.Cox ayant toujours tendance à bloquer l'habillage de ces commandes graphiques. La commande a été renommée **`fabplot2`** et s'installe via github. Bien évidemment, tout le mérite revient à l'auteur d'origine, l'ajout de l'option ne m'a pris que quelques dizaines de secondes.
 
+jupyter: nbstata
 ---
+
+<hr class="hr">
 
 
 [**Article Stata Journal**](https://journals.sagepub.com/doi/full/10.1177/1536867X211025838) 
@@ -41,7 +33,7 @@ J'avais présenté le problème lors de la formation de 2020, mais avec un progr
 
 Commande d'origine. L'objet en arrière plan n'est pas modifiable.
 
-```{r eval=FALSE}
+```{.stata}
 ssc install fabplot
 
 * help fabplot
@@ -51,7 +43,7 @@ ssc install fabplot
 
 J'ai juste ajouté l'option **`backopts`**. Même principe que l'option **`frontopts`** qui modifie l'objet au premier plan.
 
-```{r eval=FALSE}
+```{.stata}
 net install fabplot2, from("https://raw.githubusercontent.com/mthevenin/stata_graphiques/master/ressources/fabplot2/") replace
 ```
 
@@ -64,7 +56,7 @@ net install fabplot2, from("https://raw.githubusercontent.com/mthevenin/stata_gr
 Je reprends le même exemple que pour la formation, avec la base babynames.  
 Ouverture de de la base:  
 
-```{r eval=FALSE}
+```{.stata}
 webuse set "https://raw.githubusercontent.com//mthevenin/stata_graphiques/master/ressources/fabplot2"
 use babynames, clear
 webuse set
@@ -74,7 +66,7 @@ webuse set
 
 ..... C'est illisible
 
-```{r eval=FALSE}
+```{.stata}
 * thème avec grstyle
 grstyle init 
 grstyle set mesh
@@ -111,7 +103,7 @@ Avec un graphique de type statique, une solution à priviliégier serait un grap
 
 ## Application
 
-```{r eval=FALSE}
+```{.stata}
 #delimit ;
 
 fabplot2 line n year, 

@@ -1,7 +1,5 @@
 ---
-title: "**Nouvelle palette de couleurs et nouveau thème usine avec Stata 18**"
-
-title-block-banner: false
+title: "Nouvelle palette de couleurs et nouveau thème usine avec Stata 18"
 
 author: 
   - name: "Marc Thévenin"
@@ -12,25 +10,15 @@ date: 06/29/2023
 
 categories: 
   - Stata 18
-  - graphique
+  - Graphique
 
-format: 
-  html: default
-#  docx:
-#    toc: true
-#   number-sections: true
-    
-filters:
-   - lightbox
-lightbox: auto
-
-#jupyter: nbstata  
 
 abstract: | 
  La palette s2 et le thème s2color, dépassés depuis bien longtemps ont été enfin remplacés. Cette courte fiche présente à l'aide de quelques visuels ces éléments de visualisation.
 
 ---
 
+<hr class="hr">
 
 
 # Nouvelle palette **stcolor**

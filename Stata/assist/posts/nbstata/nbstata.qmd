@@ -1,7 +1,5 @@
 ---
-title: "**Stata, Jupyter et Quarto: la solution nbstata**"
-
-title-block-banner: false
+title: "Stata, Jupyter et Quarto: la solution nbstata"
 
 author: 
   - name: "Marc Thévenin"
@@ -17,16 +15,12 @@ categories:
   - Quarto
   - Jupyter
 
-format: 
-  html: default
-    
-    
-#jupyter: nbstata  
-
 abstract: | 
  putdoc, puthtml... Oubliez! Depuis plusieurs années il est possible d'exécuter un programme Stata avec le notebook Jupyter grâce au noyau `Stata_kernel` de K.Barron ou plus récemment avec la librairie usine `pystata` (version 17). Du côté de RStudio on pouvait également exécuter un programme Stata dans un document Rmarkdown, avec le package `statamarkdown`. Mais l'exécution de Stata se faisant en mode batch.  En 2022 avec l'arrivée du **Quarto**, et le nouveau noyau Jupyter **`nbstata`** de **Tim Huegerich**, on dispose d'une solution particulièrement efficace d'édition pour ce logiciel. 
  
 ---
+
+<hr class="hr">
 
 * Documentation nbstata: <https://github.com/hugetim/nbstata>
 

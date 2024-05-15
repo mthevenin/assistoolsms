@@ -1,7 +1,5 @@
 ---
-title: "**Présentation des Conferences Stata**"
-
-title-block-banner: false
+title: "Présentation des Conferences Stata"
 
 author: 
   - name: "Marc Thévenin"
@@ -13,15 +11,14 @@ date: 03/04/2024
 image: "img.jpg"
 
 categories:
-  - Conference Stata
+  - Conferences
 
-format: 
-  html: default
 
 abstract: | 
  Liste et liens des conférences Stata depuis 2019 dont les présentations, principalement en anglais, sont disponibles. 
 ---
 
+<hr class="hr">
 
 Liste non exhaustive des conférences depuis 2019. J'ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.
 

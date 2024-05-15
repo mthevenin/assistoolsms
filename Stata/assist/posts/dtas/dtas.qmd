@@ -1,7 +1,5 @@
 ---
-title: "**Le format dtas**"
-
-title-block-banner: false
+title: "Le format dtas"
 
 author: 
   - name: "Marc Thévenin"
@@ -13,19 +11,16 @@ date: 07/03/2023
 image: "https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&name=4096x4096"
 
 categories:
-  - Frame
+  - Frames
 
-format: 
-  html: default
-  docx:
-    toc: true
-    number-sections: true
     
 jupyter: nbstata  
 
 abstract: | 
  La version 18 de Stata a implémenté un nouveau format, associé aux frames, le format **.dtas**. Il permet d'enregistrer toutes les frames actives, qu'elles soit liées ou non. 
 ---
+
+<hr class="hr">
 
 Par l'exemple.   
 

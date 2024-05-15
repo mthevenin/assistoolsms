@@ -1,7 +1,6 @@
 ---
-title: "**Améliorer la durée d'exécution avec Gtools**"
+title: "Améliorer la durée d'exécution avec Gtools"
 
-title-block-banner: false
 
 author: 
   - name: "Marc Thévenin"
@@ -11,23 +10,16 @@ author:
 date: 02/23/2023
 
 categories:
-  - gtools
-  - runtime
+  - Gtools
+  - Runtime
 
-format: 
-  html: default
-  docx:
-    toc: true
-    number-sections: true
-
-filters:
-   - lightbox
-lightbox: auto
 
 abstract: | 
  Le package **`gtools`** de Mauricio Caceres Bravo permet d'améliorer significativement la durée d'exécution pour un certain nombre d'opérations, en particulier les transpositions de bases (`reshape`). Les éléments qui suivent proposent des éléments de benchmark avec les commandes usines et des fonctions équivalentes sous R. 
 
 ---
+
+<hr class="hr">
 
 ```{r, include=FALSE}
 library(Statamarkdown)

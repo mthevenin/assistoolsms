@@ -1,7 +1,5 @@
 ---
-title: "**Sommaires du Stata Journal [2023-n°4]**"
-
-title-block-banner: false
+title: "Sommaires du Stata Journal [2023-n°4]"
 
 author: 
   - name: "Marc Thévenin"
@@ -15,13 +13,11 @@ image: "http://www.stata-journal.com/i/sj-undated-cover.png"
 categories:
   - Stata Journal
 
-format: 
-  html: default
-
 abstract: | 
  Archive des sommaires des numéros du Stata Journal depuis 2021, et quelques informations sur la revue. Dernier volume: Décembre 2023 
 ---
 
+<hr class="hr">
 
 **Accès au dernier numéro** \[[connexion *Campus Condorcet*](https://refid-auth.campus-condorcet.fr/cas/login?service=https%3A%2F%2Fwww.campus-condorcet.fr%2Fservlet%2Fcom.jsbsoft.jtf.core.SG%3FPROC%3DIDENTIFICATION_FRONT)\] :    
 <https://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current>

@@ -12,4 +12,6 @@ listing:
   filter-ui: true
   page-size: 30
   max-description-length: 300
+
+code-tools: false
 ---

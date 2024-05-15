@@ -1,11 +1,10 @@
 ---
-title: "**Visualisation des densités avec gridge**"
+title: "Visualisation des densités avec gridge"
 
-title-block-banner: false
 
 categories:
-  - graphique
-  - ado
+  - Graphique
+  - Ado
 
 author: 
   - name: "Marc Thévenin"
@@ -14,20 +13,12 @@ author:
 
 date: 09/26/2022
 
-format: 
-  html: default
-  docx:
-    toc: true
-    number-sections: true
-
-filters:
-   - lightbox
-lightbox: auto
-
 abstract: |
  Depuis 2020, des programmes permettent de générer de type lignes de crête: `joyplot` (A.Naqvi) et `joy_plot` (F.Rios-Avila). A partir d'un programme écrit à l'automne 2020, et en restant au plus près de la fonction `ggridge` de R, j'ai également (et modestement) programmé une commande. 
 
 ---
+
+<hr class="hr">
 
 La commande `gridge` permet, entre autres, de contrôler le tri les modalités de l'axe discret à partir d'une fonction autorisée avec `egen` (*mean*, *median*, *sd*....), de choisir librement un intervalle sur l'axe des abscisses pour éviter le report de valeurs sortant d'une borne acceptable (probabilité négatives ou supérieure à 1 dans l'exemple). Comme  on estime des densités, le nombre d'observations minimales a été fixé à 10. Si ce critère n'est pas respecté, les valeurs de y en cause  sont affichées.  Des améliorations restent néanmoins à prévoir.
 

@@ -1,7 +1,5 @@
 ---
-title: "**Ajouter les effectifs sur un axe discret avec addnlab**"
-
-title-block-banner: false
+title: "Ajouter les effectifs sur un axe discret avec addnlab"
 
 author: 
   - name: "Marc Thévenin"
@@ -11,23 +9,16 @@ author:
 date: 03/15/2023
 
 categories:
-  - graphique
-  - ado
+  - Graphique
+  - Ado
 
-format: 
-  html: default
-  docx:
-    toc: true
-    number-sections: true
-
-filters:
-   - lightbox
-lightbox: auto
 
 abstract: |
  Une petite commande sans grande prétention, mais peut-être utile, car elle permet d'ajouter sur l'axe discret d'un graphique, le nombre d'observations de chaque modalité. On peut également l'utiliser, avec une manipulation supplémentaire, pour les outputs de modèles. 
 
 ---
+
+<hr class="hr">
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
