@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   })
   </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -221,7 +221,7 @@ window.Quarto = {
     <span class="navbar-title"><i class="fa-solid fa-sitemap fa-Large" aria-label="sitemap"></i></span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -231,7 +231,7 @@ window.Quarto = {
 <span class="menu-text">R</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-othe-r" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Othe-R</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-othe-r">    
@@ -261,7 +261,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -286,14 +286,47 @@ window.Quarto = {
 <p>Fiches sur des problématiques liées à l’utilisation de <strong>R</strong>.</p>
 <div id="listing-latest-content-R" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Graphique" data-listing-date-sort="1709766000000" data-listing-file-modified-sort="1715670006524" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3110">
-<a href="./R/assist/posts/spaghetti/spaghetti.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="Cartographie,Fond de carte" data-listing-date-sort="1723500000000" data-listing-file-modified-sort="1723529632555" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2225">
+<a href="./R/assist/posts/mapsf/map_sf.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./R/assist/posts/spaghetti/logo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./R/assist/posts/mapsf/logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title" data-anchor-id="derniers-ajouts-r">
+Premiers pas en cartographie avec R
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Cartographie'); return false;">
+Cartographie
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Fond de carte'); return false;">
+Fond de carte
+</div>
+</div>
+<div class="card-text listing-description">
+Le package mapsf permet de générer des cartes simplement. Toutefois, il convient de choisir le…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Bénédicte Garnier
+</div>
+<div class="listing-date">
+13 août 2024
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Graphique" data-listing-date-sort="1709766000000" data-listing-file-modified-sort="1715670006524" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3110">
+<a href="./R/assist/posts/spaghetti/spaghetti.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./R/assist/posts/spaghetti/logo.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
 Contrôler les effets spaghetti avec ggplot [maj]
 </h5>
 <div class="listing-categories">
@@ -316,11 +349,11 @@ A.Muller , M.Thévenin
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1715086840361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1075">
+<div class="g-col-1" data-index="2" data-categories="Addins,Reproductibilité" data-listing-date-sort="1698098400000" data-listing-file-modified-sort="1715086840361" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1075">
 <a href="./R/assist/posts/pkg_prefix/pkg_prefix.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="http://github.com/dreamRs/prefixer/raw/master/man/figures/logo_prefixer.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="http://github.com/dreamRs/prefixer/raw/master/man/figures/logo_prefixer.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -349,11 +382,11 @@ Bénédicte Garnier
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Cartographie" data-listing-date-sort="1690408800000" data-listing-file-modified-sort="1715674301463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1601">
-<a href="./R/assist/posts/mapsf/map_sf.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-categories="Cartographie" data-listing-date-sort="1690408800000" data-listing-file-modified-sort="1715674301463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1601">
+<a href="./R/assist/posts/mapsf/map_sfXXXXX.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./R/assist/posts/mapsf/logo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="./R/assist/posts/mapsf/logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -379,11 +412,11 @@ Coralie Cottet
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Web Scrapping,Analyse textuelle" data-listing-date-sort="1690322400000" data-listing-file-modified-sort="1690351301654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3455">
+<div class="g-col-1" data-index="4" data-categories="Web Scrapping,Analyse textuelle" data-listing-date-sort="1690322400000" data-listing-file-modified-sort="1690351301654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3455">
 <a href="./R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="./R/assist/posts/europress_iramuteq/img/tri_logo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="./R/assist/posts/europress_iramuteq/img/tri_logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -412,11 +445,11 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1709541885153" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="685">
+<div class="g-col-1" data-index="5" data-categories="Analyse textuelle" data-listing-date-sort="1690236000000" data-listing-file-modified-sort="1709541885153" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="685">
 <a href="./R/assist/posts/nuage_de_mot/nuage_de_mot.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="http://rtemis.hypotheses.org/files/2019/01/2019.01.21.BGarnier_Pas_%C3%A0_Pas_sous_R.temisStudio_V0_html_4395b9b1d02c56de.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="http://rtemis.hypotheses.org/files/2019/01/2019.01.21.BGarnier_Pas_%C3%A0_Pas_sous_R.temisStudio_V0_html_4395b9b1d02c56de.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -442,11 +475,11 @@ Coralie Cottet
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="Recodage,Statistiques descriptives" data-listing-date-sort="1689717600000" data-listing-file-modified-sort="1690188877502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2974">
+<div class="g-col-1" data-index="6" data-categories="Recodage,Statistiques descriptives" data-listing-date-sort="1689717600000" data-listing-file-modified-sort="1690188877502" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2974">
 <a href="./R/assist/posts/dhs/dhs.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.globaldietarydatabase.org/sites/default/files/inline-images/dhs%20logo%203x2_0.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.globaldietarydatabase.org/sites/default/files/inline-images/dhs%20logo%203x2_0.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -475,11 +508,11 @@ Bénédicte Garnier
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1709796474255" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="780">
+<div class="g-col-1" data-index="7" data-categories="Addins,Graphique,Recodage" data-listing-date-sort="1688940000000" data-listing-file-modified-sort="1709796474255" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="780">
 <a href="./R/assist/posts/addins/addins.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="http://dreamrs.github.io/esquisse/logo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="http://dreamrs.github.io/esquisse/logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -511,11 +544,11 @@ Bénédicte Garnier
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="Notebook" data-listing-date-sort="1688680800000" data-listing-file-modified-sort="1689075423972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279">
+<div class="g-col-1" data-index="8" data-categories="Notebook" data-listing-date-sort="1688680800000" data-listing-file-modified-sort="1689075423972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="279">
 <a href="./R/assist/posts/R_jupyter/R_jupyter.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1200px-Jupyter_logo.svg.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1200px-Jupyter_logo.svg.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -541,11 +574,11 @@ Marc Thévenin
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="Statistiques descriptives,Tableau" data-listing-date-sort="1688076000000" data-listing-file-modified-sort="1707479956742" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
+<div class="g-col-1" data-index="9" data-categories="Statistiques descriptives,Tableau" data-listing-date-sort="1688076000000" data-listing-file-modified-sort="1707479956742" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1505">
 <a href="./R/assist/posts/function_table_auto/fonction_table_auto.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -574,11 +607,11 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1709536266463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563">
+<div class="g-col-1" data-index="10" data-categories="Pondération" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1709536266463" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="563">
 <a href="./R/assist/posts/weight_norm/weight_norm.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -604,11 +637,11 @@ Elodie Baril
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1709536939562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479">
+<div class="g-col-1" data-index="11" data-categories="Json,Importation" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1709536939562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="479">
 <a href="./R/assist/posts/import_json/JSON.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_logo.svg/langfr-1024px-JSON_vector_logo.svg.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JSON_vector_logo.svg/langfr-1024px-JSON_vector_logo.svg.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -637,11 +670,11 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="11" data-categories="Boucle,Recodage" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1715337494495" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1018">
+<div class="g-col-1" data-index="12" data-categories="Boucle,Recodage" data-listing-date-sort="1687903200000" data-listing-file-modified-sort="1715337494495" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1018">
 <a href="./R/assist/posts/recodage_multiple/recodage_multiple.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -670,11 +703,11 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="12" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1709536477998" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2566">
+<div class="g-col-1" data-index="13" data-categories="Recodage" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1709536477998" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2566">
 <a href="./R/assist/posts/ifelse_casewhen/ifelse_casewhen.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -700,11 +733,11 @@ Arno Muller
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="Appariement" data-listing-date-sort="1687471200000" data-listing-file-modified-sort="1690460021322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="901">
+<div class="g-col-1" data-index="14" data-categories="Appariement" data-listing-date-sort="1687471200000" data-listing-file-modified-sort="1690460021322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="901">
 <a href="./R/assist/posts/fuzzyjoin/fuzzyjoin.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.r-project.org/Rlogo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -730,11 +763,11 @@ Arnaud Bringé
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="14" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1709536916714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511">
+<div class="g-col-1" data-index="15" data-categories="Output" data-listing-date-sort="1687298400000" data-listing-file-modified-sort="1709536916714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511">
 <a href="./R/assist/posts/jtools_output/jtools_output.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://jtools.jacob-long.com/logo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://jtools.jacob-long.com/logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -760,11 +793,11 @@ Marc Thévenin
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="15" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1709536139862" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="333">
+<div class="g-col-1" data-index="16" data-categories="Test" data-listing-date-sort="1686607200000" data-listing-file-modified-sort="1709536139862" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="333">
 <a href="./R/assist/posts/coxzph/coxzph.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://m.media-amazon.com/images/P/1441931619.01._SCLZZZZZZZ_SX500_.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://m.media-amazon.com/images/P/1441931619.01._SCLZZZZZZZ_SX500_.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -790,11 +823,11 @@ Marc Thévenin
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="16" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1709536223117" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239">
+<div class="g-col-1" data-index="17" data-categories="Editeur" data-listing-date-sort="1686088800000" data-listing-file-modified-sort="1709536223117" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="239">
 <a href="./R/assist/posts/R_vscode/R_vscode_doc.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Visual_Studio_Code_0.10.1_icon.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -843,7 +876,7 @@ Aucun article correspondant
 <a href="./Autres/assist/posts/touch/touch.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="http://i0.wp.com/compositecode.blog/wp-content/uploads/2018/10/good-bash-logo.png?resize=863%2C364&amp;ssl=1" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="http://i0.wp.com/compositecode.blog/wp-content/uploads/2018/10/good-bash-logo.png?resize=863%2C364&amp;ssl=1" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title" data-anchor-id="derniers-ajouts-quarto---git---python">
@@ -873,7 +906,7 @@ Marc Thevenin
 <a href="./Autres/assist/posts/bootswatch1/bootswatch1.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./Autres/assist/posts/bootswatch1/logo_bootswatch.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./Autres/assist/posts/bootswatch1/logo_bootswatch.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -909,7 +942,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/code_highlight/code_highlight.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./Autres/assist/posts/code_highlight/img.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./Autres/assist/posts/code_highlight/img.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -945,7 +978,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/adm_data/adm_data.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="http://pro.docorga.com/wp-content/uploads/2022/09/1.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="http://pro.docorga.com/wp-content/uploads/2022/09/1.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -975,7 +1008,7 @@ Giulia Ferrari
 <a href="./Autres/assist/posts/gitlabpage/gitlabpage.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="./Autres/assist/posts/gitlabpage/img/gitlab_logo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="./Autres/assist/posts/gitlabpage/img/gitlab_logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1008,7 +1041,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/quarto_v14/quarto_v14.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1038,7 +1071,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/couleur_texte_scss/couleur_texte_scss.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1074,7 +1107,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/whispers/whisper.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Picture.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Picture.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1107,7 +1140,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/self_contained/self_contained.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://st4.depositphotos.com/28636338/38413/i/450/depositphotos_384138024-stock-photo-yaml-file-isolated-on-abstract.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://st4.depositphotos.com/28636338/38413/i/450/depositphotos_384138024-stock-photo-yaml-file-isolated-on-abstract.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1140,7 +1173,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/git_rstudio/git_rstudio.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.cpp.edu/cba/customer-insights-lab/img/training-images/github_rstudio.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.cpp.edu/cba/customer-insights-lab/img/training-images/github_rstudio.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1173,7 +1206,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/output_scss/output_scss.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1209,7 +1242,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/annotation/annotation.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1242,7 +1275,7 @@ Marc Thévenin
 <a href="./Autres/assist/posts/social_embeds/social_embeds.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vimeo_icon_block.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vimeo_icon_block.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1294,7 +1327,7 @@ Aucun article correspondant
 <a href="./Stata/assist/posts/stata_journal/stata_journal.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="http://www.stata-journal.com/i/sj-undated-cover.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="http://www.stata-journal.com/i/sj-undated-cover.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title" data-anchor-id="derniers-ajouts-stata">
@@ -1324,7 +1357,7 @@ Marc Thévenin
 <a href="./Stata/assist/posts/conferences/conferences.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="./Stata/assist/posts/conferences/img.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./Stata/assist/posts/conferences/img.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1354,7 +1387,7 @@ Marc Thévenin
 <a href="./Stata/assist/posts/nbstata/nbstata.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="https://posit.co/wp-content/uploads/2022/10/thumbnail-2.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1390,7 +1423,7 @@ Marc Thévenin
 <a href="./Stata/assist/posts/dtas/dtas.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&amp;name=4096x4096" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&amp;name=4096x4096" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1451,7 +1484,7 @@ Marc Thévenin
 <a href="./Stata/assist/posts/autosave/autosave.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&amp;name=4096x4096" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://pbs.twimg.com/media/Fupd5EUXoAAYcYx?format=jpg&amp;name=4096x4096" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1515,7 +1548,7 @@ Marc Thévenin
 <a href="./Stata/assist/posts/frame/frame.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img data-src="https://www.insightplatforms.com/wp-content/uploads/2019/09/stata_logo.png" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" data-src="https://www.insightplatforms.com/wp-content/uploads/2019/09/stata_logo.png" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -1848,7 +1881,7 @@ Aucun article correspondant
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 
 
@@ -1887,18 +1920,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1930,7 +1952,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1989,7 +2033,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

@@ -1,0 +1,406 @@
+---
+title: "Réaliser des cartes thématiques avec Mapsf"
+
+categories:
+  - Cartographie
+  
+author: 
+  - name: "Coralie Cottet"
+    affiliations:
+      - name: "Ensai-Ined"
+
+date: 07/27/2023
+
+image: "logo.png"
+
+format: 
+  html: default
+
+abstract: |
+ Nous allons montrer comment réaliser des cartes avec R à l'aide du package **`mapsf`** (T.Giraud) et du packages **`sf`**. mapsf est un outil très utile pour manipuler et visualiser des données spatiales en R, tandis que le package "sf" fournit une infrastructure pour stocker et manipuler ce type de données. Ces deux packages offrent une solution simple et pratique pour réaliser ce type d'analyse. 
+
+---
+
+![](logo.png){width=10%}
+
+**Documentation** (Timothé Giraud):  
+
+*  <https://rcarto.github.io/ined2022/07_mise_en_page.html>
+
+* <http://riatelab.github.io/mapsf>
+
+* <http://rgeomatic.hypotheses.org/2077>
+
+
+
+**Installation des packages**: 
+
+```markdown
+install.packages(mapsf)
+install.packages(sf)
+install.packages(dplyr)
+```
+
+```{r warning=FALSE, message=FALSE}
+library(mapsf)
+library(sf)
+library(dplyr)
+```
+
+
+Nous allons réaliser une carte de Paris avec les données du site de Paris Data [[Lien](http://opendata.paris.fr/pages/catalogue/?disjunctive.theme&disjunctive.publisher)]
+
+
+# Importation des données
+
+Il existe plusieurs formats de fond de carte:
+
+* **GeoJSON** est un format de données géospatiales basé sur JSON (JavaScript Object Notation) qui permet de stocker des données géographiques sous forme de caractères.
+
+* **Shapefile** est un format de données géospatiales propriétaire développé par *Esri* (Environmental Systems Research Institute). Il est constitué de plusieurs fichiers qui stockent des informations sur les entités géographiques telles que les points, les lignes et les polygones, ainsi que des attributs associés à ces entités. 
+
+
+Ici le fond importé est en format *GeoJSON*, il correspond aux limites des arrondissements.  On va lui ajouter celui des voies d'eau en couche d'habillage.
+
+
+```{r filename="Importation des données", result=FALSE}
+arrondissements <- st_read(dsn = "https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&timezone=Europe/Berlin&lang=fr")
+
+cours_deau<-st_read(dsn="https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/plan-de-voirie-voies-deau/exports/geojson?lang=fr&timezone=Europe%2FBerlin")
+```
+
+
+```{r filename="Affichage du fond de carte des arrondissements avec cours d'eau"}
+
+# Arrondissements
+mf_map(x = arrondissements, border = "black") 
+
+# Ajout des cours d'eau
+mf_map(x=cours_deau,lwd=2,border="lightblue",col="lightblue",add=TRUE)
+```
+
+```{r filename="Fond noir"}
+mf_theme("darkula")
+```
+
+
+# Différents types de cartes
+
+
+![](arbre_type_data.png)
+
+## Les cartes à symboles proportionnels
+
+La  carte en symboles proportionnels est la méthode de représentation graphique à utiliser pour visualiser des variables de stocks (variables quantitatives absolues pour lesquelles la somme et la moyenne ont une signification).
+
+Sur la carte, on affiche l'effectif de la population de chaque arrondissement et on ajoute la légende et un titre.
+
+```{r filename"Ajout manuel de la population des arrondissements", results= 'hide'}
+#Ajout manuel des valeurs des populations de chaque arrondissements dans le tableau sous le nom "pop"
+arrondissements$pop <- c(1012687, 903036, 1369857, 1491027, 1672009, 1506475, 1637163, 1603380, 1637542, 1059282, 1494945, 1436205, 1705774, 1425805, 236769, 1668605, 1674568, 1539668, 1421827, 1829526) #INSEE,2021. La valeur 1012687 correspond à la population dans le 1er arrondissement.
+```
+
+
+* Pour représenter la carte, on utilise la fonction `map_sf()`. On doit indiquer à minima la variable liée à la statistique (`var=pop`), et le type de carte (`type=prop`). 
+* On va superposer 2 cartes: le fond affichant seulement les limites des arrondissements, et celle affichant sous forme de bulle proportionnelles la taille de la population dans chaque arrondissement.
+
+
+```{r filename="Carte avec la fonction mf_map()"}
+mf_map(x = arrondissements)
+mf_map(
+  x = arrondissements,
+  var = "pop" ,
+  type = "prop",  
+  leg_title = "Population totale\12 271 794",
+  col="#C24168",
+  add= TRUE,
+  inches=0.2)
+
+mf_title("Distribution de la population dans les arrondissements de Paris")
+```
+
+## Les cartes choroplèthes
+
+La *carte choroplèthe* est la représentation  à utiliser pour visualiser des ratios (variables quantitatives relatives pour lesquelles la moyenne a un sens, mais dont la somme n'en a pas), et qui sont des variables ordinales.
+
+Sur la carte, on affiche la densité de population de chaque arrondissement. On utilise ici la méthode des quantiles pour discrétiser cette variable, et on applique une palette de couleurs séquentielles avec dégradé pour représenter l'ordre entre les valeurs.
+
+```{r filename="Variable densité de la population"}
+#création de la variable densite 
+arrondissements$DENS <- 1e6 * arrondissements$pop / as.numeric(st_area(arrondissements))
+```
+
+```{r filename="Carte avec la fonction mf_map()"}
+mf_map(
+  x = arrondissements,
+# variable à représenter: densité de population  
+var = "DENS",
+# type de carte  
+type = "choro",
+# méthode de dsicrétisation
+  breaks = "quantile",
+# palette de rouges  
+pal = "Reds",
+  lwd = 1,
+  leg_title = "Densité de population\n(habitants par km2)", 
+  leg_val_rnd = 0
+)
+```
+
+
+::: callout-note 
+la faible densité de population des 12e et 16e arrondissement résulte notamment des zônes *bois de Vincennes* et de *Bois de Boulogne* qui les composent.
+:::
+
+
+## Les cartes pour une variable qualitative nominale
+
+On peut aussi représenter un autre type de variable: qualitative nominale. Pour illuster cette fiche on va représenter les bords politiques des mairies de chaque arrondissement.
+Pour cela, on produit une carte choroplèthes mais avec des couleurs *sans dégradé* (palettee qualitative).  
+
+* Penser à trier la base par numéro d'arrondissement avant de fusionner les informations sur les bords politiques (`arrange()`)
+* Bien vérifier que les couleurs, ici fortement informatives, correspondent bien aux bords politiques. Sans raison apparente, il a été ici nécessaire de les renseigner dans l'ordre EELV, LR et PS. 
+
+
+```{r, warning=FALSE, message=FALSE}
+arrondissements2 = select(arrondissements, c_ar, l_aroff, geom_x_y, geometry)
+arrondissements2 = arrange(arrondissements2, c_ar)
+
+bords_politiques <- c("LR", "EELV", "PS", "PS", "LR", "LR", "LR", "LR", "LR", "PS", "PS", "PS", "PS", "PS", "LR", "LR", "LR", "PS", "PS", "PS")
+# Le maire du 2e arrondissement de Paris était EELV entre 2014 et 2015.
+
+
+arrondissements2 <- cbind(arrondissements2, bords_politiques)
+
+# Choix des couleurs
+
+colors <- c("EELV" = "#31a354", "LR" = "#3182bd", "PS" = "#C24168")
+
+# Placer les carrés sur les centroïdes des polygones des arrondissements.
+arr_c<-st_centroid(arrondissements2)
+
+
+
+mf_map(x = arrondissements2, border = "black")
+
+# Choix  du symbol rectangle (pch=15)
+mf_map(
+  x = arr_c,
+  var = "bords_politiques",
+  pal=colors,
+  type="symb",
+  pch=15,
+  cex = 2,
+  lwd = .5,
+  leg_title = "",
+  border="black"
+)
+
+
+# habillage additionnel
+mf_layout(
+  title = "Bord politique des maires de Paris entre 2014 et 2020",
+  credits = paste0(
+    "mapsf ",
+    packageVersion("mapsf")
+  )
+)
+
+```
+
+
+Il est courant de représenter les cartes électorales en remplissant les aires géographiques par des couleurs. Par rapport 
+au graphique précédent, il suffit d'utiliser `type="typo"` et de retirer l'argument `pch`. On ajoute également le numéro de l'arrondissement avec la fonction `mf_label`.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+mf_map(
+  x = arrondissements2,
+  # var à représenter  
+  var = "bords_politiques",
+  pal=colors,
+  type="typo",
+  cex = 2,
+  lwd = .5,
+  leg_title = "",
+  leg_pos= c(2.43, 48.91396),
+  border="black"
+)
+
+mf_layout(
+  title = "Bord politique des maires de Paris entre 2014 et 2020",
+  credits = paste0(
+    "mapsf ",
+    packageVersion("mapsf")
+  )
+)
+
+mf_label(
+  x = arrondissements2, var = "c_ar", col = "grey", halo = TRUE, overlap = FALSE, lines = FALSE,
+)
+```
+
+
+# Pour aller plus loin: regroupement de polygones  
+
+**Exemple 1: fusion des arrondissements 15 et 16 avec aggrégation de la population**
+
+L'objectif est de fusionner les données de deux arrondissements (le 15ème et le 16ème) en un seul arrondissement sur le fond de carte, et d'agréger leur population.
+
+Les étapes sont :
+
+* Sélection des polygones géométriques des 15ème (Vaugirard) et 16ème (Passy) arrondissements dans le dataset des arrondissements.
+
+* Fusionner ces deux polygones en un seul avec la fonction st_union(). On obtient un nouveau polygone contenant la géométrie unifiée.
+
+* Aggreger les valeurs de leur population pour le nouveau polygone.
+
+* Renommer les informations d'identification du nouveau secteur  (ici son nom).
+
+* Créer un nouveau dataset avec ces informations pour le nouveau secteur.
+
+* Remplacer dans le dataset original les informations des deux arrondissements par celles du nouveau secteur.
+
+
+On obtient ainsi un nouveau dataset des arrondissements dans lequel les 15ème et 16ème ont été fusionnés . Ce nouveau secteur fusionné peut alors être représenté sur le fond de carte.    
+
+
+```{r filename="Récupération des informations nécessaires"}
+arrondissements2 = select(arrondissements, c_ar, l_aroff, geom_x_y, pop)
+arrondissements2 = arrange(arrondissements2, c_ar)
+```
+
+
+```{r filename="Sélection des deux polygones à fusionner"}
+poly1 = arrondissements2[arrondissements2$c_ar == 15, ]
+poly2 = arrondissements2[arrondissements2$c_ar == 16, ] 
+```
+
+
+```{r filename="Fusion des deux polygones"}
+new_poly = st_union(poly1, poly2) 
+```
+
+```{r filename="Agregation des deux populations"}
+new_poly$pop = new_poly$pop+ new_poly$pop.1
+```
+
+```{r filename="Changement du nom de la zône"}
+new_poly$l_aroff = "Fusion 15 et 16"
+```
+
+```{r filename="Insertion de la fusion dans la base arrondissements"}
+# Il est très important de mettre les éléments dans le même ordre que celui du tableau
+arrondissements_fus <- subset(new_poly, select = c(c_ar, l_aroff, geom_x_y, pop))
+
+# On supprime les lignes des deux arrondissements fusionner
+arrondissements2 = filter(arrondissements2, c_ar<15 | c_ar>16)
+
+# On insère la ligne des arrondissements fusionnés dans la base arrondissement
+arrondissements2 = rbind(arrondissements2, arrondissements_fus)
+```
+
+
+```{r filename="Exécution de la carte"}
+#| eval: false
+
+mf_map(x = arrondissements2,border= "black")
+mf_map(x = arrondissements2,
+       # variable à représenter: population des arrondissements
+       var = "pop",
+       # type de carte : symboles proportionnels
+       type = "prop",
+       leg_title = "Population des arrondissements",
+       col="#C24168",
+       add= TRUE,
+       inches=0.2)
+```
+
+![](map.png)
+
+
+
+**Exemple 2: fusion des 4 premiers arrondissements aux élections de 2020**
+
+
+Pour les élections municipales de 2020, les 4 premiers arrondissements de la ville ont été fusionnés. Cette zône a été appelée **Centre**, et le choix de la localisation de mairie s'est porté sur le 3ème arrondissement.   
+
+
+Le code ci-dessous procède à la fusion de ces 4 arrondissements
+
+```{r, warning=FALSE, message=FALSE}
+#| code-fold: true
+#| code-summary: "Show the code"
+#| results: false
+
+arrondissements <- st_read(dsn = "https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&timezone=Europe/Berlin&lang=fr")
+arrondissements <- subset(arrondissements, select = c(c_ar, l_aroff,geometry))
+
+
+poly1 = arrondissements[arrondissements$c_ar == "1", ] 
+poly2 = arrondissements[arrondissements$c_ar == "2", ]
+poly3 = arrondissements[arrondissements$c_ar == "3", ]
+poly4 = arrondissements[arrondissements$c_ar == "4", ]
+
+poly12   = st_union(poly1, poly2) 
+poly34   = st_union(poly3,poly4)
+new_poly = st_union(poly12,poly34)
+
+new_poly$l_aroff = "Centre" # changer le nom de l'arrondissement
+new_poly$c_ar    =  "3"     # changer le code de l'arrondissement
+
+# Il est très important de mettre les éléments dans le même ordre que celui du tableau
+arrondissements_fus = subset(new_poly, select = c(c_ar, l_aroff,geometry))
+
+arrondissements = filter(arrondissements, c_ar>4)
+arrondissements = rbind(arrondissements, arrondissements_fus)
+
+mf_map(x = arrondissements,border= "black")
+
+bords_politiques = c("Gauche","Droite","Droite","Droite","Droite","Droite","Gauche","Gauche","Ecolo","Gauche","Gauche","Droite","Droite","Droite","Gauche","Gauche","Gauche")
+colors <- c( "Droite" = "#3182bd", "Ecolo" = "#31a354",  "Gauche" = "#C24168")
+
+
+# c_ar est passé en string => repasser en numérique pour arrange
+arrondissements$c_ar = as.numeric(arrondissements$c_ar)
+arrondissements = arrange(arrondissements, c_ar)
+arrondissements = cbind(arrondissements, bords_politiques)
+
+# label: on change la valeur 3 par centre pour la zône fusionnée
+arrondissements$c_ar2 = as.character(arrondissements$c_ar)
+arrondissements$c_ar2[arrondissements$c_ar2 == "3"]  = "Centre"
+```
+
+Carte électorale à l'issue des élections de 2020
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+mf_map(
+  x = arrondissements,
+  var = "bords_politiques",
+  pal=colors,
+  type="typo",
+  cex = 2,
+  lwd = .5,
+  leg_title = "",
+  leg_pos= c(2.43, 48.91396),
+  border="black"
+)
+
+mf_layout(
+  title = "Bord politique des maires de Paris aux élections de 2020",
+  credits = paste0(
+    "mapsf ",
+    packageVersion("mapsf")
+  )
+)
+
+mf_label(
+  x = arrondissements, var = "c_ar2", col = "grey", halo = TRUE, overlap = FALSE, lines = FALSE,
+)
+```
+
