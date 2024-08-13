@@ -1,0 +1,134 @@
+---
+title: "Importer des fichiers SAS avec formats en R"
+
+categories:
+  - Importation
+
+author: 
+  - name: "A.Muller"
+    affiliation:
+      - name: "Ined"
+  - name: "E.Baril"
+    affiliation:
+      - name: "Ined"        
+
+date: 08/13/2024
+
+image: "logo_SAS_R.png"
+
+format:
+  html: 
+    code-link: true
+        
+abstract: | 
+ Par défaut les catalogues de formats SAS ne s'importe pas dans R. Vous trouverez dans cette fiche comment importer des tables SAS associées à un catalogue de formats. 
+---
+
+
+## Charger les librairies
+
+```{r echo=FALSE, message=FALSE}
+# Les packages pas directement liés à la fiche
+library(labelled)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+```{r, message=FALSE}
+library(haven)
+```
+
+## Importer un fichier SAS
+
+Pour importer des fichiers SAS, il existe le package haven avec l'instruction `read_sas`. Si on a un catalogue de formats, il faut l'ajouter dans l'instruction `catalog_file`.
+
+```{r eval=FALSE, filename="Import avec la library haven"}
+erfi_ext<- read_sas("erfi_extrait.sas7bdat",catalog_file="formats.sas7bcat")
+erfi_ext
+```
+
+```{r echo=FALSE}
+erfi_ext<- read_sas("erfi_extrait.sas7bdat",catalog_file="formats.sas7bcat")
+```
+
+```{r echo=FALSE}
+kable(head(erfi_ext,10)) %>%
+  kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 15) %>%
+  scroll_box(height = "300px")
+```
+
+<br>
+
+Par défaut lorqu'on ouvre dans R le fichier `erfi_ext`, on ne voit pas les formats mais on a l'indication dans les labels.
+
+```{r eval=FALSE, filename="Retrouver les formats cachés"}
+str(erfi_ext$MB_STOC)
+```
+
+![](image/label_mbstoc.PNG)
+
+<br>
+
+## Prise en compte des formats SAS
+
+Vous trouverez ci-dessous la fonction "import_sas_label" créé par Arno Muller. Les variables character avec formats deviennent des variables factor. Les valeurs sont en texte.
+
+```{r, filename="Import de import_sas_label"}
+source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/SAStoR/import_sas_label/fonction_import_sas_label.R")
+```
+
+```{r, filename="Exemple :"}
+erfi_ext <- import_sas_label(data_file = "erfi_extrait.sas7bdat", 
+                             catalog_file = "formats.sas7bcat", 
+                             blanc_as_NA = TRUE)
+```
+
+Pour readapter ce code il faut changer "erfi_ext" par le nom de votre fichier importé, ainsi que l'emplacement ou le nom de votre fichier sas et votre catalogue de formats. L'option blanc_as_NA : TRUE ou FALSE, permet de transformer les cases vides ("") en NA.
+
+```{r echo=FALSE}
+kable(head(erfi_ext,10)) %>%
+  kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 15) %>%
+  scroll_box(height = "300px")
+```
+
+<br>
+
+## Limites pour les variables avec intervalles
+
+SAS a la particularité d'afficher des variables numériques continues en classe d'âge sans recréer de nouvelles variables. Ce n'est pas encore possible en R à notre connaissance. Nous conservons donc les valeurs d'origine lors de l'import mais nous pouvons recréer de nouvelles colonnes prenant en compte les intervalles du formats sas avec la fonction "create_var_label".
+
+Par exemple on sait que la variable "MA_AGER" a été défini par un format (nommé *AGE4C*) en classe d'âge sous SAS, il suffit d'utiliser la fonction comme ci-dessous et une nouvelle colonne prenant le nom du format sas apparait
+
+```{r, filename="Import de create_var_label"}
+source("https://raw.githubusercontent.com/arnomuller/Fonction_R/main/SAStoR/create_var_label/fonction_create_var_label.R")
+```
+
+```{r, filename="Exemple :", eval=FALSE}
+erfi_ext2 <- create_var_label(erfi_ext, "MA_AGER")
+erfi_ext2
+```
+
+```{r, echo=FALSE}
+erfi_ext2 <- create_var_label(erfi_ext, "MA_AGER")
+kable(head(erfi_ext2,10)) %>%
+  kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 15) %>%
+  scroll_box(height = "300px")
+```
+
+<br>
+
+**Une nouvelle variable a été ajoutée à la fin des données**
+
+```{r, filename="Variable discrétisée selon le format", eval=FALSE}
+table(erfi_ext2$AGE4C)
+```
+
+```{r, echo=FALSE}
+kable(erfi_ext2 %>% group_by(AGE4C) %>% summarise(Effectifs = n())) %>%
+  kable_styling(bootstrap_options = c("striped"),full_width = T,font_size = 15)
+```
+
+## Référence
+
+<https://github.com/arnomuller/Fonction_R/tree/main/SAStoR/import_sas_label>

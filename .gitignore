@@ -9,3 +9,7 @@
 /R/assist/posts/fuzzyjoin/Martigues.REC1702.Ined.rds
 
 /R/assist/posts/europress_iramuteq/DATA/biblioeuropresse20230710105912.HTML
+
+
+*.sas7bdat
+*.sas7bcat
