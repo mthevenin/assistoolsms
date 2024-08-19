@@ -142,7 +142,7 @@ Les 4 premiers arrondissements ont été regroupés en une seule entité dans le
 
 **Identifier le type de donnée à représenter** car cela va conditionner le type de carte à utiliser
 
-![cf T. Giraud](img/arbre_type_data.png){width=75%}
+![cf T. Giraud](arbre_type_data.png){width=75%}
 
 Nous disposons donc d'une *variable de stock* : la population des arrondissements, d'une *variable qualitative nominale* : le bord politique de la mairie et nous pourrons calculer une *variable quantitative absolue* : la densité de population de chaque arrondissement car nous avons la superficie de chaque arrondissement (st_area) dans le data frame correspondant au fond de carte.  
 
