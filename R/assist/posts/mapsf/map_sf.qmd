@@ -8,9 +8,7 @@ categories:
   - Cartographie
   - Fond de carte
 
-date: 08/13/2024
-
-image: "logo.png"
+date: 08/26/2024
 
 lang: fr
 format:
@@ -26,34 +24,29 @@ abstract: |
   Le package mapsf permet de générer des cartes simplement. Toutefois, il convient de choisir le type de carte adaptés aux données à représenter et parfois adapter le fond de carte. Nous présentons ici des statistiques sur les arrondissements de Paris.
 ---
 
-Adaptation de la fiche *Mapsf* réalisée par Coralie Cottet (2023).
-
+Adaptation de la fiche *Mapsf* de Coralie Cottet (2023).
 
 ::: callout-tip
 ## Les étapes pour représenter des indicateurs simples sur une fond de carte
 
-Importer dans R
--   le fond de carte des arrondissements de Paris (*données géométriques*)
--   le tableau des indicateurs à représenter (*données attributaires*)    
-Utiliser le *package mapsf* 
--   choisir le type de carte adapté aux données à représenter.
--   habiller la carte (titre, légende, ..)
--   exporter la carte produite au format désiré (vectoriel ou image)
+Importer dans R - le fond de carte des arrondissements de Paris
+(*données géométriques*) - le tableau des indicateurs à représenter
+(*données attributaires*)\
+Utiliser le *package mapsf* - choisir le type de carte adapté aux
+données à représenter. - habiller la carte (titre, légende, ..) -
+exporter la carte produite au format désiré (vectoriel ou image)
 :::
 
+| Packages   | Fonctions             |
+|------------|-----------------------|
+| **sf**     | `st_read` ,`st_union` |
+| **mapsfr** | `mf_map`              |
+| **mapsfr** | `mf_theme`            |
+| **mapsfr** | `mf_label`            |
+| **mapsfr** | `mf_title`            |
 
-| Packages        | Fonctions                                 |
-|-----------------|-------------------------------------------|
-| **sf**          | `st_read` ,`st_union`                     |
-| **mapsfr**      | `mf_map`                                  |
-| **mapsfr**      | `mf_theme`                                |
-| **mapsfr**      | `mf_label`                                |
-| **mapsfr**      | `mf_title`                                |
-
-
-Si nécessaire, installation des packages avec la commande `
-install.packages("mapsf","sf","dplyr")
-
+Si nécessaire, installation des packages avec la commande 
+`install.packages("mapsf","sf","dplyr")`
 
 # Appel des packages
 
@@ -63,19 +56,22 @@ library(sf)
 library(dplyr)
 ```
 
-
 # Les données
 
 ## Les données géométriques
 
 Les **formats** les plus courants en cartographie automatique sont :
 
--   *GeoJSON*, basé sur JSON (JavaScript Object Notation) qui permet de stocker des données géographiques sous forme de caractères.
--   *Shapefile*, plus ancien, développé par Esri. c'est un ensemble de fichiers qui stockent des informations sur les entités géographiques et leurs attributs.
+-   *GeoJSON*, basé sur JSON (JavaScript Object Notation) qui permet de
+    stocker des données géographiques sous forme de caractères.
+-   *Shapefile*, plus ancien, développé par Esri. c'est un ensemble de
+    fichiers qui stockent des informations sur les entités géographiques
+    et leurs attributs.
 
-Le fond de carte utilisé ici correspond aux limites des
-arrondissements de Paris, il est au format GeoJSON. On va lui ajouter les voies d'eau (Seine et canaux).
-On importe ces 2 couches à partir du site *opendata.paris.fr*.
+Le fond de carte utilisé ici correspond aux limites des arrondissements
+de Paris, il est au format GeoJSON. On va lui ajouter les voies d'eau
+(Seine et canaux). On importe ces 2 couches à partir du site
+*opendata.paris.fr*.
 
 ```{r}
 arrondissements <- st_read(dsn = "https://opendata.paris.fr/explore/dataset/arrondissements/download/?format=geojson&timezone=Europe/Berlin&lang=fr")
@@ -85,7 +81,10 @@ cours_deau<-st_read(dsn="https://opendata.paris.fr/api/explore/v2.1/catalog/data
 
 ### Affichage des contours des arrondissements et des cours d'eau à Paris
 
-On superpose 3 couches différentes : les polygones représentant les contours des arrondissements, les numéro des arrondissements et les cours d'eau.
+On superpose 3 couches différentes : les polygones représentant les
+contours des arrondissements, les numéro des arrondissements et les
+cours d'eau.
+
 ```{r}
 mf_theme("candy")
 # Arrondissements
@@ -107,47 +106,61 @@ mf_title("Les arrondissements de Paris")
 
 ## Les indicateurs à représenter et le choix du type de carte
 
-Le tableau suivant contient les identifiants des arrondissements de Paris, les bords politiques des élus aux élections municipales de 2020 et les effectifs des populations de ces arrondissements.   
-Sources :   
--   [Le parisien](https://www.leparisien.fr/elections/municipales/municipales-le-second-tour-a-paris-decrypte-en-six-cartes-29-06-2020-8343966.php)  
--   [Insee - Chiffres détaillés, Comparateur de territoires](htts://www.insee.fr/fr/statistiques/2521169) - Mise en ligne le 27/06/2024.
-
+Le tableau suivant contient les identifiants des arrondissements de
+Paris, les bords politiques des élus aux élections municipales de 2020
+et les effectifs des populations de ces arrondissements.\
+Sources :\
+- [Le parisien du
+29-06-2020](https://www.leparisien.fr/elections/municipales/municipales-le-second-tour-a-paris-decrypte-en-six-cartes-29-06-2020-8343966.php)\
+- [Insee - Chiffres détaillés, Comparateur de
+territoires](htts://www.insee.fr/fr/statistiques/2521169) - Mise en
+ligne le 27/06/2024.
 
 | Codgeo | Libelle                  | Municipalités | Population en 2021 |
-|--------|--------------------------|----------|----------------|
-| 75101  | Paris 1er Arrondissement | -        | 15919          |
-| 75102  | Paris 2e Arrondissement  | -        | 21119          |
-| 75103  | Paris 3e Arrondissement  | -        | 32793          |
-| 75104  | Paris 4e Arrondissement  | -        | 28324          |
-| 75105  | Paris 5e Arrondissement  | LR, LREM | 56841          |
-| 75106  | Paris 6e Arrondissement  | LR       | 40209          |
-| 75107  | Paris 7e Arrondissement  | LR       | 47947          |
-| 75108  | Paris 8e Arrondissement  | LR       | 35123          |
-| 75109  | Paris 9e Arrondissement  | LREM     | 58951          |
-| 75110  | Paris 10e Arrondissement | PS, EELV | 83543          |
-| 75111  | Paris 11e Arrondissement | PS, EELV | 142583         |
-| 75112  | Paris 12e Arrondissement | PS, EELV | 140954         |
-| 75113  | Paris 13e Arrondissement | PS, EELV | 178350         |
-| 75114  | Paris 14e Arrondissement | PS, EELV | 136368         |
-| 75115  | Paris 15e Arrondissement | LR       | 227746         |
-| 75116  | Paris 16e Arrondissement | LR       | 162061         |
-| 75117  | Paris 17e Arrondissement | LR       | 164413         |
-| 75118  | Paris 18e Arrondissement | PS, EELV | 188446         |
-| 75119  | Paris 19e Arrondissement | PS, EELV | 181616         |
-| 75120  | Paris 20e Arrondissement | PS, EELV | 189805         |
-|        |                          |          |                |
+|--------|--------------------------|---------------|--------------------|
+| 75101  | Paris 1er Arrondissement | PS, EELV      | 15919              |
+| 75102  | Paris 2e Arrondissement  | PS, EELV      | 21119              |
+| 75103  | Paris 3e Arrondissement  | PS, EELV      | 32793              |
+| 75104  | Paris 4e Arrondissement  | PS, EELV      | 28324              |
+| 75105  | Paris 5e Arrondissement  | LR, LREM      | 56841              |
+| 75106  | Paris 6e Arrondissement  | LR            | 40209              |
+| 75107  | Paris 7e Arrondissement  | LR            | 47947              |
+| 75108  | Paris 8e Arrondissement  | LR            | 35123              |
+| 75109  | Paris 9e Arrondissement  | LREM          | 58951              |
+| 75110  | Paris 10e Arrondissement | PS, EELV      | 83543              |
+| 75111  | Paris 11e Arrondissement | PS, EELV      | 142583             |
+| 75112  | Paris 12e Arrondissement | PS, EELV      | 140954             |
+| 75113  | Paris 13e Arrondissement | PS, EELV      | 178350             |
+| 75114  | Paris 14e Arrondissement | PS, EELV      | 136368             |
+| 75115  | Paris 15e Arrondissement | LR            | 227746             |
+| 75116  | Paris 16e Arrondissement | LR            | 162061             |
+| 75117  | Paris 17e Arrondissement | LR            | 164413             |
+| 75118  | Paris 18e Arrondissement | PS, EELV      | 188446             |
+| 75119  | Paris 19e Arrondissement | PS, EELV      | 181616             |
+| 75120  | Paris 20e Arrondissement | PS, EELV      | 189805             |
+|        |                          |               |                    |
 
-Les 4 premiers arrondissements ont été regroupés en une seule entité dans le cadre des élections municipales (étiquette PS, EELV). Nous verrons plus loin comment modifier le fond de carte pour représenter cette information sur une carte. 
+Les 4 premiers arrondissements ont été regroupés en une seule entité
+dans le cadre des élections municipales (étiquette PS, EELV). Nous
+verrons plus loin comment modifier le fond de carte pour représenter
+cette information sur une carte.
+
+**Identifier le type de donnée à représenter** car cela va conditionner
+le type de carte à utiliser
 
 
-**Identifier le type de donnée à représenter** car cela va conditionner le type de carte à utiliser
+::: {.box_img}
+![cf T. Giraud](arbre_type_data.png){width="75%"}
+:::
 
-![cf T. Giraud](arbre_type_data.png){width=75%}
+Nous disposons donc d'une *variable de stock* : la population des
+arrondissements, d'une *variable qualitative nominale* : le bord
+politique de la mairie et nous pourrons calculer une *variable
+quantitative absolue* : la densité de population de chaque
+arrondissement car nous avons la superficie de chaque arrondissement
+(st_area) dans le data frame correspondant au fond de carte.
 
-Nous disposons donc d'une *variable de stock* : la population des arrondissements, d'une *variable qualitative nominale* : le bord politique de la mairie et nous pourrons calculer une *variable quantitative absolue* : la densité de population de chaque arrondissement car nous avons la superficie de chaque arrondissement (st_area) dans le data frame correspondant au fond de carte.  
-
-
-## Générer des cartes adaptées aux données 
+## Générer des cartes adaptées aux données
 
 ### La population par arrondissements
 
@@ -160,11 +173,13 @@ arrondissements2$population <- c(15919, 21119, 32793, 28324, 56841, 40209, 47947
 #La valeur 15919 correspond à la population dans le 1er arrondissement.
 ```
 
+On affiche une **carte en symboles proportionnels** car c'est la méthode
+à utiliser pour visualiser des variables de stocks. La surface des
+cercles représente l'effectif de la population pour chaque
+arrondissement.
 
-On affiche une **carte en symboles proportionnels** car c'est la
-méthode à utiliser pour visualiser des variables de stocks. La surface des cercles représente l'effectif de la population pour chaque arrondissement.
-
-La fonction `map_sf()` sert à indiquer la variable à représenter (var=population), et le type de carte (type=prop).
+La fonction `map_sf()` sert à indiquer la variable à représenter
+(var=population), et le type de carte (type=prop).
 
 On **habille** la carte en y ajoutant une légende et un titre
 
@@ -174,7 +189,7 @@ mf_map(
   x = arrondissements2,
   var = "population" ,
   type = "prop",  
-  leg_title = "Effectif de la population \ en 2021",
+  leg_title = "Effectif de la population\ en 2021",
   col="#C24168",
   add= TRUE,
   inches=0.2)
@@ -193,9 +208,9 @@ On va ici générer une **carte choroplèthe** (ou en aplat de couleur) car
 c'est la méthode à utiliser pour visualiser des ratios (variables
 quantitatives relatives).
 
-On utilise la méthode des quantiles pour discrétiser
-la variable densite, et on applique une palette de couleurs séquentielles
-avec dégradé pour représenter l'ordre entre les valeurs.
+On utilise la méthode des quantiles pour discrétiser la variable
+densite, et on applique une palette de couleurs séquentielles avec
+dégradé pour représenter l'ordre entre les valeurs.
 
 ```{r}
 mf_map(
@@ -216,15 +231,18 @@ pal = "Reds",
 mf_title("Les densités de population des arrondissements de Paris")
 ```
 
-Nota Bene : Les 12e et 16e arrondissements sont très eu denses car sont composés des bois de Vincenne et de Boulogne.
+Nota Bene : Les 12e et 16e arrondissements sont très eu denses car sont
+composés des bois de Vincenne et de Boulogne.
 
 ### Le "bord politique" des mairies
 
 Pour les élections municipales de 2020, les 4 premiers arrondissements
 de la ville ont été fusionnés dans une zone appelée *Centre*, et le
 choix de la localisation de mairie s'est porté sur le 3ème
-arrondissement. 
-Nous devons créer un nouveau fond de carte où on fusionne les 4 polygones correspondants à ces 4 arrondissements avec la fonction `st_union`.
+arrondissement. Nous devons créer un nouveau fond de carte où on
+fusionne les 4 polygones correspondants à ces 4 arrondissements avec la
+fonction `st_union`.
+
 ```{r}
 # Louvre  
 poly1 = arrondissements2[arrondissements2$c_ar == "1", ] 
@@ -259,21 +277,18 @@ mf_map(x = arrondissementsnew,border= "black")
 mf_title("Le découpage des municipalités de Paris")
 ```
 
-
-
-
-
-On va représenter cette variable de type *qualitative nominale* (ici bords
-politiques des mairies de chaque arrondissement), par un symbole de
-couleur sans dégradé (palette qualitative).
-
+On va représenter cette variable de type *qualitative nominale* (ici
+bords politiques des mairies de chaque arrondissement), par un symbole
+de couleur sans dégradé (palette qualitative).
 
 ```{r}
-arrondissementsnew$bords_politiques <- c("PS, EELV", "LR, LREM", "LREM", "LREM", "LREM", "LREM", "PS, EELV", "PS, EELV", "PS, EELV", "PS, EELV", "PS, EELV", "LREM", "LREM", "LREM", "PS, EELV", "PS, EELV", "PS, EELV")
+arrondissementsnew$bords_politiques <- c("PS, EELV", "LR, LREM", "LR", "LR", "LR", "LREM", "PS, EELV", "PS, EELV", "PS, EELV", "PS, EELV", "PS, EELV", "LR", "LR", "LR", "PS, EELV", "PS, EELV", "PS, EELV")
 
 # Choix des couleurs
 
-colors <- c("LR, LREM" = "#d175b8", "LR" = "#3182bd", "PS, EELV" = "#C24168")
+levels(as.factor(arrondissementsnew$bords_politiques))
+# PS, EELV en "#d175b8", LR, LREM en "#8856a7", LR en "#3182bd" et LREM en "#e6550d"
+colors <- c("#3182bd", "#1c9099", "#e6550d","#c51b8a")
 
 # Placer les carrés sur les centroïdes des polygones des arrondissements.
 arr_c<-st_centroid(arrondissementsnew)
@@ -298,7 +313,7 @@ mf_map(
 
 # habillage 
 mf_layout(
-  title = "Bord politique des maires de Paris depuis 2020",
+  title = "Bords politiques aux élections municipales de 2020",
   credits = paste0("mapsf ", packageVersion("mapsf")),
   arrow = FALSE,  # Désactiver l'orientation
   scale = FALSE  # Désactiver l'échelle
@@ -325,7 +340,7 @@ mf_map(
 )
 
 mf_layout(
-  title = "Bord politique des maires de Paris depuis 2020",
+  title = "Bords politiques aux élections municipales de 2020",
   credits = paste0("mapsf ", packageVersion("mapsf")),
   arrow = FALSE,  # Désactiver l'orientation
   scale = FALSE   # Désactiver l'échelle
@@ -339,13 +354,7 @@ mf_label(
 mf_map(x=cours_deau,lwd=2,border="lightblue",col="lightblue",add=TRUE)
 ```
 
-
-```{r}
-
-```
-
-
-## Exporter les cartes 
+## Exporter les cartes
 
 ### Au format image
 
@@ -353,7 +362,7 @@ mf_map(x=cours_deau,lwd=2,border="lightblue",col="lightblue",add=TRUE)
 # export en format image (.png)
 mf_export( 
   x= arrondissementsnew,
-  filename ="img/carte1.png", width = 600)
+  filename ="img/carte.png", width = 600)
 mf_map(x = arrondissementsnew)
 mf_map(
   x = arrondissementsnew,
@@ -370,7 +379,8 @@ dev.off()
 ```
 
 ::: {.callout-warning title="Attention"}
-Toujours utiliser `add = TRUE` après un appel à `mf_export()` et ne pas oublier d'utiliser `dev.off()` pour finaliser l'export de la figure.
+Toujours utiliser `add = TRUE` après un appel à `mf_export()` et ne pas
+oublier d'utiliser `dev.off()` pour finaliser l'export de la figure.
 :::
 
 ### Au format vectoriel
@@ -379,7 +389,7 @@ Toujours utiliser `add = TRUE` après un appel à `mf_export()` et ne pas oublie
 # format vectoriel (.svg)
 mf_export( 
   x= arrondissementsnew,
-  filename ="img/carte1.svg", width = 600)
+  filename ="img/carte.svg", width = 600)
 mf_map(x = arrondissementsnew)
 mf_map(
   x = arrondisst4,
@@ -393,17 +403,16 @@ mf_arrow()
 mf_credits (txt = "Fait avec mapsf de T. Giraud",pos = "bottomright",font = 2)
 mf_title(txt = "Ma carte")
 dev.off()
-
 ```
 
-
-
-
 ::: callout-note
-
 ## En savoir plus
 
--   pour afficher la vignette contenant des scriprs commentés sur commment créer des cartes, exécuter le code `vignette(topic = "mapsf", package = "mapsf")`
--   sur le choix du type de carte [riatelab.github.io/mapsf/articles](https://riatelab.github.io/mapsf/articles/mapsf.html#symbology)
--   sur la cartographie avec R [rcarto.github.io/cartographie_avec_r](https://rcarto.github.io/cartographie_avec_r/)
+-   pour afficher la vignette contenant des scriprs commentés sur
+    commment créer des cartes, exécuter le code
+    `vignette(topic = "mapsf", package = "mapsf")`
+-   sur le choix du type de carte
+    [riatelab.github.io/mapsf/articles](https://riatelab.github.io/mapsf/articles/mapsf.html#symbology)
+-   sur la cartographie avec R
+    [rcarto.github.io/cartographie_avec_r](https://rcarto.github.io/cartographie_avec_r/)
 :::
