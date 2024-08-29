@@ -53,12 +53,11 @@ format:
 
 highlight-style: atom-one
 
-
 lightbox: true
 
 execute: 
   freeze: auto
 
-comments:
-  giscus:
-    repo: mthevenin/assistoolsms
+#comments:
+#  giscus:
+#    repo: mthevenin/assistoolsms

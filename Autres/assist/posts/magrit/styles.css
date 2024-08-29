@@ -1,0 +1,22 @@
+.image-container {
+  display: inline-block;
+  padding: 5px;
+  border: 2px solid #000;
+  text-align: center; /* Centrer l'image et la légende */
+}
+
+.image-container img {
+  display: block;
+  margin-bottom: 0; /* Enlever l'espace sous l'image */
+}
+.image-container figcaption {
+  font-size: 18px; /* Taille de la légende */
+   /* font-weight: bold;Mettre en gras */
+   color: #bd0026; /* Mettre le texte en rouge */
+  margin-top: 0; /* Enlever l'espace entre la légende et l'image */
+  padding-top: 0; /* Supprimer le padding supplémentaire */
+  margin-bottom: -5px; /* Enlever l'espace entre la légende et la bordure */
+}
+.image-container {
+  padding-bottom: 0; /* Supprimer le padding en bas du conteneur */
+}

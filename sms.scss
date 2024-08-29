@@ -83,6 +83,16 @@ $navbar-bg:  #cd193f;
 }
 
 
+// Ajout de bénédicte
+.box_img figcaption {
+  font-size: 20px; 
+  color: #bd0026; /* Mettre le texte en rouge */
+  margin-top: 0; /* Enlever l'espace entre la légende et l'image */
+  padding-top: 0; /* Supprimer le padding supplémentaire */
+  margin-bottom: -5px; /* Enlever l'espace entre la légende et la bordure */
+  text-align: center;
+}
+
 // Ajout classe bg-dark pour le background du text
 
 .bg-dark{background-color: $dark}

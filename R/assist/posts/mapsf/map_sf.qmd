@@ -10,15 +10,15 @@ categories:
 
 date: 08/26/2024
 
-lang: fr
 format:
   html:
     toc: true
     toc-depth: 3
-    embed-resources: true
-editor: 
-  markdown: 
-    wrap: 72
+
+image: "logo.png"
+
+execute: 
+  cache: true
 
 abstract: | 
   Le package mapsf permet de générer des cartes simplement. Toutefois, il convient de choisir le type de carte adaptés aux données à représenter et parfois adapter le fond de carte. Nous présentons ici des statistiques sur les arrondissements de Paris.

@@ -84,8 +84,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/R/assist/posts/import_sas/import_sas.html",
       "/R/assist/posts/mapsf/map_sf.html",
+      "/R/assist/posts/import_sas/import_sas.html",
       "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/pkg_prefix/pkg_prefix.html",
       "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
@@ -102,6 +102,7 @@
       "/R/assist/posts/jtools_output/jtools_output.html",
       "/R/assist/posts/coxzph/coxzph.html",
       "/R/assist/posts/R_vscode/R_vscode_doc.html",
+      "/Autres/assist/posts/magrit/magrit.html",
       "/Autres/assist/posts/touch/touch.html",
       "/Autres/assist/posts/bootswatch1/bootswatch1.html",
       "/Autres/assist/posts/code_highlight/code_highlight.html",

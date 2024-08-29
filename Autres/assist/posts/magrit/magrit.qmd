@@ -1,0 +1,327 @@
+---
+title: "Premiers pas en cartographie avec Magrit"
+author: 
+  - name: "Bénédicte Garnier"
+    affiliations:
+      - name: "Institut national d’études démographiques (INED), F-93300 Aubervilliers, France"
+categories:
+  - Cartographie
+  - Fond de carte
+
+date: 08/28/2024
+
+image: "logo_magrit.png"
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    css: styles.css  # Inclure un fichier CSS externe
+editor: 
+  markdown: 
+    wrap: 72
+
+abstract: | 
+  **Magrit** est une application de cartographie thématique qui permet de générer des cartes sans avoir à coder. Nous générons ici des cartes très basiques identiques à celles de la fiche *Premiers pas en cartographie avec R*. Nous montrons comment **afficher des étiquettes** sur une carte, produire une **carte en symboles proportionnels** et une **carte chloroplèthe** avec des statistiques sur les arrondissements de Paris. Nous montrons également comment adapter un fond de carte en regoupant des arrondissements.
+---
+
+::: callout-tip
+## Les étapes pour représenter des indicateurs simples sur une fond de carte
+
+-   Importer
+    -   le fond de carte des arrondissements et voies d'eau de Paris
+        (*données géospatiales*)
+    -   le tableau des indicateurs à représenter (*données
+        attributaires*)
+-   Choisir le type de carte adapté aux données à cartographier
+-   Habiller la carte (titre, légende, éléments aditionnels ..)
+-   Exporter la carte produite au format désiré (vectoriel ou image)
+:::
+
+# Ouvrir Magrit
+
+On utilise ici [Magrit via son interface en
+ligne](https:http://magrit.cnrs.fr/).
+
+::: {.box_img}
+![Accueil de l'interface](img/Image1.jpg){fig-align="left" width="95%"}
+:::
+
+Cliquer sur **Accéder à l'application**
+
+::: {.box_img}
+![L'application](img/Image2.png){fig-align="left"}
+:::
+
+Sur le coté gauche de la fenêtre, on trouve les boutons permettant
+d'accéder aux menus :
+
+-   Import des données (géospatiales et attributaires)
+-   Configuration de la carte
+-   Choix de la projection cartographique
+-   Gestion des couches et fonctions de calculs
+-   Mise en page et éléments d'habillage
+-   Export des données (dont les cartes)
+
+En haut à droite de le fenêtre on trouve les icônes permettant de :  
+
+-   Annuler ou reproduire la dernière tâche
+-   Ouvrir un nouveau projet, un projet existant, ou Sauver le projet (dans le dossier téléchargement)
+
+# Importer ses données
+
+On va représenter ici des données de population sur les arrondissements
+de Paris et afficher les voies d'eau. On importe ces données via le menu
+*Import des données* ou par *Glisser-déposer* des fichiers.
+
+## Les données géospatiales
+
+Les **formats** les plus courants sont :
+
+-   *GeoJSON*, basé sur JSON (JavaScript Object Notation) qui permet de
+    stocker des données géographiques sous forme de caractères.
+-   *Shapefile*, plus ancien, développé par Esri qui est un ensemble de
+    fichiers qui stockent des informations sur les entités géographiques
+    et leurs attributs.
+
+Le fond de carte utilisé ici correspond aux limites des arrondissements
+de Paris, il est au format GeoJSON. On va lui ajouter les voies d'eau
+(Seine et canaux). Ces 2 fichiers proviennet du site
+*opendata.paris.fr*.
+
+## Les indicateurs à représenter
+
+On veut représenter le nombre d'habitants dans les arrondissement de
+Paris (source : [Insee - Chiffres
+détaillés, Comparateur de
+territoires](htts://www.insee.fr/fr/statistiques/2521169) - Mise en
+ligne le 27/06/2024.)
+
+::: image-container
+![Importer ses données](img/Image3.png){fig-align="left"}
+:::
+
+On a *glissé déposé* 3 fichiers. On sélectionne l'onglet contennant les
+données à représenter( ici *Paris*) et on coche *Utiliser la projection*
+sur la couche correspondante au fond de carte (ici les contours des
+*arrondissements* parisiens). Cela a généré 3 couches, visibles avec le
+menu *Gestion des couches* : les contours des arrondissements (arrondissements), les voies d'eau (plan-de-voies-deau)
+et une table contenant des indicateurs (Paris).
+
+# Changer le système de projection
+
+On choisit la projection *RGF93 / Lambert-93* couramment utilisée pour
+présenter des cartes sur la France.
+
+::: {.box_img}
+![Choix de la projection](img/Image4.png){fig-align="left"}
+:::
+
+# Modifier une couche
+
+On clique sur le symbole représentant à [deux roues
+crantées]{.underline} pour modifier l'apparence de la couche
+correspondante (ici les arrondissements). On a changé la projection et
+on remplit les polygones correspondants aux arrondissements en gris.
+
+::: {.box_img}
+![Choix de la couleur de remplissage](img/Image5.png){fig-align="left"}
+:::
+
+## Explorer les données
+
+On clique sur le symbole représentant un [tableau]{.underline} pour
+afficher la table (ici les données sur les arrondissements).
+
+::: {.box_img}
+![Ouvrir la table attributaire](img/Image6.png){fig-align="left"}
+:::
+
+On verra par la suite qu'on peut aussi créer des champs à partir de
+cette fenêtre.
+
+On va ajouter à la couche géospatiale *arrondissements* les effectifs de
+population des départements (P21_POP) qui sont dans la table *Paris*. On
+peut effectuer une **jointure** entre les tables car elles ont au moins
+une **colonne en commun** (les code géographique de l'arrondissement,
+75108 par exemple).
+
+# Joindre des tables
+
+On clique sur le symbole représentant [deux maillons]{.underline}
+pour ouvrir la fenêtre de paramétrage de la jointure. On indique les variables correspondantes au géocode (*commun*).
+
+::: {.box_img}
+![Jointure entre tables](img/Image7.png){fig-align="left"}
+:::
+
+# Les fonctionnalités
+
+On clique sur le symbole représentant une [cible]{.underline} pour
+ouvrir la fenêtre de paramétrage de la fonctionnalité (comme une
+génération de carte) ou de modifier de type d'un champs. On peut alors
+choisir le type de carte à produire, ou des opérations comme
+l'agrégation.
+
+::: image-container
+![Opérations](img/Image8.png){fig-align="left"}
+:::
+
+# Ajouter des étiquettes
+
+Au niveau de la couche correspondante à la table dans laquelle se trouve
+la donnée à afficher, on clique sur le symbole [cible]{.underline} pour
+ouvrir la fenêtre de paramétrage qui permet d'ajouter une couche
+d'habillage (ici les **numéros des arrondissements** *c_ar*).
+
+::: {.box_img}
+![Ajout des numéros d'arrondissements](img/Image9.png){fig-align="left"}
+:::
+
+<div style="margin-bottom: 60px;"></div>  <!-- Ajoute un espace vide entre les deux blocs -->
+
+::: {.callout-warning title="Générer des cartes adaptées aux données"}
+**Le type de donnée à représenter** conditionne le type de carte (cf T.
+Giraud).  
+![](img/arbre_type_data.png){fig-align="center" width="95%"}
+:::
+
+# Générer une carte en symboles proportionnels
+
+On veut représenter le **nombre d'habitants** de chaque arrondissement
+de Paris en 2021 ; c'est une *variable de stock*. On utilise la
+fonctionnalité *Symboles proportionnels* car c'est la méthode à utiliser
+pour visualiser ce type de variable. La surface des cercles représente
+l'effectif de la population de chaque arrondissement.
+
+On sélectionne la variable sur laquelle la taille du cercle sera
+calculée (ici P21_POP) et d'autres paramètres (type de symbole, taille
+de référence, couleur, ...).
+
+::: {.box_img}
+![Carte en symboles proportionnels](img/Image10.png){fig-align="left"}
+:::
+
+# Générer une carte choroplèthe
+
+Nous calculons la **densité de population** de chaque arrondissement
+(*variable quantitative relative*) car nous avons la possibilité
+d'ajouter un champs dans la table *arrondissements* et disposons de
+fonctions de calcul (ici \$aera).
+
+On ouvre la table et on clique sur *Ajouter un champs*. On nomme et
+définit ce champs puis on le calcule avec les données à disposition
+(nombre d'habitants) et les fonctions de calcul (surface).
+
+::: {.box_img}
+![Ajout d'un champs dans une table](img/Image11.png){fig-align="left"}
+:::
+
+::: {style="margin-bottom: 20px;"}
+:::
+
+On va ici générer une **carte choroplèthe** (ou en aplat de couleur) car
+c'est la méthode à utiliser pour visualiser des *ratios* (variables
+quantitatives relatives).
+
+::: {.box_img}
+![Choix du type de carte](img/Image12.png){fig-align="left"}
+:::
+
+La méthode des *Quantiles* est paramétrée par défaut pour discrétiser la
+variable. On clique sur la [roue crantée]{.underline} pour personnaliser
+ce paramérage.
+
+::: {.box_img}
+![Carte choroplèthe - Paramétrage de la
+discrétisation](img/Image13.png){fig-align="left"}
+:::
+
+On a gardé la méthode des quantiles mais on a changé le nombre de classe
+(5 au lieu de 6) et la *Palette de couleurs*. On a gardé un progression
+*Séquentielle* pour représenter l'ordre croissant entre les valeurs.
+
+Nota Bene : Les 12e et 16e arrondissements sont très peu denses car sont
+composés des bois de Vincennes et de Boulogne.
+
+# Mettre en page et ajouter les éléments d'habillage
+
+On ajoute un titre, une source, une couleur de fond et les éléments
+d'habillage ... (ici un symbole).
+
+::: {.box_img}
+![Mise en page et éléments
+d'habillage](img/Image14.png){fig-align="left"}
+:::
+
+# Exporter les cartes, les données
+
+On choisit le format et on peut exporter (dans le *dossier
+téléchargement*)
+
+-   les cartes produites au **format vectoriel (.svg)** ou **image
+    (.png)**
+-   les couches
+    -   données attributaires **(.csv)**
+    -   données géospatiales **(Shapefile, JSON, GeoPackage)**
+
+::: {.box_img}
+![Les formats d'export](img/Image15.png){fig-align="left"}
+:::
+
+# Adapter un fond de carte
+
+On veut représenter les **bords politiques des mairies des arrondissements
+de Paris aux élections Municipales de 2020**. Pour cette occasion, les 4
+premiers arrondissements de la ville ont été fusionnés dans une zone
+appelée *Centre*, et le choix de la localisation de mairie s'est porté
+sur le 3ème arrondissement ([cf Le Parisien du
+29/06/2020](https://www.leparisien.fr/elections/municipales/municipales-le-second-tour-a-paris-decrypte-en-six-cartes-29-06-2020-8343966.php)).  
+On va *modifier la couche* correspondant aux arrondissements pour *créer une nouvelle couche géospatiale*.
+
+On fait d'abord une jointure entre la couche *Arrondissements* et
+*Municipales 2020* pour ajouter les variables *Regroupement* et
+*BordPolitique*.
+
+::: {.box_img}
+![Ajout du champs permettant l'agrégation](img/Image16.png){fig-align="left"}
+:::
+
+Nous allons créer un nouveau fond de carte où les 4 polygones
+correspondants à ces 4 arrondissements seront fusionnés en un seul.
+
+On utilise la fonctionnalité *Agrégation* sur la couche issue de la
+jointure et on utilise la variable *Regroupement* (de type
+*catégorielle*).
+
+::: {.box_img}
+![Agrégation selon la valeur d'un champs](img/Image17.png){fig-align="left"}
+:::
+
+En plus de cette variable *Regroupement*, on a ajouté la variable
+*BordPolitique* issue des élections municipales de 2021. Cette variable
+est *variable qualitative nominale*.
+
+Sur la couche résultante *Agrégation_arrondissements*, on génère une
+carte *Choroplèthe catégorielle* : la carte des *bords politiques* des
+maries des arrondissements de Paris.
+
+::: {.box_img}
+![Carte choroplèthe catégorielle](img/Image18.png){fig-align="left"}
+:::
+
+
+# Ressources complémentaires
+::: callout-note
+## En savoir plus
+
+-   Courte [démonstration vidéo](https://fair.tube/w/ngNqMBDCp4vvhm9F2MXZwf) par l'équipe du
+    Riate
+-   Accéder à la [documentation de Magrit](https://magrit.cnrs.fr/)
+-   Pour [télécharger la version autonome de
+    Magrit](https://magrit.cnrs.fr/download/)
+-   Voir le [dépôt de code de
+    l'application](https://github.com/riatelab/magrit)
+-   Choix du type de carte
+    [riatelab.github.io/mapsf/articles](https://riatelab.github.io/mapsf/articles/mapsf.html#symbology)
+:::
