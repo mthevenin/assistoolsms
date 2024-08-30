@@ -14,7 +14,7 @@ author:
 
 date: 08/13/2024
 
-image: "logo_SAS_R.png"
+image: "logo.png"
 
 format:
   html: 
