@@ -3,7 +3,7 @@ title: "Premiers pas en cartographie avec R"
 author: 
   - name: "Bénédicte Garnier"
     affiliations:
-      - name: "Ined"
+      - name: "Institut national d’études démographiques (INED), F-93300 Aubervilliers, France"
 categories:
   - Cartographie
   - Fond de carte
@@ -156,7 +156,7 @@ le type de carte à utiliser
 Nous disposons donc d'une *variable de stock* : la population des
 arrondissements, d'une *variable qualitative nominale* : le bord
 politique de la mairie et nous pourrons calculer une *variable
-quantitative absolue* : la densité de population de chaque
+quantitative relative* : la densité de population de chaque
 arrondissement car nous avons la superficie de chaque arrondissement
 (st_area) dans le data frame correspondant au fond de carte.
 
