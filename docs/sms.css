@@ -523,11 +523,10 @@ div.quarto-post a {
   height: auto;
   width:  100%;
   padding: 10px;
-  border-radius: 2px;
 }
 
 
-.zoom-image img:hover{width:50%; height:100%; filter:grayscale(100%); moz-transform:scale(.9); -webkit-transform:scale(.9); transform:scale(.9)  rotate(-360deg);-webkit-transition:.7s ease-in-out;transition:.7s ease-in-out  rotate(-360deg)}
+.zoom-image img:hover{width:50%; height:100%; filter:grayscale(100%); moz-transform:scale(.9); -webkit-transform:scale(.9); transform:scale(.9) rotate(-360deg);-webkit-transition:.7s ease-in-out;transition:.7s ease-in-out  rotate(-360deg)}
 
 
 /*-- container --*/
@@ -536,7 +535,6 @@ div.quarto-post a {
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
-
 
 
 .pagination {

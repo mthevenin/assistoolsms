@@ -12,8 +12,8 @@ code-tools: false
 ## Supports en ligne proposés par le service SMS de l'Ined
 
 * [Quarto](https://mthevenin.gitlab.io/quarto/)
-* [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
 * [Introduction à l'analyse des durées en présence de données censurées à droite ](https://mthevenin.github.io/analyse_duree/)
+* [Analyse textuelle](https://benegarbi.github.io/AGD_QO/)
 * [Introduction à la programmation avec Stata](https://mthevenin.github.io/stata_programmation/)
 * [Programmation de graphiques avec Stata](https://mthevenin.github.io/stata_graphiques/)
 
