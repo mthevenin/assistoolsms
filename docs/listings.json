@@ -2,8 +2,8 @@
   {
     "listing": "/R/index.html",
     "items": [
-      "/R/assist/posts/import_sas/import_sas.html",
       "/R/assist/posts/mapsf/map_sf.html",
+      "/R/assist/posts/import_sas/import_sas.html",
       "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/pkg_prefix/pkg_prefix.html",
       "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
@@ -25,8 +25,8 @@
   {
     "listing": "/R/assist/index.html",
     "items": [
-      "/R/assist/posts/import_sas/import_sas.html",
       "/R/assist/posts/mapsf/map_sf.html",
+      "/R/assist/posts/import_sas/import_sas.html",
       "/R/assist/posts/spaghetti/spaghetti.html",
       "/R/assist/posts/pkg_prefix/pkg_prefix.html",
       "/R/assist/posts/europress_iramuteq/corpus_europress_iramuteq.html",
@@ -135,8 +135,8 @@
   {
     "listing": "/Stata/assist/index.html",
     "items": [
-      "/Stata/assist/posts/stata_journal/stata_journal.html",
       "/Stata/assist/posts/conferences/conferences.html",
+      "/Stata/assist/posts/stata_journal/stata_journal.html",
       "/Stata/assist/posts/nbstata/nbstata.html",
       "/Stata/assist/posts/dtas/dtas.html",
       "/Stata/assist/posts/palette_style/palette_style.html",
@@ -154,8 +154,8 @@
   {
     "listing": "/Stata/index.html",
     "items": [
-      "/Stata/assist/posts/stata_journal/stata_journal.html",
       "/Stata/assist/posts/conferences/conferences.html",
+      "/Stata/assist/posts/stata_journal/stata_journal.html",
       "/Stata/assist/posts/nbstata/nbstata.html",
       "/Stata/assist/posts/dtas/dtas.html",
       "/Stata/assist/posts/palette_style/palette_style.html",
