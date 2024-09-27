@@ -6,7 +6,7 @@ author:
     affiliations:
       - name: "Ined"
 
-date: 03/04/2024
+date: 09/27/2024
 
 image: "img.jpg"
 
@@ -21,6 +21,28 @@ abstract: |
 <hr class="hr">
 
 Liste non exhaustive des conférences depuis 2019. J'ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.
+
+
+## **2024**
+
+::: {.callout-caution appearance="simple" icon="false"}
+::: {.box_img}
+
+- UK: <https://www.stata.com/meeting/uk24/>
+
+- US: <https://www.stata.com/meeting/us24/>
+
+- FR: <https://www.stata.com/meeting/france24/>
+
+- IT: <https://www.stata.com/meeting/italy24/>
+
+- AUS: <https://www.stata.com/meeting/oceania24/>
+
+- POR: <https://www.stata.com/meeting/portugal24/>
+
+:::
+:::
+
 
 ## **2023**
 

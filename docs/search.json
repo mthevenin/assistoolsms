@@ -37,9 +37,9 @@
   {
     "objectID": "Stata/assist/posts/stata_journal/stata_journal.html",
     "href": "Stata/assist/posts/stata_journal/stata_journal.html",
-    "title": "Sommaires du Stata Journal [2024-n°1]",
+    "title": "Sommaires du Stata Journal [2024-n°3]",
     "section": "",
-    "text": "Accès au dernier numéro [connexion Campus Condorcet] :\nhttps://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current\n\nOn trouvera ici le sommaire des 4 derniers numéros.\nLes sommaires antérieurs depuis septembre 2021 sont disponibles à cette adresse [Lien]\nLa liste de tous les numéros depuis 2001 est accessible à cette adresse: [Lien]\nUne mention spéciale peut être faite aux articles, très nombreux, de NJ.Cox en particulier les fameux Stata tips. On trouvera l’ensemble de ses contributions à la revue sur sa page personnelle: [Lien]\n\n\n2024-12023-42023-32023-2"
+    "text": "Accès au dernier numéro [connexion Campus Condorcet] :\nhttps://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current\n\nOn trouvera ici la table des matières des 4 derniers numéros.\nLes sommaires antérieurs depuis septembre 2021 sont disponibles à cette adresse [Lien]\nLa liste de tous les numéros depuis 2001 est accessible à cette adresse: [Lien]\nUne mention spéciale peut être faite aux articles, très nombreux, de NJ.Cox en particulier les fameux Stata tips. On trouvera l’ensemble de ses contributions à la revue sur sa page personnelle: [Lien]\n\n\n2024-32024-22024-12023-4"
   },
   {
     "objectID": "Stata/assist/posts/palette_style/palette_style.html",
@@ -969,36 +969,36 @@
     "objectID": "Stata/assist/posts/conferences/conferences.html#section",
     "href": "Stata/assist/posts/conferences/conferences.html#section",
     "title": "Présentation des Conferences Stata",
-    "section": "2023",
-    "text": "2023\n\n\n\n\n\n\n\n\nESP: https://www.stata.com/meeting/spain23/\nVirtual symposium (économétrie): https://www.stata.com/symposiums/economics23/\nUK: https://www.stata.com/meeting/uk23/\nNE: https://www.stata.com/meeting/northern-european23/\nUS: https://www.stata.com/meeting/us23/\nALL: https://www.stata.com/meeting/germany23/\nCAN: https://www.stata.com/meeting/canada23/\nFR: https://www.stata.com/meeting/france23/\nVirtual symposium (biostatistique et épidémiologie): https://www.stata.com/symposiums/biostatistics-and-epidemiology23/\nAUS: https://www.stata.com/meeting/oceania23/"
+    "section": "2024",
+    "text": "2024\n\n\n\n\n\n\n\n\nUK: https://www.stata.com/meeting/uk24/\nUS: https://www.stata.com/meeting/us24/\nFR: https://www.stata.com/meeting/france24/\nIT: https://www.stata.com/meeting/italy24/\nAUS: https://www.stata.com/meeting/oceania24/\nPOR: https://www.stata.com/meeting/portugal24/"
   },
   {
     "objectID": "Stata/assist/posts/conferences/conferences.html#section-1",
     "href": "Stata/assist/posts/conferences/conferences.html#section-1",
     "title": "Présentation des Conferences Stata",
-    "section": "2022",
-    "text": "2022\n\n\n\n\n\n\n\n\nVirtual symposium: https://www.stata.com/symposiums/economics22/\nCH: https://www.stata.com/meeting/switzerland22/\nUK: https://www.stata.com/meeting/uk22/\nUS: https://www.stata.com/meeting/us22/\nFR: https://www.stata.com/meeting/france22/\nIT: https://www.stata.com/meeting/italy22/"
+    "section": "2023",
+    "text": "2023\n\n\n\n\n\n\n\n\nESP: https://www.stata.com/meeting/spain23/\nVirtual symposium (économétrie): https://www.stata.com/symposiums/economics23/\nUK: https://www.stata.com/meeting/uk23/\nNE: https://www.stata.com/meeting/northern-european23/\nUS: https://www.stata.com/meeting/us23/\nALL: https://www.stata.com/meeting/germany23/\nCAN: https://www.stata.com/meeting/canada23/\nFR: https://www.stata.com/meeting/france23/\nVirtual symposium (biostatistique et épidémiologie): https://www.stata.com/symposiums/biostatistics-and-epidemiology23/\nAUS: https://www.stata.com/meeting/oceania23/"
   },
   {
     "objectID": "Stata/assist/posts/conferences/conferences.html#section-2",
     "href": "Stata/assist/posts/conferences/conferences.html#section-2",
     "title": "Présentation des Conferences Stata",
-    "section": "2021",
-    "text": "2021\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/us21/\nUK: https://www.stata.com/meeting/uk21/\nCAN: https://www.stata.com/meeting/canada21/"
+    "section": "2022",
+    "text": "2022\n\n\n\n\n\n\n\n\nVirtual symposium: https://www.stata.com/symposiums/economics22/\nCH: https://www.stata.com/meeting/switzerland22/\nUK: https://www.stata.com/meeting/uk22/\nUS: https://www.stata.com/meeting/us22/\nFR: https://www.stata.com/meeting/france22/\nIT: https://www.stata.com/meeting/italy22/"
   },
   {
     "objectID": "Stata/assist/posts/conferences/conferences.html#section-3",
     "href": "Stata/assist/posts/conferences/conferences.html#section-3",
     "title": "Présentation des Conferences Stata",
-    "section": "2020",
-    "text": "2020\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/us20/\n\nVoir: The causal effects of parents’ marital status on children’s earnings\n\nUK: https://www.stata.com/meeting/uk20/\nCH: https://www.stata.com/meeting/switzerland20/\nPOR: https://www.stata.com/meeting/portugal20/"
+    "section": "2021",
+    "text": "2021\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/us21/\nUK: https://www.stata.com/meeting/uk21/\nCAN: https://www.stata.com/meeting/canada21/"
   },
   {
     "objectID": "Stata/assist/posts/conferences/conferences.html#section-4",
     "href": "Stata/assist/posts/conferences/conferences.html#section-4",
     "title": "Présentation des Conferences Stata",
-    "section": "2019",
-    "text": "2019\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/chicago19/\nUK: https://www.stata.com/meeting/uk19/\nAUS: https://www.stata.com/meeting/oceania19/"
+    "section": "2020",
+    "text": "2020\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/us20/\n\nVoir: The causal effects of parents’ marital status on children’s earnings\n\nUK: https://www.stata.com/meeting/uk20/\nCH: https://www.stata.com/meeting/switzerland20/\nPOR: https://www.stata.com/meeting/portugal20/"
   },
   {
     "objectID": "Stata/assist/posts/fabplot/fabplot.html",
@@ -1167,5 +1167,12 @@
     "title": "Premiers pas en cartographie avec Magrit",
     "section": "Explorer les données",
     "text": "Explorer les données\nOn clique sur le symbole représentant un tableau pour afficher la table (ici les données sur les arrondissements).\n\n\n\n\n\n\n\n\nOuvrir la table attributaire\n\n\n\nOn verra par la suite qu’on peut aussi créer des champs à partir de cette fenêtre.\nOn va ajouter à la couche géospatiale arrondissements les effectifs de population des départements (P21_POP) qui sont dans la table Paris. On peut effectuer une jointure entre les tables car elles ont au moins une colonne en commun (les code géographique de l’arrondissement, 75108 par exemple)."
+  },
+  {
+    "objectID": "Stata/assist/posts/conferences/conferences.html#section-5",
+    "href": "Stata/assist/posts/conferences/conferences.html#section-5",
+    "title": "Présentation des Conferences Stata",
+    "section": "2019",
+    "text": "2019\n\n\n\n\n\n\n\n\nUSA: https://www.stata.com/meeting/chicago19/\nUK: https://www.stata.com/meeting/uk19/\nAUS: https://www.stata.com/meeting/oceania19/"
   }
 ]

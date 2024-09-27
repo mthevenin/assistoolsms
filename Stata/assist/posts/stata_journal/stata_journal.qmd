@@ -1,12 +1,12 @@
 ---
-title: "Sommaires du Stata Journal [2024-n°1]"
+title: "Sommaires du Stata Journal [2024-n°3]"
 
 author: 
   - name: "Marc Thévenin"
     affiliations:
       - name: "Ined"
 
-date: 05/21/2024
+date: 09/27/2024
 
 image: "http://www.stata-journal.com/i/sj-undated-cover.png"
 
@@ -14,7 +14,7 @@ categories:
   - Stata Journal
 
 abstract: | 
- Archive des sommaires des numéros du Stata Journal depuis 2021, et quelques informations sur la revue. Dernier volume: Mars 2024 
+ Archive des sommaires des numéros du Stata Journal depuis 2021, et quelques informations sur la revue. Dernier volume: Septembre 2024 
 ---
 
 <hr class="hr">
@@ -23,33 +23,33 @@ abstract: |
 <https://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current>
 
 
-* On trouvera ici le sommaire des 4 derniers numéros. 
+* On trouvera ici la table des matières des 4 derniers numéros. 
 * Les sommaires antérieurs depuis septembre 2021 sont disponibles à cette adresse [[Lien](https://github.com/mthevenin/assistoolsms/tree/master/Stata/assist/posts/stata_journal/sj)]
 * La liste de tous les numéros depuis 2001 est accessible à cette adresse: [[Lien](https://www.stata-journal.com/archives/)]
 * Une mention spéciale peut être faite aux articles, très nombreux, de NJ.Cox en particulier les fameux ***Stata tips***. On trouvera l'ensemble de ses contributions à la revue sur sa page personnelle: [[Lien](https://www.durham.ac.uk/staff/n-j-cox/)]
 
 ::: panel-tabset
 
+## **2024-3**
+
+<iframe src="sj/stja_24_3.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+## **2024-2**
+
+<iframe src="sj/stja_24_2.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+
 ## **2024-1**
 
 <iframe src="sj/stja_24_1.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 </iframe>
 
+
 ## **2023-4**
 
 <iframe src="sj/stja_23_4.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
-</iframe>
-
-
-## **2023-3**
-
-<iframe src="sj/stja_23_3.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
-</iframe>
-
-
-## **2023-2**
-
-<iframe src="sj/stja_23_2.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 </iframe>
 
 
