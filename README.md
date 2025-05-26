@@ -1,4 +1,3 @@
-# assistoolsms
 
 Support d'assistances en développement proposé par le service Méthodes Statistiques de l'Institut National d'Etudes Démographiques
 
